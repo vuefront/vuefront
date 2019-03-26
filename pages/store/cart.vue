@@ -1,5 +1,5 @@
 <template>
-  <sf-cart :cart="cart"/>
+  <vf-cart :cart="cart"/>
 </template>
 <script lang="ts">
 import {Vue, Component, Getter} from 'nuxt-property-decorator'

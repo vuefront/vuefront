@@ -1,7 +1,7 @@
 <template>
   <section class="product-category">
-    <sf-category :category="category" class="mb-5"/>
-    <sf-products-grid :products="products.content" class="mb-5"/>
+    <vf-category :category="category" class="mb-5"/>
+    <vf-products-grid :products="products.content" class="mb-5"/>
   </section>
 </template>
 <script lang="ts">

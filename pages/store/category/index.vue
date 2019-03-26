@@ -1,6 +1,6 @@
 <template>
   <section class="product-category">
-    <sf-products-grid :products="products.content"/>
+    <vf-products-grid :products="products.content"/>
   </section>
 </template>
 <script lang="ts">

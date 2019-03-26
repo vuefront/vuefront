@@ -1,5 +1,5 @@
 <template>
-<section class="sf-product-thumbnails">
+<section class="vf-product-thumbnails">
   <v-img :src="product.image" :lazy-src="product.imageLazy"/>
 </section>
 </template>

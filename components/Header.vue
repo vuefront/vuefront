@@ -1,8 +1,8 @@
 <template>
   <div>
-    <sf-nav/>
-    <sf-menu/>
-    <sf-notification/>
+    <vf-nav/>
+    <vf-menu/>
+    <vf-notification/>
   </div>
 </template>
 <script lang="ts">

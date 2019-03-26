@@ -1,5 +1,5 @@
 <template>
-  <sf-product :product="product"/>
+  <vf-product :product="product"/>
 </template>
 <script lang="ts">
 import {Vue, Component, Getter} from 'nuxt-property-decorator'

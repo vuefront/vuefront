@@ -1,6 +1,6 @@
 {
-  "name": "storefront",
-  "description": "StoreFront",
+  "name": "vuefront",
+  "description": "VueFront",
   "version": "2.4.5",
   "private": true,
   "dependencies": {
@@ -18,6 +18,7 @@
     "nuxt-property-decorator": "2.1.3",
     "omit-deep-lodash": "^1.1.4",
     "vue-alertify": "^1.1.0",
+    "vuefront-nuxt": "vuefront/vuefront-nuxt",
     "vuetify": "^1.5.7",
     "vuetify-loader": "^1.2.1",
     "vuex-class": "0.3.2",

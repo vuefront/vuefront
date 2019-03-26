@@ -1,6 +1,6 @@
 <template>
   <section class="blog-category">
-    <sf-posts-grid :posts="posts.content"/>
+    <vf-posts-grid :posts="posts.content"/>
   </section>
 </template>
 <script lang="ts">

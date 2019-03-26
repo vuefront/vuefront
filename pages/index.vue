@@ -3,12 +3,12 @@
     <div class="home-page__latest_products mb-5">
       <div class="home-page__latest_products_title text-xs-center mb-5 subheading font-weight-medium">Latest products
       </div>
-      <sf-products-grid :products="latestProducts.content"/>
+      <vf-products-grid :products="latestProducts.content"/>
     </div>
     <div class="home-page__latest_posts mb-5">
       <div class="home-page__latest_posts_title text-xs-center mb-5 subheading font-weight-medium">Latest posts
       </div>
-      <sf-posts-grid :posts="latestPosts.content"/>
+      <vf-posts-grid :posts="latestPosts.content"/>
     </div>
   </section>
 </template>

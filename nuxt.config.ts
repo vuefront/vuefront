@@ -15,11 +15,11 @@ export default {
     },
   },
   head: {
-    title: 'storefront',
+    title: 'vuefront',
     meta: [
       {charset: 'utf-8'},
       {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-      {hid: 'description', name: 'description', content: 'StoreFront'}
+      {hid: 'description', name: 'description', content: 'VueFront'}
     ],
     link: [
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
@@ -43,7 +43,7 @@ export default {
       }
     },
   },
-  modules: ['@nuxtjs/axios', '@nuxtjs/pwa', '@nuxtjs/proxy', '@nuxtjs/dotenv', 'nuxt-storefront', 'cookie-universal-nuxt', [
+  modules: ['@nuxtjs/axios', '@nuxtjs/pwa', '@nuxtjs/proxy', '@nuxtjs/dotenv', 'vuefront-nuxt', 'cookie-universal-nuxt', [
     '@nuxtjs/apollo',
     {
       tokenName: 'token',

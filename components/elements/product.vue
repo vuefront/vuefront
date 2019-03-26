@@ -2,7 +2,7 @@
   <section class="product-section">
     <v-layout row wrap>
       <v-flex xs12 md6>
-        <sf-product-thumbnails :product="product"/>
+        <vf-product-thumbnails :product="product"/>
       </v-flex>
       <v-flex xs12 md6>
         <div class="product-info pl-md-and-up-5">
@@ -70,7 +70,7 @@
       <div class="product-section__upsell_products_title text-xs-center mb-5 subheading font-weight-medium">Suggested
         products
       </div>
-      <sf-products-grid :products="product.products"/>
+      <vf-products-grid :products="product.products"/>
     </div>
   </section>
 </template>
