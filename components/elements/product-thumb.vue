@@ -2,7 +2,7 @@
   <v-hover>
     <v-card class="card-product" slot-scope="{ hover }">
       <nuxt-link :to="`/store/product/${product.id}`">
-        <v-img :src="product.image" :lazy-src="product.imageLazy" aspect-ratio="1" height="228">
+        <v-img :src="productImage" :lazy-src="productImageLazy" aspect-ratio="1" height="228">
           <template v-slot:placeholder>
             <v-layout
               fill-height
@@ -20,7 +20,7 @@
         <div style="width:100%;">
           <h3 class="subheading font-weight-medium mb-0 card-product__name">{{ product.name }}</h3>
           <div v-html="product.shortDescription" class="card-product__description body-1 mb-3"></div>
-          <h4 class="subheading font-weight-medium mb-0 card-product__price">{{ product.price }}</h4>
+          <h4 class="subheading font-weight-medium mb-0 card-product__price">{{ productPrice }}</h4>
         </div>
       </v-card-title>
       <v-expand-x-transition>
@@ -44,8 +44,6 @@
             </template>
             <span>Wishlist</span>
           </v-tooltip>
-
-
         </div>
       </v-expand-x-transition>
     </v-card>
@@ -54,6 +52,7 @@
 <script lang="ts">
 import {Vue, Component, Prop} from "nuxt-property-decorator";
 import {Product} from "~/types";
+import {isNull} from 'lodash'
 
 @Component
 export default class extends Vue {
@@ -63,11 +62,35 @@ export default class extends Vue {
   async handleAddToCart() {
     this.$store.commit('notification/add', `${this.product.name} product successfully added to cart`)
 
-    await this.$store.dispatch('store/cart/addToCart', {id: Number(this.product.id), quantity: 1})
+    await this.$store.dispatch('store/cart/add', {id: Number(this.product.id), quantity: 1})
+  }
+
+  get productPrice(): string {
+    if(!isNull(this.product.variable)) {
+      return  this.product.variable.minPrice + ' - ' + this.product.variable.maxPrice
+    } else {
+      return  this.product.price
+    }
+  }
+
+  get productImage(): string | NodeRequire {
+    if(!isNull(this.product.image)) {
+      return this.product.image
+    } else {
+      return require('~/assets/img/Logo.png')
+    }
+  }
+
+  get productImageLazy(): string | NodeRequire {
+    if(!isNull(this.product.imageLazy)) {
+      return this.product.imageLazy
+    } else {
+      return require('~/assets/img/Logo.png')
+    }
   }
 }
 </script>
-<style>
+<style lang="postcss">
 .card-product {
   &__name {
     min-height: 65px;

@@ -8,6 +8,18 @@ query($id: Int, $limit: Int, $productLimit: Int) {
         stock
         price
         image
+        variations {
+            id
+            name
+            options {
+                id
+                name
+            }
+        }
+        variable {
+            minPrice
+            maxPrice
+        }
         imageLazy
         rating
         images(limit: $limit) {
@@ -26,6 +38,10 @@ query($id: Int, $limit: Int, $productLimit: Int) {
             shortDescription
             price
             name
+            variable {
+                minPrice
+                maxPrice
+            }
         }
     }
 }

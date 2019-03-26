@@ -8,6 +8,10 @@ query($page: Int, $size: Int, $categoryId: Int) {
             image
             imageLazy
             rating
+            variable {
+                minPrice
+                maxPrice
+            }
         }
         number
         totalPages

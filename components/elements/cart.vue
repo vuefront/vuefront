@@ -1,7 +1,7 @@
 <template>
   <section class="shopping-cart">
     <div class="shopping-cart__products">
-      <v-data-table :headers="headers" :items="cart.products" class="elevation-1">
+      <v-data-table :headers="headers" :items="cart.products" class="elevation-1" hide-actions>
         <template v-slot:items="props">
           <td class="py-3">
             <v-layout align-center justify-start row fill-height>
@@ -27,12 +27,12 @@
           <td>{{ props.item.product.price }}</td>
           <td>
             <v-text-field :value="props.item.quantity" style="width: 80px;" solo hide-details
-                          @change="(e) => handleChangeQuantity(e, props.item)"/>
+                          @change="handleChangeQuantity($event, props.item)"/>
           </td>
           <td>{{ props.item.total }}</td>
           <td>
-            <v-btn flat icon class="ma-1" v-on="on" @click="handleAddToCart">
-              <v-icon class="outline">shopping_basket</v-icon>
+            <v-btn flat icon class="ma-1" @click="handleRemove(props.item)">
+              <v-icon>clear</v-icon>
             </v-btn>
           </td>
         </template>
@@ -66,9 +66,15 @@ export default class extends Vue {
   cart!: Cart;
 
   handleChangeQuantity(e, cartProduct: CartProduct) {
-    this.$store.dispatch('store/cart/updateCart', {
+    this.$store.dispatch('store/cart/update', {
       key: cartProduct.key,
       quantity: Number(e)
+    })
+  }
+
+  handleRemove(cartProduct: CartProduct) {
+    this.$store.dispatch('store/cart/remove', {
+      key: cartProduct.key
     })
   }
 }

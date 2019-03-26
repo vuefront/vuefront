@@ -2,6 +2,7 @@ import {CartState, Dictionary, Cart} from '~/types'
 import {MutationTree, GetterTree, ActionTree} from 'vuex'
 import * as addToCartGraphql from '~/types/graphql/store/cart/addToCart.graphql'
 import * as updateCartGraphql from '~/types/graphql/store/cart/updateCart.graphql'
+import * as removeCartGraphql from '~/types/graphql/store/cart/removeCart.graphql'
 
 export const state = (): CartState => ({
   cart: {}
@@ -20,7 +21,7 @@ export const mutations: MutationTree<CartState> = {
 }
 
 export const actions: ActionTree<CartState, CartState> = {
-  async addToCart({commit, dispatch, rootGetters}, {id, quantity}) {
+  async add({commit, dispatch, rootGetters}, {id, quantity}) {
     await dispatch('apollo/mutate', {
       mutation: addToCartGraphql,
       variables: {
@@ -35,7 +36,7 @@ export const actions: ActionTree<CartState, CartState> = {
       commit('setCart', rootGetters['apollo/get'].addToCart)
     }
   },
-  async updateCart({commit, dispatch, rootGetters}, {key, quantity}) {
+  async update({commit, dispatch, rootGetters}, {key, quantity}) {
     await dispatch('apollo/mutate', {
       mutation: updateCartGraphql,
       variables: {
@@ -48,6 +49,20 @@ export const actions: ActionTree<CartState, CartState> = {
 
     if(!rootGetters['error']) {
       commit('setCart', rootGetters['apollo/get'].updateCart)
+    }
+  },
+  async remove({commit, dispatch, rootGetters}, {key}) {
+    await dispatch('apollo/mutate', {
+      mutation: removeCartGraphql,
+      variables: {
+        key
+      }
+    }, {
+      root: true
+    })
+
+    if (!rootGetters['error']) {
+      commit('setCart', rootGetters['apollo/get'].removeCart)
     }
   }
 }

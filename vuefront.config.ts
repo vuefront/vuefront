@@ -2,7 +2,7 @@ export default {
   components: {
     ProductThumb: '~/components/elements/product-thumb',
     Product: '~/components/elements/product',
-    ProductThumbnails: '~/components/elements/product-thumbnails',
+    ProductImage: '~/components/elements/product-image',
     PostThumb: '~/components/elements/post-thumb',
     Menu: '~/components/elements/menu',
     Nav: '~/components/elements/nav',
@@ -11,7 +11,8 @@ export default {
     PostsGrid: '~/components/elements/posts-grid',
     Notification: '~/components/elements/notification-alertify',
     Cart: '~/components/elements/cart',
-    Post: '~/components/elements/post'
+    Post: '~/components/elements/post',
+    ProductVariation: '~/components/elements/product-variation'
   },
   moduleFilter: {},
   layouts: {

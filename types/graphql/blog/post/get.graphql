@@ -1,0 +1,9 @@
+query($id: Int) {
+  post(id: $id) {
+    id
+    title
+    description
+    image
+    imageLazy
+  }
+}

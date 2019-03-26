@@ -38,6 +38,11 @@ export interface ProductAttribute {
   options: string[];
 }
 
+export interface ProductVariable {
+  minPrice: string;
+  maxPrice: string
+}
+
 export interface Product {
   id: number;
   image: string;
@@ -50,9 +55,10 @@ export interface Product {
   minimum: number;
   rating: number;
   model: string;
-  stock: boolean
+  stock: boolean;
   attributes?: ProductAttribute[];
-  products?: Product[]
+  products?: Product[];
+  variable: ProductVariable;
 }
 
 export interface CartProduct {

@@ -2,7 +2,7 @@
   <section class="product-section">
     <v-layout row wrap>
       <v-flex xs12 md6>
-        <vf-product-thumbnails :product="product"/>
+        <vf-product-image :product="product"/>
       </v-flex>
       <v-flex xs12 md6>
         <div class="product-info pl-md-and-up-5">
@@ -48,15 +48,15 @@
                 </div>
               </v-flex>
             </template>
-
           </v-layout>
+          <vf-product-variation :product="product" class="mb-4 pb-4 border-bottom"/>
           <v-layout>
-            <v-flex xs6 md4 align-self-center>
+            <v-flex xs6 md5 align-self-center>
               <div class="product-info__price headline">
-                {{product.price}}
+                {{productPrice}}
               </div>
             </v-flex>
-            <v-flex xs6 md8 text-xs-right align-self-center>
+            <v-flex xs6 md7 text-xs-right align-self-center>
               <v-btn color="primary" large @click="handleAddToCart">
                 <v-icon class="mr-1">shopping_basket</v-icon>
                 Add to Bug
@@ -77,16 +77,25 @@
 <script lang="ts">
 import {Vue, Component, Prop} from "nuxt-property-decorator";
 import {Product} from "~/types";
+import {isNull} from 'lodash'
 
 @Component
 export default class extends Vue {
   @Prop()
   product!: Product;
 
+  get productPrice(): string {
+    if(!isNull(this.product.variable)) {
+      return  this.product.variable.minPrice + ' - ' + this.product.variable.maxPrice
+    } else {
+      return  this.product.price
+    }
+  }
+
   async handleAddToCart() {
     this.$store.commit('notification/add', `${this.product.name} product successfully added to cart`)
 
-    await this.$store.dispatch('store/cart/addToCart', {id: Number(this.product.id), quantity: 1})
+    await this.$store.dispatch('store/cart/add', {id: Number(this.product.id), quantity: 1})
   }
 }
 </script>

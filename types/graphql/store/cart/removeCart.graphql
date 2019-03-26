@@ -1,0 +1,17 @@
+mutation ($key: String) {
+    removeCart(key: $key) {
+        products {
+            key
+            quantity
+            total
+            product {
+                id
+                name
+                model
+                price
+                image
+                imageLazy
+            }
+        }
+    }
+}
