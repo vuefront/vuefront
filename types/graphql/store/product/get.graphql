@@ -1,0 +1,31 @@
+query($id: Int, $limit: Int, $productLimit: Int) {
+    product(id: $id) {
+        id
+        name
+        shortDescription
+        description
+        model
+        stock
+        price
+        image
+        imageLazy
+        rating
+        images(limit: $limit) {
+            image
+            imageLazy
+        }
+        attributes {
+            name
+            options
+        }
+        products(limit: $productLimit) {
+            id
+            image
+            imageLazy
+            description
+            shortDescription
+            price
+            name
+        }
+    }
+}

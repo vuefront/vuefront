@@ -1,0 +1,16 @@
+query($page: Int, $size: Int, $categoryId: Int) {
+    productsList(page: $page, size: $size, category_id: $categoryId) {
+        content {
+            id
+            name
+            shortDescription
+            price
+            image
+            imageLazy
+            rating
+        }
+        number
+        totalPages
+        totalElements
+    }
+}

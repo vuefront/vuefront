@@ -1,0 +1,15 @@
+query($page: Int, $size: Int, $categoryId: Int) {
+    postsList(page: $page, size: $size, category_id: $categoryId) {
+        content {
+            id
+            title
+            description
+            shortDescription
+            image
+            imageLazy
+        }
+        number
+        totalPages
+        totalElements
+    }
+}

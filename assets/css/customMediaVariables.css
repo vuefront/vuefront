@@ -1,0 +1,7 @@
+@custom-media --phone (min-width: 0px);
+@custom-media --tablet (min-width: 600px);
+@custom-media --phone-and-tablet (max-width: 960px);
+@custom-media --laptop (min-width: 960px);
+@custom-media --desktop (min-width: 1280px);
+@custom-media --widescreen (min-width: 1920px);
+@custom-media --desktop-and-laptop (min-width: 960px);

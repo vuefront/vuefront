@@ -1,0 +1,17 @@
+mutation ($id: Int, $quantity: Int) {
+    addToCart(id: $id, quantity: $quantity) {
+        products {
+            key
+            quantity
+            total
+            product {
+                id
+                name
+                model
+                price
+                image
+                imageLazy
+            }
+        }
+    }
+}

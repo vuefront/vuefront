@@ -1,0 +1,10 @@
+query($parent: Int){
+    categoriesMenu: categoriesList(parent: $parent) {
+        content {
+            id
+            name
+            image
+            parent_id
+        }
+    }
+}

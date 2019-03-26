@@ -1,0 +1,9 @@
+query($parent: Int){
+    categoriesMenu: categoriesBlogList(parent: $parent) {
+        content {
+            id
+            name
+            parent_id
+        }
+    }
+}

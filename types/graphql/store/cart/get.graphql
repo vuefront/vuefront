@@ -1,0 +1,17 @@
+{
+    cart {
+        products {
+            key
+            quantity
+            total
+            product {
+                id
+                name
+                model
+                price
+                image
+                imageLazy
+            }
+        }
+    }
+}

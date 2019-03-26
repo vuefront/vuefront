@@ -1,0 +1,17 @@
+mutation ($key: String, $quantity: Int) {
+    updateCart(key: $key, quantity: $quantity) {
+        products {
+            key
+            quantity
+            total
+            product {
+                id
+                name
+                model
+                price
+                image
+                imageLazy
+            }
+        }
+    }
+}
