@@ -1,5 +1,5 @@
-mutation ($id: Int, $quantity: Int) {
-    addToCart(id: $id, quantity: $quantity) {
+mutation ($id: Int, $quantity: Int, $options: [CartOption]) {
+    addToCart(id: $id, quantity: $quantity, options: $options) {
         products {
             key
             quantity

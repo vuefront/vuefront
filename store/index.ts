@@ -18,6 +18,9 @@ export const getters: GetterTree<RootState, RootState> = {
 }
 
 export const actions: ActionTree<RootState, RootState> = {
+  async nuxtClientInit({dispatch, commit, rootGetters}) {
+    await dispatch('store/cart/load')
+  },
   async nuxtServerInit({dispatch, commit, rootGetters}) {
     await dispatch('store/category/loadMenu')
     await commit('menu/addEntities', [

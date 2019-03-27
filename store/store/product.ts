@@ -1,5 +1,6 @@
 import {ProductState, Product, Pagination, Dictionary} from '~/types'
-import {MutationTree, GetterTree} from 'vuex'
+import {MutationTree, GetterTree, ActionTree} from 'vuex'
+import * as reviewAddGql from '~/types/graphql/store/review/addReview.graphql'
 
 export const state = (): ProductState => ({
   entities: {},
@@ -21,5 +22,20 @@ export const mutations: MutationTree<ProductState> = {
   },
   setProduct(state: ProductState, product: Dictionary<Product>) {
     state.product = product
+  }
+}
+
+export const actions: ActionTree<ProductState, ProductState> = {
+  async addReview({commit, dispatch, rootGetters}, reviewData) {
+    await dispatch('apollo/mutate', {
+      mutation: reviewAddGql,
+      variables: reviewData
+    }, {
+      root: true
+    })
+
+    if (!rootGetters['error']) {
+      commit('setProduct', rootGetters['apollo/get'].addReview)
+    }
   }
 }

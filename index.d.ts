@@ -1,4 +1,5 @@
 import '@nuxtjs/axios'
 import '@nuxtjs/apollo'
+import 'cookie-universal-nuxt'
 import 'graphql-import-node'
 import './typing/aletryify'

@@ -1,5 +1,6 @@
 export * from './state';
 
+
 export interface MenuItem {
   id?: number
   parent_id: number
@@ -38,10 +39,17 @@ export interface ProductAttribute {
   options: string[];
 }
 
-export interface ProductVariable {
-  minPrice: string;
-  maxPrice: string
+export interface ProductOptionValue {
+  id: string;
+  name: string
 }
+
+export interface ProductOption {
+  id: string;
+  name: string;
+  values: ProductOptionValue[];
+}
+
 
 export interface Product {
   id: number;
@@ -58,7 +66,22 @@ export interface Product {
   stock: boolean;
   attributes?: ProductAttribute[];
   products?: Product[];
-  variable: ProductVariable;
+  options?: ProductOption[];
+  reviews?: Review[];
+}
+
+export interface Review {
+  author: string;
+  author_email: string;
+  created_at: string
+  content: string
+  rating: number
+}
+
+
+export interface SelectedOption {
+  id: string;
+  value: string
 }
 
 export interface CartProduct {

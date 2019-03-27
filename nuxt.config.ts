@@ -43,7 +43,7 @@ export default {
       }
     },
   },
-  modules: ['@nuxtjs/axios', '@nuxtjs/pwa', '@nuxtjs/proxy', '@nuxtjs/dotenv', 'vuefront-nuxt', 'cookie-universal-nuxt', [
+  modules: ['@nuxtjs/axios', '@nuxtjs/pwa', '@nuxtjs/proxy', '@nuxtjs/dotenv', 'vuefront-nuxt', 'cookie-universal-nuxt', 'nuxt-client-init-module', [
     '@nuxtjs/apollo',
     {
       tokenName: 'token',

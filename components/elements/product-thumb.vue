@@ -20,7 +20,7 @@
         <div style="width:100%;">
           <h3 class="subheading font-weight-medium mb-0 card-product__name">{{ product.name }}</h3>
           <div v-html="product.shortDescription" class="card-product__description body-1 mb-3"></div>
-          <h4 class="subheading font-weight-medium mb-0 card-product__price">{{ productPrice }}</h4>
+          <h4 class="subheading font-weight-medium mb-0 card-product__price">{{ product.price }}</h4>
         </div>
       </v-card-title>
       <v-expand-x-transition>
@@ -62,15 +62,7 @@ export default class extends Vue {
   async handleAddToCart() {
     this.$store.commit('notification/add', `${this.product.name} product successfully added to cart`)
 
-    await this.$store.dispatch('store/cart/add', {id: Number(this.product.id), quantity: 1})
-  }
-
-  get productPrice(): string {
-    if(!isNull(this.product.variable)) {
-      return  this.product.variable.minPrice + ' - ' + this.product.variable.maxPrice
-    } else {
-      return  this.product.price
-    }
+    await this.$store.dispatch('store/cart/add', {id: Number(this.product.id), quantity: 1, options: []})
   }
 
   get productImage(): string | NodeRequire {

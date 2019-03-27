@@ -12,7 +12,8 @@ export default {
     Notification: '~/components/elements/notification-alertify',
     Cart: '~/components/elements/cart',
     Post: '~/components/elements/post',
-    ProductVariation: '~/components/elements/product-variation'
+    ProductOption: '~/components/elements/product-option',
+    Reviews: '~/components/elements/reviews'
   },
   moduleFilter: {},
   layouts: {

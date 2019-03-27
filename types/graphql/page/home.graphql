@@ -7,10 +7,6 @@
             price
             image
             imageLazy
-            variable {
-                minPrice
-                maxPrice
-            }
         }
     }
     latestPosts:  postsList(page: 1, size: 4, sort: "date_added", order: "DESC") {
