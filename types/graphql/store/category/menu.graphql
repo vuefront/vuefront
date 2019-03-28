@@ -1,5 +1,5 @@
 query($parent: Int){
-    categoriesMenu: categoriesList(parent: $parent) {
+    categoriesMenu: categoriesList(parent: $parent, size: -1) {
         content {
             id
             name

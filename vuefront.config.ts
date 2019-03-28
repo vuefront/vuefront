@@ -15,16 +15,41 @@ export default {
     ProductOption: '~/components/elements/product-option',
     Reviews: '~/components/elements/reviews'
   },
-  moduleFilter: {},
+  modules: {
+    LatestProduct: '~/components/modules/latestProduct',
+    LatestPost: '~/components/modules/latestPost',
+    Slideshow: '~/components/modules/slideshow'
+  },
   layouts: {
-    '*': {
-      columnLeft: [
-        ['@dreamvention/moduleFilter', {
-          attribute: true
+    '/': {
+      contentTop: [
+        ['Slideshow', {
+          items: [
+            'http://ecomjewellery.com/upload/product/62/62f14fa84abb764645c87fb206266b06.jpg',
+            'http://www.digitalbaazaar.com/image/cache/catalog/macbook-pro-1140x380.jpg',
+            'http://www.fundoomart.com/image/cache/catalog/device%204-1140x380.jpg',
+          ]
         }],
-        '@dreamvention/moduleFilter'
+        'LatestProduct',
+        'LatestPost',
       ]
     },
-    'category/:id': {}
+    '/store/category*': {
+      contentBottom: [
+        'LatestProduct'
+      ]
+    },
+    '/blog/category*': {
+      contentBottom: [
+        'LatestPost'
+      ]
+    },
+    '/blog/post*': {
+      columnRight: [
+        ['LatestPost', {
+          column: true
+        }]
+      ]
+    }
   }
 }

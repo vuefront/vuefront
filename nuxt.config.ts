@@ -7,6 +7,10 @@ export default {
     proxy: true
   },
 
+  route: {
+    middleware: ['~/middleware/vuefront']
+  },
+
   proxy: {
     '/api': {
       target: process.env.API,

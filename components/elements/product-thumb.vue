@@ -19,6 +19,7 @@
       <v-card-title primary-title class="text-xs-center">
         <div style="width:100%;">
           <h3 class="subheading font-weight-medium mb-0 card-product__name">{{ product.name }}</h3>
+<!--          <v-rating v-if="product.rating > 0" :value="product.rating" color="#ffcc00" dense readonly></v-rating>-->
           <div v-html="product.shortDescription" class="card-product__description body-1 mb-3"></div>
           <h4 class="subheading font-weight-medium mb-0 card-product__price">{{ product.price }}</h4>
         </div>

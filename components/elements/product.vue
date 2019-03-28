@@ -36,7 +36,7 @@
           </v-layout>
           <div class="my-4 py-4 border-bottom border-top">
             <div class="product-info__description-title body-2 mb-1">Description:</div>
-            <div class="product-info__description body-1">{{product.description}}</div>
+            <div class="product-info__description body-1" v-html="product.description"/>
           </div>
           <v-layout v-if="product.attributes.length > 0" row wrap pb-4 border-bottom mb-4>
             <template v-for="(value, key) in product.attributes">

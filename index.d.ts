@@ -1,5 +1,7 @@
 import '@nuxtjs/axios'
+import '@nuxt/vue-app'
 import '@nuxtjs/apollo'
 import 'cookie-universal-nuxt'
 import 'graphql-import-node'
-import './typing/aletryify'
+import 'vue-apollo'
+import 'vuefront-nuxt'

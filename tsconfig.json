@@ -17,6 +17,9 @@
     "noEmit": true,
     "baseUrl": ".",
     "paths": {
+      "~/components/*": [
+        "./components/*"
+      ],
       "~/*": [
         "./*"
       ],

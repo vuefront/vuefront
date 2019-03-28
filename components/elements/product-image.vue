@@ -1,6 +1,17 @@
 <template>
   <section class="vf-product-thumbnails mb-4">
-    <v-img :src="productImage" :lazy-src="productImageLazy"/>
+    <v-img :src="productImage" :lazy-src="productImageLazy">
+      <template v-slot:placeholder>
+        <v-layout
+          fill-height
+          align-center
+          justify-center
+          ma-0
+        >
+          <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+        </v-layout>
+      </template>
+    </v-img>
   </section>
 </template>
 <script lang="ts">

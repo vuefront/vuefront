@@ -33,7 +33,6 @@ export const mutations: MutationTree<CategoryState> = {
       }]
     }
 
-
     result = flatToTree(result, {parentId: 'parent_id'})
 
     state.menuItems = result
@@ -50,6 +49,7 @@ export const actions: ActionTree<CategoryState, CategoryState> = {
         parent: 0
       }
     }, {root: true})
+
     if (!rootGetters['error']) {
       const {categoriesMenu} = rootGetters['apollo/get']
       commit('setCategoryMenu', categoriesMenu)

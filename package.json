@@ -24,8 +24,7 @@
     "vuefront-nuxt": "vuefront/vuefront-nuxt",
     "vuetify": "^1.5.7",
     "vuetify-loader": "^1.2.1",
-    "vuex-class": "0.3.2",
-    "yarn": "^1.13.0"
+    "vuex-class": "0.3.2"
   },
   "scripts": {
     "dev": "nuxt dev -o",
@@ -34,7 +33,7 @@
     "generate": "nuxt generate"
   },
   "devDependencies": {
-    "@types/node": "11.11.7",
+    "@types/node": "11.12.0",
     "@types/webpack-env": "1.13.9",
     "autoprefixer": "^9.5.0",
     "postcss-css-variables": "^0.12.0",

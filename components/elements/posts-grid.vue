@@ -1,6 +1,6 @@
 <template>
   <v-container fluid pa-0 grid-list-xl>
-    <v-layout align-start justify-start row wrap>
+    <v-layout align-start justify-start wrap :row="!column" :column="column">
       <v-flex xs12 md3 v-for="(value, index) in posts" :key="index">
         <vf-post-thumb :post="value"/>
       </v-flex>
@@ -15,5 +15,8 @@ import {Post} from "~/types";
 export default class extends Vue {
   @Prop()
   posts!: Post[];
+
+  @Prop({default: false})
+  column!: boolean
 }
 </script>

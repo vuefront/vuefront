@@ -3,7 +3,9 @@
     <Header/>
     <v-container pa-0>
       <div class="main-content">
-        <nuxt/>
+        <Layout>
+          <nuxt/>
+        </Layout>
       </div>
     </v-container>
     <Footer/>
@@ -13,11 +15,13 @@
 import {Component, Vue} from 'nuxt-property-decorator'
 import Header from '~/components/Header.vue'
 import Footer from '~/components/Footer.vue'
+import Layout from '~/components/layout.vue'
 
 @Component({
   components: {
     Header,
-    Footer
+    Footer,
+    Layout
   }
 })
 export default class extends Vue {

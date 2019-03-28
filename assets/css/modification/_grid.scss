@@ -1,0 +1,77 @@
+$breakpoints: xs --phone, sm --tablet, md --laptop, lg --desktop, xl --widescreen;
+@mixin transform($class, $size, $max: null) {
+  @each $breakpoint in $breakpoints {
+    $key: nth($breakpoint, 1);
+    $value: nth($breakpoint, 2);
+    &.#{$key}-#{$class} {
+      @media (#{$value}) {
+        flex: $size;
+        @if $max != null {
+          max-width: $max;
+        }
+      }
+    }
+  }
+}
+.hidden-phone-and-tablet{
+  @media (--phone-and-tablet){
+    display: none;
+  }
+}
+.px-3-phone.px-3-phone {
+  @media (--phone-and-tablet){
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+.px-3-desktop {
+  @media (--laptop){
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+.pt-0-phone {
+  @media (--phone-and-tablet){
+    padding-top: 0 !important;
+  }
+}
+.d-flex-desktop {
+  @media (--laptop){
+    display: flex;
+  }
+}
+.layout {
+  .flex {
+    &.auto {
+      flex: 0 0 auto;
+    }
+    &.flex-100 {
+      flex: 0 1 100px;
+      max-width: 100px;
+    }
+    &.flex-114 {
+      flex: 0 1 114px;
+      max-width: 114px;
+    }
+    &.flex-180 {
+      flex: 0 1 180px;
+      max-width: 180px;
+    }
+  }
+  &.row {
+    .flex {
+      // 180 px
+      @include transform('180', 0 0 180px);
+      // auto
+      @include transform('auto', 0 0 auto);
+      // 45.5%
+      @include transform('455', 0 0 45.5%, 45.5%);
+      // 45%
+      @include transform('45', 0 0 45%, 45%);
+      // 46%
+      @include transform('46', 0 0 46%, 46%);
+      // Fill
+      @include transform('fill', 1);
+    }
+  }
+}
