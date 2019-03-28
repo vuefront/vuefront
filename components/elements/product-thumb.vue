@@ -16,7 +16,7 @@
         </v-img>
       </nuxt-link>
 
-      <v-card-title primary-title class="text-xs-center">
+      <v-card-title primary-title class="text-xs-center pb-0">
         <div style="width:100%;">
           <h3 class="subheading font-weight-medium mb-0 card-product__name">{{ product.name }}</h3>
 <!--          <v-rating v-if="product.rating > 0" :value="product.rating" color="#ffcc00" dense readonly></v-rating>-->
@@ -24,29 +24,16 @@
           <h4 class="subheading font-weight-medium mb-0 card-product__price">{{ product.price }}</h4>
         </div>
       </v-card-title>
-      <v-expand-x-transition>
-        <div
-          v-show="hover"
-          class="card-product__actions"
-        >
-          <v-tooltip top>
-            <template v-slot:activator="{ on }">
-              <v-btn flat icon class="ma-1" v-on="on" @click="handleAddToCart">
-                <v-icon class="outline">shopping_basket</v-icon>
-              </v-btn>
-            </template>
-            <span>Add to cart</span>
-          </v-tooltip>
-          <v-tooltip top>
-            <template v-slot:activator="{ on }">
-              <v-btn flat icon class="ma-1" v-on="on">
-                <v-icon>star_border</v-icon>
-              </v-btn>
-            </template>
-            <span>Wishlist</span>
-          </v-tooltip>
-        </div>
-      </v-expand-x-transition>
+      <v-card-actions class="card-product__actions">
+        <v-spacer></v-spacer>
+        <v-btn flat icon @click="handleAddToCart">
+          <v-icon class="outline">shopping_basket</v-icon>
+        </v-btn>
+        <v-btn flat icon>
+          <v-icon>star_border</v-icon>
+        </v-btn>
+        <v-spacer></v-spacer>
+      </v-card-actions>
     </v-card>
   </v-hover>
 </template>
@@ -105,10 +92,6 @@ export default class extends Vue {
   }
 
   &__actions {
-    left: 16px;
-    top: 16px;
-    position: absolute;
-    white-space: nowrap;
   }
 }
 </style>
