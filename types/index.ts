@@ -1,5 +1,14 @@
 export * from './state';
 
+export interface SortItem {
+  text?: string
+  value: string
+}
+
+export interface SizeItem {
+  text?: string;
+  value: number;
+}
 
 export interface MenuItem {
   id?: number

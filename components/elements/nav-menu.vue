@@ -51,6 +51,7 @@ export default class extends Vue {
   display: flex;
   flex-flow: row;
   height: 50px;
+  flex-wrap: wrap;
 
   & > &__item_link > &__item_title {
     flex: 0 0 auto;

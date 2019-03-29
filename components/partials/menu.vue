@@ -17,9 +17,5 @@ export default class extends Vue {
 .partial-menu {
   border-bottom: 1px solid rgba(31, 45, 61, 0.04);
   border-top: 1px solid rgba(31, 45, 61, 0.04);
-
-  .partial-menu__logo {
-    height: 50px;
-  }
 }
 </style>

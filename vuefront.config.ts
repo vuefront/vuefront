@@ -16,7 +16,8 @@ export default {
     ProductOption: '~/components/elements/store/product-option',
     ProductAttribute: '~/components/elements/store/product-attribute',
     Reviews: '~/components/elements/reviews',
-    Pagination: '~/components/elements/pagination'
+    Pagination: '~/components/elements/pagination',
+    Sort: '~/components/elements/sort'
   },
   partials: {
       Menu: '~/components/partials/menu',

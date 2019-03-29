@@ -1,5 +1,5 @@
-query($page: Int, $size: Int, $categoryId: Int) {
-    productsList(page: $page, size: $size, category_id: $categoryId) {
+query($page: Int, $size: Int, $sort: String, $order: String, $categoryId: Int) {
+    productsList(page: $page, size: $size, sort: $sort, order: $order, category_id: $categoryId) {
         content {
             id
             name
