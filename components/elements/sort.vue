@@ -1,5 +1,5 @@
 <template>
-  <section class="sort-section">
+  <section class="sort-section mb-4">
     <v-layout row wrap>
       <v-flex xs-fill text-xs-left>
 
@@ -9,13 +9,21 @@
           <v-select
             v-model="sizeValue"
             :items="sizes"
+            prepend-inner-icon="format_size"
             class="mr-3"
+            height="40px"
+            hide-details
             solo
+            dense
           />
           <v-select
             v-model="sortValue"
             :items="sorts"
+            prepend-inner-icon="sort"
+            height="40px"
+            hide-details
             solo
+            dense
           />
         </v-layout>
       </v-flex>
