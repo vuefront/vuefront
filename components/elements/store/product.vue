@@ -39,16 +39,7 @@
             <div class="product-info__description body-1" v-html="product.description"/>
           </div>
           <v-layout v-if="product.attributes.length > 0" row wrap pb-4 border-bottom mb-4>
-            <template v-for="(value, key) in product.attributes">
-              <v-flex :key="`${key}-left`" xs3>
-                <div class="product-info__attribute_name body-2">{{value.name}}</div>
-              </v-flex>
-              <v-flex :key="`${key}-right`" xs9 mb-2>
-                <div v-for="(option, optionKey) in value.options" :key="optionKey"
-                     class="product-info__attribute_value body-1">{{option}}
-                </div>
-              </v-flex>
-            </template>
+            <vf-product-attribute :product="product"/>
           </v-layout>
           <vf-product-option v-if="product.options.length > 0" :product="product" class="mb-4 pb-4 border-bottom"
                              @change="handleChangeOptions"/>

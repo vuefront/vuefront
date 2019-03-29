@@ -26,13 +26,6 @@ export const actions: ActionTree<RootState, RootState> = {
     await commit('menu/addEntities', rootGetters['store/category/menu'])
 
     await dispatch('blog/category/loadMenu')
-    await commit('menu/addEntities', [
-      {
-
-        'title': 'Blog',
-        'to': '/blog/category',
-        'children': rootGetters['blog/category/menu']
-      }
-    ])
+    await commit('menu/addEntities', rootGetters['blog/category/menu'])
   }
 }
