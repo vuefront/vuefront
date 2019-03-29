@@ -13,12 +13,6 @@ import {Product} from "~/types";
 
 @Component
 export default class extends Vue {
-
   @Getter('store/product/get') product!: Product
-
-  get schema() {
-    console.log(require('~/types/graphql/modules/relatedProduct.graphql'))
-    return require('~/types/graphql/modules/relatedProduct.graphql')
-  }
 }
 </script>
