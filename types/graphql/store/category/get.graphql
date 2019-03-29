@@ -1,9 +1,0 @@
-query($id: Int) {
-    category(id: $id) {
-        id
-        name
-        description
-        image
-        imageLazy
-    }
-}
