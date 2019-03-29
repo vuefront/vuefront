@@ -23,14 +23,7 @@ export const actions: ActionTree<RootState, RootState> = {
   },
   async nuxtServerInit({dispatch, commit, rootGetters}) {
     await dispatch('store/category/loadMenu')
-    await commit('menu/addEntities', [
-      {
-
-        'title': 'Store',
-        'to': '/store/category',
-        'children': rootGetters['store/category/menu']
-      }
-    ])
+    await commit('menu/addEntities', rootGetters['store/category/menu'])
 
     await dispatch('blog/category/loadMenu')
     await commit('menu/addEntities', [

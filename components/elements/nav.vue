@@ -3,7 +3,8 @@
     <v-container pa-0>
       <v-layout row>
         <v-flex text-xs-left>
-          <div class="body-1">Purpose - Website UI Kit</div>
+          <nuxt-link to="/"><img src="~/assets/img/Logo.png" alt="" class="nav-section__logo">
+          </nuxt-link>
         </v-flex>
         <v-flex text-xs-right>
           <v-layout align-center justify-end row fill-height>
@@ -20,8 +21,13 @@
 <style type="postcss">
 .nav-section {
   padding: 16px 0;
+
   &__link {
     text-decoration: none;
+  }
+
+  &__logo {
+    height: 40px;
   }
 }
 </style>

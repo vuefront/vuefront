@@ -1,4 +1,4 @@
-import {CategoryBlogState, CategoryBlog, MenuItem, Pagination} from '~/types'
+import {CategoryBlogState, CategoryBlog, MenuItem, Pagination, CategoryState, Dictionary, Category} from '~/types'
 import {MutationTree, GetterTree, ActionTree} from 'vuex'
 import {flatToTree} from "~/utils/flatToTree"
 import {keys} from 'lodash'
@@ -6,12 +6,16 @@ import categoryMenuGql from "~/types/graphql/blog/category/menu.graphql";
 
 
 export const state = (): CategoryBlogState => ({
-  menuItems: []
+  menuItems: [],
+  category: {}
 })
 
 export const getters: GetterTree<CategoryBlogState, CategoryBlogState> = {
   menu(state: CategoryBlogState): MenuItem[] {
     return state.menuItems
+  },
+  get(state: CategoryBlogState): Dictionary<CategoryBlog> {
+    return  state.category
   }
 }
 
@@ -33,6 +37,9 @@ export const mutations: MutationTree<CategoryBlogState> = {
     result = flatToTree(result, {parentId: 'parent_id'})
 
     state.menuItems = result
+  },
+  setCategory(state: CategoryBlogState, category: Dictionary<CategoryBlog>): void {
+    state.category = category
   }
 }
 

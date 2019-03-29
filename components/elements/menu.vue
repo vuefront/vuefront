@@ -1,8 +1,8 @@
-<template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
+<template>
   <section class="top-menu">
     <v-container pa-0>
       <v-toolbar class="elevation-0 px-0 top-menu__wrapper" color="transparent" depressed>
-        <v-layout align-center justify-start row fill-height>
+        <v-layout align-center justify-start row fill-height>A
           <nuxt-link to="/" class="d-flex"><img src="~/assets/img/Logo.png" alt="" class="top-menu__logo"></nuxt-link>
           <v-menu v-for="(value, key) in items" :key="key" offset-y open-on-hover>
             <template v-slot:activator="{ on }">

@@ -1,7 +1,7 @@
 <template>
   <div>
     <vf-nav/>
-    <vf-menu/>
+    <vf-partial-menu/>
     <vf-notification/>
   </div>
 </template>

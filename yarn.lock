@@ -10204,7 +10204,7 @@ vue@^2.5.2, vue@^2.6.10:
 
 vuefront-nuxt@vuefront/vuefront-nuxt:
   version "1.0.0"
-  resolved "https://codeload.github.com/vuefront/vuefront-nuxt/tar.gz/88f839e76953d1c45e152c5399c2d403c099a53d"
+  resolved "https://codeload.github.com/vuefront/vuefront-nuxt/tar.gz/f0890f9d25aa3f7f054a5d4eb153f57709adb165"
   dependencies:
     "@types/node" "^11.11.3"
 
