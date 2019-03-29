@@ -59,12 +59,6 @@
         </div>
       </v-flex>
     </v-layout>
-    <div v-if="product.products.length > 0" class="product-section__upsell_products py-5 my-5">
-      <div class="product-section__upsell_products_title text-xs-center mb-5 subheading font-weight-medium">Suggested
-        products
-      </div>
-      <vf-products-grid :products="product.products"/>
-    </div>
   </section>
 </template>
 <script lang="ts">
@@ -99,8 +93,7 @@ export default class extends Vue {
       content,
       author,
       rating,
-      limit: 3,
-      productLimit: 4
+      limit: 3
     })
   }
 }

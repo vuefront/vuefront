@@ -25,6 +25,7 @@ export default {
   modules: {
     LatestProduct: '~/components/modules/latestProduct',
     LatestPost: '~/components/modules/latestPost',
+    RelatedProduct: '~/components/modules/relatedProduct',
     Slideshow: '~/components/modules/slideshow'
   },
   layouts: {
@@ -49,6 +50,11 @@ export default {
     '/blog/category*': {
       contentBottom: [
         'LatestPost'
+      ]
+    },
+    '/store/product/*': {
+      contentBottom: [
+        'RelatedProduct'
       ]
     },
     '/blog/post*': {
