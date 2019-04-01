@@ -1,0 +1,11 @@
+query($search: String){
+    searchPosts:  postsList(page: 1, size: 12, sort: "date_added", order: "DESC", search: $search) {
+        content {
+            id
+            title
+            shortDescription
+            image
+            imageLazy
+        }
+    }
+}

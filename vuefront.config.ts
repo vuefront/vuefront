@@ -1,31 +1,39 @@
 export default {
   components: {
-    ProductThumb: '~/components/elements/store/product-thumb',
+    ProductThumb: '~/components/elements/store/productThumb',
     Product: '~/components/elements/store/product',
-    ProductImage: '~/components/elements/store/product-image',
-    PostThumb: '~/components/elements/blog/post-thumb',
-    Menu: '~/components/elements/nav-menu',
+    ProductImage: '~/components/elements/store/productImage',
+    PostThumb: '~/components/elements/blog/postThumb',
+    Menu: '~/components/elements/navMenu',
     Nav: '~/components/elements/nav',
-    ProductsGrid: '~/components/elements/store/products-grid',
+    ProductsGrid: '~/components/elements/store/productsGrid',
     Category: '~/components/elements/store/category',
-    CategoryBlog: '~/components/elements/blog/category-blog',
-    PostsGrid: '~/components/elements/blog/posts-grid',
-    Notification: '~/components/elements/notification-alertify',
+    CategoryBlog: '~/components/elements/blog/categoryBlog',
+    PostsGrid: '~/components/elements/blog/postsGrid',
+    Notification: '~/components/elements/notificationAlertify',
     Cart: '~/components/elements/store/cart',
     Post: '~/components/elements/blog/post',
-    ProductOption: '~/components/elements/store/product-option',
-    ProductAttribute: '~/components/elements/store/product-attribute',
+    ProductOption: '~/components/elements/store/productOption',
+    ProductAttribute: '~/components/elements/store/productAttribute',
     Reviews: '~/components/elements/reviews',
     Pagination: '~/components/elements/pagination',
-    Sort: '~/components/elements/sort'
+    Sort: '~/components/elements/sort',
+    NavSearch: '~/components/elements/navSearch',
+    Search: '~/components/elements/search',
+    Empty: '~/components/elements/empty',
+    Breadcrumbs: '~/components/elements/breadcrumbs'
   },
   partials: {
-      Menu: '~/components/partials/menu',
+    Menu: '~/components/partials/menu',
   },
   modules: {
+    SearchProduct: '~/components/modules/searchProduct',
+    SearchPost: '~/components/modules/searchPost',
     LatestProduct: '~/components/modules/latestProduct',
+    SpecialProduct: '~/components/modules/specialProduct',
     LatestPost: '~/components/modules/latestPost',
     RelatedProduct: '~/components/modules/relatedProduct',
+    FeaturedProduct: '~/components/modules/featuredProduct',
     Slideshow: '~/components/modules/slideshow'
   },
   layouts: {
@@ -38,8 +46,18 @@ export default {
             'http://www.fundoomart.com/image/cache/catalog/device%204-1140x380.jpg',
           ]
         }],
+        ['FeaturedProduct', {
+          ids: [43, 40, 42, 30]
+        }],
         'LatestProduct',
+        'SpecialProduct',
         'LatestPost',
+      ]
+    },
+    '/search/*': {
+      contentBottom: [
+        'SearchProduct',
+        'SearchPost'
       ]
     },
     '/store/category*': {

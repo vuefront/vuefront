@@ -1,13 +1,13 @@
-import {CategoryState, Category, MenuItem, Pagination, Dictionary} from '~/types'
+import {CategoryState, Category, MenuItem, Pagination, Dictionary, Mode} from '~/types'
 import {MutationTree, GetterTree, ActionTree} from 'vuex'
 import {flatToTree} from "~/utils/flatToTree"
 import {keys} from 'lodash'
 import categoryMenuGql from "~/types/graphql/store/category/menu.graphql";
 
-
 export const state = (): CategoryState => ({
   menuItems: [],
-  category: {}
+  category: {},
+  mode: Mode.Grid
 })
 
 export const getters: GetterTree<CategoryState, CategoryState> = {
@@ -15,7 +15,10 @@ export const getters: GetterTree<CategoryState, CategoryState> = {
     return state.menuItems
   },
   get(state: CategoryState): Dictionary<Category> {
-    return  state.category
+    return state.category
+  },
+  mode(state: CategoryState): Mode {
+    return state.mode
   }
 }
 
@@ -39,6 +42,10 @@ export const mutations: MutationTree<CategoryState> = {
   },
   setCategory(state: CategoryState, category: Dictionary<Category>): void {
     state.category = category
+  },
+  setMode(state: CategoryState, payload: Mode) {
+    state.mode = payload;
+    (this as any).$cookies.set('mode', payload)
   }
 }
 

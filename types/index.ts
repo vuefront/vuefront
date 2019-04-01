@@ -41,6 +41,12 @@ export interface Post {
   title: string
   description: string
   shortDescription: string
+  reviews?: Review[];
+}
+
+export enum Mode {
+  Grid = 'grid',
+  List = 'list'
 }
 
 export interface ProductAttribute {

@@ -1,5 +1,6 @@
-import { PostState, Post, Pagination, Dictionary } from '~/types'
-import { MutationTree, GetterTree } from 'vuex'
+import {PostState, Post, Pagination, Dictionary, ProductState} from '~/types'
+import { MutationTree, GetterTree, ActionTree } from 'vuex'
+import * as reviewAddGql from "~/types/graphql/blog/review/addReview.graphql";
 
 export const state = (): PostState => ({
   entities: {},
@@ -21,5 +22,20 @@ export const mutations: MutationTree<PostState> = {
   },
   setPost(state: PostState, post: Dictionary<Post>): void {
     state.post = post
+  }
+}
+
+export const actions: ActionTree<ProductState, ProductState> = {
+  async addReview({commit, dispatch, rootGetters}, reviewData) {
+    await dispatch('apollo/mutate', {
+      mutation: reviewAddGql,
+      variables: reviewData
+    }, {
+      root: true
+    })
+
+    if (!rootGetters['error']) {
+      commit('setPost', rootGetters['apollo/get'].addBlogPostReview)
+    }
   }
 }

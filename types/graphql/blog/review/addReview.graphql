@@ -1,0 +1,16 @@
+mutation ($id: Int, $content: String, $author: String, $rating: Float) {
+    addBlogPostReview(id: $id, content: $content, author: $author, rating: $rating) {
+        id
+        title
+        description
+        image
+        imageLazy
+        reviews {
+            author
+            author_email
+            content
+            created_at
+            rating
+        }
+    }
+}

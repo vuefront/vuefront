@@ -1,0 +1,15 @@
+query($id: Int) {
+    relatedProducts: product(id: $id) {
+        id
+        products(limit: 4) {
+            id
+            image
+            imageLazy
+            description
+            shortDescription
+            price
+            special
+            name
+        }
+    }
+}

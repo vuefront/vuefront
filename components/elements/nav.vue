@@ -1,10 +1,13 @@
 <template>
   <nav class="nav-section">
     <v-container pa-0>
-      <v-layout row>
+      <v-layout align-center justify-center row fill-height>
         <v-flex text-xs-left>
           <nuxt-link to="/"><img src="~/assets/img/Logo.png" alt="" class="nav-section__logo">
           </nuxt-link>
+        </v-flex>
+        <v-flex xs-auto>
+          <vf-nav-search/>
         </v-flex>
         <v-flex text-xs-right>
           <v-layout align-center justify-end row fill-height>

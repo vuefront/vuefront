@@ -1,8 +1,8 @@
 <template>
   <v-container fluid pa-0 grid-list-xl>
     <v-layout align-start justify-start row wrap>
-      <v-flex xs12 md3 v-for="(value, index) in products" :key="index">
-        <vf-product-thumb :product="value"/>
+      <v-flex xs12 :md3="!list" v-for="(value, index) in products" :key="index">
+        <vf-product-thumb :product="value" :wide="list"/>
       </v-flex>
     </v-layout>
   </v-container>
@@ -15,5 +15,8 @@ import {Product} from "~/types";
 export default class extends Vue {
   @Prop()
   products!: Product[];
+
+  @Prop({default: false})
+  list!: boolean
 }
 </script>

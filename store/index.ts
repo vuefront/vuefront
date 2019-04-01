@@ -27,5 +27,9 @@ export const actions: ActionTree<RootState, RootState> = {
 
     await dispatch('blog/category/loadMenu')
     await commit('menu/addEntities', rootGetters['blog/category/menu'])
+
+    if((this as any).$cookies.get('mode')) {
+      commit('store/category/setMode', (this as any).$cookies.get('mode'))
+    }
   }
 }

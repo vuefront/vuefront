@@ -46,7 +46,10 @@
           <v-layout>
             <v-flex xs6 md5 align-self-center>
               <div class="product-info__price headline">
-                {{product.price}}
+                <span
+                  v-if="product.special !== ''"
+                  class="product-info__price_special">{{product.special}}</span>
+                <span :class="{'font-weight-light': product.special !== ''}">{{ product.price }}</span>
               </div>
             </v-flex>
             <v-flex xs6 md7 text-xs-right align-self-center>
@@ -98,3 +101,12 @@ export default class extends Vue {
   }
 }
 </script>
+<style lang="postcss">
+.product-info {
+  &__price_special {
+    & + span {
+      text-decoration: line-through;
+    }
+  }
+}
+</style>

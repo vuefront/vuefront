@@ -1,4 +1,4 @@
-import {Product, Post, MenuItem, Pagination, Category, CategoryBlog, Cart} from "~/types";
+import {Product, Post, MenuItem, Pagination, Category, CategoryBlog, Cart, Mode} from "~/types";
 
 export interface Dictionary<T> {
   [key: string]: T
@@ -19,6 +19,7 @@ export interface CartState {
 export interface CategoryState {
   menuItems: MenuItem[]
   category: Dictionary<Category>
+  mode: Mode
 }
 
 export interface CategoryBlogState {

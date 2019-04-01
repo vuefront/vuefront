@@ -1,5 +1,5 @@
 {
-    latestProducts: productsList(page: 1, size: 4, sort: "date_added", order: "DESC") {
+    specialProducts: productsList(page: 1, size: 4, special: true, sort: "date_added", order: "DESC") {
         content {
             id
             name

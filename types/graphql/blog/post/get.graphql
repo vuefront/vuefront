@@ -5,5 +5,12 @@ query($id: Int) {
     description
     image
     imageLazy
+    reviews {
+      author
+      author_email
+      content
+      created_at
+      rating
+    }
   }
 }

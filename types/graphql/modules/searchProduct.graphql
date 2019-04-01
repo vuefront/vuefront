@@ -1,5 +1,5 @@
-{
-    latestProducts: productsList(page: 1, size: 4, sort: "date_added", order: "DESC") {
+query($search: String){
+    searchProduct: productsList(page: 1, size: 12, sort: "date_added", order: "DESC", search: $search) {
         content {
             id
             name

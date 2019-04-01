@@ -7,6 +7,7 @@ mutation ($id: Int, $content: String, $author: String, $rating: Float, $limit: I
         model
         stock
         price
+        special
         image
         reviews {
             author

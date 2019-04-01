@@ -5,6 +5,7 @@ query($page: Int, $size: Int, $sort: String, $order: String, $categoryId: Int) {
             name
             shortDescription
             price
+            special
             image
             imageLazy
             rating

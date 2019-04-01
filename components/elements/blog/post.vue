@@ -9,6 +9,7 @@
       </template>
     </v-img>
     <div class="post-section__content subheading font-weight-light" v-html="post.description"/>
+    <vf-reviews :reviews="post.reviews" @create="handleCreateReview"/>
   </section>
 </template>
 <script lang="ts">
@@ -19,5 +20,15 @@ import { Post } from "~/types";
 export default class extends Vue {
   @Prop()
   post!: Post;
+
+  async handleCreateReview({content, author, rating}) {
+    await this.$store.dispatch('blog/post/addReview', {
+      id: Number(this.post.id),
+      content,
+      author,
+      rating,
+      limit: 3
+    })
+  }
 }
 </script>

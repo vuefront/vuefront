@@ -1,8 +1,17 @@
 <template>
   <section class="sort-section mb-4">
-    <v-layout row wrap>
+    <v-layout row wrap align-center fill-height>
       <v-flex xs-fill text-xs-left>
-
+        <v-layout row>
+          <v-btn-toggle v-model="modeValue">
+            <v-btn flat value="grid">
+              <v-icon>grid_on</v-icon>
+            </v-btn>
+            <v-btn flat value="list">
+              <v-icon>view_list</v-icon>
+            </v-btn>
+          </v-btn-toggle>
+        </v-layout>
       </v-flex>
       <v-flex xs4 text-xs-right>
         <v-layout row>
@@ -48,6 +57,17 @@ export default class extends Vue {
 
   @Prop()
   size!: string
+
+  @Prop()
+  mode!: string
+
+  get modeValue() {
+    return this.mode
+  }
+
+  set modeValue(e) {
+    this.$emit('changeMode', e)
+  }
 
   get sizeValue() {
     return this.size

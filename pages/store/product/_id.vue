@@ -22,7 +22,7 @@ export default class extends Vue {
   async fetch({store, app, params}) {
     await store.dispatch('apollo/query', {
       query: productGetGql,
-      variables: {id: Number(params.id), limit: 3, productLimit: 4}
+      variables: {id: Number(params.id), limit: 3}
     })
     const {product} = store.getters['apollo/get']
     store.commit('store/product/setProduct', product)

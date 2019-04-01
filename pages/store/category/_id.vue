@@ -1,16 +1,19 @@
 <template>
   <section class="product-category">
     <vf-category :category="category" class="mb-5"/>
-    <vf-sort :sorts="sortOptions" :sizes="sizeOptions" :size="size" :sort="sort" @changeSize="handleChangeSize"
-             @changeSort="handleChangeSort"/>
-    <vf-products-grid :products="products.content" class="mb-5"/>
+    <vf-sort v-if="products.content.length > 0" :sorts="sortOptions" :sizes="sizeOptions" :size="size" :sort="sort" :mode="mode" @changeSize="handleChangeSize"
+             @changeSort="handleChangeSort" @changeMode="handleChangeMode"/>
+    <vf-products-grid v-if="products.content.length > 0"  :products="products.content" :list="isList" class="mb-4"/>
+    <vf-empty v-if="products.content.length === 0" class="text-xs-center">There are no products to list in this category.</vf-empty>
+    <vf-sort v-if="products.content.length > 0" :sorts="sortOptions" :sizes="sizeOptions" :size="size" :sort="sort" :mode="mode" @changeSize="handleChangeSize"
+             @changeSort="handleChangeSort" @changeMode="handleChangeMode" class="mb-5"/>
     <vf-pagination :page="page" :totalPages="totalPages" @input="handleChangePage"/>
   </section>
 </template>
 <script lang="ts">
 import {Vue, Component, Getter} from 'nuxt-property-decorator'
 import categoryPageGql from '~/types/graphql/store/category/page.graphql'
-import {Pagination, Product, Category, SizeItem, SortItem} from "~/types";
+import {Pagination, Product, Category, SizeItem, SortItem, Mode} from "~/types";
 
 @Component({
   head() {
@@ -25,6 +28,7 @@ import {Pagination, Product, Category, SizeItem, SortItem} from "~/types";
 })
 export default class extends Vue {
   @Getter('store/category/get') category!: Category
+  @Getter('store/category/mode') mode!: Mode
   @Getter('store/product/list') products!: Pagination<Product>
 
   async handleChangePage(page) {
@@ -32,6 +36,10 @@ export default class extends Vue {
       path: '/store/category/' + this.$route.params.id,
       query: {page}
     })
+  }
+
+  get isList() {
+    return this.mode === Mode.List
   }
 
   async asyncData({store, route, params: {id}}) {
@@ -129,6 +137,11 @@ export default class extends Vue {
       query: {size: this.size.toString(), sort: sorts[0], order: sorts[1]}
     })
   }
+
+  handleChangeMode(mode: string) {
+    this.$store.commit('store/category/setMode', mode)
+  }
+
 
   handleChangeSize(size: number) {
     const sorts: string[] = this.sort.split('|')
