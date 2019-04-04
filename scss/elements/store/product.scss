@@ -1,0 +1,7 @@
+.product-info {
+  &__price_special {
+    & + span {
+      text-decoration: line-through;
+    }
+  }
+}

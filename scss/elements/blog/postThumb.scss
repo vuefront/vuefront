@@ -1,0 +1,10 @@
+.card-post {
+  &__title {
+  }
+
+  &__description {
+    min-height: 65px;
+    max-height: 65px;
+    overflow: hidden;
+  }
+}

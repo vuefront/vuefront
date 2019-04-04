@@ -1,22 +1,3 @@
-# dependencies
+lib
 node_modules
-
-# logs
-npm-debug.log
 yarn-error.log
-
-# Nuxt build
-.nuxt
-
-# Nuxt generate
-dist
-
-# IDE settings
-.idea
-.vscode
-graphql.*.json
-
-# other
-*.cache
-*.env
-

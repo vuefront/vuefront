@@ -1,2 +1,0 @@
-# vuefront
-vuefornt core repo

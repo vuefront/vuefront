@@ -1,0 +1,31 @@
+.card-product {
+  &_wide {
+  }
+
+  &__price_special {
+    & + span {
+      text-decoration: line-through;
+    }
+  }
+
+  &__name {
+    min-height: 65px;
+    max-height: 65px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__description {
+    min-height: 65px;
+    max-height: 65px;
+    overflow: hidden;
+  }
+
+  &__price {
+  }
+
+  &__actions {
+  }
+}
