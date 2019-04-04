@@ -647,7 +647,7 @@
   resolved "https://registry.yarnpkg.com/@purtuga/esm-webpack-plugin/-/esm-webpack-plugin-1.0.1.tgz#3c08bc26fb416836ef0e251c4bd0bce396474fb3"
   integrity sha512-0fXoDHrV4WxuXzsCvD+DW/xOCSmN3khEJ1vsiDARofmgYRcqY3Sc7zfGoSFVIHcVKzcnZEFLPeybNG1GXke5GA==
 
-"@types/node@^11.11.3", "@types/node@^11.13.0":
+"@types/node@^11.13.0":
   version "11.13.0"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-11.13.0.tgz#b0df8d6ef9b5001b2be3a94d909ce3c29a80f9e1"
   integrity sha512-rx29MMkRdVmzunmiA4lzBYJNnXsW/PhG4kMBy2ATsYaDjGGR75dCFEVVROKpNwlVdcUX3xxlghKQOeDPBJobng==
@@ -5530,13 +5530,6 @@ vue-template-es2015-compiler@^1.9.0:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
-
-vuefront-nuxt@vuefront/vuefront-nuxt:
-  version "1.0.0"
-  resolved "https://codeload.github.com/vuefront/vuefront-nuxt/tar.gz/38c09386b189bbb56424c713277aff484f4f5653"
-  dependencies:
-    "@types/node" "^11.11.3"
-    lodash "^4.17.11"
 
 watchpack@^1.5.0:
   version "1.6.0"

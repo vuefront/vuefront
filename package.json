@@ -20,8 +20,7 @@
   "dependencies": {
     "graphql": "^14.2.1",
     "lodash": "^4.17.11",
-    "omit-deep-lodash": "^1.1.4",
-    "vuefront-nuxt": "vuefront/vuefront-nuxt"
+    "omit-deep-lodash": "^1.1.4"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
