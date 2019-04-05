@@ -1,59 +1,65 @@
 {
-  "name": "vuefront",
-  "version": "0.0.3",
-  "description": "vuefront",
-  "files": [
-    "src",
-    "lib",
-    "es"
-  ],
-  "keywords": [
-    "ripeCSS"
-  ],
-  "main": "./src/index.js",
-  "author": "Dreamvention",
-  "license": "ISC",
-  "scripts": {
-    "build:component": "webpack --config build/webpack.component.js",
-    "build:common": "webpack --config build/webpack.common.js"
-  },
-  "dependencies": {
-    "graphql": "^14.2.1",
-    "lodash": "^4.17.11",
-    "omit-deep-lodash": "^1.1.4"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.4.3",
-    "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
-    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@babel/plugin-transform-runtime": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
-    "@babel/runtime": "^7.4.3",
-    "@purtuga/esm-webpack-plugin": "^1.0.1",
-    "@types/node": "^11.13.0",
-    "babel-cli": "^6.26.0",
-    "babel-loader": "^8.0.5",
-    "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-plugin-module-resolver": "^2.2.0",
-    "babel-plugin-syntax-jsx": "^6.18.0",
-    "babel-plugin-transform-vue-jsx": "^3.7.0",
-    "babel-preset-stage-2": "^6.24.1",
-    "babel-regenerator-runtime": "^6.5.0",
-    "css-loader": "^2.1.1",
-    "graphql-tag": "^2.10.1",
-    "node-sass": "^4.11.0",
-    "progress-bar-webpack-plugin": "^1.12.1",
-    "sass-loader": "^7.1.0",
-    "scss-loader": "^0.0.1",
-    "style-loader": "^0.23.1",
-    "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.2",
-    "ts-loader": "^5.3.3",
-    "url-loader": "^1.1.2",
-    "vue-loader": "^15.7.0",
-    "vue-template-compiler": "^2.6.10",
-    "webpack": "^4.29.6",
-    "webpack-cli": "^3.3.0",
-    "webpack-node-externals": "^1.7.2"
-  }
+    "name": "vuefront",
+    "version": "0.1.0",
+    "description": "vuefront",
+    "files": [
+        "lib",
+        "scss",
+        "src"
+    ],
+    "keywords": [
+        "vuefront"
+    ],
+    "main": "./src/index.js",
+    "author": "Dreamvention",
+    "license": "MIT",
+    "scripts": {
+        "build:component": "webpack --config build/webpack.component.js",
+        "build:common": "webpack --config build/webpack.common.js"
+    },
+    "peerDependencies": {
+        "vuex": "1.x",
+        "vue": "^2.6.10",
+        "vuetify": "^1.5.9",
+        "vue-apollo": "^3.0.0-beta.28"
+    },
+    "dependencies": {
+        "graphql": "^14.2.1",
+        "lodash": "^4.17.11",
+        "omit-deep-lodash": "^1.1.4"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.4.3",
+        "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
+        "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+        "@babel/plugin-transform-runtime": "^7.4.3",
+        "@babel/preset-env": "^7.4.3",
+        "@babel/runtime": "^7.4.3",
+        "@purtuga/esm-webpack-plugin": "^1.0.1",
+        "@types/node": "^11.13.0",
+        "babel-cli": "^6.26.0",
+        "babel-loader": "^8.0.5",
+        "babel-plugin-add-module-exports": "^0.2.1",
+        "babel-plugin-module-resolver": "^2.2.0",
+        "babel-plugin-syntax-jsx": "^6.18.0",
+        "babel-plugin-transform-vue-jsx": "^3.7.0",
+        "babel-preset-stage-2": "^6.24.1",
+        "babel-regenerator-runtime": "^6.5.0",
+        "css-loader": "^2.1.1",
+        "graphql-tag": "^2.10.1",
+        "node-sass": "^4.11.0",
+        "progress-bar-webpack-plugin": "^1.12.1",
+        "sass-loader": "^7.1.0",
+        "scss-loader": "^0.0.1",
+        "style-loader": "^0.23.1",
+        "stylus": "^0.54.5",
+        "stylus-loader": "^3.0.2",
+        "ts-loader": "^5.3.3",
+        "url-loader": "^1.1.2",
+        "vue-loader": "^15.7.0",
+        "vue-template-compiler": "^2.6.10",
+        "webpack": "^4.29.6",
+        "webpack-cli": "^3.3.0",
+        "webpack-node-externals": "^1.7.2"
+    }
 }
