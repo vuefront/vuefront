@@ -1,6 +1,6 @@
 {
   "name": "vuefront",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "vuefront",
   "files": [
     "lib",
@@ -22,12 +22,12 @@
     "@fortawesome/free-regular-svg-icons": "^5.8.1",
     "@fortawesome/free-solid-svg-icons": "^5.8.1",
     "@fortawesome/vue-fontawesome": "^0.1.6",
+    "alertifyjs": "^1.11.2",
     "bootstrap-vue": "^2.0.0-rc.18",
     "lodash": "^4.17.11",
     "omit-deep-lodash": "^1.1.4",
     "vue": "^2.6.6",
     "vue-apollo": "^3.0.0-beta.28",
-    "vuetify": "^1.5.9",
     "vuex": "^3.1.0"
   },
   "devDependencies": {
