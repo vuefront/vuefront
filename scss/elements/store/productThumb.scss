@@ -1,5 +1,9 @@
 .card-product {
+  margin-bottom: 30px;
   &_wide {
+  }
+
+  &__image {
   }
 
   &__price_special {
@@ -24,8 +28,14 @@
   }
 
   &__price {
+    font-size: 1rem;
+    font-weight: 600;
   }
 
-  &__actions {
+  .fa-w-18 {
+    width: 1.125rem;
+  }
+  .fa-w-16 {
+    width: 1rem;
   }
 }

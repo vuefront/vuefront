@@ -1,0 +1,3 @@
+<template>
+  <vf-footer/>
+</template>

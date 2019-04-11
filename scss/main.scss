@@ -1,1 +1,195 @@
-@import './modification/_import.scss';
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/bootstrap-vue/src/index.scss';
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+html,
+body {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #8492a6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  margin-bottom: 0.5rem;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.3;
+  color: #3c4858;
+}
+
+h1,
+h2,
+h3,
+.h1,
+.h2,
+.h3 {
+  font-weight: 500;
+}
+
+h4,
+h5,
+h6,
+.h4,
+.h5,
+.h6 {
+  font-weight: 600;
+}
+
+.border-radius-top-left-0 {
+  border-top-left-radius: 0 !important;
+}
+.border-radius-top-right-0 {
+  border-top-left-radius: 0 !important;
+}
+
+.text-xs {
+  font-size: 0.75rem !important;
+}
+
+.text-sm {
+  font-size: 0.875rem !important;
+}
+
+.text-lg {
+  font-size: 1.25rem !important;
+}
+
+.text-xl {
+  font-size: 1.5rem !important;
+}
+
+.btn-light-gray {
+  background-color: #eee;
+  &:hover {
+    background-color: #ddd;
+  }
+  &.active {
+    background-color: #ddd;
+  }
+}
+
+.btn-group-options .btn {
+  min-height: 4.8rem;
+  display: flex;
+  align-items: center;
+}
+
+.btn-neutral {
+  background-color: #fff;
+  color: #273444;
+  border: 1px solid #eff2f7;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  &:hover {
+    color: #273444;
+    border-color: #e5eaf2;
+    background-color: #f7f7f7;
+  }
+  &:focus,
+  &.focus {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15),
+      0 0 0 rgba(255, 255, 255, 0.35);
+  }
+  &:disabled,
+  &.disabled {
+    color: #273444;
+    background-color: #fff;
+    border-color: #fff;
+  }
+  &:not(:disabled):not(.disabled).active,
+  &:not(:disabled):not(.disabled):active {
+    border-color: #6e00ff;
+    color: #6e00ff;
+    background-color: #fff;
+    &.focus,
+    &:focus {
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        0 0 0 rgba(255, 255, 255, 0.35);
+    }
+  }
+}
+
+.table-cards {
+  thead {
+    th,
+    td {
+      border: 0 !important;
+      padding: 1rem;
+      position: relative;
+      background-color: transparent;
+    }
+  }
+  tbody {
+    th,
+    td {
+      border: 0 !important;
+      padding: 1rem;
+      position: relative;
+      background-color: transparent;
+    }
+    tr {
+      &:not(.table-divider) {
+        border-radius: 0.375rem;
+        -webkit-box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
+        box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
+      }
+      th {
+        border-radius: 0.375rem 0 0 0.375rem;
+        &:after {
+          border-radius: 0.375rem 0 0 0.375rem;
+          border-left: 1px solid #eff2f7;
+        }
+      }
+      td:last-child {
+        border-radius: 0 0.375rem 0.375rem 0;
+        &:after {
+          border-radius: 0 0.375rem 0.375rem 0;
+          border-right: 1px solid #eff2f7;
+        }
+      }
+      th,
+      td {
+        background-color: #fff;
+      }
+      th:after,
+      td:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-top: 1px solid #eff2f7;
+        border-bottom: 1px solid #eff2f7;
+        left: 0;
+        top: 0;
+        pointer-events: none;
+      }
+    }
+  }
+  tr.table-divider {
+    height: 1rem;
+  }
+  &.table-hover tbody > tr:hover {
+    th,
+    td {
+      background-color: #fafbfe;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .table-cards.table-scale--hover tr:hover {
+    -webkit-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+    transform: scale(1.02);
+  }
+}

@@ -1,8 +1,15 @@
 .nav-section {
-  padding: 16px 0;
-
+  padding: 12px 0;
+  &__navbar {
+    flex-direction: row;
+  }
   &__link {
     text-decoration: none;
+    color: inherit;
+    .nav-link {
+      padding: 0.5rem 0.5rem;
+      color: rgba(31, 45, 61, 0.5);
+    }
   }
 
   &__logo {
