@@ -1,8 +1,15 @@
 export default {
   plugins: [],
-  css: [
-    'vuefront/scss/main.scss'
-  ],
+  css: ['vuefront/scss/main.scss'],
+  pages: {
+      '/blog/category/:id': 'vuefront/lib/templates/blog/category',
+      '/blog/post/:id': 'vuefront/lib/templates/blog/post',
+      '/search/:slug': 'vuefront/lib/templates/common/search',
+      '/store/category/:id': 'vuefront/lib/templates/store/category',
+      '/store/product/:id': 'vuefront/lib/templates/store/product',
+      '/store/cart': 'vuefront/lib/templates/store/cart',
+      '/': 'vuefront/lib/templates/common/home'
+  },
   components: {
     Rating: 'vuefront/lib/elements/common/rating',
     Icon: 'vuefront/lib/elements/common/icon',
@@ -39,10 +46,10 @@ export default {
     Right: 'vuefront/lib/positions/right'
   },
   templates: {
-    Header: 'vuefront/lib/templates/header',
-    Footer: 'vuefront/lib/templates/footer',
-    Menu: 'vuefront/lib/templates/menu',
-    Layout: 'vuefront/lib/templates/layout'
+    Header: 'vuefront/lib/templates/common/header',
+    Footer: 'vuefront/lib/templates/common/footer',
+    Menu: 'vuefront/lib/templates/common/menu',
+    Layout: 'vuefront/lib/templates/common/layout'
   },
   modules: {
     SearchProduct: 'vuefront/lib/modules/store/searchProduct',
