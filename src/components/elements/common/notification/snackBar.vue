@@ -3,6 +3,7 @@
     <b-alert
       :show="dismissCountDown"
       variant="success"
+      class="mt-3"
       dismissible
       @dismissed="dismissCountDown=0"
       @dismiss-count-down="countDownChanged"
@@ -32,6 +33,7 @@ export default {
   watch: {
     messageNotification(val, oldVal) {
       this.dismissCountDown = 10;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   },
   methods: {

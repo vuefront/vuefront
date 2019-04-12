@@ -1,25 +1,18 @@
 <template>
-  <ApolloQuery
+  <vf-apollo
     :query="require('../../../graphql/modules/searchPost.graphql')"
     :variables="{search:keyword}"
   >
-    <template slot-scope="{ result: { data }, isLoading }">
-      <div v-if="isLoading">Loading...</div>
-      <div v-else-if="data.searchPosts.content.length > 0" class="home-page__latest_posts mb-5">
-        <div
-          class="home-page__latest_posts_title text-sm-center mb-5 h6"
-        >Search posts</div>
+    <template v-slot:default="{data}">
+      <div v-if="data.searchPosts.content.length > 0" class="home-page__latest_posts mb-5">
+        <div class="home-page__latest_posts_title text-sm-center mb-5 h6">Search posts</div>
         <vf-posts-grid :posts="data.searchPosts.content" :column="column"/>
       </div>
     </template>
-  </ApolloQuery>
+  </vf-apollo>
 </template>
 <script>
-import { ApolloQuery } from "vue-apollo";
 export default {
-  components: {
-    ApolloQuery
-  },
   props: {
     column: {
       type: Boolean,

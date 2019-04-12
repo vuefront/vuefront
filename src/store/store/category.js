@@ -63,7 +63,7 @@ export const actions = {
       { root: true }
     )
 
-    if (!rootGetters['error']) {
+    if (!rootGetters['vuefront/error']) {
       const { categoriesMenu } = rootGetters['apollo/get']
       commit('setCategoryMenu', categoriesMenu)
     }

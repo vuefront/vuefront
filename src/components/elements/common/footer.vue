@@ -1,24 +1,39 @@
 <template>
   <footer class="footer-section clearfix">
-    <b-container class="clearfix">
-      <div>
-        Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet. Mauris cursus commodo interdum. Praesent
-        ut risus eget metus luctus accumsan id ultrices nunc. Sed at orci sed massa consectetur dignissim a sit amet
-        dui. Duis commodo vitae velit et faucibus. Morbi vehicula lacinia malesuada. Nulla placerat augue vel ipsum
-        ultrices, cursus iaculis dui sollicitudin. Vestibulum eu ipsum vel diam elementum tempor vel ut orci. Orci
-        varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-      </div>
-      <hr>
-      <div class="pb-3">Dreamvention &copy;2018</div>
+    <b-container>
+      <b-row class="pt-md">
+        <b-col sm="4" class="mb-5 mb-lg-0">
+          <div>
+            <img :src="logo" alt style="height: 40px;" class="mb-3">
+            <p>Purpose is a unique and beautiful collection of UI elements that are all flexible and modular. A complete and customizable solution to building the website of your dreams.</p>
+          </div>
+        </b-col>
+        <b-col sm="4" md="6" lg="2" class="ml-lg-auto mb-5 mb-lg-0">
+          <vf-module-pages/>
+        </b-col>
+        <b-col sm="4" md="6" lg="2" class="mb-5 mb-lg-0"></b-col>
+        <b-col sm="4" md="6" lg="2" class="mb-5 mb-lg-0"></b-col>
+      </b-row>
+      <b-row class="py-4 mt-4 delimiter-top">
+        <b-col md="6">
+          <div class="text-sm font-weight-bold text-center text-md-left">&copy;2018 Dreamvention</div>
+        </b-col>
+        <b-col md="6"></b-col>
+      </b-row>
     </b-container>
   </footer>
 </template>
 <script>
 import BContainer from "bootstrap-vue/es/components/layout/container";
+import BRow from "bootstrap-vue/es/components/layout/row";
+import BCol from "bootstrap-vue/es/components/layout/col";
 import "vuefront/scss/elements/common/footer.scss";
 export default {
   components: {
-    BContainer
-  }
+    BContainer,
+    BRow,
+    BCol
+  },
+  props: ["logo"]
 };
 </script>

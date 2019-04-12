@@ -1,0 +1,8 @@
+query($id: Int) {
+  page(id: $id) {
+    id
+    title
+    description
+    sort_order
+  }
+}

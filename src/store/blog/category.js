@@ -1,7 +1,6 @@
 import { flatToTree } from '~/utils/flatToTree.js'
 import keys from 'lodash/keys'
 import categoryMenuGql from '~/graphql/blog/category/menu.graphql'
-
 export const state = () => ({
   menuItems: [],
   category: {}
@@ -54,7 +53,7 @@ export const actions = {
       },
       { root: true }
     )
-    if (!rootGetters['error']) {
+    if (!rootGetters['vuefront/error']) {
       const { categoriesMenu } = rootGetters['apollo/get']
       commit('setCategoryBlogMenu', categoriesMenu)
     }

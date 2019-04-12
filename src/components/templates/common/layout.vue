@@ -18,7 +18,7 @@
         <vf-position-bottom class="py-3"/>
       </div>
     </b-container>
-    <vf-template-footer/>
+    <vf-template-footer :logo="logo"/>
   </div>
 </template>
 <script>

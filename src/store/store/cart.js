@@ -29,7 +29,7 @@ export const actions = {
       { root: true }
     )
 
-    if (!rootGetters['error']) {
+    if (!rootGetters['vuefront/error']) {
       commit('setCart', rootGetters['apollo/get'].cart)
     }
   },
@@ -49,7 +49,7 @@ export const actions = {
       }
     )
 
-    if (!rootGetters['error']) {
+    if (!rootGetters['vuefront/error']) {
       commit('setCart', rootGetters['apollo/get'].addToCart)
     }
   },
@@ -68,7 +68,7 @@ export const actions = {
       }
     )
 
-    if (!rootGetters['error']) {
+    if (!rootGetters['vuefront/error']) {
       commit('setCart', rootGetters['apollo/get'].updateCart)
     }
   },
@@ -86,7 +86,7 @@ export const actions = {
       }
     )
 
-    if (!rootGetters['error']) {
+    if (!rootGetters['vuefront/error']) {
       commit('setCart', rootGetters['apollo/get'].removeCart)
     }
   }

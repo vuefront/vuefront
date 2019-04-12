@@ -7,6 +7,13 @@ body {
   font-weight: 400;
   line-height: 1.7;
   color: #8492a6;
+
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 h1,
@@ -188,8 +195,42 @@ h6,
 
 @media (min-width: 768px) {
   .table-cards.table-scale--hover tr:hover {
-    -webkit-transform: scale(1.02);
-    -ms-transform: scale(1.02);
     transform: scale(1.02);
   }
 }
+
+.delimiter-top, .delimiter-bottom {
+    position: relative;
+    border: 0;
+  }
+  
+  .delimiter-top:before {
+    content: "";
+    display: block;
+    width: 80%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -40%;
+    height: 1px;
+    background: radial-gradient(ellipse at center, rgba(222, 228, 239, 0.2) 0, rgba(255, 255, 255, 0) 75%);
+  }
+  
+  .delimiter-bottom:after {
+    content: "";
+    display: block;
+    width: 80%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -40%;
+    height: 1px;
+    background: radial-gradient(ellipse at center, rgba(222, 228, 239, 0.2) 0, rgba(255, 255, 255, 0) 75%);
+  }
+  
+  .delimiter-dark {
+    &:before, &:after {
+      background: -o-radial-gradient(center, ellipse, rgba(255, 255, 255, 0.2) 0, rgba(31, 45, 61, 0) 75%);
+      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.2) 0, rgba(31, 45, 61, 0) 75%);
+    }
+  }

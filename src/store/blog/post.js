@@ -1,5 +1,4 @@
 import reviewAddGql from '~/graphql/blog/review/addReview.graphql'
-
 export const state = {
   entities: {},
   post: {}
@@ -36,7 +35,7 @@ export const actions = {
       }
     )
 
-    if (!rootGetters['error']) {
+    if (!rootGetters['vuefront/error']) {
       commit('setPost', rootGetters['apollo/get'].addBlogPostReview)
     }
   }

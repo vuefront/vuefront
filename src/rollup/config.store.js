@@ -4,12 +4,14 @@ import cleanup from 'rollup-plugin-cleanup'
 import alias from 'rollup-plugin-alias'
 import path from 'path'
 import { name, dependencies } from '../../package.json'
+const isWin = process.platform === "win32";
+const slash = isWin ? '\\' : '/'
 const base = path.resolve(__dirname, '../..')
 const stores = path.resolve(base, 'src/store')
 const dist = path.resolve(base, 'lib')
 const src = path.resolve(base, 'src')
 const _default = filePath => {
-    const componentPath = path.resolve(filePath).replace(stores + '/', '')
+    const componentPath = path.resolve(filePath).replace(stores + slash, '')
 
     const externals = ['vue', name, ...Object.keys(dependencies)]
 

@@ -36,7 +36,7 @@ export const actions = {
       }
     )
 
-    if (!rootGetters['error']) {
+    if (!rootGetters['vuefront/error']) {
       commit('setProduct', rootGetters['apollo/get'].addReview)
     }
   }

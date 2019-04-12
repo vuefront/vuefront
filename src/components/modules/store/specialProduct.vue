@@ -1,23 +1,11 @@
 <template>
   <div class="home-page__latest_products mb-5">
-    <div
-      class="home-page__latest_products_title text-sm-center mb-5 h6"
-    >Special products</div>
-    <ApolloQuery :query="require('~/graphql/modules/specialProduct.graphql')">
-      <template slot-scope="{ result: { data }, isLoading }">
-        <div v-if="isLoading">Loading...</div>
-        <vf-products-grid v-else :products="data.specialProducts.content"/>
+    <div class="home-page__latest_products_title text-sm-center mb-5 h6">Special products</div>
+    <vf-apollo :query="require('~/graphql/modules/specialProduct.graphql')">
+      <template v-slot:default="{data}">
+        <vf-products-grid :products="data.specialProducts.content"/>
       </template>
-    </ApolloQuery>
+    </vf-apollo>
   </div>
 </template>
-<script>
-import { ApolloQuery } from "vue-apollo";
-
-export default {
-  components: {
-    ApolloQuery
-  }
-};
-</script>
 
