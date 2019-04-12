@@ -19,7 +19,7 @@ const _default = filePath => {
     return {
         input: 'src/components/' + componentPath,
         output: {
-            file: path.resolve(dist, componentPath.replace('.vue', '.js'))
+            file: path.resolve(dist, 'components/' + componentPath.replace('.vue', '.js'))
         },
         external: path => {
             let result = false
