@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-pagination v-if="totalPages > 1" :value="page" :per-page="totalPages" @input="handleChange"/>
+    <b-pagination v-if="totalPages > 1" :value="page" :total-rows="totalPages" @input="handleChange"/>
   </div>
 </template>
 <script>
