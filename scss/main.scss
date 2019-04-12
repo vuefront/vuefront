@@ -199,38 +199,68 @@ h6,
   }
 }
 
-.delimiter-top, .delimiter-bottom {
-    position: relative;
-    border: 0;
+.delimiter-top,
+.delimiter-bottom {
+  position: relative;
+  border: 0;
+}
+
+.delimiter-top:before {
+  content: '';
+  display: block;
+  width: 80%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -40%;
+  height: 1px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(222, 228, 239, 0.2) 0,
+    rgba(255, 255, 255, 0) 75%
+  );
+}
+
+.delimiter-bottom:after {
+  content: '';
+  display: block;
+  width: 80%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -40%;
+  height: 1px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(222, 228, 239, 0.2) 0,
+    rgba(255, 255, 255, 0) 75%
+  );
+}
+
+.delimiter-dark {
+  &:before,
+  &:after {
+    background: -o-radial-gradient(
+      center,
+      ellipse,
+      rgba(255, 255, 255, 0.2) 0,
+      rgba(31, 45, 61, 0) 75%
+    );
+    background: radial-gradient(
+      ellipse at center,
+      rgba(255, 255, 255, 0.2) 0,
+      rgba(31, 45, 61, 0) 75%
+    );
   }
-  
-  .delimiter-top:before {
-    content: "";
-    display: block;
-    width: 80%;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    margin-left: -40%;
-    height: 1px;
-    background: radial-gradient(ellipse at center, rgba(222, 228, 239, 0.2) 0, rgba(255, 255, 255, 0) 75%);
-  }
-  
-  .delimiter-bottom:after {
-    content: "";
-    display: block;
-    width: 80%;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    margin-left: -40%;
-    height: 1px;
-    background: radial-gradient(ellipse at center, rgba(222, 228, 239, 0.2) 0, rgba(255, 255, 255, 0) 75%);
-  }
-  
-  .delimiter-dark {
-    &:before, &:after {
-      background: -o-radial-gradient(center, ellipse, rgba(255, 255, 255, 0.2) 0, rgba(31, 45, 61, 0) 75%);
-      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.2) 0, rgba(31, 45, 61, 0) 75%);
-    }
-  }
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:active:focus:not(:disabled):not(.disabled),
+.btn:focus,
+.btn:active,
+.btn:hover {
+  box-shadow: none !important;
+  outline: 0;
+}

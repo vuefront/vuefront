@@ -24,7 +24,10 @@
               <b-badge v-else variant="danger" pill>Out of stock</b-badge>
             </b-col>
           </b-row>
-          <div class="my-4 py-4 border-bottom border-top">
+          <div
+            class="my-4 py-4 border-top"
+            :class="{'border-bottom': product.attributes.lenght > 0}"
+          >
             <h6 class="product-info__description-title text-sm mb-1">Description:</h6>
             <div class="product-info__description text-sm" v-html="product.description"/>
           </div>

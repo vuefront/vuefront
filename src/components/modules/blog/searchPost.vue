@@ -1,14 +1,13 @@
 <template>
   <vf-apollo
+    v-slot="{data}"
     :query="require('../../../graphql/modules/searchPost.graphql')"
     :variables="{search:keyword}"
   >
-    <template v-slot:default="{data}">
-      <div v-if="data.searchPosts.content.length > 0" class="home-page__latest_posts mb-5">
-        <div class="home-page__latest_posts_title text-sm-center mb-5 h6">Search posts</div>
-        <vf-posts-grid :posts="data.searchPosts.content" :column="column"/>
-      </div>
-    </template>
+    <div v-if="data.searchPosts.content.length > 0" class="home-page__latest_posts mb-5">
+      <div class="home-page__latest_posts_title text-sm-center mb-5 h6">Search posts</div>
+      <vf-posts-grid :posts="data.searchPosts.content" :column="column"/>
+    </div>
   </vf-apollo>
 </template>
 <script>
