@@ -18,7 +18,7 @@
         <vf-position-bottom class="py-3"/>
       </div>
     </b-container>
-    <vf-template-footer :logo="logo"/>
+    <vf-template-footer :logo="footerLogo"/>
   </div>
 </template>
 <script>
@@ -36,6 +36,10 @@ export default {
   },
   props: {
     logo: {
+      type: String,
+      default: ""
+    },
+    footerLogo: {
       type: String,
       default: ""
     }
