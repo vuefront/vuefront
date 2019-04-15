@@ -57,7 +57,7 @@ export const actions = {
       {
         query: categoryMenuGql,
         variables: {
-          parent: 0
+          parent: -1
         }
       },
       { root: true }

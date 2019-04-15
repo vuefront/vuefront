@@ -16,6 +16,7 @@
       v-if="products.content.length > 0"
       :products="products.content"
       :list="isList"
+      :grid-size="gridSize"
       class="mb-4"
     />
     <vf-empty
@@ -40,6 +41,7 @@
 <script>
 import { mapGetters } from "vuex";
 import categoryPageGql from "~/graphql/store/category/page.graphql";
+import { BaseModule } from "~/utils/module.js";
 export default {
   head() {
     return {
@@ -117,6 +119,7 @@ export default {
       ]
     };
   },
+  mixins: [BaseModule],
   computed: {
     ...mapGetters({
       category: "store/category/get",
@@ -125,6 +128,15 @@ export default {
     }),
     isList() {
       return this.mode === "list";
+    },
+    gridSize() {
+        if(this.checkModules('columnLeft') && this.checkModules('columnRight')) {
+            return 2
+        } else if(this.checkModules('columnLeft') || this.checkModules('columnRight')) {
+            return 3
+        } else {
+            return 4
+        }
     }
   },
   async asyncData({ store, route, params: { id } }) {

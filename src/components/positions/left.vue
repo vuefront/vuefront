@@ -9,7 +9,7 @@ import {BaseLayout} from '~/utils/baseLayout.js'
 export default {
   data() {
     return {
-      position: 'colunmLeft'
+      position: 'columnLeft'
     }
   },
   mixins: [BaseLayout]
