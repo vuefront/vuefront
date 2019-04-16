@@ -1,0 +1,12 @@
+{
+  categoriesBlogList(page: 1, size: 10, parent: 0) {
+    content {
+      id
+      name
+      categories {
+        id
+        name
+      }
+    }
+  }
+}

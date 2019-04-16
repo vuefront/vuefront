@@ -1,10 +1,19 @@
-query($parent: Int){
-    categoriesMenu: categoriesList(parent: $parent, size: -1) {
-        content {
-            id
-            name
-            image
-            parent_id
+query($url: String) {
+  categoriesMenu: categoriesList(parent: 0, size: -1) {
+    content {
+      id
+      title: name
+      to: url(url: $url)
+      children: categories {
+        id
+        title: name
+        to: url(url: $url)
+        children: categories {
+          id
+          title: name
+          to: url(url: $url)
         }
+      }
     }
+  }
 }

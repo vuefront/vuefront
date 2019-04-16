@@ -116,6 +116,7 @@ export default {
     FeaturedProduct: 'vuefront/lib/components/modules/store/featuredProduct',
     Slideshow: 'vuefront/lib/components/modules/common/slideshow',
     Pages: 'vuefront/lib/components/modules/common/pages',
-    StoreCategory: 'vuefront/lib/components/modules/store/category'
+    StoreCategory: 'vuefront/lib/components/modules/store/category',
+    BlogCategory: 'vuefront/lib/components/modules/blog/category'
   }
 }

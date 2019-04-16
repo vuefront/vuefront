@@ -1,13 +1,14 @@
 <template>
   <section class="blog-category">
     <vf-category-blog :category="category" class="mb-5"/>
-    <vf-posts-grid :posts="posts.content"/>
+    <vf-posts-grid :posts="posts.content" :grid-size="gridSize"/>
     <vf-pagination :page="page" :totalPages="totalPages" @input="handleChangePage"/>
   </section>
 </template>
 <script>
 import { mapGetters } from "vuex";
 import categoryPageGql from "~/graphql/blog/category/page.graphql";
+import { BaseModule } from "~/utils/module.js";
 
 export default {
   head() {
@@ -26,8 +27,18 @@ export default {
     ...mapGetters({
       posts: "blog/post/list",
       category: "blog/category/get"
-    })
+    }),
+    gridSize() {
+        if(this.checkModules('columnLeft') && this.checkModules('columnRight')) {
+            return 2
+        } else if(this.checkModules('columnLeft') || this.checkModules('columnRight')) {
+            return 3
+        } else {
+            return 4
+        }
+    }
   },
+  mixins: [BaseModule],
   watchQuery: true,
   methods: {
     async handleChangePage(page) {

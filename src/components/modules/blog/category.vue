@@ -1,10 +1,10 @@
 <template>
-  <vf-apollo v-slot="{data}" :query="require('~/graphql/modules/storeCategory.graphql')">
-    <div class="categoriesList mb-4">
+  <vf-apollo v-slot="{data}" :query="require('~/graphql/modules/blogCategory.graphql')">
+    <div class="categoriesBlogList mb-4">
       <b-list-group>
-        <template v-for="(value, index) in data.categoriesList.content">
+        <template v-for="(value, index) in data.categoriesBlogList.content">
           <b-list-group-item
-            :to="`/store/category/${value.id}`"
+            :to="`/blog/category/${value.id}`"
             :key="`root-${index}`"
             :active="checkView(value, value.categories)"
             v-html="value.name"
@@ -13,7 +13,7 @@
             <b-list-group-item
               v-for="(subValue, subIndex) in value.categories"
               :key="`sub-${subIndex}`"
-              :to="`/store/category/${subValue.id}`"
+              :to="`/blog/category/${subValue.id}`"
               :active="Number(subValue.id) === id"
               v-html="`&nbsp;&nbsp;&nbsp;- ${subValue.name}`"
             />

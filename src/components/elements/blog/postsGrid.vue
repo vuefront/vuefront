@@ -1,7 +1,7 @@
 <template>
   <b-container fluid class="p-0">
     <b-row>
-      <b-col sm="12" :md="column ? 12 : 3" v-for="(value, index) in posts" :key="index">
+      <b-col sm="12" :md="column ? 12 : 12 / gridSize" v-for="(value, index) in posts" :key="index">
         <vf-post-thumb :post="value"/>
       </b-col>
     </b-row>
@@ -25,6 +25,10 @@ export default {
     column: {
       type: Boolean,
       default: false
+    },
+    gridSize: {
+      type: Number,
+      default: 4
     }
   }
 };

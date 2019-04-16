@@ -1,7 +1,7 @@
 <template>
   <b-container fluid class="p-0">
     <b-row>
-      <b-col sm="12" :md="list? 12: 12 / gridSize" v-for="(value, index) in products" :key="index">
+      <b-col sm="12" :md="list || column? 12: 12 / gridSize" v-for="(value, index) in products" :key="index">
         <vf-product-thumb :product="value" :wide="list"/>
       </b-col>
     </b-row>
@@ -21,6 +21,10 @@ export default {
     products: {
       type: Array,
       default: []
+    },
+    column: {
+      type: Boolean,
+      default: false
     },
     list: {
       type: Boolean,

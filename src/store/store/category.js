@@ -1,5 +1,3 @@
-import { flatToTree } from '~/utils/flatToTree.js'
-import keys from 'lodash/keys'
 import categoryMenuGql from '~/graphql/store/category/menu.graphql'
 
 export const state = {
@@ -22,24 +20,7 @@ export const getters = {
 
 export const mutations = {
   setCategoryMenu(state, categories) {
-    let result = []
-
-    for (const key of keys(categories.content)) {
-      const categoryInfo = categories.content[key]
-      result = [
-        ...result,
-        {
-          id: Number(categoryInfo.id),
-          parent_id: Number(categoryInfo.parent_id),
-          title: categoryInfo.name,
-          to: `/store/category/${categoryInfo.id}`
-        }
-      ]
-    }
-
-    result = flatToTree(result, { parentId: 'parent_id' })
-
-    state.menuItems = result
+    state.menuItems = categories.content
   },
   setCategory(state, category) {
     state.category = category
@@ -57,7 +38,7 @@ export const actions = {
       {
         query: categoryMenuGql,
         variables: {
-          parent: -1
+            url: '/store/category/_id'
         }
       },
       { root: true }

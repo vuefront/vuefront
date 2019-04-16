@@ -49,9 +49,12 @@ export default {
     contentWidth() {
       let result = 12;
       if (this.checkModules("columnLeft") && this.checkModules("columnRight")) {
-          result = 6
-      } else if (this.checkModules("columnLeft") || this.checkModules("columnRight")) {
-          result = 9
+        result = 6;
+      } else if (
+        this.checkModules("columnLeft") ||
+        this.checkModules("columnRight")
+      ) {
+        result = 9;
       }
       return result;
     }

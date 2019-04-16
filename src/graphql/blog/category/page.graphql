@@ -16,5 +16,11 @@ query($page: Int, $size: Int, $categoryId: Int) {
         id
         name
         description
+        categories {
+            id
+            name
+            image
+            imageLazy
+        }
     }
 }

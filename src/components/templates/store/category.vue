@@ -21,20 +21,8 @@
     />
     <vf-empty
       v-if="products.content.length === 0"
-      class="text-xs-center"
+      class="text-sm-center"
     >There are no products to list in this category.</vf-empty>
-    <vf-sort
-      v-if="products.content.length > 0"
-      :sorts="sortOptions"
-      :sizes="sizeOptions"
-      :size="size"
-      :sort="sort"
-      :mode="mode"
-      @changeSize="handleChangeSize"
-      @changeSort="handleChangeSort"
-      @changeMode="handleChangeMode"
-      class="mb-5"
-    />
     <vf-pagination :page="page" :totalPages="totalPages" @input="handleChangePage"/>
   </section>
 </template>
