@@ -1,0 +1,11 @@
+mutation {
+  accountCheckLogged {
+    status
+    customer {
+      id
+      lastName
+      firstName
+      email
+    }
+  }
+}

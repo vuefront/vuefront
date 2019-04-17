@@ -16,4 +16,5 @@ const storeFiles = glob.sync(dirStores + '/**/*.js')
 for (const key in storeFiles) {
   configs = [...configs, getConfigStore(storeFiles[key])]
 }
+
 export default configs

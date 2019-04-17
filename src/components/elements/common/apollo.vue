@@ -1,17 +1,30 @@
 <template>
-  <ApolloQuery v-bind="$props">
-    <template slot-scope="{ result: { data }, isLoading }">
-      <vf-loader v-if="isLoading"/>
-      <slot v-else :data="data"></slot>
-    </template>
-  </ApolloQuery>
+  <div>
+    <vf-loader v-if="loading"/>
+    <slot v-else :data="data"></slot>
+  </div>
 </template>
 <script>
-import { ApolloQuery } from "vue-apollo";
 export default {
-  components: {
-    ApolloQuery
+  props: ["query", "variables"],
+  data() {
+    return {
+      loading: true,
+      data: {},
+      error: {}
+    };
   },
-  props: ["query", "variables"]
+  async mounted() {
+    try {
+      const { data } = await this.$vfapollo.query({
+        query: this.query,
+        variables: this.variables ? this.variables : {}
+      });
+      this.data = data;
+      this.loading = false;
+    } catch (e) {
+      this.error = {};
+    }
+  }
 };
 </script>

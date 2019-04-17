@@ -15,10 +15,10 @@ export const getters = {
 }
 
 export const actions = {
-  async nuxtClientInit({ dispatch }) {
-    await dispatch('store/cart/load', {}, { root: true })
-  },
   async nuxtServerInit({ dispatch, commit, rootGetters }) {
+    await dispatch('store/cart/load', {}, { root: true })
+    await dispatch('common/customer/checkLogged', {}, { root: true })
+   
     await dispatch('store/category/loadMenu', {}, { root: true })
     await commit('menu/addEntities', rootGetters['store/category/menu'], {
       root: true

@@ -20,8 +20,8 @@ export const actions = {
   async query({commit}, options) {
     try {
       const variables = omitDeepLodash(options.variables, '__typename')
-      const client = this.app.apolloProvider.defaultClient
-      let res = await client.query({...options, variables})
+      let res = await this.$vfapollo.query({...options, variables})
+
       res = omitDeepLodash(res, '__typename')
       commit('vuefront/setError', false, {root: true})
       commit('setData', res)
@@ -34,11 +34,12 @@ export const actions = {
   async mutate({commit}, options) {
     try {
       const variables = omitDeepLodash(options.variables, '__typename')
-      const client = this.app.apolloProvider.defaultClient
-      const res = await client.mutate({...options, variables})
+      const res = await this.$vfapollo.mutate({...options, variables})
+
       commit('vuefront/setError', false, {root: true})
       commit('setData', res)
     } catch (e) {
+
       commit('vuefront/setError', e.graphQLErrors ? e.graphQLErrors[0] : e, {
         root: true
       })

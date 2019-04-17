@@ -1,0 +1,8 @@
+mutation($customer: CustomerInput) {
+  accountRegister(customer: $customer) {
+    id
+    firstName
+    lastName
+    email
+  }
+}

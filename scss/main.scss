@@ -1,6 +1,9 @@
+@import 'node_modules/bootstrap/scss/functions';
+@import 'variables.scss';
 @import 'node_modules/bootstrap/scss/bootstrap';
-@import 'node_modules/bootstrap-vue/src/index.scss';
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+// @import 'purpose/purpose.scss';
+@import 'node_modules/bootstrap-vue/src/index.scss';
 html,
 body {
   font-family: 'Nunito', sans-serif;

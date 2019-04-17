@@ -2,6 +2,9 @@ export default {
   plugins: [],
   css: ['vuefront/scss/main.scss'],
   pages: {
+    '/account': 'vuefront/lib/components/templates/common/account/account',
+    '/account/login': 'vuefront/lib/components/templates/common/account/login',
+    '/account/register': 'vuefront/lib/components/templates/common/account/register',
     '/blog/category/:id': 'vuefront/lib/components/templates/blog/category',
     '/blog/post/:id': 'vuefront/lib/components/templates/blog/post',
     '/search/:slug': 'vuefront/lib/components/templates/common/search',
@@ -47,6 +50,10 @@ export default {
       module: 'vuefront/lib/store/common/page'
     },
     {
+      path: ['common', 'customer'],
+      module: 'vuefront/lib/store/common/customer'
+    },
+    {
       path: ['store']
     },
     {
@@ -63,6 +70,9 @@ export default {
     }
   ],
   components: {
+    AccountLogin: 'vuefront/lib/components/elements/common/account/login',
+    AccountRegister: 'vuefront/lib/components/elements/common/account/register',
+    AccountNew: 'vuefront/lib/components/elements/common/account/new',
     Apollo: 'vuefront/lib/components/elements/common/apollo',
     Loader: 'vuefront/lib/components/elements/common/loader',
     Page: 'vuefront/lib/components/elements/common/page',
