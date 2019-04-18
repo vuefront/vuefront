@@ -19,6 +19,7 @@ export const actions = {
     await Promise.all([
       dispatch('store/cart/load', {}, { root: true }),
       dispatch('store/wishlist/load', {}, { root: true }),
+      dispatch('store/compare/load', {}, { root: true }),
       dispatch('common/customer/checkLogged', {}, { root: true }),
       dispatch('store/category/loadMenu', {}, { root: true }),
       dispatch('blog/category/loadMenu', {}, { root: true })

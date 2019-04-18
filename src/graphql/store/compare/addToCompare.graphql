@@ -1,0 +1,13 @@
+mutation($id: Int) {
+  addToCompare(id: $id) {
+    id
+    name
+    shortDescription
+    model
+    price
+    special
+    stock
+    image
+    imageLazy
+  }
+}

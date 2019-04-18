@@ -6,6 +6,7 @@ export default {
     '/account/login': 'vuefront/lib/components/templates/common/account/login',
     '/account/register': 'vuefront/lib/components/templates/common/account/register',
     '/account/wishlist': 'vuefront/lib/components/templates/store/wishlist',
+    '/store/compare': 'vuefront/lib/components/templates/store/compare',
     '/blog/category/:id': 'vuefront/lib/components/templates/blog/category',
     '/blog/post/:id': 'vuefront/lib/components/templates/blog/post',
     '/search/:slug': 'vuefront/lib/components/templates/common/search',
@@ -66,6 +67,10 @@ export default {
       module: 'vuefront/lib/store/store/wishlist'
     },
     {
+      path: ['store', 'compare'],
+      module: 'vuefront/lib/store/store/compare'
+    },
+    {
       path: ['store', 'category'],
       module: 'vuefront/lib/store/store/category'
     },
@@ -109,7 +114,8 @@ export default {
     Breadcrumbs: 'vuefront/lib/components/elements/common/breadcrumbs',
     Header: 'vuefront/lib/components/elements/common/header',
     Footer: 'vuefront/lib/components/elements/common/footer',
-    Wishlist: 'vuefront/lib/components/elements/store/wishlist'
+    Wishlist: 'vuefront/lib/components/elements/store/wishlist',
+    Compare: 'vuefront/lib/components/elements/store/compare'
   },
   positions: {
     Top: 'vuefront/lib/components/positions/top',

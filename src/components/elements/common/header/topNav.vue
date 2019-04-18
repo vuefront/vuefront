@@ -6,7 +6,7 @@
           <b-nav-item to="/store/cart" class="top-nav__link ml-auto">Support</b-nav-item>
           <b-nav-item-dropdown class="top-nav__dropdown" right>
             <template slot="button-content">
-              <vf-icon icon="user-circle"/>
+              <vf-icon :icon="['far', 'user-circle']"/>
             </template>
             <b-dropdown-item v-if="!auth" to="/account/login">Sign In</b-dropdown-item>
             <b-dropdown-item v-if="!auth" to="/account/register">Register</b-dropdown-item>

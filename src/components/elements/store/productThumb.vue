@@ -36,6 +36,9 @@
           <b-button variant="light-gray" class="border border-radius-top-right-0" @click="handleAddToWishlist">
             <vf-icon :icon="['fas', 'heart']"/>
           </b-button>
+          <b-button variant="light-gray" class="border border-radius-top-right-0" @click="handleAddToCompare">
+            <vf-icon :icon="['fas', 'exchange-alt']"/>
+          </b-button>
         </b-button-group>
       </b-col>
     </b-row>
@@ -88,6 +91,16 @@ export default {
       );
 
       await this.$store.dispatch("store/wishlist/add", {
+        id: Number(this.product.id)
+      });
+    },
+    async handleAddToCompare() {
+      this.$store.commit(
+        "notification/add",
+        `${this.product.name} product successfully added to compare`
+      );
+
+      await this.$store.dispatch("store/compare/add", {
         id: Number(this.product.id)
       });
     }

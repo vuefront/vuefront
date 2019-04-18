@@ -1,0 +1,18 @@
+.compare {
+  &__action {
+    cursor: pointer;
+  }
+  &__products {
+    display: flex;
+    flex-flow: column;
+  }
+  &__item {
+    display: flex;
+    flex-flow: row;
+  }
+  &__item_value {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+}
