@@ -1,19 +1,27 @@
 import omitDeepLodash from 'omit-deep-lodash'
 
 export const state = {
-  data: {}
+  data: {},
+  prefetchData: {}
 }
 
 export const getters = {
   get(state) {
     return state.data
+  },
+  prefetchData(state) {
+    return state.prefetchData
   }
 }
 
 export const mutations = {
   setData(state, payload) {
     state.data = payload.data
+  },
+  setPrefetchData(state, {key, data}) {
+    state.prefetchData[key] = data
   }
+
 }
 
 export const actions = {

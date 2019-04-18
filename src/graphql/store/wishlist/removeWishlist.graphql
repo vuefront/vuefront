@@ -1,0 +1,10 @@
+mutation($id: String) {
+  removeWishlist(id: $id) {
+    id
+    name
+    model
+    price
+    image
+    imageLazy
+  }
+}

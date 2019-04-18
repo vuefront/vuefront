@@ -2,7 +2,7 @@
   <section class="sort-section mb-4">
     <b-row>
       <b-col sm="6" md="2">
-        <b-button-group>
+        <b-button-group size="sm">
           <b-button :pressed="mode === 'grid'" variant="light-gray" @click="modeValue='grid'">
             <vf-icon icon="th"/>
           </b-button>

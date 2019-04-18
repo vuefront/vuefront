@@ -16,16 +16,19 @@ export const getters = {
 
 export const actions = {
   async nuxtServerInit({ dispatch, commit, rootGetters }) {
-    await dispatch('store/cart/load', {}, { root: true })
-    await dispatch('common/customer/checkLogged', {}, { root: true })
-   
-    await dispatch('store/category/loadMenu', {}, { root: true })
-    await commit('menu/addEntities', rootGetters['store/category/menu'], {
+    await Promise.all([
+      dispatch('store/cart/load', {}, { root: true }),
+      dispatch('store/wishlist/load', {}, { root: true }),
+      dispatch('common/customer/checkLogged', {}, { root: true }),
+      dispatch('store/category/loadMenu', {}, { root: true }),
+      dispatch('blog/category/loadMenu', {}, { root: true })
+    ])
+
+    commit('menu/addEntities', rootGetters['store/category/menu'], {
       root: true
     })
 
-    await dispatch('blog/category/loadMenu', {}, { root: true })
-    await commit('menu/addEntities', rootGetters['blog/category/menu'], {
+    commit('menu/addEntities', rootGetters['blog/category/menu'], {
       root: true
     })
     if (this.$cookies.get('mode')) {

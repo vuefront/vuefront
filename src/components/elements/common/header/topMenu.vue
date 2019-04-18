@@ -2,20 +2,20 @@
   <b-container class="px-0">
     <section class="nav-menu-section">
       <div class="nav-menu-section__item" v-for="(item, index) in items" :key="index">
-        <nuxt-link :to="item.to" class="nav-menu-section__item_link">
+        <b-link :to="item.to" class="nav-menu-section__item_link">
           <div class="nav-menu-section__item_title body-2">{{item.title}}</div>
           <vf-icon
             icon="angle-down"
             v-if="item.children.length > 0"
             class="nav-menu-section__item_icon"
           />
-        </nuxt-link>
+        </b-link>
         <div
           v-if="item.children.length > 0"
           class="nav-menu-section__sub_menu nav-menu-section__sub_menu--vertical"
         >
           <div class="nav-menu-section__item" v-for="(subItem, key) in item.children" :key="key">
-            <nuxt-link
+            <b-link
               :to="subItem.to"
               class="nav-menu-section__item_link nav-menu-section__item_link--size_big"
             >
@@ -25,7 +25,7 @@
                 icon="angle-right"
                 class="nav-menu-section__item_icon nav-menu-section__item_icon--float"
               />
-            </nuxt-link>
+            </b-link>
             <div
               v-if="subItem.children.length > 0"
               class="nav-menu-section__sub_menu nav-menu-section__sub_menu--horizontal"
@@ -35,12 +35,12 @@
                 v-for="(value, subKey) in subItem.children"
                 :key="subKey"
               >
-                <nuxt-link
+                <b-link
                   :to="value.to"
                   class="nav-menu-section__item_link nav-menu-section__item_link--size_medium"
                 >
                   <div class="nav-menu-section__item_title subheading">{{value.title}}</div>
-                </nuxt-link>
+                </b-link>
               </div>
             </div>
           </div>
@@ -51,10 +51,12 @@
 </template>
 <script>
 import BContainer from "bootstrap-vue/es/components/layout/container";
+import BLink from "bootstrap-vue/es/components/link/link";
 import "vuefront/scss/elements/common/header/topMenu.scss";
 export default {
   components: {
-    BContainer
+    BContainer,
+    BLink
   },
   props: {
     items: {

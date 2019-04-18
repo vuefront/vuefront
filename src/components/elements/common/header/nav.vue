@@ -9,8 +9,8 @@
         <b-nav tag="div">
           <b-nav-item to="/store/cart" class="nav-section__link">
             <vf-icon icon="shopping-cart"/>
+            Shopping Cart
           </b-nav-item>
-          <b-nav-item to="/store/cart" class="nav-section__link">Support</b-nav-item>
         </b-nav>
       </b-nav-bar-nav>
     </b-container>

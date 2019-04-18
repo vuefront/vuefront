@@ -1,35 +1,31 @@
   <template>
-  <section class="shopping-cart">
-    <div class="shopping-cart__products">
-      <b-table :fields="fields" :items="cart.products" class="table-cards">
+  <section class="wishlist">
+    <div class="wishlist__products">
+      <b-table :fields="fields" :items="wishlist" class="table-wishlist">
         <template slot="product" slot-scope="data">
           <b-media no-body>
             <b-media-aside vertical-align="center" class="pl-3">
               <b-img-lazy
-                :src="data.item.product.image"
-                :blank-src="data.item.product.imageLazy"
+                :src="data.item.image"
+                :blank-src="data.item.imageLazy"
                 width="80"
                 height="80"
               />
             </b-media-aside>
             <b-media-body class="pl-3">
               <div class="lh-100">
-                <span class="text-dark font-weight-bold mb-0">{{data.item.product.name}}</span>
+                <span class="text-dark font-weight-bold mb-0">{{data.item.name}}</span>
               </div>
-              <span class="font-weight-bold text-muted">{{data.item.product.model}}</span>
+              <span class="font-weight-bold text-muted">{{data.item.model}}</span>
             </b-media-body>
           </b-media>
         </template>
-        <template slot="price" slot-scope="data">{{data.item.product.price}}</template>
-        <template slot="quantity" slot-scope="data">
-          <b-form-input
-            :value="data.item.quantity"
-            style="width: 80px;"
-            @change="handleChangeQuantity($event, data.item)"
-          />
-        </template>
+        <template slot="price" slot-scope="data">{{data.item.price}}</template>
         <template slot="action" slot-scope="data">
-          <div class="shopping-cart__action ma-1" @click="handleRemove(data.item)">
+          <div class="wishlist__action m-1 d-inline" @click="handleAddToCart(data.item)">
+            <vf-icon :icon="['fas', 'shopping-cart']"/>
+          </div>
+          <div class="wishlist__action m-1 ml-2 d-inline" @click="handleRemove(data.item)">
             <vf-icon icon="times"/>
           </div>
         </template>
@@ -44,10 +40,10 @@ import BMedia from "bootstrap-vue/es/components/media/media";
 import BMediaBody from "bootstrap-vue/es/components/media/media-body";
 import BMediaAside from "bootstrap-vue/es/components/media/media-aside";
 import BFormInput from "bootstrap-vue/es/components/form-input/form-input";
-import "vuefront/scss/elements/store/cart.scss";
+import "vuefront/scss/elements/store/wishlist.scss";
 export default {
   components: { BTable, BImgLazy, BMedia, BMediaBody, BMediaAside, BFormInput },
-  props: ["cart"],
+  props: ["wishlist"],
   data() {
     return {
       fields: [
@@ -61,23 +57,26 @@ export default {
           label: "Price",
           sortable: false
         },
-        { key: "quantity", label: "Quantity", sortable: false },
-        { key: "total", label: "Total", sortable: false },
         { key: "action", label: "", sortable: false }
       ]
     };
   },
   methods: {
-    handleChangeQuantity(e, cartProduct) {
-      this.$store.dispatch("store/cart/update", {
-        key: cartProduct.key,
-        quantity: Number(e)
+    handleRemove(wishlistProduct) {
+      this.$store.dispatch("store/wishlist/remove", {
+        id: wishlistProduct.id
       });
     },
+    async handleAddToCart(wishlistProduct) {
+      this.$store.commit(
+        "notification/add",
+        `${wishlistProduct.name} product successfully added to cart`
+      );
 
-    handleRemove(cartProduct) {
-      this.$store.dispatch("store/cart/remove", {
-        key: cartProduct.key
+      await this.$store.dispatch("store/cart/add", {
+        id: Number(wishlistProduct.id),
+        quantity: 1,
+        options: []
       });
     }
   }

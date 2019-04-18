@@ -5,6 +5,7 @@ export default {
     '/account': 'vuefront/lib/components/templates/common/account/account',
     '/account/login': 'vuefront/lib/components/templates/common/account/login',
     '/account/register': 'vuefront/lib/components/templates/common/account/register',
+    '/account/wishlist': 'vuefront/lib/components/templates/store/wishlist',
     '/blog/category/:id': 'vuefront/lib/components/templates/blog/category',
     '/blog/post/:id': 'vuefront/lib/components/templates/blog/post',
     '/search/:slug': 'vuefront/lib/components/templates/common/search',
@@ -61,6 +62,10 @@ export default {
       module: 'vuefront/lib/store/store/cart'
     },
     {
+      path: ['store', 'wishlist'],
+      module: 'vuefront/lib/store/store/wishlist'
+    },
+    {
       path: ['store', 'category'],
       module: 'vuefront/lib/store/store/category'
     },
@@ -83,6 +88,7 @@ export default {
     ProductImage: 'vuefront/lib/components/elements/store/productImage',
     PostThumb: 'vuefront/lib/components/elements/blog/postThumb',
     Menu: 'vuefront/lib/components/elements/common/header/topMenu',
+    TopNav: 'vuefront/lib/components/elements/common/header/topNav',
     Nav: 'vuefront/lib/components/elements/common/header/nav',
     ProductsGrid: 'vuefront/lib/components/elements/store/productsGrid',
     Category: 'vuefront/lib/components/elements/store/category',
@@ -102,7 +108,8 @@ export default {
     Empty: 'vuefront/lib/components/elements/common/empty',
     Breadcrumbs: 'vuefront/lib/components/elements/common/breadcrumbs',
     Header: 'vuefront/lib/components/elements/common/header',
-    Footer: 'vuefront/lib/components/elements/common/footer'
+    Footer: 'vuefront/lib/components/elements/common/footer',
+    Wishlist: 'vuefront/lib/components/elements/store/wishlist'
   },
   positions: {
     Top: 'vuefront/lib/components/positions/top',
@@ -127,6 +134,8 @@ export default {
     Slideshow: 'vuefront/lib/components/modules/common/slideshow',
     Pages: 'vuefront/lib/components/modules/common/pages',
     StoreCategory: 'vuefront/lib/components/modules/store/category',
-    BlogCategory: 'vuefront/lib/components/modules/blog/category'
+    BlogCategory: 'vuefront/lib/components/modules/blog/category',
+    Account: 'vuefront/lib/components/modules/common/account',
+    AccountLinks: 'vuefront/lib/components/modules/common/accountLinks'
   }
 }

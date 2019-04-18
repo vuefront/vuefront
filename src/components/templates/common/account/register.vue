@@ -1,7 +1,7 @@
 <template>
   <section class="account-register-section">
     <b-row>
-      <b-col sm="12" md="6" offset-md="3">
+      <b-col sm="12" md="8" offset-md="2">
         <vf-account-register/>
       </b-col>
     </b-row>

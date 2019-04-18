@@ -99,6 +99,7 @@ import minLength from "vuelidate/lib/validators/minLength";
 import maxLength from "vuelidate/lib/validators/maxLength";
 import sameAs from "vuelidate/lib/validators/sameAs";
 import email from "vuelidate/lib/validators/email";
+import { mapGetters } from "vuex";
 
 export default {
   components: {
@@ -153,17 +154,26 @@ export default {
       }
     }
   },
+  computed: {
+    ...mapGetters({
+      error: "vuefront/error"
+    })
+  },
   methods: {
     async onSubmit() {
       this.$v.$touch();
 
-      if(!this.$v.form.$invalid) {
-        await this.$store.dispatch('common/customer/register', {
+      if (!this.$v.form.$invalid) {
+        await this.$store.dispatch("common/customer/register", {
           firstName: this.form.firstName,
           lastName: this.form.lastName,
           email: this.form.email,
           password: this.form.password
-        })
+        });
+
+        if (!this.error) {
+          this.$router.push("/account");
+        }
       }
     }
   }

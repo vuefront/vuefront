@@ -29,11 +29,11 @@
             <span :class="{'font-weight-regular': product.special !== ''}">{{ product.price }}</span>
           </h4>
         </b-card-body>
-        <b-button-group class="border-radius-top-left border-radius-top-right" style="width: 100%;">
-          <b-button variant="light-gray" class="border" @click="handleAddToCart">
+        <b-button-group style="width: 100%;" size="sm">
+          <b-button variant="light-gray" class="border border-radius-top-left-0" @click="handleAddToCart">
             <vf-icon :icon="['fas', 'shopping-cart']"/>
           </b-button>
-          <b-button variant="light-gray" class="border">
+          <b-button variant="light-gray" class="border border-radius-top-right-0" @click="handleAddToWishlist">
             <vf-icon :icon="['fas', 'heart']"/>
           </b-button>
         </b-button-group>
@@ -79,6 +79,16 @@ export default {
         id: Number(this.product.id),
         quantity: 1,
         options: []
+      });
+    },
+    async handleAddToWishlist() {
+      this.$store.commit(
+        "notification/add",
+        `${this.product.name} product successfully added to wishlist`
+      );
+
+      await this.$store.dispatch("store/wishlist/add", {
+        id: Number(this.product.id)
       });
     }
   }
