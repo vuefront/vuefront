@@ -47,7 +47,7 @@ export const actions = {
       commit('vuefront/setError', false, {root: true})
       commit('setData', res)
     } catch (e) {
-
+      
       commit('vuefront/setError', e.graphQLErrors ? e.graphQLErrors[0] : e, {
         root: true
       })

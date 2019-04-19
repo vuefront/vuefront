@@ -9,16 +9,18 @@
           </div>
         </b-col>
         <b-col sm="4" md="6" lg="2" class="ml-lg-auto mb-5 mb-lg-0">
-          <vf-module-pages/>
+          <vf-position-footer name="left"/>
         </b-col>
         <b-col sm="4" md="6" lg="2" class="mb-5 mb-lg-0">
-          <vf-module-account-links/>
+          <vf-position-footer name="center"/>
         </b-col>
-        <b-col sm="4" md="6" lg="2" class="mb-5 mb-lg-0"></b-col>
+        <b-col sm="4" md="6" lg="2" class="mb-5 mb-lg-0">
+          <vf-position-footer name="right"/>
+        </b-col>
       </b-row>
       <b-row class="py-4 mt-4 delimiter-top">
         <b-col md="6">
-          <div class="text-sm font-weight-bold text-center text-md-left">&copy;2018 Dreamvention</div>
+          <div class="text-sm font-weight-bold text-center text-md-left">&copy;2019 Dreamvention</div>
         </b-col>
         <b-col md="6"></b-col>
       </b-row>

@@ -7,6 +7,7 @@ export default {
     '/account/register': 'vuefront/lib/components/templates/common/account/register',
     '/account/wishlist': 'vuefront/lib/components/templates/store/wishlist',
     '/store/compare': 'vuefront/lib/components/templates/store/compare',
+    '/store/special': 'vuefront/lib/components/templates/store/special',
     '/blog/category/:id': 'vuefront/lib/components/templates/blog/category',
     '/blog/post/:id': 'vuefront/lib/components/templates/blog/post',
     '/search/:slug': 'vuefront/lib/components/templates/common/search',
@@ -121,7 +122,8 @@ export default {
     Top: 'vuefront/lib/components/positions/top',
     Bottom: 'vuefront/lib/components/positions/bottom',
     Left: 'vuefront/lib/components/positions/left',
-    Right: 'vuefront/lib/components/positions/right'
+    Right: 'vuefront/lib/components/positions/right',
+    Footer: 'vuefront/lib/components/positions/footer',
   },
   templates: {
     Header: 'vuefront/lib/components/templates/common/header',
@@ -142,6 +144,7 @@ export default {
     StoreCategory: 'vuefront/lib/components/modules/store/category',
     BlogCategory: 'vuefront/lib/components/modules/blog/category',
     Account: 'vuefront/lib/components/modules/common/account',
-    AccountLinks: 'vuefront/lib/components/modules/common/accountLinks'
+    AccountLinks: 'vuefront/lib/components/modules/common/accountLinks',
+    ExtraLinks: 'vuefront/lib/components/modules/common/extraLinks'
   }
 }

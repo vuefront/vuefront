@@ -3,6 +3,7 @@
     <b-form-input
       v-model="keyword"
       placeholder="Search"
+      size="sm"
       hide-details
       @keypress="handleKeyPress"
     />
