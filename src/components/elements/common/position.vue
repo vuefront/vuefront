@@ -7,9 +7,12 @@
 import {BaseLayout} from '~/utils/baseLayout.js'
 
 export default {
+  props: {
+    name: String
+  },
   data() {
     return {
-      position: 'contentTop'
+      position: this.name
     }
   },
   mixins: [BaseLayout]

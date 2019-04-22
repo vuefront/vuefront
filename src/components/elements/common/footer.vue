@@ -9,13 +9,13 @@
           </div>
         </b-col>
         <b-col sm="4" md="6" lg="2" class="ml-lg-auto mb-5 mb-lg-0">
-          <vf-position-footer name="left"/>
+          <vf-position name="footerLeft"/>
         </b-col>
         <b-col sm="4" md="6" lg="2" class="mb-5 mb-lg-0">
-          <vf-position-footer name="center"/>
+          <vf-position name="footerCenter"/>
         </b-col>
         <b-col sm="4" md="6" lg="2" class="mb-5 mb-lg-0">
-          <vf-position-footer name="right"/>
+          <vf-position name="footerRight"/>
         </b-col>
       </b-row>
       <b-row class="py-4 mt-4 delimiter-top">

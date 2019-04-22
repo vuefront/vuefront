@@ -100,8 +100,8 @@ export default {
     Category: 'vuefront/lib/components/elements/store/category',
     CategoryBlog: 'vuefront/lib/components/elements/blog/category',
     PostsGrid: 'vuefront/lib/components/elements/blog/postsGrid',
-    // Notification: 'vuefront/lib/components/elements/common/notification/toast',
-    Notification: 'vuefront/lib/components/elements/common/notification/snackBar',
+    Notification: 'vuefront/lib/components/elements/common/notification/toast',
+    // Notification: 'vuefront/lib/components/elements/common/notification/snackBar',
     Cart: 'vuefront/lib/components/elements/store/cart',
     Post: 'vuefront/lib/components/elements/blog/post',
     ProductOption: 'vuefront/lib/components/elements/store/productOption',
@@ -116,14 +116,8 @@ export default {
     Header: 'vuefront/lib/components/elements/common/header',
     Footer: 'vuefront/lib/components/elements/common/footer',
     Wishlist: 'vuefront/lib/components/elements/store/wishlist',
-    Compare: 'vuefront/lib/components/elements/store/compare'
-  },
-  positions: {
-    Top: 'vuefront/lib/components/positions/top',
-    Bottom: 'vuefront/lib/components/positions/bottom',
-    Left: 'vuefront/lib/components/positions/left',
-    Right: 'vuefront/lib/components/positions/right',
-    Footer: 'vuefront/lib/components/positions/footer',
+    Compare: 'vuefront/lib/components/elements/store/compare',
+    Position: 'vuefront/lib/components/elements/common/position'
   },
   templates: {
     Header: 'vuefront/lib/components/templates/common/header',

@@ -1,15 +1,14 @@
 <template>
-  <div></div>
+  <div>
+  </div>
 </template>
 <script>
+import Vue from 'vue'
 import { mapGetters } from "vuex";
-import "vuefront/scss/elements/common/notification/toast.scss";
+import BToast from 'bootstrap-vue/es/components/toast/toast'
+import BVToast from 'bootstrap-vue/es/components/toast/helpers/bv-toast'
+Vue.use(BVToast)
 export default {
-  data() {
-    return {
-      Alertify: null
-    };
-  },
   computed: {
     ...mapGetters({
       messageNotification: "notification/get"
@@ -17,12 +16,12 @@ export default {
   },
   watch: {
     messageNotification(val, oldVal) {
-      this.Alertify.success(val);
-    }
-  },
-  mounted() {
-    if (typeof document !== "undefined") {
-      this.Alertify = require("alertifyjs");
+       this.$bvToast.toast(val, {
+          title: `Notification`,
+          toaster: 'b-toaster-bottom-right',
+          solid: true,
+          variant: 'success'
+        })
     }
   }
 };

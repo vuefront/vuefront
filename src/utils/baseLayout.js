@@ -2,11 +2,6 @@ import isUndefined from 'lodash/isUndefined'
 import isString from 'lodash/isString'
 
 export const BaseLayout = {
-  data() {
-    return {
-      position: ''
-    }
-  },
   computed: {
     modules() {
       let result = []
