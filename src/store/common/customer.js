@@ -1,6 +1,7 @@
 import RegisterGql from '~/graphql/account/register.graphql'
 import LoginGql from '~/graphql/account/login.graphql'
 import LogoutGql from '~/graphql/account/logout.graphql'
+import EditGql from '~/graphql/account/edit.graphql'
 import CheckGql from '~/graphql/account/check.graphql'
 
 export const state = () => ({
@@ -60,6 +61,24 @@ export const actions = {
       commit('setAuth', rootGetters['apollo/get'].accountLogout.status)
     }
   },
+  async edit({ commit, dispatch, rootGetters }, customerData) {
+    await dispatch(
+      'apollo/mutate',
+      {
+        mutation: EditGql,
+        variables: {
+          customer: customerData
+        }
+      },
+      {
+        root: true
+      }
+    )
+
+    if (!rootGetters['vuefront/error']) {
+      commit('setCustomer', rootGetters['apollo/get'].accountEdit)
+    }
+  },
   async register({ commit, dispatch, rootGetters }, customerData) {
     await dispatch(
       'apollo/mutate',
@@ -88,7 +107,7 @@ export const actions = {
         root: true
       }
     )
-    if (!rootGetters['vuefront/error']) {
+    if (!rootGetters['vuefront/error'] && rootGetters['apollo/get'].accountCheckLogged.customer) {
       commit(
         'setCustomer',
         rootGetters['apollo/get'].accountCheckLogged.customer

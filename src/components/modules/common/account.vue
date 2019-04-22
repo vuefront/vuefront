@@ -4,6 +4,8 @@
       <b-list-group-item v-if="!auth" to="/account/login">Login</b-list-group-item>
       <b-list-group-item v-if="!auth" to="/account/register">Register</b-list-group-item>
       <b-list-group-item to="/account">My Account</b-list-group-item>
+      <b-list-group-item v-if="auth" to="/account/edit">Edit Account</b-list-group-item>
+      <b-list-group-item v-if="auth" to="/account/password">Password</b-list-group-item>
       <b-list-group-item to="/account/wishlist">Wish List</b-list-group-item>
       <b-list-group-item v-if="auth" @click="handleLogout">Logout</b-list-group-item>
     </b-list-group>

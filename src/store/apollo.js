@@ -43,9 +43,14 @@ export const actions = {
     try {
       const variables = omitDeepLodash(options.variables, '__typename')
       const res = await this.$vfapollo.mutate({...options, variables})
-
-      commit('vuefront/setError', false, {root: true})
-      commit('setData', res)
+      if(!res.errors) {
+        commit('vuefront/setError', false, {root: true})
+        commit('setData', res)
+      } else {
+        commit('vuefront/setError', res.errors, {
+          root: true
+        })
+      }
     } catch (e) {
       
       commit('vuefront/setError', e.graphQLErrors ? e.graphQLErrors[0] : e, {

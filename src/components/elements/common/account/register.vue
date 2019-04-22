@@ -5,6 +5,7 @@
         <h6 class="h3">Create account</h6>
         <p class="text-muted mb-0">Made with love by developers for developers.</p>
       </div>
+      <b-alert :show="error.message" v-html="error.message"/>
       <b-form>
         <b-form-group label="First Name" label-for="input-first-name">
           <b-form-input
@@ -93,6 +94,7 @@ import BFormInput from "bootstrap-vue/es/components/form-input/form-input";
 import BFormInvalidFeedback from "bootstrap-vue/es/components/form/form-invalid-feedback";
 import BButton from "bootstrap-vue/es/components/button/button";
 import BLink from "bootstrap-vue/es/components/link/link";
+import BAlert from "bootstrap-vue/es/components/alert/alert";
 import { validationMixin } from "vuelidate";
 import required from "vuelidate/lib/validators/required";
 import minLength from "vuelidate/lib/validators/minLength";
@@ -103,6 +105,7 @@ import { mapGetters } from "vuex";
 
 export default {
   components: {
+    BAlert,
     BCard,
     BCardBody,
     BCardFooter,
@@ -115,6 +118,7 @@ export default {
   },
   data() {
     return {
+      loading: false,
       form: {
         firstName: null,
         lastName: null,

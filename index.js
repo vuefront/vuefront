@@ -6,6 +6,8 @@ export default {
     '/account/login': 'vuefront/lib/components/templates/common/account/login',
     '/account/register': 'vuefront/lib/components/templates/common/account/register',
     '/account/wishlist': 'vuefront/lib/components/templates/store/wishlist',
+    '/account/password': 'vuefront/lib/components/templates/common/account/password',
+    '/account/edit': 'vuefront/lib/components/templates/common/account/edit',
     '/store/compare': 'vuefront/lib/components/templates/store/compare',
     '/store/special': 'vuefront/lib/components/templates/store/special',
     '/blog/category/:id': 'vuefront/lib/components/templates/blog/category',
@@ -82,6 +84,8 @@ export default {
   ],
   components: {
     AccountLogin: 'vuefront/lib/components/elements/common/account/login',
+    AccountPassword: 'vuefront/lib/components/elements/common/account/password',
+    AccountEdit: 'vuefront/lib/components/elements/common/account/edit',
     AccountRegister: 'vuefront/lib/components/elements/common/account/register',
     AccountNew: 'vuefront/lib/components/elements/common/account/new',
     Apollo: 'vuefront/lib/components/elements/common/apollo',
