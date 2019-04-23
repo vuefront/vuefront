@@ -3,6 +3,7 @@ import commonjs from 'rollup-plugin-commonjs'
 import graphql from '@kocal/rollup-plugin-graphql'
 import cleanup from 'rollup-plugin-cleanup'
 import alias from 'rollup-plugin-alias'
+import image from 'rollup-plugin-img';
 import path from 'path'
 import { name, dependencies } from '../../package.json'
 const isWin = process.platform === "win32";
@@ -38,8 +39,9 @@ const _default = filePath => {
             graphql(),
             commonjs(),
             vue(),
+            image(),
             alias({
-                resolve: ['.jsx', '.js', '.graphql'],
+                resolve: ['.jsx', '.js', '.graphql', '.png'],
                 '~': src
             }),
             cleanup()

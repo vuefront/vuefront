@@ -13,6 +13,9 @@ export default {
     ...mapGetters({
       wishlist: "store/wishlist/get"
     })
+  },
+  async fetch({store}) {
+    await store.dispatch('store/wishlist/load')
   }
 };
 </script>

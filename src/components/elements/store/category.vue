@@ -9,7 +9,7 @@
     <b-row v-if="category.categories.length > 0">
       <b-col v-for="(value, index) in category.categories" :key="index" sm="4" md="2">
         <b-link :to="`/store/category/${value.id}`" class="mb-2 d-block">
-          <b-img-lazy :src="value.image" :blank-src="value.imageLazy"  class="mb-2" fluid style="width: 100%;"/>
+          <b-img-lazy :src="getImage(value)" :blank-src="getImageLazy(value)"  class="mb-2" fluid style="width: 100%;"/>
           <div class="text-sm-center h6" v-html="value.name"/>
         </b-link>
       </b-col>
@@ -22,7 +22,7 @@ import BCol from "bootstrap-vue/es/components/layout/col";
 import BContainer from "bootstrap-vue/es/components/layout/container";
 import BImgLazy from "bootstrap-vue/es/components/image/img-lazy";
 import BLink from "bootstrap-vue/es/components/link/link";
-
+import placeholder from '~/assets/img/placeholder.png';
 export default {
   components: {
     BContainer,
@@ -31,6 +31,14 @@ export default {
     BImgLazy,
     BLink
   },
-  props: ["category"]
+  props: ["category"],
+  methods: {
+    getImage(category) {
+      return category.image !== '' ? category.image : placeholder
+    },
+    getImageLazy(category) {
+      return category.imageLazy !== '' ? category.imageLazy : placeholder
+    }
+  }
 };
 </script>

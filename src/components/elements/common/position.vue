@@ -10,9 +10,9 @@ export default {
   props: {
     name: String
   },
-  data() {
-    return {
-      position: this.name
+  computed: {
+    position() {
+      return this.name
     }
   },
   mixins: [BaseLayout]

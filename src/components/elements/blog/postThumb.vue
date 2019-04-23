@@ -1,7 +1,7 @@
 <template>
   <b-card class="card-post" no-body>
-    <b-link :to="`/blog/post/${post.id}`">
-      <b-card-img-lazy fluid :src="post.image" :blank-src="post.imageLazy" class="card-post__image"/>
+    <b-link :to="`/blog/post/${post.id}`" class="card-post_image_wrapper">
+      <b-card-img-lazy fluid :src="mainImage" :blank-src="mainImagelazy" class="card-post__image"/>
     </b-link>
 
     <b-card-body class="pt-0">
@@ -16,6 +16,8 @@ import BCardImgLazy from "bootstrap-vue/es/components/card/card-img-lazy";
 import BCardBody from "bootstrap-vue/es/components/card/card-body";
 import BLink from "bootstrap-vue/es/components/link/link";
 import "vuefront/scss/elements/blog/postThumb.scss";
+import placeholder from '~/assets/img/placeholder.png';
+
 export default {
   components: {
     BLink,
@@ -23,6 +25,14 @@ export default {
     BCardBody,
     BCardImgLazy
   },
-  props: ["post"]
+  props: ["post"],
+  computed: {
+    mainImage() {
+      return this.post.image !== '' ? this.post.image : placeholder
+    },
+    mainImagelazy() {
+      return this.post.imagelazy !== '' ? this.post.imagelazy : placeholder
+    }
+  },
 };
 </script>

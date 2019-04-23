@@ -3,6 +3,13 @@
   &_wide {
   }
 
+  &__image_wrapper {
+    min-height: 213px;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+  }
+  
   &__image {
   }
 

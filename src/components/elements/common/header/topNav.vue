@@ -3,7 +3,9 @@
     <b-container>
       <b-nav-bar-nav class="top-nav__navbar" tag="div">
         <b-nav tag="div">
-          <b-nav-item to="/account/wishlist" class="top-nav__link ml-auto">Wish List</b-nav-item>
+          <vf-currency/>
+          <b-nav-item to="/account/wishlist" class="top-nav__link ml-auto">Compare</b-nav-item>
+          <b-nav-item to="/store/compare" class="top-nav__link">Wish List</b-nav-item>
           <b-nav-item-dropdown class="top-nav__dropdown" right>
             <template slot="button-content">
               <vf-icon :icon="['far', 'user-circle']"/>

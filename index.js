@@ -70,6 +70,10 @@ export default {
       module: 'vuefront/lib/store/store/wishlist'
     },
     {
+      path: ['store', 'currency'],
+      module: 'vuefront/lib/store/store/currency'
+    },
+    {
       path: ['store', 'compare'],
       module: 'vuefront/lib/store/store/compare'
     },
@@ -121,7 +125,8 @@ export default {
     Footer: 'vuefront/lib/components/elements/common/footer',
     Wishlist: 'vuefront/lib/components/elements/store/wishlist',
     Compare: 'vuefront/lib/components/elements/store/compare',
-    Position: 'vuefront/lib/components/elements/common/position'
+    Position: 'vuefront/lib/components/elements/common/position',
+    Currency: 'vuefront/lib/components/elements/store/currency'
   },
   templates: {
     Header: 'vuefront/lib/components/templates/common/header',

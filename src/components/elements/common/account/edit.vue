@@ -55,8 +55,8 @@
       </b-form>
     </b-card-body>
     <b-card-footer class="px-md-5">
-      <small>Already have an acocunt?</small>
-      <b-link to="/account/login" class="small font-weight-bold">Sign in</b-link>
+      <small>Want to change your password?</small>
+      <b-link to="/account/password" class="small font-weight-bold">Password</b-link>
     </b-card-footer>
   </b-card>
 </template>
@@ -75,7 +75,6 @@ import { validationMixin } from "vuelidate";
 import required from "vuelidate/lib/validators/required";
 import minLength from "vuelidate/lib/validators/minLength";
 import maxLength from "vuelidate/lib/validators/maxLength";
-import sameAs from "vuelidate/lib/validators/sameAs";
 import email from "vuelidate/lib/validators/email";
 import { mapGetters } from "vuex";
 

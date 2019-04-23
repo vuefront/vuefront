@@ -13,6 +13,9 @@ export default {
     ...mapGetters({
       compare: "store/compare/get"
     })
+  },
+  async fetch({store}) {
+    await store.dispatch('store/compare/load')
   }
 };
 </script>

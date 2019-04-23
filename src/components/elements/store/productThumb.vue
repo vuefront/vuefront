@@ -2,10 +2,10 @@
   <b-card :class="{'card-product_wide' : wide}" class="card-product" no-body>
     <b-row no-gutters>
       <b-col :md="wide ? 3 : 12" class="px-4">
-        <b-link :to="`/store/product/${product.id}`">
+        <b-link :to="`/store/product/${product.id}`" class="card-product__image_wrapper">
           <b-card-img-lazy
-            :src="product.image"
-            :blank-src="product.imageLazy"
+            :src="mainImage"
+            :blank-src="mainImagelazy"
             fluid
             class="card-product__image"
           />
@@ -56,7 +56,8 @@ import BButton from "bootstrap-vue/es/components/button/button";
 import BButtonGroup from "bootstrap-vue/es/components/button-group/button-group";
 import BLink from "bootstrap-vue/es/components/link/link";
 import "vuefront/scss/elements/store/productThumb.scss";
-
+import placeholder from '~/assets/img/placeholder.png';
+import {mapGetters} from 'vuex'
 export default {
   components: {
     BLink,
@@ -71,18 +72,38 @@ export default {
     BButtonGroup
   },
   props: ["product", "wide"],
+  computed: {
+    ...mapGetters({
+      error: 'vuefront/error'
+    }),
+    mainImage() {
+      return this.product.image !== '' ? this.product.image : placeholder
+    },
+    mainImagelazy() {
+      return this.product.imagelazy !== '' ? this.product.imagelazy : placeholder
+    }
+  },
   methods: {
     async handleAddToCart() {
-      this.$store.commit(
-        "notification/add",
-        `${this.product.name} product successfully added to cart`
-      );
-
       await this.$store.dispatch("store/cart/add", {
         id: Number(this.product.id),
         quantity: 1,
         options: []
       });
+
+      if(!this.error) {
+        this.$store.commit(
+          "notification/add",
+          `${this.product.name} product successfully added to cart`
+        );
+      } else {
+        this.$store.commit(
+          "notification/error",
+          this.error.message
+        );
+
+        this.$router.push('/store/product/'+this.product.id)
+      }
     },
     async handleAddToWishlist() {
       this.$store.commit(

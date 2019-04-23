@@ -68,6 +68,7 @@ import BCol from "bootstrap-vue/es/components/layout/col";
 import BBadge from "bootstrap-vue/es/components/badge/badge";
 import BButton from "bootstrap-vue/es/components/button/button";
 import "vuefront/scss/elements/store/product.scss";
+import { mapGetters } from "vuex";
 
 export default {
   components: {
@@ -82,18 +83,30 @@ export default {
       selectedOptions: []
     };
   },
+  computed: {
+    ...mapGetters({
+      error: "vuefront/error"
+    })
+  },
   methods: {
     async handleAddToCart() {
-      this.$store.commit(
-        "notification/add",
-        `${this.product.name} product successfully added to cart`
-      );
-
       await this.$store.dispatch("store/cart/add", {
         id: Number(this.product.id),
         quantity: 1,
         options: this.selectedOptions
       });
+
+      if(!this.error) {
+        this.$store.commit(
+          "notification/add",
+          `${this.product.name} product successfully added to cart`
+        );
+      } else {
+        this.$store.commit(
+          "notification/error",
+          this.error.message
+        );
+      }
     },
 
     handleChangeOptions(e) {

@@ -13,6 +13,9 @@ export default {
     ...mapGetters({
       cart: "store/cart/get"
     })
+  },
+  async fetch({store}) {
+    await store.dispatch('store/cart/load')
   }
 };
 </script>
