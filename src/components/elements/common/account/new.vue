@@ -2,14 +2,14 @@
   <b-card class="shadow mb-0" no-body>
     <b-card-body class="px-md-5 py-5">
       <div class="mb-3">
-        <h6 class="h3">New Customer</h6>
-        <p class="text-muted mb-0">Register Account.</p>
+        <h6 class="h3">{{$t('elements.common.account.new.titleText')}}</h6>
+        <p class="text-muted mb-0">{{$t('elements.common.account.new.subTitleText')}}</p>
       </div>
       <div
         class="lead"
-      >By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.</div>
+      >{{$t('elements.common.account.new.descriptionText')}}</div>
       <div class="mt-4 text-sm-left">
-          <b-button size="sm" class="rounded-pill" variant="primary" to="/account/register">Continue</b-button>
+          <b-button size="sm" class="rounded-pill" variant="primary" to="/account/register">{{$t('elements.common.account.new.buttonContinue')}}</b-button>
         </div>
     </b-card-body>
   </b-card>

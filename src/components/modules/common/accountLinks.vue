@@ -1,18 +1,18 @@
 <template>
   <section class="module-pages">
-    <h6 class="heading mb-3">Account</h6>
+    <h6 class="heading mb-3">{{$t('modules.common.accountLinks.textTitle')}}</h6>
     <ul class="list-unstyled">
       <li>
-        <b-link to="/account/login">Sign In</b-link>
+        <b-link to="/account/login">{{$t('modules.common.accountLinks.signInText')}}</b-link>
       </li>
       <li>
-        <b-link to="/account/register">Register</b-link>
+        <b-link to="/account/register">{{$t('modules.common.accountLinks.registerText')}}</b-link>
       </li>
       <li>
-        <b-link to="/account">My Account</b-link>
+        <b-link to="/account">{{$t('modules.common.accountLinks.myAccountText')}}</b-link>
       </li>
       <li>
-        <b-link to="/account/wishlist">Wishlist</b-link>
+        <b-link to="/account/wishlist">{{$t('modules.common.accountLinks.wishlistText')}}</b-link>
       </li>
     </ul>
   </section>

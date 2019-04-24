@@ -5,7 +5,7 @@
         <b-col sm="4" class="mb-5 mb-lg-0">
           <div>
             <img :src="logo" alt style="height: 40px;" class="mb-3">
-            <p>Purpose is a unique and beautiful collection of UI elements that are all flexible and modular. A complete and customizable solution to building the website of your dreams.</p>
+            <p>{{$t('elements.common.footer.descriptionText')}}</p>
           </div>
         </b-col>
         <b-col sm="4" md="6" lg="2" class="ml-lg-auto mb-5 mb-lg-0">
@@ -20,7 +20,7 @@
       </b-row>
       <b-row class="py-4 mt-4 delimiter-top">
         <b-col md="6">
-          <div class="text-sm font-weight-bold text-center text-md-left">&copy;2019 Dreamvention</div>
+          <div class="text-sm font-weight-bold text-center text-md-left" v-html="$t('elements.common.footer.copyrightText')"/>
         </b-col>
         <b-col md="6"></b-col>
       </b-row>
@@ -38,6 +38,9 @@ export default {
     BRow,
     BCol
   },
-  props: ["logo"]
+  props: ["logo"],
+  data() {
+    return {}
+  }
 };
 </script>

@@ -4,17 +4,18 @@
       <b-nav-bar-nav class="top-nav__navbar" tag="div">
         <b-nav tag="div">
           <vf-currency/>
-          <b-nav-item to="/account/wishlist" class="top-nav__link ml-auto">Compare</b-nav-item>
-          <b-nav-item to="/store/compare" class="top-nav__link">Wish List</b-nav-item>
+          <vf-language/>
+          <b-nav-item to="/account/wishlist" class="top-nav__link ml-auto">{{$t('elements.common.header.topNav.compareText')}}</b-nav-item>
+          <b-nav-item to="/store/compare" class="top-nav__link">{{$t('elements.common.header.topNav.wishListText')}}</b-nav-item>
           <b-nav-item-dropdown class="top-nav__dropdown" right>
             <template slot="button-content">
               <vf-icon :icon="['far', 'user-circle']"/>
             </template>
-            <b-dropdown-item v-if="!auth" to="/account/login">Sign In</b-dropdown-item>
-            <b-dropdown-item v-if="!auth" to="/account/register">Register</b-dropdown-item>
-            <b-dropdown-item v-if="auth" to="/account">My Account</b-dropdown-item>
-            <b-dropdown-item to="/account/wishlist">Wishlist</b-dropdown-item>
-            <b-dropdown-item v-if="auth" @click="handleLogout">Sign Out</b-dropdown-item>
+            <b-dropdown-item v-if="!auth" to="/account/login">{{$t('elements.common.header.topNav.signInText')}}</b-dropdown-item>
+            <b-dropdown-item v-if="!auth" to="/account/register">{{$t('elements.common.header.topNav.registerText')}}</b-dropdown-item>
+            <b-dropdown-item v-if="auth" to="/account">{{$t('elements.common.header.topNav.myAccountText')}}</b-dropdown-item>
+            <b-dropdown-item to="/account/wishlist">{{$t('elements.common.header.topNav.wishlistText')}}</b-dropdown-item>
+            <b-dropdown-item v-if="auth" @click="handleLogout">{{$t('elements.common.header.topNav.signOutText')}}</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-nav>
       </b-nav-bar-nav>

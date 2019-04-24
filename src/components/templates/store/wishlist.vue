@@ -6,7 +6,7 @@ import { mapGetters } from "vuex";
 export default {
   head() {
     return {
-      title: "Wish List"
+      title: this.$t('templates.store.wishlist.textTitle')
     };
   },
   computed: {

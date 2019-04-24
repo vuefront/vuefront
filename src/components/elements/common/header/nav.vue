@@ -9,7 +9,7 @@
         <b-nav tag="div">
           <b-nav-item to="/store/cart" class="nav-section__link">
             <vf-icon icon="shopping-cart"/>
-            Shopping Cart
+            {{$t('elements.common.header.nav.shoppingCartText')}}
           </b-nav-item>
         </b-nav>
       </b-nav-bar-nav>

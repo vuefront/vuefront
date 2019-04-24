@@ -2,12 +2,12 @@
   <b-card class="shadow mb-0" no-body>
     <b-card-body class="px-md-5 py-5">
       <div class="mb-5">
-        <h6 class="h3">Change Password</h6>
-        <p class="text-muted mb-0">Made with love by developers for developers.</p>
+        <h6 class="h3">{{$t('elements.common.account.password.titleText')}}</h6>
+        <p class="text-muted mb-0">{{$t('elements.common.account.password.subTitleText')}}</p>
       </div>
       <b-alert :show="error.message" v-html="error.message"/>
       <b-form>
-        <b-form-group label="Password" label-for="input-password">
+        <b-form-group :label="$t('elements.common.account.password.passwordEntry')" label-for="input-password">
           <b-form-input
             id="input-password"
             v-model.trim="form.password"
@@ -17,9 +17,9 @@
           />
           <b-form-invalid-feedback
             id="input-password-feedback"
-          >Password must be between 4 and 20 characters!</b-form-invalid-feedback>
+          >{{$t('elements.common.account.password.passwordError')}}</b-form-invalid-feedback>
         </b-form-group>
-        <b-form-group label="Confirm password" label-for="input-confirm-password" class="mb-4">
+        <b-form-group :label="$t('elements.common.account.password.confirmPasswordEntry')" label-for="input-confirm-password" class="mb-4">
           <b-form-input
             id="input-confirm-password"
             v-model="form.confirmPassword"
@@ -29,7 +29,7 @@
           />
           <b-form-invalid-feedback
             id="input-confirm-password-feedback"
-          >Password confirmation does not match password!</b-form-invalid-feedback>
+          >{{$t('elements.common.account.password.confirmPasswordError')}}</b-form-invalid-feedback>
         </b-form-group>
         <div class="mt-4">
           <b-button
@@ -39,15 +39,15 @@
             variant="primary"
             @click="onSubmit"
           >
-            Save changes
+            {{$t('elements.common.account.password.buttonSave')}}
             <vf-icon icon="long-arrow-alt-right" size="sm"/>
           </b-button>
         </div>
       </b-form>
     </b-card-body>
     <b-card-footer class="px-md-5">
-      <small>Want to change your account information?</small>
-      <b-link to="/account/edit" class="small font-weight-bold">My Account</b-link>
+      <small>{{$t('elements.common.account.password.footerText')}}</small>
+      <b-link to="/account/edit" class="small font-weight-bold">{{$t('elements.common.account.password.footerLinkText')}}</b-link>
     </b-card-footer>
   </b-card>
 </template>

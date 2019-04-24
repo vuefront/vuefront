@@ -2,12 +2,12 @@
   <b-card class="shadow mb-0" no-body>
     <b-card-body class="px-md-5 py-5">
       <div class="mb-5">
-        <h6 class="h3">My Account Information</h6>
-        <p class="text-muted mb-0">Made with love by developers for developers.</p>
+        <h6 class="h3">{{$t('elements.common.account.edit.titleText')}}</h6>
+        <p class="text-muted mb-0">{{$t('elements.common.account.edit.subTitleText')}}</p>
       </div>
       <b-alert :show="error.message" v-html="error.message"/>
       <b-form>
-        <b-form-group label="First Name" label-for="input-first-name">
+        <b-form-group :label="$t('elements.common.account.edit.firstNameEntry')" label-for="input-first-name">
           <b-form-input
             id="input-first-name"
             v-model.trim="form.firstName"
@@ -16,9 +16,9 @@
           />
           <b-form-invalid-feedback
             id="input-first-name-feedback"
-          >First Name must be between 1 and 32 characters!</b-form-invalid-feedback>
+          >{{$t('elements.common.account.edit.firstNameError')}}</b-form-invalid-feedback>
         </b-form-group>
-        <b-form-group label="Last Name" label-for="input-last-name">
+        <b-form-group :label="$t('elements.common.account.edit.lastNameEntry')" label-for="input-last-name">
           <b-form-input
             id="input-last-name"
             v-model.trim="form.lastName"
@@ -27,9 +27,9 @@
           />
           <b-form-invalid-feedback
             id="input-last-name-feedback"
-          >Last Name must be between 1 and 32 characters!</b-form-invalid-feedback>
+          >{{$t('elements.common.account.edit.lastNameError')}}</b-form-invalid-feedback>
         </b-form-group>
-        <b-form-group label="Email address" label-for="input-email">
+        <b-form-group :label="$t('elements.common.account.edit.emailEntry')" label-for="input-email">
           <b-form-input
             id="input-email"
             v-model.trim="form.email"
@@ -38,7 +38,7 @@
           />
           <b-form-invalid-feedback
             id="input-email-feedback"
-          >E-Mail Address does not appear to be valid!</b-form-invalid-feedback>
+          >{{$t('elements.common.account.edit.emailError')}}</b-form-invalid-feedback>
         </b-form-group>
         <div class="mt-4">
           <b-button
@@ -48,15 +48,15 @@
             variant="primary"
             @click="onSubmit"
           >
-            Save changes
+            {{$t('elements.common.account.edit.buttonSave')}}
             <vf-icon icon="long-arrow-alt-right" size="sm"/>
           </b-button>
         </div>
       </b-form>
     </b-card-body>
     <b-card-footer class="px-md-5">
-      <small>Want to change your password?</small>
-      <b-link to="/account/password" class="small font-weight-bold">Password</b-link>
+      <small>{{$t('elements.common.account.edit.footerText')}}</small>
+      <b-link to="/account/password" class="small font-weight-bold">{{$t('elements.common.account.edit.footerLinkText')}}</b-link>
     </b-card-footer>
   </b-card>
 </template>

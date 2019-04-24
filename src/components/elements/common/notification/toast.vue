@@ -17,7 +17,7 @@ export default {
   watch: {
     messageNotification(val, oldVal) {
        this.$bvToast.toast(val, {
-          title: `Notification`,
+          title: this.$t('elements.common.notification.toast.notificationText'),
           toaster: 'b-toaster-bottom-right',
           solid: true,
           variant: 'success'
@@ -25,7 +25,7 @@ export default {
     },
     errorNotification(val, oldVal) {
        this.$bvToast.toast(val, {
-          title: `Error`,
+          title: this.$t('elements.common.notification.toast.errorText'),
           toaster: 'b-toaster-bottom-right',
           solid: true,
           variant: 'danger'

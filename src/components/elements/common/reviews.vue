@@ -1,6 +1,6 @@
 <template>
   <div class="reviews-section">
-    <div class="reviews-section__title h3 mb-3">Comments</div>
+    <div class="reviews-section__title h3 mb-3">{{$t('elements.common.reviews.titleText')}}</div>
     <div class="mb-4">
       <b-card v-for="(review, index) in reviews" :key="index" class="mb-3">
         <div>
@@ -10,18 +10,18 @@
       </b-card>
     </div>
     <div class="review-section__new">
-      <div class="review-section__new_title title mb-3">Write a review</div>
-      <b-form-group label="Rating">
+      <div class="review-section__new_title title mb-3">{{$t('elements.common.reviews.writeText')}}</div>
+      <b-form-group :label="$t('elements.common.reviews.ratingEntry')">
         <b-form-radio-group v-model="rating" class="pt-2" :options="[1, 2, 3, 4 ,5]"></b-form-radio-group>
       </b-form-group>
-      <b-form-group label="Your Name" label-for="input-name">
+      <b-form-group :label="$t('elements.common.reviews.nameEntry')" label-for="input-name">
         <b-form-input id="input-name" v-model="author" trim/>
       </b-form-group>
-      <b-form-group label="Your Review" label-for="input-review">
+      <b-form-group :label="$t('elements.common.reviews.reviewEntry')" label-for="input-review">
         <b-form-textarea id="input-review" v-model="review" trim/>
       </b-form-group>
       <div class="text-sm-right">
-        <b-button variant="primary" @click="handleSend">Send</b-button>
+        <b-button variant="primary" @click="handleSend">{{$t('elements.common.reviews.buttonSend')}}</b-button>
       </div>
     </div>
   </div>

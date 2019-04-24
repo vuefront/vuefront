@@ -1,6 +1,6 @@
 <template>
   <div class="home-page__latest_products mb-5">
-    <div class="home-page__latest_products_title text-sm-center mb-5 h6">Featured products</div>
+    <div class="home-page__latest_products_title text-sm-center mb-5 h6">{{$t('modules.store.featuredProduct.textTitle')}}</div>
     <vf-apollo
       v-slot="{data}"
       :query="require('~/graphql/modules/featuredProduct.graphql')"

@@ -1,6 +1,6 @@
 <template>
   <section class="product-category">
-    <div class="text-sm-center h1 mb-5">Special</div>
+    <div class="text-sm-center h1 mb-5">{{$t('templates.store.special.textTitle')}}</div>
     <vf-sort
       v-if="products.content.length > 0"
       :sorts="sortOptions"
@@ -22,7 +22,7 @@
     <vf-empty
       v-if="products.content.length === 0"
       class="text-sm-center"
-    >There are no products to list in this category.</vf-empty>
+    >{{$t('templates.store.category.emptyText')}}</vf-empty>
     <vf-pagination :page="page" :totalPages="totalPages" @input="handleChangePage"/>
   </section>
 </template>
@@ -33,12 +33,12 @@ import { BaseModule } from "~/utils/module.js";
 export default {
   head() {
     return {
-      title: 'Special',
+      title: this.$t('templates.store.special.textTitle'),
       meta: [
         {
           hid: "description",
           name: "description",
-          content: 'Special'
+          content: this.$t('templates.store.special.textTitle')
         }
       ]
     };
@@ -47,61 +47,61 @@ export default {
     return {
       sizeOptions: [
         {
-          text: "15",
+          text: this.$t('templates.store.category.15Text'),
           value: 15
         },
         {
-          text: "25",
+          text: this.$t('templates.store.category.25Text'),
           value: 25
         },
         {
-          text: "50",
+          text: this.$t('templates.store.category.50Text'),
           value: 50
         },
         {
-          text: "75",
+          text: this.$t('templates.store.category.75Text'),
           value: 75
         },
         {
-          text: "100",
+          text: this.$t('templates.store.category.100Text'),
           value: 100
         }
       ],
       sortOptions: [
         {
-          text: "Default",
+          text: this.$t('templates.store.category.defaultSortText'),
           value: "id|ASC"
         },
         {
-          text: "Name (A - Z)",
+          text: this.$t('templates.store.category.nameAscSortText'),
           value: "name|ASC"
         },
         {
-          text: "Name (Z - A)",
+          text: this.$t('templates.store.category.nameDescSortText'),
           value: "name|DESC"
         },
         {
-          text: "Price (Low > High)",
+          text: this.$t('templates.store.category.priceAscSortText'),
           value: "price|ASC"
         },
         {
-          text: "Price (High > Low)",
+          text: this.$t('templates.store.category.priceDescSortText'),
           value: "price|DESC"
         },
         {
-          text: "Rating (Highest)",
+          text: this.$t('templates.store.category.ratingAscSortText'),
           value: "rating|ASC"
         },
         {
-          text: "Rating (Lowest)",
+          text: this.$t('templates.store.category.ratingDescSortText'),
           value: "rating|DESC"
         },
         {
-          text: "Model (A - Z)",
+          text: this.$t('templates.store.category.modelAscSortText'),
           value: "model|ASC"
         },
         {
-          text: "Model (Z - A)",
+          text: this.$t('templates.store.category.modelDescSortText'),
           value: "model|DESC"
         }
       ]

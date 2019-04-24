@@ -2,7 +2,7 @@
   <div>
     <b-form-input
       v-model="keyword"
-      placeholder="Search"
+      :placeholder="$t('elements.common.header.navSearch.placeholderText')"
       size="sm"
       hide-details
       @keypress="handleKeyPress"

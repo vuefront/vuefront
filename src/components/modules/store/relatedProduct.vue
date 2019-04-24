@@ -7,8 +7,7 @@
   >
     <div v-if="data.relatedProducts.products.length > 0" class="home-page__latest_products mb-5">
       <div class="home-page__latest_products_title text-sm-center mb-5 h6">
-        Suggested
-        products
+        {{$t('modules.store.relatedProduct.textTitle')}}
       </div>
       <vf-products-grid :products="data.relatedProducts.products"/>
     </div>

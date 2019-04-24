@@ -8,7 +8,7 @@
     <div
       v-if="category.categories.length > 0"
       class="category-section__sub_name text-sm-center h4"
-    >Categories</div>
+    >{{$t('elements.blog.category.categoriesText')}}</div>
     <b-row v-if="category.categories.length > 0">
       <b-col v-for="(value, index) in category.categories" :key="index" sm="4" md="2">
         <b-link :to="`/blog/category/${value.id}`" class="mb-2 mt-2 d-block">

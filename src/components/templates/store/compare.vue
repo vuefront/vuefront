@@ -6,7 +6,7 @@ import { mapGetters } from "vuex";
 export default {
   head() {
     return {
-      title: "Compare"
+      title: this.$t('templates.store.compare.textTitle')
     };
   },
   computed: {

@@ -53,17 +53,17 @@ export default {
       fields: [
         {
           key: "product",
-          label: "Product",
+          label: this.$t('elements.store.cart.productColumn'),
           sortable: false
         },
         {
           key: "price",
-          label: "Price",
+          label: this.$t('elements.store.cart.priceColumn'),
           sortable: false
         },
-        { key: "quantity", label: "Quantity", sortable: false },
-        { key: "total", label: "Total", sortable: false },
-        { key: "action", label: "", sortable: false }
+        { key: "quantity", label: this.$t('elements.store.cart.quantityColumn'), sortable: false },
+        { key: "total", label: this.$t('elements.store.cart.totalColumn'), sortable: false },
+        { key: "action", label: this.$t('elements.store.cart.actionColumn'), sortable: false }
       ]
     };
   },

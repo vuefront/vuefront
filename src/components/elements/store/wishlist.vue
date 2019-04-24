@@ -49,15 +49,15 @@ export default {
       fields: [
         {
           key: "product",
-          label: "Product",
+          label: this.$t('elements.store.wishlist.productColumn'),
           sortable: false
         },
         {
           key: "price",
-          label: "Price",
+          label: this.$t('elements.store.wishlist.priceColumn'),
           sortable: false
         },
-        { key: "action", label: "", sortable: false }
+        { key: "action", label: this.$t('elements.store.wishlist.actionColumn'), sortable: false }
       ]
     };
   },
@@ -70,7 +70,7 @@ export default {
     async handleAddToCart(wishlistProduct) {
       this.$store.commit(
         "notification/add",
-        `${wishlistProduct.name} product successfully added to cart`
+        wishlistProduct.name+this.$t('elements.store.wishlist.notificationText')
       );
 
       await this.$store.dispatch("store/cart/add", {

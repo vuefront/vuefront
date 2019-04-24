@@ -18,6 +18,7 @@ export const actions = {
   async nuxtServerInit({ dispatch, commit, rootGetters }) {
     await Promise.all([
       dispatch('store/currency/load', {}, { root: true }),
+      dispatch('common/language/load', {}, { root: true }),
       dispatch('common/customer/checkLogged', {}, { root: true }),
       dispatch('store/category/loadMenu', {}, { root: true }),
       dispatch('blog/category/loadMenu', {}, { root: true })

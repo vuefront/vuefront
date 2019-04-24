@@ -19,16 +19,16 @@
               />
             </b-col>
             <b-col sm="6" class="text-sm-right">
-              <b-badge variant="primary" pill>ID: #{{product.id}}</b-badge>
-              <b-badge v-if="product.stock" variant="success" pill>In stock</b-badge>
-              <b-badge v-else variant="danger" pill>Out of stock</b-badge>
+              <b-badge variant="primary" pill>{{$t('elements.store.product.idText')}}{{product.id}}</b-badge>
+              <b-badge v-if="product.stock" variant="success" pill>{{$t('elements.store.product.inStockText')}}</b-badge>
+              <b-badge v-else variant="danger" pill>{{$t('elements.store.product.outOfStockText')}}</b-badge>
             </b-col>
           </b-row>
           <div
             class="my-4 py-4 border-top"
             :class="{'border-bottom': product.attributes.lenght > 0}"
           >
-            <h6 class="product-info__description-title text-sm mb-1">Description:</h6>
+            <h6 class="product-info__description-title text-sm mb-1">{{$t('elements.store.product.descriptionText')}}</h6>
             <div class="product-info__description text-sm" v-html="product.description"/>
           </div>
           <vf-product-attribute v-if="product.attributes.length > 0" :product="product"/>
@@ -52,7 +52,7 @@
               </b-col>
               <b-col sm="6" md="7" class="text-sm-right">
                 <b-button variant="primary" @click="handleAddToCart">
-                  <vf-icon icon="shopping-cart"/>Add to Bug
+                  <vf-icon icon="shopping-cart"/>{{$t('elements.store.product.buttonAddToCart')}}
                 </b-button>
               </b-col>
             </b-row>
@@ -99,7 +99,7 @@ export default {
       if(!this.error) {
         this.$store.commit(
           "notification/add",
-          `${this.product.name} product successfully added to cart`
+          ${this.product.name}+this.$t('elements.store.product.notificationText')
         );
       } else {
         this.$store.commit(

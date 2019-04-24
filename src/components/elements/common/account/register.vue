@@ -2,12 +2,12 @@
   <b-card class="shadow mb-0" no-body>
     <b-card-body class="px-md-5 py-5">
       <div class="mb-5">
-        <h6 class="h3">Create account</h6>
-        <p class="text-muted mb-0">Made with love by developers for developers.</p>
+        <h6 class="h3">{{$t('elements.common.account.register.titleText')}}</h6>
+        <p class="text-muted mb-0">{{$t('elements.common.account.register.subTitleText')}}</p>
       </div>
       <b-alert :show="error.message" v-html="error.message"/>
       <b-form>
-        <b-form-group label="First Name" label-for="input-first-name">
+        <b-form-group :label="$t('elements.common.account.register.firstNameEntry')" label-for="input-first-name">
           <b-form-input
             id="input-first-name"
             v-model.trim="form.firstName"
@@ -16,9 +16,9 @@
           />
           <b-form-invalid-feedback
             id="input-first-name-feedback"
-          >First Name must be between 1 and 32 characters!</b-form-invalid-feedback>
+          >{{$t('elements.common.account.register.firstNameError')}}</b-form-invalid-feedback>
         </b-form-group>
-        <b-form-group label="Last Name" label-for="input-last-name">
+        <b-form-group :label="$t('elements.common.account.register.lastNameEntry')" label-for="input-last-name">
           <b-form-input
             id="input-last-name"
             v-model.trim="form.lastName"
@@ -27,9 +27,9 @@
           />
           <b-form-invalid-feedback
             id="input-last-name-feedback"
-          >Last Name must be between 1 and 32 characters!</b-form-invalid-feedback>
+          >{{$t('elements.common.account.register.lastNameError')}}</b-form-invalid-feedback>
         </b-form-group>
-        <b-form-group label="Email address" label-for="input-email">
+        <b-form-group :label="$t('elements.common.account.register.emailEntry')" label-for="input-email">
           <b-form-input
             id="input-email"
             v-model.trim="form.email"
@@ -38,9 +38,9 @@
           />
           <b-form-invalid-feedback
             id="input-email-feedback"
-          >E-Mail Address does not appear to be valid!</b-form-invalid-feedback>
+          >{{$t('elements.common.account.register.emailError')}}</b-form-invalid-feedback>
         </b-form-group>
-        <b-form-group label="Password" label-for="input-password">
+        <b-form-group :label="$t('elements.common.account.register.passwordEntry')" label-for="input-password">
           <b-form-input
             id="input-password"
             v-model.trim="form.password"
@@ -50,9 +50,9 @@
           />
           <b-form-invalid-feedback
             id="input-password-feedback"
-          >Password must be between 4 and 20 characters!</b-form-invalid-feedback>
+          >{{$t('elements.common.account.register.passwordError')}}</b-form-invalid-feedback>
         </b-form-group>
-        <b-form-group label="Confirm password" label-for="input-confirm-password" class="mb-4">
+        <b-form-group :label="$t('elements.common.account.register.confirmPasswordEntry')" label-for="input-confirm-password" class="mb-4">
           <b-form-input
             id="input-confirm-password"
             v-model="form.confirmPassword"
@@ -62,7 +62,7 @@
           />
           <b-form-invalid-feedback
             id="input-confirm-password-feedback"
-          >Password confirmation does not match password!</b-form-invalid-feedback>
+          >{{$t('elements.common.account.register.confirmPasswordError')}}</b-form-invalid-feedback>
         </b-form-group>
         <div class="mt-4">
           <b-button
@@ -72,15 +72,15 @@
             variant="primary"
             @click="onSubmit"
           >
-            Create my account
+            {{$t('elements.common.account.register.buttonSave')}}
             <vf-icon icon="long-arrow-alt-right" size="sm"/>
           </b-button>
         </div>
       </b-form>
     </b-card-body>
     <b-card-footer class="px-md-5">
-      <small>Already have an acocunt?</small>
-      <b-link to="/account/login" class="small font-weight-bold">Sign in</b-link>
+      <small>{{$t('elements.common.account.register.footerText')}}</small>
+      <b-link to="/account/login" class="small font-weight-bold">{{$t('elements.common.account.register.footerLinkText')}}</b-link>
     </b-card-footer>
   </b-card>
 </template>

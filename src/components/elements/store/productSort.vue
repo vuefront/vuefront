@@ -12,15 +12,15 @@
         </b-button-group>
       </b-col>
       <b-col align-self="center">
-        <b-link to="/store/compare">Product Compare</b-link>
+        <b-link to="/store/compare">{{$t('elements.store.productSort.compareText')}}</b-link>
       </b-col>
       <b-col sm="6" md="4" align-self="center">
-        <b-input-group prepend="Sort by:" size="sm">
+        <b-input-group :prepend="$t('elements.store.productSort.sortByText')" size="sm">
           <b-form-select v-model="sizeValue" :options="sizes" class="mr-3" height="40px"/>
         </b-input-group>
       </b-col>
       <b-col sm="6" md="3" align-self="center">
-        <b-input-group prepend="Show:" size="sm">
+        <b-input-group :prepend="$t('elements.store.productSort.showText')" size="sm">
           <b-form-select v-model="sortValue" :options="sorts" height="40px"/>
         </b-input-group>
       </b-col>

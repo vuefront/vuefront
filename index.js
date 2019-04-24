@@ -59,6 +59,10 @@ export default {
       module: 'vuefront/lib/store/common/customer'
     },
     {
+      path: ['common', 'language'],
+      module: 'vuefront/lib/store/common/language'
+    },
+    {
       path: ['store']
     },
     {
@@ -126,7 +130,8 @@ export default {
     Wishlist: 'vuefront/lib/components/elements/store/wishlist',
     Compare: 'vuefront/lib/components/elements/store/compare',
     Position: 'vuefront/lib/components/elements/common/position',
-    Currency: 'vuefront/lib/components/elements/store/currency'
+    Currency: 'vuefront/lib/components/elements/store/currency',
+    Language: 'vuefront/lib/components/elements/common/language'
   },
   templates: {
     Header: 'vuefront/lib/components/templates/common/header',

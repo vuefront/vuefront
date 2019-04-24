@@ -94,7 +94,7 @@ export default {
       if(!this.error) {
         this.$store.commit(
           "notification/add",
-          `${this.product.name} product successfully added to cart`
+          this.product.name+this.$t('elements.store.productThumb.notificationText')
         );
       } else {
         this.$store.commit(
@@ -108,7 +108,7 @@ export default {
     async handleAddToWishlist() {
       this.$store.commit(
         "notification/add",
-        `${this.product.name} product successfully added to wishlist`
+        this.product.name+this.$t('elements.store.productThumb.wishlistNotificationText')
       );
 
       await this.$store.dispatch("store/wishlist/add", {
@@ -118,7 +118,7 @@ export default {
     async handleAddToCompare() {
       this.$store.commit(
         "notification/add",
-        `${this.product.name} product successfully added to compare`
+        this.product.name+this.$t('elements.store.productThumb.compareNotificationText')
       );
 
       await this.$store.dispatch("store/compare/add", {

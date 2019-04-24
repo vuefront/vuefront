@@ -1,37 +1,8 @@
   <template>
   <section class="compare">
     <div class="compare__products">
-      <!-- <b-table :fields="fields" :items="items" class="table-compare">
-        <template slot="product" slot-scope="data">
-          <b-media no-body>
-            <b-media-aside vertical-align="center" class="pl-3">
-              <b-img-lazy
-                :src="data.item.image"
-                :blank-src="data.item.imageLazy"
-                width="80"
-                height="80"
-              />
-            </b-media-aside>
-            <b-media-body class="pl-3">
-              <div class="lh-100">
-                <span class="text-dark font-weight-bold mb-0">{{data.item.name}}</span>
-              </div>
-              <span class="font-weight-bold text-muted">{{data.item.model}}</span>
-            </b-media-body>
-          </b-media>
-        </template>
-        <template slot="price" slot-scope="data">{{data.item.price}}</template>
-        <template slot="action" slot-scope="data">
-          <div class="compare__action m-1 d-inline" @click="handleAddToCart(data.item)">
-            <vf-icon :icon="['fas', 'shopping-cart']"/>
-          </div>
-          <div class="compare__action m-1 ml-2 d-inline" @click="handleRemove(data.item)">
-            <vf-icon icon="times"/>
-          </div>
-        </template>
-      </b-table>-->
       <div class="compare__item">
-        <div class="compare__item_value border p-2">Product</div>
+        <div class="compare__item_value border p-2">{{$t('elements.store.compare.productRow')}}</div>
         <div
           v-for="(value, index) in compare"
           :key="index"
@@ -40,13 +11,13 @@
         />
       </div>
       <div class="compare__item">
-        <div class="compare__item_value border p-2">Image</div>
+        <div class="compare__item_value border p-2">{{$t('elements.store.compare.imageRow')}}</div>
         <div v-for="(value, index) in compare" :key="index" class="compare__item_value border p-2">
           <b-img-lazy :src="value.image" :blank-src="value.imageLazy" width="80" height="80"/>
         </div>
       </div>
       <div class="compare__item">
-        <div class="compare__item_value border p-2">Price</div>
+        <div class="compare__item_value border p-2">{{$t('elements.store.compare.priceRow')}}</div>
         <div v-for="(value, index) in compare" :key="index" class="compare__item_value border p-2">
           <div class="card-product__price h4">
             <span v-if="value.special !== ''" class="card-product__price_special">{{value.special}}</span>
@@ -55,7 +26,7 @@
         </div>
       </div>
       <div class="compare__item">
-        <div class="compare__item_value border p-2">Model</div>
+        <div class="compare__item_value border p-2">{{$t('elements.store.compare.modelRow')}}</div>
         <div
           v-for="(value, index) in compare"
           :key="index"
@@ -63,14 +34,14 @@
         >{{value.model}}</div>
       </div>
       <div class="compare__item">
-        <div class="compare__item_value border p-2">Availability</div>
+        <div class="compare__item_value border p-2">{{$t('elements.store.compare.availabilityRow')}}</div>
         <div v-for="(value, index) in compare" :key="index" class="compare__item_value border p-2">
-          <div v-if="value.stock">In stock</div>
-          <div v-else>Out of stock</div>
+          <div v-if="value.stock">{{$t('elements.store.compare.inStockText')}}</div>
+          <div v-else>{{{{$t('elements.store.compare.outOfStockText')}}}}</div>
         </div>
       </div>
       <div class="compare__item">
-        <div class="compare__item_value border p-2">Rating</div>
+        <div class="compare__item_value border p-2">{{$t('elements.store.compare.ratingRow')}}</div>
         <div v-for="(value, index) in compare" :key="index" class="compare__item_value border p-2">
           <vf-rating
             :value="value.rating"
@@ -80,7 +51,7 @@
         </div>
       </div>
       <div class="compare__item">
-        <div class="compare__item_value border p-2">Summary</div>
+        <div class="compare__item_value border p-2">{{$t('elements.store.compare.summaryRow')}}</div>
         <div v-for="(value, index) in compare" :key="index" class="compare__item_value border p-2" v-html="value.shortDescription"/>
       </div>
       <div class="compare__item">
@@ -153,7 +124,7 @@ export default {
     async handleAddToCart(compareProduct) {
       this.$store.commit(
         "notification/add",
-        `${compareProduct.name} product successfully added to cart`
+        compareProduct.name+this.$t('elements.store.compare.notificationText')
       );
 
       await this.$store.dispatch("store/cart/add", {
