@@ -52,7 +52,7 @@
               </b-col>
               <b-col sm="6" md="7" class="text-sm-right">
                 <b-button variant="primary" @click="handleAddToCart">
-                  <vf-icon icon="shopping-cart"/>{{$t('elements.store.product.buttonAddToCart')}}
+                  <vf-icon icon="shopping-cart"/> {{$t('elements.store.product.buttonAddToCart')}}
                 </b-button>
               </b-col>
             </b-row>
@@ -99,7 +99,7 @@ export default {
       if(!this.error) {
         this.$store.commit(
           "notification/add",
-          ${this.product.name}+this.$t('elements.store.product.notificationText')
+          this.product.name+this.$t('elements.store.product.notificationText')
         );
       } else {
         this.$store.commit(
