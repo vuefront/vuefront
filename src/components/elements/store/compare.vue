@@ -1,4 +1,4 @@
-  <template>
+<template>
   <section class="compare">
     <div class="compare__products">
       <div class="compare__item">
@@ -37,7 +37,7 @@
         <div class="compare__item_value border p-2">{{$t('elements.store.compare.availabilityRow')}}</div>
         <div v-for="(value, index) in compare" :key="index" class="compare__item_value border p-2">
           <div v-if="value.stock">{{$t('elements.store.compare.inStockText')}}</div>
-          <div v-else>{{{{$t('elements.store.compare.outOfStockText')}}}}</div>
+          <div v-else>{{$t('elements.store.compare.outOfStockText')}}</div>
         </div>
       </div>
       <div class="compare__item">

@@ -43,7 +43,7 @@
     </b-card-body>
     <b-card-footer class="px-md-5">
       <small>{{$t('elements.common.account.login.footerText')}}</small>
-      <b-link to="/account/register" class="small font-weight-bold">{{{{$t('elements.common.account.login.footerLink')}}}}</b-link>
+      <b-link to="/account/register" class="small font-weight-bold">{{$t('elements.common.account.login.footerLink')}}</b-link>
     </b-card-footer>
   </b-card>
 </template>
