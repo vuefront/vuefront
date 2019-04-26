@@ -4,7 +4,7 @@
     <b-row>
       <b-col sm="12" md="4">
         <b-form-group :label="$t('elements.common.search.keywordEntry')" label-for="input-criteria">
-          <b-form-input id="input-criteria" v-model="keyword" trim/>
+          <b-form-input id="input-criteria" v-model="keyword" trim @keypress="handleKeyPress"/>
         </b-form-group>
         <div class="text-sm-left">
           <b-button variant="primary" @click="handleSearch">{{$t('elements.common.search.buttonSearch')}}</b-button>
@@ -37,6 +37,11 @@ export default {
   methods: {
     handleSearch(e) {
       this.$router.push(`/search/${this.keyword}`);
+    },
+    handleKeyPress(e) {
+      if (e.key === "Enter") {
+        this.$router.push(`/search/${this.keyword}`);
+      }
     }
   }
 };

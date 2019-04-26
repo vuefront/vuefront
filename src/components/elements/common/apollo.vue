@@ -30,6 +30,12 @@ export default {
       loading
     };
   },
+  watch: {
+    $route(to, from) {
+      this.loadData()
+    }
+  },
+  watchQuery: true,
   computed: {
     ...mapGetters({
       prefetchData: "apollo/prefetchData"
