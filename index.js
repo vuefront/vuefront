@@ -2,6 +2,7 @@ export default {
   plugins: [],
   css: ['vuefront/scss/main.scss'],
   pages: {
+    '/contact': 'vuefront/lib/components/templates/common/contact',
     '/account': 'vuefront/lib/components/templates/common/account/account',
     '/account/login': 'vuefront/lib/components/templates/common/account/login',
     '/account/register': 'vuefront/lib/components/templates/common/account/register',
@@ -53,6 +54,10 @@ export default {
     {
       path: ['common', 'page'],
       module: 'vuefront/lib/store/common/page'
+    },
+    {
+      path: ['common', 'contact'],
+      module: 'vuefront/lib/store/common/contact'
     },
     {
       path: ['common', 'customer'],
@@ -131,7 +136,11 @@ export default {
     Compare: 'vuefront/lib/components/elements/store/compare',
     Position: 'vuefront/lib/components/elements/common/position',
     Currency: 'vuefront/lib/components/elements/store/currency',
-    Language: 'vuefront/lib/components/elements/common/language'
+    Language: 'vuefront/lib/components/elements/common/language',
+    ContactForm: 'vuefront/lib/components/elements/common/contact/form',
+    Contact: 'vuefront/lib/components/elements/common/contact/contact',
+    ContactLocation: 'vuefront/lib/components/elements/common/contact/location',
+    ContactLocationGrid: 'vuefront/lib/components/elements/common/contact/locationGrid'
   },
   templates: {
     Header: 'vuefront/lib/components/templates/common/header',

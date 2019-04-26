@@ -554,7 +554,7 @@ $input-focus-placeholder-color:         $gray-500 !default;
 
 $input-height-border:                   $input-border-width * 2 !default;
 
-$input-transition:                      $transition-base !default;
+$input-transition:                      border-color .15s ease-in-out,box-shadow .15s ease-in-out !default;
 
 $input-muted-bg:                        #EDF0F5 !default;
 

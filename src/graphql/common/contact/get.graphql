@@ -1,0 +1,20 @@
+{
+	contact {
+    locations {
+      address
+      fax
+      image
+      geocode
+    	telephone
+      open,
+      comment
+    }
+    address
+    email
+    fax
+    comment
+    open
+    store
+    telephone
+  }
+}
