@@ -4,15 +4,20 @@ import LogoutGql from '~/graphql/account/logout.graphql'
 import EditGql from '~/graphql/account/edit.graphql'
 import EditPasswordGql from '~/graphql/account/editPassword.graphql'
 import CheckGql from '~/graphql/account/check.graphql'
+import AddressesGql from '~/graphql/account/address.graphql'
 
 export const state = () => ({
   customer: null,
-  auth: false
+  auth: false,
+  addressEntities: []
 })
 
 export const getters = {
   get(state) {
     return state.customer
+  },
+  getAddresses(state) {
+    return state.addressEntities
   },
   auth(state) {
     return state.auth
@@ -23,13 +28,16 @@ export const mutations = {
   setCustomer(state, payload) {
     state.customer = payload
   },
+  setAddress(state, payload) {
+    state.addressEntities = payload
+  },
   setAuth(state, payload) {
     state.auth = payload
   }
 }
 
 export const actions = {
-  async login({ commit, dispatch, rootGetters }, customerData) {
+  async login({commit, dispatch, rootGetters}, customerData) {
     await dispatch(
       'apollo/mutate',
       {
@@ -46,7 +54,7 @@ export const actions = {
       commit('setAuth', true)
     }
   },
-  async logout({ commit, dispatch, rootGetters }) {
+  async logout({commit, dispatch, rootGetters}) {
     await dispatch(
       'apollo/mutate',
       {
@@ -62,7 +70,7 @@ export const actions = {
       commit('setAuth', rootGetters['apollo/get'].accountLogout.status)
     }
   },
-  async edit({ commit, dispatch, rootGetters }, customerData) {
+  async edit({commit, dispatch, rootGetters}, customerData) {
     await dispatch(
       'apollo/mutate',
       {
@@ -80,7 +88,7 @@ export const actions = {
       commit('setCustomer', rootGetters['apollo/get'].accountEdit)
     }
   },
-  async editPassword({ commit, dispatch, rootGetters }, {password}) {
+  async editPassword({commit, dispatch, rootGetters}, {password}) {
     await dispatch(
       'apollo/mutate',
       {
@@ -98,7 +106,7 @@ export const actions = {
       commit('setCustomer', rootGetters['apollo/get'].accountEditPassword)
     }
   },
-  async register({ commit, dispatch, rootGetters }, customerData) {
+  async register({commit, dispatch, rootGetters}, customerData) {
     await dispatch(
       'apollo/mutate',
       {
@@ -116,7 +124,7 @@ export const actions = {
       commit('setCustomer', rootGetters['apollo/get'].accountRegister)
     }
   },
-  async checkLogged({ commit, dispatch, rootGetters }) {
+  async checkLogged({commit, dispatch, rootGetters}) {
     await dispatch(
       'apollo/mutate',
       {
@@ -132,6 +140,23 @@ export const actions = {
         rootGetters['apollo/get'].accountCheckLogged.customer
       )
       commit('setAuth', rootGetters['apollo/get'].accountCheckLogged.status)
+    }
+  },
+  async getAddresses({commit, dispatch, rootGetters}) {
+    await dispatch(
+      'apollo/query',
+      {
+        query: AddressesGql
+      },
+      {
+        root: true
+      }
+    )
+    if (!rootGetters['vuefront/error']) {
+      commit(
+        'setAddress',
+        rootGetters['apollo/get'].accountAddressList
+      )
     }
   }
 }

@@ -1,0 +1,12 @@
+{
+    accountAddressList {
+        id
+        firstName
+        lastName
+        address1
+        address2
+        city
+        company
+        zipcode
+    }
+}
