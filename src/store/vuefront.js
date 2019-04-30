@@ -1,21 +1,28 @@
 export const state = {
-  error: false
+  error: false,
+  ssr: false
 }
 
 export const mutations = {
   setError(state, payload) {
     state.error = payload
+  },
+  setSSR(state, payload) {
+    state.ssr = payload
   }
 }
 
 export const getters = {
   error(state) {
     return state.error
+  },
+  ssr(state) {
+    return state.error
   }
 }
 
 export const actions = {
-  async nuxtServerInit({ dispatch, commit, rootGetters }) {
+  async vuefrontInit({dispatch, commit, rootGetters}) {
     await Promise.all([
       dispatch('store/currency/load', {}, { root: true }),
       dispatch('common/language/load', {}, { root: true }),
@@ -36,5 +43,15 @@ export const actions = {
         root: true
       })
     }
-  }
+  },
+  async nuxtServerInit({ dispatch, commit }) {
+    await dispatch('vuefrontInit')
+    commit('setSSR', true)
+
+  },
+  async nuxtClientInit({ dispatch, rootGetters }) {
+    if(!rootGetters['ssr']){
+      await dispatch('vuefrontInit')
+    }
+  },
 }
