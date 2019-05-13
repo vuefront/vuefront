@@ -10,7 +10,7 @@
   </div>
 </template>
 <script>
-import BFormInput from "bootstrap-vue/es/components/form-input/form-input";
+import { BFormInput } from "bootstrap-vue/es/components";
 export default {
   components: {
     BFormInput
@@ -25,7 +25,7 @@ export default {
       if (to.matched[0].path === "/search/:slug") {
         this.keyword = to.params.slug;
       } else {
-        this.keyword = ''
+        this.keyword = "";
       }
     }
   },
@@ -33,12 +33,19 @@ export default {
   methods: {
     handleKeyPress(e) {
       if (e.key === "Enter") {
-        this.$router.push(`/search/${this.keyword}`);
+        if (this.keyword !== "") {
+          this.$router.push(`/search/${this.keyword}`);
+        } else {
+          this.$router.push("/");
+        }
       }
     }
   },
   beforeMount() {
-    if (this.$route.matched[0].path === "/search/:slug") {
+    if (
+      this.$route.matched.length > 0 &&
+      this.$route.matched[0].path === "/search/:slug"
+    ) {
       this.keyword = this.$route.params.slug;
     }
   }

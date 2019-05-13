@@ -50,8 +50,7 @@
   </b-container>
 </template>
 <script>
-import BContainer from "bootstrap-vue/es/components/layout/container";
-import BLink from "bootstrap-vue/es/components/link/link";
+import { BContainer, BLink } from "bootstrap-vue/es/components";
 import "vuefront/scss/elements/common/header/topMenu.scss";
 export default {
   components: {

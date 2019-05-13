@@ -40,22 +40,20 @@
           id="input-message-feedback"
         >{{$t('elements.common.contact.messageError')}}</b-form-invalid-feedback>
       </b-form-group>
-      <b-button
-        variant="dark"
-        class="rounded-pill"
-        @click="onSubmit"
-      >{{$t('elements.common.contact.buttonSend')}}</b-button>
+      <b-button variant="dark" pill @click="onSubmit">{{$t('elements.common.contact.buttonSend')}}</b-button>
     </b-form>
   </section>
 </template>
 <script>
-import BForm from "bootstrap-vue/es/components/form/form";
-import BFormGroup from "bootstrap-vue/es/components/form-group/form-group";
-import BFormInput from "bootstrap-vue/es/components/form-input/form-input";
-import BFormTextarea from "bootstrap-vue/es/components/form-textarea/form-textarea";
-import BFormInvalidFeedback from "bootstrap-vue/es/components/form/form-invalid-feedback";
-import BButton from "bootstrap-vue/es/components/button/button";
-import BAlert from "bootstrap-vue/es/components/alert/alert";
+import {
+  BForm,
+  BFormGroup,
+  BFormInput,
+  BFormTextarea,
+  BFormInvalidFeedback,
+  BButton,
+  BAlert
+} from "bootstrap-vue/es/components";
 import { validationMixin } from "vuelidate";
 import required from "vuelidate/lib/validators/required";
 import minLength from "vuelidate/lib/validators/minLength";
@@ -113,20 +111,23 @@ export default {
 
       if (!this.$v.form.$invalid) {
         await this.$store.dispatch("common/contact/send", this.form);
-        if(!this.error) {
-          this.$store.commit('notification/add', this.$t('elements.common.contact.successText'))
+        if (!this.error) {
+          this.$store.commit(
+            "notification/add",
+            this.$t("elements.common.contact.successText")
+          );
 
-          e.preventDefault()
+          e.preventDefault();
 
-          this.form.email = null
-          this.form.name = null
-          this.form.message = null
+          this.form.email = null;
+          this.form.name = null;
+          this.form.message = null;
 
-          this.show = false
+          this.show = false;
           this.$nextTick(() => {
-            this.$v.$reset()
-            this.show = true
-          })
+            this.$v.$reset();
+            this.show = true;
+          });
         }
       }
     }

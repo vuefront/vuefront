@@ -12,9 +12,9 @@
     <div class="review-section__new">
       <div class="review-section__new_title title mb-3">{{$t('elements.common.reviews.writeText')}}</div>
       <b-form-group :label="$t('elements.common.reviews.ratingEntry')">
-        <b-form-radio-group 
-          v-model="rating" 
-          class="pt-2" 
+        <b-form-radio-group
+          v-model="rating"
+          class="pt-2"
           :options="[1, 2, 3, 4 ,5]"
           :state="$v.rating.$dirty ? !$v.rating.$error : null"
           aria-describedby="input-rating-feedback"
@@ -22,31 +22,31 @@
         <b-form-invalid-feedback
           :state="$v.rating.$dirty ? !$v.rating.$error : null"
           id="input-rating-feedback"
-          >{{$t('elements.common.reviews.ratingError')}}</b-form-invalid-feedback>
+        >{{$t('elements.common.reviews.ratingError')}}</b-form-invalid-feedback>
       </b-form-group>
       <b-form-group :label="$t('elements.common.reviews.nameEntry')" label-for="input-name">
         <b-form-input
           id="input-name"
-          v-model="author" 
+          v-model="author"
           :state="$v.author.$dirty ? !$v.author.$error : null"
-          aria-describedby="input-author-feedback" 
-          trim
-          />
-        <b-form-invalid-feedback
-            id="input-author-feedback"
-          >{{$t('elements.common.reviews.authorError')}}</b-form-invalid-feedback>
-      </b-form-group>
-      <b-form-group :label="$t('elements.common.reviews.reviewEntry')" label-for="input-review">
-        <b-form-textarea 
-          id="input-review"
-          v-model="review" 
-          :state="$v.review.$dirty ? !$v.review.$error : null"
-          aria-describedby="input-review-feedback" 
+          aria-describedby="input-author-feedback"
           trim
         />
         <b-form-invalid-feedback
-            id="input-review-feedback"
-          >{{$t('elements.common.reviews.reviewError')}}</b-form-invalid-feedback>
+          id="input-author-feedback"
+        >{{$t('elements.common.reviews.authorError')}}</b-form-invalid-feedback>
+      </b-form-group>
+      <b-form-group :label="$t('elements.common.reviews.reviewEntry')" label-for="input-review">
+        <b-form-textarea
+          id="input-review"
+          v-model="review"
+          :state="$v.review.$dirty ? !$v.review.$error : null"
+          aria-describedby="input-review-feedback"
+          trim
+        />
+        <b-form-invalid-feedback
+          id="input-review-feedback"
+        >{{$t('elements.common.reviews.reviewError')}}</b-form-invalid-feedback>
       </b-form-group>
       <div class="text-sm-right">
         <b-button variant="primary" @click="handleSend">{{$t('elements.common.reviews.buttonSend')}}</b-button>
@@ -55,13 +55,15 @@
   </div>
 </template>
 <script>
-import BButton from "bootstrap-vue/es/components/button/button";
-import BCard from "bootstrap-vue/es/components/card/card";
-import BFormGroup from "bootstrap-vue/es/components/form-group/form-group";
-import BFormInput from "bootstrap-vue/es/components/form-input/form-input";
-import BFormTextarea from "bootstrap-vue/es/components/form-textarea/form-textarea";
-import BFormRadioGroup from "bootstrap-vue/es/components/form-radio/form-radio-group";
-import BFormInvalidFeedback from "bootstrap-vue/es/components/form/form-invalid-feedback";
+import {
+  BButton,
+  BCard,
+  BFormGroup,
+  BFormInput,
+  BFormTextarea,
+  BFormRadioGroup,
+  BFormInvalidFeedback
+} from "bootstrap-vue/es/components";
 import { validationMixin } from "vuelidate";
 import required from "vuelidate/lib/validators/required";
 import minLength from "vuelidate/lib/validators/minLength";

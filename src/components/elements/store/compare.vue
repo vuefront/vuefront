@@ -43,16 +43,17 @@
       <div class="compare__item">
         <div class="compare__item_value border p-2">{{$t('elements.store.compare.ratingRow')}}</div>
         <div v-for="(value, index) in compare" :key="index" class="compare__item_value border p-2">
-          <vf-rating
-            :value="value.rating"
-            color="#ffcc00"
-            readonly
-          />
+          <vf-rating :value="value.rating" color="#ffcc00" readonly/>
         </div>
       </div>
       <div class="compare__item">
         <div class="compare__item_value border p-2">{{$t('elements.store.compare.summaryRow')}}</div>
-        <div v-for="(value, index) in compare" :key="index" class="compare__item_value border p-2" v-html="value.shortDescription"/>
+        <div
+          v-for="(value, index) in compare"
+          :key="index"
+          class="compare__item_value border p-2"
+          v-html="value.shortDescription"
+        />
       </div>
       <div class="compare__item">
         <div class="compare__item_value border p-2"></div>
@@ -69,12 +70,14 @@
   </section>
 </template>
 <script>
-import BTable from "bootstrap-vue/es/components/table/table";
-import BImgLazy from "bootstrap-vue/es/components/image/img-lazy";
-import BMedia from "bootstrap-vue/es/components/media/media";
-import BMediaBody from "bootstrap-vue/es/components/media/media-body";
-import BMediaAside from "bootstrap-vue/es/components/media/media-aside";
-import BFormInput from "bootstrap-vue/es/components/form-input/form-input";
+import {
+  BTable,
+  BImgLazy,
+  BMedia,
+  BMediaBody,
+  BMediaAside,
+  BFormInput
+} from "bootstrap-vue/es/components";
 import "vuefront/scss/elements/store/compare.scss";
 export default {
   components: { BTable, BImgLazy, BMedia, BMediaBody, BMediaAside, BFormInput },
@@ -124,7 +127,7 @@ export default {
     async handleAddToCart(compareProduct) {
       this.$store.commit(
         "notification/add",
-        compareProduct.name+this.$t('elements.store.compare.notificationText')
+        compareProduct.name + this.$t("elements.store.compare.notificationText")
       );
 
       await this.$store.dispatch("store/cart/add", {

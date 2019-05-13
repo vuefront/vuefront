@@ -23,21 +23,22 @@ export const getters = {
 
 export const actions = {
   async vuefrontInit({dispatch, commit, rootGetters}) {
+    let menuItems = []
+    this.$vuefront.options.menu.forEach((item) => {
+      menuItems = [...menuItems, dispatch(`menu/${item}/load`, {}, {root: true})]
+    })
+
     await Promise.all([
       dispatch('store/currency/load', {}, { root: true }),
       dispatch('common/language/load', {}, { root: true }),
       dispatch('common/customer/checkLogged', {}, { root: true }),
-      dispatch('store/category/loadMenu', {}, { root: true }),
-      dispatch('blog/category/loadMenu', {}, { root: true })
+      ...menuItems
     ])
 
-    commit('menu/addEntities', rootGetters['store/category/menu'], {
-      root: true
+    this.$vuefront.options.menu.forEach((item) => {
+      commit('menu/addEntities', rootGetters[`menu/${item}/get`], {root: true})
     })
 
-    commit('menu/addEntities', rootGetters['blog/category/menu'], {
-      root: true
-    })
     if (this.$cookies.get('mode')) {
       commit('store/category/setMode', this.$cookies.get('mode'), {
         root: true

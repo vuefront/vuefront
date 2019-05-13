@@ -20,7 +20,10 @@
       </b-row>
       <b-row class="py-4 mt-4 delimiter-top">
         <b-col md="6">
-          <div class="text-sm font-weight-bold text-center text-md-left" v-html="$t('elements.common.footer.copyrightText')"/>
+          <div
+            class="text-sm font-weight-bold text-center text-md-left"
+            v-html="$t('elements.common.footer.copyrightText')"
+          />
         </b-col>
         <b-col md="6"></b-col>
       </b-row>
@@ -28,9 +31,7 @@
   </footer>
 </template>
 <script>
-import BContainer from "bootstrap-vue/es/components/layout/container";
-import BRow from "bootstrap-vue/es/components/layout/row";
-import BCol from "bootstrap-vue/es/components/layout/col";
+import { BContainer, BRow, BCol } from "bootstrap-vue/es/components";
 import "vuefront/scss/elements/common/footer.scss";
 export default {
   components: {
@@ -40,7 +41,7 @@ export default {
   },
   props: ["logo"],
   data() {
-    return {}
+    return {};
   }
 };
 </script>

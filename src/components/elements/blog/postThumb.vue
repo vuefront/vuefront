@@ -11,12 +11,14 @@
   </b-card>
 </template>
 <script>
-import BCard from "bootstrap-vue/es/components/card/card";
-import BCardImgLazy from "bootstrap-vue/es/components/card/card-img-lazy";
-import BCardBody from "bootstrap-vue/es/components/card/card-body";
-import BLink from "bootstrap-vue/es/components/link/link";
+import {
+  BCard,
+  BCardImgLazy,
+  BCardBody,
+  BLink
+} from "bootstrap-vue/es/components";
 import "vuefront/scss/elements/blog/postThumb.scss";
-import placeholder from '~/assets/img/placeholder.png';
+import placeholder from "~/assets/img/placeholder.png";
 
 export default {
   components: {
@@ -28,11 +30,11 @@ export default {
   props: ["post"],
   computed: {
     mainImage() {
-      return this.post.image !== '' ? this.post.image : placeholder
+      return this.post.image !== "" ? this.post.image : placeholder;
     },
     mainImagelazy() {
-      return this.post.imagelazy !== '' ? this.post.imagelazy : placeholder
+      return this.post.imagelazy !== "" ? this.post.imagelazy : placeholder;
     }
-  },
+  }
 };
 </script>

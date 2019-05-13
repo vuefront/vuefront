@@ -5,8 +5,8 @@ export const BaseLayout = {
   computed: {
     modules() {
       let result = []
-      for (const route in this.$vuefront.options) {
-        const layout = this.$vuefront.options[route]
+      for (const route in this.$vuefront.options.layouts) {
+        const layout = this.$vuefront.options.layouts[route]
         let regexRoute = route.replace('*', '.*')
         regexRoute = regexRoute.replace('//', '\\//')
         const regex = new RegExp('^' + regexRoute + '$', 'i')

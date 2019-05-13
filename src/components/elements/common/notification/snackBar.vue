@@ -12,8 +12,7 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
-import BContainer from "bootstrap-vue/es/components/layout/container";
-import BAlert from "bootstrap-vue/es/components/alert/alert";
+import { BContainer, BAlert } from "bootstrap-vue/es/components";
 
 export default {
   components: {
@@ -33,7 +32,7 @@ export default {
   watch: {
     messageNotification(val, oldVal) {
       this.dismissCountDown = 10;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   },
   methods: {

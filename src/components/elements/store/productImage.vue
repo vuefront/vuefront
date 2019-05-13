@@ -4,8 +4,8 @@
   </section>
 </template>
 <script>
-import BImgLazy from "bootstrap-vue/es/components/image/img-lazy";
-import placeholder from '~/assets/img/placeholder.png';
+import { BImgLazy } from "bootstrap-vue/es/components";
+import placeholder from "~/assets/img/placeholder.png";
 export default {
   components: {
     BImgLazy
@@ -13,11 +13,13 @@ export default {
   props: ["product"],
   computed: {
     mainImage() {
-      return this.product.image !== '' ? this.product.image : placeholder
+      return this.product.image !== "" ? this.product.image : placeholder;
     },
     mainImagelazy() {
-      return this.product.imagelazy !== '' ? this.product.imagelazy : placeholder
+      return this.product.imagelazy !== ""
+        ? this.product.imagelazy
+        : placeholder;
     }
-  },
+  }
 };
 </script>

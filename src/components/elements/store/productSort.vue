@@ -28,13 +28,15 @@
   </section>
 </template>
 <script>
-import BRow from "bootstrap-vue/es/components/layout/row";
-import BCol from "bootstrap-vue/es/components/layout/col";
-import BButton from "bootstrap-vue/es/components/button/button";
-import BButtonGroup from "bootstrap-vue/es/components/button-group/button-group";
-import BFormSelect from "bootstrap-vue/es/components/form-select/form-select";
-import BInputGroup from "bootstrap-vue/es/components/input-group/input-group";
-import BLink from "bootstrap-vue/es/components/link/link";
+import {
+  BRow,
+  BCol,
+  BButton,
+  BButtonGroup,
+  BFormSelect,
+  BInputGroup,
+  BLink
+} from "bootstrap-vue/es/components";
 export default {
   components: {
     BLink,

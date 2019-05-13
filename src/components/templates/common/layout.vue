@@ -23,9 +23,7 @@
 </template>
 <script>
 import { BaseModule } from "~/utils/module.js";
-import BRow from "bootstrap-vue/es/components/layout/row";
-import BCol from "bootstrap-vue/es/components/layout/col";
-import BContainer from "bootstrap-vue/es/components/layout/container";
+import { BRow, BCol, BContainer } from "bootstrap-vue/es/components";
 import "vuefront/scss/templates/layout.scss";
 
 export default {

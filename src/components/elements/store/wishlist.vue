@@ -34,12 +34,14 @@
   </section>
 </template>
 <script>
-import BTable from "bootstrap-vue/es/components/table/table";
-import BImgLazy from "bootstrap-vue/es/components/image/img-lazy";
-import BMedia from "bootstrap-vue/es/components/media/media";
-import BMediaBody from "bootstrap-vue/es/components/media/media-body";
-import BMediaAside from "bootstrap-vue/es/components/media/media-aside";
-import BFormInput from "bootstrap-vue/es/components/form-input/form-input";
+import {
+  BTable,
+  BImgLazy,
+  BMedia,
+  BMediaBody,
+  BMediaAside,
+  BFormInput
+} from "bootstrap-vue/es/components";
 import "vuefront/scss/elements/store/wishlist.scss";
 export default {
   components: { BTable, BImgLazy, BMedia, BMediaBody, BMediaAside, BFormInput },
@@ -49,15 +51,19 @@ export default {
       fields: [
         {
           key: "product",
-          label: this.$t('elements.store.wishlist.productColumn'),
+          label: this.$t("elements.store.wishlist.productColumn"),
           sortable: false
         },
         {
           key: "price",
-          label: this.$t('elements.store.wishlist.priceColumn'),
+          label: this.$t("elements.store.wishlist.priceColumn"),
           sortable: false
         },
-        { key: "action", label: this.$t('elements.store.wishlist.actionColumn'), sortable: false }
+        {
+          key: "action",
+          label: this.$t("elements.store.wishlist.actionColumn"),
+          sortable: false
+        }
       ]
     };
   },
@@ -70,7 +76,8 @@ export default {
     async handleAddToCart(wishlistProduct) {
       this.$store.commit(
         "notification/add",
-        wishlistProduct.name+this.$t('elements.store.wishlist.notificationText')
+        wishlistProduct.name +
+          this.$t("elements.store.wishlist.notificationText")
       );
 
       await this.$store.dispatch("store/cart/add", {

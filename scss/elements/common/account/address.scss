@@ -1,0 +1,7 @@
+.account-address{
+  &__action {
+    & > * {
+      cursor: pointer;
+    }
+  }
+}

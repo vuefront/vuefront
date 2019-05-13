@@ -1,6 +1,6 @@
 <template>
   <section>
-    <vf-account-address/>
+    <vf-account-address :items="contact"/>
   </section>
 </template>
 <script>

@@ -9,7 +9,7 @@
   </section>
 </template>
 <script>
-import BLink from "bootstrap-vue/es/components/link/link";
+import { BLink } from "bootstrap-vue/es/components";
 export default {
   components: {
     BLink

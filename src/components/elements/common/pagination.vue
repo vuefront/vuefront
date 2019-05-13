@@ -1,10 +1,15 @@
 <template>
   <div>
-    <b-pagination v-if="totalPages > 1" :value="page" :total-rows="totalPages" @input="handleChange"/>
+    <b-pagination
+      v-if="totalPages > 1"
+      :value="page"
+      :total-rows="totalPages"
+      @input="handleChange"
+    />
   </div>
 </template>
 <script>
-import BPagination from "bootstrap-vue/es/components/pagination/pagination";
+import { BPagination } from "bootstrap-vue/es/components";
 export default {
   components: {
     BPagination

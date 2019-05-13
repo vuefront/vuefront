@@ -5,24 +5,29 @@
         <h6 class="h3">{{$t('elements.common.account.new.titleText')}}</h6>
         <p class="text-muted mb-0">{{$t('elements.common.account.new.subTitleText')}}</p>
       </div>
-      <div
-        class="lead"
-      >{{$t('elements.common.account.new.descriptionText')}}</div>
+      <div class="lead">{{$t('elements.common.account.new.descriptionText')}}</div>
       <div class="mt-4 text-sm-left">
-          <b-button size="sm" class="rounded-pill" variant="primary" to="/account/register">{{$t('elements.common.account.new.buttonContinue')}}</b-button>
-        </div>
+        <b-button
+          size="sm"
+          pill
+          variant="primary"
+          to="/account/register"
+        >{{$t('elements.common.account.new.buttonContinue')}}</b-button>
+      </div>
     </b-card-body>
   </b-card>
 </template>
 <script>
-import BCard from "bootstrap-vue/es/components/card/card";
-import BCardBody from "bootstrap-vue/es/components/card/card-body";
-import BCardFooter from "bootstrap-vue/es/components/card/card-footer";
-import BForm from "bootstrap-vue/es/components/form/form";
-import BFormGroup from "bootstrap-vue/es/components/form-group/form-group";
-import BFormInput from "bootstrap-vue/es/components/form-input/form-input";
-import BButton from "bootstrap-vue/es/components/button/button";
-import BLink from "bootstrap-vue/es/components/link/link";
+import {
+  BCard,
+  BCardBody,
+  BCardFooter,
+  BForm,
+  BFormGroup,
+  BFormInput,
+  BButton,
+  BLink
+} from "bootstrap-vue/es/components";
 
 export default {
   components: {

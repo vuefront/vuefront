@@ -7,7 +7,10 @@
       </div>
       <b-alert :show="error.message" v-html="error.message"/>
       <b-form>
-        <b-form-group :label="$t('elements.common.account.edit.firstNameEntry')" label-for="input-first-name">
+        <b-form-group
+          :label="$t('elements.common.account.edit.firstNameEntry')"
+          label-for="input-first-name"
+        >
           <b-form-input
             id="input-first-name"
             v-model.trim="form.firstName"
@@ -18,7 +21,10 @@
             id="input-first-name-feedback"
           >{{$t('elements.common.account.edit.firstNameError')}}</b-form-invalid-feedback>
         </b-form-group>
-        <b-form-group :label="$t('elements.common.account.edit.lastNameEntry')" label-for="input-last-name">
+        <b-form-group
+          :label="$t('elements.common.account.edit.lastNameEntry')"
+          label-for="input-last-name"
+        >
           <b-form-input
             id="input-last-name"
             v-model.trim="form.lastName"
@@ -29,7 +35,10 @@
             id="input-last-name-feedback"
           >{{$t('elements.common.account.edit.lastNameError')}}</b-form-invalid-feedback>
         </b-form-group>
-        <b-form-group :label="$t('elements.common.account.edit.emailEntry')" label-for="input-email">
+        <b-form-group
+          :label="$t('elements.common.account.edit.emailEntry')"
+          label-for="input-email"
+        >
           <b-form-input
             id="input-email"
             v-model.trim="form.email"
@@ -44,7 +53,8 @@
           <b-button
             :disabled="$v.form.$invalid"
             size="sm"
-            class="rounded-pill btn-icon"
+            pill
+            class="btn-icon"
             variant="primary"
             @click="onSubmit"
           >
@@ -56,21 +66,26 @@
     </b-card-body>
     <b-card-footer class="px-md-5">
       <small>{{$t('elements.common.account.edit.footerText')}}</small>
-      <b-link to="/account/password" class="small font-weight-bold">{{$t('elements.common.account.edit.footerLinkText')}}</b-link>
+      <b-link
+        to="/account/password"
+        class="small font-weight-bold"
+      >{{$t('elements.common.account.edit.footerLinkText')}}</b-link>
     </b-card-footer>
   </b-card>
 </template>
 <script>
-import BCard from "bootstrap-vue/es/components/card/card";
-import BCardBody from "bootstrap-vue/es/components/card/card-body";
-import BCardFooter from "bootstrap-vue/es/components/card/card-footer";
-import BForm from "bootstrap-vue/es/components/form/form";
-import BFormGroup from "bootstrap-vue/es/components/form-group/form-group";
-import BFormInput from "bootstrap-vue/es/components/form-input/form-input";
-import BFormInvalidFeedback from "bootstrap-vue/es/components/form/form-invalid-feedback";
-import BButton from "bootstrap-vue/es/components/button/button";
-import BLink from "bootstrap-vue/es/components/link/link";
-import BAlert from "bootstrap-vue/es/components/alert/alert";
+import {
+  BCard,
+  BCardBody,
+  BCardFooter,
+  BForm,
+  BFormGroup,
+  BFormInput,
+  BFormInvalidFeedback,
+  BButton,
+  BLink,
+  BAlert
+} from "bootstrap-vue/es/components";
 import { validationMixin } from "vuelidate";
 import required from "vuelidate/lib/validators/required";
 import minLength from "vuelidate/lib/validators/minLength";
@@ -92,7 +107,7 @@ export default {
     BFormInvalidFeedback
   },
   data() {
-    const customer_info = this.$store.getters['common/customer/get']
+    const customer_info = this.$store.getters["common/customer/get"];
     return {
       form: {
         firstName: customer_info.firstName,

@@ -1,38 +1,60 @@
 <template>
   <section class="top-nav">
     <b-container>
-      <b-nav-bar-nav class="top-nav__navbar" tag="div">
+      <b-navbar-nav class="top-nav__navbar" tag="div">
         <b-nav tag="div">
           <vf-currency/>
           <vf-language/>
-          <b-nav-item to="/store/compare" class="top-nav__link ml-auto">{{$t('elements.common.header.topNav.compareText')}}</b-nav-item>
-          <b-nav-item to="/account/wishlist" class="top-nav__link">{{$t('elements.common.header.topNav.wishListText')}}</b-nav-item>
+          <b-nav-item
+            to="/store/compare"
+            class="top-nav__link ml-auto"
+          >{{$t('elements.common.header.topNav.compareText')}}</b-nav-item>
+          <b-nav-item
+            to="/account/wishlist"
+            class="top-nav__link"
+          >{{$t('elements.common.header.topNav.wishListText')}}</b-nav-item>
           <b-nav-item-dropdown class="top-nav__dropdown" right>
             <template slot="button-content">
               <vf-icon :icon="['far', 'user-circle']"/>
             </template>
-            <b-dropdown-item v-if="!auth" to="/account/login">{{$t('elements.common.header.topNav.signInText')}}</b-dropdown-item>
-            <b-dropdown-item v-if="!auth" to="/account/register">{{$t('elements.common.header.topNav.registerText')}}</b-dropdown-item>
-            <b-dropdown-item v-if="auth" to="/account">{{$t('elements.common.header.topNav.myAccountText')}}</b-dropdown-item>
-            <b-dropdown-item to="/account/wishlist">{{$t('elements.common.header.topNav.wishlistText')}}</b-dropdown-item>
-            <b-dropdown-item v-if="auth" @click="handleLogout">{{$t('elements.common.header.topNav.signOutText')}}</b-dropdown-item>
+            <b-dropdown-item
+              v-if="!auth"
+              to="/account/login"
+            >{{$t('elements.common.header.topNav.signInText')}}</b-dropdown-item>
+            <b-dropdown-item
+              v-if="!auth"
+              to="/account/register"
+            >{{$t('elements.common.header.topNav.registerText')}}</b-dropdown-item>
+            <b-dropdown-item
+              v-if="auth"
+              to="/account"
+            >{{$t('elements.common.header.topNav.myAccountText')}}</b-dropdown-item>
+            <b-dropdown-item
+              to="/account/wishlist"
+            >{{$t('elements.common.header.topNav.wishlistText')}}</b-dropdown-item>
+            <b-dropdown-item
+              v-if="auth"
+              @click="handleLogout"
+            >{{$t('elements.common.header.topNav.signOutText')}}</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-nav>
-      </b-nav-bar-nav>
+      </b-navbar-nav>
     </b-container>
   </section>
 </template>
 <script>
-import BRow from "bootstrap-vue/es/components/layout/row";
-import BCol from "bootstrap-vue/es/components/layout/col";
-import BContainer from "bootstrap-vue/es/components/layout/container";
-import BNav from "bootstrap-vue/es/components/nav/nav";
-import BNavItem from "bootstrap-vue/es/components/nav/nav-item";
-import BNavBarNav from "bootstrap-vue/es/components/navbar/navbar-nav";
-import BNavText from "bootstrap-vue/es/components/nav/nav-text";
-import BNavItemDropdown from "bootstrap-vue/es/components/nav/nav-item-dropdown";
-import BDropdownItem from "bootstrap-vue/es/components/dropdown/dropdown-item";
-import BLink from "bootstrap-vue/es/components/link/link";
+import {
+  BRow,
+  BCol,
+  BContainer,
+  BNav,
+  BNavItem,
+  BNavbarNav,
+  BNavText,
+  BNavItemDropdown,
+  BDropdownItem,
+  BLink
+} from "bootstrap-vue/es/components";
 import "vuefront/scss/elements/common/header/topNav.scss";
 import { mapGetters } from "vuex";
 export default {
@@ -42,7 +64,7 @@ export default {
     BCol,
     BNav,
     BNavItem,
-    BNavBarNav,
+    BNavbarNav,
     BNavItemDropdown,
     BDropdownItem,
     BLink,

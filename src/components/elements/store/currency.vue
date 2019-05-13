@@ -11,8 +11,7 @@
   </b-nav-item-dropdown>
 </template>
 <script>
-import BNavItemDropdown from "bootstrap-vue/es/components/nav/nav-item-dropdown";
-import BDropdownItem from "bootstrap-vue/es/components/dropdown/dropdown-item";
+import { BNavItemDropdown, BDropdownItem } from "bootstrap-vue/es/components";
 import { mapGetters } from "vuex";
 import find from "lodash/find";
 export default {

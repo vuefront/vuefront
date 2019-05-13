@@ -38,12 +38,14 @@
   </section>
 </template>
 <script>
-import BTable from "bootstrap-vue/es/components/table/table";
-import BImgLazy from "bootstrap-vue/es/components/image/img-lazy";
-import BMedia from "bootstrap-vue/es/components/media/media";
-import BMediaBody from "bootstrap-vue/es/components/media/media-body";
-import BMediaAside from "bootstrap-vue/es/components/media/media-aside";
-import BFormInput from "bootstrap-vue/es/components/form-input/form-input";
+import {
+  BTable,
+  BImgLazy,
+  BMedia,
+  BMediaBody,
+  BMediaAside,
+  BFormInput
+} from "bootstrap-vue/es/components";
 import "vuefront/scss/elements/store/cart.scss";
 export default {
   components: { BTable, BImgLazy, BMedia, BMediaBody, BMediaAside, BFormInput },
@@ -53,17 +55,29 @@ export default {
       fields: [
         {
           key: "product",
-          label: this.$t('elements.store.cart.productColumn'),
+          label: this.$t("elements.store.cart.productColumn"),
           sortable: false
         },
         {
           key: "price",
-          label: this.$t('elements.store.cart.priceColumn'),
+          label: this.$t("elements.store.cart.priceColumn"),
           sortable: false
         },
-        { key: "quantity", label: this.$t('elements.store.cart.quantityColumn'), sortable: false },
-        { key: "total", label: this.$t('elements.store.cart.totalColumn'), sortable: false },
-        { key: "action", label: this.$t('elements.store.cart.actionColumn'), sortable: false }
+        {
+          key: "quantity",
+          label: this.$t("elements.store.cart.quantityColumn"),
+          sortable: false
+        },
+        {
+          key: "total",
+          label: this.$t("elements.store.cart.totalColumn"),
+          sortable: false
+        },
+        {
+          key: "action",
+          label: this.$t("elements.store.cart.actionColumn"),
+          sortable: false
+        }
       ]
     };
   },

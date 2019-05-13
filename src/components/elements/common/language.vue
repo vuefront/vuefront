@@ -1,19 +1,21 @@
 <template>
   <b-nav-item-dropdown v-if="language.length > 1" class="top-nav__dropdown" left>
-    <template
-      slot="button-content"
-    > <b-img :src="activeLanguage.image"/> {{activeLanguage.name}}</template>
-    <b-dropdown-item
-      v-for="(value, index) in language"
-      :key="index"
-      @click="handleEdit(value)"
-    ><b-img :src="value.image"/> {{value.name}}</b-dropdown-item>
+    <template slot="button-content">
+      <b-img :src="activeLanguage.image"/>
+      {{activeLanguage.name}}
+    </template>
+    <b-dropdown-item v-for="(value, index) in language" :key="index" @click="handleEdit(value)">
+      <b-img :src="value.image"/>
+      {{value.name}}
+    </b-dropdown-item>
   </b-nav-item-dropdown>
 </template>
 <script>
-import BNavItemDropdown from "bootstrap-vue/es/components/nav/nav-item-dropdown";
-import BDropdownItem from "bootstrap-vue/es/components/dropdown/dropdown-item";
-import BImg from 'bootstrap-vue/es/components/image/img'
+import {
+  BNavItemDropdown,
+  BDropdownItem,
+  BImg
+} from "bootstrap-vue/es/components";
 import { mapGetters } from "vuex";
 import find from "lodash/find";
 export default {

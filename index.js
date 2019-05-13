@@ -1,6 +1,7 @@
 export default {
   plugins: [],
   css: ['vuefront/scss/main.scss'],
+  menu: [],
   pages: {
     '/contact': 'vuefront/lib/components/templates/common/contact',
     '/account': 'vuefront/lib/components/templates/common/account/account',
@@ -31,12 +32,20 @@ export default {
       module: 'vuefront/lib/store/apollo'
     },
     {
+      path: 'notification',
+      module: 'vuefront/lib/store/notification'
+    },
+    {
       path: 'menu',
       module: 'vuefront/lib/store/menu'
     },
     {
-      path: 'notification',
-      module: 'vuefront/lib/store/notification'
+      path: ['menu', 'blog'],
+      module: 'vuefront/lib/store/menu/blog'
+    },
+    {
+      path: ['menu', 'store'],
+      module: 'vuefront/lib/store/menu/store'
     },
     {
       path: 'blog'
@@ -148,7 +157,8 @@ export default {
     Header: 'vuefront/lib/components/templates/common/header',
     Footer: 'vuefront/lib/components/templates/common/footer',
     Menu: 'vuefront/lib/components/templates/common/menu',
-    Layout: 'vuefront/lib/components/templates/common/layout'
+    Layout: 'vuefront/lib/components/templates/common/layout',
+    Error: 'vuefront/lib/components/templates/common/error'
   },
   modules: {
     SearchProduct: 'vuefront/lib/components/modules/store/searchProduct',

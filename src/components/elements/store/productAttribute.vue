@@ -17,8 +17,7 @@
   </section>
 </template>
 <script>
-import BRow from "bootstrap-vue/es/components/layout/row";
-import BCol from "bootstrap-vue/es/components/layout/col";
+import { BRow, BCol } from "bootstrap-vue/es/components";
 export default {
   components: {
     BRow,

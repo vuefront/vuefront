@@ -7,7 +7,10 @@
       </div>
       <b-alert :show="error.message" v-html="error.message"/>
       <b-form>
-        <b-form-group :label="$t('elements.common.account.login.emailEntry')" label-for="input-email">
+        <b-form-group
+          :label="$t('elements.common.account.login.emailEntry')"
+          label-for="input-email"
+        >
           <b-form-input
             id="input-email"
             v-model.trim="form.email"
@@ -18,7 +21,10 @@
             id="input-email-feedback"
           >{{$t('elements.common.account.login.emailError')}}</b-form-invalid-feedback>
         </b-form-group>
-        <b-form-group :label="$t('elements.common.account.login.passwordEntry')" label-for="input-password">
+        <b-form-group
+          :label="$t('elements.common.account.login.passwordEntry')"
+          label-for="input-password"
+        >
           <b-form-input
             id="input-password"
             v-model.trim="form.password"
@@ -34,7 +40,7 @@
           <b-button
             :disabled="$v.form.$invalid"
             size="sm"
-            class="rounded-pill"
+            pill
             variant="primary"
             @click="onSubmit"
           >{{$t('elements.common.account.login.buttonSave')}}</b-button>
@@ -43,21 +49,26 @@
     </b-card-body>
     <b-card-footer class="px-md-5">
       <small>{{$t('elements.common.account.login.footerText')}}</small>
-      <b-link to="/account/register" class="small font-weight-bold">{{$t('elements.common.account.login.footerLink')}}</b-link>
+      <b-link
+        to="/account/register"
+        class="small font-weight-bold"
+      >{{$t('elements.common.account.login.footerLink')}}</b-link>
     </b-card-footer>
   </b-card>
 </template>
 <script>
-import BCard from "bootstrap-vue/es/components/card/card";
-import BAlert from "bootstrap-vue/es/components/alert/alert";
-import BCardBody from "bootstrap-vue/es/components/card/card-body";
-import BCardFooter from "bootstrap-vue/es/components/card/card-footer";
-import BForm from "bootstrap-vue/es/components/form/form";
-import BFormGroup from "bootstrap-vue/es/components/form-group/form-group";
-import BFormInput from "bootstrap-vue/es/components/form-input/form-input";
-import BFormInvalidFeedback from "bootstrap-vue/es/components/form/form-invalid-feedback";
-import BButton from "bootstrap-vue/es/components/button/button";
-import BLink from "bootstrap-vue/es/components/link/link";
+import {
+  BCard,
+  BAlert,
+  BCardBody,
+  BCardFooter,
+  BForm,
+  BFormGroup,
+  BFormInput,
+  BFormInvalidFeedback,
+  BButton,
+  BLink
+} from "bootstrap-vue/es/components";
 import { validationMixin } from "vuelidate";
 import required from "vuelidate/lib/validators/required";
 import minLength from "vuelidate/lib/validators/minLength";

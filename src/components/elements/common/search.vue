@@ -7,19 +7,24 @@
           <b-form-input id="input-criteria" v-model="keyword" trim @keypress="handleKeyPress"/>
         </b-form-group>
         <div class="text-sm-left">
-          <b-button variant="primary" @click="handleSearch">{{$t('elements.common.search.buttonSearch')}}</b-button>
+          <b-button
+            variant="primary"
+            @click="handleSearch"
+          >{{$t('elements.common.search.buttonSearch')}}</b-button>
         </div>
       </b-col>
     </b-row>
   </section>
 </template>
 <script>
-import BRow from "bootstrap-vue/es/components/layout/row";
-import BCol from "bootstrap-vue/es/components/layout/col";
-import BContainer from "bootstrap-vue/es/components/layout/container";
-import BButton from "bootstrap-vue/es/components/button/button";
-import BFormGroup from "bootstrap-vue/es/components/form-group/form-group";
-import BFormInput from "bootstrap-vue/es/components/form-input/form-input";
+import {
+  BRow,
+  BCol,
+  BContainer,
+  BButton,
+  BFormGroup,
+  BFormInput
+} from "bootstrap-vue/es/components";
 export default {
   components: {
     BRow,
@@ -36,11 +41,19 @@ export default {
   },
   methods: {
     handleSearch(e) {
-      this.$router.push(`/search/${this.keyword}`);
+      if (this.keyword !== "") {
+        this.$router.push(`/search/${this.keyword}`);
+      } else {
+        this.$router.push("/");
+      }
     },
     handleKeyPress(e) {
       if (e.key === "Enter") {
-        this.$router.push(`/search/${this.keyword}`);
+        if (this.keyword !== "") {
+          this.$router.push(`/search/${this.keyword}`);
+        } else {
+          this.$router.push("/");
+        }
       }
     }
   }
