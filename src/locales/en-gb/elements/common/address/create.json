@@ -9,6 +9,8 @@
   "address2Entry":  "Address 2",
   "cityEntry":      "City",
   "zipcodeEntry":   "Zipcode",
+  "countryEntry":   "Country",
+  "zoneEntry":      "Zone",
   "firstNameError": "First Name must be between 1 and 32 characters!",
   "lastNameError":  "Last Name must be between 1 and 32 characters!",
   "companyError":   "Company must be between 1 and 32 characters!",
@@ -16,6 +18,8 @@
   "address2Error":  "Address 2 must be between 3 and 128 characters!",
   "cityError":      "City must be between 2 and 128 characters!",
   "zipcodeError":   "Zipcode must be between 2 and 10 characters!",
+  "countryError":   "Country must be between 2 and 10 characters!",
+  "zoneError":      "Zone must be between 2 and 10 characters!",
 
   "buttonSave":     "Save changes",
 

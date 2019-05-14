@@ -1,0 +1,6 @@
+query($id: String) {
+  zone(id: $id) {
+    id
+    name
+  }
+}

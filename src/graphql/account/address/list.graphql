@@ -5,6 +5,16 @@
         lastName
         address1
         address2
+        zoneId
+        zone {
+          id
+          name
+        }
+        countryId
+        country {
+          id
+          name
+        }
         city
         company
         zipcode

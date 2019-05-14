@@ -106,6 +106,41 @@
               id="input-zipcode-feedback"
             >{{$t('elements.common.address.create.zipcodeError')}}</b-form-invalid-feedback>
           </b-form-group>
+          <b-form-group
+            :label="$t('elements.common.address.create.countryEntry')"
+            label-for="input-country"
+          >
+            <b-form-select
+              id="input-country"
+              v-model.trim="form.countryId"
+              :state="$v.form.countryId.$dirty ? !$v.form.countryId.$error : null"
+              :options="countries.content"
+              aria-describedby="input-country-feedback"
+              value-field="id"
+              text-field="name"
+              @input="handleChangeCountry"
+            />
+            <b-form-invalid-feedback
+              id="input-country-feedback"
+            >{{$t('elements.common.address.create.countryError')}}</b-form-invalid-feedback>
+          </b-form-group>
+          <b-form-group
+            :label="$t('elements.common.address.create.zoneEntry')"
+            label-for="input-country"
+          >
+            <b-form-select
+              id="input-country"
+              v-model.trim="form.zoneId"
+              :state="$v.form.zoneId.$dirty ? !$v.form.zoneId.$error : null"
+              :options="zones.content"
+              aria-describedby="input-zone-feedback"
+              value-field="id"
+              text-field="name"
+            />
+            <b-form-invalid-feedback
+              id="input-zone-feedback"
+            >{{$t('elements.common.address.create.zoneError')}}</b-form-invalid-feedback>
+          </b-form-group>
           <div class="mt-4">
             <b-button
               :disabled="$v.form.$invalid"
@@ -139,6 +174,7 @@ import {
   BForm,
   BFormGroup,
   BFormInput,
+  BFormSelect,
   BFormInvalidFeedback,
   BButton,
   BLink,
@@ -148,9 +184,9 @@ import { validationMixin } from "vuelidate";
 import required from "vuelidate/lib/validators/required";
 import minLength from "vuelidate/lib/validators/minLength";
 import maxLength from "vuelidate/lib/validators/maxLength";
-import email from "vuelidate/lib/validators/email";
 import { mapGetters } from "vuex";
 export default {
+  props: ["countries"],
   components: {
     BAlert,
     BCard,
@@ -159,6 +195,7 @@ export default {
     BForm,
     BFormGroup,
     BFormInput,
+    BFormSelect,
     BButton,
     BLink,
     BFormInvalidFeedback
@@ -172,6 +209,8 @@ export default {
         address1: '',
         address2: '',
         city: '',
+        countryId: '',
+        zoneId: '',
         zipcode: ''
       }
     };
@@ -211,15 +250,26 @@ export default {
         required,
         minLength: minLength(2),
         maxLength: maxLength(10)
+      },
+      countryId: {
+        required
+      },
+      zoneId: {
+        required
       }
     }
   },
   computed: {
     ...mapGetters({
+      zones: "common/zone/list",
       error: "vuefront/error"
     })
   },
   methods: {
+    async handleChangeCountry(value) {
+      await this.$store.dispatch('common/zone/list', {page: 1, size: -1, country_id: value})
+      this.form.zoneId = ''
+    },
     async onSubmit() {
       this.$v.$touch();
 
@@ -232,6 +282,8 @@ export default {
             address1: this.form.address1,
             address2: this.form.address2,
             city: this.form.city,
+            countryId: this.form.countryId,
+            zoneId: this.form.zoneId,
             zipcode: this.form.zipcode
           }
         });

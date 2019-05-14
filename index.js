@@ -68,6 +68,14 @@ export default {
       path: ['common']
     },
     {
+      path: ['common', 'country'],
+      module: 'vuefront/lib/store/common/country'
+    },
+    {
+      path: ['common', 'zone'],
+      module: 'vuefront/lib/store/common/zone'
+    },
+    {
       path: ['common', 'page'],
       module: 'vuefront/lib/store/common/page'
     },

@@ -7,6 +7,10 @@
         {{item.address1}}
         <br>
         {{item.city}} {{item.zipcode}}
+        <br>
+        {{item.zone.name}}
+        <br>
+        {{item.country.name}}
       </template>
       <template #action="{item}">
         <div class="account-address__action ma-1">

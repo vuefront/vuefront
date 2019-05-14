@@ -6,6 +6,7 @@ mutation($address: AccountAddressInput) {
       city
       company
       zipcode
+      countryId
       address1
       address2
   }

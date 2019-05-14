@@ -7,7 +7,14 @@ query($id: String){
       company
       zipcode
       countryId
+      zoneId
       address1
       address2
+  }
+  countriesList(page: 1, size: -1) {
+    content {
+      id
+      name
+    }
   }
 }
