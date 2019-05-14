@@ -5,6 +5,7 @@
   "files": [
     "lib",
     "scss",
+    "locales",
     "src",
     "index.js"
   ],
@@ -52,6 +53,7 @@
     "rollup-plugin-commonjs": "^9.3.4",
     "rollup-plugin-image": "^1.0.2",
     "rollup-plugin-img": "^1.1.0",
+    "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^4.2.4",
     "rollup-plugin-uglify-es": "*",
     "rollup-plugin-vue": "*",

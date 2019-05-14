@@ -17,7 +17,7 @@ export const getters = {
     return state.error
   },
   ssr(state) {
-    return state.error
+    return state.ssr
   }
 }
 
@@ -51,7 +51,7 @@ export const actions = {
 
   },
   async nuxtClientInit({ dispatch, rootGetters }) {
-    if(!rootGetters['ssr']){
+    if(!rootGetters['vuefront/ssr']){
       await dispatch('vuefrontInit')
     }
   },

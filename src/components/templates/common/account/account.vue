@@ -9,6 +9,9 @@
         <b-link to="/account/password">Change your password</b-link>
       </li>
       <li>
+        <b-link to="/account/address">Modify your address book entries</b-link>
+      </li>
+      <li>
         <b-link to="/account/wishlist">Modify your wish list</b-link>
       </li>
     </ul>

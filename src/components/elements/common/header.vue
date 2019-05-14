@@ -1,7 +1,7 @@
 <template>
   <div>
-    <vf-top-nav/>
-    <vf-nav :logo="logo"/>
+    <vf-header-top/>
+    <vf-header-center :logo="logo"/>
     <vf-template-menu/>
     <vf-notification/>
   </div>

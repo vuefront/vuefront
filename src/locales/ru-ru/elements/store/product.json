@@ -1,0 +1,9 @@
+{
+  "idText": "ID: #",
+  "inStockText": "В наличии",
+  "outOfStockText": "Нет на складе",
+  "descriptionText": "Описание:",
+  "buttonAddToCart": "Добавить в корзину",
+
+  "notificationText": " товар успешно добавлен в корзину"
+}

@@ -1,0 +1,12 @@
+query($id: String){
+    accountAddress(id: $id) {
+      id
+      firstName
+      lastName
+      city
+      company
+      zipcode
+      address1
+      address2
+  }
+}

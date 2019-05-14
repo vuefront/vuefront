@@ -1,0 +1,14 @@
+{
+  "titleText": "Login",
+  "subTitleText": "Sign in to your account to continue.",
+
+  "emailEntry": "Email address",
+  "passwordEntry": "Password",
+  "emailError": "E-Mail Address does not appear to be valid!",
+  "passwordError": "Password must be between 4 and 20 characters!",
+
+  "buttonSave": "Sign in",
+
+  "footerText": "Not registered?",
+  "footerLinkText": "Create account"
+}

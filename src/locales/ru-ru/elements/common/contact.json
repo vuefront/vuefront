@@ -1,0 +1,16 @@
+{
+  "titleText": "Contact us",
+  "subTitleText": "If there's something we can help you with, jut let us know. We'll be more than happy to offer you our help",
+
+  "namePlaceholder": "Your name",
+  "emailPlaceholder": "Email address",
+  "messagePlaceholder": "Type your message",
+
+  "nameError": "Name must be between 3 and 32 characters!",
+  "emailError": "E-Mail Address does not appear to be valid!",
+  "messageError": "Message must be between 10 and 3000 characters!",
+
+  "buttonSend": "Send message",
+
+  "successText": "Your message has been successfully sent."
+}

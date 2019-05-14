@@ -1,0 +1,19 @@
+{
+  "15Text": "15",
+  "25Text": "25",
+  "50Text": "50",
+  "75Text": "75",
+  "100Text": "100",
+
+  "defaultSortText": "По умолчанию",
+  "nameAscSortText": "Название (А - Я)",
+  "nameDescSortText": "Название (Я - А)",
+  "priceAscSortText": "Цена (Низкая > Высокая)",
+  "priceDescSortText": "Цена (Высокая > Низкая)",
+  "ratingAscSortText": "Рейтинг (Наибольший)",
+  "ratingDescSortText": "Рейтинг (Низший)",
+  "modelAscSortText": "Модель (А - Я)",
+  "modelDescSortText": "Модель (Я - А)",
+
+  "emptyText": "В этой категории ничего нет."
+}

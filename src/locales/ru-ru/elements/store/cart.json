@@ -1,0 +1,7 @@
+{
+  "productColumn": "Товар",
+  "priceColumn": "Цена",
+  "quantityColumn": "Количество",
+  "totalColumn": "Всего",
+  "actionColumn": ""
+}

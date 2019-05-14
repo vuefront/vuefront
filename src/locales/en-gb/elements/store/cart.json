@@ -1,0 +1,7 @@
+{
+  "productColumn": "Product",
+  "priceColumn": "Price",
+  "quantityColumn": "Quantity",
+  "totalColumn": "Total",
+  "actionColumn": ""
+}

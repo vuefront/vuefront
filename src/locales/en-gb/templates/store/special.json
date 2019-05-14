@@ -1,0 +1,21 @@
+{
+  "textTitle": "Special",
+
+  "15Text": "15",
+  "25Text": "25",
+  "50Text": "50",
+  "75Text": "75",
+  "100Text": "100",
+
+  "defaultSortText": "Default",
+  "nameAscSortText": "Name (A - Z)",
+  "nameDescSortText": "Name (Z - A)",
+  "priceAscSortText": "Price (Low > High)",
+  "priceDescSortText": "Price (High > Low)",
+  "ratingAscSortText": "Rating (Highest)",
+  "ratingDescSortText": "Rating (Lowest)",
+  "modelAscSortText": "Model (A - Z)",
+  "modelDescSortText": "Model (Z - A)",
+
+  "emptyText": "There are no products to list in this category."
+}

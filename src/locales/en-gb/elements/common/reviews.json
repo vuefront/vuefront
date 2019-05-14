@@ -1,0 +1,14 @@
+{
+  "titleText": "Comments",
+
+  "writeText": "Write a review",
+
+  "ratingEntry": "Rating",
+  "nameEntry": "Your Name",
+  "reviewEntry": "Your Review",
+  "ratingError": "Rating field is required",
+  "authorError": "Name must be between 1 and 32 characters!",
+  "reviewError": "Review must be between 25 and 1000 characters!",
+
+  "buttonSend": "Send"
+}

@@ -4,20 +4,15 @@ import LogoutGql from '~/graphql/account/logout.graphql'
 import EditGql from '~/graphql/account/edit.graphql'
 import EditPasswordGql from '~/graphql/account/editPassword.graphql'
 import CheckGql from '~/graphql/account/check.graphql'
-import AddressesGql from '~/graphql/account/address.graphql'
 
 export const state = () => ({
   customer: null,
-  auth: false,
-  addressEntities: []
+  auth: false
 })
 
 export const getters = {
   get(state) {
     return state.customer
-  },
-  getAddresses(state) {
-    return state.addressEntities
   },
   auth(state) {
     return state.auth
@@ -27,9 +22,6 @@ export const getters = {
 export const mutations = {
   setCustomer(state, payload) {
     state.customer = payload
-  },
-  setAddress(state, payload) {
-    state.addressEntities = payload
   },
   setAuth(state, payload) {
     state.auth = payload
@@ -140,23 +132,6 @@ export const actions = {
         rootGetters['apollo/get'].accountCheckLogged.customer
       )
       commit('setAuth', rootGetters['apollo/get'].accountCheckLogged.status)
-    }
-  },
-  async getAddresses({commit, dispatch, rootGetters}) {
-    await dispatch(
-      'apollo/query',
-      {
-        query: AddressesGql
-      },
-      {
-        root: true
-      }
-    )
-    if (!rootGetters['vuefront/error']) {
-      commit(
-        'setAddress',
-        rootGetters['apollo/get'].accountAddressList
-      )
     }
   }
 }

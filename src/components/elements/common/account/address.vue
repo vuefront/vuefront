@@ -1,42 +1,46 @@
 <template>
   <section class="account-address">
     <b-table :fields="fields" :items="items" class="table-address">
-      <template slot="address" slot-scope="{item}">
+      <template #address="{item}">
         {{item.firstName}} {{item.lastName}}
         <br>
         {{item.address1}}
         <br>
         {{item.city}} {{item.zipcode}}
       </template>
-      <template slot="action" slot-scope="{item}">
+      <template #action="{item}">
         <div class="account-address__action ma-1">
-          <b-link :to="`/account/address/${item.id}`">
-            <vf-icon icon="pencil-alt" @click="handleEdit(item)"/>
-          </b-link>
-
-          <vf-icon icon="times" @click="handleRemove(item)"/>
+          <span @click="handleEdit(item)">
+            <vf-icon icon="pencil-alt"/>
+          </span>
+          <span @click="handleRemove(item)">
+            <vf-icon icon="times"/>
+          </span>
         </div>
       </template>
     </b-table>
+    <div class="text-right">
+      <b-button pill variant="primary" to="/account/address/create">{{$t('elements.common.account.address.newAddressButton')}}</b-button>
+    </div>
   </section>
 </template>
 <script>
-import { BTable, BLink } from "bootstrap-vue/es/components";
+import { BTable, BLink, BButton } from "bootstrap-vue/es/components";
 import "vuefront/scss/elements/common/account/address.scss";
 export default {
-  components: { BTable, BLink },
+  components: { BTable, BLink, BButton },
   props: ["items"],
   data() {
     return {
       fields: [
         {
           key: "address",
-          label: this.$t("elements.store.cart.productColumn"),
+          label: this.$t("elements.common.account.address.addressColumn"),
           sortable: false
         },
         {
           key: "action",
-          label: this.$t("elements.store.cart.actionColumn"),
+          label: this.$t("elements.common.account.address.actionColumn"),
           sortable: false
         }
       ]
@@ -46,8 +50,8 @@ export default {
     handleRemove(item) {
       console.log(item);
     },
-    handleEdit(item) {
-      console.log(item);
+    handleEdit({id}) {
+      this.$router.push(`/account/address/${id}/edit`)
     }
   }
 };

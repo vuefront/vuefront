@@ -1,0 +1,20 @@
+{
+  "titleText": "Create account",
+  "subTitleText": "Made with love by developers for developers.",
+
+  "firstNameEntry": "First Name",
+  "lastNameEntry": "Last Name",
+  "emailEntry": "Email address",
+  "passwordEntry": "Password",
+  "confirmPasswordEntry": "Confirm password",
+  "firstNameError": "First Name must be between 1 and 32 characters!",
+  "lastNameError": "Last Name must be between 1 and 32 characters!",
+  "emailError": "E-Mail Address does not appear to be valid!",
+  "passwordError": "Password must be between 4 and 20 characters!",
+  "confirmPasswordError": "Password confirmation does not match password!",
+
+  "buttonSave": "Create my account",
+
+  "footerText": "Already have an account?",
+  "footerLinkText": "Sign in"
+}

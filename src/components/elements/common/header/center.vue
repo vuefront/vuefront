@@ -5,7 +5,7 @@
         <b-link to="/">
           <img :src="logo" alt class="nav-section__logo">
         </b-link>
-        <vf-nav-search class="mx-auto"/>
+        <vf-header-search class="mx-auto"/>
         <b-nav tag="div">
           <b-nav-item to="/store/cart" class="nav-section__link">
             <vf-icon icon="shopping-cart"/>

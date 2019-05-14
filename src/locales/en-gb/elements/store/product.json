@@ -1,0 +1,9 @@
+{
+  "idText": "ID: #",
+  "inStockText": "In stock",
+  "outOfStockText": "Out of stock",
+  "descriptionText": "Description:",
+  "buttonAddToCart": "Add to Bug",
+
+  "notificationText": " product successfully added to cart"
+}
