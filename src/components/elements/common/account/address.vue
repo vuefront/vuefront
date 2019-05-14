@@ -48,6 +48,7 @@ export default {
         },
         {
           key: "action",
+          class: "account-address__action_column",
           label: this.$t("elements.common.account.address.actionColumn"),
           sortable: false
         }

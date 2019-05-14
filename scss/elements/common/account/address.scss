@@ -1,4 +1,7 @@
 .account-address{
+  &__action_column {
+    width: 85px;
+  }
   &__action {
     & > * {
       cursor: pointer;
