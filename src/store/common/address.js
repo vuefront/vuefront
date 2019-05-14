@@ -2,6 +2,7 @@ import AddressesGql from '~/graphql/account/address/list.graphql'
 import AddressGql from '~/graphql/account/address/get.graphql'
 import AddressAddGql from '~/graphql/account/address/create.graphql'
 import AddressEditGql from '~/graphql/account/address/edit.graphql'
+import AddressRemoveGql from '~/graphql/account/address/remove.graphql'
 
 export const state = () => ({
   address: false,
@@ -91,6 +92,24 @@ export const actions = {
 
     if (!rootGetters['vuefront/error']) {
       commit('setAddress', rootGetters['apollo/get'].accountEditAddress)
+    }
+  },
+  async remove({commit, dispatch, rootGetters}, {id}) {
+    await dispatch(
+      'apollo/mutate',
+      {
+        mutation: AddressRemoveGql,
+        variables: {
+          id
+        }
+      },
+      {
+        root: true
+      }
+    )
+
+    if (!rootGetters['vuefront/error']) {
+      commit('setEntities', rootGetters['apollo/get'].accountRemoveAddress)
     }
   }
 }

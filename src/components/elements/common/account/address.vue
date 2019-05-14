@@ -24,7 +24,11 @@
       </template>
     </b-table>
     <div class="text-right">
-      <b-button pill variant="primary" to="/account/address/create">{{$t('elements.common.account.address.newAddressButton')}}</b-button>
+      <b-button
+        pill
+        variant="primary"
+        to="/account/address/create"
+      >{{$t('elements.common.account.address.newAddressButton')}}</b-button>
     </div>
   </section>
 </template>
@@ -51,11 +55,11 @@ export default {
     };
   },
   methods: {
-    handleRemove(item) {
-      console.log(item);
+    async handleRemove({ id }) {
+      await this.$store.dispatch("common/address/remove", { id });
     },
-    handleEdit({id}) {
-      this.$router.push(`/account/address/${id}/edit`)
+    handleEdit({ id }) {
+      this.$router.push(`/account/address/${id}/edit`);
     }
   }
 };
