@@ -19,6 +19,7 @@ query($id: Int, $limit: Int) {
         options {
             id
             name
+            type
             values {
                 id
                 name
