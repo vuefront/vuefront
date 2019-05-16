@@ -25,7 +25,7 @@ export default {
   async fetch({ store, params }) {
     await store.dispatch("apollo/query", {
       query: productGetGql,
-      variables: { id: Number(params.id), limit: 3 }
+      variables: { id: Number(params.id), limit: 5 }
     });
     const { product } = store.getters["apollo/get"];
     store.commit("store/product/setProduct", product);

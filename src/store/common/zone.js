@@ -3,7 +3,9 @@ import ZoneGql from '~/graphql/common/zone/get.graphql'
 
 export const state = () => ({
   zone: false,
-  entities: []
+  entities: {
+    content: []
+  }
 })
 
 export const getters = {

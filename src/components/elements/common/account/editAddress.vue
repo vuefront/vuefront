@@ -125,6 +125,7 @@
             >{{$t('elements.common.address.edit.countryError')}}</b-form-invalid-feedback>
           </b-form-group>
           <b-form-group
+            v-if="zones.content.length > 0"
             :label="$t('elements.common.address.edit.zoneEntry')"
             label-for="input-country"
           >
@@ -216,48 +217,61 @@ export default {
     };
   },
   mixins: [validationMixin],
-  validations: {
-    form: {
-      firstName: {
-        required,
-        minLength: minLength(1),
-        maxLength: maxLength(32)
-      },
-      lastName: {
-        required,
-        minLength: minLength(1),
-        maxLength: maxLength(32)
-      },
-      company: {
-        minLength: minLength(1),
-        maxLength: maxLength(32)
-      },
-      address1: {
-        required,
-        minLength: minLength(3),
-        maxLength: maxLength(128)
-      },
-      address2: {
-        minLength: minLength(3),
-        maxLength: maxLength(128)
-      },
-      city: {
-        required,
-        minLength: minLength(2),
-        maxLength: maxLength(128)
-      },
-      countryId: {
-        required
-      },
-      zoneId: {
-        required
-      },
-      zipcode: {
-        required,
-        minLength: minLength(2),
-        maxLength: maxLength(10)
-      }
+  validations() {
+    let fields = [];
+
+    if (this.zones.content.length > 0) {
+      fields = [
+        ...fields,
+        {
+          zoneId: {
+            required
+          }
+        }
+      ];
     }
+
+    return {
+      form: {
+        firstName: {
+          required,
+          minLength: minLength(1),
+          maxLength: maxLength(32)
+        },
+        lastName: {
+          required,
+          minLength: minLength(1),
+          maxLength: maxLength(32)
+        },
+        company: {
+          minLength: minLength(1),
+          maxLength: maxLength(32)
+        },
+        address1: {
+          required,
+          minLength: minLength(3),
+          maxLength: maxLength(128)
+        },
+        address2: {
+          minLength: minLength(3),
+          maxLength: maxLength(128)
+        },
+        city: {
+          required,
+          minLength: minLength(2),
+          maxLength: maxLength(128)
+        },
+        countryId: {
+          required
+        },
+        zipcode: {
+          required,
+          minLength: minLength(2),
+          maxLength: maxLength(10)
+        },
+        ...fields
+      }
+    };
   },
   computed: {
     ...mapGetters({
@@ -266,8 +280,12 @@ export default {
   },
   methods: {
     async handleChangeCountry(value) {
-      await this.$store.dispatch('common/zone/list', {page: 1, size: -1, country_id: value})
-      this.form.zoneId = ''
+      await this.$store.dispatch("common/zone/list", {
+        page: 1,
+        size: -1,
+        country_id: value
+      });
+      this.form.zoneId = "";
     },
     async onSubmit() {
       this.$v.$touch();

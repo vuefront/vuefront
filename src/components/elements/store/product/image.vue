@@ -8,7 +8,7 @@
         style="width: 100%;"
       />
     </a>
-    <b-row>
+    <b-row v-if="product.images.length > 0" class="mt-3">
       <b-col sm="12" md="3" v-for="(value, index) in product.images" :key="index">
         <a href="#" @click.prevent="handleOpenPopup(index + 1)">
           <b-img-lazy

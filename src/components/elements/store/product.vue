@@ -120,7 +120,7 @@ export default {
         content,
         author,
         rating,
-        limit: 3
+        limit: 5
       });
     }
   }
