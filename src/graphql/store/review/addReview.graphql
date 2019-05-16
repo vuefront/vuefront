@@ -25,10 +25,12 @@ mutation ($id: Int, $content: String, $author: String, $rating: Float, $limit: I
             }
         }
         imageLazy
+        imageBig
         rating
         images(limit: $limit) {
             image
             imageLazy
+            imageBig
         }
         attributes {
             name

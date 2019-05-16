@@ -12,18 +12,13 @@
     <div class="review-section__new">
       <div class="review-section__new_title title mb-3">{{$t('elements.common.reviews.writeText')}}</div>
       <b-form-group :label="$t('elements.common.reviews.ratingEntry')">
-        <b-form-radio-group
-          v-model="rating"
-          class="pt-2"
-          :options="[1, 2, 3, 4 ,5]"
-          :state="$v.rating.$dirty ? !$v.rating.$error : null"
-          aria-describedby="input-rating-feedback"
-        />
+        <vf-rating v-model="rating" color="#ffcc00" aria-describedby="input-rating-feedback"/>
         <b-form-invalid-feedback
           :state="$v.rating.$dirty ? !$v.rating.$error : null"
           id="input-rating-feedback"
         >{{$t('elements.common.reviews.ratingError')}}</b-form-invalid-feedback>
       </b-form-group>
+      
       <b-form-group :label="$t('elements.common.reviews.nameEntry')" label-for="input-name">
         <b-form-input
           id="input-name"

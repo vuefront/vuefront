@@ -1,5 +1,5 @@
 <template>
-  <b-form-input :value="activeOptionValue" type="datetime" @input="handleChange"/>
+  <b-form-input :value="activeOptionValue" type="datetime-local" @input="handleChange"/>
 </template>
 <script>
 import {BFormInput} from 'bootstrap-vue/es/components'

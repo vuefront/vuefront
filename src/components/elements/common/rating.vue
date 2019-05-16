@@ -1,16 +1,53 @@
 <template>
   <section class="rating-section">
-    <vf-icon
+    <span
       v-for="(rating) in [1,2,3,4,5]"
-      :icon="rating <= value ? 'star' : ['far', 'star']"
+      @mouseover="handleMouseOver(rating)"
+      @mouseout="handleMouseOut"
+      @click="handleClick(rating)"
       :key="rating"
-      :style="{color: color}"
-      style="width: 1.125em;"
-    />
+      style="cursor:pointer;"
+    >
+      <vf-icon
+        :icon="rating <= currentRating ? 'star' : ['far', 'star']"
+        :style="{color: color}"
+        style="width: 1.125em;"
+      />
+    </span>
   </section>
 </template>
 <script>
+import { isUndefined } from "lodash";
 export default {
-  props: ["value", "color", "readonly"]
+  props: ["value", "color", "readonly"],
+  data() {
+    return {
+      rating: 0,
+      hover: false
+    };
+  },
+  computed: {
+    currentRating() {
+      return this.hover ? this.rating : this.value;
+    }
+  },
+  methods: {
+    handleMouseOver(rating) {
+      if (isUndefined(this.readonly)) {
+        this.rating = rating;
+        this.hover = true;
+      }
+    },
+    handleMouseOut() {
+      if (isUndefined(this.readonly)) {
+        this.hover = false;
+      }
+    },
+    handleClick(rating) {
+      if (isUndefined(this.readonly)) {
+        this.$emit("input", rating);
+      }
+    }
+  }
 };
 </script>

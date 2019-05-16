@@ -179,7 +179,7 @@ export default {
     Rating:               'vuefront/lib/components/elements/common/rating',
     Reviews:              'vuefront/lib/components/elements/common/reviews',
     Search:               'vuefront/lib/components/elements/common/search',
-    Sort:                 'vuefront/lib/components/elements/store/productSort',
+    Sort:                 'vuefront/lib/components/elements/store/product/sort',
     Wishlist:             'vuefront/lib/components/elements/store/wishlist',
   },
   templates: {

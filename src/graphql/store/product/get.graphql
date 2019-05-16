@@ -26,10 +26,12 @@ query($id: Int, $limit: Int) {
             }
         }
         imageLazy
+        imageBig
         rating
         images(limit: $limit) {
             image
             imageLazy
+            imageBig
         }
         attributes {
             name
