@@ -9,6 +9,7 @@ query($ids: [Int]){
             image
             imageLazy
             rating
+            keyword
         }
     }
 }

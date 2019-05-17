@@ -9,6 +9,7 @@
             image
             imageLazy
             rating
+            keyword
         }
     }
 }

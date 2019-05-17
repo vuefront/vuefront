@@ -1,4 +1,4 @@
-query($id: Int, $limit: Int) {
+query($id: String, $limit: Int) {
     product(id: $id) {
         id
         name

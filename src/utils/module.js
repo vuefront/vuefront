@@ -9,7 +9,10 @@ export const BaseModule = {
         let regexRoute = route.replace('*', '.*')
         regexRoute = regexRoute.replace('//', '\\//')
         const regex = new RegExp('^' + regexRoute + '$', 'i')
-        const currentRoute = this.$route.path !== '' ? this.$route.path : '/'
+        let currentRoute = this.$route.path !== '' ? this.$route.path : '/'
+        if(!isEmpty(this.$vuefront.params.url)) {
+          currentRoute = this.$vuefront.params.url
+        }
 
         if (regex.test(currentRoute) && !isUndefined(layout[position])) {
           if(!isEmpty(layout[position])) {

@@ -1,4 +1,4 @@
-query($page: Int, $size: Int, $sort: String, $order: String, $categoryId: Int) {
+query($page: Int, $size: Int, $sort: String, $order: String, $categoryId: String) {
     productsList(page: $page, size: $size, sort: $sort, order: $order, category_id: $categoryId) {
         content {
             id
@@ -9,6 +9,7 @@ query($page: Int, $size: Int, $sort: String, $order: String, $categoryId: Int) {
             image
             imageLazy
             rating
+            keyword
         }
         number
         totalPages

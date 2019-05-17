@@ -5,6 +5,7 @@
 import { BFormFile } from 'bootstrap-vue/es/components'
 import uploadFileGql from '~/graphql/common/file/upload.graphql'
 import { mapGetters } from 'vuex'
+import {find} from 'lodash'
 
 export default {
   components: {

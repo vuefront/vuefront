@@ -1,18 +1,18 @@
 <template>
-    <font-awesome-icon v-bind="$props" />
+    <i :class="currentIcon"></i>
 </template>
 <script>
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { library, config } from '@fortawesome/fontawesome-svg-core'
-import { fas } from '@fortawesome/free-solid-svg-icons'
-import { far } from '@fortawesome/free-regular-svg-icons'
-config.autoAddCss = false
-library.add(fas)
-library.add(far)
+import {isArray, join} from 'lodash'
 export default {
-    components: {
-        FontAwesomeIcon
-    },
-    props: ['icon', 'size']
+    props: ['icon', 'size'],
+    computed: {
+      currentIcon() {
+        if(isArray(this.icon)) {
+          return join(this.icon, ' fa-')
+        } else {
+          return `fas fa-${this.icon}`
+        }
+      }
+    }
 }
 </script>

@@ -9,6 +9,7 @@ query($search: String){
             image
             imageLazy
             rating
+            keyword
         }
     }
 }

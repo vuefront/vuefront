@@ -9,6 +9,7 @@ query($page: Int, $size: Int, $sort: String, $order: String) {
             image
             imageLazy
             rating
+            keyword
         }
         number
         totalPages

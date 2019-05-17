@@ -2,7 +2,7 @@
   <b-card :class="{'card-product_wide' : wide}" class="card-product" no-body>
     <b-row no-gutters>
       <b-col :md="wide ? 3 : 12" class="px-4">
-        <b-link :to="`/store/product/${product.id}`" class="card-product__image_wrapper">
+        <b-link :to="url" class="card-product__image_wrapper">
           <b-card-img-lazy
             :src="mainImage"
             :blank-src="mainImagelazy"
@@ -97,6 +97,13 @@ export default {
       return this.product.imagelazy !== ""
         ? this.product.imagelazy
         : placeholder;
+    },
+    url() {
+      if (this.product.keyword && this.product.keyword !== "") {
+        return "/" + this.product.keyword;
+      } else {
+        return "/store/product/" + this.product.id;
+      }
     }
   },
   methods: {

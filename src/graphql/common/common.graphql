@@ -1,0 +1,24 @@
+{
+	currency {
+    code
+    symbol_left
+    symbol_right
+    title
+    active
+  }
+  language {
+    name
+    image
+    code
+    active
+  }
+  accountCheckLogged {
+    status
+    customer {
+      id
+      lastName
+      firstName
+      email
+    }
+  }
+}

@@ -18,7 +18,7 @@ export const getters = {
 
 export const mutations = {
   setData(state, payload) {
-    state.data = payload.data
+    state.data = {...state.data, ...payload.data}
   },
   setPrefetchData(state, {key, data}) {
     state.prefetchData[key] = data

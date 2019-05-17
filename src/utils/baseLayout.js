@@ -1,4 +1,5 @@
 import isUndefined from 'lodash/isUndefined'
+import isEmpty from 'lodash/isEmpty'
 import isString from 'lodash/isString'
 
 export const BaseLayout = {
@@ -10,7 +11,11 @@ export const BaseLayout = {
         let regexRoute = route.replace('*', '.*')
         regexRoute = regexRoute.replace('//', '\\//')
         const regex = new RegExp('^' + regexRoute + '$', 'i')
-        const currentRoute = this.$route.path !== '' ? this.$route.path : '/'
+        let currentRoute = this.$route.path !== '' ? this.$route.path : '/'
+        if(!isEmpty(this.$vuefront.params.url)) {
+          currentRoute = this.$vuefront.params.url
+        }
+
         if (regex.test(currentRoute) && !isUndefined(layout[this.position])) {
           for (const key in layout[this.position]) {
             if (isString(layout[this.position][key])) {

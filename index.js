@@ -23,9 +23,15 @@ export default {
     '/page/:id':                 'vuefront/lib/components/templates/common/page',
     '/search/:slug':             'vuefront/lib/components/templates/common/search',
     '/store/cart':               'vuefront/lib/components/templates/store/cart',
-    '/store/category/:id':       'vuefront/lib/components/templates/store/category',
+    '/store/category/:id':       {
+      component: 'vuefront/lib/components/templates/store/category',
+      seo: 'vuefront/lib/seo/category'
+    },
     '/store/compare':            'vuefront/lib/components/templates/store/compare',
-    '/store/product/:id':        'vuefront/lib/components/templates/store/product',
+    '/store/product/:id':        {
+      component:'vuefront/lib/components/templates/store/product',
+      seo: 'vuefront/lib/seo/product'
+    },
     '/store/special':            'vuefront/lib/components/templates/store/special'
   },
   store: [

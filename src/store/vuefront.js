@@ -1,3 +1,4 @@
+import CommonGql from '~/graphql/common/common.graphql'
 export const state = {
   error: false,
   ssr: false

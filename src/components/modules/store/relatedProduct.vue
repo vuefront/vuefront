@@ -14,10 +14,20 @@
   </vf-apollo>
 </template>
 <script>
+import isEmpty from 'lodash/isEmpty'
 export default {
   computed: {
     id() {
-      return this.$route.params.id ? Number(this.$route.params.id) : false;
+      let result = false
+
+      if(!isEmpty(this.$route.params.id)) {
+        result = this.$route.params.id
+      }
+      if(!isEmpty(this.$route.matched[0].props)) {
+        result = this.$route.matched[0].props.default.id
+      }
+
+      return result
     }
   }
 };

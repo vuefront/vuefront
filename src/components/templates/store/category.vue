@@ -127,14 +127,16 @@ export default {
         }
     }
   },
-  async asyncData({ store, route, params: { id } }) {
+  async asyncData({ store, route, app }) {
     const page = route.query.page ? Number(route.query.page) : 1;
     const size = route.query.size ? Number(route.query.size) : 15;
     const sort = route.query.sort ? route.query.sort : "id";
     const order = route.query.order ? route.query.order : "ASC";
+    let {id} = app.$vuefront.params
+
     await store.dispatch("apollo/query", {
       query: categoryPageGql,
-      variables: { page, size, categoryId: Number(id), sort, order }
+      variables: { page, size, categoryId: id, sort, order }
     });
     const { productsList, category } = store.getters["apollo/get"];
     store.commit("store/product/setEntities", productsList);

@@ -126,7 +126,7 @@ export const actions = {
         root: true
       }
     )
-    if (!rootGetters['vuefront/error'] && rootGetters['apollo/get'].accountCheckLogged.customer) {
+    if (!rootGetters['vuefront/error'] && rootGetters['apollo/get'].accountCheckLogged && rootGetters['apollo/get'].accountCheckLogged.customer) {
       commit(
         'setCustomer',
         rootGetters['apollo/get'].accountCheckLogged.customer

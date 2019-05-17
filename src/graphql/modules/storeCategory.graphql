@@ -3,9 +3,11 @@
     content {
       id
       name
+      keyword
       categories {
         id
         name
+        keyword
       }
     }
   }

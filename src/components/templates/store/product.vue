@@ -3,6 +3,7 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
+import {isEmpty} from 'lodash'
 import productGetGql from "~/graphql/store/product/get.graphql";
 export default {
   head() {
@@ -22,13 +23,15 @@ export default {
       product: "store/product/get"
     })
   },
-  async fetch({ store, params }) {
-    await store.dispatch("apollo/query", {
+  async fetch(ctx) {
+    let {id} = ctx.app.$vuefront.params
+
+    await ctx.store.dispatch("apollo/query", {
       query: productGetGql,
-      variables: { id: Number(params.id), limit: 5 }
+      variables: { id, limit: 5 }
     });
-    const { product } = store.getters["apollo/get"];
-    store.commit("store/product/setProduct", product);
+    const { product } = ctx.store.getters["apollo/get"];
+    ctx.store.commit("store/product/setProduct", product);
   }
 };
 </script>

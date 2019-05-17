@@ -3,6 +3,8 @@
 </template>
 <script>
 import {BFormTextarea} from 'bootstrap-vue/es/components'
+import {find} from 'lodash'
+
 export default {
   components: {
     BFormTextarea
