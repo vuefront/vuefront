@@ -15,7 +15,7 @@ You want to try new technology, outrun your competition and just provide a bette
 - You can always switch back to your old site. 
 
 
-> Give it a try, what do you have to loose? 
+> Give it a try, what do you have to lose? 
 
 ## How do I get started? (development)
 
