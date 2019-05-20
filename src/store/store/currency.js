@@ -1,9 +1,9 @@
 import editCurrencyGraphql from '~/graphql/store/currency/edit.graphql'
 import currencyGetGql from '~/graphql/store/currency/get.graphql'
 
-export const state = {
+export const state = () => ({
   currency: {}
-}
+})
 
 export const getters = {
   get(state) {

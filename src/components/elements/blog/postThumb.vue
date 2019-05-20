@@ -33,7 +33,7 @@ export default {
       return this.post.image !== "" ? this.post.image : placeholder;
     },
     mainImagelazy() {
-      return this.post.imagelazy !== "" ? this.post.imagelazy : placeholder;
+      return this.post.imageLazy !== "" ? this.post.imageLazy : placeholder;
     }
   }
 };

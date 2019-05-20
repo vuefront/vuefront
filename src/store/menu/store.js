@@ -1,8 +1,8 @@
 import categoryMenuGql from '~/graphql/store/category/menu.graphql'
 
-export const state = {
+export const state = () => ({
   entities: [],
-}
+})
 
 export const getters = {
   get(state) {

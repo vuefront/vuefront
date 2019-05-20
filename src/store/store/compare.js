@@ -2,9 +2,9 @@ import addToCompareGraphql from '~/graphql/store/compare/addToCompare.graphql'
 import removeCompareGraphql from '~/graphql/store/compare/removeCompare.graphql'
 import compareGetGql from '~/graphql/store/compare/get.graphql'
 
-export const state = {
+export const state = () => ({
   compare: {}
-}
+})
 
 export const getters = {
   get(state) {

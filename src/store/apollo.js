@@ -2,10 +2,10 @@ import omitDeepLodash from 'omit-deep-lodash'
 import Axios from 'axios'
 import FormData from 'form-data'
 
-export const state = {
+export const state = () => ({
   data: {},
   prefetchData: {}
-}
+})
 
 export const getters = {
   get(state) {

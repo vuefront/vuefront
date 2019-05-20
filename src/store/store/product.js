@@ -1,9 +1,9 @@
 import reviewAddGql from '~/graphql/store/review/addReview.graphql'
 
-export const state = {
+export const state = () => ({
   entities: {},
   product: {}
-}
+})
 
 export const getters = {
   list(state) {

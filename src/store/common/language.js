@@ -2,10 +2,10 @@ import editLanguageGraphql from '~/graphql/common/language/edit.graphql'
 import languageGetGql from '~/graphql/common/language/get.graphql'
 import find from 'lodash/find'
 
-export const state = {
+export const state = () => ({
   language: {},
   locale: 'en-gb'
-}
+})
 
 export const getters = {
   get(state) {

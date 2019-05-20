@@ -1,4 +1,4 @@
-mutation {
+{
   accountCheckLogged {
     status
     customer {

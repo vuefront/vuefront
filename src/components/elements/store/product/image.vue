@@ -11,20 +11,24 @@
       </b-col>
     </b-row>
     <no-ssr>
-      <LightBox :images="images" :show-light-box="false" ref="lightbox"></LightBox>
+      <!-- <LightBox :images="images" :show-light-box="false" ref="lightbox"></LightBox> -->
     </no-ssr>
   </section>
 </template>
 <script>
-import Vue from "vue";
+// import Vue from "vue";
 import { BImgLazy, BRow, BCol } from "bootstrap-vue/es/components";
 import placeholder from "~/assets/img/placeholder.png";
-import "vue-image-lightbox/dist/vue-image-lightbox.min.css";
+// import "vue-image-lightbox/dist/vue-image-lightbox.min.css";
+// import VueLazyLoad from "vue-lazyload";
+// import LightBox from "vue-image-lightbox";
+// Vue.use(VueLazyLoad);
 export default {
   components: {
     BImgLazy,
     BRow,
     BCol,
+    // LightBox
   },
   props: ["product"],
   computed: {
@@ -60,17 +64,9 @@ export default {
         : placeholder;
     }
   },
-  mounted() {
-    if(process.client) {
-        import VueLazyLoad from "vue-lazyload";
-        import LightBox from "vue-image-lightbox";
-        Vue.use(VueLazyLoad);
-        Vue.component(LightBox)
-    }
-  },
   methods: {
     handleOpenPopup(index) {
-      this.$refs.lightbox.showImage(index);
+      // this.$refs.lightbox.showImage(index);
     }
   }
 };

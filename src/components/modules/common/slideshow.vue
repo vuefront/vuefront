@@ -1,5 +1,5 @@
 <template>
-  <b-carousel class="mb-5" :interval="4000" controls indicators>
+  <b-carousel v-model="active" class="mb-5" :interval="4000" controls indicators>
     <b-carousel-slide v-for="(item,i) in items" :key="i" :img-src="item"></b-carousel-slide>
   </b-carousel>
 </template>
@@ -14,6 +14,11 @@ export default {
     items: {
       type: Array,
       default: []
+    }
+  },
+  data() {
+    return {
+      active: 0
     }
   }
 };

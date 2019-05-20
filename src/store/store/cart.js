@@ -3,9 +3,9 @@ import updateCartGraphql from '~/graphql/store/cart/updateCart.graphql'
 import removeCartGraphql from '~/graphql/store/cart/removeCart.graphql'
 import cartGetGql from '~/graphql/store/cart/get.graphql'
 
-export const state = {
+export const state = () => ({
   cart: {}
-}
+})
 
 export const getters = {
   get(state) {

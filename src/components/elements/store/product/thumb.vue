@@ -94,8 +94,8 @@ export default {
       return this.product.image !== "" ? this.product.image : placeholder;
     },
     mainImagelazy() {
-      return this.product.imagelazy !== ""
-        ? this.product.imagelazy
+      return this.product.imageLazy !== ""
+        ? this.product.imageLazy
         : placeholder;
     },
     url() {

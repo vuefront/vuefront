@@ -1,10 +1,10 @@
 import categoryMenuGql from '~/graphql/store/category/menu.graphql'
 
-export const state = {
+export const state = () => ({
   menuItems: [],
   category: {},
   mode: 'grid'
-}
+})
 
 export const getters = {
   menu(state) {

@@ -2,9 +2,9 @@ import addToWishlistGraphql from '~/graphql/store/wishlist/addToWishlist.graphql
 import removeWishlistGraphql from '~/graphql/store/wishlist/removeWishlist.graphql'
 import wishlistGetGql from '~/graphql/store/wishlist/get.graphql'
 
-export const state = {
+export const state = () => ({
   wishlist: {}
-}
+})
 
 export const getters = {
   get(state) {
