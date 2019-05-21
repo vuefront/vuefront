@@ -26,6 +26,7 @@ query($page: Int, $size: Int, $sort: String, $order: String, $categoryId: String
             name
             image
             imageLazy
+            keyword
         }
     }
 }

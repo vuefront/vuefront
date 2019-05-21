@@ -24,9 +24,10 @@ export default {
     })
   },
   async fetch({ store, app, params }) {
+    let {id} = app.$vuefront.params
     await store.dispatch("apollo/query", {
       query: postGetGql,
-      variables: { id: Number(params.id) }
+      variables: { id }
     });
     const { post } = store.getters["apollo/get"];
 

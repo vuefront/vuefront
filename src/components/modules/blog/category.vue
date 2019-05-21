@@ -4,7 +4,7 @@
       <b-list-group>
         <template v-for="(value, index) in data.categoriesBlogList.content">
           <b-list-group-item
-            :to="`/blog/category/${value.id}`"
+            :to="url(value)"
             :key="`root-${index}`"
             :active="checkView(value, value.categories)"
             v-html="value.name"
@@ -13,8 +13,8 @@
             <b-list-group-item
               v-for="(subValue, subIndex) in value.categories"
               :key="`sub-${subIndex}`"
-              :to="`/blog/category/${subValue.id}`"
-              :active="Number(subValue.id) === id"
+              :to="url(subValue)"
+              :active="subValue.id === id"
               v-html="`&nbsp;&nbsp;&nbsp;- ${subValue.name}`"
             />
           </template>
@@ -27,6 +27,7 @@
 import { BListGroup, BListGroupItem } from "bootstrap-vue/es/components";
 import includes from "lodash/includes";
 import map from "lodash/map";
+import isEmpty from "lodash/isEmpty";
 export default {
   components: {
     BListGroup,
@@ -34,16 +35,32 @@ export default {
   },
   computed: {
     id() {
-      return this.$route.params.id ? Number(this.$route.params.id) : false;
+      let result = false;
+
+      if (!isEmpty(this.$route.params.id)) {
+        result = this.$route.params.id;
+      }
+      if (!isEmpty(this.$route.matched[0].props)) {
+        result = this.$route.matched[0].props.default.id;
+      }
+
+      return result;
     }
   },
   methods: {
+    url(category) {
+      if (category.keyword && category.keyword !== "") {
+        return "/" + category.keyword;
+      } else {
+        return `/blog/category/${category.id}`;
+      }
+    },
     checkView(value, subValues) {
       if (this.id) {
-        if (this.id === Number(value.id)) {
+        if (this.id === value.id) {
           return true;
         } else if (
-          includes(map(subValues, subValue => Number(subValue.id)), this.id)
+          includes(map(subValues, subValue => subValue.id), this.id)
         ) {
           return true;
         }

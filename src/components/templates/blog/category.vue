@@ -48,12 +48,14 @@ export default {
       });
     }
   },
-  async asyncData({ store, route, params }) {
+  async asyncData({ store, route, params, app }) {
     const page = route.query.page ? Number(route.query.page) : 1;
+
+    let {id} = app.$vuefront.params
 
     await store.dispatch("apollo/query", {
       query: categoryPageGql,
-      variables: { page, size: 12, categoryId: Number(params.id) }
+      variables: { page, size: 12, categoryId: id }
     });
 
     const { postsList, categoryBlog } = store.getters["apollo/get"];

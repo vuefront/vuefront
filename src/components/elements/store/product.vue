@@ -95,7 +95,7 @@ export default {
   methods: {
     async handleAddToCart() {
       await this.$store.dispatch("store/cart/add", {
-        id: Number(this.product.id),
+        id: this.product.id,
         quantity: 1,
         options: this.selectedOptions
       });
@@ -116,7 +116,7 @@ export default {
 
     async handleCreateReview({ content, author, rating }) {
       await this.$store.dispatch("store/product/addReview", {
-        id: Number(this.product.id),
+        id: this.product.id,
         content,
         author,
         rating,

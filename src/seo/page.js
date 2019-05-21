@@ -1,11 +1,11 @@
 import omitDeepLodash from 'omit-deep-lodash'
-import PostGql from '~/graphql/seo/blog_post.graphql'
+import PageGql from '~/graphql/seo/page.graphql'
 export default async ({ client }) => {
   let result = []
   try {
-    let res = await client.query({ query: PostGql })
+    let res = await client.query({ query: PageGql })
     res = omitDeepLodash(res, '__typename')
-    result = res.data.postsList.content
+    result = res.data.pagesList.content
   } catch (e) {}
 
   return result

@@ -25,10 +25,11 @@ export default {
       page: "common/page/get"
     })
   },
-  async asyncData({ store, params }) {
+  async asyncData({ store, params, app }) {
+    let {id} = app.$vuefront.params
     await store.dispatch("apollo/query", {
       query: pageGql,
-      variables: { id: Number(params.id) }
+      variables: { id }
     });
 
     const { page } = store.getters["apollo/get"];

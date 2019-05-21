@@ -131,7 +131,7 @@ export default {
       );
 
       await this.$store.dispatch("store/cart/add", {
-        id: Number(compareProduct.id),
+        id: compareProduct.id,
         quantity: 1,
         options: []
       });

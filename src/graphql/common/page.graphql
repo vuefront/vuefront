@@ -1,8 +1,9 @@
-query($id: Int) {
+query($id: String) {
   page(id: $id) {
     id
     title
     description
     sort_order
+    keyword
   }
 }

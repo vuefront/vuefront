@@ -81,7 +81,7 @@ export default {
       );
 
       await this.$store.dispatch("store/cart/add", {
-        id: Number(wishlistProduct.id),
+        id: wishlistProduct.id,
         quantity: 1,
         options: []
       });

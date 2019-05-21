@@ -109,7 +109,7 @@ export default {
   methods: {
     async handleAddToCart() {
       await this.$store.dispatch("store/cart/add", {
-        id: Number(this.product.id),
+        id: this.product.id,
         quantity: 1,
         options: []
       });

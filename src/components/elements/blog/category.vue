@@ -11,7 +11,7 @@
     >{{$t('elements.blog.category.categoriesText')}}</div>
     <b-row v-if="category.categories.length > 0">
       <b-col v-for="(value, index) in category.categories" :key="index" sm="4" md="2">
-        <b-link :to="`/blog/category/${value.id}`" class="mb-2 mt-2 d-block">
+        <b-link :to="url(value)" class="mb-2 mt-2 d-block">
           <b-img-lazy
             :src="getImage(value)"
             :blank-src="getImageLazy(value)"
@@ -43,6 +43,13 @@ export default {
   },
   props: ["category"],
   methods: {
+    url(category) {
+      if (category.keyword && category.keyword !== "") {
+        return "/" + category.keyword;
+      } else {
+        return `/blog/category/${category.id}`;
+      }
+    },
     getImage(category) {
       return category.image !== "" ? category.image : placeholder;
     },

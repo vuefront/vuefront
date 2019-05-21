@@ -35,10 +35,19 @@ export default {
     },
     '/account/register': 'vuefront/lib/components/templates/common/account/register',
     '/account/wishlist': 'vuefront/lib/components/templates/store/wishlist',
-    '/blog/category/:id': 'vuefront/lib/components/templates/blog/category',
-    '/blog/post/:id': 'vuefront/lib/components/templates/blog/post',
+    '/blog/category/:id': {
+      component: 'vuefront/lib/components/templates/blog/category',
+      seo: 'vuefront/lib/seo/blog_category'
+    },
+    '/blog/post/:id': {
+      component: 'vuefront/lib/components/templates/blog/post',
+      seo: 'vuefront/lib/seo/blog_post'
+    },
     '/contact': 'vuefront/lib/components/templates/common/contact',
-    '/page/:id': 'vuefront/lib/components/templates/common/page',
+    '/page/:id': {
+      component: 'vuefront/lib/components/templates/common/page',
+      seo: 'vuefront/lib/seo/page'
+    },
     '/search/:slug': 'vuefront/lib/components/templates/common/search',
     '/store/cart': 'vuefront/lib/components/templates/store/cart',
     '/store/category/:id': {

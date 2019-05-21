@@ -1,4 +1,4 @@
-mutation ($id: Int, $quantity: Int, $options: [CartOption]) {
+mutation ($id: String, $quantity: Int, $options: [CartOption]) {
     addToCart(id: $id, quantity: $quantity, options: $options) {
         products {
             key

@@ -1,6 +1,6 @@
 <template>
   <b-card class="card-post" no-body>
-    <b-link :to="`/blog/post/${post.id}`" class="card-post_image_wrapper">
+    <b-link :to="url" class="card-post_image_wrapper">
       <b-card-img-lazy fluid :src="mainImage" :blank-src="mainImagelazy" class="card-post__image"/>
     </b-link>
 
@@ -34,6 +34,13 @@ export default {
     },
     mainImagelazy() {
       return this.post.imageLazy !== "" ? this.post.imageLazy : placeholder;
+    },
+    url() {
+      if (this.post.keyword && this.post.keyword !== "") {
+        return "/" + this.post.keyword;
+      } else {
+        return "/blog/post/" + this.post.id;
+      }
     }
   }
 };

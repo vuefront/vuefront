@@ -1,4 +1,4 @@
-query($page: Int, $size: Int, $categoryId: Int) {
+query($page: Int, $size: Int, $categoryId: String) {
     postsList(page: $page, size: $size, category_id: $categoryId) {
         content {
             id
@@ -7,6 +7,7 @@ query($page: Int, $size: Int, $categoryId: Int) {
             shortDescription
             image
             imageLazy
+            keyword
         }
         number
         totalPages
@@ -21,6 +22,7 @@ query($page: Int, $size: Int, $categoryId: Int) {
             name
             image
             imageLazy
+            keyword
         }
     }
 }

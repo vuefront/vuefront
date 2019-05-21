@@ -1,4 +1,4 @@
-mutation ($id: Int, $content: String, $author: String, $rating: Float) {
+mutation ($id: String, $content: String, $author: String, $rating: Float) {
     addBlogPostReview(id: $id, content: $content, author: $author, rating: $rating) {
         id
         title

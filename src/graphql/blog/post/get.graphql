@@ -1,4 +1,4 @@
-query($id: Int) {
+query($id: String) {
   post(id: $id) {
     id
     title

@@ -26,13 +26,13 @@ export default {
       return this.post.image !== "" ? this.post.image : placeholder;
     },
     mainImagelazy() {
-      return this.post.imagelazy !== "" ? this.post.imagelazy : placeholder;
+      return this.post.imageLazy !== "" ? this.post.imageLazy : placeholder;
     }
   },
   methods: {
     async handleCreateReview({ content, author, rating }) {
       await this.$store.dispatch("blog/post/addReview", {
-        id: Number(this.post.id),
+        id: this.post.id,
         content,
         author,
         rating,
