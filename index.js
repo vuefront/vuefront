@@ -34,7 +34,10 @@ export default {
       component: 'vuefront/lib/components/templates/common/account/password'
     },
     '/account/register': 'vuefront/lib/components/templates/common/account/register',
-    '/account/wishlist': 'vuefront/lib/components/templates/store/wishlist',
+    '/account/wishlist': {
+      generate: false,
+      component: 'vuefront/lib/components/templates/store/wishlist'
+    },
     '/blog/category/:id': {
       component: 'vuefront/lib/components/templates/blog/category',
       seo: 'vuefront/lib/seo/blog_category'
@@ -49,12 +52,22 @@ export default {
       seo: 'vuefront/lib/seo/page'
     },
     '/search/:slug': 'vuefront/lib/components/templates/common/search',
-    '/store/cart': 'vuefront/lib/components/templates/store/cart',
+    '/store/cart': {
+      generate: false,
+      component: 'vuefront/lib/components/templates/store/cart'
+    },
+    '/store/checkout': {
+      generate: false,
+      component: 'vuefront/lib/components/templates/store/checkout'
+    },
     '/store/category/:id': {
       component: 'vuefront/lib/components/templates/store/category',
       seo: 'vuefront/lib/seo/category'
     },
-    '/store/compare': 'vuefront/lib/components/templates/store/compare',
+    '/store/compare': {
+      generate: false,
+      component: 'vuefront/lib/components/templates/store/compare'
+    },
     '/store/product/:id': {
       component: 'vuefront/lib/components/templates/store/product',
       seo: 'vuefront/lib/seo/product'
@@ -237,6 +250,7 @@ export default {
     BlogCategory: 'vuefront/lib/components/modules/blog/category',
     Account: 'vuefront/lib/components/modules/common/account',
     AccountLinks: 'vuefront/lib/components/modules/common/accountLinks',
-    ExtraLinks: 'vuefront/lib/components/modules/common/extraLinks'
+    ExtraLinks: 'vuefront/lib/components/modules/common/extraLinks',
+    Checkout: 'vuefront/lib/components/modules/store/checkout'
   }
 }

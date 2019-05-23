@@ -3,5 +3,8 @@
   "priceColumn": "Price",
   "quantityColumn": "Quantity",
   "totalColumn": "Total",
-  "actionColumn": ""
+  "actionColumn": "",
+  "totalText": "Total value:", 
+  "checkoutButton": "Checkout",
+  "returnButton": "Return to shop"
 }

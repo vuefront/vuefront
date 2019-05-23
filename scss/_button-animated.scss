@@ -1,0 +1,59 @@
+
+.btn-animated {
+  position: relative;
+  overflow: hidden;
+
+  .btn-inner--visible {
+      position: relative;
+  }
+  .btn-inner--hidden {
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+  }
+}
+
+.btn-animated-x {
+  .btn-inner--visible {
+      right: 0;
+      @include transition(right .3s ease 0s);
+
+  }
+  .btn-inner--hidden {
+      right: -100%;
+      @include transition(right .3s ease 0s);
+  }
+
+  &:hover {
+      .btn-inner--hidden {
+          right: 0;
+      }
+
+      .btn-inner--visible {
+          right: 150%;
+      }
+  }
+}
+
+.btn-animated-y {
+  .btn-inner--visible {
+      top: 0;
+      @include transition(top .3s ease 0s);
+  }
+  .btn-inner--hidden {
+      left: 0;
+      top: -100%;
+      @include transition(top .3s ease );
+  }
+
+  &:hover {
+      .btn-inner--hidden {
+          top: 50%;
+      }
+
+      .btn-inner--visible {
+          top: 100px;
+      }
+  }
+}

@@ -50,6 +50,8 @@ export const actions = {
     )
 
     if (!rootGetters['vuefront/error']) {
+      console.log('setCart')
+      console.log(rootGetters['apollo/get'].addToCart)
       commit('setCart', rootGetters['apollo/get'].addToCart)
     }
   },
