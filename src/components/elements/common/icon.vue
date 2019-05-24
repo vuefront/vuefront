@@ -7,11 +7,17 @@ export default {
     props: ['icon', 'size'],
     computed: {
       currentIcon() {
+        let result = ''
         if(isArray(this.icon)) {
-          return join(this.icon, ' fa-')
+          result = join(this.icon, ' fa-')
         } else {
-          return `fas fa-${this.icon}`
+          result = `fas fa-${this.icon}`
         }
+
+        if(this.size) {
+          result += ` fa-${this.size}x`
+        }
+        return result
       }
     }
 }

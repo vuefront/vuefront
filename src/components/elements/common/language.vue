@@ -2,7 +2,7 @@
   <b-nav-item-dropdown v-if="language.length > 1" class="top-nav__dropdown" left>
     <template slot="button-content">
       <b-img :src="activeLanguage.image"/>
-      {{activeLanguage.name}}
+      <span class="d-none d-md-inline-block">{{activeLanguage.name}}</span>
     </template>
     <b-dropdown-item v-for="(value, index) in language" :key="index" @click="handleEdit(value)">
       <b-img :src="value.image"/>

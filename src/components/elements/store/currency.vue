@@ -1,8 +1,9 @@
 <template>
   <b-nav-item-dropdown v-if="currency.length > 1" class="top-nav__dropdown" left>
-    <template
-      slot="button-content"
-    >{{activeCurrency.symbol_left || activeCurrency.symbol_right}} {{activeCurrency.title}}</template>
+    <template slot="button-content">
+      {{activeCurrency.symbol_left || activeCurrency.symbol_right}}
+      <span class="d-none d-md-inline-block">{{activeCurrency.title}}</span>
+    </template>
     <b-dropdown-item
       v-for="(value, index) in currency"
       :key="index"

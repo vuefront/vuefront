@@ -195,6 +195,8 @@ export default {
     HeaderCenter: 'vuefront/lib/components/elements/common/header/center',
     HeaderSearch: 'vuefront/lib/components/elements/common/header/search',
     HeaderTop: 'vuefront/lib/components/elements/common/header/top',
+    HeaderCart: 'vuefront/lib/components/elements/common/header/cart',
+    HeaderLogo: 'vuefront/lib/components/elements/common/header/logo',
     Icon: 'vuefront/lib/components/elements/common/icon',
     Language: 'vuefront/lib/components/elements/common/language',
     Loader: 'vuefront/lib/components/elements/common/loader',

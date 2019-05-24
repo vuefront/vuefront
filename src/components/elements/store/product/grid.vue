@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid class="p-0">
+  <section>
     <b-row>
       <b-col
         sm="12"
@@ -10,7 +10,7 @@
         <vf-product-thumb :product="value" :wide="list"/>
       </b-col>
     </b-row>
-  </b-container>
+  </section>
 </template>
 <script>
 import { BRow, BCol, BContainer } from "bootstrap-vue/es/components";

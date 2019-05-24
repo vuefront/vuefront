@@ -1,7 +1,7 @@
 <template>
   <div>
     <vf-template-header :logo="logo"/>
-    <b-container class="p-0">
+    <b-container>
       <div class="main-content">
         <vf-position name="contentTop" class="py-3"/>
         <b-row>

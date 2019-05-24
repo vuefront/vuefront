@@ -30,6 +30,12 @@ body {
   font-weight: 400;
   line-height: 1.7;
   color: #8492a6;
+  @media (max-width: 768px) {
+    // padding-top: 80px;
+    .main-content {
+      padding-top: calc(65px + 40px);
+    }
+  }
 
   a {
     text-decoration: none;

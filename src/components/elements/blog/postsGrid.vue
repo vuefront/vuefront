@@ -1,6 +1,6 @@
 <template>
   <b-container fluid class="p-0">
-    <b-row>
+    <b-row class="m-0">
       <b-col sm="12" :md="column ? 12 : 12 / gridSize" v-for="(value, index) in posts" :key="index">
         <vf-post-thumb :post="value"/>
       </b-col>
