@@ -1,0 +1,14 @@
+.language-section {
+  .dropdown-toggle {
+    &::after {
+      display: none;
+    }
+  }
+  &__image {
+  }
+  &__name {
+    @media (max-width: 767px) {
+      color: #000;
+    }
+  }
+}

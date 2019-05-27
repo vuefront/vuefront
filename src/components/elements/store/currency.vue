@@ -1,8 +1,10 @@
 <template>
-  <b-nav-item-dropdown v-if="currency.length > 1" class="top-nav__dropdown" left>
+  <b-nav-item-dropdown v-if="currency.length > 1" class="currency-section" left>
     <template slot="button-content">
-      {{activeCurrency.symbol_left || activeCurrency.symbol_right}}
-      <span class="d-none d-md-inline-block">{{activeCurrency.title}}</span>
+      <span
+        class="d-none d-md-inline-block currency-section__symbol"
+      >{{activeCurrency.symbol_left || activeCurrency.symbol_right}}</span>
+      <span class="currency-section__title">{{activeCurrency.title}}</span>
     </template>
     <b-dropdown-item
       v-for="(value, index) in currency"
@@ -15,6 +17,7 @@
 import { BNavItemDropdown, BDropdownItem } from "bootstrap-vue/es/components";
 import { mapGetters } from "vuex";
 import find from "lodash/find";
+import "vuefront/scss/elements/store/currency.scss";
 export default {
   components: {
     BNavItemDropdown,

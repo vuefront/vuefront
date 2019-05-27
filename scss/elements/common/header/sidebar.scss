@@ -1,0 +1,45 @@
+.sidebar {
+  display: flex;
+  flex-flow: row;
+  @media (max-width: 765px) {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    height: 100vh;
+    background-color: white;
+    z-index: 99;
+  }
+
+  &__top {
+    padding-left: 40px;
+    padding-top: 40px;
+    flex: 0 1 10%;
+  }
+  &__left {
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+    background-color: #F5F5F5;
+  }
+  &__right {
+    flex: 0 1 auto;
+    min-width: 50px;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+  }
+  &__bottom {
+    padding-left: 40px;
+    background-color: #ECECEC;
+    flex: 0 1 70px;
+    display: flex;
+    align-items: center;
+
+  }
+  &__main {
+    flex: 1;
+    padding-left: 40px;
+  }
+}
