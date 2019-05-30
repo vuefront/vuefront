@@ -19,6 +19,7 @@ mutation ($id: String, $content: String, $author: String, $rating: Float, $limit
         options {
             id
             name
+            type
             values {
                 id
                 name

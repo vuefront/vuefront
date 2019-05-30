@@ -152,15 +152,17 @@ export default {
   watchQuery: true,
   methods: {
     async handleChangePage(page) {
+      let {id} = this.$vuefront.params
       this.$router.push({
-        path: "/store/category/" + this.$route.params.id,
+        path: "/store/category/" + id,
         query: { page }
       });
     },
     handleChangeSort(sort) {
       const sorts = sort.split("|");
+      let {id} = this.$vuefront.params
       this.$router.push({
-        path: "/store/category/" + this.$route.params.id,
+        path: "/store/category/" + id,
         query: { size: this.size.toString(), sort: sorts[0], order: sorts[1] }
       });
     },
@@ -172,8 +174,10 @@ export default {
     handleChangeSize(size) {
       const sorts = this.sort.split("|");
 
+      let {id} = this.$vuefront.params
+
       this.$router.push({
-        path: "/store/category/" + this.$route.params.id,
+        path: "/store/category/" + id,
         query: { size: size.toString(), sort: sorts[0], order: sorts[1] }
       });
     }

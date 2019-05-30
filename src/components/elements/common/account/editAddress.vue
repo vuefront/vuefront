@@ -219,7 +219,6 @@ export default {
   mixins: [validationMixin],
   validations() {
     let fields = [];
-
     if (this.zones.content.length > 0) {
       fields = [
         ...fields,

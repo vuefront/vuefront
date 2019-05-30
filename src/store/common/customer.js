@@ -118,9 +118,9 @@ export const actions = {
   },
   async checkLogged({commit, dispatch, rootGetters}) {
     await dispatch(
-      'apollo/mutate',
+      'apollo/query',
       {
-        mutation: CheckGql
+        query: CheckGql
       },
       {
         root: true
