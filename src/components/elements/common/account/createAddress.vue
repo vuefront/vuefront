@@ -219,16 +219,15 @@ export default {
   },
   mixins: [validationMixin],
   validations() {
-    let fields = [];
+    let fields = {};
+
     if (!isEmpty(this.zones) && this.zones.content.length > 0) {
-      fields = [
+      fields = {
         ...fields,
-        {
-          zoneId: {
-            required
-          }
+        zoneId: {
+          required
         }
-      ];
+      };
     }
     return {
       form: {

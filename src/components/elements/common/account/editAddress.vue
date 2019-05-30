@@ -129,6 +129,7 @@
             :label="$t('elements.common.address.edit.zoneEntry')"
             label-for="input-country"
           >
+            {{handleLog()}}
             <b-form-select
               id="input-country"
               v-model.trim="form.zoneId"
@@ -218,16 +219,15 @@ export default {
   },
   mixins: [validationMixin],
   validations() {
-    let fields = [];
+    let fields = {};
+
     if (this.zones.content.length > 0) {
-      fields = [
+      fields = {
         ...fields,
-        {
-          zoneId: {
-            required
-          }
+        zoneId: {
+          required
         }
-      ];
+      };
     }
 
     return {
@@ -278,6 +278,9 @@ export default {
     })
   },
   methods: {
+    handleLog() {
+      console.log(this.$v.form);
+    },
     async handleChangeCountry(value) {
       await this.$store.dispatch("common/zone/list", {
         page: 1,
