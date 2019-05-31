@@ -1,6 +1,6 @@
 <template>
   <section class="contact-section">
-    <h3>{{contact.address}}</h3>
+    <h3 v-html="contact.address"/>
     <p class="lead my-4">
       E:
       <b-link>{{contact.email}}</b-link>

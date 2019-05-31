@@ -6,8 +6,8 @@
           <b-media no-body>
             <b-media-aside vertical-align="center" class="pl-3">
               <b-img-lazy
-                :src="data.item.image"
-                :blank-src="data.item.imageLazy"
+                :src="mainImage(data.item)"
+                :blank-src="mainImagelazy(data.item)"
                 width="80"
                 height="80"
               />
@@ -43,6 +43,7 @@ import {
   BFormInput
 } from "bootstrap-vue/es/components";
 import "vuefront/scss/elements/store/wishlist.scss";
+import placeholder from "~/assets/img/placeholder.png";
 export default {
   components: { BTable, BImgLazy, BMedia, BMediaBody, BMediaAside, BFormInput },
   props: ["wishlist"],
@@ -68,6 +69,14 @@ export default {
     };
   },
   methods: {
+    mainImage(product) {
+      return product.image !== "" ? product.image : placeholder;
+    },
+    mainImagelazy(product) {
+      return product.imageLazy !== ""
+        ? product.imageLazy
+        : placeholder;
+    },
     handleRemove(wishlistProduct) {
       this.$store.dispatch("store/wishlist/remove", {
         id: wishlistProduct.id

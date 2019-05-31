@@ -6,8 +6,8 @@
           <b-media no-body>
             <b-media-aside vertical-align="center" class="pl-3">
               <b-img-lazy
-                :src="data.item.product.image"
-                :blank-src="data.item.product.imageLazy"
+                :src="mainImage(data.item.product)"
+                :blank-src="mainImagelazy(data.item.product)"
                 width="80"
                 height="80"
               />
@@ -78,6 +78,7 @@ import {
 } from "bootstrap-vue/es/components";
 import "vuefront/scss/elements/store/cart.scss";
 import isEmpty from 'lodash/isEmpty'
+import placeholder from "~/assets/img/placeholder.png";
 export default {
   components: { BTable, BImgLazy, BMedia, BMediaBody, BMediaAside, BFormInput, BCard, BCardBody, BRow, BCol, BButton, BLink },
   props: ["cart"],
@@ -118,6 +119,14 @@ export default {
     }
   },
   methods: {
+    mainImage(product) {
+      return product.image !== "" ? product.image : placeholder;
+    },
+    mainImagelazy(product) {
+      return product.imageLazy !== ""
+        ? product.imageLazy
+        : placeholder;
+    },
     handleChangeQuantity(e, cartProduct) {
       this.$store.dispatch("store/cart/update", {
         key: cartProduct.key,

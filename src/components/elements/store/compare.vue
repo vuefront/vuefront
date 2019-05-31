@@ -13,7 +13,7 @@
       <div class="compare__item">
         <div class="compare__item_value border p-2">{{$t('elements.store.compare.imageRow')}}</div>
         <div v-for="(value, index) in compare" :key="index" class="compare__item_value border p-2">
-          <b-img-lazy :src="value.image" :blank-src="value.imageLazy" width="80" height="80"/>
+          <b-img-lazy :src="mainImage(value)" :blank-src="mainImagelazy(value)" width="80" height="80"/>
         </div>
       </div>
       <div class="compare__item">
@@ -79,6 +79,7 @@ import {
   BFormInput
 } from "bootstrap-vue/es/components";
 import "vuefront/scss/elements/store/compare.scss";
+import placeholder from "~/assets/img/placeholder.png";
 export default {
   components: { BTable, BImgLazy, BMedia, BMediaBody, BMediaAside, BFormInput },
   props: ["compare"],
@@ -119,6 +120,14 @@ export default {
     }
   },
   methods: {
+    mainImage(product) {
+      return product.image !== "" ? product.image : placeholder;
+    },
+    mainImagelazy(product) {
+      return product.imageLazy !== ""
+        ? product.imageLazy
+        : placeholder;
+    },
     handleRemove(compareProduct) {
       this.$store.dispatch("store/compare/remove", {
         id: compareProduct.id

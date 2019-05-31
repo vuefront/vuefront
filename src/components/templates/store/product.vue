@@ -25,7 +25,6 @@ export default {
   },
   async fetch(ctx) {
     let {id} = ctx.app.$vuefront.params
-
     await ctx.store.dispatch("apollo/query", {
       query: productGetGql,
       variables: { id, limit: 5 }
