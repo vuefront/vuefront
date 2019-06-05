@@ -13,7 +13,7 @@
   </section>
 </template>
 <script>
-import { BImgLazy } from "bootstrap-vue/es/components";
+import { BImgLazy } from "bootstrap-vue";
 import placeholder from "~/assets/img/placeholder.png";
 
 export default {

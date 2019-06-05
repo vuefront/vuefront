@@ -77,7 +77,7 @@ import {
   BMediaBody,
   BMediaAside,
   BFormInput
-} from "bootstrap-vue/es/components";
+} from "bootstrap-vue";
 import "vuefront/scss/elements/store/compare.scss";
 import placeholder from "~/assets/img/placeholder.png";
 export default {

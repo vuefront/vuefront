@@ -16,7 +16,7 @@ import {
   BCardImgLazy,
   BCardBody,
   BLink
-} from "bootstrap-vue/es/components";
+} from "bootstrap-vue";
 import "vuefront/scss/elements/blog/postThumb.scss";
 import placeholder from "~/assets/img/placeholder.png";
 

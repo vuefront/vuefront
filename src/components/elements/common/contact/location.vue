@@ -12,7 +12,7 @@
   </section>
 </template>
 <script>
-import { BCard, BCardBody, BCardFooter } from "bootstrap-vue/es/components";
+import { BCard, BCardBody, BCardFooter } from "bootstrap-vue";
 
 export default {
   components: {

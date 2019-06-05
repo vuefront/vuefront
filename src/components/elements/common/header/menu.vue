@@ -50,9 +50,8 @@
     </section>
 </template>
 <script>
-import { BLink, BNav } from "bootstrap-vue/es/components";
+import { BLink, BNav, VBToggle } from "bootstrap-vue";
 import "vuefront/scss/elements/common/header/topMenu.scss";
-import { VBToggle } from "bootstrap-vue/es/directives";
 export default {
   components: {
     BLink,

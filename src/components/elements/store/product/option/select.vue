@@ -2,7 +2,7 @@
   <b-form-select :value="activeOptionValue" :options="selectOptions" @input="handleChange"/>
 </template>
 <script>
-import { BFormSelect } from "bootstrap-vue/es/components";
+import { BFormSelect } from "bootstrap-vue";
 import { find } from "lodash";
 export default {
   components: {

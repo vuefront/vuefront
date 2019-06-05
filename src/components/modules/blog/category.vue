@@ -24,7 +24,7 @@
   </vf-apollo>
 </template>
 <script>
-import { BListGroup, BListGroupItem } from "bootstrap-vue/es/components";
+import { BListGroup, BListGroupItem } from "bootstrap-vue";
 import includes from "lodash/includes";
 import map from "lodash/map";
 import isEmpty from "lodash/isEmpty";

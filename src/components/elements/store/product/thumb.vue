@@ -68,7 +68,7 @@ import {
   BButton,
   BButtonGroup,
   BLink
-} from "bootstrap-vue/es/components";
+} from "bootstrap-vue";
 import "vuefront/scss/elements/store/productThumb.scss";
 import placeholder from "~/assets/img/placeholder.png";
 import { mapGetters } from "vuex";

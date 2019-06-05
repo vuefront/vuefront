@@ -24,7 +24,7 @@ import {
   BNavItem,
   BNavbarNav,
   BLink
-} from "bootstrap-vue/es/components";
+} from "bootstrap-vue";
 import "vuefront/scss/elements/common/header/nav.scss";
 
 export default {

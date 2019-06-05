@@ -13,7 +13,7 @@
   </div>
 </template>
 <script>
-import {BButton} from 'bootstrap-vue/es/components'
+import {BButton} from 'bootstrap-vue'
 import {filter, isEmpty} from 'lodash'
 export default {
   components: {

@@ -17,7 +17,7 @@
 </template>
 <script>
 import Vue from "vue";
-import { BImgLazy, BRow, BCol } from "bootstrap-vue/es/components";
+import { BImgLazy, BRow, BCol } from "bootstrap-vue";
 import placeholder from "~/assets/img/placeholder.png";
 import "vue-image-lightbox/dist/vue-image-lightbox.min.css";
 import VueLazyLoad from "vue-lazyload";

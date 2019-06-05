@@ -28,7 +28,7 @@
   </section>
 </template>
 <script>
-import { BListGroup, BListGroupItem } from "bootstrap-vue/es/components";
+import { BListGroup, BListGroupItem } from "bootstrap-vue";
 import { mapGetters } from "vuex";
 
 export default {

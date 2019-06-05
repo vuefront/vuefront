@@ -74,7 +74,7 @@ import {
   BButton,
   BLink,
   BAlert
-} from "bootstrap-vue/es/components";
+} from "bootstrap-vue";
 import { validationMixin } from "vuelidate";
 import required from "vuelidate/lib/validators/required";
 import minLength from "vuelidate/lib/validators/minLength";

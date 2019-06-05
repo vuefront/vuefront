@@ -14,7 +14,7 @@
   </b-nav-item-dropdown>
 </template>
 <script>
-import { BNavItemDropdown, BDropdownItem } from "bootstrap-vue/es/components";
+import { BNavItemDropdown, BDropdownItem } from "bootstrap-vue";
 import { mapGetters } from "vuex";
 import find from "lodash/find";
 import "vuefront/scss/elements/store/currency.scss";

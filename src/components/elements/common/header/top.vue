@@ -54,7 +54,7 @@ import {
   BNavItemDropdown,
   BDropdownItem,
   BLink
-} from "bootstrap-vue/es/components";
+} from "bootstrap-vue";
 import "vuefront/scss/elements/common/header/topNav.scss";
 import { mapGetters } from "vuex";
 export default {

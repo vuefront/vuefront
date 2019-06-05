@@ -12,7 +12,7 @@
   </section>
 </template>
 <script>
-import {BRow, BCol} from "bootstrap-vue/es/components";
+import {BRow, BCol} from "bootstrap-vue";
 import { mapGetters } from "vuex";
 export default {
   components: {

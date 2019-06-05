@@ -24,7 +24,7 @@ import {
   BButton,
   BFormGroup,
   BFormInput
-} from "bootstrap-vue/es/components";
+} from "bootstrap-vue";
 export default {
   components: {
     BRow,

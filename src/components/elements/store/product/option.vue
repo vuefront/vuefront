@@ -9,7 +9,7 @@
 <script>
 import filter from "lodash/filter";
 import isEmpty from "lodash/isEmpty";
-import { BFormRadioGroup, BButton } from "bootstrap-vue/es/components";
+import { BFormRadioGroup, BButton } from "bootstrap-vue";
 export default {
   components: {
     BFormRadioGroup,

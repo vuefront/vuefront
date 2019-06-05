@@ -2,7 +2,7 @@
   <b-breadcrumb v-if="isShow" :items="items"></b-breadcrumb>
 </template>
 <script>
-import { BBreadcrumb, BBreadcrumbItem } from "bootstrap-vue/es/components";
+import { BBreadcrumb, BBreadcrumbItem } from "bootstrap-vue";
 export default {
   components: {
     BBreadcrumb,

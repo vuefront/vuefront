@@ -18,7 +18,8 @@ const _default = filePath => {
     return {
         input: 'src/store/' + componentPath,
         output: {
-            file: path.resolve(dist, 'store/' + componentPath)
+            file: path.resolve(dist, 'store/' + componentPath),
+            format: 'esm'
         },
         external: path => {
             let result = false

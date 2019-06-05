@@ -32,7 +32,7 @@ import {
   BContainer,
   BImgLazy,
   BLink
-} from "bootstrap-vue/es/components";
+} from "bootstrap-vue";
 export default {
   components: {
     BContainer,

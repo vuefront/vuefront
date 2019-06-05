@@ -2,7 +2,7 @@
   <b-form-textarea :value="activeOptionValue" @input="handleChange"/>
 </template>
 <script>
-import {BFormTextarea} from 'bootstrap-vue/es/components'
+import {BFormTextarea} from 'bootstrap-vue'
 import {find} from 'lodash'
 
 export default {

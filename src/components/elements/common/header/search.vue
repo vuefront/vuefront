@@ -10,7 +10,7 @@
   </div>
 </template>
 <script>
-import { BFormInput } from "bootstrap-vue/es/components";
+import { BFormInput } from "bootstrap-vue";
 export default {
   components: {
     BFormInput

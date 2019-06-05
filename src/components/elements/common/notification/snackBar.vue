@@ -12,7 +12,7 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
-import { BContainer, BAlert } from "bootstrap-vue/es/components";
+import { BContainer, BAlert } from "bootstrap-vue";
 
 export default {
   components: {

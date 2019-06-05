@@ -9,7 +9,7 @@
   </div>
 </template>
 <script>
-import { BPagination } from "bootstrap-vue/es/components";
+import { BPagination } from "bootstrap-vue";
 export default {
   components: {
     BPagination

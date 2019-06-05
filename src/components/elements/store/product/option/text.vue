@@ -2,7 +2,7 @@
   <b-form-input :value="activeOptionValue" @input="handleChange"/>
 </template>
 <script>
-import {BFormInput} from 'bootstrap-vue/es/components'
+import {BFormInput} from 'bootstrap-vue'
 import {find} from 'lodash'
 
 export default {

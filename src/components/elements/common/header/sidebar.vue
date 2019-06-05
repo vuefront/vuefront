@@ -22,7 +22,7 @@
 </template>
 <script>
 import "vuefront/scss/elements/common/header/sidebar.scss";
-import { BNav } from "bootstrap-vue/es/components";
+import { BNav } from "bootstrap-vue";
 export default {
   components: { BNav }
 };

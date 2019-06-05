@@ -33,7 +33,7 @@
   </section>
 </template>
 <script>
-import { BTable, BLink, BButton } from "bootstrap-vue/es/components";
+import { BTable, BLink, BButton } from "bootstrap-vue";
 import "vuefront/scss/elements/common/account/address.scss";
 export default {
   components: { BTable, BLink, BButton },

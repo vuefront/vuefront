@@ -4,7 +4,7 @@
 <script>
 import Vue from "vue";
 import { mapGetters } from "vuex";
-import { ToastPlugin } from "bootstrap-vue/es/components";
+import { ToastPlugin } from "bootstrap-vue";
 Vue.use(ToastPlugin);
 export default {
   computed: {

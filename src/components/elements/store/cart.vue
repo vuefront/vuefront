@@ -75,7 +75,7 @@ import {
   BCol,
   BButton,
   BLink
-} from "bootstrap-vue/es/components";
+} from "bootstrap-vue";
 import "vuefront/scss/elements/store/cart.scss";
 import isEmpty from 'lodash/isEmpty'
 import placeholder from "~/assets/img/placeholder.png";

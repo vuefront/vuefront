@@ -15,7 +15,7 @@ import {
   BNavItemDropdown,
   BDropdownItem,
   BImg
-} from "bootstrap-vue/es/components";
+} from "bootstrap-vue";
 import { mapGetters } from "vuex";
 import find from "lodash/find";
 import "vuefront/scss/elements/common/language.scss";

@@ -31,7 +31,7 @@
   </footer>
 </template>
 <script>
-import { BContainer, BRow, BCol } from "bootstrap-vue/es/components";
+import { BContainer, BRow, BCol } from "bootstrap-vue";
 import "vuefront/scss/elements/common/footer.scss";
 export default {
   components: {

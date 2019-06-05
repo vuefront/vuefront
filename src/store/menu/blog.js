@@ -11,7 +11,9 @@ export const getters = {
 
 export const mutations = {
   setEntities(state, categories) {
-    state.entities = categories.content
+    if (categories) {
+      state.entities = categories.content
+    }
   }
 }
 

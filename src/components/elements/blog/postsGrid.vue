@@ -8,7 +8,7 @@
   </b-container>
 </template>
 <script>
-import { BRow, BCol, BContainer } from "bootstrap-vue/es/components";
+import { BRow, BCol, BContainer } from "bootstrap-vue";
 export default {
   components: {
     BContainer,

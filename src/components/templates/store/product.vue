@@ -3,7 +3,6 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
-import {isEmpty} from 'lodash'
 import productGetGql from "~/graphql/store/product/get.graphql";
 export default {
   head() {

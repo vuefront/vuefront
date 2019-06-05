@@ -4,7 +4,7 @@
   </b-carousel>
 </template>
 <script>
-import { BCarousel, BCarouselSlide } from "bootstrap-vue/es/components";
+import { BCarousel, BCarouselSlide } from "bootstrap-vue";
 export default {
   components: {
     BCarousel,

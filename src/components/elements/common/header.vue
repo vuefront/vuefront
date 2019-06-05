@@ -53,8 +53,7 @@
   </section>
 </template>
 <script>
-import { BRow, BCol, BCollapse, BContainer } from "bootstrap-vue/es/components";
-import { VBToggle } from "bootstrap-vue/es/directives";
+import { BRow, BCol, BCollapse, BContainer, VBToggle } from "bootstrap-vue";
 import "vuefront/scss/elements/common/header.scss";
 export default {
   components: {

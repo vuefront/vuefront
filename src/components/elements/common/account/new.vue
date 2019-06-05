@@ -27,7 +27,7 @@ import {
   BFormInput,
   BButton,
   BLink
-} from "bootstrap-vue/es/components";
+} from "bootstrap-vue";
 
 export default {
   components: {

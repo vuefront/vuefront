@@ -70,7 +70,7 @@
   </section>
 </template>
 <script>
-import { BRow, BCol, BBadge, BButton } from "bootstrap-vue/es/components";
+import { BRow, BCol, BBadge, BButton } from "bootstrap-vue";
 import "vuefront/scss/elements/store/product.scss";
 import { mapGetters } from "vuex";
 

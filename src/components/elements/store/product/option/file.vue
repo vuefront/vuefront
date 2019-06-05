@@ -2,7 +2,7 @@
   <b-form-file :value="activeOptionValue" @input="handleChange"/>
 </template>
 <script>
-import { BFormFile } from 'bootstrap-vue/es/components'
+import { BFormFile } from 'bootstrap-vue'
 import uploadFileGql from '~/graphql/common/file/upload.graphql'
 import { mapGetters } from 'vuex'
 import {find} from 'lodash'
