@@ -2,76 +2,25 @@
   <div class="loading-page" v-if="loading">
     <skeleton shape="3" bg-color="#dcdbdc">
       <b-container>
-        <b-row>
-          <b-col>
-            <tb-skeleton
-              shape="radius"
-              width="30%"
-              class="mr-auto"
-              :aspect-ratio=".05"
-              bg-color="#eee"
-            ></tb-skeleton>
-          </b-col>
-          <b-col></b-col>
-          <b-col>
-            <tb-skeleton
-              shape="radius"
-              width="60%"
-              class="ml-auto"
-              :aspect-ratio=".05"
-              bg-color="#eee"
-            ></tb-skeleton>
+        <b-row class="mt-3" align-h="center">
+          <b-col sm="3" class="mb-2">
+            <tb-skeleton shape="circle" :aspect-ratio="0.3" width="30%" bg-color="#eee" class="mx-auto mb-2" duration="2"></tb-skeleton>
+            <tb-skeleton shape="radius" width="100%" :aspect-ratio=".1" bg-color="#eee"></tb-skeleton>
           </b-col>
         </b-row>
         <b-row class="mt-3">
-          <b-col>
-            <tb-skeleton
-              shape="radius"
-              width="40%"
-              class="mr-auto"
-              :aspect-ratio=".1"
-              bg-color="#eee"
-            ></tb-skeleton>
+          <b-col sm="12" class="mb-2">
+            <tb-skeleton shape="radius" width="100%" :aspect-ratio=".02" bg-color="#eee" duration="2"></tb-skeleton>
           </b-col>
-          <b-col align-self="center">
-            <tb-skeleton
-              shape="radius"
-              width="50%"
-              class="mx-auto"
-              :aspect-ratio=".07"
-              bg-color="#eee"
-            ></tb-skeleton>
+          <b-col sm="12" class="mb-2">
+            <tb-skeleton shape="radius" width="100%" :aspect-ratio=".02" bg-color="#eee" duration="2"></tb-skeleton>
           </b-col>
-          <b-col align-self="center">
-            <tb-skeleton
-              shape="radius"
-              width="50%"
-              :aspect-ratio=".05"
-              bg-color="#eee"
-              class="ml-auto"
-            ></tb-skeleton>
+          <b-col sm="12" class="mb-2">
+            <tb-skeleton shape="radius" width="100%" :aspect-ratio=".02" bg-color="#eee" duration="2"></tb-skeleton>
           </b-col>
-        </b-row>
-        <b-row class="mt-3">
-          <b-col sm="1">
-            <tb-skeleton shape="radius" width="100%" :aspect-ratio=".3" bg-color="#eee"></tb-skeleton>
+          <b-col sm="12" class="mb-2">
+            <tb-skeleton shape="radius" width="100%" :aspect-ratio=".02" bg-color="#eee" duration="2"></tb-skeleton>
           </b-col>
-          <b-col sm="1">
-            <tb-skeleton shape="radius" width="100%" :aspect-ratio=".3" bg-color="#eee"></tb-skeleton>
-          </b-col>
-          <b-col sm="1">
-            <tb-skeleton shape="radius" width="100%" :aspect-ratio=".3" bg-color="#eee"></tb-skeleton>
-          </b-col>
-          <b-col sm="1">
-            <tb-skeleton shape="radius" width="100%" :aspect-ratio=".3" bg-color="#eee"></tb-skeleton>
-          </b-col>
-          <b-col sm="1">
-            <tb-skeleton shape="radius" width="100%" :aspect-ratio=".3" bg-color="#eee"></tb-skeleton>
-          </b-col>
-          <b-col sm="1">
-            <tb-skeleton shape="radius" width="100%" :aspect-ratio=".3" bg-color="#eee"></tb-skeleton>
-          </b-col>
-          <b-col sm="6"></b-col>
         </b-row>
       </b-container>
     </skeleton>
