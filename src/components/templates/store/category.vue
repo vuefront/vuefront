@@ -107,6 +107,7 @@ export default {
       ]
     };
   },
+  props: ["id", "keyword", "url"],
   mixins: [BaseModule],
   computed: {
     ...mapGetters({

@@ -6,6 +6,10 @@
   &__link {
     text-decoration: none;
     color: inherit;
+    &:hover {
+      text-decoration: none;
+      color: inherit;
+    }
     .nav-link {
       padding: 0.5rem 0.5rem;
       color: rgba(31, 45, 61, 0.5);

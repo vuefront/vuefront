@@ -1,7 +1,20 @@
 <template>
   <b-card class="card-post" no-body>
     <b-link :to="url" class="card-post_image_wrapper">
-      <b-card-img-lazy fluid :src="mainImage" :blank-src="mainImagelazy" class="card-post__image"/>
+      <amp-img
+        v-if="$vuefront.isAMP"
+        :src="mainImage"
+        width="246"
+        height="153"
+        class="card-post__image"
+      />
+      <b-card-img-lazy
+        v-else
+        fluid
+        :src="mainImage"
+        :blank-src="mainImagelazy"
+        class="card-post__image"
+      />
     </b-link>
 
     <b-card-body class="pt-0">
@@ -11,12 +24,7 @@
   </b-card>
 </template>
 <script>
-import {
-  BCard,
-  BCardImgLazy,
-  BCardBody,
-  BLink
-} from "bootstrap-vue";
+import { BCard, BCardImgLazy, BCardBody, BLink } from "bootstrap-vue";
 import "vuefront/scss/elements/blog/postThumb.scss";
 import placeholder from "~/assets/img/placeholder.png";
 

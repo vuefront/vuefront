@@ -1,5 +1,5 @@
 <template>
-  <b-nav-item-dropdown v-if="currency.length > 1" class="currency-section" left>
+  <b-nav-item-dropdown v-if="currency.length > 1" class="currency-section">
     <template slot="button-content">
       <span
         class="d-none d-md-inline-block currency-section__symbol"

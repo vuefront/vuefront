@@ -4,7 +4,7 @@
       v-model="keyword"
       :placeholder="$t('elements.common.header.navSearch.placeholderText')"
       size="sm"
-      hide-details
+      :hide-details="!$vuefront.isAMP"
       @keypress="handleKeyPress"
     />
   </div>

@@ -14,6 +14,10 @@ export const BaseModule = {
           currentRoute = this.$vuefront.params.url
         }
 
+        currentRoute = currentRoute.replace('/amp', '')
+
+        currentRoute = currentRoute !== '' ? currentRoute : '/'
+
         if (regex.test(currentRoute) && !isUndefined(layout[position])) {
           if(!isEmpty(layout[position])) {
             return true

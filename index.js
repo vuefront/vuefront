@@ -237,7 +237,8 @@ export default {
     Footer: 'vuefront/lib/components/templates/common/footer',
     Menu: 'vuefront/lib/components/templates/common/menu',
     Layout: 'vuefront/lib/components/templates/common/layout',
-    Error: 'vuefront/lib/components/templates/common/error'
+    Error: 'vuefront/lib/components/templates/common/error',
+    Loading: 'vuefront/lib/components/templates/common/loading'
   },
   modules: {
     SearchProduct: 'vuefront/lib/components/modules/store/searchProduct',

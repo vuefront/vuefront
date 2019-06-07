@@ -1,12 +1,14 @@
 <template>
   <section class="vf-product-thumbnails mb-4">
     <a href="#" @click.prevent="handleOpenPopup(0)">
-      <b-img-lazy :src="mainImage" :blank-src="mainImagelazy" fluid style="width: 100%;"/>
+      <amp-img v-if="$vuefront.isAMP" :src="mainImage" layout="responsive" width="300" height="300" />
+      <b-img-lazy v-else :src="mainImage" :blank-src="mainImagelazy" fluid style="width: 100%;"/>
     </a>
     <b-row v-if="product.images.length > 0" class="mt-3">
       <b-col sm="12" md="3" v-for="(value, index) in product.images" :key="index">
         <a href="#" @click.prevent="handleOpenPopup(index + 1)">
-          <b-img-lazy :src="value.image" :blank-src="value.imageLazy" fluid style="width: 100%;"/>
+          <amp-img v-if="$vuefront.isAMP" :src="value.image" layout="responsive" width="100" height="100" />
+          <b-img-lazy v-else :src="value.image" :blank-src="value.imageLazy" fluid style="width: 100%;"/>
         </a>
       </b-col>
     </b-row>

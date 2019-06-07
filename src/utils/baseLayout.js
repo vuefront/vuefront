@@ -16,6 +16,10 @@ export const BaseLayout = {
           currentRoute = this.$vuefront.params.url
         }
 
+        currentRoute = currentRoute.replace('/amp', '')
+
+        currentRoute = currentRoute !== '' ? currentRoute : '/'
+
         if (regex.test(currentRoute) && !isUndefined(layout[this.position])) {
           for (const key in layout[this.position]) {
             if (isString(layout[this.position][key])) {

@@ -23,6 +23,7 @@ export default {
       ]
     };
   },
+  props: ["id", "keyword", "url"],
   computed: {
     ...mapGetters({
       posts: "blog/post/list",

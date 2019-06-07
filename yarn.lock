@@ -2765,6 +2765,11 @@ tar@^4:
     safe-buffer "^5.1.2"
     yallist "^3.0.2"
 
+tb-skeleton@^0.3.6:
+  version "0.3.6"
+  resolved "https://registry.yarnpkg.com/tb-skeleton/-/tb-skeleton-0.3.6.tgz#51ef0a47da9f7751b997003d3ed5691287035d31"
+  integrity sha512-mK47E7II/dMdwt1n7XtAqYO6Y2B6f7ttNVvsNuSSjE+obTQDjNoJxIINpzAHB08WW8EK4IXcmr0Mq5HvXFrfSQ==
+
 to-fast-properties@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/to-fast-properties/-/to-fast-properties-1.0.3.tgz#b83571fa4d8c25b82e231b06e3a3055de4ca1a47"

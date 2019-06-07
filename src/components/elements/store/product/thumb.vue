@@ -3,7 +3,15 @@
     <b-row no-gutters>
       <b-col :md="wide ? 3 : 12" class="px-4">
         <b-link :to="url" class="card-product__image_wrapper">
+          <amp-img
+            v-if="$vuefront.isAMP"
+            :src="mainImage"
+            width="205"
+            height="205"
+            class="card-product__image"
+          />
           <b-card-img-lazy
+            v-else
             :src="mainImage"
             :blank-src="mainImagelazy"
             fluid

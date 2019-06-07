@@ -1,6 +1,6 @@
 {
   "name": "vuefront",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "description": "vuefront",
   "files": [
     "lib",
@@ -26,6 +26,7 @@
     "form-data": "^2.3.3",
     "lodash": "^4.17.11",
     "omit-deep-lodash": "^1.1.4",
+    "tb-skeleton": "^0.3.6",
     "vue": "^2.6.10",
     "vue-image-lightbox": "^6.2.0",
     "vue-lazyload": "^1.2.6",

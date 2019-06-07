@@ -4,7 +4,14 @@
       <b-row class="pt-md">
         <b-col sm="4" class="mb-5 mb-lg-0">
           <div>
-            <img :src="logo" alt style="height: 40px;" class="mb-3">
+            <amp-img
+              v-if="$vuefront.isAMP"
+              :src="logo"
+              width="180"
+              height="40"
+              class="mb-3"
+            />
+            <img v-else :src="logo" alt style="height: 40px;" class="mb-3">
             <p>{{$t('elements.common.footer.descriptionText')}}</p>
           </div>
         </b-col>
