@@ -170,6 +170,10 @@ export default {
     }
   ],
   components: {
+    CategoryLoader: 'vuefront/lib/components/elements/store/loading/category',
+    ProductThumbLoader: 'vuefront/lib/components/elements/store/loading/product/thumb',
+    ProductsGridLoader: 'vuefront/lib/components/elements/store/loading/product/grid',
+    SortLoader: 'vuefront/lib/components/elements/store/loading/product/sort',
     AccountAddress: 'vuefront/lib/components/elements/common/account/address',
     AccountAddressCreate: 'vuefront/lib/components/elements/common/account/createAddress',
     AccountAddressEdit: 'vuefront/lib/components/elements/common/account/editAddress',

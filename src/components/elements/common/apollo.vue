@@ -1,6 +1,10 @@
 <template>
   <div>
-    <vf-loader v-if="loading"/>
+    <template v-if="loading">
+      <slot name="loader">
+        <vf-loader/>
+      </slot>
+    </template>
     <slot v-else :data="data"></slot>
   </div>
 </template>
@@ -32,7 +36,7 @@ export default {
   },
   watch: {
     $route(to, from) {
-      this.loadData()
+      this.loadData();
     }
   },
   watchQuery: true,

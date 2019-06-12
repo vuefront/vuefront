@@ -1,35 +1,47 @@
 <template>
   <section class="product-category">
-    <vf-category :category="category" class="mb-5"/>
-    <vf-sort
-      v-if="products.content.length > 0"
-      :sorts="sortOptions"
-      :sizes="sizeOptions"
-      :size="size"
-      :sort="sort"
-      :mode="mode"
-      @changeSize="handleChangeSize"
-      @changeSort="handleChangeSort"
-      @changeMode="handleChangeMode"
-    />
-    <vf-products-grid
-      v-if="products.content.length > 0"
-      :products="products.content"
-      :list="isList"
-      :grid-size="gridSize"
-      class="mb-4"
-    />
-    <vf-empty
-      v-if="products.content.length === 0"
-      class="text-sm-center"
-    >{{$t('templates.store.category.emptyText')}}</vf-empty>
-    <vf-pagination :page="page" :totalPages="totalPages" @input="handleChangePage"/>
+    <template v-if="loaded">
+      <vf-category :category="category" class="mb-5"/>
+      <vf-sort
+        v-if="products.content.length > 0"
+        :sorts="sortOptions"
+        :sizes="sizeOptions"
+        :size="products.number"
+        :sort="sort"
+        :mode="mode"
+        @changeSize="handleChangeSize"
+        @changeSort="handleChangeSort"
+        @changeMode="handleChangeMode"
+      />
+      <vf-products-grid
+        v-if="products.content.length > 0"
+        :products="products.content"
+        :list="isList"
+        :grid-size="gridSize"
+        class="mb-4"
+      />
+      <vf-empty
+        v-if="products.content.length === 0"
+        class="text-sm-center"
+      >{{$t('templates.store.category.emptyText')}}</vf-empty>
+      <vf-pagination
+        :page="products.number"
+        :totalPages="products.totalPages"
+        @input="handleChangePage"
+      />
+    </template>
+    <template v-else>
+      <vf-category-loader class="mb-5"/>
+      <vf-sort-loader class="mb-4"/>
+      <vf-products-grid-loader :list="isList" :grid-size="gridSize" class="mb-4"/>
+    </template>
   </section>
 </template>
 <script>
 import { mapGetters } from "vuex";
 import categoryPageGql from "~/graphql/store/category/page.graphql";
 import { BaseModule } from "~/utils/module.js";
+import { isEmpty } from "lodash";
 export default {
   head() {
     return {
@@ -44,64 +56,73 @@ export default {
     };
   },
   data() {
+    const page = this.$route.query.page ? Number(this.$route.query.page) : 1;
+    const size = this.$route.query.size ? Number(this.$route.query.size) : 15;
+    const sort = this.$route.query.sort ? this.$route.query.sort : "id";
+    const order = this.$route.query.order ? this.$route.query.order : "ASC";
     return {
+      loaded: true,
+      test: "client",
+      size,
+      sort: `${sort}|${order}`,
+      page,
       sizeOptions: [
         {
-          text: this.$t('templates.store.category.15Text'),
+          text: this.$t("templates.store.category.15Text"),
           value: 15
         },
         {
-          text: this.$t('templates.store.category.25Text'),
+          text: this.$t("templates.store.category.25Text"),
           value: 25
         },
         {
-          text: this.$t('templates.store.category.50Text'),
+          text: this.$t("templates.store.category.50Text"),
           value: 50
         },
         {
-          text: this.$t('templates.store.category.75Text'),
+          text: this.$t("templates.store.category.75Text"),
           value: 75
         },
         {
-          text: this.$t('templates.store.category.100Text'),
+          text: this.$t("templates.store.category.100Text"),
           value: 100
         }
       ],
       sortOptions: [
         {
-          text: this.$t('templates.store.category.defaultSortText'),
+          text: this.$t("templates.store.category.defaultSortText"),
           value: "id|ASC"
         },
         {
-          text: this.$t('templates.store.category.nameAscSortText'),
+          text: this.$t("templates.store.category.nameAscSortText"),
           value: "name|ASC"
         },
         {
-          text: this.$t('templates.store.category.nameDescSortText'),
+          text: this.$t("templates.store.category.nameDescSortText"),
           value: "name|DESC"
         },
         {
-          text: this.$t('templates.store.category.priceAscSortText'),
+          text: this.$t("templates.store.category.priceAscSortText"),
           value: "price|ASC"
         },
         {
-          text: this.$t('templates.store.category.priceDescSortText'),
+          text: this.$t("templates.store.category.priceDescSortText"),
           value: "price|DESC"
         },
         {
-          text: this.$t('templates.store.category.ratingAscSortText'),
+          text: this.$t("templates.store.category.ratingAscSortText"),
           value: "rating|ASC"
         },
         {
-          text: this.$t('templates.store.category.ratingDescSortText'),
+          text: this.$t("templates.store.category.ratingDescSortText"),
           value: "rating|DESC"
         },
         {
-          text: this.$t('templates.store.category.modelAscSortText'),
+          text: this.$t("templates.store.category.modelAscSortText"),
           value: "model|ASC"
         },
         {
-          text: this.$t('templates.store.category.modelDescSortText'),
+          text: this.$t("templates.store.category.modelDescSortText"),
           value: "model|DESC"
         }
       ]
@@ -109,6 +130,16 @@ export default {
   },
   props: ["id", "keyword", "url"],
   mixins: [BaseModule],
+  mounted() {
+    if (!this.loaded) {
+      this.handleLoadData();
+    }
+  },
+  asyncData() {
+    return {
+      loaded: !process.client
+    };
+  },
   computed: {
     ...mapGetters({
       category: "store/category/get",
@@ -119,41 +150,43 @@ export default {
       return this.mode === "list";
     },
     gridSize() {
-        if(this.checkModules('columnLeft') && this.checkModules('columnRight')) {
-            return 2
-        } else if(this.checkModules('columnLeft') || this.checkModules('columnRight')) {
-            return 3
-        } else {
-            return 4
-        }
+      if (this.checkModules("columnLeft") && this.checkModules("columnRight")) {
+        return 2;
+      } else if (
+        this.checkModules("columnLeft") ||
+        this.checkModules("columnRight")
+      ) {
+        return 3;
+      } else {
+        return 4;
+      }
     }
   },
-  async asyncData({ store, route, app }) {
-    const page = route.query.page ? Number(route.query.page) : 1;
-    const size = route.query.size ? Number(route.query.size) : 15;
-    const sort = route.query.sort ? route.query.sort : "id";
-    const order = route.query.order ? route.query.order : "ASC";
-    let {id} = app.$vuefront.params
-
-    await store.dispatch("apollo/query", {
-      query: categoryPageGql,
-      variables: { page, size, categoryId: id, sort, order }
-    });
-    const { productsList, category } = store.getters["apollo/get"];
-    store.commit("store/product/setEntities", productsList);
-    store.commit("store/category/setCategory", category);
-
-    return {
-      page: page,
-      totalPages: productsList.totalPages,
-      size,
-      sort: `${sort}|${order}`
-    };
+  serverPrefetch() {
+    return this.handleLoadData(this);
   },
   watchQuery: true,
   methods: {
+    async handleLoadData(ctx) {
+      let { id } = this.$vuefront.params;
+      const sortData = this.sort.split("|");
+      await this.$store.dispatch("apollo/query", {
+        query: categoryPageGql,
+        variables: {
+          page: this.page,
+          size: this.size,
+          categoryId: id,
+          sort: sortData[0],
+          order: sortData[1]
+        }
+      });
+      const { productsList, category } = this.$store.getters["apollo/get"];
+      this.$store.commit("store/product/setEntities", productsList);
+      this.$store.commit("store/category/setCategory", category);
+      this.loaded = true;
+    },
     async handleChangePage(page) {
-      let {id} = this.$vuefront.params
+      let { id } = this.$vuefront.params;
       this.$router.push({
         path: "/store/category/" + id,
         query: { page }
@@ -161,7 +194,7 @@ export default {
     },
     handleChangeSort(sort) {
       const sorts = sort.split("|");
-      let {id} = this.$vuefront.params
+      let { id } = this.$vuefront.params;
       this.$router.push({
         path: "/store/category/" + id,
         query: { size: this.size.toString(), sort: sorts[0], order: sorts[1] }
@@ -175,7 +208,7 @@ export default {
     handleChangeSize(size) {
       const sorts = this.sort.split("|");
 
-      let {id} = this.$vuefront.params
+      let { id } = this.$vuefront.params;
 
       this.$router.push({
         path: "/store/category/" + id,
