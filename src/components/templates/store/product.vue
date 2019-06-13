@@ -1,5 +1,6 @@
 <template>
-  <vf-product :product="product"/>
+  <vf-product v-if="loaded" :product="product"/>
+  <vf-product-loader v-else/>
 </template>
 <script>
 import { mapGetters } from "vuex";
@@ -17,19 +18,40 @@ export default {
       ]
     };
   },
+  data() {
+    return {
+      loaded: true
+    };
+  },
   computed: {
     ...mapGetters({
       product: "store/product/get"
     })
   },
-  async fetch(ctx) {
-    let {id} = ctx.app.$vuefront.params
-    await ctx.store.dispatch("apollo/query", {
-      query: productGetGql,
-      variables: { id, limit: 5 }
-    });
-    const { product } = ctx.store.getters["apollo/get"];
-    ctx.store.commit("store/product/setProduct", product);
+  mounted() {
+    if (!this.loaded) {
+      this.handleLoadData();
+    }
+  },
+  asyncData() {
+    return {
+      loaded: !process.client
+    };
+  },
+  serverPrefetch() {
+    return this.handleLoadData(this);
+  },
+  methods: {
+    async handleLoadData(ctx) {
+      let { id } = this.$vuefront.params;
+      await this.$store.dispatch("apollo/query", {
+        query: productGetGql,
+        variables: { id, limit: 5 }
+      });
+      const { product } = this.$store.getters["apollo/get"];
+      this.$store.commit("store/product/setProduct", product);
+      this.loaded = true;
+    }
   }
 };
 </script>

@@ -170,10 +170,16 @@ export default {
     }
   ],
   components: {
+    ProductLoader: 'vuefront/lib/components/elements/store/loading/product',
+    ProductImageLoader: 'vuefront/lib/components/elements/store/loading/product/image',
+    ReviewsLoader: 'vuefront/lib/components/elements/common/loading/reviews',
+    RatingLoader: 'vuefront/lib/components/elements/common/loading/rating',
     CategoryLoader: 'vuefront/lib/components/elements/store/loading/category',
     ProductThumbLoader: 'vuefront/lib/components/elements/store/loading/product/thumb',
     ProductsGridLoader: 'vuefront/lib/components/elements/store/loading/product/grid',
     SortLoader: 'vuefront/lib/components/elements/store/loading/product/sort',
+    ProductModule: 'vuefront/lib/components/elements/store/product/module',
+    ProductModuleLoader: 'vuefront/lib/components/elements/store/loading/product/module',
     AccountAddress: 'vuefront/lib/components/elements/common/account/address',
     AccountAddressCreate: 'vuefront/lib/components/elements/common/account/createAddress',
     AccountAddressEdit: 'vuefront/lib/components/elements/common/account/editAddress',

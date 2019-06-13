@@ -62,7 +62,6 @@ export default {
     const order = this.$route.query.order ? this.$route.query.order : "ASC";
     return {
       loaded: true,
-      test: "client",
       size,
       sort: `${sort}|${order}`,
       page,

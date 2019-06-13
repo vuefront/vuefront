@@ -1,17 +1,15 @@
 <template>
-  <div class="home-page__latest_products mb-5">
-    <div
-      class="home-page__latest_products_title text-sm-center mb-5 h6"
-    >{{$t('modules.store.latestProduct.textTitle')}}</div>
-    <vf-apollo :query="require('~/graphql/modules/latestProduct.graphql')">
-      <template #loader>
-        <vf-products-grid-loader :column="column"/>
-      </template>
-      <template #default="{data}">
-        <vf-products-grid :products="data.latestProducts.content" :column="column"/>
-      </template>
-    </vf-apollo>
-  </div>
+  <vf-apollo :query="require('~/graphql/modules/latestProduct.graphql')">
+    <template #loader>
+      <vf-product-module-loader :column="column"/>
+    </template>
+    <template #default="{data}">
+      <vf-product-module
+        :items="data.latestProducts.content"
+        :column="column"
+      >{{$t('modules.store.latestProduct.textTitle')}}</vf-product-module>
+    </template>
+  </vf-apollo>
 </template>
 <script>
 export default {

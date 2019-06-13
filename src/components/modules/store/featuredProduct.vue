@@ -1,17 +1,15 @@
 <template>
-  <div class="home-page__latest_products mb-5">
-    <div
-      class="home-page__latest_products_title text-sm-center mb-5 h6"
-    >{{$t('modules.store.featuredProduct.textTitle')}}</div>
-    <vf-apollo :query="require('~/graphql/modules/featuredProduct.graphql')" :variables="{ids}">
-      <template #loader>
-        <vf-products-grid-loader/>
-      </template>
-      <template #default="{data}">
-        <vf-products-grid :products="data.featuredProducts.content"/>
-      </template>
-    </vf-apollo>
-  </div>
+  <vf-apollo :query="require('~/graphql/modules/featuredProduct.graphql')" :variables="{ids}">
+    <template #loader>
+      <vf-product-module-loader :column="column"/>
+    </template>
+    <template #default="{data}">
+      <vf-product-module
+        :items="data.featuredProducts.content"
+        :column="column"
+      >{{$t('modules.store.featuredProduct.textTitle')}}</vf-product-module>
+    </template>
+  </vf-apollo>
 </template>
 <script>
 export default {
@@ -19,6 +17,10 @@ export default {
     ids: {
       type: Array,
       default: []
+    },
+    column: {
+      type: Boolean,
+      default: false
     }
   }
 };

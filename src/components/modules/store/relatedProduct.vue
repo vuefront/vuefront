@@ -1,21 +1,30 @@
 <template>
   <vf-apollo
     v-if="id"
-    v-slot="{data}"
     :query="require('~/graphql/modules/relatedProduct.graphql')"
     :variables="{id:id}"
   >
-    <div v-if="data.relatedProducts.products.length > 0" class="home-page__latest_products mb-5">
-      <div
-        class="home-page__latest_products_title text-sm-center mb-5 h6"
-      >{{$t('modules.store.relatedProduct.textTitle')}}</div>
-      <vf-products-grid :products="data.relatedProducts.products"/>
-    </div>
+    <template #loader>
+      <vf-product-module-loader :column="column"/>
+    </template>
+    <template #default="{data}">
+      <vf-product-module
+        v-if="data.relatedProducts.products.length > 0"
+        :items="data.relatedProducts.products"
+        :column="column"
+      >{{$t('modules.store.relatedProduct.textTitle')}}</vf-product-module>
+    </template>
   </vf-apollo>
 </template>
 <script>
 import isEmpty from "lodash/isEmpty";
 export default {
+  props: {
+    column: {
+      type: Boolean,
+      default: false
+    }
+  },
   computed: {
     id() {
       let result = false;
