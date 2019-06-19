@@ -6,7 +6,7 @@
         v-if="products.content.length > 0"
         :sorts="sortOptions"
         :sizes="sizeOptions"
-        :size="products.number"
+        :size="products.size"
         :sort="sort"
         :mode="mode"
         @changeSize="handleChangeSize"
@@ -41,7 +41,6 @@
 import { mapGetters } from "vuex";
 import categoryPageGql from "~/graphql/store/category/page.graphql";
 import { BaseModule } from "~/utils/module.js";
-import { isEmpty } from "lodash";
 export default {
   head() {
     return {

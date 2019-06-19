@@ -11,6 +11,7 @@ query($page: Int, $size: Int, $sort: String, $order: String, $categoryId: String
             rating
             keyword
         }
+        size
         number
         totalPages
         totalElements
