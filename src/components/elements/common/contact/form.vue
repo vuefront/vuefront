@@ -128,6 +128,11 @@ export default {
             this.$v.$reset();
             this.show = true;
           });
+        } else {
+          this.$store.commit(
+            "notification/error",
+            this.error.message
+          );
         }
       }
     }

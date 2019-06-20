@@ -3,8 +3,6 @@
     content {
       id
       title
-      description
-      sort_order
       keyword
     }
   }
