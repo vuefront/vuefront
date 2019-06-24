@@ -33,6 +33,8 @@ import {
   BImgLazy,
   BLink
 } from "bootstrap-vue";
+import placeholder from "~/assets/img/placeholder.png";
+
 export default {
   components: {
     BContainer,
