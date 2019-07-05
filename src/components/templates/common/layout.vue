@@ -9,7 +9,9 @@
             <vf-position name="columnLeft" class="px-2"/>
           </b-col>
           <b-col :sm="contentWidth">
+            <vf-position name="columnCenterTop"/>
             <slot></slot>
+            <vf-position name="columnCenterBottom"/>
           </b-col>
           <b-col v-if="checkModules('columnRight')" sm="3" class="d-none d-md-block">
             <vf-position name="columnRight" class="px-2"/>

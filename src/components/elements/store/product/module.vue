@@ -1,9 +1,9 @@
 <template>
-  <div class="home-page__latest_products mb-5" v-if="items.length > 0">
-    <div class="home-page__latest_products_title text-sm-center mb-5 h6">
+  <div class="product-module-section mb-5" v-if="items.length > 0">
+    <div class="product-module-section__title text-sm-center mb-5 h6">
       <slot></slot>
     </div>
-    <vf-products-grid :products="items" :column="column"/>
+    <vf-products-grid class="product-module-section__items" :products="items" :column="column"/>
   </div>
 </template>
 <script>

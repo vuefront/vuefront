@@ -51,6 +51,7 @@ export default {
       component: 'vuefront/lib/components/templates/common/page',
       seo: 'vuefront/lib/seo/page'
     },
+    '/search': 'vuefront/lib/components/templates/common/search',
     '/search/:slug': 'vuefront/lib/components/templates/common/search',
     '/store/cart': {
       generate: false,

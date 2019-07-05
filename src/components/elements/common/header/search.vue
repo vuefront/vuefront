@@ -36,7 +36,7 @@ export default {
         if (this.keyword !== "") {
           this.$router.push(`/search/${this.keyword}`);
         } else {
-          this.$router.push("/");
+          this.$router.push("/search");
         }
       }
     }

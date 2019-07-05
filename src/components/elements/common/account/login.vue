@@ -1,60 +1,62 @@
 <template>
-  <b-card class="shadow mb-0" no-body>
-    <b-card-body class="px-md-5 py-5">
-      <div class="mb-5">
-        <h6 class="h3">{{$t('elements.common.account.login.titleText')}}</h6>
-        <p class="text-muted mb-0">{{$t('elements.common.account.login.subTitleText')}}</p>
-      </div>
-      <b-alert :show="error.message" v-html="error.message"/>
-      <b-form>
-        <b-form-group
-          :label="$t('elements.common.account.login.emailEntry')"
-          label-for="input-email"
-        >
-          <b-form-input
-            id="input-email"
-            v-model.trim="form.email"
-            :state="$v.form.email.$dirty ? !$v.form.email.$error : null"
-            aria-describedby="input-email-feedback"
-          />
-          <b-form-invalid-feedback
-            id="input-email-feedback"
-          >{{$t('elements.common.account.login.emailError')}}</b-form-invalid-feedback>
-        </b-form-group>
-        <b-form-group
-          :label="$t('elements.common.account.login.passwordEntry')"
-          label-for="input-password"
-        >
-          <b-form-input
-            id="input-password"
-            v-model.trim="form.password"
-            type="password"
-            :state="$v.form.password.$dirty ? !$v.form.password.$error : null"
-            aria-describedby="input-password-feedback"
-          />
-          <b-form-invalid-feedback
-            id="input-password-feedback"
-          >{{$t('elements.common.account.login.passwordError')}}</b-form-invalid-feedback>
-        </b-form-group>
-        <div class="mt-4">
-          <b-button
-            :disabled="$v.form.$invalid"
-            size="sm"
-            pill
-            variant="primary"
-            @click="onSubmit"
-          >{{$t('elements.common.account.login.buttonSave')}}</b-button>
+  <div class="account-login-section">
+    <b-card class="shadow mb-0" no-body>
+      <b-card-body class="px-md-5 py-5">
+        <div class="mb-5">
+          <h6 class="h3">{{$t('elements.common.account.login.titleText')}}</h6>
+          <p class="text-muted mb-0">{{$t('elements.common.account.login.subTitleText')}}</p>
         </div>
-      </b-form>
-    </b-card-body>
-    <b-card-footer class="px-md-5">
-      <small>{{$t('elements.common.account.login.footerText')}}</small>
-      <b-link
-        to="/account/register"
-        class="small font-weight-bold"
-      >{{$t('elements.common.account.login.footerLink')}}</b-link>
-    </b-card-footer>
-  </b-card>
+        <b-alert :show="error.message" v-html="error.message" />
+        <b-form>
+          <b-form-group
+            :label="$t('elements.common.account.login.emailEntry')"
+            label-for="input-email"
+          >
+            <b-form-input
+              id="input-email"
+              v-model.trim="form.email"
+              :state="$v.form.email.$dirty ? !$v.form.email.$error : null"
+              aria-describedby="input-email-feedback"
+            />
+            <b-form-invalid-feedback
+              id="input-email-feedback"
+            >{{$t('elements.common.account.login.emailError')}}</b-form-invalid-feedback>
+          </b-form-group>
+          <b-form-group
+            :label="$t('elements.common.account.login.passwordEntry')"
+            label-for="input-password"
+          >
+            <b-form-input
+              id="input-password"
+              v-model.trim="form.password"
+              type="password"
+              :state="$v.form.password.$dirty ? !$v.form.password.$error : null"
+              aria-describedby="input-password-feedback"
+            />
+            <b-form-invalid-feedback
+              id="input-password-feedback"
+            >{{$t('elements.common.account.login.passwordError')}}</b-form-invalid-feedback>
+          </b-form-group>
+          <div class="mt-4">
+            <b-button
+              :disabled="$v.form.$invalid"
+              size="sm"
+              pill
+              variant="primary"
+              @click="onSubmit"
+            >{{$t('elements.common.account.login.buttonSave')}}</b-button>
+          </div>
+        </b-form>
+      </b-card-body>
+      <b-card-footer class="px-md-5">
+        <small>{{$t('elements.common.account.login.footerText')}}</small>
+        <b-link
+          to="/account/register"
+          class="small font-weight-bold"
+        >{{$t('elements.common.account.login.footerLink')}}</b-link>
+      </b-card-footer>
+    </b-card>
+  </div>
 </template>
 <script>
 import {
