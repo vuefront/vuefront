@@ -5,6 +5,9 @@
   </a>
 </p>
 <h1 align="center">VueFront</h1>
+<p align="center">
+Vue powered CMS agnostic frontend framework for your old-fashioned Blog and Ecommerce site.</p>
+
 
 <p align="center">
   <a href="https://www.npmjs.com/package/vuefront"><img src="https://img.shields.io/npm/v/vuefront.svg" alt="Version"></a>
@@ -17,14 +20,8 @@ Show your :heart: - give us a :star: <br/>
 Help us grow this project to be the best it can be!
   </p>
 
-# VueFront Core
-
-> “Simple can be harder than complex: You have to work hard to get your thinking clean to make it simple. But it’s worth it in the end because once you get there, you can move mountains.” ~ Steve Jobs
-
-Vue powered agnostic frontend for your old fashioned Blog and Ecommerce site.
-
-## What does this project do?
-Turn your Wordpress, OpenCart, Magenta, Shopify or any other blog/store into an SPA and PWA with Vue.js in 3 simple steps.
+# What does VueFront do?
+It can easily turn your Wordpress, OpenCart, Magenta, Shopify or any other blog/store into an SPA and PWA with Vue.js in less then 5 minutes.
 
 ## Why is this project useful?
 You want to try new technology, outrun your competition and just provide a better user experiance, but not ready to invest thousands of dollars? Then try VueFront. Its easy to setup, test and run. 
