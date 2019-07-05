@@ -1,3 +1,18 @@
+<p align="center">
+  <br>
+  <a href="https://vuefront.com">
+    <img src="https://vuefront.com/logo.png" width="120"/>
+  </a>
+</p>
+<h1 align="center">VueFront</h1>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/vuefront"><img src="https://img.shields.io/npm/v/vuefront.svg" alt="Version"></a>
+  <a href="https://www.npmjs.com/package/vuefront"><img src="https://img.shields.io/npm/l/vuefront.svg" alt="License"></a>
+  <a href="https://discord.gg/C9vcTCQ"><img src="https://img.shields.io/badge/chat-on%20discord-7289da.svg" alt="Chat"></a>
+</p>
+
+
 # VueFront Core
 
 > “Simple can be harder than complex: You have to work hard to get your thinking clean to make it simple. But it’s worth it in the end because once you get there, you can move mountains.” ~ Steve Jobs
