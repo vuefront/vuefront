@@ -12,6 +12,10 @@
   <a href="https://discord.gg/C9vcTCQ"><img src="https://img.shields.io/badge/chat-on%20discord-7289da.svg" alt="Chat"></a>
 </p>
 
+<p align="center">
+Show your :heart: - give us a :star: <br/> 
+Help us grow this project to be the best it can be!
+  </p>
 
 # VueFront Core
 
