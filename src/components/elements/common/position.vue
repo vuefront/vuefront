@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div v-for="(value, index) in modules" :key="index" :is="value.component" v-bind="value.props"></div>
+    <slot v-if="modules.length === 0"></slot>
+    <div v-else v-for="(value, index) in modules" :key="index" :is="value.component" v-bind="value.props"></div>
   </div>
 </template>
 <script>

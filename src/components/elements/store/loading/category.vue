@@ -37,7 +37,6 @@ export default {
     Skeleton,
     BRow,
     BCol
-  },
-  props: [""]
+  }
 };
 </script>

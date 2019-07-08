@@ -1,5 +1,6 @@
 <template>
-  <vf-post :post="post"/>
+  <vf-post v-if="loaded" :post="post" />
+  <vf-post-loader v-else />
 </template>
 <script>
 import { mapGetters } from "vuex";
@@ -18,20 +19,41 @@ export default {
       ]
     };
   },
+  data() {
+    return {
+      loaded: true
+    };
+  },
   computed: {
     ...mapGetters({
       post: "blog/post/get"
     })
   },
-  async fetch({ store, app, params }) {
-    let {id} = app.$vuefront.params
-    await store.dispatch("apollo/query", {
-      query: postGetGql,
-      variables: { id }
-    });
-    const { post } = store.getters["apollo/get"];
+  mounted() {
+    if (!this.loaded) {
+      this.handleLoadData();
+    }
+  },
+  asyncData() {
+    return {
+      loaded: !process.client
+    };
+  },
+  serverPrefetch() {
+    return this.handleLoadData(this);
+  },
+  methods: {
+    async handleLoadData(ctx) {
+      let { id } = this.$vuefront.params;
+      await this.$store.dispatch("apollo/query", {
+        query: postGetGql,
+        variables: { id }
+      });
+      const { post } = this.$store.getters["apollo/get"];
 
-    store.commit("blog/post/setPost", post);
+      this.$store.commit("blog/post/setPost", post);
+      this.loaded = true;
+    }
   }
 };
 </script>

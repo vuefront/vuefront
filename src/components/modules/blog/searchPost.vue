@@ -1,13 +1,18 @@
 <template>
   <vf-apollo
-    v-slot="{data}"
-    :query="require('../../../graphql/modules/searchPost.graphql')"
+    :query="require('~/graphql/modules/searchPost.graphql')"
     :variables="{search:keyword}"
   >
-    <div v-if="data.searchPosts && data.searchPosts.content.length > 0" class="home-page__latest_posts mb-5">
-      <div class="home-page__latest_posts_title text-sm-center mb-5 h6">{{$t('modules.blog.searchPost.textTitle')}}</div>
-      <vf-posts-grid :posts="data.searchPosts.content" :column="column"/>
-    </div>
+    <template #loader>
+      <vf-post-module-loader :column="column"/>
+    </template>
+     <template #default="{data}">
+       <vf-post-module
+        v-if="data.searchPosts.content.length > 0"
+        :items="data.searchPosts.content"
+        :column="column"
+      >{{$t('modules.store.searchPost.textTitle')}}</vf-post-module>
+     </template>
   </vf-apollo>
 </template>
 <script>

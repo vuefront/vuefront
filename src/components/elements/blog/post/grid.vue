@@ -1,11 +1,11 @@
 <template>
-  <b-container fluid class="p-0">
-    <b-row class="m-0">
+  <section>
+    <b-row>
       <b-col sm="12" :md="column ? 12 : 12 / gridSize" v-for="(value, index) in posts" :key="index">
         <vf-post-thumb :post="value"/>
       </b-col>
     </b-row>
-  </b-container>
+  </section>
 </template>
 <script>
 import { BRow, BCol, BContainer } from "bootstrap-vue";

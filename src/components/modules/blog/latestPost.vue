@@ -1,10 +1,15 @@
 <template>
-  <div class="home-page__latest_posts mb-5">
-    <div class="home-page__latest_posts_title text-sm-center mb-5 h6">{{$t('modules.blog.latestPost.textTitle')}}</div>
-    <vf-apollo v-slot="{data}" :query="require('../../../graphql/modules/latestPost.graphql')">
-      <vf-posts-grid v-if="data.latestPosts" :posts="data.latestPosts.content" :column="column"/>
-    </vf-apollo>
-  </div>
+  <vf-apollo :query="require('~/graphql/modules/latestPost.graphql')">
+    <template #loader>
+      <vf-post-module-loader :column="column"/>
+    </template>
+    <template #default="{data}">
+      <vf-post-module
+        :items="data.latestPosts.content"
+        :column="column"
+      >{{$t('modules.blog.latestPost.textTitle')}}</vf-post-module>
+    </template>
+  </vf-apollo>
 </template>
 <script>
 export default {

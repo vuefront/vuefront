@@ -1,8 +1,14 @@
 <template>
   <section class="blog-category">
-    <vf-category-blog :category="category" class="mb-5"/>
-    <vf-posts-grid :posts="posts.content" :grid-size="gridSize"/>
-    <vf-pagination :page="page" :totalPages="totalPages" @input="handleChangePage"/>
+    <template v-if="loaded">
+      <vf-category-blog :category="category" class="mb-5" />
+      <vf-posts-grid :posts="posts.content" :grid-size="gridSize" />
+      <vf-pagination :page="page" :totalPages="posts.totalPages" @input="handleChangePage" />
+    </template>
+    <template v-else>
+      <vf-category-blog-loader class="mb-5" />
+      <vf-posts-grid-loader class="mb-4" :grid-size="gridSize" />
+    </template>
   </section>
 </template>
 <script>
@@ -24,50 +30,67 @@ export default {
     };
   },
   props: ["id", "keyword", "url"],
+  data() {
+    const page = this.$route.query.page ? Number(this.$route.query.page) : 1;
+    return {
+      loaded: true,
+      page
+    };
+  },
   computed: {
     ...mapGetters({
       posts: "blog/post/list",
       category: "blog/category/get"
     }),
     gridSize() {
-        if(this.checkModules('columnLeft') && this.checkModules('columnRight')) {
-            return 2
-        } else if(this.checkModules('columnLeft') || this.checkModules('columnRight')) {
-            return 3
-        } else {
-            return 4
-        }
+      if (this.checkModules("columnLeft") && this.checkModules("columnRight")) {
+        return 2;
+      } else if (
+        this.checkModules("columnLeft") ||
+        this.checkModules("columnRight")
+      ) {
+        return 3;
+      } else {
+        return 4;
+      }
     }
+  },
+  serverPrefetch() {
+    return this.handleLoadData(this);
+  },
+  mounted() {
+    if (!this.loaded) {
+      this.handleLoadData();
+    }
+  },
+  asyncData() {
+    return {
+      loaded: !process.client
+    };
   },
   mixins: [BaseModule],
   watchQuery: true,
   methods: {
+    async handleLoadData(ctx) {
+      let { id } = this.$vuefront.params;
+      await this.$store.dispatch("apollo/query", {
+        query: categoryPageGql,
+        variables: { page: this.page, size: 12, categoryId: id }
+      });
+
+      const { postsList, categoryBlog } = this.$store.getters["apollo/get"];
+
+      this.$store.commit("blog/post/setEntities", postsList);
+      this.$store.commit("blog/category/setCategory", categoryBlog);
+
+      this.loaded = true;
+    },
     async handleChangePage(page) {
       this.$router.push({
         path: "/blog/category/" + this.$route.params.id,
         query: { page }
       });
     }
-  },
-  async asyncData({ store, route, params, app }) {
-    const page = route.query.page ? Number(route.query.page) : 1;
-
-    let {id} = app.$vuefront.params
-
-    await store.dispatch("apollo/query", {
-      query: categoryPageGql,
-      variables: { page, size: 12, categoryId: id }
-    });
-
-    const { postsList, categoryBlog } = store.getters["apollo/get"];
-
-    store.commit("blog/post/setEntities", postsList);
-    store.commit("blog/category/setCategory", categoryBlog);
-
-    return {
-      page,
-      totalPages: postsList.totalPages
-    };
   }
 };
 </script>

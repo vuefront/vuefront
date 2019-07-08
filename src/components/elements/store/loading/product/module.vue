@@ -4,7 +4,7 @@
       <div class="mb-5 h6">
         <tb-skeleton width="150px" height="20px" class="mx-auto"></tb-skeleton>
       </div>
-      <vf-products-grid-loader/>
+      <vf-products-grid-loader :column="column"/>
     </div>
   </skeleton>
 </template>

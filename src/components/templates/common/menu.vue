@@ -1,6 +1,8 @@
 <template>
   <section class="partial-menu">
-    <vf-menu :items="items"/>
+    <vf-position name="headerMenu">
+      <vf-menu :items="items"/>
+    </vf-position>
   </section>
 </template>
 <script>
