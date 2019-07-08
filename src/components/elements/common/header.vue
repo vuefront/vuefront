@@ -19,7 +19,7 @@
       </b-col>
       <b-col class="d-none d-md-block">
         <b-container>
-          <vf-template-menu/>
+          <vf-position name="headerMenu"/>
         </b-container>
       </b-col>
       <b-col sm="12" class="d-block d-md-none">
@@ -44,7 +44,7 @@
                 <vf-icon icon="times"></vf-icon>
               </div>
             </template>
-            <vf-template-menu/>
+            <vf-position name="headerMenu"/>
           </vf-header-sidebar>
         </b-collapse>
       </b-col>

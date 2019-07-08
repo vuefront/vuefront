@@ -23,31 +23,31 @@ export const getters = {
 
 export const actions = {
   async vuefrontInit({ dispatch, commit, rootGetters }) {
-    let menuItems = []
-    if (!rootGetters['menu/loaded']) {
-      this.$vuefront.options.menu.forEach(item => {
-        menuItems = [
-          ...menuItems,
-          dispatch(`menu/${item}/load`, {}, { root: true })
-        ]
-      })
-    }
+    // let menuItems = []
+    // if (!rootGetters['menu/loaded']) {
+    //   this.$vuefront.options.menu.forEach(item => {
+    //     menuItems = [
+    //       ...menuItems,
+    //       dispatch(`menu/${item}/load`, {}, { root: true })
+    //     ]
+    //   })
+    // }
 
     await Promise.all([
       dispatch('store/currency/load', {}, { root: true }),
       dispatch('common/language/load', {}, { root: true }),
       dispatch('common/customer/checkLogged', {}, { root: true }),
-      ...menuItems
+      // ...menuItems
     ])
 
-    if (!rootGetters['menu/loaded']) {
-      this.$vuefront.options.menu.forEach(item => {
-        commit('menu/addEntities', rootGetters[`menu/${item}/get`], {
-          root: true
-        })
-      })
-      commit('menu/setLoaded', true, { root: true })
-    }
+    // if (!rootGetters['menu/loaded']) {
+    //   this.$vuefront.options.menu.forEach(item => {
+    //     commit('menu/addEntities', rootGetters[`menu/${item}/get`], {
+    //       root: true
+    //     })
+    //   })
+    //   commit('menu/setLoaded', true, { root: true })
+    // }
 
     if (this.$cookies.get('mode')) {
       commit('store/category/setMode', this.$cookies.get('mode'), {

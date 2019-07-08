@@ -204,7 +204,6 @@ export default {
     Icon: 'vuefront/lib/components/elements/common/icon',
     Language: 'vuefront/lib/components/elements/common/language',
     Loader: 'vuefront/lib/components/elements/common/loader',
-    Menu: 'vuefront/lib/components/elements/common/header/menu',
     // Notification:      'vuefront/lib/components/elements/common/notification/snackBar',
     Notification: 'vuefront/lib/components/elements/common/notification/toast',
     Page: 'vuefront/lib/components/elements/common/page',
@@ -251,7 +250,6 @@ export default {
   templates: {
     Header: 'vuefront/lib/components/templates/common/header',
     Footer: 'vuefront/lib/components/templates/common/footer',
-    Menu: 'vuefront/lib/components/templates/common/menu',
     Layout: 'vuefront/lib/components/templates/common/layout',
     Error: 'vuefront/lib/components/templates/common/error',
     Loading: 'vuefront/lib/components/templates/common/loading'
