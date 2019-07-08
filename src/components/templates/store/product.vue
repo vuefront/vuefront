@@ -1,6 +1,6 @@
 <template>
   <vf-product v-if="loaded" :product="product"/>
-  <vf-product-loader v-else/>
+  <vf-loader-product v-else/>
 </template>
 <script>
 import { mapGetters } from "vuex";

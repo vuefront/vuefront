@@ -4,7 +4,7 @@
     :variables="{search:keyword}"
   >
     <template #loader>
-      <vf-post-module-loader :column="column"/>
+      <vf-loader-post-module :column="column"/>
     </template>
      <template #default="{data}">
        <vf-post-module

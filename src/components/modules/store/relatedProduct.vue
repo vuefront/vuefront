@@ -5,7 +5,7 @@
     :variables="{id:id}"
   >
     <template #loader>
-      <vf-product-module-loader :column="column"/>
+      <vf-loader-product-module :column="column"/>
     </template>
     <template #default="{data}">
       <vf-product-module

@@ -1,7 +1,7 @@
 <template>
   <vf-apollo :query="require('~/graphql/modules/featuredProduct.graphql')" :variables="{ids}">
     <template #loader>
-      <vf-product-module-loader :column="column"/>
+      <vf-loader-product-module :column="column"/>
     </template>
     <template #default="{data}">
       <vf-product-module

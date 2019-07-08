@@ -1,6 +1,6 @@
 <template>
   <vf-post v-if="loaded" :post="post" />
-  <vf-post-loader v-else />
+  <vf-loader-post v-else />
 </template>
 <script>
 import { mapGetters } from "vuex";

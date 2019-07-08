@@ -6,8 +6,8 @@
       <vf-pagination :page="page" :totalPages="posts.totalPages" @input="handleChangePage" />
     </template>
     <template v-else>
-      <vf-category-blog-loader class="mb-5" />
-      <vf-posts-grid-loader class="mb-4" :grid-size="gridSize" />
+      <vf-loader-category-blog class="mb-5" />
+      <vf-loader-posts-grid class="mb-4" :grid-size="gridSize" />
     </template>
   </section>
 </template>

@@ -31,9 +31,9 @@
       />
     </template>
     <template v-else>
-      <vf-category-loader class="mb-5"/>
-      <vf-sort-loader class="mb-4"/>
-      <vf-products-grid-loader :list="isList" :grid-size="gridSize" class="mb-4"/>
+      <vf-loader-category class="mb-5"/>
+      <vf-loader-sort class="mb-4"/>
+      <vf-loader-products-grid :list="isList" :grid-size="gridSize" class="mb-4"/>
     </template>
   </section>
 </template>

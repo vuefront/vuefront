@@ -1,7 +1,7 @@
 <template>
   <vf-apollo :query="require('~/graphql/modules/latestPost.graphql')">
     <template #loader>
-      <vf-post-module-loader :column="column"/>
+      <vf-loader-post-module :column="column"/>
     </template>
     <template #default="{data}">
       <vf-post-module
