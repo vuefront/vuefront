@@ -101,6 +101,10 @@ export default {
       module: 'vuefront/lib/store/menu/store'
     },
     {
+      path: ['menu', 'page'],
+      module: 'vuefront/lib/store/menu/page'
+    },
+    {
       path: 'blog'
     },
     {
