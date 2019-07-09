@@ -5,6 +5,24 @@ query($id: String) {
     description
     image
     imageLazy
+    datePublished
+    rating
+    prev {
+      id
+      name
+      image
+      imageLazy
+      shortDescription
+      keyword
+    }
+    next {
+      id
+      name
+      image
+      imageLazy
+      shortDescription
+      keyword
+    }
     reviews {
       author
       author_email

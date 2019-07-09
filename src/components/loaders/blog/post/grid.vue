@@ -8,7 +8,7 @@
           v-for="(value) in [1, 2, 3 ,4]"
           :key="value"
         >
-          <vf-post-thumb-loader :wide="list"/>
+          <vf-loader-post-thumb :wide="list"/>
         </b-col>
       </b-row>
     </section>

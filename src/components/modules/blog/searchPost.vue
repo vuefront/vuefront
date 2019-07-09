@@ -11,7 +11,7 @@
         v-if="data.searchPosts.content.length > 0"
         :items="data.searchPosts.content"
         :column="column"
-      >{{$t('modules.store.searchPost.textTitle')}}</vf-post-module>
+      >{{$t('modules.blog.searchPost.textTitle')}}</vf-post-module>
      </template>
   </vf-apollo>
 </template>

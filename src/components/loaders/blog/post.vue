@@ -5,6 +5,11 @@
         <tb-skeleton height="37px" class="mx-auto"></tb-skeleton>
       </b-col>
     </b-row>
+    <b-row align-h="start" style="margin-bottom: 20px;">
+      <b-col sm="4">
+        <tb-skeleton height="20px" class="mx-auto"></tb-skeleton>
+      </b-col>
+    </b-row>
     <tb-skeleton height="500px"></tb-skeleton>
     <div class="my-4 py-4">
       <tb-skeleton height="13px" style="margin-bottom:10px;"></tb-skeleton>

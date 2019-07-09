@@ -1,18 +1,25 @@
 query($page: Int, $size: Int, $sort: String, $order: String) {
-    productsList(page: $page, size: $size, sort: $sort, order: $order, special: true) {
-        content {
-            id
-            name
-            shortDescription
-            price
-            special
-            image
-            imageLazy
-            rating
-            keyword
-        }
-        number
-        totalPages
-        totalElements
+  productsList(
+    page: $page
+    size: $size
+    sort: $sort
+    order: $order
+    special: true
+  ) {
+    content {
+      id
+      name
+      shortDescription
+      price
+      special
+      image
+      imageLazy
+      rating
+      keyword
     }
+    size
+    number
+    totalPages
+    totalElements
+  }
 }
