@@ -65,7 +65,7 @@
         </b-col>
       </b-row>
     </div>
-    <vf-reviews :reviews="post.reviews" @create="handleCreateReview" />
+    <vf-reviews :reviews="post.reviews.content" @create="handleCreateReview" />
   </section>
 </template>
 <script>

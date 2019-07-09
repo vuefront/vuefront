@@ -7,6 +7,11 @@ query($id: String) {
     imageLazy
     datePublished
     rating
+    categories {
+      id
+      name
+      url(url: "/blog/category/_id")
+    }
     prev {
       id
       name
@@ -24,11 +29,14 @@ query($id: String) {
       keyword
     }
     reviews {
-      author
-      author_email
-      content
-      created_at
-      rating
+      totalElements
+      content {
+        author
+        author_email
+        content
+        created_at
+        rating
+      }
     }
   }
 }

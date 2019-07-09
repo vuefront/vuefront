@@ -1,28 +1,36 @@
 query($page: Int, $size: Int, $categoryId: String) {
-    postsList(page: $page, size: $size, category_id: $categoryId) {
-        content {
-            id
-            title
-            description
-            shortDescription
-            image
-            imageLazy
-            keyword
-        }
-        number
-        totalPages
+  postsList(page: $page, size: $size, category_id: $categoryId) {
+    content {
+      id
+      title
+      description
+      shortDescription
+      image
+      imageLazy
+      keyword
+      reviews {
         totalElements
-    }
-    categoryBlog(id: $categoryId) {
+      }
+      categories {
         id
         name
-        description
-        categories {
-            id
-            name
-            image
-            imageLazy
-            keyword
-        }
+        url(url: "/blog/category/_id")
+      }
     }
+    number
+    totalPages
+    totalElements
+  }
+  categoryBlog(id: $categoryId) {
+    id
+    name
+    description
+    categories {
+      id
+      name
+      image
+      imageLazy
+      keyword
+    }
+  }
 }

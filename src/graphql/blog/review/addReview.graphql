@@ -12,6 +12,11 @@ mutation($id: String, $content: String, $author: String, $rating: Float) {
     imageLazy
     datePublished
     rating
+    categories {
+      id
+      name
+      url(url: "/blog/category/_id")
+    }
     prev {
       id
       name
@@ -29,11 +34,14 @@ mutation($id: String, $content: String, $author: String, $rating: Float) {
       keyword
     }
     reviews {
-      author
-      author_email
-      content
-      created_at
-      rating
+      totalElements
+      content {
+        author
+        author_email
+        content
+        created_at
+        rating
+      }
     }
   }
 }
