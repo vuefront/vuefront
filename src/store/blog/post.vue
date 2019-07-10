@@ -17,7 +17,7 @@
       <tb-skeleton height="13px" style="margin-bottom:10px;"></tb-skeleton>
       <tb-skeleton height="13px" style="margin-bottom:10px;"></tb-skeleton>
     </div>
-    <vf-reviews-loader />
+    <vf-loader-reviews />
   </skeleton>
 </template>
 <script>

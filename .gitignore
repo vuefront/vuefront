@@ -21,3 +21,4 @@ yarn-error.log*
 *.sw*
 scss/purpose
 schema.graphql
+*.todo
