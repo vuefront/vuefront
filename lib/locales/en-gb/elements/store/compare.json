@@ -1,0 +1,14 @@
+{
+  "productRow": "Product",
+  "imageRow": "Image",
+  "priceRow": "Price",
+  "modelRow": "Model",
+  "availabilityRow": "Availability",
+  "ratingRow": "Rating",
+  "summaryRow": "Summary",
+
+  "inStockText": "In stock",
+  "outOfStockText": "Out of stock",
+
+  "notificationText": " product successfully added to cart"
+}

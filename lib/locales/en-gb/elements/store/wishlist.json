@@ -1,0 +1,7 @@
+{
+  "productColumn": "Product",
+  "priceColumn": "Price",
+  "actionColumn": "",
+
+  "notificationText": " product successfully added to cart"
+}

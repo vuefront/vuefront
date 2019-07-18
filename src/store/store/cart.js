@@ -1,7 +1,7 @@
-import addToCartGraphql from '~/graphql/store/cart/addToCart.graphql'
-import updateCartGraphql from '~/graphql/store/cart/updateCart.graphql'
-import removeCartGraphql from '~/graphql/store/cart/removeCart.graphql'
-import cartGetGql from '~/graphql/store/cart/get.graphql'
+import addToCartGraphql from 'vuefront/graphql/store/cart/addToCart.graphql'
+import updateCartGraphql from 'vuefront/graphql/store/cart/updateCart.graphql'
+import removeCartGraphql from 'vuefront/graphql/store/cart/removeCart.graphql'
+import cartGetGql from 'vuefront/graphql/store/cart/get.graphql'
 
 export const state = () => ({
   cart: {}

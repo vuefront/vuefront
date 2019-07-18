@@ -1,5 +1,5 @@
-import CountriesGql from '~/graphql/common/country/list.graphql'
-import CountryGql from '~/graphql/common/country/get.graphql'
+import CountriesGql from 'vuefront/graphql/common/country/list.graphql'
+import CountryGql from 'vuefront/graphql/common/country/get.graphql'
 
 export const state = () => ({
   country: false,

@@ -1,0 +1,14 @@
+{
+  "productRow": "Товар",
+  "imageRow": "Образ",
+  "priceRow": "Цена",
+  "modelRow": "Модель",
+  "availabilityRow": "Доступность",
+  "ratingRow": "Рейтинг",
+  "summaryRow": "Суммарно",
+
+  "inStockText": "В наличии",
+  "outOfStockText": "Нет на складе",
+
+  "notificationText": " товар успешно добавлен в корзину"
+}

@@ -1,0 +1,7 @@
+{
+  "productColumn": "Товар",
+  "priceColumn": "Цена",
+  "actionColumn": "",
+
+  "notificationText": " товар успешно добавлен в корзину"
+}

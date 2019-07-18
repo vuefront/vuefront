@@ -1,9 +1,9 @@
-import RegisterGql from '~/graphql/account/register.graphql'
-import LoginGql from '~/graphql/account/login.graphql'
-import LogoutGql from '~/graphql/account/logout.graphql'
-import EditGql from '~/graphql/account/edit.graphql'
-import EditPasswordGql from '~/graphql/account/editPassword.graphql'
-import CheckGql from '~/graphql/account/check.graphql'
+import RegisterGql from 'vuefront/graphql/account/register.graphql'
+import LoginGql from 'vuefront/graphql/account/login.graphql'
+import LogoutGql from 'vuefront/graphql/account/logout.graphql'
+import EditGql from 'vuefront/graphql/account/edit.graphql'
+import EditPasswordGql from 'vuefront/graphql/account/editPassword.graphql'
+import CheckGql from 'vuefront/graphql/account/check.graphql'
 
 export const state = () => ({
   customer: null,

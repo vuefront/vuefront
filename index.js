@@ -1,301 +1,563 @@
 export default {
   plugins: [],
-  css: ["vuefront/scss/main.scss"],
+  css: ['vuefront/assets/scss/main.scss'],
   menu: [],
   locales: {
-    "en-gb": ["vuefront/lib/locales/en-gb.js"],
-    "ru-ru": ["vuefront/lib/locales/ru-ru.js"]
+    'en-gb': [
+      {
+        package: 'vuefront/lib',
+        path: ['locales', 'EnGb'],
+      },
+    ],
+    'ru-ru': [
+      {
+        package: 'vuefront/lib',
+        path: ['locales', 'RuRu'],
+      },
+    ],
   },
   pages: {
-    "/": "vuefront/lib/components/pages/common/home",
-    "/account": {
+    '/': { package: 'vuefront/lib', el: 'HomePage' },
+    '/account': {
       generate: false,
-      component: "vuefront/lib/components/pages/common/account/account"
+      package: 'vuefront/lib',
+      el: 'AccountPage',
     },
-    "/account/address": {
+    '/account/address': {
       generate: false,
-      component: "vuefront/lib/components/pages/common/account/address"
+      package: 'vuefront/lib',
+      el: 'AccountAddressPage',
     },
-    "/account/address/:id/edit": {
+    '/account/address/:id/edit': {
       generate: false,
-      component: "vuefront/lib/components/pages/common/account/editAddress"
+      package: 'vuefront/lib',
+      el: 'AccountEditAddressPage',
     },
-    "/account/address/create": {
+    '/account/address/create': {
       generate: false,
-      component: "vuefront/lib/components/pages/common/account/createAddress"
+      package: 'vuefront/lib',
+      el: 'AccountCreateAddressPage',
     },
-    "/account/edit": {
+    '/account/edit': {
       generate: false,
-      component: "vuefront/lib/components/pages/common/account/edit"
+      package: 'vuefront/lib',
+      el: 'AccountEditPage',
     },
-    "/account/login": "vuefront/lib/components/pages/common/account/login",
-    "/account/password": {
+    '/account/login': {
+      package: 'vuefront/lib',
+      el: 'AccountLoginPage',
+    },
+    '/account/password': {
       generate: false,
-      component: "vuefront/lib/components/pages/common/account/password"
+      package: 'vuefront/lib',
+      el: 'AccountPasswordPage',
     },
-    "/account/register":
-      "vuefront/lib/components/pages/common/account/register",
-    "/account/wishlist": {
+    '/account/register': {
+      package: 'vuefront/lib',
+      el: 'AccountRegisterPage',
+    },
+    '/account/wishlist': {
       generate: false,
-      component: "vuefront/lib/components/pages/store/wishlist"
+      package: 'vuefront/lib',
+      el: 'WishlistPage',
     },
-    "/blog/category/:id": {
-      component: "vuefront/lib/components/pages/blog/category",
-      seo: "vuefront/lib/seo/blog_category"
+    '/blog/category/:id': {
+      seo: {
+        package: 'vuefront/lib/seo',
+        path: 'CategoryBlogSeo',
+      },
+      package: 'vuefront/lib',
+      el: 'CategoryBlogPage',
     },
-    "/blog/post/:id": {
-      component: "vuefront/lib/components/pages/blog/post",
-      seo: "vuefront/lib/seo/blog_post"
+    '/blog/post/:id': {
+      package: 'vuefront/lib',
+      el: 'PostPage',
+      seo: {
+        package: 'vuefront/lib/seo',
+        path: 'PostSeo',
+      },
     },
-    "/contact": "vuefront/lib/components/pages/common/contact",
-    "/page/:id": {
-      component: "vuefront/lib/components/pages/common/page",
-      seo: "vuefront/lib/seo/page"
+    '/contact': { package: 'vuefront/lib', el: 'ContactPage' },
+    '/page/:id': {
+      package: 'vuefront/lib',
+      el: 'PagePage',
+      seo: {
+        package: 'vuefront/lib/seo',
+        path: 'PageSeo',
+      },
     },
-    "/search": "vuefront/lib/components/pages/common/search",
-    "/search/:slug": "vuefront/lib/components/pages/common/search",
-    "/store/cart": {
+    '/search': { package: 'vuefront/lib', el: 'SearchPage' },
+    '/search/:slug': {
+      package: 'vuefront/lib',
+      el: 'SearchPage',
+    },
+    '/store/cart': {
       generate: false,
-      component: "vuefront/lib/components/pages/store/cart"
+      package: 'vuefront/lib',
+      el: 'CartPage',
     },
-    "/store/checkout": {
+    '/store/checkout': {
       generate: false,
-      component: "vuefront/lib/components/pages/store/checkout"
+      package: 'vuefront/lib',
+      el: 'CheckoutPage',
     },
-    "/store/category/:id": {
-      component: "vuefront/lib/components/pages/store/category",
-      seo: "vuefront/lib/seo/category"
+    '/store/category/:id': {
+      seo: {
+        package: 'vuefront/lib/seo',
+        path: 'CategorySeo',
+      },
+      package: 'vuefront/lib',
+      el: 'CategoryPage',
     },
-    "/store/compare": {
+    '/store/compare': {
       generate: false,
-      component: "vuefront/lib/components/pages/store/compare"
+      package: 'vuefront/lib',
+      el: 'ComparePage',
     },
-    "/store/product/:id": {
-      component: "vuefront/lib/components/pages/store/product",
-      seo: "vuefront/lib/seo/product"
+    '/store/product/:id': {
+      package: 'vuefront/lib',
+      el: 'ProductPage',
+      seo: {
+        package: 'vuefront/lib/seo',
+        path: 'ProductSeo',
+      },
     },
-    "/store/special": "vuefront/lib/components/pages/store/special"
+    '/store/special': {
+      package: 'vuefront/lib',
+      el: 'SpecialPage',
+    },
   },
   store: [
     {
-      path: "vuefront",
-      module: "vuefront/lib/store/vuefront"
+      path: 'vuefront',
+      module: {
+        package: 'vuefront/lib',
+        path: ['store', 'Vuefront'],
+      },
     },
     {
-      path: "apollo",
-      module: "vuefront/lib/store/apollo"
+      path: 'apollo',
+      module: {
+        package: 'vuefront/lib',
+        path: ['store', 'Apollo'],
+      },
     },
     {
-      path: "notification",
-      module: "vuefront/lib/store/notification"
+      path: 'notification',
+      module: {
+        package: 'vuefront/lib',
+        path: ['store', 'Notification'],
+      },
     },
     {
-      path: "menu",
-      module: "vuefront/lib/store/menu"
+      path: 'menu',
+      module: {
+        package: 'vuefront/lib',
+        path: ['store', 'Menu'],
+      },
     },
     {
-      path: ["menu", "blog"],
-      module: "vuefront/lib/store/menu/blog"
+      path: ['menu', 'blog'],
+      module: {
+        package: 'vuefront/lib',
+        path: ['store', 'BlogMenu'],
+      },
     },
     {
-      path: ["menu", "store"],
-      module: "vuefront/lib/store/menu/store"
+      path: ['menu', 'store'],
+      module: {
+        package: 'vuefront/lib',
+        path: ['store', 'StoreMenu'],
+      },
     },
     {
-      path: ["menu", "page"],
-      module: "vuefront/lib/store/menu/page"
+      path: ['menu', 'page'],
+      module: {
+        package: 'vuefront/lib',
+        path: ['store', 'PageMenu'],
+      },
     },
     {
-      path: "blog"
+      path: 'blog',
     },
     {
-      path: ["blog", "category"],
-      module: "vuefront/lib/store/blog/category"
+      path: ['blog', 'category'],
+      module: {
+        package: 'vuefront/lib',
+        path: ['store', 'CategoryBlog'],
+      },
     },
     {
-      path: ["blog", "post"],
-      module: "vuefront/lib/store/blog/post"
+      path: ['blog', 'post'],
+      module: {
+        package: 'vuefront/lib',
+        path: ['store', 'Post'],
+      },
     },
     {
-      path: ["common"]
+      path: ['common'],
     },
     {
-      path: ["common", "country"],
-      module: "vuefront/lib/store/common/country"
+      path: ['common', 'country'],
+      module: {
+        package: 'vuefront/lib',
+        path: ['store', 'Country'],
+      },
     },
     {
-      path: ["common", "zone"],
-      module: "vuefront/lib/store/common/zone"
+      path: ['common', 'zone'],
+      module: {
+        package: 'vuefront/lib',
+        path: ['store', 'Zone'],
+      },
     },
     {
-      path: ["common", "page"],
-      module: "vuefront/lib/store/common/page"
+      path: ['common', 'page'],
+      module: {
+        package: 'vuefront/lib',
+        path: ['store', 'Page'],
+      },
     },
     {
-      path: ["common", "contact"],
-      module: "vuefront/lib/store/common/contact"
+      path: ['common', 'contact'],
+      module: {
+        package: 'vuefront/lib',
+        path: ['store', 'Contact'],
+      },
     },
     {
-      path: ["common", "customer"],
-      module: "vuefront/lib/store/common/customer"
+      path: ['common', 'customer'],
+      module: {
+        package: 'vuefront/lib',
+        path: ['store', 'Customer'],
+      },
     },
     {
-      path: ["common", "address"],
-      module: "vuefront/lib/store/common/address"
+      path: ['common', 'address'],
+      module: {
+        package: 'vuefront/lib',
+        path: ['store', 'Address'],
+      },
     },
     {
-      path: ["common", "language"],
-      module: "vuefront/lib/store/common/language"
+      path: ['common', 'language'],
+      module: {
+        package: 'vuefront/lib',
+        path: ['store', 'Language'],
+      },
     },
     {
-      path: ["store"]
+      path: ['store'],
     },
     {
-      path: ["store", "cart"],
-      module: "vuefront/lib/store/store/cart"
+      path: ['store', 'cart'],
+      module: {
+        package: 'vuefront/lib',
+        path: ['store', 'Cart'],
+      },
     },
     {
-      path: ["store", "wishlist"],
-      module: "vuefront/lib/store/store/wishlist"
+      path: ['store', 'wishlist'],
+      module: {
+        package: 'vuefront/lib',
+        path: ['store', 'Wishlist'],
+      },
     },
     {
-      path: ["store", "currency"],
-      module: "vuefront/lib/store/store/currency"
+      path: ['store', 'currency'],
+      module: {
+        package: 'vuefront/lib',
+        path: ['store', 'Currency'],
+      },
     },
     {
-      path: ["store", "compare"],
-      module: "vuefront/lib/store/store/compare"
+      path: ['store', 'compare'],
+      module: {
+        package: 'vuefront/lib',
+        path: ['store', 'Compare'],
+      },
     },
     {
-      path: ["store", "category"],
-      module: "vuefront/lib/store/store/category"
+      path: ['store', 'category'],
+      module: {
+        package: 'vuefront/lib',
+        path: ['store', 'Category'],
+      },
     },
     {
-      path: ["store", "product"],
-      module: "vuefront/lib/store/store/product"
-    }
+      path: ['store', 'product'],
+      module: {
+        package: 'vuefront/lib',
+        path: ['store', 'Product'],
+      },
+    },
   ],
   components: {
-    AccountAddress: "vuefront/lib/components/elements/common/account/address",
-    AccountAddressCreate:
-      "vuefront/lib/components/elements/common/account/createAddress",
-    AccountAddressEdit:
-      "vuefront/lib/components/elements/common/account/editAddress",
-    AccountEdit: "vuefront/lib/components/elements/common/account/edit",
-    AccountLogin: "vuefront/lib/components/elements/common/account/login",
-    AccountNew: "vuefront/lib/components/elements/common/account/new",
-    AccountPassword: "vuefront/lib/components/elements/common/account/password",
-    AccountRegister: "vuefront/lib/components/elements/common/account/register",
-    Apollo: "vuefront/lib/components/elements/common/apollo",
-    Breadcrumbs: "vuefront/lib/components/elements/common/breadcrumbs",
-    Cart: "vuefront/lib/components/elements/store/cart",
-    Category: "vuefront/lib/components/elements/store/category",
-    CategoryBlog: "vuefront/lib/components/elements/blog/category",
-    Compare: "vuefront/lib/components/elements/store/compare",
-    Contact: "vuefront/lib/components/elements/common/contact/contact",
-    ContactForm: "vuefront/lib/components/elements/common/contact/form",
-    ContactLocation: "vuefront/lib/components/elements/common/contact/location",
-    ContactLocationGrid:
-      "vuefront/lib/components/elements/common/contact/locationGrid",
-    Currency: "vuefront/lib/components/elements/store/currency",
-    Empty: "vuefront/lib/components/elements/common/empty",
-    Footer: "vuefront/lib/components/elements/common/footer",
-    Header: "vuefront/lib/components/elements/common/header",
-    HeaderCart: "vuefront/lib/components/elements/common/header/cart",
-    HeaderCenter: "vuefront/lib/components/elements/common/header/center",
-    HeaderLogo: "vuefront/lib/components/elements/common/header/logo",
-    HeaderSearch: "vuefront/lib/components/elements/common/header/search",
-    HeaderSidebar: "vuefront/lib/components/elements/common/header/sidebar",
-    HeaderTop: "vuefront/lib/components/elements/common/header/top",
-    Icon: "vuefront/lib/components/elements/common/icon",
-    Language: "vuefront/lib/components/elements/common/language",
-    // Notification:      'vuefront/lib/components/elements/common/notification/snackBar',
-    Notification: "vuefront/lib/components/elements/common/notification/toast",
-    Page: "vuefront/lib/components/elements/common/page",
-    Pagination: "vuefront/lib/components/elements/common/pagination",
-    Position: "vuefront/lib/components/elements/common/position",
-    Post: "vuefront/lib/components/elements/blog/post",
-    PostModule: "vuefront/lib/components/elements/blog/post/module",
-    PostThumb: "vuefront/lib/components/elements/blog/post/thumb",
-    PostsGrid: "vuefront/lib/components/elements/blog/post/grid",
-    Product: "vuefront/lib/components/elements/store/product",
-    ProductAttribute:
-      "vuefront/lib/components/elements/store/product/attribute",
-    ProductImage: "vuefront/lib/components/elements/store/product/image",
-    ProductModule: "vuefront/lib/components/elements/store/product/module",
-    ProductOption: "vuefront/lib/components/elements/store/product/option",
-    ProductOptionCheckbox:
-      "vuefront/lib/components/elements/store/product/option/checkbox",
-    ProductOptionDate:
-      "vuefront/lib/components/elements/store/product/option/date",
-    ProductOptionDatetime:
-      "vuefront/lib/components/elements/store/product/option/datetime",
-    ProductOptionFile:
-      "vuefront/lib/components/elements/store/product/option/file",
-    ProductOptionRadio:
-      "vuefront/lib/components/elements/store/product/option/radio",
-    ProductOptionSelect:
-      "vuefront/lib/components/elements/store/product/option/select",
-    ProductOptionText:
-      "vuefront/lib/components/elements/store/product/option/text",
-    ProductOptionTextarea:
-      "vuefront/lib/components/elements/store/product/option/textarea",
-    ProductOptionTime:
-      "vuefront/lib/components/elements/store/product/option/time",
-    ProductThumb: "vuefront/lib/components/elements/store/product/thumb",
-    ProductsGrid: "vuefront/lib/components/elements/store/product/grid",
-    Rating: "vuefront/lib/components/elements/common/rating",
-    Reviews: "vuefront/lib/components/elements/common/reviews",
-    Search: "vuefront/lib/components/elements/common/search",
-    Sort: "vuefront/lib/components/elements/store/product/sort",
-    Wishlist: "vuefront/lib/components/elements/store/wishlist"
+    AccountAddress: {
+      package: 'vuefront/lib',
+      el: 'AccountAddress',
+    },
+    AccountAddressCreate: {
+      package: 'vuefront/lib',
+      el: 'AccountCreateAddress',
+    },
+    AccountAddressEdit: {
+      package: 'vuefront/lib',
+      el: 'AccountEditAddress',
+    },
+    AccountEdit: { package: 'vuefront/lib', el: 'AccountEdit' },
+    AccountLogin: {
+      package: 'vuefront/lib',
+      el: 'AccountLogin',
+    },
+    AccountNew: { package: 'vuefront/lib', el: 'AccountNew' },
+    AccountPassword: {
+      package: 'vuefront/lib',
+      el: 'AccountPassword',
+    },
+    AccountRegister: {
+      package: 'vuefront/lib',
+      el: 'AccountRegister',
+    },
+    Apollo: { package: 'vuefront/lib', el: 'Apollo' },
+    Breadcrumbs: { package: 'vuefront/lib', el: 'Breadcrumbs' },
+    Cart: { package: 'vuefront/lib', el: 'Cart' },
+    Category: { package: 'vuefront/lib', el: 'Category' },
+    CategoryBlog: {
+      package: 'vuefront/lib',
+      el: 'CategoryBlog',
+    },
+    Compare: { package: 'vuefront/lib', el: 'Compare' },
+    Contact: { package: 'vuefront/lib', el: 'Contact' },
+    ContactForm: { package: 'vuefront/lib', el: 'ContactForm' },
+    ContactLocation: {
+      package: 'vuefront/lib',
+      el: 'ContactLocation',
+    },
+    ContactLocationGrid: {
+      package: 'vuefront/lib',
+      el: 'ContactLocationGrid',
+    },
+    Currency: { package: 'vuefront/lib', el: 'Currency' },
+    Empty: { package: 'vuefront/lib', el: 'Empty' },
+    Footer: { package: 'vuefront/lib', el: 'Footer' },
+    Header: { package: 'vuefront/lib', el: 'Header' },
+    HeaderCart: { package: 'vuefront/lib', el: 'HeaderCart' },
+    HeaderCenter: {
+      package: 'vuefront/lib',
+      el: 'HeaderCenter',
+    },
+    HeaderLogo: { package: 'vuefront/lib', el: 'HeaderLogo' },
+    HeaderSearch: {
+      package: 'vuefront/lib',
+      el: 'HeaderSearch',
+    },
+    HeaderSidebar: {
+      package: 'vuefront/lib',
+      el: 'HeaderSidebar',
+    },
+    HeaderTop: { package: 'vuefront/lib', el: 'HeaderTop' },
+    Icon: { package: 'vuefront/lib', el: 'Icon' },
+    Language: { package: 'vuefront/lib', el: 'Language' },
+    Notification: {
+      package: 'vuefront/lib',
+      el: 'NotificationToast',
+    },
+    Page: { package: 'vuefront/lib', el: 'Page' },
+    Pagination: { package: 'vuefront/lib', el: 'Pagination' },
+    Position: { package: 'vuefront/lib', el: 'Position' },
+    Post: { package: 'vuefront/lib', el: 'Post' },
+    PostModule: { package: 'vuefront/lib', el: 'PostModule' },
+    PostThumb: { package: 'vuefront/lib', el: 'PostThumb' },
+    PostsGrid: { package: 'vuefront/lib', el: 'PostGrid' },
+    Product: { package: 'vuefront/lib', el: 'Product' },
+    ProductAttribute: {
+      package: 'vuefront/lib',
+      el: 'ProductAttribute',
+    },
+    ProductImage: {
+      package: 'vuefront/lib',
+      el: 'ProductImage',
+    },
+    ProductModule: {
+      package: 'vuefront/lib',
+      el: 'ProductModule',
+    },
+    ProductOption: {
+      package: 'vuefront/lib',
+      el: 'ProductOption',
+    },
+    ProductOptionCheckbox: {
+      package: 'vuefront/lib',
+      el: 'ProductOptionCheckbox',
+    },
+    ProductOptionDate: {
+      package: 'vuefront/lib',
+      el: 'ProductOptionDate',
+    },
+    ProductOptionDatetime: {
+      package: 'vuefront/lib',
+      el: 'ProductOptionDateTime',
+    },
+    ProductOptionFile: {
+      package: 'vuefront/lib',
+      el: 'ProductOptionFile',
+    },
+    ProductOptionRadio: {
+      package: 'vuefront/lib',
+      el: 'ProductOptionRadio',
+    },
+    ProductOptionSelect: {
+      package: 'vuefront/lib',
+      el: 'ProductOptionSelect',
+    },
+    ProductOptionText: {
+      package: 'vuefront/lib',
+      el: 'ProductOptionText',
+    },
+    ProductOptionTextarea: {
+      package: 'vuefront/lib',
+      el: 'ProductOptionTextarea',
+    },
+    ProductOptionTime: {
+      package: 'vuefront/lib',
+      el: 'ProductOptionTime',
+    },
+    ProductThumb: {
+      package: 'vuefront/lib',
+      el: 'ProductThumb',
+    },
+    ProductsGrid: {
+      package: 'vuefront/lib',
+      el: 'ProductGrid',
+    },
+    Rating: { package: 'vuefront/lib', el: 'Rating' },
+    Reviews: { package: 'vuefront/lib', el: 'Reviews' },
+    Search: { package: 'vuefront/lib', el: 'Search' },
+    Sort: { package: 'vuefront/lib', el: 'ProductSort' },
+    Wishlist: { package: 'vuefront/lib', el: 'Wishlist' },
   },
   templates: {
-    Header: "vuefront/lib/components/templates/common/header",
-    Footer: "vuefront/lib/components/templates/common/footer",
-    Layout: "vuefront/lib/components/templates/common/layout",
-    Error: "vuefront/lib/components/templates/common/error",
-    Category: "vuefront/lib/components/templates/store/category",
-    CategoryBlog: "vuefront/lib/components/templates/blog/category",
-    Special: "vuefront/lib/components/templates/store/special"
+    Header: { package: 'vuefront/lib', el: 'HeaderTemplate' },
+    Footer: { package: 'vuefront/lib', el: 'FooterTemplate' },
+    Layout: { package: 'vuefront/lib', el: 'LayoutTemplate' },
+    Error: { package: 'vuefront/lib', el: 'ErrorTemplate' },
+    Category: {
+      package: 'vuefront/lib',
+      el: 'CategoryTemplate',
+    },
+    CategoryBlog: {
+      package: 'vuefront/lib',
+      el: 'CategoryBlog',
+    },
+    Special: { package: 'vuefront/lib', el: 'SpecialTemplate' },
   },
   modules: {
-    SearchProduct: "vuefront/lib/components/modules/store/searchProduct",
-    SearchPost: "vuefront/lib/components/modules/blog/searchPost",
-    LatestProduct: "vuefront/lib/components/modules/store/latestProduct",
-    SpecialProduct: "vuefront/lib/components/modules/store/specialProduct",
-    LatestPost: "vuefront/lib/components/modules/blog/latestPost",
-    RelatedProduct: "vuefront/lib/components/modules/store/relatedProduct",
-    FeaturedProduct: "vuefront/lib/components/modules/store/featuredProduct",
-    Slideshow: "vuefront/lib/components/modules/common/slideshow",
-    Pages: "vuefront/lib/components/modules/common/pages",
-    StoreCategory: "vuefront/lib/components/modules/store/category",
-    BlogCategory: "vuefront/lib/components/modules/blog/category",
-    Account: "vuefront/lib/components/modules/common/account",
-    AccountLinks: "vuefront/lib/components/modules/common/accountLinks",
-    ExtraLinks: "vuefront/lib/components/modules/common/extraLinks",
-    Checkout: "vuefront/lib/components/modules/store/checkout",
-    Menu: "vuefront/lib/components/modules/common/menu",
-    Search: "vuefront/lib/components/modules/common/search",
+    SearchProduct: {
+      package: 'vuefront/lib',
+      el: 'SearchProductModule',
+    },
+    SearchPost: {
+      package: 'vuefront/lib',
+      el: 'SearchPostModule',
+    },
+    LatestProduct: {
+      package: 'vuefront/lib',
+      el: 'LatestProductModule',
+    },
+    SpecialProduct: {
+      package: 'vuefront/lib',
+      el: 'SpecialProductModule',
+    },
+    LatestPost: {
+      package: 'vuefront/lib',
+      el: 'LatestPostModule',
+    },
+    RelatedProduct: {
+      package: 'vuefront/lib',
+      el: 'RelatedProductModule',
+    },
+    FeaturedProduct: {
+      package: 'vuefront/lib',
+      el: 'FeaturedProductModule',
+    },
+    Slideshow: {
+      package: 'vuefront/lib',
+      el: 'SlideshowModule',
+    },
+    Pages: { package: 'vuefront/lib', el: 'PagesModule' },
+    StoreCategory: {
+      package: 'vuefront/lib',
+      el: 'CategoryModule',
+    },
+    BlogCategory: {
+      package: 'vuefront/lib',
+      el: 'CategoryBlogModule',
+    },
+    Account: { package: 'vuefront/lib', el: 'AccountModule' },
+    AccountLinks: {
+      package: 'vuefront/lib',
+      el: 'AccountLinksModule',
+    },
+    ExtraLinks: {
+      package: 'vuefront/lib',
+      el: 'ExtraLinksModule',
+    },
+    Checkout: { package: 'vuefront/lib', el: 'CheckoutModule' },
+    Menu: { package: 'vuefront/lib', el: 'MenuModule' },
+    Search: { package: 'vuefront/lib', el: 'SearchModule' },
   },
   loaders: {
-    CategoryBlog: "vuefront/lib/components/loaders/blog/category",
-    CategoryBlogPage: "vuefront/lib/components/loaders/blog/page/category",
-    Category: "vuefront/lib/components/loaders/store/category",
-    CategoryPage: "vuefront/lib/components/loaders/store/page/category",
-    Post: "vuefront/lib/components/loaders/blog/post",
-    Common: "vuefront/lib/components/loaders/common/loader",
-    PostModule: "vuefront/lib/components/loaders/blog/post/module",
-    PostThumb: "vuefront/lib/components/loaders/blog/post/thumb",
-    PostsGrid: "vuefront/lib/components/loaders/blog/post/grid",
-    ProductImage: "vuefront/lib/components/loaders/store/product/image",
-    Product: "vuefront/lib/components/loaders/store/product",
-    ProductModule: "vuefront/lib/components/loaders/store/product/module",
-    ProductThumb: "vuefront/lib/components/loaders/store/product/thumb",
-    ProductsGrid: "vuefront/lib/components/loaders/store/product/grid",
-    Reviews: "vuefront/lib/components/loaders/common/reviews",
-    SpecialPage: "vuefront/lib/components/loaders/store/page/special",
-    Sort: "vuefront/lib/components/loaders/store/product/sort",
-    Rating: "vuefront/lib/components/loaders/common/rating"
-  }
-};
+    CategoryBlog: {
+      package: 'vuefront/lib',
+      el: 'CategoryBlogLoader',
+    },
+    CategoryBlogPage: {
+      package: 'vuefront/lib',
+      el: 'CategoryBlogPageLoader',
+    },
+    Category: { package: 'vuefront/lib', el: 'CategoryLoader' },
+    CategoryPage: {
+      package: 'vuefront/lib',
+      el: 'CategoryPageLoader',
+    },
+    Post: { package: 'vuefront/lib', el: 'PostLoader' },
+    Common: { package: 'vuefront/lib', el: 'Loader' },
+    PostModule: {
+      package: 'vuefront/lib',
+      el: 'PostModuleLoader',
+    },
+    PostThumb: {
+      package: 'vuefront/lib',
+      el: 'PostThumbLoader',
+    },
+    PostsGrid: {
+      package: 'vuefront/lib',
+      el: 'PostGridLoader',
+    },
+    ProductImage: {
+      package: 'vuefront/lib',
+      el: 'ProductImageLoader',
+    },
+    Product: { package: 'vuefront/lib', el: 'ProductLoader' },
+    ProductModule: {
+      package: 'vuefront/lib',
+      el: 'ProductModuleLoader',
+    },
+    ProductThumb: {
+      package: 'vuefront/lib',
+      el: 'ProductThumbLoader',
+    },
+    ProductsGrid: {
+      package: 'vuefront/lib',
+      el: 'ProductGridLoader',
+    },
+    Reviews: { package: 'vuefront/lib', el: 'ReviewsLoader' },
+    SpecialPage: {
+      package: 'vuefront/lib',
+      el: 'SpecialPageLoader',
+    },
+    Sort: { package: 'vuefront/lib', el: 'ProductSortLoader' },
+    Rating: { package: 'vuefront/lib', el: 'RatingLoader' },
+  },
+}

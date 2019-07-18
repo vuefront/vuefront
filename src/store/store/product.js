@@ -1,4 +1,4 @@
-import reviewAddGql from '~/graphql/store/review/addReview.graphql'
+import reviewAddGql from 'vuefront/graphql/store/review/addReview.graphql'
 
 export const state = () => ({
   entities: {},

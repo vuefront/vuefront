@@ -1,5 +1,5 @@
 <template>
-  <vf-apollo :query="require('~/graphql/modules/specialProduct.graphql')">
+  <vf-apollo :query="require('vuefront/graphql/modules/specialProduct.graphql')">
     <template #loader>
       <vf-loader-product-module :column="column"/>
     </template>

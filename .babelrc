@@ -1,0 +1,20 @@
+{
+    "presets": [
+        [
+            "@babel/env",
+            {
+                "targets": {
+                    "browsers": [
+                        "last 2 versions",
+                        "safari >= 7"
+                    ]
+                }
+            }
+        ]
+    ],
+    "plugins": [
+        "transform-inline-environment-variables",
+        "minify-dead-code-elimination",
+        "@babel/plugin-transform-runtime"
+    ]
+}

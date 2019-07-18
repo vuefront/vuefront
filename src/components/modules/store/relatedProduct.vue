@@ -1,7 +1,7 @@
 <template>
   <vf-apollo
     v-if="id"
-    :query="require('~/graphql/modules/relatedProduct.graphql')"
+    :query="require('vuefront/graphql/modules/relatedProduct.graphql')"
     :variables="{id:id}"
   >
     <template #loader>
@@ -17,7 +17,7 @@
   </vf-apollo>
 </template>
 <script>
-import isEmpty from "lodash/isEmpty";
+import {isEmpty} from "lodash";
 export default {
   props: {
     column: {

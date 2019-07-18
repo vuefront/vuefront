@@ -1,6 +1,6 @@
-import addToWishlistGraphql from '~/graphql/store/wishlist/addToWishlist.graphql'
-import removeWishlistGraphql from '~/graphql/store/wishlist/removeWishlist.graphql'
-import wishlistGetGql from '~/graphql/store/wishlist/get.graphql'
+import addToWishlistGraphql from 'vuefront/graphql/store/wishlist/addToWishlist.graphql'
+import removeWishlistGraphql from 'vuefront/graphql/store/wishlist/removeWishlist.graphql'
+import wishlistGetGql from 'vuefront/graphql/store/wishlist/get.graphql'
 
 export const state = () => ({
   wishlist: {}

@@ -1,5 +1,5 @@
-import ContactSendGql from '~/graphql/common/contact/send.graphql'
-import ContactGql from '~/graphql/common/contact/get.graphql'
+import ContactSendGql from 'vuefront/graphql/common/contact/send.graphql'
+import ContactGql from 'vuefront/graphql/common/contact/get.graphql'
 
 export const state = () => ({
   contact: null

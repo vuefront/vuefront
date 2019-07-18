@@ -27,12 +27,10 @@
 </template>
 
 <script>
-import "vuefront/scss/templates/common/loading.scss";
-import { BContainer, BRow, BCol } from "bootstrap-vue";
+import { BRow, BCol } from "bootstrap-vue";
 import { TbSkeleton, Skeleton } from "tb-skeleton";
 export default {
   components: {
-    BContainer,
     TbSkeleton,
     Skeleton,
     BRow,

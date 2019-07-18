@@ -1,4 +1,4 @@
-import categoryMenuGql from '~/graphql/store/category/menu.graphql'
+import categoryMenuGql from 'vuefront/graphql/store/category/menu.graphql'
 
 export const state = () => ({
   entities: [],

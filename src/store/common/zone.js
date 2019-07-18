@@ -1,5 +1,5 @@
-import ZonesGql from '~/graphql/common/zone/list.graphql'
-import ZoneGql from '~/graphql/common/zone/get.graphql'
+import ZonesGql from 'vuefront/graphql/common/zone/list.graphql'
+import ZoneGql from 'vuefront/graphql/common/zone/get.graphql'
 
 export const state = () => ({
   zone: false,

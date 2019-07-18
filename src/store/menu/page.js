@@ -1,4 +1,4 @@
-import pageMenuGql from "~/graphql/common/page/menu.graphql";
+import pageMenuGql from "vuefront/graphql/common/page/menu.graphql";
 
 export const state = () => ({
   entities: []

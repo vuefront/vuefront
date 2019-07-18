@@ -1,5 +1,5 @@
-import editCurrencyGraphql from '~/graphql/store/currency/edit.graphql'
-import currencyGetGql from '~/graphql/store/currency/get.graphql'
+import editCurrencyGraphql from 'vuefront/graphql/store/currency/edit.graphql'
+import currencyGetGql from 'vuefront/graphql/store/currency/get.graphql'
 
 export const state = () => ({
   currency: {}

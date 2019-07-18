@@ -1,8 +1,0 @@
-{
-	categoriesBlogList(page: 1, size: -1) {
-    content {
-      id
-      keyword
-    }
-  }
-}

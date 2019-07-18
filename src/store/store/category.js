@@ -1,9 +1,12 @@
-import categoryMenuGql from '~/graphql/store/category/menu.graphql'
+import categoryMenuGql from 'vuefront/graphql/store/category/menu.graphql'
 
 export const state = () => ({
   menuItems: [],
-  category: {},
-  mode: 'grid'
+  category: {
+    name: '',
+    description: '',
+  },
+  mode: 'grid',
 })
 
 export const getters = {
@@ -15,7 +18,7 @@ export const getters = {
   },
   mode(state) {
     return state.mode
-  }
+  },
 }
 
 export const mutations = {
@@ -28,7 +31,7 @@ export const mutations = {
   setMode(state, payload) {
     state.mode = payload
     this.$cookies.set('mode', payload)
-  }
+  },
 }
 
 export const actions = {
@@ -38,8 +41,8 @@ export const actions = {
       {
         query: categoryMenuGql,
         variables: {
-            url: '/store/category/_id'
-        }
+          url: '/store/category/_id',
+        },
       },
       { root: true }
     )
@@ -48,5 +51,5 @@ export const actions = {
       const { categoriesMenu } = rootGetters['apollo/get']
       commit('setCategoryMenu', categoriesMenu)
     }
-  }
+  },
 }

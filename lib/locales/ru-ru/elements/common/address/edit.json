@@ -1,0 +1,24 @@
+{
+  "titleText":      "Edit Address",
+  "subTitleText":   "Made with love by developers for developers.",
+
+  "firstNameEntry": "First Name",
+  "lastNameEntry":  "Last Name",
+  "companyEntry":   "Company",
+  "address1Entry":  "Address 1",
+  "address2Entry":  "Address 2",
+  "cityEntry":      "City",
+  "zipcodeEntry":   "Zipcode",
+  "firstNameError": "First Name must be between 1 and 32 characters!",
+  "lastNameError":  "Last Name must be between 1 and 32 characters!",
+  "companyError":   "Company must be between 1 and 32 characters!",
+  "address1Error":  "Address 1 must be between 3 and 128 characters!",
+  "address2Error":  "Address 2 must be between 3 and 128 characters!",
+  "cityError":      "City must be between 2 and 128 characters!",
+  "zipcodeError":   "Zipcode must be between 2 and 10 characters!",
+
+  "buttonSave":     "Save changes",
+
+  "footerText":     "Want to change your password?",
+  "footerLinkText": "Password"
+}

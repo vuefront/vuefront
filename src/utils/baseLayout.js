@@ -1,6 +1,4 @@
-import isUndefined from 'lodash/isUndefined'
-import isEmpty from 'lodash/isEmpty'
-import isString from 'lodash/isString'
+import { isString, isEmpty, isUndefined } from 'lodash'
 
 export const BaseLayout = {
   computed: {
@@ -12,7 +10,7 @@ export const BaseLayout = {
         regexRoute = regexRoute.replace('//', '\\//')
         const regex = new RegExp('^' + regexRoute + '$', 'i')
         let currentRoute = this.$route.path !== '' ? this.$route.path : '/'
-        if(!isEmpty(this.$vuefront.params.url)) {
+        if (!isEmpty(this.$vuefront.params.url)) {
           currentRoute = this.$vuefront.params.url
         }
 
@@ -27,22 +25,22 @@ export const BaseLayout = {
                 ...result,
                 {
                   component: 'vfModule' + layout[this.position][key],
-                  props: {}
-                }
+                  props: {},
+                },
               ]
             } else {
               result = [
                 ...result,
                 {
                   component: 'vfModule' + layout[this.position][key][0],
-                  props: layout[this.position][key][1]
-                }
+                  props: layout[this.position][key][1],
+                },
               ]
             }
           }
         }
       }
       return result
-    }
-  }
+    },
+  },
 }

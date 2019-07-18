@@ -1,6 +1,6 @@
-import addToCompareGraphql from '~/graphql/store/compare/addToCompare.graphql'
-import removeCompareGraphql from '~/graphql/store/compare/removeCompare.graphql'
-import compareGetGql from '~/graphql/store/compare/get.graphql'
+import addToCompareGraphql from 'vuefront/graphql/store/compare/addToCompare.graphql'
+import removeCompareGraphql from 'vuefront/graphql/store/compare/removeCompare.graphql'
+import compareGetGql from 'vuefront/graphql/store/compare/get.graphql'
 
 export const state = () => ({
   compare: {}

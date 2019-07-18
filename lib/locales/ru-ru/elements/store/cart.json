@@ -1,0 +1,10 @@
+{
+  "productColumn": "Товар",
+  "priceColumn": "Цена",
+  "quantityColumn": "Количество",
+  "totalColumn": "Всего",
+  "actionColumn": "",
+  "totalText": "Итого:", 
+  "checkoutButton": "Оформить заказ",
+  "returnButton": "Вернуться к покупкам"
+}

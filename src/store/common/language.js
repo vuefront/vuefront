@@ -1,6 +1,6 @@
-import editLanguageGraphql from '~/graphql/common/language/edit.graphql'
-import languageGetGql from '~/graphql/common/language/get.graphql'
-import find from 'lodash/find'
+import editLanguageGraphql from 'vuefront/graphql/common/language/edit.graphql'
+import languageGetGql from 'vuefront/graphql/common/language/get.graphql'
+import {find} from 'lodash'
 
 export const state = () => ({
   language: {},

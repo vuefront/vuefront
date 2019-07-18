@@ -1,0 +1,10 @@
+{
+  "loginText": "Login",
+  "registerText": "Register",
+  "myAccountText": "My Account",
+  "editAccountText": "Edit Account",
+  "passwordText": "Password",
+  "addressText": "Address Book",
+  "wishlistText": "Wish List",
+  "logoutText": "Logout"
+}

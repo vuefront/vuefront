@@ -1,8 +1,8 @@
-import AddressesGql from '~/graphql/account/address/list.graphql'
-import AddressGql from '~/graphql/account/address/get.graphql'
-import AddressAddGql from '~/graphql/account/address/create.graphql'
-import AddressEditGql from '~/graphql/account/address/edit.graphql'
-import AddressRemoveGql from '~/graphql/account/address/remove.graphql'
+import AddressesGql from 'vuefront/graphql/account/address/list.graphql'
+import AddressGql from 'vuefront/graphql/account/address/get.graphql'
+import AddressAddGql from 'vuefront/graphql/account/address/create.graphql'
+import AddressEditGql from 'vuefront/graphql/account/address/edit.graphql'
+import AddressRemoveGql from 'vuefront/graphql/account/address/remove.graphql'
 
 export const state = () => ({
   address: false,

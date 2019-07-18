@@ -1,6 +1,6 @@
 .DS_Store
 node_modules
-# /lib
+/dist
 
 # local env files
 .env.local
@@ -18,7 +18,4 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
-*.sw*
-scss/purpose
-schema.graphql
-*.todo
+*.sw?
