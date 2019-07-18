@@ -1,21 +1,9 @@
-import CategoryPageLoader from './page/category.vue'
-import SpecialPageLoader from './page/special.vue'
-import ProductGridLoader from './product/grid.vue'
-import ProductImageLoader from './product/image.vue'
-import ProductModuleLoader from './product/module.vue'
-import ProductSortLoader from './product/sort.vue'
-import ProductThumbLoader from './product/thumb.vue'
-import CategoryLoader from './category.vue'
-import ProductLoader from './product.vue'
-
-export {
-  CategoryPageLoader,
-  SpecialPageLoader,
-  ProductGridLoader,
-  ProductImageLoader,
-  ProductModuleLoader,
-  ProductSortLoader,
-  ProductThumbLoader,
-  CategoryLoader,
-  ProductLoader,
-}
+export { default as CategoryPageLoader } from './page/category.vue'
+export { default as SpecialPageLoader } from './page/special.vue'
+export { default as ProductGridLoader } from './product/grid.vue'
+export { default as ProductImageLoader } from './product/image.vue'
+export { default as ProductModuleLoader } from './product/module.vue'
+export { default as ProductSortLoader } from './product/sort.vue'
+export { default as ProductThumbLoader } from './product/thumb.vue'
+export { default as CategoryLoader } from './category.vue'
+export { default as ProductLoader } from './product.vue'

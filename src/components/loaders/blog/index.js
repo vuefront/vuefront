@@ -1,15 +1,6 @@
-import CategoryBlogPageLoader from './page/category.vue'
-import PostGridLoader from './post/grid.vue'
-import PostModuleLoader from './post/module.vue'
-import PostThumbLoader from './post/thumb.vue'
-import CategoryBlogLoader from './category.vue'
-import PostLoader from './post.vue'
-
-export {
-  CategoryBlogPageLoader,
-  PostGridLoader,
-  PostModuleLoader,
-  PostThumbLoader,
-  CategoryBlogLoader,
-  PostLoader,
-}
+export { default as CategoryBlogPageLoader } from './page/category.vue'
+export { default as PostGridLoader } from './post/grid.vue'
+export { default as PostModuleLoader } from './post/module.vue'
+export { default as PostThumbLoader } from './post/thumb.vue'
+export { default as CategoryBlogLoader } from './category.vue'
+export { default as PostLoader } from './post.vue'

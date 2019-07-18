@@ -1,5 +1,3 @@
-import CategoryBlogModule from './category.vue'
-import LatestPostModule from './latestPost.vue'
-import SearchPostModule from './searchPost.vue'
-
-export { CategoryBlogModule, LatestPostModule, SearchPostModule }
+export { default as CategoryBlogModule } from './category.vue'
+export { default as LatestPostModule } from './latestPost.vue'
+export { default as SearchPostModule } from './searchPost.vue'

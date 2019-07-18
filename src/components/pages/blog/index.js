@@ -1,4 +1,2 @@
-import CategoryBlogPage from './category.vue'
-import PostPage from './post.vue'
-
-export { CategoryBlogPage, PostPage }
+export { default as CategoryBlogPage } from './category.vue'
+export { default as PostPage } from './post.vue'

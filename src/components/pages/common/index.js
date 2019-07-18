@@ -1,27 +1,4 @@
-import AccountPage from './account/account.vue'
-import AccountAddressPage from './account/address.vue'
-import AccountCreateAddressPage from './account/createAddress.vue'
-import AccountEditPage from './account/edit.vue'
-import AccountEditAddressPage from './account/editAddress.vue'
-import AccountLoginPage from './account/login.vue'
-import AccountPasswordPage from './account/password.vue'
-import AccountRegisterPage from './account/register.vue'
-import ContactPage from './contact.vue'
-import HomePage from './home.vue'
-import PagePage from './page.vue'
-import SearchPage from './search.vue'
-
-export {
-  AccountPage,
-  AccountAddressPage,
-  AccountCreateAddressPage,
-  AccountEditPage,
-  AccountEditAddressPage,
-  AccountLoginPage,
-  AccountPasswordPage,
-  AccountRegisterPage,
-  ContactPage,
-  HomePage,
-  PagePage,
-  SearchPage,
-}
+export { default as ContactPage } from './contact.vue'
+export { default as HomePage } from './home.vue'
+export { default as PagePage } from './page.vue'
+export { default as SearchPage } from './search.vue'

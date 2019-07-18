@@ -1,6 +1,4 @@
 export { default as ErrorTemplate } from './error.vue'
-import FooterTemplate from './footer.vue'
-import HeaderTemplate from './header.vue'
-import LayoutTemplate from './layout.vue'
-
-export { FooterTemplate, HeaderTemplate, LayoutTemplate }
+export { default as FooterTemplate } from './footer.vue'
+export { default as HeaderTemplate } from './header.vue'
+export { default as LayoutTemplate } from './layout.vue'

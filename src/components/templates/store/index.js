@@ -1,4 +1,2 @@
-import CategoryTemplate from './category.vue'
-import SpecialTemplate from './special.vue'
-
-export { CategoryTemplate, SpecialTemplate }
+export { default as CategoryTemplate } from './category.vue'
+export { default as SpecialTemplate } from './special.vue'

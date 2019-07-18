@@ -1,0 +1,8 @@
+export { default as AccountPage } from './account.vue'
+export { default as AccountAddressPage } from './address.vue'
+export { default as AccountCreateAddressPage } from './createAddress.vue'
+export { default as AccountEditPage } from './edit.vue'
+export { default as AccountEditAddressPage } from './editAddress.vue'
+export { default as AccountLoginPage } from './login.vue'
+export { default as AccountPasswordPage } from './password.vue'
+export { default as AccountRegisterPage } from './register.vue'

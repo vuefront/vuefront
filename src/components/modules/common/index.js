@@ -1,17 +1,7 @@
-import AccountModule from './account.vue'
-import AccountLinksModule from './accountLinks.vue'
-import ExtraLinksModule from './extraLinks.vue'
-import MenuModule from './menu.vue'
-import PagesModule from './pages.vue'
-import SearchModule from './search.vue'
-import SlideshowModule from './slideshow.vue'
-
-export {
-  AccountModule,
-  AccountLinksModule,
-  ExtraLinksModule,
-  MenuModule,
-  PagesModule,
-  SearchModule,
-  SlideshowModule,
-}
+export { default as AccountModule } from './account.vue'
+export { default as AccountLinksModule } from './accountLinks.vue'
+export { default as ExtraLinksModule } from './extraLinks.vue'
+export { default as MenuModule } from './menu.vue'
+export { default as PagesModule } from './pages.vue'
+export { default as SearchModule } from './search.vue'
+export { default as SlideshowModule } from './slideshow.vue'

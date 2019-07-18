@@ -1,5 +1,3 @@
-import Loader from './loader.vue'
-import RatingLoader from './rating.vue'
-import ReviewsLoader from './reviews.vue'
-
-export { Loader, RatingLoader, ReviewsLoader }
+export { default as Loader } from './loader.vue'
+export { default as RatingLoader } from './rating.vue'
+export { default as ReviewsLoader } from './reviews.vue'

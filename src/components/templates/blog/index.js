@@ -1,3 +1,1 @@
-import CategoryBlogTemplate from './category.vue'
-
-export { CategoryBlogTemplate }
+export { default as CategoryBlogTemplate } from './category.vue'

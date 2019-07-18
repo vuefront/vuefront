@@ -1,17 +1,7 @@
-import CategoryModule from './category.vue'
-import CheckoutModule from './checkout.vue'
-import FeaturedProductModule from './featuredProduct.vue'
-import LatestProductModule from './latestProduct.vue'
-import RelatedProductModule from './relatedProduct.vue'
-import SearchProductModule from './searchProduct.vue'
-import SpecialProductModule from './specialProduct.vue'
-
-export {
-  CategoryModule,
-  CheckoutModule,
-  FeaturedProductModule,
-  LatestProductModule,
-  RelatedProductModule,
-  SearchProductModule,
-  SpecialProductModule
-}
+export { default as CategoryModule } from './category.vue'
+export { default as CheckoutModule } from './checkout.vue'
+export { default as FeaturedProductModule } from './featuredProduct.vue'
+export { default as LatestProductModule } from './latestProduct.vue'
+export { default as RelatedProductModule } from './relatedProduct.vue'
+export { default as SearchProductModule } from './searchProduct.vue'
+export { default as SpecialProductModule } from './specialProduct.vue'
