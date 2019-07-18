@@ -10,7 +10,6 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
-import categoryPageGql from "vuefront/graphql/blog/category/page.graphql";
 import { BaseModule } from "vuefront/lib/utils/module.js";
 
 export default {
@@ -71,7 +70,7 @@ export default {
     async handleLoadData(ctx) {
       let { id } = this.$vuefront.params;
       await this.$store.dispatch("apollo/query", {
-        query: categoryPageGql,
+        query: this.$options.query,
         variables: { page: this.page, size: 12, categoryId: id }
       });
 
@@ -91,3 +90,41 @@ export default {
   }
 };
 </script>
+<graphql>
+query($page: Int, $size: Int, $categoryId: String) {
+  postsList(page: $page, size: $size, category_id: $categoryId) {
+    content {
+      id
+      title
+      description
+      shortDescription
+      image
+      imageLazy
+      keyword
+      reviews {
+        totalElements
+      }
+      categories {
+        id
+        name
+        url(url: "/blog/category/_id")
+      }
+    }
+    number
+    totalPages
+    totalElements
+  }
+  categoryBlog(id: $categoryId) {
+    id
+    name
+    description
+    categories {
+      id
+      name
+      image
+      imageLazy
+      keyword
+    }
+  }
+}
+</graphql>

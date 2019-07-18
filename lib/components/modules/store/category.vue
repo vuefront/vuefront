@@ -1,5 +1,5 @@
 <template>
-  <vf-apollo v-slot="{data}" :query="require('vuefront/graphql/modules/storeCategory.graphql')">
+  <vf-apollo v-slot="{data}">
     <div class="categoriesList mb-4">
       <b-list-group>
         <template v-for="(value, index) in data.categoriesList.content">
@@ -67,3 +67,19 @@ export default {
   },
 }
 </script>
+<graphql>
+{
+  categoriesList(page: 1, size: 10, parent: 0) {
+    content {
+      id
+      name
+      keyword
+      categories {
+        id
+        name
+        keyword
+      }
+    }
+  }
+}
+</graphql>

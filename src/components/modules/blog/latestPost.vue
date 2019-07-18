@@ -1,7 +1,7 @@
 <template>
-  <vf-apollo :query="require('vuefront/graphql/modules/latestPost.graphql')">
+  <vf-apollo>
     <template #loader>
-      <vf-loader-post-module :column="column"/>
+      <vf-loader-post-module :column="column" />
     </template>
     <template #default="{data}">
       <vf-post-module
@@ -21,3 +21,25 @@ export default {
   }
 };
 </script>
+<graphql>
+{
+  latestPosts: postsList(page: 1, size: 4, sort: "date_added", order: "DESC") {
+    content {
+      id
+      title
+      shortDescription
+      image
+      imageLazy
+      keyword
+      categories {
+        id
+        name
+        url(url: "/blog/category/_id")
+      }
+      reviews {
+        totalElements
+      }
+    }
+  }
+}
+</graphql>

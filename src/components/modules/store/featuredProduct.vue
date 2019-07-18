@@ -1,7 +1,9 @@
 <template>
-  <vf-apollo :query="require('vuefront/graphql/modules/featuredProduct.graphql')" :variables="{ids}">
+  <vf-apollo
+    :variables="{ids}"
+  >
     <template #loader>
-      <vf-loader-product-module :column="column"/>
+      <vf-loader-product-module :column="column" />
     </template>
     <template #default="{data}">
       <vf-product-module
@@ -25,3 +27,20 @@ export default {
   }
 };
 </script>
+<graphql>
+query($ids: [Int]){
+    featuredProducts: productsList(page: 1, size: 4, ids: $ids, sort: "date_added", order: "DESC") {
+        content {
+            id
+            name
+            shortDescription
+            price
+            special
+            image
+            imageLazy
+            rating
+            keyword
+        }
+    }
+}
+</graphql>

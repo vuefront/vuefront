@@ -8,9 +8,35 @@
     </template>
   </section>
 </template>
+<graphql>
+query($page: Int, $size: Int, $sort: String, $order: String) {
+  productsList(
+    page: $page
+    size: $size
+    sort: $sort
+    order: $order
+    special: true
+  ) {
+    content {
+      id
+      name
+      shortDescription
+      price
+      special
+      image
+      imageLazy
+      rating
+      keyword
+    }
+    size
+    number
+    totalPages
+    totalElements
+  }
+}
+</graphql>
 <script>
 import { mapGetters } from "vuex";
-import specialPageGql from "vuefront/graphql/store/category/special.graphql";
 import { BaseModule } from "vuefront/lib/utils/module.js";
 export default {
   head() {
@@ -81,7 +107,7 @@ export default {
     async handleLoadData(ctx) {
       const sortData = this.sort.split("|");
       await this.$store.dispatch("apollo/query", {
-        query: specialPageGql,
+        query: this.$options.query,
         variables: {
           page: this.page,
           size: this.size,

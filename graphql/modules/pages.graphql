@@ -1,9 +1,0 @@
-{
-  pagesList (page: 1, size: 4) {
-    content {
-      id
-      title
-      keyword
-    }
-  }
-}

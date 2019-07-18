@@ -1,18 +1,15 @@
 <template>
-  <vf-apollo
-    :query="require('vuefront/graphql/modules/searchPost.graphql')"
-    :variables="{search:keyword}"
-  >
+  <vf-apollo :variables="{search:keyword}">
     <template #loader>
-      <vf-loader-post-module :column="column"/>
+      <vf-loader-post-module :column="column" />
     </template>
-     <template #default="{data}">
-       <vf-post-module
+    <template #default="{data}">
+      <vf-post-module
         v-if="data.searchPosts.content.length > 0"
         :items="data.searchPosts.content"
         :column="column"
       >{{$t('modules.blog.searchPost.textTitle')}}</vf-post-module>
-     </template>
+    </template>
   </vf-apollo>
 </template>
 <script>
@@ -30,3 +27,31 @@ export default {
   }
 };
 </script>
+<graphql>
+query($search: String) {
+  searchPosts: postsList(
+    page: 1
+    size: 12
+    sort: "date_added"
+    order: "DESC"
+    search: $search
+  ) {
+    content {
+      id
+      title
+      shortDescription
+      image
+      imageLazy
+      keyword
+      categories {
+        id
+        name
+        url(url: "/blog/category/_id")
+      }
+      reviews {
+        totalElements
+      }
+    }
+  }
+}
+</graphql>

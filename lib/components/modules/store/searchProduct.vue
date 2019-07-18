@@ -1,6 +1,5 @@
 <template>
   <vf-apollo
-    :query="require('vuefront/graphql/modules/searchProduct.graphql')"
     :variables="{search:keyword}"
   >
     <template #loader>
@@ -30,3 +29,20 @@ export default {
   }
 };
 </script>
+<graphql>
+query($search: String){
+    searchProduct: productsList(page: 1, size: 12, sort: "date_added", order: "DESC", search: $search) {
+        content {
+            id
+            name
+            shortDescription
+            price
+            special
+            image
+            imageLazy
+            rating
+            keyword
+        }
+    }
+}
+</graphql>

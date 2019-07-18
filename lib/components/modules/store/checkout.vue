@@ -1,5 +1,5 @@
 <template>
-  <vf-apollo v-slot="{data}" :query="require('vuefront/graphql/modules/checkout.graphql')">
+  <vf-apollo v-slot="{data}">
     <div>{{isClient? handleRedirect(data.checkoutLink.link) : ''}}</div>
   </vf-apollo>
 </template>
@@ -17,3 +17,10 @@ export default {
   }
 };
 </script>
+<graphql>
+{
+  checkoutLink {
+    link
+  }
+}
+</graphql>

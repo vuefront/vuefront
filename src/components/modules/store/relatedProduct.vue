@@ -1,11 +1,7 @@
 <template>
-  <vf-apollo
-    v-if="id"
-    :query="require('vuefront/graphql/modules/relatedProduct.graphql')"
-    :variables="{id:id}"
-  >
+  <vf-apollo v-if="id" :variables="{id:id}">
     <template #loader>
-      <vf-loader-product-module :column="column"/>
+      <vf-loader-product-module :column="column" />
     </template>
     <template #default="{data}">
       <vf-product-module
@@ -17,7 +13,7 @@
   </vf-apollo>
 </template>
 <script>
-import {isEmpty} from "lodash";
+import { isEmpty } from "lodash";
 export default {
   props: {
     column: {
@@ -41,3 +37,21 @@ export default {
   }
 };
 </script>
+<graphql>
+query($id: String) {
+    relatedProducts: product(id: $id) {
+        id
+        products(limit: 4) {
+            id
+            image
+            imageLazy
+            description
+            shortDescription
+            price
+            special
+            name
+            keyword
+        }
+    }
+}
+</graphql>
