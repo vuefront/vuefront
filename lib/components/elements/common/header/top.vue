@@ -15,7 +15,7 @@
           >{{$t('elements.common.header.topNav.wishListText')}}</b-nav-item>
           <b-nav-item-dropdown class="top-nav__dropdown" right>
             <template slot="button-content">
-              <vf-icon :icon="['far', 'user-circle']" />
+              <vf-a-icon :icon="['far', 'user-circle']" />
             </template>
             <b-dropdown-item
               v-if="!auth"

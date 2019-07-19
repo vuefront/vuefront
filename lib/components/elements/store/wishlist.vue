@@ -23,10 +23,10 @@
         <template slot="price" slot-scope="data">{{data.item.price}}</template>
         <template slot="action" slot-scope="data">
           <div class="wishlist__action m-1 d-inline" @click="handleAddToCart(data.item)">
-            <vf-icon :icon="['fas', 'shopping-cart']" />
+            <vf-a-icon :icon="['fas', 'shopping-cart']" />
           </div>
           <div class="wishlist__action m-1 ml-2 d-inline" @click="handleRemove(data.item)">
-            <vf-icon icon="times" />
+            <vf-a-icon icon="times" />
           </div>
         </template>
       </b-table>

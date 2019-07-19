@@ -64,10 +64,10 @@
         <div class="compare__item_value border p-2"></div>
         <div v-for="(value, index) in compare" :key="index" class="compare__item_value border p-2">
           <div class="compare__action m-1 d-inline" @click="handleAddToCart(value)">
-            <vf-icon :icon="['fas', 'shopping-cart']" />
+            <vf-a-icon :icon="['fas', 'shopping-cart']" />
           </div>
           <div class="compare__action m-1 ml-2 d-inline" @click="handleRemove(value)">
-            <vf-icon icon="times" />
+            <vf-a-icon icon="times" />
           </div>
         </div>
       </div>

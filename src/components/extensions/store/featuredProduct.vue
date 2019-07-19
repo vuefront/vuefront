@@ -1,0 +1,46 @@
+<template>
+  <vf-apollo
+    :variables="{ids}"
+  >
+    <template #loader>
+      <vf-loader-product-module :column="column" />
+    </template>
+    <template #default="{data}">
+      <vf-product-module
+        :items="data.featuredProducts.content"
+        :column="column"
+      >{{$t('modules.store.featuredProduct.textTitle')}}</vf-product-module>
+    </template>
+  </vf-apollo>
+</template>
+<script>
+export default {
+  props: {
+    ids: {
+      type: Array,
+      default: []
+    },
+    column: {
+      type: Boolean,
+      default: false
+    }
+  }
+};
+</script>
+<graphql>
+query($ids: [Int]){
+    featuredProducts: productsList(page: 1, size: 4, ids: $ids, sort: "date_added", order: "DESC") {
+        content {
+            id
+            name
+            shortDescription
+            price
+            special
+            image
+            imageLazy
+            rating
+            keyword
+        }
+    }
+}
+</graphql>

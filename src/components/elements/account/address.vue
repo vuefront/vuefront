@@ -15,10 +15,10 @@
       <template #action="{item}">
         <div class="account-address__action ma-1">
           <span @click="handleEdit(item)">
-            <vf-icon icon="pencil-alt" />
+            <vf-a-icon icon="pencil-alt" />
           </span>
           <span @click="handleRemove(item)">
-            <vf-icon icon="times" />
+            <vf-a-icon icon="times" />
           </span>
         </div>
       </template>

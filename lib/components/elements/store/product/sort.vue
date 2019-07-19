@@ -4,10 +4,10 @@
       <b-col sm="6" md="2" align-self="center">
         <b-button-group size="sm">
           <b-button :pressed="mode === 'grid'" variant="light-gray" @click="modeValue='grid'">
-            <vf-icon icon="th"/>
+            <vf-a-icon icon="th"/>
           </b-button>
           <b-button :pressed="mode === 'list'" variant="light-gray" @click="modeValue='list'">
-            <vf-icon icon="th-list"/>
+            <vf-a-icon icon="th-list"/>
           </b-button>
         </b-button-group>
       </b-col>

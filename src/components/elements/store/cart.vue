@@ -5,9 +5,9 @@
         <template slot="product" slot-scope="data">
           <b-media no-body>
             <b-media-aside vertical-align="center" class="pl-3">
-              <b-img-lazy
-                :src="mainImage(data.item.product)"
-                :blank-src="mainImagelazy(data.item.product)"
+              <vf-a-image
+                :lazy-src="mainImage(data.item.product)"
+                :src="mainImagelazy(data.item.product)"
                 width="80"
                 height="80"
               />
@@ -39,131 +39,121 @@
         </template>
         <template slot="action" slot-scope="data">
           <div class="shopping-cart__action ma-1" @click="handleRemove(data.item)">
-            <vf-icon icon="times" />
+            <vf-a-icon icon="times" />
           </div>
         </template>
       </b-table>
     </div>
-    <b-card body-bg-variant="secondary" class="shopping-cart__footer mt-5">
-      <b-row align-v="center" align-h="between">
-        <b-col md="6" order-md="2" class="mb-4 mb-md-0">
+    <vf-m-card body-bg-color="secondary" class="shopping-cart__footer mt-5">
+      <vf-m-row align-v="center" align-h="between">
+        <vf-m-col md="6" order-md="2" class="mb-4 mb-md-0">
           <div class="d-flex align-items-center justify-content-md-end">
             <span
               class="h6 text-muted d-inline-block mr-3 mb-0"
             >{{$t('elements.store.cart.totalText')}}</span>
-            <span class="h4 mb-0">{{cart.total}}</span>
+            <vf-a-heading level="4" tag="span" class="mb-0">{{cart.total}}</vf-a-heading>
           </div>
-        </b-col>
-        <b-col md="6" order-md="1">
-          <b-button
+        </vf-m-col>
+        <vf-m-col md="6" order-md="1">
+          <vf-a-button
             :disabled="!isProducts"
-            variant="primary"
+            color="primary"
             class="mr-md-2 btn-animated btn-animated-y"
             to="/store/checkout"
             nuxt
           >
             <span class="btn-inner--visible">{{$t('elements.store.cart.checkoutButton')}}</span>
             <span class="btn-inner--hidden">
-              <vf-icon icon="shopping-cart"></vf-icon>
+              <vf-a-icon icon="shopping-cart"></vf-a-icon>
             </span>
-          </b-button>
-          <b-button
-            variant="flat"
+          </vf-a-button>
+          <vf-a-button
+            color="flat"
             nuxt
             to="/"
             class="btn-link text-sm text-dark font-weight-bold"
-          >{{$t('elements.store.cart.returnButton')}}</b-button>
-        </b-col>
-      </b-row>
-    </b-card>
+          >{{$t('elements.store.cart.returnButton')}}</vf-a-button>
+        </vf-m-col>
+      </vf-m-row>
+    </vf-m-card>
   </section>
 </template>
 <script>
 import {
   BTable,
-  BImgLazy,
   BMedia,
   BMediaBody,
   BMediaAside,
-  BFormInput,
-  BCard,
-  BRow,
-  BCol,
-  BButton,
-} from 'bootstrap-vue'
-import {isEmpty} from 'lodash'
-import placeholder from 'vuefront/assets/img/placeholder.png'
+  BFormInput
+} from "bootstrap-vue";
+import { isEmpty } from "lodash";
+import placeholder from "vuefront/assets/img/placeholder.png";
 export default {
   components: {
     BTable,
-    BImgLazy,
     BMedia,
     BMediaBody,
     BMediaAside,
-    BFormInput,
-    BCard,
-    BRow,
-    BCol,
-    BButton,
+    BFormInput
   },
-  props: ['cart'],
+  props: ["cart"],
   data() {
     return {
       fields: [
         {
-          key: 'product',
-          label: this.$t('elements.store.cart.productColumn'),
-          sortable: false,
+          key: "product",
+          label: this.$t("elements.store.cart.productColumn"),
+          sortable: false
         },
         {
-          key: 'price',
-          label: this.$t('elements.store.cart.priceColumn'),
-          sortable: false,
+          key: "price",
+          label: this.$t("elements.store.cart.priceColumn"),
+          sortable: false
         },
         {
-          key: 'quantity',
-          label: this.$t('elements.store.cart.quantityColumn'),
-          sortable: false,
+          key: "quantity",
+          label: this.$t("elements.store.cart.quantityColumn"),
+          sortable: false
         },
         {
-          key: 'total',
-          label: this.$t('elements.store.cart.totalColumn'),
-          sortable: false,
+          key: "total",
+          label: this.$t("elements.store.cart.totalColumn"),
+          sortable: false
         },
         {
-          key: 'action',
-          label: this.$t('elements.store.cart.actionColumn'),
-          sortable: false,
-        },
-      ],
-    }
+          key: "action",
+          label: this.$t("elements.store.cart.actionColumn"),
+          sortable: false
+        }
+      ]
+    };
   },
   computed: {
     isProducts() {
-      return !isEmpty(this.cart.products)
-    },
+      return !isEmpty(this.cart.products);
+    }
   },
   methods: {
     mainImage(product) {
-      return product.image !== '' ? product.image : placeholder
+      return product.image !== "" ? product.image : placeholder;
     },
     mainImagelazy(product) {
-      return product.imageLazy !== '' ? product.imageLazy : placeholder
+      return product.imageLazy !== "" ? product.imageLazy : placeholder;
     },
     handleChangeQuantity(e, cartProduct) {
-      this.$store.dispatch('store/cart/update', {
+      this.$store.dispatch("store/cart/update", {
         key: cartProduct.key,
-        quantity: Number(e),
-      })
+        quantity: Number(e)
+      });
     },
 
     handleRemove(cartProduct) {
-      this.$store.dispatch('store/cart/remove', {
-        key: cartProduct.key,
-      })
-    },
-  },
-}
+      this.$store.dispatch("store/cart/remove", {
+        key: cartProduct.key
+      });
+    }
+  }
+};
 </script>
 <style lang="scss">
 .shopping-cart {

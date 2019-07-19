@@ -12,6 +12,7 @@
             :label="$t('elements.common.account.login.emailEntry')"
             label-for="input-email"
           >
+            template
             <b-form-input
               id="input-email"
               v-model.trim="form.email"

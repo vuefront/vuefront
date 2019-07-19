@@ -8,7 +8,7 @@
       :key="rating"
       style="cursor:pointer;"
     >
-      <vf-icon
+      <vf-a-icon
         :icon="rating <= currentRating ? 'star' : ['far', 'star']"
         :style="{color: color}"
         style="width: 1.125em;"

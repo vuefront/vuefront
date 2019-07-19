@@ -2,6 +2,58 @@ export default {
   plugins: [],
   css: ['vuefront/assets/scss/main.scss'],
   menu: [],
+  atoms: {
+    Button: {
+      package: 'vuefront/lib',
+      el: 'Button'
+    },
+    Icon: {
+      package: 'vuefront/lib',
+      el: 'Icon'
+    },
+    Link: {
+      package: 'vuefront/lib',
+      el: 'Link'
+    },
+    Image: {
+      package: 'vuefront/lib',
+      el: 'Image'
+    },
+    AmpImage: {
+      package: 'vuefront/lib',
+      el: 'AmpImage'
+    },
+    Badge: {
+      package: 'vuefront/lib',
+      el: 'Badge'
+    },
+    Heading: {
+      package: 'vuefront/lib',
+      el: 'Heading'
+    }
+  },
+  molecules: {
+    ButtonGroup: {
+      package: 'vuefront/lib',
+      el: 'ButtonGroup'
+    },
+    Row: {
+      package: 'vuefront/lib',
+      el: 'Row'
+    },
+    Col: {
+      package: 'vuefront/lib',
+      el: 'Col'
+    },
+    Card: {
+      package: 'vuefront/lib',
+      el: 'Card'
+    },
+    CardBody: {
+      package: 'vuefront/lib',
+      el: 'CardBody'
+    }
+  },
   locales: {
     'en-gb': [
       {
@@ -357,7 +409,6 @@ export default {
       el: 'HeaderSidebar'
     },
     HeaderTop: { package: 'vuefront/lib', el: 'HeaderTop' },
-    Icon: { package: 'vuefront/lib', el: 'Icon' },
     Language: { package: 'vuefront/lib', el: 'Language' },
     Notification: {
       package: 'vuefront/lib',

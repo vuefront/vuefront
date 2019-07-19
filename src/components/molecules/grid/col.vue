@@ -1,0 +1,86 @@
+<template>
+  <b-col
+    :cols="xs"
+    :sm="sm"
+    :md="md"
+    :lg="lg"
+    :xl="xl"
+    :order="orderXs"
+    :order-sm="orderSm"
+    :order-md="orderMd"
+    :order-lg="orderLg"
+    :order-xl="orderXl"
+  >
+    <slot></slot>
+  </b-col>
+</template>
+<script>
+import { BCol } from "bootstrap-vue";
+export default {
+  components: {
+    BCol
+  },
+  props: {
+    xs: {
+      type: Number | Boolean,
+      default() {
+        return "";
+      }
+    },
+    sm: {
+      type: String | Number | Boolean,
+      default() {
+        return false;
+      }
+    },
+    md: {
+      type: String | Number | Boolean,
+      default() {
+        return false;
+      }
+    },
+    lg: {
+      type: String | Number | Boolean,
+      default() {
+        return false;
+      }
+    },
+    xl: {
+      type: String | Number | Boolean,
+      default() {
+        return false;
+      }
+    },
+    orderXs: {
+      type: String | Number,
+      default() {
+        return "";
+      }
+    },
+    orderSm: {
+      type: String | Number,
+      default() {
+        return "";
+      }
+    },
+    orderMd: {
+      type: String | Number,
+      default() {
+        return "";
+      }
+    },
+    orderLg: {
+      type: String | Number,
+      default() {
+        return "";
+      }
+    },
+    orderXl: {
+      type: String | Number,
+      default() {
+        return "";
+      }
+    }
+  }
+};
+</script>

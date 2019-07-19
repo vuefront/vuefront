@@ -1,31 +1,27 @@
 <template>
-  <b-card :class="{'card-product_wide' : wide}" class="card-product" no-body>
-    <b-row no-gutters>
-      <b-col :md="wide ? 3 : 12" class="px-4">
-        <b-link :to="url" class="card-product__image_wrapper">
-          <amp-img
+  <vf-m-card :class="{'card-product_wide' : wide}" class="card-product" no-body>
+    <vf-m-row no-gutters>
+      <vf-m-col :md="wide ? 3 : 12" class="px-4">
+        <vf-a-link :to="url" class="card-product__image_wrapper">
+          <vf-a-amp-image
             v-if="$vuefront.isAMP"
             :src="mainImage"
-            width="205"
-            height="205"
-            :alt="product.name"
-            :title="product.name"
-            class="card-product__image"
+            :width="205"
+            :height="205"
+            class="card-product__image card-img"
           />
-          <b-card-img-lazy
+          <vf-a-image
             v-else
-            :src="mainImage"
-            :blank-src="mainImagelazy"
+            :src="mainImagelazy"
+            :lazy-src="mainImage"
+            class="card-product__image card-img"
             fluid
-            :alt="product.name"
-            :title="product.name"
-            class="card-product__image"
           />
-        </b-link>
-      </b-col>
-      <b-col :md="wide ? 9 : 12">
-        <b-card-body class="pt-0">
-          <h3 class="h6 mb-0 card-product__name">{{ product.name }}</h3>
+        </vf-a-link>
+      </vf-m-col>
+      <vf-m-col :md="wide ? 9 : 12">
+        <vf-m-card-body class="pt-0">
+          <vf-a-heading tag="h3" level="6" class="mb-0 card-product__name">{{ product.name }}</vf-a-heading>
           <vf-rating
             v-if="product.rating > 0 && wide"
             :value="product.rating"
@@ -33,130 +29,110 @@
             readonly
           />
           <div v-html="product.shortDescription" class="card-product__description text-sm mb-3"></div>
-          <h4 class="mb-0 card-product__price">
+          <vf-a-heading :level="4" class="mb-0 card-product__price">
             <span
               v-if="product.special !== ''"
               class="card-product__price_special"
             >{{product.special}}</span>
             <span :class="{'font-weight-regular': product.special !== ''}">{{ product.price }}</span>
-          </h4>
-        </b-card-body>
-        <b-button-group style="width: 100%;" size="sm">
-          <b-button
-            variant="light-gray"
+          </vf-a-heading>
+        </vf-m-card-body>
+        <vf-m-button-group size="sm" block>
+          <vf-a-button
+            color="light-gray"
             class="border border-radius-top-left-0"
             @click="handleAddToCart"
           >
-            <vf-icon :icon="['fas', 'shopping-cart']" />
-          </b-button>
-          <b-button
-            variant="light-gray"
-            class="border border-radius-top-right-0"
+            <vf-a-icon :icon="['fas', 'shopping-cart']" />
+          </vf-a-button>
+          <vf-a-button
+            color="light-gray"
+            class="border border-radius-top-left-0"
             @click="handleAddToWishlist"
           >
-            <vf-icon :icon="['fas', 'heart']" />
-          </b-button>
-          <b-button
-            variant="light-gray"
-            class="border border-radius-top-right-0"
+            <vf-a-icon :icon="['fas', 'heart']" />
+          </vf-a-button>
+          <vf-a-button
+            color="light-gray"
+            class="border border-radius-top-left-0"
             @click="handleAddToCompare"
           >
-            <vf-icon :icon="['fas', 'exchange-alt']" />
-          </b-button>
-        </b-button-group>
-      </b-col>
-    </b-row>
-  </b-card>
+            <vf-a-icon :icon="['fas', 'exchange-alt']" />
+          </vf-a-button>
+        </vf-m-button-group>
+      </vf-m-col>
+    </vf-m-row>
+  </vf-m-card>
 </template>
 <script>
-import {
-  BRow,
-  BCol,
-  BCard,
-  BCardImgLazy,
-  BCardBody,
-  BButton,
-  BButtonGroup,
-  BLink,
-} from 'bootstrap-vue'
-import placeholder from 'vuefront/assets/img/placeholder.png'
-import { mapGetters } from 'vuex'
+import placeholder from "vuefront/assets/img/placeholder.png";
+import { mapGetters } from "vuex";
 export default {
-  components: {
-    BLink,
-    BRow,
-    BCol,
-    BCard,
-    BCardBody,
-    BCardImgLazy,
-    BButton,
-    BButtonGroup,
-  },
-  props: ['product', 'wide'],
+  props: ["product", "wide"],
   computed: {
     ...mapGetters({
-      error: 'vuefront/error',
+      error: "vuefront/error"
     }),
     mainImage() {
-      return this.product.image !== '' ? this.product.image : placeholder
+      return this.product.image !== "" ? this.product.image : placeholder;
     },
     mainImagelazy() {
-      return this.product.imageLazy !== ''
+      return this.product.imageLazy !== ""
         ? this.product.imageLazy
-        : placeholder
+        : placeholder;
     },
     url() {
-      if (this.product.keyword && this.product.keyword !== '') {
-        return '/' + this.product.keyword
+      if (this.product.keyword && this.product.keyword !== "") {
+        return "/" + this.product.keyword;
       } else {
-        return '/store/product/' + this.product.id
+        return "/store/product/" + this.product.id;
       }
-    },
+    }
   },
   methods: {
     async handleAddToCart() {
-      await this.$store.dispatch('store/cart/add', {
+      await this.$store.dispatch("store/cart/add", {
         id: this.product.id,
         quantity: 1,
-        options: [],
-      })
+        options: []
+      });
 
       if (!this.error) {
         this.$store.commit(
-          'notification/add',
+          "notification/add",
           this.product.name +
-            this.$t('elements.store.productThumb.notificationText')
-        )
+            this.$t("elements.store.productThumb.notificationText")
+        );
       } else {
-        this.$store.commit('notification/error', this.error.message)
+        this.$store.commit("notification/error", this.error.message);
 
-        this.$router.push('/store/product/' + this.product.id)
+        this.$router.push("/store/product/" + this.product.id);
       }
     },
     async handleAddToWishlist() {
       this.$store.commit(
-        'notification/add',
+        "notification/add",
         this.product.name +
-          this.$t('elements.store.productThumb.wishlistNotificationText')
-      )
+          this.$t("elements.store.productThumb.wishlistNotificationText")
+      );
 
-      await this.$store.dispatch('store/wishlist/add', {
-        id: Number(this.product.id),
-      })
+      await this.$store.dispatch("store/wishlist/add", {
+        id: Number(this.product.id)
+      });
     },
     async handleAddToCompare() {
       this.$store.commit(
-        'notification/add',
+        "notification/add",
         this.product.name +
-          this.$t('elements.store.productThumb.compareNotificationText')
-      )
+          this.$t("elements.store.productThumb.compareNotificationText")
+      );
 
-      await this.$store.dispatch('store/compare/add', {
-        id: Number(this.product.id),
-      })
-    },
-  },
-}
+      await this.$store.dispatch("store/compare/add", {
+        id: Number(this.product.id)
+      });
+    }
+  }
+};
 </script>
 <style lang="scss">
 .card-product {

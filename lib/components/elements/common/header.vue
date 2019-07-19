@@ -25,7 +25,7 @@
       <b-col sm="12" class="d-block d-md-none">
         <b-container class="header-section__top">
           <div class="header-section__toggle" v-b-toggle.menu-collapse>
-            <vf-icon icon="bars"></vf-icon>
+            <vf-a-icon icon="bars"></vf-a-icon>
           </div>
           <vf-header-logo :logo="logo" class="mx-auto ml-2" />
           <vf-header-cart />
@@ -41,7 +41,7 @@
             </template>
             <template #right>
               <div class="header-section__toggle_close" v-b-toggle.menu-collapse>
-                <vf-icon icon="times"></vf-icon>
+                <vf-a-icon icon="times"></vf-a-icon>
               </div>
             </template>
             <vf-position name="headerMenu" />

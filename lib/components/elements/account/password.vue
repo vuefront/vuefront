@@ -48,7 +48,7 @@
             @click="onSubmit"
           >
             {{$t('elements.common.account.password.buttonSave')}}
-            <vf-icon icon="long-arrow-alt-right" size="sm"/>
+            <vf-a-icon icon="long-arrow-alt-right" size="sm"/>
           </b-button>
         </div>
       </b-form>
