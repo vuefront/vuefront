@@ -55,15 +55,7 @@
             />
             <vf-m-row>
               <vf-m-col sm="6" md="5" class="mb-4 mb-sm-0">
-                <vf-a-heading level="3" class="product-info__price">
-                  <span
-                    v-if="product.special !== ''"
-                    class="product-info__price_special"
-                  >{{product.special}}</span>
-                  <span
-                    :class="{'font-weight-light': product.special !== '', 'h6': product.special !== ''}"
-                  >{{ product.price }}</span>
-                </vf-a-heading>
+                <vf-m-product-price :price="product.price" :special="product.special" />
               </vf-m-col>
               <vf-m-col sm="6" md="7" class="text-sm-right">
                 <vf-a-button variant="primary" @click="handleAddToCart">

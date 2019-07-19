@@ -52,6 +52,10 @@ export default {
     CardBody: {
       package: 'vuefront/lib',
       el: 'CardBody'
+    },
+    ProductPrice: {
+      package: 'vuefront/lib',
+      el: 'ProductPrice'
     }
   },
   locales: {
