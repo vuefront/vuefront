@@ -9,13 +9,20 @@ import pageGql from "vuefront/graphql/common/page.graphql";
 
 export default {
   head() {
+    if(!this.page.meta) {
+      return {}
+    }
     return {
-      title: this.page.title,
+      title: this.page.meta.title,
       meta: [
         {
           hid: "description",
           name: "description",
-          content: this.page.description
+          content: this.page.meta.description
+        },
+        {
+          name: "keywords",
+          content: this.page.meta.keyword
         }
       ]
     };

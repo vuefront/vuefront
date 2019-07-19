@@ -8,6 +8,8 @@
             :src="mainImage"
             width="205"
             height="205"
+            :alt="product.name"
+            :title="product.name"
             class="card-product__image"
           />
           <b-card-img-lazy
@@ -15,6 +17,8 @@
             :src="mainImage"
             :blank-src="mainImagelazy"
             fluid
+            :alt="product.name"
+            :title="product.name"
             class="card-product__image"
           />
         </b-link>

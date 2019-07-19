@@ -42,6 +42,11 @@
               name
               options
           }
+          meta {
+            title
+            description
+            keyword
+          }
       }
   }
 </graphql>
@@ -49,13 +54,20 @@
 import { mapGetters } from "vuex";
 export default {
   head() {
+    if(!this.product.meta) {
+      return {}
+    }
     return {
-      title: this.product.name,
+      title: this.product.meta.title,
       meta: [
         {
           hid: "description",
           name: "description",
-          content: this.product.shortDescription
+          content: this.product.meta.description
+        },
+        {
+          name: "keywords",
+          content: this.product.meta.keyword
         }
       ]
     };

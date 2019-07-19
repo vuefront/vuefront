@@ -29,7 +29,7 @@ export const actions = {
       {
         query: categoryMenuGql,
         variables: {
-            url: '/blog/category/_id'
+          url: '/blog/category/_id'
         }
       },
       { root: true }

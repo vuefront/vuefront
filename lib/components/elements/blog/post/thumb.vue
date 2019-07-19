@@ -4,6 +4,8 @@
       <amp-img
         v-if="$vuefront.isAMP"
         :src="mainImage"
+        :alt="post.title"
+        :title="post.title"
         width="246"
         height="153"
         class="card-post__image"
@@ -11,6 +13,8 @@
       <b-card-img-lazy
         v-else
         fluid
+        :alt="post.title"
+        :title="post.title"
         :src="mainImage"
         :blank-src="mainImagelazy"
         class="card-post__image"
@@ -24,33 +28,33 @@
   </b-card>
 </template>
 <script>
-import { BCard, BCardImgLazy, BCardBody, BLink } from 'bootstrap-vue'
-import placeholder from 'vuefront/assets/img/placeholder.png'
+import { BCard, BCardImgLazy, BCardBody, BLink } from "bootstrap-vue";
+import placeholder from "vuefront/assets/img/placeholder.png";
 
 export default {
   components: {
     BLink,
     BCard,
     BCardBody,
-    BCardImgLazy,
+    BCardImgLazy
   },
-  props: ['post'],
+  props: ["post"],
   computed: {
     mainImage() {
-      return this.post.image !== '' ? this.post.image : placeholder
+      return this.post.image !== "" ? this.post.image : placeholder;
     },
     mainImagelazy() {
-      return this.post.imageLazy !== '' ? this.post.imageLazy : placeholder
+      return this.post.imageLazy !== "" ? this.post.imageLazy : placeholder;
     },
     url() {
-      if (this.post.keyword && this.post.keyword !== '') {
-        return '/' + this.post.keyword
+      if (this.post.keyword && this.post.keyword !== "") {
+        return "/" + this.post.keyword;
       } else {
-        return '/blog/post/' + this.post.id
+        return "/blog/post/" + this.post.id;
       }
-    },
-  },
-}
+    }
+  }
+};
 </script>
 <style lang="scss">
 .card-post {
@@ -74,9 +78,9 @@ export default {
     min-height: 213px;
     display: flex;
     align-items: center;
-    justify-content: center;    
+    justify-content: center;
   }
-  
+
   &__image {
   }
 }

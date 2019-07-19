@@ -5,3 +5,4 @@ export {default as Currency} from './currency.vue'
 export {default as Product} from './product.vue'
 export {default as Wishlist} from './wishlist.vue'
 export * from './product/index'
+

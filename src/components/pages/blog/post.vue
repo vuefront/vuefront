@@ -6,13 +6,20 @@
 import { mapGetters } from "vuex";
 export default {
   head() {
+    if(!this.post.meta) {
+      return {}
+    }
     return {
-      title: this.post.title,
+      title: this.post.meta.title,
       meta: [
         {
           hid: "description",
           name: "description",
-          content: this.post.shortDescription
+          content: this.post.meta.description
+        },
+        {
+          name: "keywords",
+          content: this.post.meta.keyword
         }
       ]
     };
@@ -65,6 +72,11 @@ query($id: String) {
     imageLazy
     datePublished
     rating
+    meta {
+      title
+      description
+      keyword
+    }
     categories {
       id
       name

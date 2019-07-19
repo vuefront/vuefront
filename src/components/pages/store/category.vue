@@ -39,6 +39,11 @@
           description
           image
           imageLazy
+          meta {
+            title
+            description
+            keyword
+          }
           categories {
               id
               name
@@ -54,13 +59,20 @@ import { mapGetters } from "vuex";
 import { BaseModule } from "vuefront/lib/utils/module.js";
 export default {
   head() {
+    if(!this.category.meta) {
+      return {}
+    }
     return {
-      title: this.category.name,
+      title: this.category.meta.title,
       meta: [
         {
           hid: "description",
           name: "description",
-          content: this.category.description
+          content: this.category.meta.description
+        },
+        {
+          name: "keywords",
+          content: this.category.meta.keyword
         }
       ]
     };

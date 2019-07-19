@@ -26,7 +26,12 @@
             v-html="$t('elements.common.footer.copyrightText')"
           />
         </b-col>
-        <b-col md="6"></b-col>
+        <b-col md="6">
+          <div
+            class="text-sm font-weight-bold text-center text-md-right"
+            v-html="$t('elements.common.footer.poweredText')"
+          />
+        </b-col>
       </b-row>
     </b-container>
   </footer>

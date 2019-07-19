@@ -4,6 +4,11 @@ query($id: String) {
     title
     description
     sort_order
+    meta {
+      title
+      description
+      keyword
+    }
     keyword
   }
 }
