@@ -1,7 +1,7 @@
 <template>
   <section class="store-category-section">
     <vf-category :category="category" class="mb-5" />
-    <vf-sort
+    <vf-o-product-sort
       v-if="products.content.length > 0"
       :sorts="sortOptions"
       :sizes="sizeOptions"
@@ -12,12 +12,15 @@
       @changeSort="handleChangeSort"
       @changeMode="handleChangeMode"
     />
-    <vf-products-grid
+    <vf-o-product-grid
       v-if="products.content.length > 0"
       :products="products.content"
       :list="isList"
       :grid-size="grid"
       class="mb-4"
+      @click:cart="handleClickCart"
+      @click:wishlist="handleClickWishlist"
+      @click:compare="handleClickCompare"
     />
     <vf-empty
       v-if="products.content.length === 0"
@@ -118,7 +121,11 @@ export default {
       let { id } = this.$vuefront.params;
       this.$router.push({
         path: "/store/category/" + id,
-        query: { size: this.products.size.toString(), sort: sorts[0], order: sorts[1] }
+        query: {
+          size: this.products.size.toString(),
+          sort: sorts[0],
+          order: sorts[1]
+        }
       });
     },
 
@@ -134,6 +141,22 @@ export default {
       this.$router.push({
         path: "/store/category/" + id,
         query: { size: size.toString(), sort: sorts[0], order: sorts[1] }
+      });
+    },
+    handleClickCart(product) {
+      this.$store.dispatch("store/cart/add", {
+        product,
+        redirect: true
+      });
+    },
+    handleClickWishlist(product) {
+      this.$store.dispatch("store/wishlist/add", {
+        product
+      });
+    },
+    handleClickCompare(product) {
+      this.$store.dispatch("store/compare/add", {
+        product
       });
     }
   }

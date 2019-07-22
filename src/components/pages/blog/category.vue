@@ -1,7 +1,7 @@
 <template>
   <section class="blog-category">
     <template v-if="loaded">
-      <vf-template-category-blog :category="category" :posts="posts" :grid-size="gridSize" />
+      <vf-t-category-blog :category="category" :posts="posts" :grid-size="gridSize" />
     </template>
     <template v-else>
       <vf-loader-category-blog-page :grid-size="gridSize" />

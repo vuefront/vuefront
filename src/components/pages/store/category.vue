@@ -1,7 +1,7 @@
 <template>
   <section class="store-category-page">
     <template v-if="loaded">
-      <vf-template-category
+      <vf-t-category
         :category="category"
         :products="products"
         :mode="mode"

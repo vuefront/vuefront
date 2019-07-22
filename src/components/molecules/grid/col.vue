@@ -10,6 +10,7 @@
     :order-md="orderMd"
     :order-lg="orderLg"
     :order-xl="orderXl"
+    :align-self="alignSelf"
   >
     <slot></slot>
   </b-col>
@@ -21,10 +22,16 @@ export default {
     BCol
   },
   props: {
+    alignSelf: {
+      type: String,
+      default() {
+        return null;
+      }
+    },
     xs: {
       type: Number | Boolean,
       default() {
-        return "";
+        return null;
       }
     },
     sm: {
@@ -54,31 +61,31 @@ export default {
     orderXs: {
       type: String | Number,
       default() {
-        return "";
+        return null;
       }
     },
     orderSm: {
       type: String | Number,
       default() {
-        return "";
+        return null;
       }
     },
     orderMd: {
       type: String | Number,
       default() {
-        return "";
+        return null;
       }
     },
     orderLg: {
       type: String | Number,
       default() {
-        return "";
+        return null;
       }
     },
     orderXl: {
       type: String | Number,
       default() {
-        return "";
+        return null;
       }
     }
   }

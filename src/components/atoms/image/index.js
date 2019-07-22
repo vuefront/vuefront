@@ -1,2 +1,2 @@
 import './image.scss'
-export { default as Image } from './image.vue'
+export { default as aImage } from './image.vue'

@@ -1,2 +1,2 @@
 import './product-price.scss'
-export { default as ProductPrice } from './product-price.vue'
+export { default as mProductPrice } from './product-price.vue'

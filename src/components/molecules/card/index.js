@@ -1,2 +1,2 @@
-export { default as Card } from './card.vue'
-export { default as CardBody } from './card-body.vue'
+export { default as mCard } from './card.vue'
+export { default as mCardBody } from './card-body.vue'

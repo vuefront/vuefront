@@ -1,7 +1,7 @@
 <template>
   <section class="store-special-page">
     <template v-if="loaded">
-      <vf-template-special :products="products" :grid-size="gridSize" :mode="mode" :sort="sort" />
+      <vf-t-special :products="products" :grid-size="gridSize" :mode="mode" :sort="sort" />
     </template>
     <template v-else>
       <vf-loader-special-page :grid-size="gridSize" />

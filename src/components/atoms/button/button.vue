@@ -6,6 +6,8 @@
     :to="to"
     :nuxt="nuxt"
     :disabled="disabled"
+    :pressed="pressed"
+    :active="active"
   >
     <slot></slot>
   </b-button>
@@ -17,6 +19,18 @@ export default {
     BButton
   },
   props: {
+    active: {
+      type: Boolean,
+      default() {
+        return null;
+      }
+    },
+    pressed: {
+      type: Boolean,
+      default() {
+        return false;
+      }
+    },
     color: {
       type: String,
       default() {

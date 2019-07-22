@@ -1,7 +1,7 @@
 <template>
   <section class="store-special-page">
-    <div class="text-sm-center h1 mb-5">{{$t('templates.store.special.textTitle')}}</div>
-    <vf-sort
+    <vf-a-heading level="1" class="text-sm-center mb-5">{{$t('templates.store.special.textTitle')}}</vf-a-heading>
+    <vf-o-product-sort
       v-if="products.content.length > 0"
       :sorts="sortOptions"
       :sizes="sizeOptions"
@@ -12,7 +12,7 @@
       @changeSort="handleChangeSort"
       @changeMode="handleChangeMode"
     />
-    <vf-products-grid
+    <vf-o-product-grid
       v-if="products.content.length > 0"
       :products="products.content"
       :list="isList"

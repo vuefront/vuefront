@@ -33,13 +33,16 @@ export const actions = {
       commit('setCart', rootGetters['apollo/get'].cart)
     }
   },
-  async add({ commit, dispatch, rootGetters }, { id, quantity, options }) {
+  async add(
+    { commit, dispatch, rootGetters },
+    { product, quantity = 1, options = [], redirect = false }
+  ) {
     await dispatch(
       'apollo/mutate',
       {
         mutation: addToCartGraphql,
         variables: {
-          id,
+          id: product.id,
           quantity,
           options
         }
@@ -51,6 +54,20 @@ export const actions = {
 
     if (!rootGetters['vuefront/error']) {
       commit('setCart', rootGetters['apollo/get'].addToCart)
+      commit(
+        'notification/add',
+        product.name +
+          this.app.i18n.t('elements.store.productThumb.notificationText'),
+        { root: true }
+      )
+    } else {
+      commit('notification/error', rootGetters['vuefront/error'].message, {
+        root: true
+      })
+
+      if (redirect) {
+        this.$router.push('/store/product/' + product.id)
+      }
     }
   },
   async update({ commit, dispatch, rootGetters }, { key, quantity }) {

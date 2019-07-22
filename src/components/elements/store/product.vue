@@ -2,7 +2,7 @@
   <section class="product-section">
     <vf-m-row>
       <vf-m-col sm="12" md="6">
-        <vf-product-image :product="product" />
+        <vf-m-product-image :product="product" />
         <vf-reviews :reviews="product.reviews" @create="handleCreateReview" />
       </vf-m-col>
       <vf-m-col sm="12" md="6">
@@ -46,9 +46,9 @@
             >{{$t('elements.store.product.descriptionText')}}</vf-a-heading>
             <div class="product-info__description text-sm" v-html="product.description" />
           </div>
-          <vf-product-attribute v-if="product.attributes.length > 0" :product="product" />
+          <vf-m-product-attribute v-if="product.attributes.length > 0" :items="product.attributes" />
           <div class="py-4 my-4 border-bottom border-top">
-            <vf-product-option
+            <vf-m-product-option
               v-if="product.options.length > 0"
               :product="product"
               @change="handleChangeOptions"
@@ -88,7 +88,7 @@ export default {
   methods: {
     async handleAddToCart() {
       await this.$store.dispatch("store/cart/add", {
-        id: this.product.id,
+        product: this.product,
         quantity: 1,
         options: this.selectedOptions
       });

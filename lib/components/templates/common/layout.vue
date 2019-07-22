@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vf-template-header :logo="logo" />
+    <vf-t-header :logo="logo" />
     <b-container>
       <div class="main-content">
         <vf-position name="contentTop" class="py-3" />
@@ -20,7 +20,7 @@
         <vf-position name="contentBottom" class="py-3" />
       </div>
     </b-container>
-    <vf-template-footer :logo="footerLogo" />
+    <vf-t-footer :logo="footerLogo" />
   </div>
 </template>
 <script>

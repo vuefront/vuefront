@@ -1,1 +1,1 @@
-export { default as AmpImage } from './amp-image.vue'
+export { default as aAmpImage } from './amp-image.vue'

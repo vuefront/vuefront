@@ -32,15 +32,13 @@ export const actions = {
       commit('setWishlist', rootGetters['apollo/get'].wishlist)
     }
   },
-  async add({ commit, dispatch, rootGetters }, { id, quantity, options }) {
+  async add({ commit, dispatch, rootGetters }, { product }) {
     await dispatch(
       'apollo/mutate',
       {
         mutation: addToWishlistGraphql,
         variables: {
-          id,
-          quantity,
-          options
+          id: Number(product.id)
         }
       },
       {
@@ -50,6 +48,14 @@ export const actions = {
 
     if (!rootGetters['vuefront/error']) {
       commit('setWishlist', rootGetters['apollo/get'].addToWishlist)
+      commit(
+        'notification/add',
+        product.name +
+          this.app.i18n.t(
+            'elements.store.productThumb.wishlistNotificationText'
+          ),
+        { root: true }
+      )
     }
   },
   async remove({ commit, dispatch, rootGetters }, { id }) {

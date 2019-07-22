@@ -5,57 +5,147 @@ export default {
   atoms: {
     Button: {
       package: 'vuefront/lib',
-      el: 'Button'
+      el: 'aButton'
     },
     Icon: {
       package: 'vuefront/lib',
-      el: 'Icon'
+      el: 'aIcon'
     },
     Link: {
       package: 'vuefront/lib',
-      el: 'Link'
+      el: 'aLink'
     },
     Image: {
       package: 'vuefront/lib',
-      el: 'Image'
+      el: 'aImage'
     },
     AmpImage: {
       package: 'vuefront/lib',
-      el: 'AmpImage'
+      el: 'aAmpImage'
     },
     Badge: {
       package: 'vuefront/lib',
-      el: 'Badge'
+      el: 'aBadge'
     },
     Heading: {
       package: 'vuefront/lib',
-      el: 'Heading'
+      el: 'aHeading'
+    },
+    Select: {
+      package: 'vuefront/lib',
+      el: 'aSelect'
+    },
+    Input: {
+      package: 'vuefront/lib',
+      el: 'aInput'
     }
   },
   molecules: {
     ButtonGroup: {
       package: 'vuefront/lib',
-      el: 'ButtonGroup'
+      el: 'mButtonGroup'
+    },
+    InputGroup: {
+      package: 'vuefront/lib',
+      el: 'mInputGroup'
     },
     Row: {
       package: 'vuefront/lib',
-      el: 'Row'
+      el: 'mRow'
     },
     Col: {
       package: 'vuefront/lib',
-      el: 'Col'
+      el: 'mCol'
     },
     Card: {
       package: 'vuefront/lib',
-      el: 'Card'
+      el: 'mCard'
     },
     CardBody: {
       package: 'vuefront/lib',
-      el: 'CardBody'
+      el: 'mCardBody'
     },
     ProductPrice: {
       package: 'vuefront/lib',
-      el: 'ProductPrice'
+      el: 'mProductPrice'
+    },
+    ProductThumb: {
+      package: 'vuefront/lib',
+      el: 'mProductThumb'
+    },
+    ProductAttribute: {
+      package: 'vuefront/lib',
+      el: 'mProductAttribute'
+    },
+    ProductThumbImage: {
+      package: 'vuefront/lib',
+      el: 'mProductThumbImage'
+    },
+    ProductImage: {
+      package: 'vuefront/lib',
+      el: 'mProductImage'
+    },
+    ProductImagePopup: {
+      package: 'vuefront/lib',
+      el: 'mProductImagePopup'
+    },
+    ProductOption: {
+      package: 'vuefront/lib',
+      el: 'mProductOption'
+    },
+    ProductOptionCheckbox: {
+      package: 'vuefront/lib',
+      el: 'mProductOptionCheckbox'
+    },
+    ProductOptionDate: {
+      package: 'vuefront/lib',
+      el: 'mProductOptionDate'
+    },
+    ProductOptionDatetime: {
+      package: 'vuefront/lib',
+      el: 'mProductOptionDateTime'
+    },
+    ProductOptionFile: {
+      package: 'vuefront/lib',
+      el: 'mProductOptionFile'
+    },
+    ProductOptionRadio: {
+      package: 'vuefront/lib',
+      el: 'mProductOptionRadio'
+    },
+    ProductOptionSelect: {
+      package: 'vuefront/lib',
+      el: 'mProductOptionSelect'
+    },
+    ProductOptionText: {
+      package: 'vuefront/lib',
+      el: 'mProductOptionText'
+    },
+    ProductOptionTextarea: {
+      package: 'vuefront/lib',
+      el: 'mProductOptionTextarea'
+    },
+    ProductOptionTime: {
+      package: 'vuefront/lib',
+      el: 'mProductOptionTime'
+    }
+  },
+  organisms: {
+    ProductModule: {
+      package: 'vuefront/lib',
+      el: 'oProductModule'
+    },
+    ProductThumb: {
+      package: 'vuefront/lib',
+      el: 'oProductThumb'
+    },
+    ProductGrid: {
+      package: 'vuefront/lib',
+      el: 'oProductGrid'
+    },
+    ProductSort: {
+      package: 'vuefront/lib',
+      el: 'oProductSort'
     }
   },
   locales: {
@@ -426,70 +516,9 @@ export default {
     PostThumb: { package: 'vuefront/lib', el: 'PostThumb' },
     PostsGrid: { package: 'vuefront/lib', el: 'PostGrid' },
     Product: { package: 'vuefront/lib', el: 'Product' },
-    ProductAttribute: {
-      package: 'vuefront/lib',
-      el: 'ProductAttribute'
-    },
-    ProductImage: {
-      package: 'vuefront/lib',
-      el: 'ProductImage'
-    },
-    ProductModule: {
-      package: 'vuefront/lib',
-      el: 'ProductModule'
-    },
-    ProductOption: {
-      package: 'vuefront/lib',
-      el: 'ProductOption'
-    },
-    ProductOptionCheckbox: {
-      package: 'vuefront/lib',
-      el: 'ProductOptionCheckbox'
-    },
-    ProductOptionDate: {
-      package: 'vuefront/lib',
-      el: 'ProductOptionDate'
-    },
-    ProductOptionDatetime: {
-      package: 'vuefront/lib',
-      el: 'ProductOptionDateTime'
-    },
-    ProductOptionFile: {
-      package: 'vuefront/lib',
-      el: 'ProductOptionFile'
-    },
-    ProductOptionRadio: {
-      package: 'vuefront/lib',
-      el: 'ProductOptionRadio'
-    },
-    ProductOptionSelect: {
-      package: 'vuefront/lib',
-      el: 'ProductOptionSelect'
-    },
-    ProductOptionText: {
-      package: 'vuefront/lib',
-      el: 'ProductOptionText'
-    },
-    ProductOptionTextarea: {
-      package: 'vuefront/lib',
-      el: 'ProductOptionTextarea'
-    },
-    ProductOptionTime: {
-      package: 'vuefront/lib',
-      el: 'ProductOptionTime'
-    },
-    ProductThumb: {
-      package: 'vuefront/lib',
-      el: 'ProductThumb'
-    },
-    ProductsGrid: {
-      package: 'vuefront/lib',
-      el: 'ProductGrid'
-    },
     Rating: { package: 'vuefront/lib', el: 'Rating' },
     Reviews: { package: 'vuefront/lib', el: 'Reviews' },
     Search: { package: 'vuefront/lib', el: 'Search' },
-    Sort: { package: 'vuefront/lib', el: 'ProductSort' },
     Wishlist: { package: 'vuefront/lib', el: 'Wishlist' }
   },
   templates: {

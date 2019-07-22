@@ -32,15 +32,13 @@ export const actions = {
       commit('setCompare', rootGetters['apollo/get'].compare)
     }
   },
-  async add({ commit, dispatch, rootGetters }, { id, quantity, options }) {
+  async add({ commit, dispatch, rootGetters }, { product }) {
     await dispatch(
       'apollo/mutate',
       {
         mutation: addToCompareGraphql,
         variables: {
-          id,
-          quantity,
-          options
+          id: Number(product.id)
         }
       },
       {
@@ -50,6 +48,14 @@ export const actions = {
 
     if (!rootGetters['vuefront/error']) {
       commit('setCompare', rootGetters['apollo/get'].addToCompare)
+      commit(
+        'notification/add',
+        product.name +
+          this.app.i18n.t(
+            'elements.store.productThumb.compareNotificationText'
+          ),
+        { root: true }
+      )
     }
   },
   async remove({ commit, dispatch, rootGetters }, { id }) {

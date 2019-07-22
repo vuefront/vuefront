@@ -1,2 +1,2 @@
 import './button-block.scss'
-export {default as ButtonGroup} from './button-group.vue'
+export {default as mButtonGroup} from './button-group.vue'

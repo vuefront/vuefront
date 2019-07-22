@@ -1,5 +1,5 @@
 <template>
-  <b-row :no-gutters="noGutters">
+  <b-row :no-gutters="noGutters" :tag="tag">
     <slot></slot>
   </b-row>
 </template>
@@ -10,6 +10,12 @@ export default {
     BRow
   },
   props: {
+    tag: {
+      type: String,
+      default() {
+        return "div";
+      }
+    },
     noGutters: {
       type: Boolean,
       default() {
