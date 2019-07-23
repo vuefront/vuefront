@@ -1,0 +1,1 @@
+export {default as pProduct} from './product.vue'

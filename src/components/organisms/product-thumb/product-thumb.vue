@@ -14,20 +14,20 @@ import placeholder from "vuefront/assets/img/placeholder.png";
 export default {
   props: ["product", "wide"],
   methods: {
-    handleClickCart(product) {
+    handleClickCart() {
       this.$store.dispatch("store/cart/add", {
-        product,
+        product: this.product,
         redirect: true
       });
     },
-    handleClickWishlist(product) {
+    handleClickWishlist() {
       this.$store.dispatch("store/wishlist/add", {
-        product
+        product: this.product
       });
     },
-    handleClickCompare(product) {
+    handleClickCompare() {
       this.$store.dispatch("store/compare/add", {
-        product
+        product: this.product
       });
     }
   }

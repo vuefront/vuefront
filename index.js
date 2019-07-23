@@ -45,6 +45,22 @@ export default {
     }
   },
   molecules: {
+    Media: {
+      package: 'vuefront/lib',
+      el: 'mMedia'
+    },
+    MediaAside: {
+      package: 'vuefront/lib',
+      el: 'mMediaAside'
+    },
+    MediaBody: {
+      package: 'vuefront/lib',
+      el: 'mMediaBody'
+    },
+    Table: {
+      package: 'vuefront/lib',
+      el: 'mTable'
+    },
     ButtonGroup: {
       package: 'vuefront/lib',
       el: 'mButtonGroup'
@@ -147,6 +163,18 @@ export default {
     }
   },
   organisms: {
+    CartQuantity: {
+      package: 'vuefront/lib',
+      el: 'oCartQuantity'
+    },
+    CartActions: {
+      package: 'vuefront/lib',
+      el: 'oCartActions'
+    },
+    CartProductThumb: {
+      package: 'vuefront/lib',
+      el: 'oCartProductThumb'
+    },
     ProductModule: {
       package: 'vuefront/lib',
       el: 'oProductModule'
@@ -186,6 +214,18 @@ export default {
     ProductBuy: {
       package: 'vuefront/lib',
       el: 'oProductBuy'
+    },
+    CategoryProduct: {
+      package: 'vuefront/lib',
+      el: 'oCategoryProduct'
+    },
+    CategoryInfo: {
+      package: 'vuefront/lib',
+      el: 'oCategoryInfo'
+    },
+    CategoryGrid: {
+      package: 'vuefront/lib',
+      el: 'oCategoryGrid'
     }
   },
   locales: {
@@ -280,12 +320,12 @@ export default {
     '/store/cart': {
       generate: false,
       package: 'vuefront/lib',
-      el: 'CartPage'
+      el: 'pCart'
     },
     '/store/checkout': {
       generate: false,
       package: 'vuefront/lib',
-      el: 'CheckoutPage'
+      el: 'pCheckout'
     },
     '/store/category/:id': {
       seo: {
@@ -293,7 +333,7 @@ export default {
         path: 'CategorySeo'
       },
       package: 'vuefront/lib',
-      el: 'CategoryPage'
+      el: 'pCategory'
     },
     '/store/compare': {
       generate: false,
@@ -302,7 +342,7 @@ export default {
     },
     '/store/product/:id': {
       package: 'vuefront/lib',
-      el: 'ProductPage',
+      el: 'pProduct',
       seo: {
         package: 'vuefront/lib/seo',
         path: 'ProductSeo'
@@ -310,7 +350,7 @@ export default {
     },
     '/store/special': {
       package: 'vuefront/lib',
-      el: 'SpecialPage'
+      el: 'pSpecial'
     }
   },
   store: [
@@ -564,15 +604,19 @@ export default {
     Footer: { package: 'vuefront/lib', el: 'FooterTemplate' },
     Layout: { package: 'vuefront/lib', el: 'LayoutTemplate' },
     Error: { package: 'vuefront/lib', el: 'ErrorTemplate' },
+    Cart: {
+      package: 'vuefront/lib',
+      el: 'tCart'
+    },
     Category: {
       package: 'vuefront/lib',
-      el: 'CategoryTemplate'
+      el: 'tCategory'
     },
     CategoryBlog: {
       package: 'vuefront/lib',
       el: 'CategoryBlogTemplate'
     },
-    Special: { package: 'vuefront/lib', el: 'SpecialTemplate' },
+    Special: { package: 'vuefront/lib', el: 'tSpecial' },
     Product: {
       package: 'vuefront/lib',
       el: 'tProduct'

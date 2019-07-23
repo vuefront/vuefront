@@ -16,12 +16,12 @@
       </vf-m-col>
       <vf-m-col sm="6" md="4" align-self="center">
         <vf-m-input-group :prepend="$t('elements.store.productSort.sortByText')" size="sm">
-          <vf-a-select v-model="sizeValue" :options="sizes" class="mr-3" />
+          <vf-a-select v-model="sizeValue" :options="sizeOptions" class="mr-3" />
         </vf-m-input-group>
       </vf-m-col>
       <vf-m-col sm="6" md="3" align-self="center">
         <vf-m-input-group :prepend="$t('elements.store.productSort.showText')" size="sm">
-          <vf-a-select v-model="sortValue" :options="sorts" />
+          <vf-a-select v-model="sortValue" :options="sortOptions" />
         </vf-m-input-group>
       </vf-m-col>
     </vf-m-row>
@@ -29,7 +29,71 @@
 </template>
 <script>
 export default {
-  props: ["sizes", "sorts", "sort", "size", "mode"],
+  props: ["sort", "size", "mode"],
+  data() {
+    return {
+      sizeOptions: [
+        {
+          text: this.$t("templates.store.category.15Text"),
+          value: 15
+        },
+        {
+          text: this.$t("templates.store.category.25Text"),
+          value: 25
+        },
+        {
+          text: this.$t("templates.store.category.50Text"),
+          value: 50
+        },
+        {
+          text: this.$t("templates.store.category.75Text"),
+          value: 75
+        },
+        {
+          text: this.$t("templates.store.category.100Text"),
+          value: 100
+        }
+      ],
+      sortOptions: [
+        {
+          text: this.$t("templates.store.category.defaultSortText"),
+          value: "id|ASC"
+        },
+        {
+          text: this.$t("templates.store.category.nameAscSortText"),
+          value: "name|ASC"
+        },
+        {
+          text: this.$t("templates.store.category.nameDescSortText"),
+          value: "name|DESC"
+        },
+        {
+          text: this.$t("templates.store.category.priceAscSortText"),
+          value: "price|ASC"
+        },
+        {
+          text: this.$t("templates.store.category.priceDescSortText"),
+          value: "price|DESC"
+        },
+        {
+          text: this.$t("templates.store.category.ratingAscSortText"),
+          value: "rating|ASC"
+        },
+        {
+          text: this.$t("templates.store.category.ratingDescSortText"),
+          value: "rating|DESC"
+        },
+        {
+          text: this.$t("templates.store.category.modelAscSortText"),
+          value: "model|ASC"
+        },
+        {
+          text: this.$t("templates.store.category.modelDescSortText"),
+          value: "model|DESC"
+        }
+      ]
+    };
+  },
   computed: {
     modeValue: {
       get() {

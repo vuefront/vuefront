@@ -1,5 +1,12 @@
 <template>
-  <b-form-input :type="type" :value="value" @input="handleChange" :state="state" :trim="trim"/>
+  <b-form-input
+    :type="type"
+    :value="value"
+    @input="handleInput"
+    @change="handleChange"
+    :state="state"
+    :trim="trim"
+  />
 </template>
 <script>
 import { BFormInput } from "bootstrap-vue";
@@ -19,14 +26,17 @@ export default {
     trim: {
       type: Boolean,
       default() {
-        return false
+        return false;
       }
     },
     value: {}
   },
   methods: {
-    handleChange(value) {
+    handleInput(value) {
       this.$emit("input", value);
+    },
+    handleChange(value) {
+      this.$emit("change", value);
     }
   }
 };

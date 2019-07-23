@@ -1,3 +1,4 @@
-export { default as CategoryTemplate } from './category.vue'
-export { default as SpecialTemplate } from './special.vue'
 export * from './product'
+export * from './category'
+export * from './special'
+export * from './cart'

@@ -1,0 +1,1 @@
+export {default as oCategoryGrid} from './category-grid'
