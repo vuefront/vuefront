@@ -6,10 +6,11 @@
 </p>
 <h1 align="center">VueFront</h1>
 <p align="center">
-Vue powered CMS agnostic frontend framework for your old-fashioned Blog and Ecommerce site.</p>
+Vue powered CMS agnostic frontend framework for your old-fashioned Blog and Ecommerce site. <a href="https://twitter.com/intent/tweet?text=I%20just%20turned%20my%20old%20website%20into%20a%20SPA%20and%20PWA%20for%20free%20@VueFront_js&url=https://vuefront.com&hashtags=vuejs,webapp,vuefront,pwa,spajs"><img src="https://img.shields.io/twitter/url/https/VueFront_js.svg?style=social" /></a></p>
 
 
 <p align="center">
+  <a href="https://github.com/vuefront/vuefront"><img src="https://img.shields.io/badge/price-FREE-0098f7.svg" alt="Version"></a>
   <a href="https://www.npmjs.com/package/vuefront"><img src="https://img.shields.io/npm/v/vuefront.svg" alt="Version"></a>
   <a href="https://www.npmjs.com/package/vuefront"><img src="https://img.shields.io/npm/l/vuefront.svg" alt="License"></a>
   <a href="https://discord.gg/C9vcTCQ"><img src="https://img.shields.io/badge/chat-on%20discord-7289da.svg" alt="Chat"></a>
@@ -19,6 +20,15 @@ Vue powered CMS agnostic frontend framework for your old-fashioned Blog and Ecom
 Show your :heart: - give us a :star: <br/> 
 Help us grow this project to be the best it can be!
   </p>
+  
+# Demo
+[VueFront Wordpress Demo](https://wordpress.vuefront.com/)
+
+[VueFront OpenCart Demo](https://opencart.vuefront.com/)
+
+[VueFront Magento Demo](https://magento.vuefront.com/)
+
+[VueFront PrestaShop Demo](https://prestashop.vuefront.com/)
 
 # What does VueFront do?
 It can easily turn your Wordpress, OpenCart, Magenta, Shopify or any other blog/store into an SPA and PWA with Vue.js in less then 5 minutes.
