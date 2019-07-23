@@ -38,6 +38,10 @@ export default {
     Input: {
       package: 'vuefront/lib',
       el: 'aInput'
+    },
+    Textarea: {
+      package: 'vuefront/lib',
+      el: 'aTextarea'
     }
   },
   molecules: {
@@ -89,10 +93,6 @@ export default {
       package: 'vuefront/lib',
       el: 'mProductImagePopup'
     },
-    ProductOption: {
-      package: 'vuefront/lib',
-      el: 'mProductOption'
-    },
     ProductOptionCheckbox: {
       package: 'vuefront/lib',
       el: 'mProductOptionCheckbox'
@@ -128,6 +128,22 @@ export default {
     ProductOptionTime: {
       package: 'vuefront/lib',
       el: 'mProductOptionTime'
+    },
+    Rating: {
+      package: 'vuefront/lib',
+      el: 'mRating'
+    },
+    Review: {
+      package: 'vuefront/lib',
+      el: 'mReview'
+    },
+    Field: {
+      package: 'vuefront/lib',
+      el: 'mField'
+    },
+    CategoryThumb: {
+      package: 'vuefront/lib',
+      el: 'mCategoryThumb'
     }
   },
   organisms: {
@@ -146,6 +162,30 @@ export default {
     ProductSort: {
       package: 'vuefront/lib',
       el: 'oProductSort'
+    },
+    ReviewList: {
+      package: 'vuefront/lib',
+      el: 'oReviewList'
+    },
+    ReviewForm: {
+      package: 'vuefront/lib',
+      el: 'oReviewForm'
+    },
+    Form: {
+      package: 'vuefront/lib',
+      el: 'oForm'
+    },
+    ProductReviews: {
+      package: 'vuefront/lib',
+      el: 'oProductReviews'
+    },
+    ProductOptions: {
+      package: 'vuefront/lib',
+      el: 'oProductOptions'
+    },
+    ProductBuy: {
+      package: 'vuefront/lib',
+      el: 'oProductBuy'
     }
   },
   locales: {
@@ -516,8 +556,6 @@ export default {
     PostThumb: { package: 'vuefront/lib', el: 'PostThumb' },
     PostsGrid: { package: 'vuefront/lib', el: 'PostGrid' },
     Product: { package: 'vuefront/lib', el: 'Product' },
-    Rating: { package: 'vuefront/lib', el: 'Rating' },
-    Reviews: { package: 'vuefront/lib', el: 'Reviews' },
     Search: { package: 'vuefront/lib', el: 'Search' },
     Wishlist: { package: 'vuefront/lib', el: 'Wishlist' }
   },
@@ -534,7 +572,11 @@ export default {
       package: 'vuefront/lib',
       el: 'CategoryBlogTemplate'
     },
-    Special: { package: 'vuefront/lib', el: 'SpecialTemplate' }
+    Special: { package: 'vuefront/lib', el: 'SpecialTemplate' },
+    Product: {
+      package: 'vuefront/lib',
+      el: 'tProduct'
+    }
   },
   modules: {
     SearchProduct: {

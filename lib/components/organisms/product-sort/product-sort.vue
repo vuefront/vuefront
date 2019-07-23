@@ -28,11 +28,7 @@
   </section>
 </template>
 <script>
-import { BInputGroup } from "bootstrap-vue";
 export default {
-  components: {
-    BInputGroup
-  },
   props: ["sizes", "sorts", "sort", "size", "mode"],
   computed: {
     modeValue: {

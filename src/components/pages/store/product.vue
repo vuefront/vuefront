@@ -1,5 +1,5 @@
 <template>
-  <vf-product v-if="loaded" :product="product" />
+  <vf-t-product v-if="loaded" :product="product" />
   <vf-loader-product v-else />
 </template>
 <graphql>

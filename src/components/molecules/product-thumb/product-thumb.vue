@@ -9,7 +9,7 @@
       <vf-m-col :md="wide ? 9 : 12">
         <vf-m-card-body class="pt-0">
           <vf-a-heading tag="h3" level="6" class="mb-0 vf-m-product-thumb__name">{{ product.name }}</vf-a-heading>
-          <vf-rating
+          <vf-m-rating
             v-if="product.rating > 0 && wide"
             :value="product.rating"
             color="#ffcc00"

@@ -8,7 +8,7 @@
         >{{$t('elements.blog.post.postByText')}} {{post.datePublished}}</div>
       </b-col>
       <b-col sm="6">
-        <vf-rating
+        <vf-m-rating
           v-if="post.rating > 0"
           :value="post.rating"
           color="#ffcc00"

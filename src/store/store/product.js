@@ -2,7 +2,8 @@ import reviewAddGql from 'vuefront/graphql/store/review/addReview.graphql'
 
 export const state = () => ({
   entities: {},
-  product: {}
+  product: {},
+  options: {}
 })
 
 export const getters = {
@@ -11,6 +12,9 @@ export const getters = {
   },
   get(state) {
     return state.product
+  },
+  options(state) {
+    return state.options
   }
 }
 
@@ -20,6 +24,10 @@ export const mutations = {
   },
   setProduct(state, product) {
     state.product = product
+    state.options = {}
+  },
+  setOptions(state, options) {
+    state.options = options
   }
 }
 

@@ -48,7 +48,7 @@
       <div class="compare__item">
         <div class="compare__item_value border p-2">{{$t('elements.store.compare.ratingRow')}}</div>
         <div v-for="(value, index) in compare" :key="index" class="compare__item_value border p-2">
-          <vf-rating :value="value.rating" color="#ffcc00" readonly />
+          <vf-m-rating :value="value.rating" color="#ffcc00" readonly />
         </div>
       </div>
       <div class="compare__item">

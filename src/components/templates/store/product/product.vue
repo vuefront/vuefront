@@ -3,7 +3,7 @@
     <vf-m-row>
       <vf-m-col sm="12" md="6">
         <vf-m-product-image :product="product" />
-        <vf-reviews :reviews="product.reviews" @create="handleCreateReview" />
+        <vf-o-product-reviews :product="product" />
       </vf-m-col>
       <vf-m-col sm="12" md="6">
         <div class="product-info pl-lg-5">
@@ -11,7 +11,7 @@
           <vf-a-heading level="6" class="product-info__model text-sm">{{product.model}}</vf-a-heading>
           <vf-m-row>
             <vf-m-col sm="6">
-              <vf-rating
+              <vf-m-rating
                 v-if="product.rating > 0"
                 :value="product.rating"
                 color="#ffcc00"
@@ -48,20 +48,13 @@
           </div>
           <vf-m-product-attribute v-if="product.attributes.length > 0" :items="product.attributes" />
           <div class="py-4 my-4 border-bottom border-top">
-            <vf-m-product-option
-              v-if="product.options.length > 0"
-              :product="product"
-              @change="handleChangeOptions"
-            />
+            <vf-o-product-options v-if="product.options.length > 0" :product="product" />
             <vf-m-row>
               <vf-m-col sm="6" md="5" class="mb-4 mb-sm-0">
                 <vf-m-product-price :price="product.price" :special="product.special" />
               </vf-m-col>
               <vf-m-col sm="6" md="7" class="text-sm-right">
-                <vf-a-button variant="primary" @click="handleAddToCart">
-                  <vf-a-icon icon="shopping-cart" />
-                  {{$t('elements.store.product.buttonAddToCart')}}
-                </vf-a-button>
+                <vf-o-product-buy :product="product" />
               </vf-m-col>
             </vf-m-row>
           </div>
@@ -71,60 +64,7 @@
   </section>
 </template>
 <script>
-import { mapGetters } from "vuex";
-
 export default {
-  props: ["product"],
-  data() {
-    return {
-      selectedOptions: []
-    };
-  },
-  computed: {
-    ...mapGetters({
-      error: "vuefront/error"
-    })
-  },
-  methods: {
-    async handleAddToCart() {
-      await this.$store.dispatch("store/cart/add", {
-        product: this.product,
-        quantity: 1,
-        options: this.selectedOptions
-      });
-
-      if (!this.error) {
-        this.$store.commit(
-          "notification/add",
-          this.product.name + this.$t("elements.store.product.notificationText")
-        );
-      } else {
-        this.$store.commit("notification/error", this.error.message);
-      }
-    },
-
-    handleChangeOptions(e) {
-      this.selectedOptions = e;
-    },
-
-    async handleCreateReview({ content, author, rating }) {
-      await this.$store.dispatch("store/product/addReview", {
-        id: this.product.id,
-        content,
-        author,
-        rating,
-        limit: 5
-      });
-    }
-  }
+  props: ["product"]
 };
 </script>
-<style lang="scss">
-.product-info {
-  &__price_special {
-    & + span {
-      text-decoration: line-through;
-    }
-  }
-}
-</style>

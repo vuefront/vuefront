@@ -12,47 +12,13 @@
     >{{$t('elements.store.category.categoriesText')}}</vf-a-heading>
     <vf-m-row v-if="category.categories.length > 0">
       <vf-m-col v-for="(value, index) in category.categories" :key="index" sm="4" md="2">
-        <vf-a-link :to="url(value)" class="mb-2 d-block">
-          <vf-a-amp-image
-            v-if="$vuefront.isAMP"
-            :src="getImage(value)"
-            width="113"
-            height="80"
-            layout="responsive"
-            class="mb-2"
-          />
-          <vf-a-image
-            v-else
-            :src="getImageLazy(value)"
-            :lazy-src="getImage(value)"
-            class="mb-2"
-            full-width
-            fluid
-          />
-          <vf-a-heading level="6" class="text-sm-center">{{value.name}}</vf-a-heading>
-        </vf-a-link>
+        <vf-m-category-thumb :category="value" />
       </vf-m-col>
     </vf-m-row>
   </div>
 </template>
 <script>
-import placeholder from "vuefront/assets/img/placeholder.png";
 export default {
-  props: ["category"],
-  methods: {
-    url(category) {
-      if (category.keyword && category.keyword !== "") {
-        return "/" + category.keyword;
-      } else {
-        return `/store/category/${category.id}`;
-      }
-    },
-    getImage(category) {
-      return category.image !== "" ? category.image : placeholder;
-    },
-    getImageLazy(category) {
-      return category.imageLazy !== "" ? category.imageLazy : placeholder;
-    }
-  }
+  props: ["category"]
 };
 </script>

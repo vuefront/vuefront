@@ -1,13 +1,10 @@
 <template>
-  <b-form-input :value="activeOptionValue" type="date" @input="handleChange"/>
+  <vf-a-input :value="activeOptionValue" type="datetime-local" @input="handleChange"/>
 </template>
 <script>
-import {BFormInput} from 'bootstrap-vue'
 import {find} from 'lodash'
+
 export default {
-  components: {
-    BFormInput
-  },
   props: ['option', 'selected'],
   computed: {
     activeOptionValue() {

@@ -8,6 +8,8 @@
     :disabled="disabled"
     :pressed="pressed"
     :active="active"
+    :type="type"
+    :pill="rounded"
   >
     <slot></slot>
   </b-button>
@@ -19,6 +21,18 @@ export default {
     BButton
   },
   props: {
+    rounded: {
+      type: Boolean,
+      default() {
+        return null;
+      }
+    },
+    type: {
+      type: String,
+      default() {
+        return "button";
+      }
+    },
     active: {
       type: Boolean,
       default() {

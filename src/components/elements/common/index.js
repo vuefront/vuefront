@@ -7,8 +7,6 @@ export { default as Language } from './language.vue'
 export { default as Page } from './page.vue'
 export { default as Pagination } from './pagination.vue'
 export { default as Position } from './position.vue'
-export { default as Rating } from './rating.vue'
-export { default as Reviews } from './reviews.vue'
 export { default as Search } from './search.vue'
 
 export { default as Contact } from './contact/contact.vue'

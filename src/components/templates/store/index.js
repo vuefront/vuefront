@@ -1,3 +1,3 @@
 export { default as CategoryTemplate } from './category.vue'
 export { default as SpecialTemplate } from './special.vue'
-export * from './extension'
+export * from './product'

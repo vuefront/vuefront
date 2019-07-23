@@ -5,7 +5,7 @@
       <div
         :is="`vf-m-product-option-${option.type}`"
         :option="option"
-        :selected="selectedOptions"
+        :selected="options"
         @change="handleOptionChange($event, option)"
       />
     </div>
@@ -13,35 +13,31 @@
 </template>
 <script>
 import { isEmpty, filter } from "lodash";
+import { mapGetters } from "vuex";
 export default {
   props: ["product"],
-  data() {
-    return {
-      selectedOptions: []
-    };
+  computed: {
+    ...mapGetters({
+      options: "store/product/options"
+    })
   },
   methods: {
     checkActive(e, option) {
       let result = filter(
-        this.selectedOptions,
+        this.options,
         value => value.id === option.id && e === value.value
       );
 
       return !isEmpty(result);
     },
     handleOptionChange(e, option) {
-      let result = filter(
-        this.selectedOptions,
-        value => value.id !== option.id
-      );
+      let result = filter(this.options, value => value.id !== option.id);
       result.push({
         id: option.id,
         value: e
       });
 
-      this.selectedOptions = result;
-
-      this.$emit("change", result);
+      this.$store.commit("store/product/setOptions", result);
     }
   }
 };
