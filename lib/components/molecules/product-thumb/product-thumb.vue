@@ -3,7 +3,7 @@
     <vf-m-row no-gutters>
       <vf-m-col :md="wide ? 3 : 12" class="px-4">
         <vf-a-link :to="url" class="vf-m-product-thumb__image_wrapper">
-          <vf-m-product-thumb-image :product="product" />
+          <vf-m-product-thumb-image :product="product" card />
         </vf-a-link>
       </vf-m-col>
       <vf-m-col :md="wide ? 9 : 12">

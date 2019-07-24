@@ -10,8 +10,16 @@
     :active="active"
     :type="type"
     :pill="rounded"
+    :class="{'vf-a-button__animated': animatedX || animatedY, 'vf-a-button__animated-x': animatedX, 'vf-a-button__animated-y': animatedY }"
+    class="vf-a-button"
   >
     <slot></slot>
+    <span v-if="$slots.visible" class="btn-inner--visible">
+      <slot name="visible"></slot>
+    </span>
+    <span v-if="$slots.hidden" class="btn-inner--hidden">
+      <slot name="hidden"></slot>
+    </span>
   </b-button>
 </template>
 <script>
@@ -21,6 +29,18 @@ export default {
     BButton
   },
   props: {
+    animatedY: {
+      type: Boolean,
+      default() {
+        return null;
+      }
+    },
+    animatedX: {
+      type: Boolean,
+      default() {
+        return null;
+      }
+    },
     rounded: {
       type: Boolean,
       default() {

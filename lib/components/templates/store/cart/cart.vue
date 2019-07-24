@@ -1,26 +1,23 @@
-  <template>
+<template>
   <section class="shopping-cart">
     <div class="shopping-cart__products">
       <vf-m-table :fields="fields" :items="cart.products" class="table-cards">
         <template #product="data">
-          <vf-o-cart-product-thumb :product="data.item" />
+          <vf-m-product-thumb-inline :product="data.item.product" :option="data.item.option" />
         </template>
         <template #price="data">{{data.item.product.price}}</template>
         <template #quantity="data">
           <vf-o-cart-quantity :cart-product="data.item" />
         </template>
         <template #action="data">
-          <div class="shopping-cart__action ma-1" @click="handleRemove(data.item)">
-            <vf-a-icon icon="times" />
-          </div>
+          <vf-o-cart-actions :cartProduct="data.item" />
         </template>
       </vf-m-table>
+      <vf-o-cart-footer :cart="cart" />
     </div>
-    <vf-o-cart-actions :cart="cart" />
   </section>
 </template>
 <script>
-import { isEmpty } from "lodash";
 export default {
   props: ["cart"],
   data() {
@@ -53,20 +50,6 @@ export default {
         }
       ]
     };
-  },
-  methods: {
-    handleRemove(cartProduct) {
-      this.$store.dispatch("store/cart/remove", {
-        key: cartProduct.key
-      });
-    }
   }
 };
 </script>
-<style lang="scss">
-.shopping-cart {
-  &__action {
-    cursor: pointer;
-  }
-}
-</style>

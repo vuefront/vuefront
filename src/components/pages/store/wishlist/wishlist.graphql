@@ -1,0 +1,10 @@
+{
+  wishlist {
+    id
+    name
+    model
+    price
+    image
+    imageLazy
+  }
+}

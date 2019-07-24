@@ -19,19 +19,6 @@ export const mutations = {
 }
 
 export const actions = {
-  async load({ commit, dispatch, rootGetters }) {
-    await dispatch(
-      'apollo/query',
-      {
-        query: wishlistGetGql
-      },
-      { root: true }
-    )
-
-    if (!rootGetters['vuefront/error']) {
-      commit('setWishlist', rootGetters['apollo/get'].wishlist)
-    }
-  },
   async add({ commit, dispatch, rootGetters }, { product }) {
     await dispatch(
       'apollo/mutate',

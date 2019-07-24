@@ -6,7 +6,6 @@ export default {
   props: ["cartProduct"],
   methods: {
     handleChangeQuantity(e) {
-      console.log(this.cartProduct);
       this.$store.dispatch("store/cart/update", {
         key: this.cartProduct.key,
         quantity: Number(e)

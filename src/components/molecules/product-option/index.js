@@ -1,3 +1,4 @@
+import './product-option.scss'
 export { default as mProductOptionCheckbox } from './checkbox.vue'
 export { default as mProductOptionDate } from './date.vue'
 export { default as mProductOptionDateTime } from './datetime.vue'

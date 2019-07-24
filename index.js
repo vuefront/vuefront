@@ -160,9 +160,29 @@ export default {
     CategoryThumb: {
       package: 'vuefront/lib',
       el: 'mCategoryThumb'
+    },
+    ProductThumbInline: {
+      package: 'vuefront/lib',
+      el: 'mProductThumbInline'
+    },
+    TableHorizontal: {
+      package: 'vuefront/lib',
+      el: 'mTableHorizontal'
     }
   },
   organisms: {
+    CompareActions: {
+      package: 'vuefront/lib',
+      el: 'oCompareActions'
+    },
+    WishlistActions: {
+      package: 'vuefront/lib',
+      el: 'oWishlistActions'
+    },
+    CartFooter: {
+      package: 'vuefront/lib',
+      el: 'oCartFooter'
+    },
     CartQuantity: {
       package: 'vuefront/lib',
       el: 'oCartQuantity'
@@ -285,7 +305,7 @@ export default {
     '/account/wishlist': {
       generate: false,
       package: 'vuefront/lib',
-      el: 'WishlistPage'
+      el: 'pWishlist'
     },
     '/blog/category/:id': {
       seo: {
@@ -338,7 +358,7 @@ export default {
     '/store/compare': {
       generate: false,
       package: 'vuefront/lib',
-      el: 'ComparePage'
+      el: 'pCompare'
     },
     '/store/product/:id': {
       package: 'vuefront/lib',
@@ -615,6 +635,14 @@ export default {
     CategoryBlog: {
       package: 'vuefront/lib',
       el: 'CategoryBlogTemplate'
+    },
+    Wishlist: {
+      package: 'vuefront/lib',
+      el: 'tWishlist'
+    },
+    Compare: {
+      package: 'vuefront/lib',
+      el: 'tCompare'
     },
     Special: { package: 'vuefront/lib', el: 'tSpecial' },
     Product: {

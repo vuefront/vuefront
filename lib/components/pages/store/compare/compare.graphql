@@ -1,0 +1,13 @@
+{
+  compare {
+    id
+    name
+    shortDescription
+    model
+    price
+    special
+    stock
+    image
+    imageLazy
+  }
+}

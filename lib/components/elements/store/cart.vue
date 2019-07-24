@@ -58,14 +58,15 @@
           <vf-a-button
             :disabled="!isProducts"
             color="primary"
-            class="mr-md-2 btn-animated btn-animated-y"
+            class="mr-md-2"
             to="/store/checkout"
+            animated-y
             nuxt
           >
-            <span class="btn-inner--visible">{{$t('elements.store.cart.checkoutButton')}}</span>
-            <span class="btn-inner--hidden">
+            <template #visible>{{$t('elements.store.cart.checkoutButton')}}</template>
+            <template #hidden>
               <vf-a-icon icon="shopping-cart"></vf-a-icon>
-            </span>
+            </template>
           </vf-a-button>
           <vf-a-button
             color="flat"
