@@ -615,13 +615,6 @@ export default {
     },
     Apollo: { package: 'vuefront/lib', el: 'Apollo' },
     Breadcrumbs: { package: 'vuefront/lib', el: 'Breadcrumbs' },
-    Cart: { package: 'vuefront/lib', el: 'Cart' },
-    Category: { package: 'vuefront/lib', el: 'Category' },
-    CategoryBlog: {
-      package: 'vuefront/lib',
-      el: 'CategoryBlog'
-    },
-    Compare: { package: 'vuefront/lib', el: 'Compare' },
     Contact: { package: 'vuefront/lib', el: 'Contact' },
     ContactForm: { package: 'vuefront/lib', el: 'ContactForm' },
     ContactLocation: {
@@ -632,7 +625,6 @@ export default {
       package: 'vuefront/lib',
       el: 'ContactLocationGrid'
     },
-    Currency: { package: 'vuefront/lib', el: 'Currency' },
     Empty: { package: 'vuefront/lib', el: 'Empty' },
     Footer: { package: 'vuefront/lib', el: 'Footer' },
     Header: { package: 'vuefront/lib', el: 'Header' },
@@ -659,13 +651,7 @@ export default {
     Page: { package: 'vuefront/lib', el: 'Page' },
     Pagination: { package: 'vuefront/lib', el: 'Pagination' },
     Position: { package: 'vuefront/lib', el: 'Position' },
-    Post: { package: 'vuefront/lib', el: 'Post' },
-    PostModule: { package: 'vuefront/lib', el: 'PostModule' },
-    PostThumb: { package: 'vuefront/lib', el: 'PostThumb' },
-    PostsGrid: { package: 'vuefront/lib', el: 'PostGrid' },
-    Product: { package: 'vuefront/lib', el: 'Product' },
-    Search: { package: 'vuefront/lib', el: 'Search' },
-    Wishlist: { package: 'vuefront/lib', el: 'Wishlist' }
+    Search: { package: 'vuefront/lib', el: 'Search' }
   },
   templates: {
     Header: { package: 'vuefront/lib', el: 'HeaderTemplate' },
