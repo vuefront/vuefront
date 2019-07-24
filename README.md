@@ -34,7 +34,7 @@ Help us grow this project to be the best it can be!
 It can easily turn your Wordpress, OpenCart, Magenta, Shopify or any other blog/store into an SPA and PWA with Vue.js in less then 5 minutes.
 
 ## Why is this project useful?
-You want to try new technology, outrun your competition and just provide a better user experiance, but not ready to invest thousands of dollars? Then try VueFront. Its easy to setup, test and run. 
+You want to try new technology, outrun your competition and just provide a better user experiance, but not ready to invest thousands of dollars? Then try VueFront. It's easy to setup, test and run. 
 
 - You get a shiny new Web APP.
 - You get to keep your current CMS admin panel.
