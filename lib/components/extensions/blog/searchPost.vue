@@ -4,11 +4,11 @@
       <vf-loader-post-module :column="column" />
     </template>
     <template #default="{data}">
-      <vf-post-module
+      <vf-o-post-module
         v-if="data.searchPosts.content.length > 0"
         :items="data.searchPosts.content"
         :column="column"
-      >{{$t('modules.blog.searchPost.textTitle')}}</vf-post-module>
+      >{{$t('modules.blog.searchPost.textTitle')}}</vf-o-post-module>
     </template>
   </vf-apollo>
 </template>

@@ -4,10 +4,10 @@
       <vf-loader-post-module :column="column" />
     </template>
     <template #default="{data}">
-      <vf-post-module
+      <vf-o-post-module
         :items="data.latestPosts.content"
         :column="column"
-      >{{$t('modules.blog.latestPost.textTitle')}}</vf-post-module>
+      >{{$t('modules.blog.latestPost.textTitle')}}</vf-o-post-module>
     </template>
   </vf-apollo>
 </template>

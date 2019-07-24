@@ -3,7 +3,7 @@
     <b-container>
       <b-navbar-nav class="top-nav__navbar" tag="div">
         <b-nav tag="div">
-          <vf-currency />
+          <vf-o-currency />
           <vf-language />
           <b-nav-item
             to="/store/compare"

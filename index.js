@@ -45,6 +45,26 @@ export default {
     }
   },
   molecules: {
+    PostThumbInline: {
+      package: 'vuefront/lib',
+      el: 'mPostThumbInline'
+    },
+    PostImage: {
+      package: 'vuefront/lib',
+      el: 'mPostImage'
+    },
+    PostNav: {
+      package: 'vuefront/lib',
+      el: 'mPostNav'
+    },
+    PostThumb: {
+      package: 'vuefront/lib',
+      el: 'mPostThumb'
+    },
+    PostThumbImage: {
+      package: 'vuefront/lib',
+      el: 'mPostThumbImage'
+    },
     Media: {
       package: 'vuefront/lib',
       el: 'mMedia'
@@ -168,9 +188,37 @@ export default {
     TableHorizontal: {
       package: 'vuefront/lib',
       el: 'mTableHorizontal'
+    },
+    Dropdown: {
+      package: 'vuefront/lib',
+      el: 'mDropdown'
+    },
+    DropdownItem: {
+      package: 'vuefront/lib',
+      el: 'mDropdownItem'
     }
   },
   organisms: {
+    PostReviews: {
+      package: 'vuefront/lib',
+      el: 'oPostReviews'
+    },
+    PostModule: {
+      package: 'vuefront/lib',
+      el: 'oPostModule'
+    },
+    BlogCategoryPost: {
+      package: 'vuefront/lib',
+      el: 'oBlogCategoryPost'
+    },
+    PostGrid: {
+      package: 'vuefront/lib',
+      el: 'oPostGrid'
+    },
+    Currency: {
+      package: 'vuefront/lib',
+      el: 'oCurrency'
+    },
     CompareActions: {
       package: 'vuefront/lib',
       el: 'oCompareActions'
@@ -313,11 +361,11 @@ export default {
         path: 'CategoryBlogSeo'
       },
       package: 'vuefront/lib',
-      el: 'CategoryBlogPage'
+      el: 'pBlogCategory'
     },
     '/blog/post/:id': {
       package: 'vuefront/lib',
-      el: 'PostPage',
+      el: 'pBlogPost',
       seo: {
         package: 'vuefront/lib/seo',
         path: 'PostSeo'
@@ -632,9 +680,13 @@ export default {
       package: 'vuefront/lib',
       el: 'tCategory'
     },
-    CategoryBlog: {
+    BlogCategory: {
       package: 'vuefront/lib',
-      el: 'CategoryBlogTemplate'
+      el: 'tBlogCategory'
+    },
+    BlogPost: {
+      package: 'vuefront/lib',
+      el: 'tBlogPost'
     },
     Wishlist: {
       package: 'vuefront/lib',

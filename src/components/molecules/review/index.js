@@ -1,1 +1,1 @@
-export { default as Review } from './review.vue'
+export { default as mReview } from './review.vue'

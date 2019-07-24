@@ -1,5 +1,8 @@
 <template>
   <b-media :tag="tag" :right-align="rightAlign" :vertival-align="verticalAlign" :no-body="noBody">
+    <template #aside>
+      <slot name="aside"></slot>
+    </template>
     <slot></slot>
   </b-media>
 </template>

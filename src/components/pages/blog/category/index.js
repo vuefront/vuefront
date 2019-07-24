@@ -1,0 +1,1 @@
+export { default as pBlogCategory } from './category.vue'

@@ -36,7 +36,7 @@
               <vf-header-search />
             </template>
             <template #bottom>
-              <vf-currency />
+              <vf-o-currency nav />
               <vf-language />
             </template>
             <template #right>

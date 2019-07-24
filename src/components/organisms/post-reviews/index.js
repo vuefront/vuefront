@@ -1,0 +1,1 @@
+export { default as oPostReviews } from './post-reviews.vue'
