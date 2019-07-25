@@ -23,7 +23,7 @@
       v-if="products.content.length === 0"
       class="text-sm-center"
     >{{$t('templates.store.category.emptyText')}}</vf-empty>
-    <vf-pagination
+    <vf-a-pagination
       :page="products.number"
       :totalPages="products.totalPages"
       @input="handleChangePage"

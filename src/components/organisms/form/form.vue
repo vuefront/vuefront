@@ -1,10 +1,22 @@
 <template>
   <b-form @submit="onSubmit" @reset="onReset" class="vf-o-form">
-    <div class="vf-o-form__title title mb-3">
-      <slot name="title"></slot>
+    <div :class="{'mb-5' : $slots['sub-title']}">
+      <vf-a-heading v-if="$slots['sub-title']" tag="h6" level="3">
+        <slot name="title"></slot>
+      </vf-a-heading>
+      <div
+        :class="{'mb-3': !$slots['sub-title'], 'mb-0': $slots['sub-title']}"
+        class="vf-o-form__title title"
+      >
+        <slot :name="$slots['sub-title'] ? 'sub-title': 'title'"></slot>
+      </div>
     </div>
+
+    <vf-a-alert :show="error.message" v-html="error.message" />
+
     <slot></slot>
-    <div class="text-sm-left">
+
+    <div class="text-sm-left mt-4">
       <vf-a-button type="submit" color="primary" size="sm" rounded>
         <slot name="button"></slot>
       </vf-a-button>
@@ -13,9 +25,15 @@
 </template>
 <script>
 import { BForm } from "bootstrap-vue";
+import { mapGetters } from "vuex";
 export default {
   components: {
     BForm
+  },
+  computed: {
+    ...mapGetters({
+      error: "vuefront/error"
+    })
   },
   methods: {
     onSubmit(e) {

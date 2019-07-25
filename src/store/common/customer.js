@@ -29,7 +29,7 @@ export const mutations = {
 }
 
 export const actions = {
-  async login({commit, dispatch, rootGetters}, customerData) {
+  async login({ commit, dispatch, rootGetters }, customerData) {
     await dispatch(
       'apollo/mutate',
       {
@@ -44,13 +44,16 @@ export const actions = {
     if (!rootGetters['vuefront/error']) {
       commit('setCustomer', rootGetters['apollo/get'].accountLogin)
       commit('setAuth', true)
+      return true
     }
+
+    return false
   },
-  async logout({commit, dispatch, rootGetters}) {
+  async logout({ commit, dispatch, rootGetters }) {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: LogoutGql,
+        mutation: LogoutGql
       },
       {
         root: true
@@ -62,7 +65,7 @@ export const actions = {
       commit('setAuth', rootGetters['apollo/get'].accountLogout.status)
     }
   },
-  async edit({commit, dispatch, rootGetters}, customerData) {
+  async edit({ commit, dispatch, rootGetters }, customerData) {
     await dispatch(
       'apollo/mutate',
       {
@@ -78,9 +81,13 @@ export const actions = {
 
     if (!rootGetters['vuefront/error']) {
       commit('setCustomer', rootGetters['apollo/get'].accountEdit)
+
+      return true
     }
+
+    return false
   },
-  async editPassword({commit, dispatch, rootGetters}, {password}) {
+  async editPassword({ commit, dispatch, rootGetters }, { password }) {
     await dispatch(
       'apollo/mutate',
       {
@@ -96,9 +103,12 @@ export const actions = {
 
     if (!rootGetters['vuefront/error']) {
       commit('setCustomer', rootGetters['apollo/get'].accountEditPassword)
+      return true
     }
+
+    return false
   },
-  async register({commit, dispatch, rootGetters}, customerData) {
+  async register({ commit, dispatch, rootGetters }, customerData) {
     await dispatch(
       'apollo/mutate',
       {
@@ -114,9 +124,12 @@ export const actions = {
 
     if (!rootGetters['vuefront/error']) {
       commit('setCustomer', rootGetters['apollo/get'].accountRegister)
+      return true
     }
+
+    return false
   },
-  async checkLogged({commit, dispatch, rootGetters}) {
+  async checkLogged({ commit, dispatch, rootGetters }) {
     await dispatch(
       'apollo/query',
       {
@@ -126,7 +139,11 @@ export const actions = {
         root: true
       }
     )
-    if (!rootGetters['vuefront/error'] && rootGetters['apollo/get'].accountCheckLogged && rootGetters['apollo/get'].accountCheckLogged.customer) {
+    if (
+      !rootGetters['vuefront/error'] &&
+      rootGetters['apollo/get'].accountCheckLogged &&
+      rootGetters['apollo/get'].accountCheckLogged.customer
+    ) {
       commit(
         'setCustomer',
         rootGetters['apollo/get'].accountCheckLogged.customer

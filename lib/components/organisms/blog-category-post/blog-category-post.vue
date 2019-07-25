@@ -10,7 +10,7 @@
       v-if="posts.content.length === 0"
       class="text-sm-center"
     >{{$t('templates.blog.category.emptyText')}}</vf-empty>
-    <vf-pagination :page="posts.number" :totalPages="posts.totalPages" @input="handleChangePage" />
+    <vf-a-pagination :page="posts.number" :totalPages="posts.totalPages" @input="handleChangePage" />
   </div>
 </template>
 <script>

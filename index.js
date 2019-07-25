@@ -3,6 +3,14 @@ export default {
   css: ['vuefront/assets/scss/main.scss'],
   menu: [],
   atoms: {
+    Alert: {
+      package: 'vuefront/lib',
+      el: 'aAlert'
+    },
+    Pagination: {
+      package: 'vuefront/lib',
+      el: 'aPagination'
+    },
     Button: {
       package: 'vuefront/lib',
       el: 'aButton'
@@ -45,6 +53,14 @@ export default {
     }
   },
   molecules: {
+    Empty: {
+      package: 'vuefront/lib',
+      el: 'mEmpty'
+    },
+    NewCustomer: {
+      package: 'vuefront/lib',
+      el: 'mNewCustomer'
+    },
     PostThumbInline: {
       package: 'vuefront/lib',
       el: 'mPostThumbInline'
@@ -104,6 +120,10 @@ export default {
     CardBody: {
       package: 'vuefront/lib',
       el: 'mCardBody'
+    },
+    CardFooter: {
+      package: 'vuefront/lib',
+      el: 'mCardFooter'
     },
     ProductPrice: {
       package: 'vuefront/lib',
@@ -199,6 +219,26 @@ export default {
     }
   },
   organisms: {
+    AccountEditForm: {
+      package: 'vuefront/lib',
+      el: 'oAccountEditForm'
+    },
+    PasswordForm: {
+      package: 'vuefront/lib',
+      el: 'oPasswordForm'
+    },
+    RegisterForm: {
+      package: 'vuefront/lib',
+      el: 'oRegisterForm'
+    },
+    Language: {
+      package: 'vuefront/lib',
+      el: 'oLanguage'
+    },
+    LoginForm: {
+      package: 'vuefront/lib',
+      el: 'oLoginForm'
+    },
     PostReviews: {
       package: 'vuefront/lib',
       el: 'oPostReviews'
@@ -315,7 +355,7 @@ export default {
     '/account': {
       generate: false,
       package: 'vuefront/lib',
-      el: 'AccountPage'
+      el: 'pAccount'
     },
     '/account/address': {
       generate: false,
@@ -335,20 +375,20 @@ export default {
     '/account/edit': {
       generate: false,
       package: 'vuefront/lib',
-      el: 'AccountEditPage'
+      el: 'pAccountEdit'
     },
     '/account/login': {
       package: 'vuefront/lib',
-      el: 'AccountLoginPage'
+      el: 'pAccountLogin'
     },
     '/account/password': {
       generate: false,
       package: 'vuefront/lib',
-      el: 'AccountPasswordPage'
+      el: 'pAccountPassword'
     },
     '/account/register': {
       package: 'vuefront/lib',
-      el: 'AccountRegisterPage'
+      el: 'pAccountRegister'
     },
     '/account/wishlist': {
       generate: false,
@@ -599,20 +639,6 @@ export default {
       package: 'vuefront/lib',
       el: 'AccountEditAddress'
     },
-    AccountEdit: { package: 'vuefront/lib', el: 'AccountEdit' },
-    AccountLogin: {
-      package: 'vuefront/lib',
-      el: 'AccountLogin'
-    },
-    AccountNew: { package: 'vuefront/lib', el: 'AccountNew' },
-    AccountPassword: {
-      package: 'vuefront/lib',
-      el: 'AccountPassword'
-    },
-    AccountRegister: {
-      package: 'vuefront/lib',
-      el: 'AccountRegister'
-    },
     Apollo: { package: 'vuefront/lib', el: 'Apollo' },
     Breadcrumbs: { package: 'vuefront/lib', el: 'Breadcrumbs' },
     Contact: { package: 'vuefront/lib', el: 'Contact' },
@@ -658,6 +684,14 @@ export default {
     Footer: { package: 'vuefront/lib', el: 'FooterTemplate' },
     Layout: { package: 'vuefront/lib', el: 'LayoutTemplate' },
     Error: { package: 'vuefront/lib', el: 'ErrorTemplate' },
+    Account: {
+      package: 'vuefront/lib',
+      el: 'tAccount'
+    },
+    AccountEdit: {
+      package: 'vuefront/lib',
+      el: 'tAccountEdit'
+    },
     Cart: {
       package: 'vuefront/lib',
       el: 'tCart'
@@ -686,6 +720,18 @@ export default {
     Product: {
       package: 'vuefront/lib',
       el: 'tProduct'
+    },
+    AccountLogin: {
+      package: 'vuefront/lib',
+      el: 'tAccountLogin'
+    },
+    AccountRegister: {
+      package: 'vuefront/lib',
+      el: 'tAccountRegister'
+    },
+    AccountPassword: {
+      package: 'vuefront/lib',
+      el: 'tAccountPassword'
     }
   },
   modules: {

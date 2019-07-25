@@ -1,7 +1,6 @@
 import addToCartGraphql from 'vuefront/graphql/store/cart/addToCart.graphql'
 import updateCartGraphql from 'vuefront/graphql/store/cart/updateCart.graphql'
 import removeCartGraphql from 'vuefront/graphql/store/cart/removeCart.graphql'
-import cartGetGql from 'vuefront/graphql/store/cart/get.graphql'
 
 export const state = () => ({
   cart: {}
@@ -20,19 +19,6 @@ export const mutations = {
 }
 
 export const actions = {
-  async load({ commit, dispatch, rootGetters }) {
-    await dispatch(
-      'apollo/query',
-      {
-        query: cartGetGql
-      },
-      { root: true }
-    )
-
-    if (!rootGetters['vuefront/error']) {
-      commit('setCart', rootGetters['apollo/get'].cart)
-    }
-  },
   async add(
     { commit, dispatch, rootGetters },
     { product, quantity = 1, options = [], redirect = false }

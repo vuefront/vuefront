@@ -10,6 +10,11 @@
     :order-md="orderMd"
     :order-lg="orderLg"
     :order-xl="orderXl"
+    :offset="offsetXs"
+    :offset-sm="offsetSm"
+    :offset-md="offsetMd"
+    :offset-lg="offsetLg"
+    :offset-xl="offsetXl"
     :align-self="alignSelf"
   >
     <slot></slot>
@@ -83,6 +88,36 @@ export default {
       }
     },
     orderXl: {
+      type: String | Number,
+      default() {
+        return null;
+      }
+    },
+    offsetXs: {
+      type: String | Number,
+      default() {
+        return null;
+      }
+    },
+    offsetSm: {
+      type: String | Number,
+      default() {
+        return null;
+      }
+    },
+    offsetMd: {
+      type: String | Number,
+      default() {
+        return null;
+      }
+    },
+    offsetLg: {
+      type: String | Number,
+      default() {
+        return null;
+      }
+    },
+    offsetXl: {
       type: String | Number,
       default() {
         return null;

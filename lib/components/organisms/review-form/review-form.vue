@@ -1,6 +1,6 @@
 <template>
   <vf-o-form @submit="onSubmit">
-    <template #label>{{$t('elements.common.reviews.writeText')}}</template>
+    <template #title>{{$t('elements.common.reviews.writeText')}}</template>
 
     <vf-m-field :state="$v.rating.$dirty ? !$v.rating.$error : null" id="input-rating">
       <template #label>{{$t('elements.common.reviews.ratingEntry')}}</template>
