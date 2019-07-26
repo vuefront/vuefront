@@ -3,7 +3,6 @@ export { default as Breadcrumbs } from './breadcrumbs.vue'
 export { default as Footer } from './footer.vue'
 export { default as Header } from './header.vue'
 export { default as Language } from './language.vue'
-export { default as Pagination } from './pagination.vue'
 export { default as Position } from './position.vue'
 export { default as Search } from './search.vue'
 
