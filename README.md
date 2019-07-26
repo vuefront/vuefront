@@ -43,9 +43,8 @@ VueFront Tech-stack:
 - JAMstack
 
 ## Who can use VueFront?
-You or your clients have a site on an old-fashiond CMS. You want to try new technology, outrun your competition and just provide a better user experiance, but not ready to invest thousands of dollars. 
+You or your clients with a site on an old-fashiond CMS. If you want to try new technology, outrun your competition and just provide a better user experiance, but not ready to invest thousands of dollars, VueFront is for you. 
 
-Try VueFront: 
 - It uses the latest tech stack. 
 - It's free. 
 - It's easy to setup, test and run. 
