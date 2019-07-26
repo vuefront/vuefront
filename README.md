@@ -22,24 +22,37 @@ Help us grow this project to be the best it can be!
   </p>
   
 # Demo
-[VueFront Wordpress Demo](https://wordpress.vuefront.com/)
+[VueFront on Wordpress](https://wordpress.vuefront.com/)
 
-[VueFront OpenCart Demo](https://opencart.vuefront.com/)
+[VueFront on OpenCart](https://opencart.vuefront.com/)
 
-[VueFront Magento Demo](https://magento.vuefront.com/)
+[VueFront on Magento](https://magento.vuefront.com/)
 
-[VueFront PrestaShop Demo](https://prestashop.vuefront.com/)
+[VueFront on PrestaShop](https://prestashop.vuefront.com/)
 
-# What does VueFront do?
-It can easily turn your Wordpress, OpenCart, Magenta, Shopify or any other blog/store into an SPA and PWA with Vue.js in less then 5 minutes.
+# What can VueFront can do?
+Easily turn your Wordpress, OpenCart, Magento, PrestaShop, Shopify or any other blog/store CMS into an SPA and PWA with Vue.js in less then 5 minutes.
 
-## Why is this project useful?
-You want to try new technology, outrun your competition and just provide a better user experiance, but not ready to invest thousands of dollars? Then try VueFront. It's easy to setup, test and run. 
+VueFront Tech-stack:
+- SPA
+- PWA
+- AMP
+- GraphQL + Apollo
+- VueJS + Nuxt
+- Atomic Design
+- JAMstack
 
+## Who can use VueFront?
+You or your clients with a site on an old-fashiond CMS. If you want to try new technology, outrun your competition and just provide a better user experiance, but not ready to invest thousands of dollars, VueFront is for you. 
+
+- It uses the latest tech stack. 
+- It's free. 
+- It's easy to setup, test and run. 
+
+It works out-of-the-box:
 - You get a shiny new Web APP.
 - You get to keep your current CMS admin panel.
 - You can always switch back to your old site. 
-
 
 > Give it a try, what do you have to lose? 
 
