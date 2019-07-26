@@ -28,20 +28,6 @@ export const mutations = {
 }
 
 export const actions = {
-  async list({ commit, dispatch, rootGetters }) {
-    await dispatch(
-      'apollo/query',
-      {
-        query: AddressesGql
-      },
-      {
-        root: true
-      }
-    )
-    if (!rootGetters['vuefront/error']) {
-      commit('setEntities', rootGetters['apollo/get'].accountAddressList)
-    }
-  },
   async get({ commit, dispatch, rootGetters }, { id }) {
     await dispatch(
       'apollo/query',
@@ -57,7 +43,7 @@ export const actions = {
       commit('setAddress', rootGetters['apollo/get'].accountAddress)
     }
   },
-  async create({commit, dispatch, rootGetters}, {address}) {
+  async create({ commit, dispatch, rootGetters }, { address }) {
     await dispatch(
       'apollo/mutate',
       {
@@ -73,9 +59,13 @@ export const actions = {
 
     if (!rootGetters['vuefront/error']) {
       commit('setAddress', rootGetters['apollo/get'].accountAddAddress)
+
+      return true
     }
+
+    return false
   },
-  async edit({commit, dispatch, rootGetters}, {id, address}) {
+  async edit({ commit, dispatch, rootGetters }, { id, address }) {
     await dispatch(
       'apollo/mutate',
       {
@@ -92,9 +82,13 @@ export const actions = {
 
     if (!rootGetters['vuefront/error']) {
       commit('setAddress', rootGetters['apollo/get'].accountEditAddress)
+
+      return true
     }
+
+    return false
   },
-  async remove({commit, dispatch, rootGetters}, {id}) {
+  async remove({ commit, dispatch, rootGetters }, { id }) {
     await dispatch(
       'apollo/mutate',
       {

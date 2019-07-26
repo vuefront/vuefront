@@ -1,0 +1,14 @@
+query($id: String) {
+  page(id: $id) {
+    id
+    title
+    description
+    sort_order
+    meta {
+      title
+      description
+      keyword
+    }
+    keyword
+  }
+}

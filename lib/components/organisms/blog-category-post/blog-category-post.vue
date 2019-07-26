@@ -6,10 +6,10 @@
       :grid-size="gridSize"
       class="mb-4"
     />
-    <vf-empty
+    <vf-m-empty
       v-if="posts.content.length === 0"
       class="text-sm-center"
-    >{{$t('templates.blog.category.emptyText')}}</vf-empty>
+    >{{$t('templates.blog.category.emptyText')}}</vf-m-empty>
     <vf-a-pagination :page="posts.number" :totalPages="posts.totalPages" @input="handleChangePage" />
   </div>
 </template>

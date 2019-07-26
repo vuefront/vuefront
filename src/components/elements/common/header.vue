@@ -37,7 +37,7 @@
             </template>
             <template #bottom>
               <vf-o-currency nav />
-              <vf-language />
+              <vf-o-language />
             </template>
             <template #right>
               <div class="header-section__toggle_close" v-b-toggle.menu-collapse>

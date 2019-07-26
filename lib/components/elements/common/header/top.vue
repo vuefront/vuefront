@@ -4,7 +4,7 @@
       <b-navbar-nav class="top-nav__navbar" tag="div">
         <b-nav tag="div">
           <vf-o-currency />
-          <vf-language />
+          <vf-o-language />
           <b-nav-item
             to="/store/compare"
             class="top-nav__link ml-auto"
@@ -76,7 +76,7 @@ export default {
 </script>
 <style lang="scss">
 .top-nav {
-  .nav-link {
+  .nav-link.nav-link {
     padding: 0.5rem 0.5rem;
     color: rgba(31, 45, 61, 0.5);
   }

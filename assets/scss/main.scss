@@ -169,3 +169,10 @@ h6,
 .slice-video {
   min-height: 600px;
 }
+
+.color-inherit {
+  color: inherit;
+  &:hover {
+    color: inherit;
+  }
+}

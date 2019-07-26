@@ -1,5 +1,11 @@
 <template>
-  <b-form-select :value="value" :options="options" @input="handleChange" />
+  <b-form-select
+    :value="value"
+    :options="options"
+    :value-field="valueField"
+    :text-field="textField"
+    @input="handleChange"
+  />
 </template>
 <script>
 import { BFormSelect } from "bootstrap-vue";
@@ -12,6 +18,18 @@ export default {
       type: [Array, Object],
       default() {
         return [];
+      }
+    },
+    valueField: {
+      type: String,
+      default() {
+        return "value";
+      }
+    },
+    textField: {
+      type: String,
+      default() {
+        return "text";
       }
     },
     value: {}

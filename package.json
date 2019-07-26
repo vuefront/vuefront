@@ -12,7 +12,7 @@
   "keywords": [
     "vuefront"
   ],
-  "main": "index.js",
+  "main": "lib/index.js",
   "author": "Dreamvention",
   "license": "MIT",
   "scripts": {
