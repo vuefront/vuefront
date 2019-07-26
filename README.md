@@ -30,10 +30,10 @@ Help us grow this project to be the best it can be!
 
 [VueFront PrestaShop Demo](https://prestashop.vuefront.com/)
 
-# VueFront can
+# What can VueFront can do?
 Easily turn your Wordpress, OpenCart, Magento, PrestaShop, Shopify or any other blog/store CMS into an SPA and PWA with Vue.js in less then 5 minutes.
 
-# You get
+# You do you get from using VueFront?
 - SPA
 - PWA
 - AMP
@@ -41,7 +41,7 @@ Easily turn your Wordpress, OpenCart, Magento, PrestaShop, Shopify or any other 
 - Atomic Design
 - JAMstack
 
-## Why is this project useful?
+## Who can use VueFront?
 You or your clients have a site on an old-fashiond CMS. You want to try new technology, outrun your competition and just provide a better user experiance, but not ready to invest thousands of dollars. 
 
 Try VueFront: 
