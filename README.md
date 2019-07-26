@@ -22,13 +22,13 @@ Help us grow this project to be the best it can be!
   </p>
   
 # Demo
-[VueFront Wordpress Demo](https://wordpress.vuefront.com/)
+[VueFront on Wordpress](https://wordpress.vuefront.com/)
 
-[VueFront OpenCart Demo](https://opencart.vuefront.com/)
+[VueFront on OpenCart](https://opencart.vuefront.com/)
 
-[VueFront Magento Demo](https://magento.vuefront.com/)
+[VueFront on Magento](https://magento.vuefront.com/)
 
-[VueFront PrestaShop Demo](https://prestashop.vuefront.com/)
+[VueFront on PrestaShop](https://prestashop.vuefront.com/)
 
 # What can VueFront can do?
 Easily turn your Wordpress, OpenCart, Magento, PrestaShop, Shopify or any other blog/store CMS into an SPA and PWA with Vue.js in less then 5 minutes.
