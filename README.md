@@ -33,11 +33,12 @@ Help us grow this project to be the best it can be!
 # What can VueFront can do?
 Easily turn your Wordpress, OpenCart, Magento, PrestaShop, Shopify or any other blog/store CMS into an SPA and PWA with Vue.js in less then 5 minutes.
 
-# You do you get from using VueFront?
+VueFront Tech-stack:
 - SPA
 - PWA
 - AMP
-- GraphQL
+- GraphQL + Apollo
+- VueJS + Nuxt
 - Atomic Design
 - JAMstack
 
