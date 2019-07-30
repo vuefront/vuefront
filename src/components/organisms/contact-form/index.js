@@ -1,0 +1,1 @@
+export {default as oContactForm} from './contact-form.vue'

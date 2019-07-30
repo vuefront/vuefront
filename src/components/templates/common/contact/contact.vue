@@ -1,0 +1,25 @@
+<template>
+  <section class="page-contact">
+    <vf-o-location-grid v-if="contact.locations.length > 0" :items="contact.locations" />
+    <vf-m-row>
+      <vf-m-col sm="12" md="6">
+        <vf-o-contact-form />
+      </vf-m-col>
+      <vf-m-col sm="12" md="6" class="ml-lg-auto">
+        <vf-m-contact :contact="contact" />
+      </vf-m-col>
+    </vf-m-row>
+  </section>
+</template>
+<script>
+export default {
+  props: {
+    contact: {
+      type: Object,
+      default() {
+        return null;
+      }
+    }
+  }
+};
+</script>

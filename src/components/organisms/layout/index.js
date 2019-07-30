@@ -1,0 +1,1 @@
+export { default as oLayout } from './layout.vue'
