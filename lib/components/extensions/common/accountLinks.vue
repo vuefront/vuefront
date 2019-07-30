@@ -1,28 +1,20 @@
 <template>
   <section class="module-pages">
-    <h6 class="heading mb-3">{{$t('modules.common.accountLinks.textTitle')}}</h6>
+    <vf-a-heading level="6" class="heading mb-3">{{$t('modules.common.accountLinks.textTitle')}}</vf-a-heading>
     <ul class="list-unstyled">
       <li>
-        <b-link to="/account/login">{{$t('modules.common.accountLinks.signInText')}}</b-link>
+        <vf-a-link to="/account/login">{{$t('modules.common.accountLinks.signInText')}}</vf-a-link>
       </li>
       <li>
-        <b-link to="/account/register">{{$t('modules.common.accountLinks.registerText')}}</b-link>
+        <vf-a-link to="/account/register">{{$t('modules.common.accountLinks.registerText')}}</vf-a-link>
       </li>
       <li>
-        <b-link to="/account">{{$t('modules.common.accountLinks.myAccountText')}}</b-link>
+        <vf-a-link to="/account">{{$t('modules.common.accountLinks.myAccountText')}}</vf-a-link>
       </li>
       <li>
-        <b-link to="/account/wishlist">{{$t('modules.common.accountLinks.wishlistText')}}</b-link>
+        <vf-a-link to="/account/wishlist">{{$t('modules.common.accountLinks.wishlistText')}}</vf-a-link>
       </li>
     </ul>
   </section>
 </template>
-<script>
-import { BLink } from "bootstrap-vue";
-export default {
-  components: {
-    BLink
-  }
-};
-</script>
 

@@ -1,25 +1,22 @@
 <template>
-  <b-nav-item-dropdown v-if="language.length > 1" class="language-section" left>
+  <vf-m-dropdown v-if="language.length > 1" class="language-section" left variant="link" size="sm">
     <template slot="button-content">
-      <b-img :src="activeLanguage.image" class="language-section__image d-none d-md-inline-block" />
+      <vf-a-image
+        :src="activeLanguage.image"
+        class="language-section__image d-none d-md-inline-block"
+      />
       <span class="language-section__name">{{activeLanguage.name}}</span>
     </template>
-    <b-dropdown-item v-for="(value, index) in language" :key="index" @click="handleEdit(value)">
+    <vf-m-dropdown-item v-for="(value, index) in language" :key="index" @click="handleEdit(value)">
       <b-img :src="value.image" />
       {{value.name}}
-    </b-dropdown-item>
-  </b-nav-item-dropdown>
+    </vf-m-dropdown-item>
+  </vf-m-dropdown>
 </template>
 <script>
-import { BNavItemDropdown, BDropdownItem, BImg } from "bootstrap-vue";
 import { mapGetters } from "vuex";
 import { find } from "lodash";
 export default {
-  components: {
-    BNavItemDropdown,
-    BDropdownItem,
-    BImg
-  },
   computed: {
     ...mapGetters({
       language: "common/language/get",

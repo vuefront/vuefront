@@ -1,21 +1,17 @@
 <template>
-  <vf-apollo v-slot="{data}">
+  <vf-o-apollo v-slot="{data}">
     <section class="module-pages">
-      <h6 class="heading mb-3">{{$t('modules.common.pages.textTitle')}}</h6>
+      <vf-a-heading level="6" class="heading mb-3">{{$t('modules.common.pages.textTitle')}}</vf-a-heading>
       <ul class="list-unstyled">
         <li v-for="(value, key) in data.pagesList.content" :key="key">
-          <b-link :to="url(value)" v-html="value.title" />
+          <vf-a-link :to="url(value)" v-html="value.title" />
         </li>
       </ul>
     </section>
-  </vf-apollo>
+  </vf-o-apollo>
 </template>
 <script>
-import { BLink } from "bootstrap-vue";
 export default {
-  components: {
-    BLink
-  },
   methods: {
     url(page) {
       if (page.keyword && page.keyword !== "") {

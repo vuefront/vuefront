@@ -4,7 +4,10 @@
     :value="value"
     @input="handleInput"
     @change="handleChange"
+    @keypress="handleKeypress"
     :state="state"
+    :size="size"
+    :placeholder="placeholder"
     :trim="trim"
   />
 </template>
@@ -15,9 +18,17 @@ export default {
     BFormInput
   },
   props: {
+    size: {
+      type: String,
+      default: null
+    },
     type: {
       type: String,
       default: "text"
+    },
+    placeholder: {
+      type: String,
+      default: ""
     },
     state: {
       type: Boolean,
@@ -37,6 +48,9 @@ export default {
     },
     handleChange(value) {
       this.$emit("change", value);
+    },
+    handleKeypress(value) {
+      this.$emit("keypress", value);
     }
   }
 };

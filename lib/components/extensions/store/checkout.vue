@@ -1,7 +1,7 @@
 <template>
-  <vf-apollo v-slot="{data}">
+  <vf-o-apollo v-slot="{data}">
     <div>{{isClient? handleRedirect(data.checkoutLink.link) : ''}}</div>
-  </vf-apollo>
+  </vf-o-apollo>
 </template>
 <script>
 export default {

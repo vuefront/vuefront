@@ -18,7 +18,7 @@ export const mutations = {
 }
 
 export const actions = {
-  async send({ dispatch }, contactData) {
+  async send({ dispatch, rootGetters, commit }, contactData) {
     await dispatch(
       'apollo/mutate',
       {
@@ -29,6 +29,19 @@ export const actions = {
         root: true
       }
     )
+
+    if (!rootGetters['vuefront/error']) {
+      commit(
+        'notification/add',
+        this.app.i18n.t('elements.common.contact.successText'),
+        { root: true }
+      )
+      return true
+    } else {
+      commit('notification/error', rootGetters['vuefront/error'].message)
+    }
+
+    return false
   },
   async get({ dispatch, rootGetters, commit }) {
     await dispatch(

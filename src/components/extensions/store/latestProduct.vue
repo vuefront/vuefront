@@ -1,5 +1,5 @@
 <template>
-  <vf-apollo>
+  <vf-o-apollo>
     <template #loader>
       <vf-loader-product-module :column="column"/>
     </template>
@@ -9,7 +9,7 @@
         :column="column"
       >{{$t('modules.store.latestProduct.textTitle')}}</vf-o-product-module>
     </template>
-  </vf-apollo>
+  </vf-o-apollo>
 </template>
 <script>
 export default {

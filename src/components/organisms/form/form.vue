@@ -1,6 +1,6 @@
 <template>
   <b-form @submit="onSubmit" @reset="onReset" class="vf-o-form">
-    <div :class="{'mb-5' : $slots['sub-title']}">
+    <div v-if="!inline" :class="{'mb-5' : $slots['sub-title']}">
       <vf-a-heading v-if="$slots['sub-title']" tag="h6" level="3">
         <slot name="title"></slot>
       </vf-a-heading>
@@ -16,7 +16,7 @@
 
     <slot></slot>
 
-    <div class="text-sm-left mt-4">
+    <div class="text-sm-left mt-4" v-if="button">
       <vf-a-button type="submit" color="primary" size="sm" rounded>
         <slot name="button"></slot>
       </vf-a-button>
@@ -29,6 +29,20 @@ import { mapGetters } from "vuex";
 export default {
   components: {
     BForm
+  },
+  props: {
+    inline: {
+      type: Boolean,
+      default() {
+        return false;
+      }
+    },
+    button: {
+      type: Boolean,
+      default() {
+        return true;
+      }
+    }
   },
   computed: {
     ...mapGetters({

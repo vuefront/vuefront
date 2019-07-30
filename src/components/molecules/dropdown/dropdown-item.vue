@@ -1,5 +1,5 @@
 <template>
-  <b-dropdown-item>
+  <b-dropdown-item v-on="$listeners" :to="to">
     <slot></slot>
   </b-dropdown-item>
 </template>
@@ -8,6 +8,14 @@ import { BDropdownItem } from "bootstrap-vue";
 export default {
   components: {
     BDropdownItem
+  },
+  props: {
+    to: {
+      type: String,
+      default() {
+        return null
+      }
+    }
   }
 };
 </script>

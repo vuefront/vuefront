@@ -1,16 +1,16 @@
 <template>
-  <vf-apollo v-slot="{data}">
+  <vf-o-apollo v-slot="{data}">
     <div class="categoriesBlogList mb-4">
-      <b-list-group>
+      <vf-m-list-group>
         <template v-for="(value, index) in data.categoriesBlogList.content">
-          <b-list-group-item
+          <vf-m-list-group-item
             :to="url(value)"
             :key="`root-${index}`"
             :active="checkView(value, value.categories)"
             v-html="value.name"
           />
           <template v-if="checkView(value, value.categories)">
-            <b-list-group-item
+            <vf-m-list-group-item
               v-for="(subValue, subIndex) in value.categories"
               :key="`sub-${subIndex}`"
               :to="url(subValue)"
@@ -19,18 +19,13 @@
             />
           </template>
         </template>
-      </b-list-group>
+      </vf-m-list-group>
     </div>
-  </vf-apollo>
+  </vf-o-apollo>
 </template>
 <script>
-import { BListGroup, BListGroupItem } from "bootstrap-vue";
 import {isEmpty, map, includes} from "lodash";
 export default {
-  components: {
-    BListGroup,
-    BListGroupItem
-  },
   computed: {
     id() {
       let result = false;

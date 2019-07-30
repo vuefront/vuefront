@@ -1,5 +1,5 @@
 <template>
-  <b-alert :show="show">
+  <b-alert :show="show" v-on="$listeners" :dismissible="dismissible">
     <slot></slot>
   </b-alert>
 </template>
@@ -12,6 +12,10 @@ export default {
   props: {
     show: {
       type: [Boolean, Number, String],
+      default: false
+    },
+    dismissible: {
+      type: Boolean,
       default: false
     }
   }

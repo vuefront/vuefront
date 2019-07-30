@@ -1,5 +1,5 @@
 <template>
-  <vf-apollo
+  <vf-o-apollo
     :variables="{search:keyword}"
   >
     <template #loader>
@@ -12,7 +12,7 @@
         :column="column"
       >{{$t('modules.store.searchProduct.textTitle')}}</vf-o-product-module>
     </template>
-  </vf-apollo>
+  </vf-o-apollo>
 </template>
 <script>
 export default {

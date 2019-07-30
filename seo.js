@@ -1,6 +1,6 @@
 import * as seo from 'vuefront/lib/seo'
 export default {
-  '/': { component: 'HomePage' },
+  '/': { component: 'Home' },
   '/account': {
     generate: false,
     component: 'Account'
@@ -11,11 +11,11 @@ export default {
   },
   '/account/address/:id/edit': {
     generate: false,
-    component: 'AccountEditAddressPage'
+    component: 'AccountEditAddress'
   },
   '/account/address/create': {
     generate: false,
-    component: 'AccountCreateAddressPage'
+    component: 'AccountCreateAddress'
   },
   '/account/edit': {
     generate: false,
@@ -44,14 +44,14 @@ export default {
     component: 'BlogPost',
     seo: seo.PostSeo
   },
-  '/contact': { component: 'ContactPage' },
+  '/contact': { component: 'Contact' },
   '/page/:id': {
     component: 'PagePage',
     seo: seo.PageSeo
   },
-  '/search': { component: 'SearchPage' },
+  '/search': { component: 'Search' },
   '/search/:slug': {
-    component: 'SearchPage'
+    component: 'Search'
   },
   '/store/cart': {
     generate: false,

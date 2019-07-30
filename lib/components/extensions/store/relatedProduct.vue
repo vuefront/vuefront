@@ -1,5 +1,5 @@
 <template>
-  <vf-apollo v-if="id" :variables="{id:id}">
+  <vf-o-apollo v-if="id" :variables="{id:id}">
     <template #loader>
       <vf-loader-product-module :column="column" />
     </template>
@@ -10,7 +10,7 @@
         :column="column"
       >{{$t('modules.store.relatedProduct.textTitle')}}</vf-o-product-module>
     </template>
-  </vf-apollo>
+  </vf-o-apollo>
 </template>
 <script>
 import { isEmpty } from "lodash";

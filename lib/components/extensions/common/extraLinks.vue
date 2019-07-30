@@ -1,19 +1,15 @@
 <template>
   <section class="module-pages">
-    <h6 class="heading mb-3">{{$t('modules.common.extraLinks.textTitle')}}</h6>
+    <vf-a-heading level="6" class="heading mb-3">{{$t('modules.common.extraLinks.textTitle')}}</vf-a-heading>
     <ul class="list-unstyled">
       <li v-for="(value, index) in links" :key="index">
-        <b-link :to="value.to">{{value.text}}</b-link>
+        <vf-a-link :to="value.to">{{value.text}}</vf-a-link>
       </li>
     </ul>
   </section>
 </template>
 <script>
-import { BLink } from "bootstrap-vue";
 export default {
-  components: {
-    BLink
-  },
   props: ["links"]
 };
 </script>

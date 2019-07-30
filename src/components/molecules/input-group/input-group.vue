@@ -8,7 +8,7 @@
     :appendHtml="appendHtml"
     :tag="tag"
   >
-    <slot></slot>
+    <slot v-for="(_, name) in $slots" :name="name" :slot="name" />
   </b-input-group>
 </template>
 <script>

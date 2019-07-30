@@ -1,5 +1,5 @@
 <template>
-  <vf-apollo>
+  <vf-o-apollo>
     <template #loader>
       <vf-loader-post-module :column="column" />
     </template>
@@ -9,7 +9,7 @@
         :column="column"
       >{{$t('modules.blog.latestPost.textTitle')}}</vf-o-post-module>
     </template>
-  </vf-apollo>
+  </vf-o-apollo>
 </template>
 <script>
 export default {

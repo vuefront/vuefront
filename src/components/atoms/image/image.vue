@@ -1,7 +1,7 @@
 <template>
   <b-img-lazy
-    :src="lazySrc"
-    :blank-src="src"
+    :src="lazySrc || src"
+    :blank-src="lazySrc ? src : ''"
     :fluid="fluid"
     :alt="alt"
     :title="title"
