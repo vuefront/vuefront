@@ -8,7 +8,7 @@
       <span class="language-section__name">{{activeLanguage.name}}</span>
     </template>
     <vf-m-dropdown-item v-for="(value, index) in language" :key="index" @click="handleEdit(value)">
-      <b-img :src="value.image" />
+      <vf-a-image :src="value.image" />
       {{value.name}}
     </vf-m-dropdown-item>
   </vf-m-dropdown>

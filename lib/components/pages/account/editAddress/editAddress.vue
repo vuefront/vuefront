@@ -5,7 +5,7 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
-import addressGetGql from "vuefront/graphql/account/address/editPage.graphql";
+import addressGetGql from "./editAddress.graphql";
 export default {
   computed: {
     ...mapGetters({

@@ -1,0 +1,9 @@
+{
+	currency {
+    code
+    symbol_left
+    symbol_right
+    title
+    active
+  }
+}

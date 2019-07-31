@@ -1,5 +1,5 @@
 <template>
-  <vf-m-card :key="index" class="mb-3">
+  <vf-m-card class="mb-3">
     <div>
       <vf-a-heading
         level="5"

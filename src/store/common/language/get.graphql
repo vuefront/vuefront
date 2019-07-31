@@ -1,0 +1,8 @@
+{
+	language {
+    name
+    image
+    code
+    active
+  }
+}

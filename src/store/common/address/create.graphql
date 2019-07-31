@@ -1,0 +1,13 @@
+mutation($address: AccountAddressInput) {
+  accountAddAddress(address: $address) {
+      id
+      firstName
+      lastName
+      city
+      company
+      zipcode
+      countryId
+      address1
+      address2
+  }
+}

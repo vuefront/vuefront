@@ -7,7 +7,7 @@
       </vf-m-col>
       <vf-m-col sm="12" md="6">
         <div class="product-info pl-lg-5">
-          <vf-a-heading level="4" class="product-info__name">{{product.name}}</vf-a-heading>
+          <vf-a-heading level="4" class="product-info__name" tag="h1">{{product.name}}</vf-a-heading>
           <vf-a-heading level="6" class="product-info__model text-sm">{{product.model}}</vf-a-heading>
           <vf-m-row>
             <vf-m-col sm="6">

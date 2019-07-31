@@ -1,0 +1,10 @@
+mutation($id: Int) {
+  addToWishlist(id: $id) {
+    id
+    name
+    model
+    price
+    image
+    imageLazy
+  }
+}

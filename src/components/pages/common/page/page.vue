@@ -4,45 +4,45 @@
   </section>
 </template>
 <script>
-import { mapGetters } from "vuex";
-import pageGql from "./page.graphql";
+import {mapGetters} from 'vuex'
+import pageGql from './page.graphql'
 
 export default {
   head() {
-    if(!this.page.meta) {
+    if (!this.page.meta) {
       return {}
     }
     return {
       title: this.page.meta.title,
       meta: [
         {
-          hid: "description",
-          name: "description",
+          hid: 'description',
+          name: 'description',
           content: this.page.meta.description
         },
         {
-          name: "keywords",
+          name: 'keywords',
           content: this.page.meta.keyword
         }
       ]
-    };
+    }
   },
-  props: ["url", "keyword", "id"],
+  props: ['url', 'keyword', 'id'],
   computed: {
     ...mapGetters({
-      page: "common/page/get"
+      page: 'common/page/get'
     })
   },
-  async asyncData({ store, params, app }) {
+  async asyncData({store, params, app}) {
     let {id} = app.$vuefront.params
-    await store.dispatch("apollo/query", {
+    await store.dispatch('apollo/query', {
       query: pageGql,
-      variables: { id }
-    });
+      variables: {id}
+    })
 
-    const { page } = store.getters["apollo/get"];
+    const {page} = store.getters['apollo/get']
 
-    store.commit("common/page/setPage", page);
+    store.commit('common/page/setPage', page)
   }
-};
+}
 </script>

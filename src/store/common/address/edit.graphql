@@ -1,0 +1,13 @@
+mutation($id: String, $address: AccountAddressInput) {
+  accountEditAddress(id: $id, address: $address) {
+      id
+      firstName
+      lastName
+      city
+      company
+      zipcode
+      address1
+      countryId
+      address2
+  }
+}

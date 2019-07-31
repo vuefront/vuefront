@@ -4,7 +4,7 @@
       <template #aside>
         <vf-m-post-image :post="post" width="160" />
       </template>
-      <vf-a-heading level="5" class="mt-0 mb-1" v-html="post.name" />
+      <vf-a-heading level="5" class="mt-0 mb-1" >{{post.name}}</vf-a-heading>
       <p
         class="mb-0 text-sm"
         v-html="post.shortDescription"

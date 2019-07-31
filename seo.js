@@ -46,7 +46,7 @@ export default {
   },
   '/contact': { component: 'Contact' },
   '/page/:id': {
-    component: 'PagePage',
+    component: 'Page',
     seo: seo.PageSeo
   },
   '/search': { component: 'Search' },

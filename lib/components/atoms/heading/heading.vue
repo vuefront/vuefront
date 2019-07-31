@@ -15,7 +15,7 @@ export default {
     tag: {
       type: String,
       default() {
-        return "div";
+        return 'div';
       }
     }
   }

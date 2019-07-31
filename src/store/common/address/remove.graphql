@@ -1,0 +1,22 @@
+mutation($id: String) {
+  accountRemoveAddress(id: $id, page: 1, size: -1) {
+    id
+    firstName
+    lastName
+    address1
+    address2
+    zoneId
+    zone {
+      id
+      name
+    }
+    countryId
+    country {
+      id
+      name
+    }
+    city
+    company
+    zipcode
+  }
+}

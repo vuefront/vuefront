@@ -2,9 +2,9 @@
   <b-form-file :value="activeOptionValue" @input="handleChange"/>
 </template>
 <script>
-import { BFormFile } from 'bootstrap-vue'
-import uploadFileGql from 'vuefront/graphql/common/file/upload.graphql'
-import { mapGetters } from 'vuex'
+import {BFormFile} from 'bootstrap-vue'
+import uploadFileGql from './upload.graphql'
+import {mapGetters} from 'vuex'
 import {find} from 'lodash'
 
 export default {
@@ -18,7 +18,7 @@ export default {
       let result = find(
         this.selected,
         {id: this.option.id}
-      );
+      )
 
       return result ? result.value : ''
     }
@@ -31,7 +31,7 @@ export default {
       })
 
       if (!this.error) {
-        const {uploadFile} = this.$store.getters['apollo/get'];
+        const {uploadFile} = this.$store.getters['apollo/get']
         this.$emit('change', uploadFile.code)
       }
     }
