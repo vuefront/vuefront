@@ -4,7 +4,7 @@
       <vf-t-special :products="products" :grid-size="gridSize" :mode="mode" :sort="sort" />
     </template>
     <template v-else>
-      <vf-loader-special-page :grid-size="gridSize" />
+      <vf-l-special-page :grid-size="gridSize" />
     </template>
   </section>
 </template>

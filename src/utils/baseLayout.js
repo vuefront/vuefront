@@ -24,7 +24,7 @@ export const BaseLayout = {
               result = [
                 ...result,
                 {
-                  component: 'vfModule' + layout[this.position][key],
+                  component: 'vfE' + layout[this.position][key],
                   props: {},
                 },
               ]
@@ -32,7 +32,7 @@ export const BaseLayout = {
               result = [
                 ...result,
                 {
-                  component: 'vfModule' + layout[this.position][key][0],
+                  component: 'vfE' + layout[this.position][key][0],
                   props: layout[this.position][key][1],
                 },
               ]

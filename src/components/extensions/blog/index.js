@@ -1,3 +1,3 @@
-export { default as CategoryBlogModule } from './category.vue'
-export { default as LatestPostModule } from './latestPost.vue'
-export { default as SearchPostModule } from './searchPost.vue'
+export * from './search-post'
+export * from './latest-post'
+export * from './category'

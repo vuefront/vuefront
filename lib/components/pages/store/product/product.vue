@@ -1,6 +1,6 @@
 <template>
   <vf-t-product v-if="loaded" :product="product" />
-  <vf-loader-product v-else />
+  <vf-l-product v-else />
 </template>
 <graphql>
   query($id: String, $limit: Int) {

@@ -2,7 +2,7 @@
   <div>
     <template v-if="loading">
       <slot name="loader">
-        <vf-loader-common />
+        <vf-a-loader />
       </slot>
     </template>
     <slot v-else :data="data"></slot>

@@ -1,6 +1,6 @@
 <template>
   <vf-m-card class="vf-m-post-thumb" no-body>
-    <vf-a-link :to="url" class="vf-m-post-thumb_image_wrapper">
+    <vf-a-link :to="url" class="vf-m-post-thumb__image_wrapper">
       <vf-m-post-thumb-image :post="post" card />
     </vf-a-link>
     <vf-m-card-body class="pt-0">

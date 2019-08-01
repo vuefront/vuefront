@@ -74,6 +74,6 @@ export default {
     seo: seo.ProductSeo
   },
   '/store/special': {
-    components: 'Special'
+    component: 'Special'
   }
 }

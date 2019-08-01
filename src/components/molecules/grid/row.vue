@@ -1,5 +1,5 @@
 <template>
-  <b-row :no-gutters="noGutters" :tag="tag">
+  <b-row :no-gutters="noGutters" :tag="tag" :align-v="alignV" :align-h="alignH">
     <slot></slot>
   </b-row>
 </template>
@@ -25,13 +25,13 @@ export default {
     alignV: {
       type: String,
       default() {
-        return "";
+        return null;
       }
     },
     alignH: {
       type: String,
       default() {
-        return "";
+        return null;
       }
     }
   }

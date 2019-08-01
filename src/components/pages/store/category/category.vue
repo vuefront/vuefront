@@ -10,7 +10,7 @@
       />
     </template>
     <template v-else>
-      <vf-loader-category-page :grid-size="gridSize" />
+      <vf-l-category-page :grid-size="gridSize" />
     </template>
   </section>
 </template>

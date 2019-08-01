@@ -1,6 +1,0 @@
-export { default as CategoryBlogPageLoader } from './page/category.vue'
-export { default as PostGridLoader } from './post/grid.vue'
-export { default as PostModuleLoader } from './post/module.vue'
-export { default as PostThumbLoader } from './post/thumb.vue'
-export { default as CategoryBlogLoader } from './category.vue'
-export { default as PostLoader } from './post.vue'

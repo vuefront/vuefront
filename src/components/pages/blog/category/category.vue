@@ -4,7 +4,7 @@
       <vf-t-blog-category :category="category" :posts="posts" :grid-size="gridSize" />
     </template>
     <template v-else>
-      <vf-loader-category-blog-page :grid-size="gridSize" />
+      <vf-l-category-blog-page :grid-size="gridSize" />
     </template>
   </section>
 </template>

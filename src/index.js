@@ -2,6 +2,7 @@ import * as EnGb from 'vuefront/lib/locales/en-gb'
 import * as RuRu from 'vuefront/lib/locales/ru-ru'
 import * as components from './components'
 import * as stores from './store'
+
 export default {
   plugins: [],
   css: { main: () => import('vuefront/assets/scss/main.scss') },
@@ -22,7 +23,8 @@ export default {
     Heading: components.aHeading,
     Select: components.aSelect,
     Input: components.aInput,
-    Textarea: components.aTextarea
+    Textarea: components.aTextarea,
+    Loader: components.aLoader
   },
   molecules: {
     ListGroup: components.mListGroup,
@@ -273,43 +275,46 @@ export default {
     Search: components.tSearch,
     Contact: components.tContact
   },
-  modules: {
-    SearchProduct: components.SearchProductModule,
-    SearchPost: components.SearchPostModule,
-    LatestProduct: components.LatestProductModule,
-    SpecialProduct: components.SpecialProductModule,
-    LatestPost: components.LatestPostModule,
-    RelatedProduct: components.RelatedProductModule,
-    FeaturedProduct: components.FeaturedProductModule,
-    Slideshow: components.SlideshowModule,
-    Pages: components.PagesModule,
-    StoreCategory: components.CategoryModule,
-    BlogCategory: components.CategoryBlogModule,
-    Account: components.AccountModule,
-    AccountLinks: components.AccountLinksModule,
-    ExtraLinks: components.ExtraLinksModule,
-    Checkout: components.CheckoutModule,
-    Menu: components.MenuModule,
-    Search: components.SearchModule
+  extensions: {
+    SearchProduct: components.eSearchProduct,
+    SearchPost: components.eSearchPost,
+    LatestProduct: components.eLatestProduct,
+    SpecialProduct: components.eSpecialProduct,
+    LatestPost: components.eLatestPost,
+    RelatedProduct: components.eRelatedProduct,
+    FeaturedProduct: components.eFeaturedProduct,
+    Slideshow: components.eSlideshow,
+    Pages: components.ePages,
+    StoreCategory: components.eCategory,
+    BlogCategory: components.eCategoryBlog,
+    Account: components.eAccount,
+    AccountLinks: components.eAccountLinks,
+    ExtraLinks: components.eExtraLinks,
+    Checkout: components.eCheckout,
+    Menu: components.eMenu,
+    Search: components.eSearch
   },
   loaders: {
-    CategoryBlog: components.CategoryBlogLoader,
-    CategoryBlogPage: components.CategoryBlogPageLoader,
-    Category: components.CategoryLoader,
-    CategoryPage: components.CategoryPageLoader,
-    Post: components.PostLoader,
-    Common: components.Loader,
-    PostModule: components.PostModuleLoader,
-    PostThumb: components.PostThumbLoader,
-    PostsGrid: components.PostGridLoader,
-    ProductImage: components.ProductImageLoader,
-    Product: components.ProductLoader,
-    ProductModule: components.ProductModuleLoader,
-    ProductThumb: components.ProductThumbLoader,
-    ProductsGrid: components.ProductGridLoader,
-    Reviews: components.ReviewsLoader,
-    SpecialPage: components.SpecialPageLoader,
-    Sort: components.ProductSortLoader,
-    Rating: components.RatingLoader
+    CategoryBlogPage: components.lBlogCategory,
+    CategoryInfo: components.lCategoryInfo,
+    CategoryGrid: components.lCategoryGrid,
+    CategoryThumb: components.lCategoryThumb,
+    CategoryProduct: components.lCategoryProduct,
+    CategoryPage: components.lCategory,
+    Post: components.lBlogPost,
+    PostModule: components.lPostModule,
+    PostThumb: components.lPostThumb,
+    PostGrid: components.lPostGrid,
+    ProductImage: components.lProductImage,
+    Product: components.lProduct,
+    ProductModule: components.lProductModule,
+    ProductThumb: components.lProductThumb,
+    ProductGrid: components.lProductGrid,
+    ReviewForm: components.lReviewForm,
+    ReviewList: components.lReviewList,
+    Review: components.lReview,
+    SpecialPage: components.lSpecial,
+    ProductSort: components.lProductSort,
+    Rating: components.lRating
   }
 }
