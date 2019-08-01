@@ -1,6 +1,5 @@
 export * from './atoms'
 export * from './molecules'
-export * from './loaders'
 export * from './organisms'
 export * from './extensions'
 export * from './pages'
