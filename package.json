@@ -1,13 +1,12 @@
 {
   "name": "vuefront",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "description": "vuefront",
   "files": [
     "lib",
     "assets",
-    "graphql",
     "src",
-    "index.js"
+    "seo.js"
   ],
   "keywords": [
     "vuefront"
