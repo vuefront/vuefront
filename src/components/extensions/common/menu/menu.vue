@@ -51,8 +51,9 @@
 </template>
 <script>
 import { VBToggle } from "bootstrap-vue";
-import { isString } from "lodash";
-import './menu.scss'
+import { isString, isUndefined } from "lodash";
+import "./menu.scss";
+import { mapGetters } from "vuex";
 export default {
   directives: {
     BToggle: VBToggle
@@ -64,11 +65,24 @@ export default {
     }
   },
   computed: {
+    ...mapGetters({ menuModules: "menu/list", loadedItems: "menu/loaded" }),
     loaded() {
-      return this.$store.getters["menu/loaded"](this.idHash);
+      let result = false;
+
+      if (!isUndefined(this.loadedItems[this.idHash])) {
+        result = this.loadedItems[this.idHash];
+      }
+
+      return result;
     },
     menuItems() {
-      return this.$store.getters["menu/list"](this.idHash);
+      let result = [];
+
+      if (!isUndefined(this.menuModules[this.idHash])) {
+        result = [...result, ...this.menuModules[this.idHash]];
+      }
+
+      return result;
     },
     idHash() {
       return this.hashCode(JSON.stringify(this.items));
