@@ -1,7 +1,7 @@
 import categoryMenuGql from './query.graphql'
 
 export const state = () => ({
-  entities: [],
+  entities: []
 })
 
 export const getters = {
@@ -17,7 +17,7 @@ export const mutations = {
 }
 
 export const actions = {
-  async load({dispatch, commit, rootGetters}) {
+  async load({ dispatch, commit, rootGetters }) {
     await dispatch(
       'apollo/query',
       {
@@ -26,12 +26,14 @@ export const actions = {
           url: '/store/category/_id'
         }
       },
-      {root: true}
+      { root: true }
     )
 
     if (!rootGetters['vuefront/error']) {
-      const {categoriesMenu} = rootGetters['apollo/get']
-      commit('setEntities', categoriesMenu)
+      const { categoriesMenu } = rootGetters['apollo/get']
+      if (categoriesMenu) {
+        commit('setEntities', categoriesMenu)
+      }
     }
   }
 }

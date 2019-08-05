@@ -1,8 +1,11 @@
 mutation($email: String, $password: String) {
   accountLogin(email: $email, password: $password) {
-    id
-    firstName
-    lastName
-    email
+    token
+    customer {
+      id
+      firstName
+      lastName
+      email
+    }
   }
 }

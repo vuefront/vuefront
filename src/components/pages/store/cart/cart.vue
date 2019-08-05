@@ -20,8 +20,14 @@ export default {
       query: cartGetGql
     });
 
-    if (!ctx.store.getters["vuefront/error"]) {
-      ctx.store.commit("store/cart/setCart", ctx.store.getters["apollo/get"].cart);
+    if (
+      !ctx.store.getters["vuefront/error"] &&
+      ctx.store.getters["apollo/get"].cart
+    ) {
+      ctx.store.commit(
+        "store/cart/setCart",
+        ctx.store.getters["apollo/get"].cart
+      );
     }
   }
 };

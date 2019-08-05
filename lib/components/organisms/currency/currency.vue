@@ -1,5 +1,5 @@
 <template>
-  <vf-m-dropdown v-if="currency.length > 1" class="currency-section" variant="link" size="sm">
+  <vf-m-dropdown v-if="currency && currency.length > 1" class="currency-section" variant="link" size="sm">
     <template slot="button-content">
       <span
         class="d-none d-md-inline-block currency-section__symbol"

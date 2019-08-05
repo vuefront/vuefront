@@ -3,7 +3,9 @@ import updateCartGraphql from './update.graphql'
 import removeCartGraphql from './remove.graphql'
 
 export const state = () => ({
-  cart: {}
+  cart: {
+    products: []
+  }
 })
 
 export const getters = {

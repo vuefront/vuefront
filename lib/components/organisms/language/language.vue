@@ -1,5 +1,5 @@
 <template>
-  <vf-m-dropdown v-if="language.length > 1" class="language-section" left variant="link" size="sm">
+  <vf-m-dropdown v-if="language && language.length > 1" class="language-section" left variant="link" size="sm">
     <template slot="button-content">
       <vf-a-image
         :src="activeLanguage.image"

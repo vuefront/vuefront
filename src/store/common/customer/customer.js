@@ -7,7 +7,8 @@ import CheckGql from './check.graphql'
 
 export const state = () => ({
   customer: null,
-  auth: false
+  auth: false,
+  token: false
 })
 
 export const getters = {
@@ -16,6 +17,9 @@ export const getters = {
   },
   auth(state) {
     return state.auth
+  },
+  token(state) {
+    return state.token
   }
 }
 
@@ -25,6 +29,10 @@ export const mutations = {
   },
   setAuth(state, payload) {
     state.auth = payload
+  },
+  setToken(state, payload) {
+    state.token = payload
+    this.$cookies.set('token', payload)
   }
 }
 
@@ -42,7 +50,9 @@ export const actions = {
     )
 
     if (!rootGetters['vuefront/error']) {
-      commit('setCustomer', rootGetters['apollo/get'].accountLogin)
+      const { accountLogin } = rootGetters['apollo/get']
+      commit('setCustomer', accountLogin.customer)
+      commit('setToken', accountLogin.token)
       commit('setAuth', true)
       return true
     }
@@ -62,6 +72,7 @@ export const actions = {
 
     if (!rootGetters['vuefront/error']) {
       commit('setCustomer', {})
+      commit('setToken', false)
       commit('setAuth', rootGetters['apollo/get'].accountLogout.status)
     }
   },
@@ -139,6 +150,7 @@ export const actions = {
         root: true
       }
     )
+
     if (
       !rootGetters['vuefront/error'] &&
       rootGetters['apollo/get'].accountCheckLogged &&
@@ -148,7 +160,12 @@ export const actions = {
         'setCustomer',
         rootGetters['apollo/get'].accountCheckLogged.customer
       )
+
       commit('setAuth', rootGetters['apollo/get'].accountCheckLogged.status)
+
+      if (!rootGetters['apollo/get'].accountCheckLogged.status) {
+        commit('setToken', false)
+      }
     }
   }
 }

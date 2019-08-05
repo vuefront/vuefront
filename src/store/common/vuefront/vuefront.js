@@ -23,6 +23,11 @@ export const getters = {
 
 export const actions = {
   async vuefrontInit({ dispatch, commit }) {
+
+    if (this.$cookies.get('token')) {
+      commit('common/customer/setToken', this.$cookies.get('token'), {root: true})
+    }
+
     await Promise.all([
       dispatch('store/currency/load', {}, { root: true }),
       dispatch('common/language/load', {}, { root: true }),

@@ -16,7 +16,7 @@ export default {
       wishlist: "store/wishlist/get"
     })
   },
-  async fetch({ store }) {
+  async fetch({ store, app }) {
     await store.dispatch("apollo/query", {
       query: wishlistGetGql
     });

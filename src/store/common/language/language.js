@@ -1,9 +1,9 @@
 import editLanguageGraphql from './edit.graphql'
 import languageGetGql from './get.graphql'
-import {find} from 'lodash'
+import {find, isEmpty} from 'lodash'
 
 export const state = () => ({
-  language: {},
+  language: [],
   locale: 'en-gb'
 })
 
@@ -38,7 +38,10 @@ export const actions = {
     if (!rootGetters['vuefront/error']) {
       commit('setLanguage', rootGetters['apollo/get'].language)
       const active = find(rootGetters['apollo/get'].language, {active: true})
-      commit('setLocal', active.code)
+
+      if(active) {
+        commit('setLocal', active.code)
+      }
     }
   },
   async edit({ commit, dispatch, rootGetters }, { code }) {
