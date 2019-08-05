@@ -1,5 +1,5 @@
 <template>
-  <b-list-group-item :active="active" :to="to">
+  <b-list-group-item :active="active" :to="to" v-on="$listeners">
     <slot></slot>
   </b-list-group-item>
 </template>
