@@ -72,7 +72,7 @@ export const actions = {
 
     if (!rootGetters['vuefront/error']) {
       commit('setCustomer', {})
-      commit('setToken', false)
+      commit('setToken', null)
       commit('setAuth', rootGetters['apollo/get'].accountLogout.status)
     }
   },
@@ -164,7 +164,7 @@ export const actions = {
       commit('setAuth', rootGetters['apollo/get'].accountCheckLogged.status)
 
       if (!rootGetters['apollo/get'].accountCheckLogged.status) {
-        commit('setToken', false)
+        commit('setToken', null)
       }
     }
   }
