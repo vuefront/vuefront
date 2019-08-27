@@ -3,7 +3,7 @@ import * as RuRu from 'vuefront/lib/locales/ru-ru'
 import * as components from './components'
 import * as stores from './store'
 
-export default {
+const MainConfig = {
   plugins: [],
   css: { main: () => import('vuefront/assets/scss/main.scss') },
   menu: [],
@@ -97,7 +97,6 @@ export default {
     AddressCreateForm: components.oAddressCreateForm,
     AddressEditForm: components.oAddressEditForm,
     AddressActions: components.oAddressActions,
-    AccountAddress: components.oAccountAddress,
     AccountEditForm: components.oAccountEditForm,
     PasswordForm: components.oPasswordForm,
     RegisterForm: components.oRegisterForm,
@@ -113,7 +112,6 @@ export default {
     CartFooter: components.oCartFooter,
     CartQuantity: components.oCartQuantity,
     CartActions: components.oCartActions,
-    CartProductThumb: components.oCartProductThumb,
     ProductModule: components.oProductModule,
     ProductThumb: components.oProductThumb,
     ProductGrid: components.oProductGrid,
@@ -251,9 +249,6 @@ export default {
     }
   ],
   templates: {
-    Header: components.HeaderTemplate,
-    Footer: components.FooterTemplate,
-    Layout: components.LayoutTemplate,
     Error: components.tError,
     Account: components.tAccount,
     AccountEdit: components.tAccountEdit,
@@ -318,3 +313,5 @@ export default {
     Rating: components.lRating
   }
 }
+
+export default MainConfig
