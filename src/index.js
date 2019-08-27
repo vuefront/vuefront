@@ -2,10 +2,11 @@ import * as EnGb from 'vuefront/lib/locales/en-gb'
 import * as RuRu from 'vuefront/lib/locales/ru-ru'
 import * as components from './components'
 import * as stores from './store'
+import 'vuefront/assets/scss/main.scss'
 
 const MainConfig = {
   plugins: [],
-  css: { main: () => import('vuefront/assets/scss/main.scss') },
+  css: {},
   menu: [],
   locales: {
     'en-gb': [EnGb],
