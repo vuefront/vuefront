@@ -58,7 +58,7 @@ It works out-of-the-box:
 
 ## How do I get started? (development)
 
-1. Install VueFront [CMS Connect App](http://localhost:8080/cms/) on your site and copy the CMS Connect URL.
+1. Install VueFront [CMS Connect App](https://vuefront.com/cms/) on your site and copy the CMS Connect URL.
 2. Install VueFront app. (requires node.js >= 8, git, and yarn)
 
 ```bash
