@@ -1,5 +1,5 @@
 <template>
-  <section class="vf-t-account">
+  <section class="vf-t-account-account">
     <vf-a-heading level="2">My Account</vf-a-heading>
     <ul class="list-unstyled">
       <li>

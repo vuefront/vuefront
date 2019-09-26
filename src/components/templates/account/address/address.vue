@@ -1,5 +1,5 @@
 <template>
-  <section class="account-address">
+  <section class="vf-t-account-address">
     <vf-m-table :fields="fields" :items="items" class="table-address">
       <template #address="{item}">
         {{item.firstName}} {{item.lastName}}

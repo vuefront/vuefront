@@ -22,4 +22,3 @@
     >{{$t('elements.common.header.topNav.signOutText')}}</vf-m-dropdown-item>
   </vf-m-dropdown>
 </template>
-
