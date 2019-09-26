@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import { storiesOf } from '@storybook/vue';
 import component from './collapse.vue';
+
+//required for collapse to work. needs refactoring.
 import { VBToggle } from "bootstrap-vue";
 
 storiesOf('molecule|!!!Collapse', module)

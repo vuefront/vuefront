@@ -11,7 +11,7 @@ import "vuefront/src/components/organisms/header/header.scss";
 Vue.component('VfMDropdown', vfMDropdown);
 Vue.component('VfMDropdownItem', vfMDropdownItem);
 
-storiesOf('molecule|Account Menu', module)
+storiesOf('molecule|!!!Account Menu', module)
     // .addDecorator(withKnobs)
     .add(
         'default',
@@ -31,7 +31,7 @@ storiesOf('molecule|Account Menu', module)
         }
     )
     .add(
-        'in o-header',
+        '!!!in o-header',
         () => ({
             components: { vfMAccountMenu },
             template: `<section class="vf-o-header">
