@@ -1,5 +1,5 @@
 {
-  "descriptionText": "Purpose is a unique and beautiful collection of UI elements that are all flexible and modular. A complete and customizable solution to building the website of your dreams.",
+  "descriptionText": "VueFront - CMS agnostic SPA & PWA frontend for your old-fashioned Blog and E-commerce site. It works on Vue, Nuxt, GraphQL, AMP, uses Atomic Design and supports WordPress, Magento, PrestaShop, and OpenCart.",
   "copyrightText": "&copy;2019 Dreamvention",
   "poweredText": "Powered by <a class='heading' href='http://vuefront.com' target='_blank'>VueFront</a> with ❤️"
 }
