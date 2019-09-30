@@ -58,7 +58,7 @@ It works out-of-the-box:
 
 ## How do I get started? (development)
 
-1. Install VueFront [CMS Connect App](http://localhost:8080/cms/) on your site and copy the CMS Connect URL.
+1. Install VueFront [CMS Connect App](https://vuefront.com/cms/) on your site and copy the CMS Connect URL.
 2. Install VueFront app. (requires node.js >= 8, git, and yarn)
 
 ```bash
@@ -85,14 +85,14 @@ For OpenCart CMS you can use this:
 - Apache
 
 ```apache
-# for VeuFront to work you need to load index.html before any other index file
+# for VueFront to work you need to load index.html before any other index file
 DirectoryIndex index.html index.php
 
 ```
 
 - Nginx
 ```nginx
-# for VeuFront to work you need to load index.html before any other index file
+# for VueFront to work you need to load index.html before any other index file
 index index.html index.php;
 
 # when visiting any other url, it should forward to the root index.html file
