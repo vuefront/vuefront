@@ -35,7 +35,9 @@ storiesOf('Atom|Button', module)
         () => ({
             components: { vfAButton: vfAButton },
             template: `<div>
-                NEEDS SIZES!
+                <vf-a-button size="sm">Primary</vf-a-button>
+                <vf-a-button size="md">Primary</vf-a-button>
+                <vf-a-button size="lg">Primary</vf-a-button>
             </div>
             `
         }), {
