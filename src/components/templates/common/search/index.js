@@ -1,1 +1,2 @@
-export {default as tSearch} from './search.vue'
+export { default as tCommonSearch }
+from './search.vue'

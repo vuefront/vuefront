@@ -1,7 +1,7 @@
 <template>
   <vf-o-apollo>
     <template #loader>
-      <vf-l-product-module :column="column"/>
+      <vf-l-o-product-module :column="column" />
     </template>
     <template #default="{data}">
       <vf-o-product-module

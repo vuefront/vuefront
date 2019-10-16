@@ -1,1 +1,2 @@
-export { default as pCheckout } from './checkout.vue'
+export { default as pStoreCheckout }
+from './checkout.vue'

@@ -1,5 +1,5 @@
 <template>
-  <vf-t-compare :compare="compare" />
+  <vf-t-store-compare :compare="compare" />
 </template>
 <script>
 import { mapGetters } from "vuex";

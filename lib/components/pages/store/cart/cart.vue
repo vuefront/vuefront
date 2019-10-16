@@ -1,5 +1,5 @@
 <template>
-  <vf-t-cart :cart="cart" />
+  <vf-t-store-cart :cart="cart" />
 </template>
 <script>
 import { mapGetters } from "vuex";

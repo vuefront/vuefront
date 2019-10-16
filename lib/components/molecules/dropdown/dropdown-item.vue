@@ -13,7 +13,7 @@ export default {
     to: {
       type: String,
       default() {
-        return null
+        return null;
       }
     }
   }

@@ -4,18 +4,18 @@
       <div class="mb-5 h6">
         <tb-skeleton width="150px" height="20px" class="mx-auto"></tb-skeleton>
       </div>
-      <vf-l-post-grid :column="column"/>
+      <vf-l-o-post-grid :column="column" />
     </div>
   </skeleton>
 </template>
 <script>
-import {TbSkeleton, Skeleton} from 'tb-skeleton'
+import { TbSkeleton, Skeleton } from "tb-skeleton";
 
 export default {
   components: {
     TbSkeleton,
     Skeleton
   },
-  props: ['column']
-}
+  props: ["column"]
+};
 </script>

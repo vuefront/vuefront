@@ -1,5 +1,10 @@
 <template>
-  <div :is="nav? 'b-nav-item-dropdown': 'b-dropdown'" :variant="variant" :right="right" :size="size">
+  <div
+    :is="nav? 'b-nav-item-dropdown': 'b-dropdown'"
+    :variant="variant"
+    :right="right"
+    :size="size"
+  >
     <template slot="button-content">
       <slot name="button-content"></slot>
     </template>
@@ -17,7 +22,7 @@ export default {
     right: {
       type: Boolean,
       default() {
-        return null
+        return null;
       }
     },
     size: {

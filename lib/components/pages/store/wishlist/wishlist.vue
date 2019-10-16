@@ -1,5 +1,5 @@
 <template>
-  <vf-t-wishlist :wishlist="wishlist" />
+  <vf-t-store-wishlist :wishlist="wishlist" />
 </template>
 <script>
 import { mapGetters } from "vuex";
@@ -22,7 +22,10 @@ export default {
     });
 
     if (!store.getters["vuefront/error"]) {
-      store.commit("store/wishlist/setWishlist", store.getters["apollo/get"].wishlist);
+      store.commit(
+        "store/wishlist/setWishlist",
+        store.getters["apollo/get"].wishlist
+      );
     }
   }
 };

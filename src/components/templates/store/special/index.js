@@ -1,2 +1,4 @@
-export { default as tSpecial } from './special.vue'
-export { default as lSpecial } from './special.loader.vue'
+export { default as tStoreSpecial }
+from './special.vue'
+export { default as lTStoreSpecial }
+from './special.loader.vue'

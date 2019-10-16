@@ -1,5 +1,5 @@
 <template>
-  <vf-t-contact :contact="contact" />
+  <vf-t-common-contact :contact="contact" />
 </template>
 <script>
 import { mapGetters } from "vuex";

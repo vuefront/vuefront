@@ -1,6 +1,6 @@
 <template>
   <section class="common-page">
-    <vf-t-page :page="page" />
+    <vf-t-common-page :page="page" />
   </section>
 </template>
 <script>

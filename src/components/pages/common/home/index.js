@@ -1,1 +1,2 @@
-export {default as pHome} from './home.vue'
+export { default as pCommonHome }
+from './home.vue'

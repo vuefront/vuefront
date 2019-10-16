@@ -1,5 +1,5 @@
 <template>
-  <div class="vf-l-post-grid">
+  <div class="vf-l-o-post-grid">
     <section>
       <vf-m-row>
         <vf-m-col
@@ -8,14 +8,13 @@
           v-for="(value) in [1, 2, 3 ,4]"
           :key="value"
         >
-          <vf-l-post-thumb :wide="list"/>
+          <vf-l-m-post-thumb :wide="list" />
         </vf-m-col>
       </vf-m-row>
     </section>
   </div>
 </template>
 <script>
-
 export default {
   props: {
     column: {
@@ -31,5 +30,5 @@ export default {
       default: 4
     }
   }
-}
+};
 </script>

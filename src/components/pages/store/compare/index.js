@@ -1,1 +1,2 @@
-export { default as pCompare } from './compare.vue'
+export { default as pStoreCompare }
+from './compare.vue'

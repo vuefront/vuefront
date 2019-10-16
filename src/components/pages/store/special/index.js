@@ -1,1 +1,2 @@
-export { default as pSpecial } from './special.vue'
+export { default as pStoreSpecial }
+from './special.vue'

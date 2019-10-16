@@ -1,7 +1,7 @@
 <template>
   <vf-o-apollo :variables="{search:keyword}">
     <template #loader>
-      <vf-l-post-module :column="column" />
+      <vf-l-o-post-module :column="column" />
     </template>
     <template #default="{data}">
       <vf-o-post-module

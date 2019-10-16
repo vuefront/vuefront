@@ -1,1 +1,2 @@
-export {default as pProduct} from './product.vue'
+export { default as pStoreProduct }
+from './product.vue'

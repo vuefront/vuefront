@@ -1,10 +1,10 @@
 <template>
   <section class="store-special-page">
     <template v-if="loaded">
-      <vf-t-special :products="products" :grid-size="gridSize" :mode="mode" :sort="sort" />
+      <vf-t-store-special :products="products" :grid-size="gridSize" :mode="mode" :sort="sort" />
     </template>
     <template v-else>
-      <vf-l-special-page :grid-size="gridSize" />
+      <vf-l-t-store-special :grid-size="gridSize" />
     </template>
   </section>
 </template>

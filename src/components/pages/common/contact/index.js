@@ -1,1 +1,2 @@
-export { default as pContact } from './contact.vue'
+export { default as pCommonContact }
+from './contact.vue'

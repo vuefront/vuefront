@@ -1,6 +1,6 @@
 <template>
-  <vf-t-product v-if="loaded" :product="product" />
-  <vf-l-product v-else />
+  <vf-t-store-product v-if="loaded" :product="product" />
+  <vf-l-t-store-product v-else />
 </template>
 <graphql>
   query($id: String, $limit: Int) {
@@ -54,8 +54,8 @@
 import { mapGetters } from "vuex";
 export default {
   head() {
-    if(!this.product.meta) {
-      return {}
+    if (!this.product.meta) {
+      return {};
     }
     return {
       title: this.product.meta.title,

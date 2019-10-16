@@ -1,1 +1,2 @@
-export { default as pCart } from './cart.vue'
+export { default as pStoreCart }
+from './cart.vue'

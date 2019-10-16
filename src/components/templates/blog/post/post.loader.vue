@@ -22,17 +22,17 @@
       <tb-skeleton height="13px" style="margin-bottom:10px;"></tb-skeleton>
       <tb-skeleton height="13px" style="margin-bottom:10px;"></tb-skeleton>
     </div>
-    <vf-l-review-list/>
-    <vf-l-review-form/>
+    <vf-l-o-review-list />
+    <vf-l-o-review-form />
   </skeleton>
 </template>
 <script>
-import {TbSkeleton, Skeleton} from 'tb-skeleton'
+import { TbSkeleton, Skeleton } from "tb-skeleton";
 
 export default {
   components: {
     TbSkeleton,
     Skeleton
   }
-}
+};
 </script>

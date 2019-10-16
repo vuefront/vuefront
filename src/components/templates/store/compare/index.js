@@ -1,1 +1,2 @@
-export { default as tCompare } from './compare.vue'
+export { default as tStoreCompare }
+from './compare.vue'

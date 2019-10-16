@@ -3,7 +3,7 @@
     <div>
       <tb-skeleton width="100px" height="20px" class="mb-4"></tb-skeleton>
       <tb-skeleton width="100px" height="18px" class="mb-2"></tb-skeleton>
-      <vf-l-rating class="mb-3"/>
+      <vf-l-m-rating class="mb-3" />
       <tb-skeleton width="120px" height="18px" class="mb-2"></tb-skeleton>
       <tb-skeleton height="50px" class="mb-3"></tb-skeleton>
       <tb-skeleton width="120px" height="18px" class="mb-2"></tb-skeleton>
@@ -13,13 +13,13 @@
   </skeleton>
 </template>
 <script>
-import {TbSkeleton, Skeleton} from 'tb-skeleton'
+import { TbSkeleton, Skeleton } from "tb-skeleton";
 
 export default {
   components: {
     TbSkeleton,
-    Skeleton,
-  },
-}
+    Skeleton
+  }
+};
 </script>
 

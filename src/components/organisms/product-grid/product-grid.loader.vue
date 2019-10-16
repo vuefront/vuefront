@@ -1,5 +1,5 @@
 <template>
-  <div class="vf-l-product-gid">
+  <div class="vf-l-o-product-gid">
     <section>
       <vf-m-row>
         <vf-m-col
@@ -8,7 +8,7 @@
           v-for="(value) in [1, 2, 3 ,4]"
           :key="value"
         >
-          <vf-l-product-thumb :wide="list"/>
+          <vf-l-m-product-thumb :wide="list" />
         </vf-m-col>
       </vf-m-row>
     </section>
@@ -16,7 +16,6 @@
 </template>
 
 <script>
-
 export default {
   props: {
     column: {
@@ -32,5 +31,5 @@ export default {
       default: 4
     }
   }
-}
+};
 </script>

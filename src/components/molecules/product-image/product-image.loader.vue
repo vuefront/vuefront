@@ -1,5 +1,5 @@
 <template>
-  <section class="vf-l-product-image mb-4">
+  <section class="vf-l-m-product-image mb-4">
     <skeleton shape="radius" theme="opacity" bg-color="#eee" width="100%" duration="2">
       <tb-skeleton height="500px"></tb-skeleton>
       <vf-m-row class="mt-3">
@@ -11,13 +11,13 @@
   </section>
 </template>
 <script>
-import {TbSkeleton, Skeleton} from 'tb-skeleton'
+import { TbSkeleton, Skeleton } from "tb-skeleton";
 
 export default {
   components: {
     TbSkeleton,
     Skeleton
   }
-}
+};
 </script>
 

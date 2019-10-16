@@ -1,1 +1,2 @@
-export { default as pWishlist } from './wishlist.vue'
+export { default as pStoreWishlist }
+from './wishlist.vue'

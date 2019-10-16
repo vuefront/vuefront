@@ -1,5 +1,5 @@
 <template>
-  <vf-t-account />
+  <vf-t-account-account />
 </template>
 <script>
 import { BLink } from "bootstrap-vue";

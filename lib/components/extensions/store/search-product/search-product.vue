@@ -1,9 +1,7 @@
 <template>
-  <vf-o-apollo
-    :variables="{search:keyword}"
-  >
+  <vf-o-apollo :variables="{search:keyword}">
     <template #loader>
-      <vf-l-product-module :column="column"/>
+      <vf-l-o-product-module :column="column" />
     </template>
     <template #default="{data}">
       <vf-o-product-module

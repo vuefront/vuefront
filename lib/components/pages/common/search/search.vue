@@ -1,6 +1,6 @@
 <template>
   <section class="search-page">
-    <vf-t-search/>
+    <vf-t-common-search />
   </section>
 </template>
 <script>

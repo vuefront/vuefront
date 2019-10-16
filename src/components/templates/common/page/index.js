@@ -1,1 +1,2 @@
-export { default as tPage } from './page.vue'
+export { default as tCommonPage }
+from './page.vue'

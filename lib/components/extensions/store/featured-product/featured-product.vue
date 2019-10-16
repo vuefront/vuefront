@@ -1,9 +1,7 @@
 <template>
-  <vf-o-apollo
-    :variables="{ids}"
-  >
+  <vf-o-apollo :variables="{ids}">
     <template #loader>
-      <vf-l-product-module :column="column" />
+      <vf-l-o-product-module :column="column" />
     </template>
     <template #default="{data}">
       <vf-o-product-module

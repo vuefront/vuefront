@@ -30,7 +30,7 @@ storiesOf('molecule|Category Thumb', module)
         () => ({
             components: { vfLCategoryThumb: loader },
             template: `<div style="width:150px">
-            <vf-l-category-thumb/>
+            <vf-l-m-category-thumb/>
             </div>`
         }), {
             info: {}
@@ -42,7 +42,7 @@ storiesOf('molecule|Category Thumb', module)
             components: { vfMCategoryThumb: component, vfLCategoryThumb: loader },
             template: `<div style="width:150px">
             <vf-m-category-thumb v-if="loaded" :category="category"/>
-            <vf-l-category-thumb v-else />
+            <vf-l-m-category-thumb v-else />
             </div>`,
             data() {
                 return {

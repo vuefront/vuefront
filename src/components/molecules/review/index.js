@@ -1,2 +1,4 @@
-export {default as mReview} from './review.vue'
-export {default as lReview} from './review.loader.vue'
+export { default as mReview }
+from './review.vue'
+export { default as lMReview }
+from './review.loader.vue'

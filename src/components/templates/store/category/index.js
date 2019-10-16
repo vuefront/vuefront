@@ -1,2 +1,4 @@
-export { default as tCategory } from './category.vue'
-export { default as lCategory } from './category.loader.vue'
+export { default as tStoreCategory }
+from './category.vue'
+export { default as lTStoreCategory }
+from './category.loader.vue'

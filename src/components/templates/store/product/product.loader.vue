@@ -2,9 +2,9 @@
   <skeleton bg-color="#eee" duration="2" theme="opacity" shape="radius" width="100%">
     <vf-m-row>
       <vf-m-col sm="12" md="6">
-        <vf-l-product-image/>
-        <vf-l-review-list/>
-        <vf-l-review-form/>
+        <vf-l-m-product-image />
+        <vf-l-o-review-list />
+        <vf-l-o-review-form />
       </vf-m-col>
       <vf-m-col sm="12" md="6">
         <div class="product-info pl-lg-5">
@@ -48,12 +48,12 @@
   </skeleton>
 </template>
 <script>
-import {TbSkeleton, Skeleton} from 'tb-skeleton'
+import { TbSkeleton, Skeleton } from "tb-skeleton";
 
 export default {
   components: {
     TbSkeleton,
     Skeleton
   }
-}
+};
 </script>

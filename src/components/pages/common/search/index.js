@@ -1,1 +1,2 @@
-export { default as pSearch } from './search.vue'
+export { default as pCommonSearch }
+from './search.vue'

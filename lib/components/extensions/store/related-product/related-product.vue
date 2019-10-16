@@ -1,7 +1,7 @@
 <template>
   <vf-o-apollo v-if="id" :variables="{id:id}">
     <template #loader>
-      <vf-l-product-module :column="column" />
+      <vf-l-o-product-module :column="column" />
     </template>
     <template #default="{data}">
       <vf-o-product-module
