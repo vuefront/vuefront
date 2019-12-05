@@ -1,14 +1,16 @@
 <template>
-  <vf-m-card :class="{'vf-m-product-thumb_wide' : wide}" class="vf-m-product-thumb" no-body>
+  <vf-m-card :class="{'vf-m-product-thumb--wide' : wide}" class="vf-m-product-thumb" no-body>
     <vf-m-row no-gutters>
       <vf-m-col :md="wide ? 3 : 12" class="px-4">
-        <vf-a-link :to="url" class="vf-m-product-thumb__image_wrapper">
+        <vf-a-link :to="url" class="vf-m-product-thumb__image">
           <vf-m-product-thumb-image :product="product" card />
         </vf-a-link>
       </vf-m-col>
       <vf-m-col :md="wide ? 9 : 12">
         <vf-m-card-body class="pt-0">
-          <vf-a-heading tag="h3" level="6" class="mb-0 vf-m-product-thumb__name">{{ product.name }}</vf-a-heading>
+          <vf-a-link :to="url" class="mb-0 vf-m-product-thumb__title">
+            <vf-a-heading tag="h3" level="6">{{ product.name }}</vf-a-heading>
+          </vf-a-link>
           <vf-m-rating
             v-if="product.rating > 0 && wide"
             :value="product.rating"
@@ -22,25 +24,13 @@
           <vf-m-product-price variant="small" :price="product.price" :special="product.special" />
         </vf-m-card-body>
         <vf-m-button-group size="sm" block>
-          <vf-a-button
-            color="light-gray"
-            class="border border-radius-top-left-0"
-            @click="handleAddToCart"
-          >
+          <vf-a-button color="light-gray" class="rounded-0" @click="handleAddToCart">
             <vf-a-icon :icon="['fas', 'shopping-cart']" />
           </vf-a-button>
-          <vf-a-button
-            color="light-gray"
-            class="border border-radius-top-left-0"
-            @click="handleAddToWishlist"
-          >
+          <vf-a-button color="light-gray" @click="handleAddToWishlist">
             <vf-a-icon :icon="['fas', 'heart']" />
           </vf-a-button>
-          <vf-a-button
-            color="light-gray"
-            class="border border-radius-top-left-0"
-            @click="handleAddToCompare"
-          >
+          <vf-a-button color="light-gray" class="rounded-0" @click="handleAddToCompare">
             <vf-a-icon :icon="['fas', 'exchange-alt']" />
           </vf-a-button>
         </vf-m-button-group>
@@ -49,6 +39,7 @@
   </vf-m-card>
 </template>
 <script>
+import "./product-thumb.scss";
 export default {
   props: ["product", "wide"],
   computed: {

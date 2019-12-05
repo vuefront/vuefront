@@ -1,31 +1,24 @@
 .vf-m-post-thumb {
-  margin-bottom: 30px;
-  &__title {
-    min-height: 65px;
-    max-height: 65px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  &__description {
-    min-height: 65px;
-    max-height: 65px;
-    overflow: hidden;
-  }
-
-  &__image_wrapper {
-    min-height: 158px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    > img {
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
+    margin-bottom: 30px;
+    &__title {
+        min-height: 65px;
+        max-height: 65px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-  }
-
-  &__image {
-  }
+    &__description {
+        min-height: 70px;
+        max-height: 70px;
+        overflow: hidden;
+    }
+    & &-image {
+        min-height: 150px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
 }

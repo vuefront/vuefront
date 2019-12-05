@@ -16,8 +16,8 @@
 
     <slot></slot>
 
-    <div class="text-sm-left mt-4" v-if="button">
-      <vf-a-button type="submit" color="primary" size="sm" rounded>
+    <div class="mt-4" v-if="button">
+      <vf-a-button type="submit" color="primary">
         <slot name="button"></slot>
       </vf-a-button>
     </div>

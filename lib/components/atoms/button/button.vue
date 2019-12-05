@@ -10,7 +10,7 @@
     :active="active"
     :type="type"
     :pill="rounded"
-    :class="{'vf-a-button__animated': animatedX || animatedY, 'vf-a-button__animated-x': animatedX, 'vf-a-button__animated-y': animatedY }"
+    :class="{'vf-a-button--animated': animatedX || animatedY, 'vf-a-button--animated-x': animatedX, 'vf-a-button--animated-y': animatedY }"
     class="vf-a-button"
   >
     <slot></slot>

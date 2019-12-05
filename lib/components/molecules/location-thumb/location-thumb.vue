@@ -1,6 +1,6 @@
 <template>
   <section class="location-section mb-3">
-    <vf-m-card class="shadow">
+    <vf-m-card>
       <vf-m-card-body class="px-5 py-5">
         <div style="min-height: 250px;">
           <vf-a-heading :level="2" class="font-weight-bold mb-4">{{location.address}}</vf-a-heading>

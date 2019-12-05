@@ -1,13 +1,14 @@
 import Vue from 'vue';
 import { storiesOf } from '@storybook/vue';
-import component from './compare-link.vue';
+import vfMCompareLink from './compare-link.vue';
 
+Vue.component('vfMCompareLink', vfMCompareLink);
 
 storiesOf('molecule|Compare Link', module)
     .add(
         'default',
         () => ({
-            components: { vfMCompareLink: component },
+            components: { vfMCompareLink },
             template: `<vf-m-compare-link />`
         }), {
             info: {}

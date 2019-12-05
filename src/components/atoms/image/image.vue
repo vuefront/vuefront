@@ -62,15 +62,15 @@ export default {
       }
     },
     width: {
-      type: [Boolean, String],
+      type: String | Number,
       default() {
-        return;
+        return null;
       }
     },
     height: {
-      type: [Boolean, String],
+      type: String | Number,
       default() {
-        return;
+        return null;
       }
     }
   }

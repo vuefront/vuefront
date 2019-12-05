@@ -3,11 +3,44 @@ import * as RuRu from 'vuefront/lib/locales/ru-ru'
 import * as components from './components'
 import * as stores from './store'
 import 'vuefront/assets/scss/main.scss'
+import placeholder from "vuefront/assets/img/placeholder.png"
 
 const MainConfig = {
     plugins: [],
     css: {},
     menu: [],
+    image: {
+        placeholder: placeholder,
+        product: {
+            width: 825,
+            height: 825
+
+        },
+        categoryThumb: {
+            width: 300,
+            height: 300
+        },
+        productThumb: {
+            width: 300,
+            height: 300
+        },
+        productThumbInline: {
+            width: 200,
+            height: 200
+        },
+        post: {
+            width: 825, //10x6
+            height: 495
+        },
+        postThumb: {
+            width: 300, //10x6
+            height: 180
+        },
+        postThumbInline: {
+            width: 200, //10x6
+            height: 120
+        }
+    },
     locales: {
         'en-gb': [EnGb],
         'ru-ru': [RuRu]
@@ -28,58 +61,59 @@ const MainConfig = {
         Loader: components.aLoader
     },
     molecules: {
-        ListGroup: components.mListGroup,
-        ListGroupItem: components.mListGroupItem,
-        CompareLink: components.mCompareLink,
-        WishlistLink: components.mWishlistLink,
         AccountMenu: components.mAccountMenu,
+        AccountNew: components.mAccountNew,
+        ButtonGroup: components.mButtonGroup,
+        Card: components.mCard,
+        CardBody: components.mCardBody, //Card
+        CardFooter: components.mCardFooter, //Card
         CartLink: components.mCartLink,
+        CategoryThumb: components.mCategoryThumb,
         Collapse: components.mCollapse,
-        Logo: components.mLogo,
-        Container: components.mContainer,
-        LocationThumb: components.mLocationThumb,
+        CompareLink: components.mCompareLink,
         Contact: components.mContact,
+        Container: components.mContainer,
+        Col: components.mCol,
+        Dropdown: components.mDropdown,
+        DropdownItem: components.mDropdownItem, //Dropdown
         Empty: components.mEmpty,
-        NewCustomer: components.mNewCustomer,
-        PostThumbInline: components.mPostThumbInline,
+        Field: components.mField,
+        InputGroup: components.mInputGroup,
+        ListGroup: components.mListGroup,
+        ListGroupItem: components.mListGroupItem, //ListGroup
+        LocationThumb: components.mLocationThumb,
+        Logo: components.mLogo,
+        Media: components.mMedia,
+        MediaAside: components.mMediaAside, //Media
+        MediaBody: components.mMediaBody, //Media
         PostImage: components.mPostImage,
         PostNav: components.mPostNav,
         PostThumb: components.mPostThumb,
-        PostThumbImage: components.mPostThumbImage,
-        Media: components.mMedia,
-        MediaAside: components.mMediaAside,
-        MediaBody: components.mMediaBody,
-        Table: components.mTable,
-        ButtonGroup: components.mButtonGroup,
-        InputGroup: components.mInputGroup,
-        Row: components.mRow,
-        Col: components.mCol,
-        Card: components.mCard,
-        CardBody: components.mCardBody,
-        CardFooter: components.mCardFooter,
+        PostThumbImage: components.mPostThumbImage, //PostThumb
+        PostThumbInline: components.mPostThumbInline,
+        ProductAttribute: components.mProductAttribute,
+        ProductImage: components.mProductImage,
+        ProductImagePopup: components.mProductImagePopup, //ProductImage
+        ProductOptionCheckbox: components.mProductOptionCheckbox, //ProductOption
+        ProductOptionDate: components.mProductOptionDate, //ProductOption
+        ProductOptionDatetime: components.mProductOptionDateTime, //ProductOption
+        ProductOptionFile: components.mProductOptionFile, //ProductOption
+        ProductOptionRadio: components.mProductOptionRadio, //ProductOption
+        ProductOptionSelect: components.mProductOptionSelect, //ProductOption
+        ProductOptionText: components.mProductOptionText, //ProductOption
+        ProductOptionTextarea: components.mProductOptionTextarea, //ProductOption
+        ProductOptionTime: components.mProductOptionTime, //ProductOption
         ProductPrice: components.mProductPrice,
         ProductThumb: components.mProductThumb,
-        ProductAttribute: components.mProductAttribute,
-        ProductThumbImage: components.mProductThumbImage,
-        ProductImage: components.mProductImage,
-        ProductImagePopup: components.mProductImagePopup,
-        ProductOptionCheckbox: components.mProductOptionCheckbox,
-        ProductOptionDate: components.mProductOptionDate,
-        ProductOptionDatetime: components.mProductOptionDateTime,
-        ProductOptionFile: components.mProductOptionFile,
-        ProductOptionRadio: components.mProductOptionRadio,
-        ProductOptionSelect: components.mProductOptionSelect,
-        ProductOptionText: components.mProductOptionText,
-        ProductOptionTextarea: components.mProductOptionTextarea,
-        ProductOptionTime: components.mProductOptionTime,
+        ProductThumbImage: components.mProductThumbImage, //ProductThumb
+        ProductThumbInline: components.mProductThumbInline,
         Rating: components.mRating,
         Review: components.mReview,
-        Field: components.mField,
-        CategoryThumb: components.mCategoryThumb,
-        ProductThumbInline: components.mProductThumbInline,
+        Row: components.mRow,
+        Table: components.mTable,
         TableHorizontal: components.mTableHorizontal,
-        Dropdown: components.mDropdown,
-        DropdownItem: components.mDropdownItem
+        WishlistLink: components.mWishlistLink
+
     },
     organisms: {
         SearchInlineForm: components.oSearchInlineForm,
@@ -130,8 +164,8 @@ const MainConfig = {
     pages: {
         AccountAccount: components.pAccountAccount,
         AccountAddress: components.pAccountAddress,
-        AccountEditAddress: components.pAccountAddressEdit,
-        AccountCreateAddress: components.pAccountAddressCreate,
+        AccountAddressEdit: components.pAccountAddressEdit,
+        AccountAddressCreate: components.pAccountAddressCreate,
         AccountEdit: components.pAccountEdit,
         AccountLogin: components.pAccountLogin,
         AccountPassword: components.pAccountPassword,
@@ -251,8 +285,8 @@ const MainConfig = {
     templates: {
         AccountAccount: components.tAccountAccount,
         AccountAddress: components.tAccountAddress,
-        AccountCreateAddress: components.tAccountAddressCreate,
-        AccountEditAddress: components.tAccountAddressEdit,
+        AccountAddressCreate: components.tAccountAddressCreate,
+        AccountAddressEdit: components.tAccountAddressEdit,
         AccountEdit: components.tAccountEdit,
         AccountLogin: components.tAccountLogin,
         AccountPassword: components.tAccountPassword,

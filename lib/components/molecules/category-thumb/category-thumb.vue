@@ -3,12 +3,21 @@
     <vf-a-amp-image
       v-if="$vuefront.isAMP"
       :src="image"
-      width="113"
-      height="80"
+      :width="getWidth"
+      :height="getHeight"
       layout="responsive"
       class="mb-2"
     />
-    <vf-a-image v-else :src="imageLazy" :lazy-src="image" class="mb-2" full-width fluid />
+    <vf-a-image
+      v-else
+      :src="imageLazy"
+      :lazy-src="image"
+      class="mb-2"
+      :width="getWidth"
+      :height="getHeight"
+      full-width
+      fluid
+    />
     <vf-a-heading level="6" class="text-sm-center">{{category.name}}</vf-a-heading>
   </vf-a-link>
 </template>
@@ -16,7 +25,7 @@
 import placeholder from "vuefront/assets/img/placeholder.png";
 
 export default {
-  props: ["category"],
+  props: ["category", "width", "height"],
   computed: {
     url() {
       if (this.category.keyword && this.category.keyword !== "") {
@@ -32,6 +41,32 @@ export default {
       return this.category.imageLazy !== ""
         ? this.category.imageLazy
         : placeholder;
+    },
+    getWidth() {
+      let width = this.width;
+      if (!this.width) {
+        if (this.height) {
+          width =
+            (this.height * this.$vuefront.options.image.categoryThumb.width) /
+            this.$vuefront.options.image.categoryThumb.height;
+        } else {
+          width = this.$vuefront.options.image.categoryThumb.width;
+        }
+      }
+      return width;
+    },
+    getHeight() {
+      let height = this.height;
+      if (!this.height) {
+        if (this.width) {
+          height =
+            (this.width * this.$vuefront.options.image.categoryThumb.height) /
+            this.$vuefront.options.image.categoryThumb.width;
+        } else {
+          height = this.$vuefront.options.image.categoryThumb.height;
+        }
+      }
+      return height;
     }
   }
 };

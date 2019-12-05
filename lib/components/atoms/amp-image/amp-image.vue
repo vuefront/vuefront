@@ -1,5 +1,13 @@
 <template>
-  <amp-img :src="src" :width="width" :height="height" :alt="alt" :title="title" :layout="layout" />
+  <amp-img
+    :src="src"
+    :width="width"
+    :height="height"
+    :alt="alt"
+    :title="title"
+    :layout="layout"
+    class="vf-a-amp-image"
+  />
 </template>
 <script>
 export default {
@@ -23,15 +31,15 @@ export default {
       }
     },
     width: {
-      type: String | Boolean,
+      type: String | Number,
       default() {
-        return false;
+        return null;
       }
     },
     height: {
-      type: String | Boolean,
+      type: String | Number,
       default() {
-        return false;
+        return null;
       }
     },
     layout: {

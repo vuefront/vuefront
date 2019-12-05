@@ -1,11 +1,27 @@
 <template>
+  <vf-a-amp-image
+    v-if="$vuefront.isAMP"
+    :src="mainImage"
+    :alt="post.title"
+    :title="post.title"
+    :width="getWidth"
+    :height="getHeight"
+    :class="{'card-img': card}"
+    :layout="layout"
+    class="vf-m-post-image"
+  />
   <vf-a-image
+    v-else
     :lazy-src="mainImage"
     :src="mainImagelazy"
-    :width="width"
-    :height="height"
+    :alt="post.title"
+    :title="post.title"
+    :width="getWidth"
+    :height="getHeight"
     :fluid="fluid"
+    :class="{'card-img': card}"
     :full-width="fullWidth"
+    class="vf-m-post-image"
   />
 </template>
 <script>
@@ -13,6 +29,12 @@ import placeholder from "vuefront/assets/img/placeholder.png";
 
 export default {
   props: {
+    card: {
+      type: Boolean,
+      default() {
+        return false;
+      }
+    },
     fluid: {
       type: Boolean,
       default() {
@@ -42,6 +64,12 @@ export default {
       default() {
         return null;
       }
+    },
+    layout: {
+      type: String,
+      default() {
+        return null;
+      }
     }
   },
   computed: {
@@ -50,6 +78,32 @@ export default {
     },
     mainImagelazy() {
       return this.post.imageLazy !== "" ? this.post.imageLazy : placeholder;
+    },
+    getWidth() {
+      let width = this.width;
+      if (!this.width) {
+        if (this.height) {
+          width =
+            (this.height * this.$vuefront.options.image.post.width) /
+            this.$vuefront.options.image.post.height;
+        } else {
+          width = this.$vuefront.options.image.post.width;
+        }
+      }
+      return width;
+    },
+    getHeight() {
+      let height = this.height;
+      if (!this.height) {
+        if (this.width) {
+          height =
+            (this.width * this.$vuefront.options.image.post.height) /
+            this.$vuefront.options.image.post.width;
+        } else {
+          height = this.$vuefront.options.image.post.height;
+        }
+      }
+      return height;
     }
   }
 };

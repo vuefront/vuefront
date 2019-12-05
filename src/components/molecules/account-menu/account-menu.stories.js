@@ -1,15 +1,13 @@
 import Vue from 'vue';
 import { storiesOf } from '@storybook/vue';
 import vfMAccountMenu from './account-menu.vue';
-import vfMDropdown from "vuefront/src/components/molecules/dropdown/dropdown.vue";
-import vfMDropdownItem from "vuefront/src/components/molecules/dropdown/dropdown-item.vue";
+
 import "vuefront/src/components/organisms/header/header.scss";
 
 // import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
 
+Vue.component('vfMAccountMenu', vfMAccountMenu);
 
-Vue.component('VfMDropdown', vfMDropdown);
-Vue.component('VfMDropdownItem', vfMDropdownItem);
 
 storiesOf('molecule|!!!Account Menu', module)
     // .addDecorator(withKnobs)

@@ -2,29 +2,32 @@
   <vf-o-form @submit="onSubmit">
     <template #title>{{$t('elements.common.address.create.titleText')}}</template>
     <template #sub-title>{{$t('elements.common.address.create.subTitleText')}}</template>
-
-    <vf-m-field
-      :state="$v.form.firstName.$dirty ? !$v.form.firstName.$error : null"
-      id="input-first-name"
-    >
-      <template #label>{{$t('elements.common.address.create.firstNameEntry')}}</template>
-      <template #default="data">
-        <vf-a-input v-bind="data" v-model="form.firstName" trim />
-      </template>
-      <template #error>{{$t('elements.common.address.create.firstNameError')}}</template>
-    </vf-m-field>
-
-    <vf-m-field
-      :state="$v.form.lastName.$dirty ? !$v.form.lastName.$error : null"
-      id="input-last-name"
-    >
-      <template #label>{{$t('elements.common.address.create.lastNameEntry')}}</template>
-      <template #default="data">
-        <vf-a-input v-bind="data" v-model="form.lastName" trim />
-      </template>
-      <template #error>{{$t('elements.common.address.create.lastNameError')}}</template>
-    </vf-m-field>
-
+    <vf-m-row>
+      <vf-m-col md>
+        <vf-m-field
+          :state="$v.form.firstName.$dirty ? !$v.form.firstName.$error : null"
+          id="input-first-name"
+        >
+          <template #label>{{$t('elements.common.address.create.firstNameEntry')}}</template>
+          <template #default="data">
+            <vf-a-input v-bind="data" v-model="form.firstName" trim />
+          </template>
+          <template #error>{{$t('elements.common.address.create.firstNameError')}}</template>
+        </vf-m-field>
+      </vf-m-col>
+      <vf-m-col md>
+        <vf-m-field
+          :state="$v.form.lastName.$dirty ? !$v.form.lastName.$error : null"
+          id="input-last-name"
+        >
+          <template #label>{{$t('elements.common.address.create.lastNameEntry')}}</template>
+          <template #default="data">
+            <vf-a-input v-bind="data" v-model="form.lastName" trim />
+          </template>
+          <template #error>{{$t('elements.common.address.create.lastNameError')}}</template>
+        </vf-m-field>
+      </vf-m-col>
+    </vf-m-row>
     <vf-m-field :state="$v.form.company.$dirty ? !$v.form.company.$error : null" id="input-company">
       <template #label>{{$t('elements.common.address.create.companyEntry')}}</template>
       <template #default="data">
@@ -54,64 +57,71 @@
       </template>
       <template #error>{{$t('elements.common.address.create.address2Error')}}</template>
     </vf-m-field>
+    <vf-m-row>
+      <vf-m-col md>
+        <vf-m-field :state="$v.form.city.$dirty ? !$v.form.city.$error : null" id="input-city">
+          <template #label>{{$t('elements.common.address.create.cityEntry')}}</template>
+          <template #default="data">
+            <vf-a-input v-bind="data" v-model="form.city" trim />
+          </template>
+          <template #error>{{$t('elements.common.address.create.cityError')}}</template>
+        </vf-m-field>
+      </vf-m-col>
+      <vf-m-col md>
+        <vf-m-field
+          :state="$v.form.zipcode.$dirty ? !$v.form.zipcode.$error : null"
+          id="input-zipcode"
+        >
+          <template #label>{{$t('elements.common.address.create.zipcodeEntry')}}</template>
+          <template #default="data">
+            <vf-a-input v-bind="data" v-model="form.zipcode" trim />
+          </template>
+          <template #error>{{$t('elements.common.address.create.zipcodeError')}}</template>
+        </vf-m-field>
+      </vf-m-col>
+      <vf-m-col md>
+        <vf-m-field
+          :state="$v.form.countryId.$dirty ? !$v.form.countryId.$error : null"
+          id="input-country"
+        >
+          <template #label>{{$t('elements.common.address.create.countryEntry')}}</template>
+          <template #default="data">
+            <vf-a-select
+              v-bind="data"
+              v-model="form.countryId"
+              :options="countries.content"
+              value-field="id"
+              text-field="name"
+              trim
+              @input="handleChangeCountry"
+            />
+          </template>
+          <template #error>{{$t('elements.common.address.create.countryError')}}</template>
+        </vf-m-field>
 
-    <vf-m-field :state="$v.form.city.$dirty ? !$v.form.city.$error : null" id="input-city">
-      <template #label>{{$t('elements.common.address.create.cityEntry')}}</template>
-      <template #default="data">
-        <vf-a-input v-bind="data" v-model="form.city" trim />
-      </template>
-      <template #error>{{$t('elements.common.address.create.cityError')}}</template>
-    </vf-m-field>
-
-    <vf-m-field :state="$v.form.zipcode.$dirty ? !$v.form.zipcode.$error : null" id="input-zipcode">
-      <template #label>{{$t('elements.common.address.create.zipcodeEntry')}}</template>
-      <template #default="data">
-        <vf-a-input v-bind="data" v-model="form.zipcode" trim />
-      </template>
-      <template #error>{{$t('elements.common.address.create.zipcodeError')}}</template>
-    </vf-m-field>
-
-    <vf-m-field
-      :state="$v.form.countryId.$dirty ? !$v.form.countryId.$error : null"
-      id="input-country"
-    >
-      <template #label>{{$t('elements.common.address.create.countryEntry')}}</template>
-      <template #default="data">
-        <vf-a-select
-          v-bind="data"
-          v-model="form.countryId"
-          :options="countries.content"
-          value-field="id"
-          text-field="name"
-          trim
-          @input="handleChangeCountry"
-        />
-      </template>
-      <template #error>{{$t('elements.common.address.create.countryError')}}</template>
-    </vf-m-field>
-
-    <vf-m-field
-      v-if="zones.content.length > 0"
-      :state="$v.form.zoneId.$dirty ? !$v.form.zoneId.$error : null"
-      id="input-zone"
-    >
-      <template #label>{{$t('elements.common.address.create.zoneEntry')}}</template>
-      <template #default="data">
-        <vf-a-select
-          v-bind="data"
-          v-model="form.zoneId"
-          :options="zones.content"
-          value-field="id"
-          text-field="name"
-          trim
-        />
-      </template>
-      <template #error>{{$t('elements.common.address.create.zoneError')}}</template>
-    </vf-m-field>
-
+        <vf-m-field
+          v-if="zones.content.length > 0"
+          :state="$v.form.zoneId.$dirty ? !$v.form.zoneId.$error : null"
+          id="input-zone"
+        >
+          <template #label>{{$t('elements.common.address.create.zoneEntry')}}</template>
+          <template #default="data">
+            <vf-a-select
+              v-bind="data"
+              v-model="form.zoneId"
+              :options="zones.content"
+              value-field="id"
+              text-field="name"
+              trim
+            />
+          </template>
+          <template #error>{{$t('elements.common.address.create.zoneError')}}</template>
+        </vf-m-field>
+      </vf-m-col>
+    </vf-m-row>
     <template #button>
       {{$t('elements.common.address.create.buttonSave')}}
-      <vf-a-icon icon="long-arrow-alt-right" size="sm" />
+      <vf-a-icon icon="long-arrow-alt-right" />
     </template>
   </vf-o-form>
 </template>

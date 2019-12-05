@@ -1,6 +1,6 @@
 <template>
   <section class="vf-t-account-edit">
-    <vf-m-card class="shadow mb-0" no-body>
+    <vf-m-card class="mb-0" no-body>
       <vf-m-card-body class="px-md-5 py-5">
         <vf-o-account-edit-form :account="account" />
       </vf-m-card-body>

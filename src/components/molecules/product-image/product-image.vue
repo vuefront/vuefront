@@ -5,8 +5,8 @@
         v-if="$vuefront.isAMP"
         :src="mainImage"
         layout="responsive"
-        width="300"
-        height="300"
+        :width="$vuefront.options.image.product.width"
+        :height="$vuefront.options.image.product.height"
       />
       <vf-a-image v-else :lazy-src="mainImage" :src="mainImagelazy" fluid full-width />
     </a>
@@ -17,26 +17,25 @@
             v-if="$vuefront.isAMP"
             :src="value.image"
             layout="responsive"
-            width="100"
-            height="100"
+            :width="$vuefront.options.image.product.width"
+            :height="$vuefront.options.image.product.height"
           />
           <vf-a-image v-else :lazy-src="value.image" :src="value.imageLazy" fluid full-width />
         </a>
       </vf-m-col>
     </vf-m-row>
-    <no-ssr>
+    <client-only>
       <vf-m-product-image-popup
         :show="popup"
         :index="popupIndex"
         :images="images"
         @click:close="handleClosePopup"
       />
-    </no-ssr>
+    </client-only>
   </section>
 </template>
 <script>
 import Vue from "vue";
-import placeholder from "vuefront/assets/img/placeholder.png";
 import "vue-image-lightbox/dist/vue-image-lightbox.min.css";
 export default {
   props: ["product"],
@@ -71,12 +70,14 @@ export default {
       return result;
     },
     mainImage() {
-      return this.product.imageBig !== "" ? this.product.imageBig : placeholder;
+      return this.product.imageBig !== ""
+        ? this.product.imageBig
+        : this.$vuefront.options.image.placeholder;
     },
     mainImagelazy() {
       return this.product.imageLazy !== ""
         ? this.product.imageLazy
-        : placeholder;
+        : this.$vuefront.options.image.placeholder;
     }
   },
   methods: {

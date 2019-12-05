@@ -1,5 +1,5 @@
 <template>
-  <section class="empty-section">
+  <section class="vf-m-empty">
     <slot></slot>
   </section>
 </template>

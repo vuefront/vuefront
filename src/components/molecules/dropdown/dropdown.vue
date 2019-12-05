@@ -4,6 +4,7 @@
     :variant="variant"
     :right="right"
     :size="size"
+    class="vf-m-dropdown"
   >
     <template slot="button-content">
       <slot name="button-content"></slot>

@@ -1,8 +1,6 @@
 import Vue from 'vue';
 import { storiesOf } from '@storybook/vue';
 import component from './product-thumb.vue';
-
-
 storiesOf('molecule|Product Thumb', module)
     .add(
         'default',

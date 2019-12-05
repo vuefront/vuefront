@@ -1,9 +1,9 @@
 import * as seo from 'vuefront/lib/seo'
 export default {
-    '/': { component: 'Home' },
+    '/': { component: 'CommonHome' },
     '/account': {
         generate: false,
-        component: 'Account'
+        component: 'AccountAccount'
     },
     '/account/address': {
         generate: false,
@@ -34,7 +34,7 @@ export default {
     },
     '/account/wishlist': {
         generate: false,
-        component: 'Wishlist'
+        component: 'StoreWishlist'
     },
     '/blog/category/:id': {
         seo: seo.CategoryBlogSeo,
@@ -46,34 +46,34 @@ export default {
     },
     '/contact': { component: 'Contact' },
     '/page/:id': {
-        component: 'Page',
+        component: 'CommonPage',
         seo: seo.PageSeo
     },
     '/search': { component: 'Search' },
     '/search/:slug': {
-        component: 'Search'
+        component: 'CommonSearch'
     },
     '/store/cart': {
         generate: false,
-        component: 'Cart'
+        component: 'StoreCart'
     },
     '/store/checkout': {
         generate: false,
-        component: 'Checkout'
+        component: 'StoreCheckout'
     },
     '/store/category/:id': {
         seo: seo.CategorySeo,
-        component: 'Category'
+        component: 'StoreCategory'
     },
     '/store/compare': {
         generate: false,
-        component: 'Compare'
+        component: 'StoreCompare'
     },
     '/store/product/:id': {
-        component: 'Product',
+        component: 'StoreProduct',
         seo: seo.ProductSeo
     },
     '/store/special': {
-        component: 'Special'
+        component: 'StoreSpecial'
     }
 }

@@ -17,7 +17,13 @@
         />
       </vf-m-col>
     </vf-m-row>
-    <vf-m-post-image :post="post" full-width fluid class="post-section__image mb-3" />
+    <vf-m-post-image
+      :post="post"
+      full-width
+      fluid
+      class="post-section__image mb-3"
+      layout="responsive"
+    />
     <div class="post-section__content lead" v-html="post.description" />
     <vf-m-post-nav :post="post" />
     <vf-o-post-reviews :post="post" />

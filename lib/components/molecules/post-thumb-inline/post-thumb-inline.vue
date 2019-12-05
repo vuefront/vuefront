@@ -1,19 +1,20 @@
 <template>
-  <vf-a-link :to="url" v-if="post">
+  <vf-a-link :to="url" v-if="post" class="vf-m-post-thumb-inline">
     <vf-m-media vertical-align="center" :right-align="rightAlign">
       <template #aside>
-        <vf-m-post-image :post="post" width="160" />
+        <vf-m-post-thumb-image
+          :post="post"
+          :width="$vuefront.options.image.postThumbInline.width"
+          :height="$vuefront.options.image.postThumbInline.height"
+        />
       </template>
-      <vf-a-heading level="5" class="mt-0 mb-1" >{{post.name}}</vf-a-heading>
-      <p
-        class="mb-0 text-sm"
-        v-html="post.shortDescription"
-        style="min-height: 65px;  max-height: 65px; overflow: hidden;"
-      />
+      <vf-a-heading level="5" class="mt-0 mb-1 vf-m-post-thumb-inline__title">{{post.name}}</vf-a-heading>
+      <p class="mb-0 text-sm vf-m-post-thumb-inline__description" v-html="post.shortDescription" />
     </vf-m-media>
   </vf-a-link>
 </template>
 <script>
+import "./post-thumb-inline.scss";
 export default {
   props: {
     post: {

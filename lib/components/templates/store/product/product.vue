@@ -19,20 +19,12 @@
               />
             </vf-m-col>
             <vf-m-col sm="6" class="text-sm-right">
-              <vf-a-badge
-                color="primary"
-                rounded
-              >{{$t('elements.store.product.idText')}}{{product.id}}</vf-a-badge>
+              <vf-a-badge color="primary">{{$t('elements.store.product.idText')}}{{product.id}}</vf-a-badge>
               <vf-a-badge
                 v-if="product.stock"
                 color="success"
-                rounded
               >{{$t('elements.store.product.inStockText')}}</vf-a-badge>
-              <vf-a-badge
-                v-else
-                color="danger"
-                rounded
-              >{{$t('elements.store.product.outOfStockText')}}</vf-a-badge>
+              <vf-a-badge v-else color="danger">{{$t('elements.store.product.outOfStockText')}}</vf-a-badge>
             </vf-m-col>
           </vf-m-row>
           <div

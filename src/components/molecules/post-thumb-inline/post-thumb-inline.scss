@@ -1,0 +1,10 @@
+.vf-m-post-thumb-inline {
+    &__description {
+        min-height: 70px;
+        max-height: 70px;
+        overflow: hidden;
+    }
+    .vf-post-thumb-image {
+        max-height: 160px;
+    }
+}

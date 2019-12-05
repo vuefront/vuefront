@@ -1,5 +1,5 @@
 <template>
-  <b-container>
+  <b-container :fluid="fluid">
     <slot></slot>
   </b-container>
 </template>
@@ -8,6 +8,7 @@ import { BContainer } from "bootstrap-vue";
 export default {
   components: {
     BContainer
-  }
+  },
+  props: ["fluid"]
 };
 </script>

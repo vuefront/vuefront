@@ -2,6 +2,7 @@ import Vue from 'vue';
 import { storiesOf } from '@storybook/vue';
 import component from './product-thumb-inline.vue';
 
+Vue.component('vfMProductThumbInline', component)
 
 storiesOf('molecule|Product Thumb Inline', module)
     .add(

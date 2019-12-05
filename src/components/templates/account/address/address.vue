@@ -18,7 +18,6 @@
     </vf-m-table>
     <div class="text-right">
       <vf-a-button
-        rounded
         color="primary"
         to="/account/address/create"
       >{{$t('elements.common.account.address.newAddressButton')}}</vf-a-button>
