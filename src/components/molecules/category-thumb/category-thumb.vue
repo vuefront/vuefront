@@ -1,5 +1,5 @@
 <template>
-  <vf-a-link :to="url" class="mb-2 d-block">
+  <vf-a-link :to="url" class="mb-2 d-block vf-m-category-thumb">
     <vf-a-amp-image
       v-if="$vuefront.isAMP"
       :src="image"

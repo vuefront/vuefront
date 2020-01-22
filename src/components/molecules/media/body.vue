@@ -1,5 +1,5 @@
 <template>
-  <b-media-body :tag="tag">
+  <b-media-body class="vf-m-media-body" :tag="tag">
     <slot></slot>
   </b-media-body>
 </template>

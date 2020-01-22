@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import { storiesOf } from '@storybook/vue';
 import vfMButtonGroup from './button-group.vue';
+import './button-block.scss';
 
 Vue.component('vfMButtonGroup', vfMButtonGroup)
 

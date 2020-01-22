@@ -1,7 +1,10 @@
 <template>
   <section class="location-grid slice-lg">
     <vf-m-row>
-      <vf-m-col v-for="(value, index) in items" :key="index" sm="12" md="6">
+      <vf-m-col v-for="(value, index) in items" :key="index" sm="12" md="4">
+        <vf-m-location-thumb :location="value" />
+      </vf-m-col>
+      <vf-m-col v-for="(value, index) in items" :key="index" sm="12" md="4">
         <vf-m-location-thumb :location="value" />
       </vf-m-col>
     </vf-m-row>
@@ -19,3 +22,8 @@ export default {
   }
 };
 </script>
+<style>
+.vf-m-col {
+  align-items: ;
+}
+</style>

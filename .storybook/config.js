@@ -1,7 +1,7 @@
 import Vue from 'vue';
 // import Vuex from 'vuex'
 import { configure, addDecorator } from '@storybook/vue';
-import "../assets/scss/main.scss";
+import "vuefront/assets/scss/main.scss";
 import centered from '@storybook/addon-centered/vue';
 import { withInfo } from 'storybook-addon-vue-info';
 import VueI18n from 'vue-i18n';

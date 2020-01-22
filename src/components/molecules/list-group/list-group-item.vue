@@ -1,10 +1,10 @@
 <template>
-  <b-list-group-item :active="active" :to="to" v-on="$listeners">
+  <b-list-group-item class="vf-m-list-group-item" :active="active" :to="to" v-on="$listeners">
     <slot></slot>
   </b-list-group-item>
 </template>
 <script>
-import {BListGroupItem} from 'bootstrap-vue'
+import { BListGroupItem } from "bootstrap-vue";
 
 export default {
   components: {
@@ -14,15 +14,15 @@ export default {
     active: {
       type: Boolean,
       default() {
-        return false
+        return false;
       }
     },
     to: {
       type: String,
       default() {
-        return null
+        return null;
       }
     }
   }
-}
+};
 </script>

@@ -16,6 +16,8 @@
     :offset-lg="offsetLg"
     :offset-xl="offsetXl"
     :align-self="alignSelf"
+    :tag="tag"
+    class="vf-m-col"
   >
     <slot></slot>
   </b-col>
@@ -121,6 +123,12 @@ export default {
       type: String | Number,
       default() {
         return null;
+      }
+    },
+    tag: {
+      type: String,
+      default() {
+        return "div";
       }
     }
   }

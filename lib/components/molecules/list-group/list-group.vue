@@ -1,14 +1,14 @@
 <template>
-  <b-list-group>
+  <b-list-group class="vf-m-list-group">
     <slot></slot>
   </b-list-group>
 </template>
 <script>
-  import {BListGroup} from 'bootstrap-vue'
+import { BListGroup } from "bootstrap-vue";
 
-  export default {
-    components: {
-      BListGroup
-    }
+export default {
+  components: {
+    BListGroup
   }
+};
 </script>

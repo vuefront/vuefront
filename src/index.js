@@ -11,10 +11,13 @@ const MainConfig = {
     menu: [],
     image: {
         placeholder: placeholder,
+        logo: {
+            width: 180,
+            height: 40
+        },
         product: {
             width: 825,
             height: 825
-
         },
         categoryThumb: {
             width: 300,
@@ -37,6 +40,10 @@ const MainConfig = {
             height: 180
         },
         postThumbInline: {
+            width: 200, //10x6
+            height: 120
+        },
+        contact: {
             width: 200, //10x6
             height: 120
         }

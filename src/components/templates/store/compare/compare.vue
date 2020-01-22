@@ -27,36 +27,36 @@ export default {
     return {
       fields: [
         {
-          code: "name",
-          title: this.$t("elements.store.compare.productRow")
+          key: "name",
+          label: this.$t("elements.store.compare.productRow")
         },
         {
-          code: "image",
-          title: this.$t("elements.store.compare.imageRow")
+          key: "image",
+          label: this.$t("elements.store.compare.imageRow")
         },
         {
-          code: "price",
-          title: this.$t("elements.store.compare.priceRow")
+          key: "price",
+          label: this.$t("elements.store.compare.priceRow")
         },
         {
-          code: "model",
-          title: this.$t("elements.store.compare.modelRow")
+          key: "model",
+          label: this.$t("elements.store.compare.modelRow")
         },
         {
-          code: "stock",
-          title: this.$t("elements.store.compare.availabilityRow")
+          key: "stock",
+          label: this.$t("elements.store.compare.availabilityRow")
         },
         {
-          code: "rating",
-          title: this.$t("elements.store.compare.ratingRow")
+          key: "rating",
+          label: this.$t("elements.store.compare.ratingRow")
         },
         {
-          code: "shortDescription",
-          title: this.$t("elements.store.compare.summaryRow")
+          key: "shortDescription",
+          label: this.$t("elements.store.compare.summaryRow")
         },
         {
-          code: "actions",
-          title: ""
+          key: "actions",
+          label: ""
         }
       ]
     };

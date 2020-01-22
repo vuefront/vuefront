@@ -11,7 +11,7 @@ storiesOf('molecule|Category Thumb', module)
     .add(
         'default',
         () => ({
-            components: { vfMCategoryThumb: component },
+            components: { vfMCategoryThumb },
             template: `<div style="width:150px">
                 <vf-m-category-thumb :category="category" width="200"/>
             </div>`,

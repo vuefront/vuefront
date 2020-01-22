@@ -1,15 +1,20 @@
 <template>
-  <div class="btn-group-toggle btn-group-options row mx-0 mt-3 mb-5">
-    <vf-a-button
-      v-for="(value, key) in option.values"
-      :key="key"
-      :pressed="checkActive(value.id, option)"
-      :active="checkActive(value.id, option)"
-      color="neutral"
-      class="col-12 mb-2 text-sm"
-      size="lg"
-      @click="handleChange(value.id)"
-    >{{value.name}}</vf-a-button>
+  <div class="vf-m-product-option-radio">
+    <vf-a-heading level="6" class="vf-m-product-option-radio__name mt-5">{{option.name}}</vf-a-heading>
+    <div
+      class="btn-group-toggle btn-group-options row mx-0 mt-3 mb-5 vf-m-product-option-radio__value"
+    >
+      <vf-a-button
+        v-for="(value, key) in option.values"
+        :key="key"
+        :pressed="checkActive(value.id, option)"
+        :active="checkActive(value.id, option)"
+        color="neutral"
+        class="col-12 mb-2 text-sm"
+        size="lg"
+        @click="handleChange(value.id)"
+      >{{value.name}}</vf-a-button>
+    </div>
   </div>
 </template>
 <script>

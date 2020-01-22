@@ -7,11 +7,14 @@ Vue.component('vfMCol', vfMCol)
 Vue.component('vfMRow', vfMRow)
 
 storiesOf('molecule| Row & Col', module)
+    .addDecorator((story) => ({
+        template: `<div style="width:500px"><story/></div>`
+    }))
     .add(
         'default',
         () => ({
             components: { vfMRow, vfMCol },
-            template: `<vf-m-row><vf-m-col>This is an alert message</vf-m-col></vf-m-col>`
+            template: `<vf-m-row><vf-m-col><div style="background:#eee; padding:10px; height:50px; width:100%">Col</div></vf-m-col></vf-m-row>`
         }), {
             info: {}
         }

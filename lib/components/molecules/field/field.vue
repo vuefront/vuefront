@@ -1,5 +1,5 @@
 <template>
-  <b-form-group :label-for="id" :state="state">
+  <b-form-group class="vf-m-field" :label-for="id" :state="state">
     <template #label>
       <slot name="label"></slot>
     </template>

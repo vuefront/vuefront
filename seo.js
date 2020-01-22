@@ -44,7 +44,10 @@ export default {
         component: 'BlogPost',
         seo: seo.PostSeo
     },
-    '/contact': { component: 'Contact' },
+    '/contact': {
+        generate: false,
+        component: 'CommonContact'
+    },
     '/page/:id': {
         component: 'CommonPage',
         seo: seo.PageSeo
