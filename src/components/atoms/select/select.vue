@@ -5,6 +5,7 @@
     :value-field="valueField"
     :text-field="textField"
     @input="handleChange"
+    class="vf-a-select"
   />
 </template>
 <script>

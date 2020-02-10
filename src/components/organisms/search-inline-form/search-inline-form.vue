@@ -1,12 +1,18 @@
 <template>
-  <vf-a-input
-    v-model="keyword"
-    :placeholder="$t('elements.common.header.navSearch.placeholderText')"
-    size="sm"
-    :hide-details="!$vuefront.isAMP"
-    @keypress.stop="handleKeyPress"
-    trim
-  />
+  <vf-m-input-group size="sm" class="vf-o-search-inline-form">
+    <vf-a-input
+      v-model="keyword"
+      :placeholder="$t('elements.common.header.navSearch.placeholderText')"
+      :hide-details="!$vuefront.isAMP"
+      @keypress.stop="handleKeyPress"
+      trim
+    />
+    <template v-slot:append>
+      <vf-a-button color="primary" @click="doSearch">
+        <vf-a-icon icon="search" />
+      </vf-a-button>
+    </template>
+  </vf-m-input-group>
 </template>
 <script>
 export default {
@@ -34,6 +40,9 @@ export default {
           this.$router.push("/search");
         }
       }
+    },
+    doSearch() {
+      this.$router.push(`/search/${this.keyword}`);
     }
   },
   beforeMount() {

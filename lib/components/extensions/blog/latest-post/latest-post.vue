@@ -1,5 +1,5 @@
 <template>
-  <vf-o-apollo>
+  <vf-o-apollo class="vf-e-blog-latest-post">
     <template #loader>
       <vf-l-o-post-module :column="column" />
     </template>

@@ -1,5 +1,5 @@
 <template>
-  <b-card-body>
+  <b-card-body class="vf-m-card-body">
     <slot></slot>
   </b-card-body>
 </template>
@@ -9,7 +9,6 @@ export default {
   components: {
     BCardBody
   },
-  props: {
-  }
+  props: {}
 };
 </script>

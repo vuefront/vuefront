@@ -19,6 +19,9 @@
         max-height: 70px;
         overflow: hidden;
     }
+    &__button-buy {
+        width: 50%;
+    }
     &--wide {
         .vf-m-product-thumb__title {
             justify-content: left;

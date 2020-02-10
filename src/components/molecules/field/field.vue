@@ -1,10 +1,10 @@
 <template>
   <b-form-group class="vf-m-field" :label-for="id" :state="state">
-    <template #label>
+    <template class="vf-m-field__label" #label>
       <slot name="label"></slot>
     </template>
     <slot :aria-describedby="`${id}-feedback`" :state="state"></slot>
-    <b-form-invalid-feedback :state="state" :id="`${id}-feedback`">
+    <b-form-invalid-feedback class="vf-m-field__error" :state="state" :id="`${id}-feedback`">
       <slot name="error"></slot>
     </b-form-invalid-feedback>
   </b-form-group>

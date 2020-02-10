@@ -1,9 +1,7 @@
 <template>
-  <div class="vf-m-product-option-checkbox">
-    <vf-a-heading level="6" class="vf-m-product-option-checkbox__name mt-5">{{option.name}}</vf-a-heading>
-    <div
-      class="btn-group-toggle btn-group-options row mx-0 mt-3 mb-5 vf-m-product-option-checkbox__value"
-    >
+  <div class="vf-m-product-option vf-m-product-option--checkbox">
+    <vf-a-heading level="6" class="mt-5 vf-m-product-option__name">{{option.name}}</vf-a-heading>
+    <div class="btn-group-toggle btn-group-options row mx-0 mt-3 mb-5 vf-m-product-option__value">
       <vf-a-button
         v-for="(value, key) in option.values"
         :key="key"

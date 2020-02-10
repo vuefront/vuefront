@@ -1,5 +1,5 @@
 <template>
-  <b-alert :show="show" v-on="$listeners" :dismissible="dismissible">
+  <b-alert class="vf-a-alert" :show="show" v-on="$listeners" :dismissible="dismissible">
     <slot></slot>
   </b-alert>
 </template>

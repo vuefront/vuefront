@@ -28,13 +28,13 @@
       <vf-m-row class="py-4 mt-4 delimiter-top">
         <vf-m-col md="6">
           <div
-            class="text-sm font-weight-bold text-center text-md-left"
+            class="text-sm text-center text-md-left"
             v-html="$t('elements.common.footer.copyrightText')"
           />
         </vf-m-col>
         <vf-m-col md="6">
           <div
-            class="text-sm font-weight-bold text-center text-md-right"
+            class="text-sm text-center text-md-right"
             v-html="$t('elements.common.footer.poweredText')"
           />
         </vf-m-col>

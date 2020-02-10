@@ -37,6 +37,14 @@ export default {
       ]
     };
   },
+  breadcrumbs() {
+    return [
+      {
+        title: this.category.meta.title,
+        to: "/"
+      }
+    ];
+  },
   data() {
     const page = this.$route.query.page ? Number(this.$route.query.page) : 1;
     const size = this.$route.query.size ? Number(this.$route.query.size) : 15;

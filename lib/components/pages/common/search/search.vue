@@ -7,7 +7,7 @@
 export default {
   head() {
     return {
-      title: "Purpose"
+      title: this.$t("pages.common.search.metaTitle")
     };
   }
 };

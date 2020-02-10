@@ -1,5 +1,5 @@
 <template>
-  <b-card :no-body="noBody" :body-bg-variant="bodyBgColor">
+  <b-card class="vf-m-card" :no-body="noBody" :body-bg-variant="bodyBgColor">
     <slot></slot>
   </b-card>
 </template>

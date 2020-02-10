@@ -4,11 +4,14 @@ import vfMLocationThumb from './location-thumb.vue';
 
 
 storiesOf('molecule|Location Thumb', module)
+    .addDecorator((story) => ({
+        template: `<div style="width:300px"><story/></div>`
+    }))
     .add(
         'default',
         () => ({
             components: { vfMLocationThumb },
-            template: `<div style="max-width:300px"><vf-m-location-thumb :location="location" ></vf-m-location-thumb></div>`,
+            template: `<vf-m-location-thumb :location="location" />`,
             data() {
                 return {
                     location: {

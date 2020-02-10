@@ -1,5 +1,10 @@
 <template>
-  <b-button-group v-on="$listeners" :size="size" :class="{'vf-m-button-group--block': block}" class="vf-m-button-group">
+  <b-button-group
+    v-on="$listeners"
+    :size="size"
+    :class="{'vf-m-button-group--block': block}"
+    class="vf-m-button-group"
+  >
     <slot></slot>
   </b-button-group>
 </template>
@@ -11,13 +16,13 @@ export default {
     size: {
       type: String,
       default() {
-        return 'sm'
+        return "sm";
       }
     },
     block: {
       type: Boolean,
       default() {
-        return false
+        return false;
       }
     }
   }

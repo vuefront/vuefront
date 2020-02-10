@@ -1,5 +1,5 @@
 <template>
-  <vf-o-apollo v-slot="{data}">
+  <vf-o-apollo class="vf-e-store-checkout" v-slot="{data}">
     <div>{{isClient? handleRedirect(data.checkoutLink.link) : ''}}</div>
   </vf-o-apollo>
 </template>

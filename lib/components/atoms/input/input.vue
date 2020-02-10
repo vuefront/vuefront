@@ -9,6 +9,8 @@
     :size="size"
     :placeholder="placeholder"
     :trim="trim"
+    class="vf-a-input"
+    :class="`vf-a-input--${type}`"
   />
 </template>
 <script>

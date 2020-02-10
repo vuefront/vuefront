@@ -23,14 +23,27 @@
           ></div>
           <vf-m-product-price variant="small" :price="product.price" :special="product.special" />
         </vf-m-card-body>
-        <vf-m-button-group size="sm" block>
-          <vf-a-button color="light-gray" class="rounded-0" @click="handleAddToCart">
+        <vf-m-button-group class="vf-m-product-thumb__buttons" size="sm" block>
+          <vf-a-button
+            class="rounded-0 vf-m-product-thumb__button-buy"
+            color="light-gray"
+            @click="handleAddToCart"
+          >
             <vf-a-icon :icon="['fas', 'shopping-cart']" />
+            {{$t('elements.store.product.buttonAddToCart')}}
           </vf-a-button>
-          <vf-a-button color="light-gray" @click="handleAddToWishlist">
+          <vf-a-button
+            class="vf-m-product-thumb__button-wishlist"
+            color="light-gray"
+            @click="handleAddToWishlist"
+          >
             <vf-a-icon :icon="['fas', 'heart']" />
           </vf-a-button>
-          <vf-a-button color="light-gray" class="rounded-0" @click="handleAddToCompare">
+          <vf-a-button
+            class="rounded-0 vf-m-product-thumb__button-compare"
+            color="light-gray"
+            @click="handleAddToCompare"
+          >
             <vf-a-icon :icon="['fas', 'exchange-alt']" />
           </vf-a-button>
         </vf-m-button-group>

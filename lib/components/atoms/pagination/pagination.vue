@@ -1,9 +1,10 @@
 <template>
-  <div>
+  <div class="vf-a-pagination">
     <b-pagination
       v-if="totalPages > 1"
       :value="page"
       :total-rows="totalPages"
+      :per-page="perPage"
       @input="handleChange"
     />
   </div>
@@ -22,6 +23,10 @@ export default {
     totalPages: {
       type: Number,
       default: 1
+    },
+    perPage: {
+      type: Number,
+      default: 20
     }
   },
   methods: {

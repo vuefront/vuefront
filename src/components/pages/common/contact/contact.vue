@@ -4,6 +4,19 @@
 <script>
 import { mapGetters } from "vuex";
 export default {
+  head() {
+    return {
+      title: this.$t("pages.common.contact.metaTitle")
+    };
+  },
+  breadcrumbs() {
+    return [
+      {
+        title: this.$t("pages.common.contact.metaTitle"),
+        to: "/"
+      }
+    ];
+  },
   computed: {
     ...mapGetters({
       contact: "common/contact/get"

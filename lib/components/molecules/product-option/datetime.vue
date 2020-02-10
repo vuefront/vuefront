@@ -1,8 +1,8 @@
 <template>
-  <div class="vf-m-product-option-datetime">
-    <vf-a-heading level="6" class="vf-m-product-option-datetime__name mt-5">{{option.name}}</vf-a-heading>
+  <div class="vf-m-product-option vf-m-product-option--datetime">
+    <vf-a-heading level="6" class="mt-5 vf-m-product-option__name">{{option.name}}</vf-a-heading>
     <vf-a-input
-      class="vf-m-product-option-datetime__value"
+      class="vf-m-product-option__value"
       :value="activeOptionValue"
       type="datetime-local"
       @input="handleChange"

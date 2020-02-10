@@ -7,13 +7,14 @@ import post from '@/.storybook/store/post.js';
 Vue.component('vfMPostThumb', vfMPostThumb);
 
 storiesOf('molecule|Post Thumb', module)
+    .addDecorator((story) => ({
+        template: `<div style="width:300px"><story/></div>`
+    }))
     .add(
         'default',
         () => ({
             components: { vfMPostThumb },
-            template: `<div style="max-width:300px">
-            <vf-m-post-thumb :post="post"></vf-m-post-thumb>
-            </div>`,
+            template: `<vf-m-post-thumb :post="post"></vf-m-post-thumb>`,
             data: () => ({ post })
         }), {
             info: {}
@@ -23,9 +24,7 @@ storiesOf('molecule|Post Thumb', module)
         'loading',
         () => ({
             components: { vfLMPostThumb },
-            template: `<div style="width:300px">
-            <vf-l-m-post-thumb ></vf-l-m-post-thumb>
-            </div>`
+            template: `<vf-l-m-post-thumb ></vf-l-m-post-thumb>`
         }), {
             info: {}
         }
@@ -34,7 +33,7 @@ storiesOf('molecule|Post Thumb', module)
         'loaded',
         () => ({
             components: { vfMPostThumb, vfLMPostThumb },
-            template: `<div style="width:300px">
+            template: `<div>
             <vf-m-post-thumb v-if="loaded" :post="post"></vf-m-post-thumb>
             <vf-l-m-post-thumb v-else></vf-l-m-post-thumb>
             </div>`,

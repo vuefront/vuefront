@@ -70,6 +70,8 @@ const MainConfig = {
     molecules: {
         AccountMenu: components.mAccountMenu,
         AccountNew: components.mAccountNew,
+        // Breadcrumb: components.mBreadcrumb,
+        // BreadcrumbItem: components.mBreadcrumbItem,
         ButtonGroup: components.mButtonGroup,
         Card: components.mCard,
         CardBody: components.mCardBody, //Card
@@ -124,6 +126,7 @@ const MainConfig = {
     },
     organisms: {
         SearchInlineForm: components.oSearchInlineForm,
+        Breadcrumb: components.oBreadcrumb,
         Sidebar: components.oSidebar,
         HeaderMobile: components.oHeaderMobile,
         Header: components.oHeader,
@@ -236,6 +239,10 @@ const MainConfig = {
         {
             path: ['common', 'country'],
             module: stores.Country
+        },
+        {
+            path: ['common', 'breadcrumbs'],
+            module: stores.Breadcrumbs
         },
         {
             path: ['common', 'zone'],

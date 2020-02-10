@@ -1,8 +1,8 @@
 <template>
-  <div class="vf-m-product-option-time">
-    <vf-a-heading level="6" class="mt-5 vf-m-product-option-time__name">{{option.name}}</vf-a-heading>
+  <div class="vf-m-product-option vf-m-product-option--time">
+    <vf-a-heading level="6" class="mt-5 vf-m-product-option__name">{{option.name}}</vf-a-heading>
     <vf-a-input
-      class="vf-m-product-option-time__value"
+      class="vf-m-product-option__value"
       :value="activeOptionValue"
       type="time"
       @input="handleChange"

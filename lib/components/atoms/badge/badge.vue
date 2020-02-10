@@ -1,5 +1,5 @@
 <template>
-  <b-badge :variant="color" :pill="rounded">
+  <b-badge class="vf-a-badge" :variant="color" :pill="rounded">
     <slot></slot>
   </b-badge>
 </template>
@@ -13,13 +13,13 @@ export default {
     color: {
       type: String,
       default() {
-        return 'primary'
+        return "primary";
       }
     },
     rounded: {
       type: Boolean,
       default() {
-        return false
+        return false;
       }
     }
   }

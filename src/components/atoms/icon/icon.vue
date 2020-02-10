@@ -1,5 +1,5 @@
 <template>
-  <i :class="currentIcon"></i>
+  <i class="vf-a-icon" :class="currentIcon"></i>
 </template>
 <script>
 import { isArray, join } from "lodash";

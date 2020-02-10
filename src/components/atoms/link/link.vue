@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="to">
+  <router-link class="vf-a-link" :to="to">
     <slot></slot>
   </router-link>
 </template>

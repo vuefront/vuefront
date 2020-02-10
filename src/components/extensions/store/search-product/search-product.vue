@@ -1,5 +1,5 @@
 <template>
-  <vf-o-apollo :variables="{search:keyword}">
+  <vf-o-apollo class="vf-e-store-search-product" :variables="{search:keyword}">
     <template #loader>
       <vf-l-o-product-module :column="column" />
     </template>
