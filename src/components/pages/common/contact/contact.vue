@@ -12,8 +12,8 @@ export default {
   breadcrumbs() {
     return [
       {
-        title: this.$t("pages.common.contact.metaTitle"),
-        to: "/"
+        title: this.$t("pages.common.contact.breadcrumbTitle"),
+        to: this.$route.path
       }
     ];
   },

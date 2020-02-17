@@ -21,9 +21,6 @@ export default {
         return null;
       }
     }
-  },
-  created() {
-    this.$store.dispatch('common/breadcrumbs/load')
-  },
+  }
 };
 </script>

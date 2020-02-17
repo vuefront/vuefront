@@ -13,7 +13,7 @@
             sm="3"
             class="d-none d-md-block vf-o-layout__content-left"
           >
-            <vf-o-position name="columnLeft" class="px-2" />
+            <vf-o-position name="columnLeft" />
           </vf-m-col>
           <vf-m-col :sm="contentWidth">
             <vf-o-position name="columnCenterTop" class="vf-o-layout__content-center-top" />
@@ -25,7 +25,7 @@
             sm="3"
             class="d-none d-md-block vf-o-layout__content-right"
           >
-            <vf-o-position name="columnRight" class="px-2" />
+            <vf-o-position name="columnRight" />
           </vf-m-col>
         </vf-m-row>
         <vf-o-position name="contentBottom" class="vf-o-layout__content-bottom" />

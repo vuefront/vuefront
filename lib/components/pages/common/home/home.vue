@@ -27,7 +27,7 @@ export default {
         {
           name: "keywords",
           content: this.keyword
-        },
+        }
       ]
     };
   },
@@ -36,7 +36,7 @@ export default {
       title: "",
       description: "",
       keyword: "",
-      loaded: true
+      loaded: false
     };
   },
   computed: {
@@ -76,6 +76,7 @@ export default {
         this.title = home.meta.title;
         this.description = home.meta.description;
         this.keyword = home.meta.keyword;
+        this.loaded = true;
       }
     }
   }

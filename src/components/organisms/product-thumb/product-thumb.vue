@@ -10,7 +10,6 @@
   </section>
 </template>
 <script>
-import placeholder from "vuefront/assets/img/placeholder.png";
 export default {
   props: ["product", "wide"],
   methods: {

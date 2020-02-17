@@ -32,6 +32,14 @@ export default {
       ]
     };
   },
+  breadcrumbs() {
+    return [
+      {
+        title: this.category.meta.title,
+        to: this.$route.path
+      }
+    ];
+  },
   props: ["id", "keyword", "url"],
   data() {
     const page = this.$route.query.page ? Number(this.$route.query.page) : 1;

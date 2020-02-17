@@ -5,7 +5,7 @@ import vfAAlert from './alert.vue';
 Vue.component('vfAAlert', vfAAlert);
 
 
-storiesOf('molecule|!!!Alert', module)
+storiesOf('atom|!!!Alert', module)
     .add(
         'default',
         () => ({

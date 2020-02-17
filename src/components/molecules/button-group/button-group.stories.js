@@ -1,40 +1,20 @@
-export * from './account-menu'
-export * from './account-new'
-export * from './alert'
-    // export * from './breadcrumb'
-export * from './button-group'
-export * from './card'
-export * from './cart-link'
-export * from './category-thumb'
-export * from './collapse'
-export * from './compare-link'
-export * from './contact'
-export * from './container'
-export * from './dropdown'
-export * from './empty'
-export * from './field'
-export * from './col'
-export * from './input-group'
-export * from './list-group'
-export * from './location-thumb'
-export * from './logo'
-export * from './media'
-export * from './account-new'
-export * from './post-image'
-export * from './post-nav'
-export * from './post-thumb'
-export * from './post-thumb-image'
-export * from './post-thumb-inline'
-export * from './product-attribute'
-export * from './product-image'
-export * from './product-option'
-export * from './product-price'
-export * from './product-thumb'
-export * from './product-thumb-image'
-export * from './product-thumb-inline'
-export * from './rating'
-export * from './review'
-export * from './row'
-export * from './table'
-export * from './table-horizontal'
-export * from './wishlist-link'
+import Vue from 'vue';
+import { storiesOf } from '@storybook/vue';
+import vfMButtonGroup from './button-group.vue';
+import './button-block.scss';
+
+Vue.component('vfMButtonGroup', vfMButtonGroup);
+
+storiesOf('molecule|Button Group', module).add('default', function() {
+    return {
+        components: {
+            vfMButtonGroup: vfMButtonGroup
+        },
+        template: `<vf-m-button-group>
+        <vf-a-button>Submit</vf-a-button>
+        <vf-a-button>Cancel</vf-a-button>
+        </vf-m-button-group>`
+    };
+}, {
+    info: {}
+});

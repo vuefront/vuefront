@@ -72,6 +72,14 @@ export default {
       ]
     };
   },
+  breadcrumbs() {
+    return [
+      {
+        title: this.product.meta.title,
+        to: this.$route.path
+      }
+    ];
+  },
   data() {
     return {
       loaded: true

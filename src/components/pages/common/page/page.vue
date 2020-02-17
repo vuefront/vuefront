@@ -27,6 +27,14 @@ export default {
       ]
     };
   },
+  breadcrumbs() {
+    return [
+      {
+        title: this.page.meta.title,
+        to: this.$route.path
+      }
+    ];
+  },
   props: ["url", "keyword", "id"],
   computed: {
     ...mapGetters({

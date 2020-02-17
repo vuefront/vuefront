@@ -10,6 +10,14 @@ export default {
     ...mapGetters({
       account: "common/customer/get"
     })
+  },
+  breadcrumbs() {
+    return [
+      {
+        title: this.$t("pages.account.edit.breadcrumbTitle"),
+        to: this.$route.path
+      }
+    ];
   }
 };
 </script>

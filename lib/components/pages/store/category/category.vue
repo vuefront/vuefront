@@ -38,10 +38,11 @@ export default {
     };
   },
   breadcrumbs() {
+    const category = this.$store.getters["store/category/get"];
     return [
       {
-        title: this.category.meta.title,
-        to: "/"
+        title: category.meta.title,
+        to: this.$route.path
       }
     ];
   },

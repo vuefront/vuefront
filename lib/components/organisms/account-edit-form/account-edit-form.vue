@@ -1,5 +1,5 @@
 <template>
-  <vf-o-form @submit="onSubmit">
+  <vf-o-form class="vf-o-account-edit-form" @submit="onSubmit">
     <template #title>{{$t('elements.common.account.edit.titleText')}}</template>
     <template #sub-title>{{$t('elements.common.account.edit.subTitleText')}}</template>
 

@@ -13,9 +13,6 @@
 </template>
 <script>
 export default {
-  props: ["category", "products", "mode", "sort", "gridSize"],
-  created() {
-    this.$store.dispatch("common/breadcrumbs/load");
-  }
+  props: ["category", "products", "mode", "sort", "gridSize"]
 };
 </script>

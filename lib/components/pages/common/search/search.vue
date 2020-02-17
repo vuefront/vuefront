@@ -9,6 +9,14 @@ export default {
     return {
       title: this.$t("pages.common.search.metaTitle")
     };
+  },
+  breadcrumbs() {
+    return [
+      {
+        title: this.$t("pages.common.search.breadcrumbTitle"),
+        to: this.$route.path
+      }
+    ];
   }
 };
 </script>

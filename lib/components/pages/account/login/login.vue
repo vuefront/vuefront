@@ -7,6 +7,14 @@ export default {
     if (ctx.store.getters["common/customer/auth"]) {
       ctx.redirect("/account");
     }
+  },
+  breadcrumbs() {
+    return [
+      {
+        title: this.$t("pages.account.login.breadcrumbTitle"),
+        to: this.$route.path
+      }
+    ];
   }
 };
 </script>

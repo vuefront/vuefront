@@ -1,11 +1,11 @@
 <template>
-  <div class="account-address__action ma-1" style="width: 85px;">
-    <vf-a-link :to="`/account/address/${address.id}/edit`" class="cursor-pointer color-inherit">
+  <div class="vf-o-address-actions">
+    <vf-a-button class="vf-o-address-actions__edit" :to="`/account/address/${address.id}/edit`">
       <vf-a-icon icon="pencil-alt" />
-    </vf-a-link>
-    <span @click="handleRemove" class="cursor-pointer">
-      <vf-a-icon icon="times" />
-    </span>
+    </vf-a-button>
+    <vf-a-button class="vf-o-address-actions__remove" color="danger" @click="handleRemove">
+      <vf-a-icon icon="trash" />
+    </vf-a-button>
   </div>
 </template>
 <script>

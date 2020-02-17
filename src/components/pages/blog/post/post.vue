@@ -24,6 +24,14 @@ export default {
       ]
     };
   },
+  breadcrumbs() {
+    return [
+      {
+        title: this.post.meta.title,
+        to: this.$route.path
+      }
+    ];
+  },
   data() {
     return {
       loaded: true

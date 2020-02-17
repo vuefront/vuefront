@@ -8,8 +8,16 @@ import compareGetGql from "./compare.graphql";
 export default {
   head() {
     return {
-      title: this.$t("templates.store.compare.textTitle")
+      title: this.$t("pages.store.compare.textTitle")
     };
+  },
+  breadcrumbs() {
+    return [
+      {
+        title: this.$t("pages.store.compare.breadcrumbTitle"),
+        to: this.$route.path
+      }
+    ];
   },
   computed: {
     ...mapGetters({

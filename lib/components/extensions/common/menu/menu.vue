@@ -12,6 +12,7 @@
       <div
         v-if="item.children && item.children.length > 0"
         class="vf-e-common-menu__submenu vf-e-common-menu__submenu--vertical"
+        :class="[ ( item.children.length > 5 && item.children.length <= 10 ? 'vf-e-common-menu__submenu--two-columns' : ''), (item.children.length > 10 ? 'vf-e-common-menu__submenu--three-columns': '' ) ]"
       >
         <div class="vf-e-common-menu__item" v-for="(subItem, key) in item.children" :key="key">
           <vf-a-link
@@ -19,7 +20,10 @@
             class="vf-e-common-menu__link vf-e-common-menu__link--lg"
             v-b-toggle.menu-collapse
           >
-            <div class="vf-e-common-menu__title">{{subItem.title}}</div>
+            <div class="vf-e-common-menu__title">
+              {{subItem.title}}
+              <span v-if="subItem.children.length">({{ subItem.children.length }})</span>
+            </div>
             <vf-a-icon
               v-if="subItem.children.length > 0"
               icon="angle-right"

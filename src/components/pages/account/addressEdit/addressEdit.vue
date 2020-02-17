@@ -14,6 +14,14 @@ export default {
       zones: "common/zone/list"
     })
   },
+  breadcrumbs() {
+    return [
+      {
+        title: this.$t("pages.account.addressEdit.breadcrumbTitle"),
+        to: this.$route.path
+      }
+    ];
+  },
   async fetch({ store, params }) {
     await store.dispatch("apollo/query", {
       query: addressGetGql,

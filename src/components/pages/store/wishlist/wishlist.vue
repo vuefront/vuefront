@@ -8,8 +8,16 @@ import wishlistGetGql from "./wishlist.graphql";
 export default {
   head() {
     return {
-      title: this.$t("templates.store.wishlist.textTitle")
+      title: this.$t("pages.store.wishlist.textTitle")
     };
+  },
+  breadcrumbs() {
+    return [
+      {
+        title: this.$t("pages.store.wishlist.breadcrumbTitle"),
+        to: this.$route.path
+      }
+    ];
   },
   computed: {
     ...mapGetters({

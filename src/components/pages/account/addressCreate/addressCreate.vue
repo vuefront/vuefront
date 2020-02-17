@@ -12,6 +12,14 @@ export default {
       zones: "common/zone/list"
     })
   },
+  breadcrumbs() {
+    return [
+      {
+        title: this.$t("pages.account.addressCreate.breadcrumbTitle"),
+        to: this.$route.path
+      }
+    ];
+  },
   async fetch({ store, params }) {
     await store.dispatch("common/country/list", {
       page: 1,

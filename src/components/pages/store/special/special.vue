@@ -14,15 +14,23 @@ import { BaseModule } from "vuefront/lib/utils/module.js";
 export default {
   head() {
     return {
-      title: this.$t("templates.store.special.textTitle"),
+      title: this.$t("pages.store.special.textTitle"),
       meta: [
         {
           hid: "description",
           name: "description",
-          content: this.$t("templates.store.special.textTitle")
+          content: this.$t("pages.store.special.textTitle")
         }
       ]
     };
+  },
+  breadcrumbs() {
+    return [
+      {
+        title: this.$t("pages.store.special.breadcrumbTitle"),
+        to: this.$route.path
+      }
+    ];
   },
   data() {
     const page = this.$route.query.page ? Number(this.$route.query.page) : 1;

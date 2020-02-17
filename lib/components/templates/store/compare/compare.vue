@@ -1,5 +1,5 @@
 <template>
-  <section class="compare">
+  <section class="vf-t-store-compare">
     <vf-m-table-horizontal :fields="fields" :items="compare">
       <template #image="data">
         <vf-m-product-thumb-image :product="data" width="80" height="80" />
@@ -44,18 +44,22 @@ export default {
         },
         {
           key: "stock",
+          class: "vf-t-store-compare__stock",
           label: this.$t("elements.store.compare.availabilityRow")
         },
         {
           key: "rating",
+          class: "vf-t-store-compare__rating",
           label: this.$t("elements.store.compare.ratingRow")
         },
         {
           key: "shortDescription",
+          class: "vf-t-store-compare__description",
           label: this.$t("elements.store.compare.summaryRow")
         },
         {
           key: "actions",
+          class: "vf-t-store-compare__actions",
           label: ""
         }
       ]

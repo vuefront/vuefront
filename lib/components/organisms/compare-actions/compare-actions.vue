@@ -1,11 +1,11 @@
 <template>
   <div class="vf-m-compare-actions">
-    <div class="compare__action cursor-pointer m-1 d-inline" @click="handleAddToCart">
+    <vf-a-button class="vf-m-compare-actions__add-to-cart" @click="handleAddToCart">
       <vf-a-icon :icon="['fas', 'shopping-cart']" />
-    </div>
-    <div class="compare__action cursor-pointer m-1 ml-2 d-inline" @click="handleRemove">
-      <vf-a-icon icon="times" />
-    </div>
+    </vf-a-button>
+    <vf-a-button class="vf-m-compare-actions__remove" color="danger" @click="handleRemove">
+      <vf-a-icon icon="trash" />
+    </vf-a-button>
   </div>
 </template>
 <script>
