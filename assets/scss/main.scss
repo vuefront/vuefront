@@ -1,152 +1,178 @@
 @import 'node_modules/bootstrap/scss/functions';
-// @import 'variables.scss';
+@import 'variables.scss';
 @import 'node_modules/bootstrap/scss/bootstrap';
 @import 'node_modules/bootstrap-vue/src/index.scss';
-// @font-face {
-//     font-family: 'Nunito';
-//     font-style: normal;
-//     font-weight: 400;
-//     font-display: swap;
-//     src: url('font/Nunito-Regular.ttf');
-// }
-// @font-face {
-//     font-family: 'Nunito';
-//     font-style: normal;
-//     font-weight: 600;
-//     font-display: swap;
-//     src: url('font/Nunito-Regular.ttf');
-// }
-// html,
-// body {
-//     font-family: 'Nunito', sans-serif;
-//     font-weight: 400;
-//     line-height: 1.7;
-//     color: #8492a6;
-//     position: relative;
-//     @media (max-width: 768px) {
-//         .main-content {
-//             padding-top: calc(65px + 40px);
-//         }
-//     }
-//     a {
-//         text-decoration: none;
-//         &:hover {
-//             text-decoration: none;
-//         }
-//     }
-// }
-// h1,
-// h2,
-// h3,
-// h4,
-// h5,
-// h6,
-// .h1,
-// .h2,
-// .h3,
-// .h4,
-// .h5,
-// .h6 {
-//     margin-bottom: 0.5rem;
-//     font-family: inherit;
-//     font-weight: 500;
-//     line-height: 1.3;
-//     color: #3c4858;
-// }
-// h1,
-// h2,
-// h3,
-// .h1,
-// .h2,
-// .h3 {
-//     font-weight: 500;
-// }
-// h4,
-// h5,
-// h6,
-// .h4,
-// .h5,
-// .h6 {
-//     font-weight: 600;
-// }
-// .border-radius-top-left-0 {
-//     border-top-left-radius: 0 !important;
-// }
-// .border-radius-top-right-0 {
-//     border-top-left-radius: 0 !important;
-// }
-// .text- {
-//     &xs {
-//         font-size: 0.75rem !important;
-//     }
-//     &sm {
-//         font-size: 0.875rem !important;
-//     }
-//     &lg {
-//         font-size: 1.25rem !important;
-//     }
-//     &xl {
-//         font-size: 1.5rem !important;
-//     }
-// }
-// .delimiter-top,
-// .delimiter-bottom {
-//     position: relative;
-//     border: 0;
-// }
-// .delimiter-top:before {
-//     content: '';
-//     display: block;
-//     width: 80%;
-//     position: absolute;
-//     top: 0;
-//     left: 50%;
-//     margin-left: -40%;
-//     height: 1px;
-//     background: radial-gradient(ellipse at center, rgba(222, 228, 239, 0.2) 0, rgba(255, 255, 255, 0) 75%);
-// }
-// .cursor-pointer {
-//     cursor: pointer;
-// }
-// .delimiter-bottom:after {
-//     content: '';
-//     display: block;
-//     width: 80%;
-//     position: absolute;
-//     bottom: 0;
-//     left: 50%;
-//     margin-left: -40%;
-//     height: 1px;
-//     background: radial-gradient(ellipse at center, rgba(222, 228, 239, 0.2) 0, rgba(255, 255, 255, 0) 75%);
-// }
-// .slice {
-//     position: relative;
-//     padding-top: $spacer * 4;
-//     padding-bottom: $spacer * 4;
-// }
-// .slice-xl {
-//     padding-top: $spacer * 8;
-//     padding-bottom: $spacer * 8;
-// }
-// .slice-lg {
-//     padding-top: $spacer * 6;
-//     padding-bottom: $spacer * 6;
-// }
-// .slice-sm {
-//     padding-top: $spacer * 2;
-//     padding-bottom: $spacer * 2;
-// }
-// .slice:not(.border-top):not(.border-bottom):not(.delimiter-bottom):not([class*='bg-']):not(.section-rotate) {
-//     &+.slice:not(.border-top):not(.border-bottom):not(.delimiter-top):not([class*='bg-']) {
-//         padding-top: 0;
-//     }
-// }
-// .slice-video {
-//     min-height: 600px;
-// }
-// .color-inherit {
-//     color: inherit;
-//     &:hover {
-//         color: inherit;
-//     }
-// }
+
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('font/Nunito-Regular.ttf');
+}
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('font/Nunito-Regular.ttf');
+}
+html,
+body {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #8492a6;
+    position: relative;
+    @media (max-width: 768px) {
+        .main-content {
+            padding-top: calc(65px + 40px);
+        }
+    }
+
+    a {
+        text-decoration: none;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    margin-bottom: 0.5rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.3;
+    color: #3c4858;
+}
+
+h1,
+h2,
+h3,
+.h1,
+.h2,
+.h3 {
+    font-weight: 500;
+}
+
+h4,
+h5,
+h6,
+.h4,
+.h5,
+.h6 {
+    font-weight: 600;
+}
+
+.border-radius-top-left-0 {
+    border-top-left-radius: 0 !important;
+}
+.border-radius-top-right-0 {
+    border-top-left-radius: 0 !important;
+}
+
+.text- {
+    &xs {
+        font-size: 0.75rem !important;
+    }
+    &sm {
+        font-size: 0.875rem !important;
+    }
+    &lg {
+        font-size: 1.25rem !important;
+    }
+    &xl {
+        font-size: 1.5rem !important;
+    }
+}
+.delimiter-top,
+.delimiter-bottom {
+    position: relative;
+    border: 0;
+}
+
+.delimiter-top:before {
+    content: '';
+    display: block;
+    width: 80%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -40%;
+    height: 1px;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(222, 228, 239, 0.2) 0,
+      rgba(255, 255, 255, 0) 75%
+      );
+  }
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.delimiter-bottom:after {
+    content: '';
+    display: block;
+    width: 80%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -40%;
+    height: 1px;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(222, 228, 239, 0.2) 0,
+      rgba(255, 255, 255, 0) 75%
+      );
+}
+
+.slice {
+    position: relative;
+    padding-top: $spacer * 4;
+    padding-bottom: $spacer * 4;
+}
+
+.slice-xl {
+    padding-top: $spacer * 8;
+    padding-bottom: $spacer * 8;
+}
+
+.slice-lg {
+    padding-top: $spacer * 6;
+    padding-bottom: $spacer * 6;
+}
+
+.slice-sm {
+    padding-top: $spacer * 2;
+    padding-bottom: $spacer * 2;
+}
+
+.slice:not(.border-top):not(.border-bottom):not(.delimiter-bottom):not([class*='bg-']):not(.section-rotate) {
+    &
+      + .slice:not(.border-top):not(.border-bottom):not(.delimiter-top):not([class*='bg-']) {
+        padding-top: 0;
+    }
+}
+
+.slice-video {
+    min-height: 600px;
+}
+
+.color-inherit {
+    color: inherit;
+    &:hover {
+        color: inherit;
+    }
+}
