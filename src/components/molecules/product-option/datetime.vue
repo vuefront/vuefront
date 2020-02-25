@@ -1,25 +1,30 @@
 <template>
-  <vf-a-input :value="activeOptionValue" type="datetime-local" @input="handleChange"/>
+  <div class="vf-m-product-option vf-m-product-option--datetime">
+    <vf-a-heading level="6" class="mt-5 vf-m-product-option__name">{{option.name}}</vf-a-heading>
+    <vf-a-input
+      class="vf-m-product-option__value"
+      :value="activeOptionValue"
+      type="datetime-local"
+      @input="handleChange"
+    />
+  </div>
 </template>
 <script>
-import {find} from 'lodash'
+import { find } from "lodash";
 
 export default {
-  props: ['option', 'selected'],
+  props: ["option", "selected"],
   computed: {
     activeOptionValue() {
-      let result = find(
-        this.selected,
-        {id: this.option.id}
-      );
+      let result = find(this.selected, { id: this.option.id });
 
-      return result ? result.value : ''
+      return result ? result.value : "";
     }
   },
   methods: {
     handleChange(value) {
-      this.$emit('change', value)
+      this.$emit("change", value);
     }
   }
-}
+};
 </script>

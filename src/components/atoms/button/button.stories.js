@@ -4,14 +4,16 @@ import vfAButton from './button.vue';
 import './button.scss';
 
 Vue.component('vfAButton', vfAButton)
-storiesOf('Atom|Button', module)
+storiesOf('Atom|!!! Button', module)
     .add(
         'default',
         () => ({
             components: { vfAButton: vfAButton },
             template: `<vf-a-button>Primary</vf-a-button>`
         }), {
-            info: {}
+            info: {
+                summary: `buttons have extra SCSS styles that need to be reviewed`
+            }
         }
     ).add(
         'colors',

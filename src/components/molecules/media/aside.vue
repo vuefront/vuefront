@@ -1,5 +1,5 @@
 <template>
-  <b-media-aside :tag="tag" :vertial-align="verticalAlign">
+  <b-media-aside class="vf-m-media-aside" :tag="tag" :vertial-align="verticalAlign">
     <slot></slot>
   </b-media-aside>
 </template>

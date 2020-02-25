@@ -1,3 +1,5 @@
+import {isUndefined} from 'lodash'
+import Vue from 'vue'
 export const state = () => ({
   error: false,
   ssr: false

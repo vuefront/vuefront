@@ -1,15 +1,30 @@
 <template>
   <vf-a-link :to="url" v-if="post" class="vf-m-post-thumb-inline">
-    <vf-m-media vertical-align="center" :right-align="rightAlign">
-      <template #aside>
+    <vf-m-media noBody vertical-align="center">
+      <vf-m-media-aside
+        v-if="!rightAlign"
+        class="mr-3 vf-m-post-thumb-inline__image vf-m-post-thumb-inline__image--left"
+      >
         <vf-m-post-thumb-image
           :post="post"
           :width="$vuefront.options.image.postThumbInline.width"
           :height="$vuefront.options.image.postThumbInline.height"
         />
-      </template>
-      <vf-a-heading level="5" class="mt-0 mb-1 vf-m-post-thumb-inline__title">{{post.name}}</vf-a-heading>
-      <p class="mb-0 text-sm vf-m-post-thumb-inline__description" v-html="post.shortDescription" />
+      </vf-m-media-aside>
+      <vf-m-media-body>
+        <vf-a-heading level="5" class="mt-0 mb-1 vf-m-post-thumb-inline__name">{{post.name}}</vf-a-heading>
+        <p class="mb-0 text-sm vf-m-post-thumb-inline__description" v-html="post.shortDescription" />
+      </vf-m-media-body>
+      <vf-m-media-aside
+        v-if="rightAlign"
+        class="ml-3 vf-m-post-thumb-inline__image vf-m-post-thumb-inline__image--right"
+      >
+        <vf-m-post-thumb-image
+          :post="post"
+          :width="$vuefront.options.image.postThumbInline.width"
+          :height="$vuefront.options.image.postThumbInline.height"
+        />
+      </vf-m-media-aside>
     </vf-m-media>
   </vf-a-link>
 </template>

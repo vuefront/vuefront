@@ -1,6 +1,8 @@
 <template>
-  <vf-t-store-product v-if="loaded" :product="product" />
-  <vf-l-t-store-product v-else />
+  <vf-o-layout>
+    <vf-t-store-product v-if="loaded" :product="product" />
+    <vf-l-t-store-product v-else />
+  </vf-o-layout>
 </template>
 <graphql>
   query($id: String, $limit: Int) {
@@ -71,6 +73,14 @@ export default {
         }
       ]
     };
+  },
+  breadcrumbs() {
+    return [
+      {
+        title: this.product.meta.title,
+        to: this.$route.path
+      }
+    ];
   },
   data() {
     return {

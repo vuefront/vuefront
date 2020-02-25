@@ -1,5 +1,12 @@
 <template>
-  <b-form-textarea :value="value" @input="handleChange" :state="state" :size="size" :trim="trim" />
+  <b-form-textarea
+    class="vf-a-textarea"
+    :value="value"
+    @input="handleChange"
+    :state="state"
+    :size="size"
+    :trim="trim"
+  />
 </template>
 <script>
 import { BFormTextarea } from "bootstrap-vue";

@@ -1,12 +1,12 @@
 <template>
-  <section class="store-special-page">
+  <vf-o-layout class="store-special-page">
     <template v-if="loaded">
       <vf-t-store-special :products="products" :grid-size="gridSize" :mode="mode" :sort="sort" />
     </template>
     <template v-else>
       <vf-l-t-store-special :grid-size="gridSize" />
     </template>
-  </section>
+  </vf-o-layout>
 </template>
 <script>
 import { mapGetters } from "vuex";
@@ -14,15 +14,23 @@ import { BaseModule } from "vuefront/lib/utils/module.js";
 export default {
   head() {
     return {
-      title: this.$t("templates.store.special.textTitle"),
+      title: this.$t("pages.store.special.textTitle"),
       meta: [
         {
           hid: "description",
           name: "description",
-          content: this.$t("templates.store.special.textTitle")
+          content: this.$t("pages.store.special.textTitle")
         }
       ]
     };
+  },
+  breadcrumbs() {
+    return [
+      {
+        title: this.$t("pages.store.special.breadcrumbTitle"),
+        to: this.$route.path
+      }
+    ];
   },
   data() {
     const page = this.$route.query.page ? Number(this.$route.query.page) : 1;

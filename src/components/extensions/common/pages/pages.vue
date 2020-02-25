@@ -1,6 +1,6 @@
 <template>
   <vf-o-apollo v-slot="{data}">
-    <section class="module-pages">
+    <section class="vf-e-common-pages">
       <vf-a-heading level="6" class="heading mb-3">{{$t('modules.common.pages.textTitle')}}</vf-a-heading>
       <ul class="list-unstyled">
         <li v-for="(value, key) in data.pagesList.content" :key="key">

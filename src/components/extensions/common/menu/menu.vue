@@ -1,46 +1,47 @@
 <template>
-  <section class="nav-menu-section">
-    <div class="nav-menu-section__item" v-for="(item, index) in menuItems" :key="index">
-      <vf-a-link :to="item.to" class="nav-menu-section__item_link">
-        <div class="nav-menu-section__item_title body-2" v-b-toggle.menu-collapse>{{item.title}}</div>
+  <section class="vf-e-common-menu">
+    <div class="vf-e-common-menu__item" v-for="(item, index) in menuItems" :key="index">
+      <vf-a-link :to="item.to" class="vf-e-common-menu__link">
+        <div class="vf-e-common-menu__title" v-b-toggle.menu-collapse>{{item.title}}</div>
         <vf-a-icon
           icon="angle-down"
           v-if="item.children && item.children.length > 0"
-          class="nav-menu-section__item_icon"
+          class="vf-e-common-menu__icon"
         />
       </vf-a-link>
       <div
         v-if="item.children && item.children.length > 0"
-        class="nav-menu-section__sub_menu nav-menu-section__sub_menu--vertical"
+        class="vf-e-common-menu__submenu vf-e-common-menu__submenu--vertical"
+        :class="[ ( item.children.length > 5 && item.children.length <= 10 ? 'vf-e-common-menu__submenu--two-columns' : ''), (item.children.length > 10 ? 'vf-e-common-menu__submenu--three-columns': '' ) ]"
       >
-        <div class="nav-menu-section__item" v-for="(subItem, key) in item.children" :key="key">
+        <div class="vf-e-common-menu__item" v-for="(subItem, key) in item.children" :key="key">
           <vf-a-link
             :to="subItem.to"
-            class="nav-menu-section__item_link nav-menu-section__item_link--size_big"
+            class="vf-e-common-menu__link vf-e-common-menu__link--lg"
             v-b-toggle.menu-collapse
           >
-            <div class="nav-menu-section__item_title subheading">{{subItem.title}}</div>
+            <div class="vf-e-common-menu__title">
+              {{subItem.title}}
+              <span v-if="subItem.children.length">({{ subItem.children.length }})</span>
+            </div>
             <vf-a-icon
               v-if="subItem.children.length > 0"
               icon="angle-right"
-              class="nav-menu-section__item_icon nav-menu-section__item_icon--float"
+              class="vf-e-common-menu__icon vf-e-common-menu__icon--float"
             />
           </vf-a-link>
           <div
             v-if="subItem.children.length > 0"
-            class="nav-menu-section__sub_menu nav-menu-section__sub_menu--horizontal"
+            class="vf-e-common-menu__submenu vf-e-common-menu__submenu--horizontal"
           >
             <div
-              class="nav-menu-section__item"
+              class="vf-e-common-menu__item"
               v-for="(value, subKey) in subItem.children"
               :key="subKey"
               v-b-toggle.menu-collapse
             >
-              <vf-a-link
-                :to="value.to"
-                class="nav-menu-section__item_link nav-menu-section__item_link--size_medium"
-              >
-                <div class="nav-menu-section__item_title subheading">{{value.title}}</div>
+              <vf-a-link :to="value.to" class="vf-e-common-menu__link vf-e-common-menu__link--md">
+                <div class="vf-e-common-menu__title">{{value.title}}</div>
               </vf-a-link>
             </div>
           </div>

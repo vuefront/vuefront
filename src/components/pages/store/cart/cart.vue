@@ -1,5 +1,7 @@
 <template>
-  <vf-t-store-cart :cart="cart" />
+  <vf-o-layout>
+    <vf-t-store-cart :cart="cart" />
+  </vf-o-layout>
 </template>
 <script>
 import { mapGetters } from "vuex";
@@ -7,8 +9,16 @@ import cartGetGql from "./cart.graphql";
 export default {
   head() {
     return {
-      title: "Shopping Cart"
+      title: this.$t("pages.store.cart.textTitle")
     };
+  },
+  breadcrumbs() {
+    return [
+      {
+        title: this.$t("pages.store.cart.breadcrumbTitle"),
+        to: this.$route.path
+      }
+    ];
   },
   computed: {
     ...mapGetters({

@@ -1,5 +1,5 @@
 <template>
-  <b-dropdown-item v-on="$listeners" :to="to" class="vf-m-dropdown-item">
+  <b-dropdown-item class="vf-m-dropdown-item" v-on="$listeners" :to="to">
     <slot></slot>
   </b-dropdown-item>
 </template>

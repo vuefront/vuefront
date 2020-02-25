@@ -1,6 +1,5 @@
 <template>
-  <section class="page-contact">
-    <vf-o-location-grid v-if="contact.locations.length > 0" :items="contact.locations" />
+  <section class="vf-t-common-contact">
     <vf-m-row>
       <vf-m-col sm="12" md="6">
         <vf-o-contact-form />
@@ -9,6 +8,8 @@
         <vf-m-contact :contact="contact" />
       </vf-m-col>
     </vf-m-row>
+    </br>
+    <vf-o-location-grid v-if="contact.locations.length > 0" :items="contact.locations" />
   </section>
 </template>
 <script>

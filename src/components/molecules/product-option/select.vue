@@ -1,5 +1,13 @@
 <template>
-  <vf-a-select :value="activeOptionValue" :options="selectOptions" @input="handleChange" />
+  <div class="vf-m-product-option vf-m-product-option--select">
+    <vf-a-heading level="6" class="mt-5 vf-m-product-option__name">{{option.name}}</vf-a-heading>
+    <vf-a-select
+      class="vf-m-product-option__value"
+      :value="activeOptionValue"
+      :options="selectOptions"
+      @input="handleChange"
+    />
+  </div>
 </template>
 <script>
 import { find } from "lodash";

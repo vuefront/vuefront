@@ -1,0 +1,20 @@
+html,
+body,
+#__nuxt,
+#__layout,
+.vf-o-layout {
+    height: 100%;
+}
+
+.vf-o-layout {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1 0 auto;
+}
+
+.vf-o-footer {
+    flex-shrink: 0;
+}

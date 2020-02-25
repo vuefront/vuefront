@@ -53,6 +53,7 @@ export const actions = {
           root: true
         })
       }
+      this.$vfapollo.clearStore()
     } catch (e) {
 
       commit('vuefront/setError', e.graphQLErrors ? e.graphQLErrors[0] : e, {

@@ -1,5 +1,4 @@
 .vf-m-product-thumb {
-    background: red;
     margin-bottom: 30px;
     &__image {
         min-height: 213px;
@@ -19,6 +18,9 @@
         min-height: 70px;
         max-height: 70px;
         overflow: hidden;
+    }
+    &__button-buy {
+        width: 50%;
     }
     &--wide {
         .vf-m-product-thumb__title {

@@ -2,19 +2,23 @@ import * as EnGb from 'vuefront/lib/locales/en-gb'
 import * as RuRu from 'vuefront/lib/locales/ru-ru'
 import * as components from './components'
 import * as stores from './store'
-import 'vuefront/assets/scss/main.scss'
 import placeholder from "vuefront/assets/img/placeholder.png"
 
 const MainConfig = {
     plugins: [],
-    css: {},
+    css: {
+      main: 'vuefront/assets/scss/main.scss'
+    },
     menu: [],
     image: {
         placeholder: placeholder,
+        logo: {
+            width: 180,
+            height: 40
+        },
         product: {
             width: 825,
             height: 825
-
         },
         categoryThumb: {
             width: 300,
@@ -37,6 +41,10 @@ const MainConfig = {
             height: 180
         },
         postThumbInline: {
+            width: 200, //10x6
+            height: 120
+        },
+        contact: {
             width: 200, //10x6
             height: 120
         }
@@ -63,6 +71,8 @@ const MainConfig = {
     molecules: {
         AccountMenu: components.mAccountMenu,
         AccountNew: components.mAccountNew,
+        Breadcrumb: components.mBreadcrumb,
+        BreadcrumbItem: components.mBreadcrumbItem,
         ButtonGroup: components.mButtonGroup,
         Card: components.mCard,
         CardBody: components.mCardBody, //Card
@@ -117,6 +127,7 @@ const MainConfig = {
     },
     organisms: {
         SearchInlineForm: components.oSearchInlineForm,
+        Breadcrumb: components.oBreadcrumb,
         Sidebar: components.oSidebar,
         HeaderMobile: components.oHeaderMobile,
         Header: components.oHeader,
@@ -231,6 +242,10 @@ const MainConfig = {
             module: stores.Country
         },
         {
+            path: ['common', 'breadcrumbs'],
+            module: stores.Breadcrumbs
+        },
+        {
             path: ['common', 'zone'],
             module: stores.Zone
         },
@@ -330,6 +345,7 @@ const MainConfig = {
         MProductImage: components.lMProductImage,
         MRating: components.lMRating,
         MReview: components.lMReview,
+        OBreadcrumb: components.lOBreadcrumb,
         OCategoryGrid: components.lOCategoryGrid,
         OCategoryInfo: components.lOCategoryInfo,
         OCategoryProduct: components.lOCategoryProduct,

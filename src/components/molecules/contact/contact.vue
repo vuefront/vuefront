@@ -1,17 +1,19 @@
 <template>
-  <section class="contact-section">
-    <vf-a-heading level="3">{{contact.address}}</vf-a-heading>
+  <section class="vf-m-contact">
+    <vf-a-heading v-if="contact.address" level="3">{{contact.address}}</vf-a-heading>
     <p class="lead my-4">
-      E:
-      <vf-a-link>{{contact.email}}</vf-a-link>
-      <br />
-      T: {{contact.telephone}}
-      <template v-if="contact.fax">
+      <template v-if="contact.email">
+        E:
+        <vf-a-link>{{contact.email}}</vf-a-link>
         <br />
-        F: {{contact.fax}}
       </template>
+      <template v-if="contact.telephone">
+        T: {{contact.telephone}}
+        <br />
+      </template>
+      <template v-if="contact.fax">F: {{contact.fax}}</template>
     </p>
-    <p>{{contact.comment}}</p>
+    <p v-if="contact.comment">{{contact.comment}}</p>
   </section>
 </template>
 <script>
@@ -20,7 +22,13 @@ export default {
     contact: {
       type: Object,
       default() {
-        return null;
+        return {
+          address: "",
+          email: "",
+          telephone: "",
+          fax: "",
+          comment: ""
+        };
       }
     }
   }

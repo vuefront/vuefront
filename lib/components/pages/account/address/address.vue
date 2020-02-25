@@ -1,26 +1,34 @@
 <template>
-  <section>
-    <vf-t-account-address :items="items"/>
-  </section>
+  <vf-o-layout>
+    <vf-t-account-address :items="items" />
+  </vf-o-layout>
 </template>
 <script>
 import { mapGetters } from "vuex";
-import AddressesGql from './address.graphql'
+import AddressesGql from "./address.graphql";
 export default {
   computed: {
     ...mapGetters({
       items: "common/address/list"
     })
   },
-  async fetch({ store }) {
-    await store.dispatch(
-      'apollo/query',
+  breadcrumbs() {
+    return [
       {
-        query: AddressesGql
+        title: this.$t("pages.account.address.breadcrumbTitle"),
+        to: this.$route.path
       }
-    )
-    if (!store.getters['vuefront/error']) {
-      store.commit('common/address/setEntities', store.getters['apollo/get'].accountAddressList)
+    ];
+  },
+  async fetch({ store }) {
+    await store.dispatch("apollo/query", {
+      query: AddressesGql
+    });
+    if (!store.getters["vuefront/error"]) {
+      store.commit(
+        "common/address/setEntities",
+        store.getters["apollo/get"].accountAddressList
+      );
     }
   }
 };

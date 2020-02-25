@@ -1,5 +1,5 @@
 <template>
-  <b-container :fluid="fluid">
+  <b-container class="vf-m-container" :fluid="fluid">
     <slot></slot>
   </b-container>
 </template>

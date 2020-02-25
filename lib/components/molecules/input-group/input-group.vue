@@ -7,6 +7,7 @@
     :append="append"
     :appendHtml="appendHtml"
     :tag="tag"
+    class="vf-m-input-group"
   >
     <slot v-for="(_, name) in $slots" :name="name" :slot="name" />
   </b-input-group>

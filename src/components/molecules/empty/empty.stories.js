@@ -3,13 +3,15 @@ import { storiesOf } from '@storybook/vue';
 import component from './empty.vue';
 
 
-storiesOf('molecule|Empty', module)
+storiesOf('molecule|!!!Empty', module)
     .add(
         'default',
         () => ({
             components: { vfMEmpty: component },
-            template: `<vf-m-empty show="true">This is an alert message</vf-m-empty>`
+            template: `<vf-m-empty>You have no posts</vf-m-empty>`
         }), {
-            info: {}
+            info: {
+                summary: `Used to inform the user that there are no items (like posts or products) to display.`
+            }
         }
     )

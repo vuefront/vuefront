@@ -1,5 +1,5 @@
 <template>
-  <vf-o-apollo :variables="{search:keyword}">
+  <vf-o-apollo class="vf-e-blog-search-post" :variables="{search:keyword}">
     <template #loader>
       <vf-l-o-post-module :column="column" />
     </template>

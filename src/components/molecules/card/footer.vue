@@ -1,5 +1,5 @@
 <template>
-  <b-card-footer>
+  <b-card-footer class="vf-m-card-footer">
     <slot></slot>
   </b-card-footer>
 </template>

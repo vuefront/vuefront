@@ -1,5 +1,5 @@
 <template>
-  <vf-o-apollo :variables="{ids}">
+  <vf-o-apollo class="vf-e-store-featured-product" :variables="{ids}">
     <template #loader>
       <vf-l-o-product-module :column="column" />
     </template>

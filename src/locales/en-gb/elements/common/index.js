@@ -7,15 +7,17 @@ import account from './account'
 import address from './address'
 import header from './header'
 import notification from './notification'
+import home from './home'
 
 export default {
-  contact,
-  error,
-  footer,
-  reviews,
-  search,
-  account,
-  address,
-  header,
-  notification
+    contact,
+    error,
+    footer,
+    reviews,
+    search,
+    account,
+    address,
+    header,
+    notification,
+    home
 }

@@ -1,13 +1,15 @@
 import Vue from 'vue';
 import { storiesOf } from '@storybook/vue';
-import aAlert from './alert.vue';
+import vfAAlert from './alert.vue';
+
+Vue.component('vfAAlert', vfAAlert);
 
 
 storiesOf('atom|!!!Alert', module)
     .add(
         'default',
         () => ({
-            components: { vfAAlert: aAlert },
+            components: { vfAAlert },
             template: `<vf-a-alert show="true">This is an alert message</vf-a-alert>`
         }), {
             info: {
@@ -18,7 +20,7 @@ storiesOf('atom|!!!Alert', module)
     .add(
         'dismissible',
         () => ({
-            components: { vfAAlert: aAlert },
+            components: { vfAAlert },
             template: `<vf-a-alert show="true" dismissible>This is an alert message</vf-a-alert>`
         }), {
             info: {

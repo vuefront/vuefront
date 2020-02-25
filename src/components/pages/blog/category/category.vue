@@ -1,12 +1,12 @@
 <template>
-  <section class="blog-category">
+  <vf-o-layout class="blog-category">
     <template v-if="loaded">
       <vf-t-blog-category :category="category" :posts="posts" :grid-size="gridSize" />
     </template>
     <template v-else>
       <vf-l-t-blog-category :grid-size="gridSize" />
     </template>
-  </section>
+  </vf-o-layout>
 </template>
 <script>
 import { mapGetters } from "vuex";
@@ -31,6 +31,14 @@ export default {
         }
       ]
     };
+  },
+  breadcrumbs() {
+    return [
+      {
+        title: this.category.meta.title,
+        to: this.$route.path
+      }
+    ];
   },
   props: ["id", "keyword", "url"],
   data() {

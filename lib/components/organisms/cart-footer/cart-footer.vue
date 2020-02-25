@@ -1,5 +1,5 @@
 <template>
-  <vf-m-card body-bg-color="secondary" class="shopping-cart__footer mt-5">
+  <vf-m-card class="mt-5">
     <vf-m-row align-v="center" align-h="between">
       <vf-m-col md="6" order-md="2" class="mb-4 mb-md-0">
         <div class="d-flex align-items-center justify-content-md-end">

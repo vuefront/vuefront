@@ -1,30 +1,28 @@
 <template>
-  <vf-o-apollo v-slot="{data}">
-    <div class="categoriesBlogList mb-4">
-      <vf-m-list-group>
-        <template v-for="(value, index) in data.categoriesBlogList.content">
+  <vf-o-apollo class="vf-e-blog-category" v-slot="{data}">
+    <vf-m-list-group>
+      <template v-for="(value, index) in data.categoriesBlogList.content">
+        <vf-m-list-group-item
+          :to="url(value)"
+          :key="`root-${index}`"
+          :active="checkView(value, value.categories)"
+          v-html="value.name"
+        />
+        <template v-if="checkView(value, value.categories)">
           <vf-m-list-group-item
-            :to="url(value)"
-            :key="`root-${index}`"
-            :active="checkView(value, value.categories)"
-            v-html="value.name"
+            v-for="(subValue, subIndex) in value.categories"
+            :key="`sub-${subIndex}`"
+            :to="url(subValue)"
+            :active="subValue.id === id"
+            v-html="`&nbsp;&nbsp;&nbsp;- ${subValue.name}`"
           />
-          <template v-if="checkView(value, value.categories)">
-            <vf-m-list-group-item
-              v-for="(subValue, subIndex) in value.categories"
-              :key="`sub-${subIndex}`"
-              :to="url(subValue)"
-              :active="subValue.id === id"
-              v-html="`&nbsp;&nbsp;&nbsp;- ${subValue.name}`"
-            />
-          </template>
         </template>
-      </vf-m-list-group>
-    </div>
+      </template>
+    </vf-m-list-group>
   </vf-o-apollo>
 </template>
 <script>
-import {isEmpty, map, includes} from "lodash";
+import { isEmpty, map, includes } from "lodash";
 export default {
   computed: {
     id() {
@@ -53,7 +51,10 @@ export default {
         if (this.id === value.id) {
           return true;
         } else if (
-          includes(map(subValues, subValue => subValue.id), this.id)
+          includes(
+            map(subValues, subValue => subValue.id),
+            this.id
+          )
         ) {
           return true;
         }

@@ -7,6 +7,7 @@
       :key="index"
       :is="value.component"
       v-bind="value.props"
+      class="mb-3"
     ></div>
   </div>
 </template>

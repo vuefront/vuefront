@@ -1,5 +1,5 @@
 <template>
-  <section class="vf-product-thumbnails mb-4">
+  <section class="vf-m-product-image mb-4">
     <a href="#" @click.prevent="handleOpenPopup(0)">
       <vf-a-amp-image
         v-if="$vuefront.isAMP"
@@ -10,9 +10,13 @@
       />
       <vf-a-image v-else :lazy-src="mainImage" :src="mainImagelazy" fluid full-width />
     </a>
-    <vf-m-row v-if="product.images.length > 0" class="mt-3">
+    <vf-m-row v-if="product.images.length > 0" class="mt-3 vf-m-product-image__thumbnails">
       <vf-m-col sm="12" md="3" v-for="(value, index) in product.images" :key="index">
-        <a href="#" @click.prevent="handleOpenPopup(index + 1)">
+        <a
+          class="vf-m-product-image__thumbnail"
+          href="#"
+          @click.prevent="handleOpenPopup(index + 1)"
+        >
           <vf-a-amp-image
             v-if="$vuefront.isAMP"
             :src="value.image"

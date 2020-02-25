@@ -1,6 +1,8 @@
 <template>
-  <vf-t-blog-post v-if="loaded" :post="post" />
-  <vf-l-t-blog-post v-else />
+  <vf-o-layout>
+    <vf-t-blog-post v-if="loaded" :post="post" />
+    <vf-l-t-blog-post v-else />
+  </vf-o-layout>
 </template>
 <script>
 import { mapGetters } from "vuex";
@@ -23,6 +25,14 @@ export default {
         }
       ]
     };
+  },
+  breadcrumbs() {
+    return [
+      {
+        title: this.post.meta.title,
+        to: this.$route.path
+      }
+    ];
   },
   data() {
     return {

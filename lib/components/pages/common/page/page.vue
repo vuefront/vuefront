@@ -1,7 +1,7 @@
 <template>
-  <section class="common-page">
+  <vf-o-layout class="common-page">
     <vf-t-common-page :page="page" />
-  </section>
+  </vf-o-layout>
 </template>
 <script>
 import { mapGetters } from "vuex";
@@ -26,6 +26,14 @@ export default {
         }
       ]
     };
+  },
+  breadcrumbs() {
+    return [
+      {
+        title: this.page.meta.title,
+        to: this.$route.path
+      }
+    ];
   },
   props: ["url", "keyword", "id"],
   computed: {

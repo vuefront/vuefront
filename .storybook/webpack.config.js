@@ -10,7 +10,13 @@ module.exports = async({ config, mode }) => {
 
     config.module.rules.push({
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: ['style-loader', 'css-loader', { loader: 'postcss-loader', options: { config: { path: path.resolve(__dirname, './') } } }, 'sass-loader'],
+        include: path.resolve(__dirname, '../'),
+    });
+
+    config.module.rules.push({
+        test: /\.(graphql|gql)$/,
+        loader: 'graphql-tag/loader',
         include: path.resolve(__dirname, '../'),
     });
 

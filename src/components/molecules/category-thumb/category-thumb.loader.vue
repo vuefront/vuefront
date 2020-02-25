@@ -1,5 +1,5 @@
 <template>
-  <div class="loading-page">
+  <div class="vf-m-category-thumb-loader loading-page">
     <skeleton bg-color="#eee" duration="2" theme="opacity" shape="radius" width="100%">
       <tb-skeleton height="90px" class="mb-2"></tb-skeleton>
       <tb-skeleton height="20px" class="mx-auto" style="margin-bottom: .5rem"></tb-skeleton>

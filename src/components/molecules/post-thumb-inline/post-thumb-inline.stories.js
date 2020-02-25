@@ -1,15 +1,17 @@
 import Vue from 'vue';
 import { storiesOf } from '@storybook/vue';
-import component from './post-thumb-inline.vue';
+import vfMPostThumbInline from './post-thumb-inline.vue';
+import post from '@/.storybook/store/post.js';
 
-// Vue.component('vfMPostThumbInline', component)
+Vue.component('vfMPostThumbInline', vfMPostThumbInline);
 
 storiesOf('molecule|Post Thumb Inline', module)
     .add(
         'default',
         () => ({
-            components: { vfMPostThumbInline: component },
-            template: `<vf-m-post-thumb-inline show="true">This is an alert message</vf-m-post-thumb-inline>`
+            components: { vfMPostThumbInline },
+            template: `<div style="max-width:400px"><vf-m-post-thumb-inline :post="post"></vf-m-post-thumb-inline><div>`,
+            data: () => ({ post })
         }), {
             info: {}
         }

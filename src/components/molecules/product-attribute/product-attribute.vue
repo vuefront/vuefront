@@ -1,15 +1,15 @@
 <template>
-  <section class="product-attribute">
+  <section class="vf-m-product-attribute">
     <vf-m-row tag="dl">
-      <template v-for="(value, key) in items">
-        <vf-m-col :key="`name-${key}`" sm="3" tag="dt">
-          <vf-a-heading level="6" class="product-info__attribute_name text-sm mb-0">{{value.name}}</vf-a-heading>
+      <template v-for="(value, key) in attributes">
+        <vf-m-col :key="`name-${key}`" sm="4" tag="dt">
+          <vf-a-heading level="6" class="vf-m-product-attribute__name text-sm mb-0">{{value.name}}</vf-a-heading>
         </vf-m-col>
-        <vf-m-col :key="`value-${key}`" sm="9" tag="dd">
+        <vf-m-col :key="`value-${key}`" sm="8" tag="dd">
           <div
             v-for="(option, optionKey) in value.options"
             :key="optionKey"
-            class="product-info__attribute_value text-sm"
+            class="vf-m-product-attribute__value text-sm"
           >{{option}}</div>
         </vf-m-col>
       </template>
@@ -18,6 +18,6 @@
 </template>
 <script>
 export default {
-  props: ["items"]
+  props: ["attributes"]
 };
 </script>

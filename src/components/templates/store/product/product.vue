@@ -38,7 +38,10 @@
             >{{$t('elements.store.product.descriptionText')}}</vf-a-heading>
             <div class="product-info__description text-sm" v-html="product.description" />
           </div>
-          <vf-m-product-attribute v-if="product.attributes.length > 0" :items="product.attributes" />
+          <vf-m-product-attribute
+            v-if="product.attributes.length > 0"
+            :attributes="product.attributes"
+          />
           <div class="py-4 my-4 border-bottom border-top">
             <vf-o-product-options v-if="product.options.length > 0" :product="product" />
             <vf-m-row>

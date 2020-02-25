@@ -1,5 +1,5 @@
 <template>
-  <div :is="tag" :class="`h${level}`">
+  <div class="vf-a-heading" :is="tag" :class="`h${level}`">
     <slot></slot>
   </div>
 </template>
@@ -15,7 +15,7 @@ export default {
     tag: {
       type: String,
       default() {
-        return 'div';
+        return "div";
       }
     }
   }

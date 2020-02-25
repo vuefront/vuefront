@@ -1,7 +1,7 @@
 <template>
-  <section>
+  <vf-o-layout>
     <vf-t-account-edit :account="account" />
-  </section>
+  </vf-o-layout>
 </template>
 <script>
 import { mapGetters } from "vuex";
@@ -10,6 +10,14 @@ export default {
     ...mapGetters({
       account: "common/customer/get"
     })
+  },
+  breadcrumbs() {
+    return [
+      {
+        title: this.$t("pages.account.edit.breadcrumbTitle"),
+        to: this.$route.path
+      }
+    ];
   }
 };
 </script>

@@ -14,7 +14,20 @@
 <script>
 import "./post-thumb.scss";
 export default {
-  props: ["post"],
+  props: {
+    post: {
+      type: Object,
+      default() {
+        return {
+          title: "",
+          image: "",
+          imageLazy: "",
+          keyword: "",
+          shortDescription: ""
+        };
+      }
+    }
+  },
   computed: {
     url() {
       if (this.post.keyword && this.post.keyword !== "") {

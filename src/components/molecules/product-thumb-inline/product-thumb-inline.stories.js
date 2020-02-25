@@ -1,15 +1,17 @@
 import Vue from 'vue';
 import { storiesOf } from '@storybook/vue';
-import component from './product-thumb-inline.vue';
+import vfMProductThumbInline from './product-thumb-inline.vue';
+import product from '@/.storybook/store/product.js';
 
-Vue.component('vfMProductThumbInline', component)
+Vue.component('vfMProductThumbInline', vfMProductThumbInline);
 
 storiesOf('molecule|Product Thumb Inline', module)
     .add(
         'default',
         () => ({
-            components: { vfMProductThumbInline: component },
-            template: `<vf-m-product-thumb-inline show="true">This is an alert message</vf-m-product-thumb-inline>`
+            components: { vfMProductThumbInline },
+            template: `<vf-m-product-thumb-inline :product="product"></vf-m-product-thumb-inline>`,
+            data: () => ({ product })
         }), {
             info: {}
         }

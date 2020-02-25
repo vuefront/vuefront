@@ -1,9 +1,9 @@
 <template>
-  <div class="product-module-section mb-5" v-if="items.length > 0">
-    <vf-a-heading level="4" class="product-module-section__title text-sm-center mb-4">
+  <div class="vf-o-product-module" v-if="items.length > 0">
+    <vf-a-heading level="4" class="vf-o-product-module__title text-sm-center mb-4">
       <slot></slot>
     </vf-a-heading>
-    <vf-o-product-grid class="product-module-section__items" :products="items" :column="column" />
+    <vf-o-product-grid class="vf-o-product-module__items" :products="items" :column="column" />
   </div>
 </template>
 <script>

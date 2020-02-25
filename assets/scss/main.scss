@@ -2,6 +2,7 @@
 @import 'variables.scss';
 @import 'node_modules/bootstrap/scss/bootstrap';
 @import 'node_modules/bootstrap-vue/src/index.scss';
+@import 'sticky-footer';
 
 @font-face {
     font-family: 'Nunito';
@@ -165,7 +166,8 @@ h6,
         padding-top: 0;
     }
 }
-
+:focus {outline:none;}
+::-moz-focus-inner {border:0;}
 .slice-video {
     min-height: 600px;
 }

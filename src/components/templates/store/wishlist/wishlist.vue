@@ -1,5 +1,5 @@
   <template>
-  <section class="wishlist">
+  <section class="vf-t-store-wishlist">
     <div class="wishlist__products">
       <vf-m-table :fields="fields" :items="wishlist" class="table-wishlist">
         <template #product="data">
@@ -30,6 +30,7 @@ export default {
         },
         {
           key: "action",
+          class: "vf-t-store-wishlist__actions text-right",
           label: this.$t("elements.store.wishlist.actionColumn"),
           sortable: false
         }

@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer-section clearfix">
+  <footer class="vf-o-footer clearfix">
     <vf-m-container>
       <vf-m-row class="pt-md">
         <vf-m-col sm="4" class="mb-5 mb-lg-0">
@@ -28,13 +28,13 @@
       <vf-m-row class="py-4 mt-4 delimiter-top">
         <vf-m-col md="6">
           <div
-            class="text-sm font-weight-bold text-center text-md-left"
+            class="text-sm text-center text-md-left"
             v-html="$t('elements.common.footer.copyrightText')"
           />
         </vf-m-col>
         <vf-m-col md="6">
           <div
-            class="text-sm font-weight-bold text-center text-md-right"
+            class="text-sm text-center text-md-right"
             v-html="$t('elements.common.footer.poweredText')"
           />
         </vf-m-col>
@@ -44,7 +44,6 @@
 </template>
 <script>
 import "./footer.scss";
-
 export default {
   data() {
     return {};

@@ -1,5 +1,5 @@
 <template>
-  <section class="loader-section">
+  <section class="vf-a-loader">
     <div class="la-ball-clip-rotate la-dark mx-auto">
       <div></div>
     </div>

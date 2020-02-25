@@ -8,7 +8,7 @@
     :block="block"
     :width="width"
     :height="height"
-    :class="{'vf-a-image--full_width': fullWidth}"
+    :class="{'vf-a-image--full-width': fullWidth}"
     class="vf-a-image"
   />
 </template>

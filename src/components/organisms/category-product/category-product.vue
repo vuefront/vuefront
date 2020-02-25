@@ -19,10 +19,7 @@
       @click:wishlist="handleClickWishlist"
       @click:compare="handleClickCompare"
     />
-    <vf-m-empty
-      v-if="products.content.length === 0"
-      class="text-sm-center"
-    >{{$t('templates.store.category.emptyText')}}</vf-m-empty>
+    <vf-m-empty v-if="products.content.length === 0">{{$t('templates.store.category.emptyText')}}</vf-m-empty>
     <vf-a-pagination
       :page="products.number"
       :totalPages="products.totalPages"

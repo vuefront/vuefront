@@ -1,5 +1,5 @@
 <template>
-  <b-collapse :id="id">
+  <b-collapse class="vf-m-collapse" :id="id">
     <slot></slot>
   </b-collapse>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <section class="store-category-page">
+  <vf-o-layout class="store-category-page">
     <template v-if="loaded">
       <vf-t-store-category
         :category="category"
@@ -12,7 +12,7 @@
     <template v-else>
       <vf-l-t-store-category :grid-size="gridSize" />
     </template>
-  </section>
+  </vf-o-layout>
 </template>
 <script>
 import { mapGetters } from "vuex";
@@ -37,6 +37,15 @@ export default {
       ]
     };
   },
+  breadcrumbs() {
+    const category = this.$store.getters["store/category/get"];
+    return [
+      {
+        title: category.meta.title,
+        to: this.$route.path
+      }
+    ];
+  },
   data() {
     const page = this.$route.query.page ? Number(this.$route.query.page) : 1;
     const size = this.$route.query.size ? Number(this.$route.query.size) : 15;
@@ -56,7 +65,7 @@ export default {
       this.handleLoadData();
     }
   },
-  asyncData(ctx) {
+  async asyncData(ctx) {
     return {
       loaded: !process.client
     };
@@ -82,9 +91,6 @@ export default {
         return 4;
       }
     }
-  },
-  serverPrefetch() {
-    return this.handleLoadData(this);
   },
   watchQuery: true,
   watch: {

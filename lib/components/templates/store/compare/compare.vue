@@ -1,5 +1,5 @@
 <template>
-  <section class="compare">
+  <section class="vf-t-store-compare">
     <vf-m-table-horizontal :fields="fields" :items="compare">
       <template #image="data">
         <vf-m-product-thumb-image :product="data" width="80" height="80" />
@@ -27,36 +27,40 @@ export default {
     return {
       fields: [
         {
-          code: "name",
-          title: this.$t("elements.store.compare.productRow")
+          key: "name",
+          label: this.$t("elements.store.compare.productRow")
         },
         {
-          code: "image",
-          title: this.$t("elements.store.compare.imageRow")
+          key: "image",
+          label: this.$t("elements.store.compare.imageRow")
         },
         {
-          code: "price",
-          title: this.$t("elements.store.compare.priceRow")
+          key: "price",
+          label: this.$t("elements.store.compare.priceRow")
         },
         {
-          code: "model",
-          title: this.$t("elements.store.compare.modelRow")
+          key: "model",
+          label: this.$t("elements.store.compare.modelRow")
         },
         {
-          code: "stock",
-          title: this.$t("elements.store.compare.availabilityRow")
+          key: "stock",
+          class: "vf-t-store-compare__stock",
+          label: this.$t("elements.store.compare.availabilityRow")
         },
         {
-          code: "rating",
-          title: this.$t("elements.store.compare.ratingRow")
+          key: "rating",
+          class: "vf-t-store-compare__rating",
+          label: this.$t("elements.store.compare.ratingRow")
         },
         {
-          code: "shortDescription",
-          title: this.$t("elements.store.compare.summaryRow")
+          key: "shortDescription",
+          class: "vf-t-store-compare__description",
+          label: this.$t("elements.store.compare.summaryRow")
         },
         {
-          code: "actions",
-          title: ""
+          key: "actions",
+          class: "vf-t-store-compare__actions",
+          label: ""
         }
       ]
     };
