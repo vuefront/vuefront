@@ -20,7 +20,7 @@
   }
   a,
   a:hover {
-    &:not([aria-controls]) {
+    &:not([aria-controls]):not(.vf-e-common-menu__link) {
       padding: 0.5rem 0.5rem;
       color: rgba(31, 45, 61, 0.5);
     }

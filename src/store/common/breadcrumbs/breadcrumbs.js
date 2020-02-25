@@ -33,7 +33,7 @@ export const actions = {
         commit('setLoaded', false);
     },
 
-    async load({ dispatch, rootGetters, commit }, contactData) {
+    async load({ commit }, contactData) {
         let breadcrumbs = [];
         if (contactData && contactData.length > 0) {
             breadcrumbs = contactData;

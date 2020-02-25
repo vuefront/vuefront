@@ -22,9 +22,11 @@
         flex-flow: row;
         flex: 1;
         align-items: center;
+        padding: 0.5rem 0.5rem;
+        color: rgba(31, 45, 61, 0.5);
         &:hover {
-            color: inherit;
-            text-decoration: none;
+          color: rgba(31, 45, 61, 0.5);
+          text-decoration: none;
         }
     }
     &__icon {
@@ -37,9 +39,11 @@
         }
     }
     &__link {
-        padding: 12px 12px;
+        // padding: 12px 12px;
         &--lg {
+          &.vf-e-common-menu__link {
             padding: 16px 24px;
+          }
         }
         &--md {
             padding: 8px 0;
