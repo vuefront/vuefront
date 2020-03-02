@@ -7,8 +7,8 @@
       >
         <vf-m-post-thumb-image
           :post="post"
-          :width="$vuefront.options.image.postThumbInline.width"
-          :height="$vuefront.options.image.postThumbInline.height"
+          :width="$vuefront.images.postThumbInline.width"
+          :height="$vuefront.images.postThumbInline.height"
         />
       </vf-m-media-aside>
       <vf-m-media-body>
@@ -21,8 +21,8 @@
       >
         <vf-m-post-thumb-image
           :post="post"
-          :width="$vuefront.options.image.postThumbInline.width"
-          :height="$vuefront.options.image.postThumbInline.height"
+          :width="$vuefront.images.postThumbInline.width"
+          :height="$vuefront.images.postThumbInline.height"
         />
       </vf-m-media-aside>
     </vf-m-media>

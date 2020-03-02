@@ -5,3 +5,8 @@
     </div>
   </section>
 </template>
+<script>
+export default {
+  name: 'vf-a-loader'
+}
+</script>

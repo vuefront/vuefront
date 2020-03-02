@@ -9,6 +9,7 @@
 </template>
 <script>
 export default {
+  name: 'vf-o-location-grid',
   props: {
     items: {
       type: Array,

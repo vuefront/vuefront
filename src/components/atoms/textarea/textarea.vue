@@ -11,6 +11,7 @@
 <script>
 import { BFormTextarea } from "bootstrap-vue";
 export default {
+  name: 'vf-a-textarea',
   components: {
     BFormTextarea
   },

@@ -12,6 +12,7 @@
 import { mapGetters } from "vuex";
 import { isUndefined } from "lodash";
 export default {
+  name: 'vf-o-apollo',
   props: ["query", "variables"],
   data() {
     const prefetchData = this.$store.getters["apollo/prefetchData"];

@@ -45,13 +45,14 @@
 <script>
 import "./footer.scss";
 export default {
+  name: 'vf-o-footer',
   data() {
     return {};
   },
   computed: {
     logo() {
-      if (typeof this.$vuefront.options.footerLogo !== "undefined") {
-        return this.$vuefront.options.footerLogo;
+      if (typeof this.$vuefront.images.footerLogo !== "undefined") {
+        return this.$vuefront.images.footerLogo.image;
       } else {
         return "";
       }

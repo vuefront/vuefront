@@ -4,8 +4,8 @@
       v-if="$vuefront.isAMP"
       :src="location.image"
       layout="responsive"
-      :width="$vuefront.options.image.contact.width"
-      :height="$vuefront.options.image.contact.height"
+      :width="$vuefront.images.contact.width"
+      :height="$vuefront.images.contact.height"
       class="vf-m-location__image"
     />
     <vf-a-image

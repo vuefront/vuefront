@@ -4,8 +4,8 @@ export const BaseLayout = {
   computed: {
     modules() {
       let result = []
-      for (const route in this.$vuefront.options.layouts) {
-        const layout = this.$vuefront.options.layouts[route]
+      for (const route in this.$vuefront.layouts) {
+        const layout = this.$vuefront.layouts[route]
         let regexRoute = route.replace('*', '.*')
         regexRoute = regexRoute.replace('//', '\\//')
         const regex = new RegExp('^' + regexRoute + '$', 'i')
@@ -21,21 +21,25 @@ export const BaseLayout = {
         if (regex.test(currentRoute) && !isUndefined(layout[this.position])) {
           for (const key in layout[this.position]) {
             if (isString(layout[this.position][key])) {
-              result = [
-                ...result,
-                {
-                  component: 'vfE' + layout[this.position][key],
-                  props: {},
-                },
-              ]
-            } else {
-              result = [
-                ...result,
-                {
-                  component: 'vfE' + layout[this.position][key][0],
-                  props: layout[this.position][key][1],
-                },
-              ]
+              if(!isUndefined(this.$vuefront.extensions[layout[this.position][key]])) {
+                result = [
+                  ...result,
+                  {
+                    component: this.$vuefront.extensions[layout[this.position][key]],
+                    props: {},
+                  },
+                ]
+                }
+              } else {
+                if(!isUndefined(this.$vuefront.extensions[layout[this.position][key][0]])) {
+                  result = [
+                    ...result,
+                    {
+                      component: this.$vuefront.extensions[layout[this.position][key][0]],
+                      props: layout[this.position][key][1],
+                    },
+                  ]
+                }
             }
           }
         }

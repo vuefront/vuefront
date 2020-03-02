@@ -84,10 +84,10 @@ export default {
       if (!this.width) {
         if (this.height) {
           width =
-            (this.height * this.$vuefront.options.image.post.width) /
-            this.$vuefront.options.image.post.height;
+            (this.height * this.$vuefront.images.post.width) /
+            this.$vuefront.images.post.height;
         } else {
-          width = this.$vuefront.options.image.post.width;
+          width = this.$vuefront.images.post.width;
         }
       }
       return width;
@@ -97,10 +97,10 @@ export default {
       if (!this.height) {
         if (this.width) {
           height =
-            (this.width * this.$vuefront.options.image.post.height) /
-            this.$vuefront.options.image.post.width;
+            (this.width * this.$vuefront.images.post.height) /
+            this.$vuefront.images.post.width;
         } else {
-          height = this.$vuefront.options.image.post.height;
+          height = this.$vuefront.images.post.height;
         }
       }
       return height;

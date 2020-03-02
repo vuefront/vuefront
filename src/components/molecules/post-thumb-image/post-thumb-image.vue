@@ -4,8 +4,8 @@
     :src="mainImage"
     :alt="post.title"
     :title="post.title"
-    :width="width ? width : $vuefront.options.image.postThumb.width"
-    :height="height ? height : $vuefront.options.image.postThumb.height"
+    :width="width ? width : $vuefront.images.postThumb.width"
+    :height="height ? height : $vuefront.images.postThumb.height"
     :class="{'card-img': card}"
     :layout="layout"
     class="vf-m-post-thumb-image"
@@ -16,8 +16,8 @@
     :src="mainImagelazy"
     :alt="post.title"
     :title="post.title"
-    :width="width ? width : $vuefront.options.image.postThumb.width"
-    :height="height ? height : $vuefront.options.image.postThumb.height"
+    :width="width ? width : $vuefront.images.postThumb.width"
+    :height="height ? height : $vuefront.images.postThumb.height"
     :class="{'card-img': card}"
     :fluid="!width && !height"
     class="vf-m-post-thumb-image"
@@ -61,12 +61,12 @@ export default {
     mainImage() {
       return this.post.image !== ""
         ? this.post.image
-        : this.$vuefront.options.image.placeholder;
+        : this.$vuefront.images.placeholder;
     },
     mainImagelazy() {
       return this.post.imageLazy !== ""
         ? this.post.imageLazy
-        : this.$vuefront.options.image.placeholder;
+        : this.$vuefront.images.placeholder;
     }
   }
 };

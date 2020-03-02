@@ -30,6 +30,7 @@
 import { VBToggle } from "bootstrap-vue";
 import "./header-mobile.scss";
 export default {
+  name: 'vf-o-header-mobile',
   directives: {
     BToggle: VBToggle
   }

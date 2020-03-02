@@ -22,7 +22,7 @@ export * from './language'
 export * from './layout'
 export * from './location-grid'
 export * from './login-form'
-export * from './notification-snack-bar' //notification-snackbar
+export * from './notification-snack-bar'
 export * from './notification-toast'
 export * from './password-form'
 export * from './position'

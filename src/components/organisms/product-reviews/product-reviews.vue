@@ -10,6 +10,7 @@
 </template>
 <script>
 export default {
+  name: 'vf-o-product-reviews',
   props: ["product"],
   methods: {
     async onSubmit({ content, author, rating }) {

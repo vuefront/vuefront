@@ -10,6 +10,7 @@
 </template>
 <script>
 export default {
+  name: 'vf-o-address-actions',
   props: {
     address: {
       type: Object,

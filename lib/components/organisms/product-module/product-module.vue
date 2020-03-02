@@ -8,6 +8,7 @@
 </template>
 <script>
 export default {
+  name: 'vf-o-product-module',
   props: ["items", "column"]
 };
 </script>

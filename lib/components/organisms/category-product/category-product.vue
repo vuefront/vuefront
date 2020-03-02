@@ -29,6 +29,7 @@
 </template>
 <script>
 export default {
+  name: 'vf-o-category-product',
   props: ["products", "mode", "sort", "gridSize"],
   computed: {
     isList() {

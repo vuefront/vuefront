@@ -3,8 +3,8 @@
     <vf-a-amp-image
       v-if="$vuefront.isAMP"
       :src="getLogo"
-      :width="$vuefront.options.image.logo.width"
-      :height="$vuefront.options.image.logo.height"
+      :width="$vuefront.images.logo.width"
+      :height="$vuefront.images.logo.height"
       class="vf-m-logo__image"
     />
     <vf-a-image
@@ -12,7 +12,7 @@
       :src="getLogo"
       alt
       class="vf-m-logo__image"
-      :height="$vuefront.options.image.logo.height"
+      :height="$vuefront.images.logo.height"
     />
   </vf-a-link>
 </template>
@@ -20,8 +20,8 @@
 export default {
   computed: {
     getLogo() {
-      if (typeof this.$vuefront.options.logo !== "undefined") {
-        return this.$vuefront.options.logo;
+      if (typeof this.$vuefront.images.logo.image !== "undefined") {
+        return this.$vuefront.images.logo.image;
       } else {
         return "https://vuefront.com/logo.png";
       }

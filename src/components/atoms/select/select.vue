@@ -11,6 +11,7 @@
 <script>
 import { BFormSelect } from "bootstrap-vue";
 export default {
+  name: 'vf-a-select',
   components: {
     BFormSelect
   },

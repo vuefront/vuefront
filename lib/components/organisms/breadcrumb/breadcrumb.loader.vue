@@ -20,6 +20,7 @@
 import { TbSkeleton, Skeleton } from "tb-skeleton";
 
 export default {
+  name: 'vf-l-o-breadcrumbs',
   components: {
     TbSkeleton,
     Skeleton

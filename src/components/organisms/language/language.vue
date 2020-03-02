@@ -17,6 +17,7 @@
 import { mapGetters } from "vuex";
 import { find } from "lodash";
 export default {
+  name: 'vf-o-language',
   computed: {
     ...mapGetters({
       language: "common/language/get",

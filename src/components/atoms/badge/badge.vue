@@ -6,6 +6,7 @@
 <script>
 import { BBadge } from "bootstrap-vue";
 export default {
+  name: 'vf-a-badge',
   components: {
     BBadge
   },

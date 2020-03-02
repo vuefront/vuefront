@@ -14,6 +14,7 @@
 </template>
 <script>
 export default {
+  name: 'vf-o-poduct-grid',
   props: {
     products: {
       type: Array,

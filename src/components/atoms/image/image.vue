@@ -15,6 +15,7 @@
 <script>
 import { BImgLazy } from "bootstrap-vue";
 export default {
+  name: 'vf-a-image',
   components: {
     BImgLazy
   },

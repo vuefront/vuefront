@@ -29,5 +29,7 @@
 </template>
 <script>
 import "./header.scss";
-export default {};
+export default {
+  name: 'vf-o-header'
+};
 </script>

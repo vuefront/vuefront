@@ -7,6 +7,7 @@
 <script>
 import { mapGetters } from "vuex";
 export default {
+  name: 'vf-o-product-buy',
   props: ["product"],
   computed: {
     ...mapGetters({

@@ -12,6 +12,7 @@
 </template>
 <script>
 export default {
+  name: 'vf-o-blog-category-post',
   props: ["posts", "gridSize"],
   methods: {
     async handleChangePage(page) {

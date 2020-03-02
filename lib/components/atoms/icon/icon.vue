@@ -4,6 +4,7 @@
 <script>
 import { isArray, join } from "lodash";
 export default {
+  name: 'vf-a-icon',
   props: ["icon", "size"],
   computed: {
     currentIcon() {

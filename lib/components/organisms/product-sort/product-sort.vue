@@ -29,6 +29,7 @@
 </template>
 <script>
 export default {
+  name: 'vf-o-product-sort',
   props: ["sort", "size", "mode"],
   data() {
     return {

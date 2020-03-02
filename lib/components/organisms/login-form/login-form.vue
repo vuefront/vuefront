@@ -32,6 +32,7 @@ import minLength from "vuelidate/lib/validators/minLength";
 import maxLength from "vuelidate/lib/validators/maxLength";
 import email from "vuelidate/lib/validators/email";
 export default {
+  name: 'vf-o-login-form',
   data() {
     return {
       form: {

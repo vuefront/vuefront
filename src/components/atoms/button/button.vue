@@ -25,6 +25,7 @@
 <script>
 import { BButton } from "bootstrap-vue";
 export default {
+  name: 'vf-a-button',
   components: {
     BButton
   },

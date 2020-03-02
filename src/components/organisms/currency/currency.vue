@@ -17,6 +17,7 @@
 import { mapGetters } from "vuex";
 import { find } from "lodash";
 export default {
+  name: 'vf-o-currency',
   computed: {
     ...mapGetters({
       currency: "store/currency/get",

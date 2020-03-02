@@ -19,6 +19,11 @@
     </skeleton>
   </div>
 </template>
+<script>
+export default {
+  name: 'vf-l-o-category-info'
+}
+</script>
 
 <script>
 import {TbSkeleton, Skeleton} from 'tb-skeleton'

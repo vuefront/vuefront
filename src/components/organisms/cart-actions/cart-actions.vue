@@ -5,6 +5,7 @@
 </template>
 <script>
 export default {
+  name: 'vf-o-cart-actions',
   props: ["cartProduct"],
   methods: {
     handleRemove() {

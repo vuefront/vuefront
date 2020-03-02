@@ -17,4 +17,9 @@
     </ul>
   </section>
 </template>
+<script>
+export default {
+  name: "vf-e-account-links"
+}
+</script>
 

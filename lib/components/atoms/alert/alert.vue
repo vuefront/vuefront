@@ -6,6 +6,7 @@
 <script>
 import { BAlert } from "bootstrap-vue";
 export default {
+  name: 'vf-a-alert',
   components: {
     BAlert
   },

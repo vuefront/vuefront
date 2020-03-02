@@ -1,4 +1,3 @@
-import * as seo from 'vuefront/lib/seo'
 export default {
     '/': { component: 'CommonHome' },
     '/account': {
@@ -52,7 +51,7 @@ export default {
         component: 'CommonPage',
         seo: seo.PageSeo
     },
-    '/search': { component: 'Search' },
+    '/search': { component: 'CommonSearch' },
     '/search/:slug': {
         component: 'CommonSearch'
     },

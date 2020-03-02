@@ -15,6 +15,7 @@
 import { BaseLayout } from "vuefront/lib/utils/baseLayout.js";
 
 export default {
+  name: 'vf-o-position',
   props: {
     name: String
   },

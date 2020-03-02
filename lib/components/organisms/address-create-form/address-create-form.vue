@@ -132,6 +132,7 @@ import required from "vuelidate/lib/validators/required";
 import minLength from "vuelidate/lib/validators/minLength";
 import maxLength from "vuelidate/lib/validators/maxLength";
 export default {
+  name: 'vf-o-address-create-form',
   props: {
     countries: {
       type: Object,

@@ -3,6 +3,7 @@
 </template>
 <script>
 export default {
+  name: 'vf-o-cart-quantity',
   props: ["cartProduct"],
   methods: {
     handleChangeQuantity(e) {

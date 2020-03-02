@@ -13,6 +13,7 @@
 </template>
 <script>
 export default {
+  name:'vf-o-category-grid',
   props: {
     items: {
       type: Array,

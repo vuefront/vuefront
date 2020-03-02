@@ -12,6 +12,7 @@
 import { TbSkeleton, Skeleton } from "tb-skeleton";
 
 export default {
+  name: 'vf-l-o-product-module',
   components: {
     TbSkeleton,
     Skeleton

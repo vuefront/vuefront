@@ -10,6 +10,7 @@
 </template>
 <script>
 export default {
+  name: 'vf-o-compare-actions',
   props: {
     product: {
       type: Object,

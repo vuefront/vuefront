@@ -6,6 +6,7 @@
 </template>
 <script>
 export default {
+  name: 'vf-l-o-category-product',
   props: ["gridSize"]
 };
 </script>

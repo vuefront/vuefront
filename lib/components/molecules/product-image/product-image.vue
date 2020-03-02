@@ -5,8 +5,8 @@
         v-if="$vuefront.isAMP"
         :src="mainImage"
         layout="responsive"
-        :width="$vuefront.options.image.product.width"
-        :height="$vuefront.options.image.product.height"
+        :width="$vuefront.images.product.width"
+        :height="$vuefront.images.product.height"
       />
       <vf-a-image v-else :lazy-src="mainImage" :src="mainImagelazy" fluid full-width />
     </a>
@@ -21,8 +21,8 @@
             v-if="$vuefront.isAMP"
             :src="value.image"
             layout="responsive"
-            :width="$vuefront.options.image.product.width"
-            :height="$vuefront.options.image.product.height"
+            :width="$vuefront.images.product.width"
+            :height="$vuefront.images.product.height"
           />
           <vf-a-image v-else :lazy-src="value.image" :src="value.imageLazy" fluid full-width />
         </a>
@@ -76,12 +76,12 @@ export default {
     mainImage() {
       return this.product.imageBig !== ""
         ? this.product.imageBig
-        : this.$vuefront.options.image.placeholder;
+        : this.$vuefront.images.placeholder.image;
     },
     mainImagelazy() {
       return this.product.imageLazy !== ""
         ? this.product.imageLazy
-        : this.$vuefront.options.image.placeholder;
+        : this.$vuefront.images.placeholder.image;
     }
   },
   methods: {
