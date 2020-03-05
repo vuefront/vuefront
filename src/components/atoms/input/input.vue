@@ -16,7 +16,6 @@
 <script>
 import { BFormInput } from "bootstrap-vue";
 export default {
-  name: 'vf-a-input',
   components: {
     BFormInput
   },

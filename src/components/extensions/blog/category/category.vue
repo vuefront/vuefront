@@ -24,7 +24,6 @@
 <script>
 import { isEmpty, map, includes } from "lodash";
 export default {
-  name: 'vf-e-blog-category',
   computed: {
     id() {
       let result = false;

@@ -17,7 +17,6 @@
 
 <script>
 export default {
-  name: 'vf-l-o-product-grid',
   props: {
     column: {
       type: Boolean,

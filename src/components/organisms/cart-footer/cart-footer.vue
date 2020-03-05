@@ -35,7 +35,6 @@
 </template>
 <script>
 export default {
-  name: 'vf-o-cart-footer',
   props: ["cart"],
   computed: {
     isProducts() {

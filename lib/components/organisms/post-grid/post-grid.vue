@@ -14,7 +14,6 @@
 </template>
 <script>
 export default {
-  name: 'vf-o-post-grid',
   props: {
     posts: {
       type: Array,

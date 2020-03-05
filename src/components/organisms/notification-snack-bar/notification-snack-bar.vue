@@ -14,7 +14,6 @@
 import { mapGetters } from "vuex";
 
 export default {
-  name: 'vf-o-notification',
   data() {
     return {
       dismissCountDown: 0

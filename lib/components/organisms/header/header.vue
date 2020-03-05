@@ -30,6 +30,5 @@
 <script>
 import "./header.scss";
 export default {
-  name: 'vf-o-header'
 };
 </script>

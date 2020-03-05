@@ -1,79 +1,195 @@
-<template>
-  <b-img-lazy
-    :src="lazySrc || src"
-    :blank-src="lazySrc ? src : ''"
-    :fluid="fluid"
-    :alt="alt"
-    :title="title"
-    :block="block"
-    :width="width"
-    :height="height"
-    :class="{'vf-a-image--full-width': fullWidth}"
-    class="vf-a-image"
-  />
-</template>
 <script>
-import { BImgLazy } from "bootstrap-vue";
+import Vue from 'vue'
+import VueLazyload from 'vue-lazyload'
+Vue.use(VueLazyload)
 export default {
-  name: 'vf-a-image',
-  components: {
-    BImgLazy
-  },
   props: {
-    alt: {
-      type: String,
-      default() {
-        return "";
-      }
-    },
-    title: {
-      type: String,
-      default() {
-        return "";
+    lazySrc: {
+      validator () {
+        return true
+      },
+      default () {
+        return ''
       }
     },
     src: {
-      type: String,
-      default() {
-        return "";
+      validator () {
+        return true
+      },
+      default () {
+        return ''
       }
     },
-    lazySrc: {
-      type: String | Boolean,
-      default() {
-        return false;
+    srcDark: {
+      validator () {
+        return true
+      },
+      default () {
+        return ''
       }
     },
-    fluid: {
-      type: Boolean,
-      default() {
-        return false;
-      }
-    },
-    block: {
-      type: Boolean,
-      default() {
-        return false;
-      }
-    },
-    fullWidth: {
-      type: Boolean,
-      default() {
-        return false;
+    lazySrcDark: {
+      validator () {
+        return true
+      },
+      default () {
+        return ''
       }
     },
     width: {
       type: String | Number,
-      default() {
-        return null;
+      default () {
+        return ''
       }
     },
-    height: {
+    alt: {
+      type: String,
+      default () {
+        return ''
+      }
+    },
+    layout: {
+      type: String,
+      default () {
+        return 'responsive'
+      }
+    },
+    widthAmp: {
       type: String | Number,
-      default() {
-        return null;
+      default () {
+        return '1'
+      }
+    },
+    heightAmp: {
+      type: String | Number,
+      default () {
+        return '1'
+      }
+    },
+    heights: {
+      type: String,
+      default () {
+        return null
       }
     }
+  },
+  computed: {
+    isDark () {
+      let theme = false
+      if (process.client) {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          theme = true
+        }
+      }
+
+      return theme
+    },
+    isSVG () {
+      return /.svg$/.test(this.src)
+    },
+    srcImage () {
+      if (/.svg$/.test(this.src)) {
+      }
+      return this.src
+    }
+  },
+  render (createElement) {
+    // if (typeof this.srcDark === 'object') {
+    //   if (this.isDark && this.srcDark !== '') {
+    //     return createElement(this.srcDark.default)
+    //   }
+    // }
+    // if (typeof this.src === 'object') {
+    //   return createElement(this.src.default)
+    // }
+    if (!this.$vuefront.isAMP) {
+      const styles = {}
+      if (this.width !== '') {
+        styles.width = this.width + 'px'
+      }
+      if (this.layout === 'flex-item') {
+        styles.width = this.widthAmp + 'px'
+        styles.height = this.heightAmp + 'px'
+      }
+
+      let src = this.src
+
+      let lazySrc = this.lazySrc
+
+      if (this.isDark && this.lazySrcDark !== '') {
+        lazySrc = this.lazySrcDark
+      }
+
+      if (this.isDark && this.srcDark !== '') {
+        src = this.srcDark
+      }
+
+      return createElement('div', {
+        class: `image-wrapper layout-${this.layout}`,
+        style: {
+          ...styles
+        }
+      }, [
+        createElement('div', {
+          class: 'image-sizer',
+          style: {
+            'padding-bottom': `${100 / (this.widthAmp / this.heightAmp)}%`
+          }
+        }, []),
+        createElement('div', {
+          class: 'image-img',
+          directives: [
+            {
+              name: 'lazy',
+              arg: 'background-image',
+              value: src
+            }
+          ],
+          style: {
+            'background-image': this.lazySrc !== '' ? `url(${this.lazySrc})` : null
+          }
+        }, [])
+      ])
+    } else {
+      let src = this.src
+
+      if (this.isDark && this.srcDark !== '') {
+        src = this.srcDark
+      }
+      return createElement('amp-img', {
+        attrs: {
+          src,
+          alt: this.alt,
+          width: this.widthAmp,
+          height: this.heightAmp,
+          heights: this.heights,
+          layout: this.layout
+        }
+      }, [])
+    }
   }
-};
+}
 </script>
+<style lang="scss">
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  &.layout-flex-item {
+    margin: 0 auto;
+  }
+  .image-sizer {
+    background-color: transparent;
+  }
+  .image-img {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    z-index: 0;
+  }
+}
+</style>

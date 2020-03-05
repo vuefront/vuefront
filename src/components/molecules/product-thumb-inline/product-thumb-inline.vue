@@ -1,7 +1,7 @@
 <template>
   <vf-m-media no-body>
     <vf-m-media-aside vertical-align="center" class="pl-3">
-      <vf-a-image :lazy-src="image" :src="imageLazy" width="80" height="80" />
+      <vf-a-image :lazy-src="imageLazy" :src="image" width-amp="80" height-amp="80" width="80" />
     </vf-m-media-aside>
     <vf-m-media-body class="pl-3">
       <div class="lh-100">

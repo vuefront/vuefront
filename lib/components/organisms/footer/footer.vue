@@ -4,14 +4,14 @@
       <vf-m-row class="pt-md">
         <vf-m-col sm="4" class="mb-5 mb-lg-0">
           <div>
-            <vf-a-amp-image
-              v-if="$vuefront.isAMP"
-              :src="logo"
-              width="180"
-              height="40"
-              class="mb-3"
+            <vf-a-image 
+            :src="logo" 
+            :width-amp="$vuefront.images.logo.width"
+            :height-amp="$vuefront.images.logo.height" 
+            alt 
+            width="180" 
+            class="mb-3" 
             />
-            <vf-a-image v-else :src="logo" alt style="height: 40px;" class="mb-3" />
             <p>{{$t('elements.common.footer.descriptionText')}}</p>
           </div>
         </vf-m-col>
@@ -45,7 +45,6 @@
 <script>
 import "./footer.scss";
 export default {
-  name: 'vf-o-footer',
   data() {
     return {};
   },

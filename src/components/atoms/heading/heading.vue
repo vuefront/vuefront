@@ -5,7 +5,6 @@
 </template>
 <script>
 export default {
-  name: 'vf-a-heading',
   props: {
     level: {
       type: [Number, String],

@@ -26,7 +26,7 @@ body {
     color: #8492a6;
     position: relative;
     @media (max-width: 768px) {
-        .main-content {
+        .vf-o-header-mobile + div{
             padding-top: calc(65px + 40px);
         }
     }

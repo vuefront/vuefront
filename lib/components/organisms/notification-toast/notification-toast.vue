@@ -7,7 +7,6 @@ import { mapGetters } from "vuex";
 import { ToastPlugin } from "bootstrap-vue";
 Vue.use(ToastPlugin);
 export default {
-  name: 'vf-o-notification',
   computed: {
     ...mapGetters({
       messageNotification: "notification/get",

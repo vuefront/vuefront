@@ -12,7 +12,6 @@
 import { TbSkeleton, Skeleton } from "tb-skeleton";
 
 export default {
-  name: 'vf-l-o-post-module',
   components: {
     TbSkeleton,
     Skeleton

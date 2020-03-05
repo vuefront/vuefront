@@ -1,19 +1,10 @@
 <template>
   <vf-m-card class="vf-m-location" no-body>
-    <vf-a-amp-image
-      v-if="$vuefront.isAMP"
-      :src="location.image"
-      layout="responsive"
-      :width="$vuefront.images.contact.width"
-      :height="$vuefront.images.contact.height"
-      class="vf-m-location__image"
-    />
     <vf-a-image
-      v-else
-      :lazy-src="location.image"
-      :src="location.imagelazy"
-      fluid
-      full-width
+      :lazy-src="location.imageLazy"
+      :src="location.image"
+      width-amp="268"
+      height-amp="50"
       class="vf-m-location__image"
     />
     <vf-m-card-body class>

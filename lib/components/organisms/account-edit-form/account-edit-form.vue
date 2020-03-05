@@ -46,7 +46,6 @@ import minLength from "vuelidate/lib/validators/minLength";
 import maxLength from "vuelidate/lib/validators/maxLength";
 import email from "vuelidate/lib/validators/email";
 export default {
-  name: 'vf-o-account-edit-form',
   props: {
     account: {
       type: Object,

@@ -1,19 +1,7 @@
 <template>
-  <vf-a-amp-image
-    v-if="$vuefront.isAMP"
-    :src="mainImage"
-    :alt="post.title"
-    :title="post.title"
-    :width="getWidth"
-    :height="getHeight"
-    :class="{'card-img': card}"
-    :layout="layout"
-    class="vf-m-post-image"
-  />
   <vf-a-image
-    v-else
-    :lazy-src="mainImage"
-    :src="mainImagelazy"
+    :lazy-src="mainImagelazy"
+    :src="mainImage"
     :alt="post.title"
     :title="post.title"
     :width="getWidth"

@@ -15,7 +15,6 @@
 import { mapGetters } from "vuex";
 
 export default {
-  name: 'vf-o-breadcrumb',
   computed: {
     ...mapGetters({
       breadcrumbs: "common/breadcrumbs/get",

@@ -9,6 +9,5 @@
 </template>
 <script>
 export default {
-  name: 'vf-l-o-category-grid'
 }
 </script>

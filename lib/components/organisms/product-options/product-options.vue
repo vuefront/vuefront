@@ -62,7 +62,6 @@
 import { isEmpty, filter } from "lodash";
 import { mapGetters } from "vuex";
 export default {
-  name: 'vf-o-product-options',
   props: ["product"],
   computed: {
     ...mapGetters({

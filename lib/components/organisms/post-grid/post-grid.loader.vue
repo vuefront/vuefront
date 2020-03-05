@@ -16,7 +16,6 @@
 </template>
 <script>
 export default {
-  name: 'vf-l-o-post-grid',
   props: {
     column: {
       type: Boolean,

@@ -2,9 +2,9 @@
   <i class="vf-a-icon" :class="currentIcon"></i>
 </template>
 <script>
+import './icon.scss'
 import { isArray, join } from "lodash";
 export default {
-  name: 'vf-a-icon',
   props: ["icon", "size"],
   computed: {
     currentIcon() {

@@ -9,7 +9,6 @@
 </template>
 <script>
 export default {
-  name: 'vf-o-category-info',
   props: ["category"]
 };
 </script>

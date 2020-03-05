@@ -35,7 +35,6 @@
 import { mapGetters } from "vuex";
 
 export default {
-  name: "vf-e-account",
   computed: {
     ...mapGetters({
       auth: "common/customer/auth"

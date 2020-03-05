@@ -6,7 +6,7 @@
   </section>
 </template>
 <script>
+import './loader.scss'
 export default {
-  name: 'vf-a-loader'
 }
 </script>

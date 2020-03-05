@@ -38,7 +38,6 @@ import minLength from "vuelidate/lib/validators/minLength";
 import maxLength from "vuelidate/lib/validators/maxLength";
 import sameAs from "vuelidate/lib/validators/sameAs";
 export default {
-  name: 'vf-o-password-form',
   data() {
     return {
       form: {

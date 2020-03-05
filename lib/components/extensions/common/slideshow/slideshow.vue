@@ -1,8 +1,8 @@
 <template>
   <b-carousel class="vf-e-common-slideshow" v-model="active" :interval="4000" controls indicators>
     <b-carousel-slide v-for="(item,i) in items" :key="i" :img-src="item">
-      <template #img v-if="$vuefront.isAMP">
-        <amp-img :src="item" width="1110" height="370" />
+      <template #img>
+        <vf-a-image :src="item" width-amp="1140" height-amp="380" />
       </template>
     </b-carousel-slide>
   </b-carousel>

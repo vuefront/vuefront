@@ -11,7 +11,6 @@
 </template>
 <script>
 export default {
-  name: 'vf-a-amp-image',
   props: {
     alt: {
       type: String,

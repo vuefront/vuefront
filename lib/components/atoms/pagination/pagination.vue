@@ -12,7 +12,6 @@
 <script>
 import { BPagination } from "bootstrap-vue";
 export default {
-  name: 'vf-a-pagination',
   components: {
     BPagination
   },

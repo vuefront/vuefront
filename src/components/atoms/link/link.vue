@@ -5,7 +5,6 @@
 </template>
 <script>
 export default {
-  name: 'vf-a-link',
   props: {
     to: {
       type: String | Object,

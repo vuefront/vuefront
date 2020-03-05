@@ -27,7 +27,6 @@
 import { BForm } from "bootstrap-vue";
 import { mapGetters } from "vuex";
 export default {
-  name: 'vf-o-form',
   components: {
     BForm
   },

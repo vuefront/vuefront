@@ -1,18 +1,12 @@
 <template>
-  <vf-a-link class="vf-m-logo" to="/">
-    <vf-a-amp-image
-      v-if="$vuefront.isAMP"
-      :src="getLogo"
-      :width="$vuefront.images.logo.width"
-      :height="$vuefront.images.logo.height"
-      class="vf-m-logo__image"
-    />
+  <vf-a-link class="vf-m-logo d-block" to="/">
     <vf-a-image
-      v-else
       :src="getLogo"
       alt
       class="vf-m-logo__image"
-      :height="$vuefront.images.logo.height"
+      :width="$vuefront.images.logo.width"
+      :width-amp="$vuefront.images.logo.width"
+      :height-amp="$vuefront.images.logo.height"
     />
   </vf-a-link>
 </template>

@@ -1,20 +1,11 @@
 <template>
   <vf-a-link :to="url" class="mb-2 d-block vf-m-category-thumb">
-    <vf-a-amp-image
-      v-if="$vuefront.isAMP"
-      :src="image"
-      :width="getWidth"
-      :height="getHeight"
-      layout="responsive"
-      class="mb-2"
-    />
     <vf-a-image
-      v-else
-      :src="imageLazy"
-      :lazy-src="image"
+      :src="image"
+      :lazy-src="imageLazy"
       class="mb-2"
-      :width="getWidth"
-      :height="getHeight"
+      :width-amp="getWidth"
+      :height-amp="getHeight"
       full-width
       fluid
     />

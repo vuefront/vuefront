@@ -1,25 +1,13 @@
 <template>
-  <vf-a-amp-image
-    v-if="$vuefront.isAMP"
+  <vf-a-image
+    :lazy-src="mainImagelazy"
     :src="mainImage"
     :alt="product.title"
     :title="product.title"
-    :width="width ? width : $vuefront.images.productThumb.width"
-    :height="height ? height : $vuefront.images.productThumb.height"
+    :width="width ? width : ''"
+    :width-amp="width ? width : $vuefront.images.productThumb.width"
+    :height-amp="height ? height : $vuefront.images.productThumb.height"
     :class="{'card-img': card}"
-    :layout="layout"
-    class="vf-m-product-thumb-image"
-  />
-  <vf-a-image
-    v-else
-    :lazy-src="mainImage"
-    :src="mainImagelazy"
-    :alt="product.title"
-    :title="product.title"
-    :width="width ? width : $vuefront.images.productThumb.width"
-    :height="height ? height : $vuefront.images.productThumb.height"
-    :class="{'card-img': card}"
-    :fluid="!width && !height"
     class="vf-m-product-thumb-image"
   />
 </template>

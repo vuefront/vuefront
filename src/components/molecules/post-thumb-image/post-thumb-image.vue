@@ -1,23 +1,11 @@
 <template>
-  <vf-a-amp-image
-    v-if="$vuefront.isAMP"
+  <vf-a-image
+    :lazy-src="mainImagelazy"
     :src="mainImage"
     :alt="post.title"
     :title="post.title"
-    :width="width ? width : $vuefront.images.postThumb.width"
-    :height="height ? height : $vuefront.images.postThumb.height"
-    :class="{'card-img': card}"
-    :layout="layout"
-    class="vf-m-post-thumb-image"
-  />
-  <vf-a-image
-    v-else
-    :lazy-src="mainImage"
-    :src="mainImagelazy"
-    :alt="post.title"
-    :title="post.title"
-    :width="width ? width : $vuefront.images.postThumb.width"
-    :height="height ? height : $vuefront.images.postThumb.height"
+    :width-amp="width ? width : $vuefront.images.postThumb.width"
+    :height-amp="height ? height : $vuefront.images.postThumb.height"
     :class="{'card-img': card}"
     :fluid="!width && !height"
     class="vf-m-post-thumb-image"
