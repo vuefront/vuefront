@@ -10,7 +10,7 @@ import compareGetGql from "./compare.graphql";
 export default {
   head() {
     return {
-      title: this.$t("pages.store.compare.textTitle")
+      title: this.$t("pages.store.compare.metaTitle")
     };
   },
   breadcrumbs() {

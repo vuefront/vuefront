@@ -12,7 +12,6 @@
   </vf-m-card>
 </template>
 <script>
-import "./post-thumb.scss";
 export default {
   props: {
     post: {

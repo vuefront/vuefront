@@ -28,7 +28,6 @@
 </template>
 <script>
 import { VBToggle } from "bootstrap-vue";
-import "./header-mobile.scss";
 export default {
   directives: {
     BToggle: VBToggle

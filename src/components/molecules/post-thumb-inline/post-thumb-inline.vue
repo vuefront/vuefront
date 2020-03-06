@@ -29,7 +29,6 @@
   </vf-a-link>
 </template>
 <script>
-import "./post-thumb-inline.scss";
 export default {
   props: {
     post: {

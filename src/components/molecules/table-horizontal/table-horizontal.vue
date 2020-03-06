@@ -16,7 +16,6 @@
   </section>
 </template>
 <script>
-import './table-horizontal.scss'
 export default {
   props: {
     items: {

@@ -6,9 +6,11 @@
     :title="post.title"
     :width-amp="width ? width : $vuefront.images.postThumb.width"
     :height-amp="height ? height : $vuefront.images.postThumb.height"
+    :width="width? width : null"
     :class="{'card-img': card}"
     :fluid="!width && !height"
     class="vf-m-post-thumb-image"
+    cover
   />
 </template>
 <script>
@@ -49,12 +51,12 @@ export default {
     mainImage() {
       return this.post.image !== ""
         ? this.post.image
-        : this.$vuefront.images.placeholder;
+        : this.$vuefront.images.placeholder.image;
     },
     mainImagelazy() {
       return this.post.imageLazy !== ""
         ? this.post.imageLazy
-        : this.$vuefront.images.placeholder;
+        : this.$vuefront.images.placeholder.image;
     }
   }
 };

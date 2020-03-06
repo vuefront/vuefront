@@ -53,7 +53,6 @@
 <script>
 import { VBToggle } from "bootstrap-vue";
 import { isString, isUndefined } from "lodash";
-import "./menu.scss";
 import { mapGetters } from "vuex";
 export default {
   directives: {

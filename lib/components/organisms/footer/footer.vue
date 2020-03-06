@@ -43,7 +43,6 @@
   </footer>
 </template>
 <script>
-import "./footer.scss";
 export default {
   data() {
     return {};

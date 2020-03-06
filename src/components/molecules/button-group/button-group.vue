@@ -9,7 +9,6 @@
   </b-button-group>
 </template>
 <script>
-import './button-block.scss'
 import { BButtonGroup } from "bootstrap-vue";
 export default {
   components: { BButtonGroup },

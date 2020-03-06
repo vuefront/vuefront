@@ -14,12 +14,12 @@ import { BaseModule } from "vuefront/lib/utils/module.js";
 export default {
   head() {
     return {
-      title: this.$t("pages.store.special.textTitle"),
+      title: this.$t("pages.store.special.metaTitle"),
       meta: [
         {
           hid: "description",
           name: "description",
-          content: this.$t("pages.store.special.textTitle")
+          content: this.$t("pages.store.special.metaTitle")
         }
       ]
     };

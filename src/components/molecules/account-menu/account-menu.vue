@@ -20,10 +20,6 @@
     >{{$t('elements.common.header.topNav.myAccountText')}}</vf-m-dropdown-item>
     <vf-m-dropdown-item
       class="vf-m-account-menu__item"
-      to="/account/wishlist"
-    >{{$t('elements.common.header.topNav.wishlistText')}}</vf-m-dropdown-item>
-    <vf-m-dropdown-item
-      class="vf-m-account-menu__item"
       v-if="$vuefront.isAuth"
       @click="$vuefront.logout"
     >{{$t('elements.common.header.topNav.signOutText')}}</vf-m-dropdown-item>

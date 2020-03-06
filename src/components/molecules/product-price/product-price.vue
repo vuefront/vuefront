@@ -6,7 +6,6 @@
       v-if="special !== ''"
       :level="6"
       class="font-weight-regular vf-m-product-price__oldprice"
-      style="text-decoration: line-through;"
     >{{ price }}</vf-a-heading>
     <span v-else class="vf-m-product-price__price">{{price}}</span>
   </vf-a-heading>

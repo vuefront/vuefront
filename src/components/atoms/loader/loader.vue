@@ -5,8 +5,3 @@
     </div>
   </section>
 </template>
-<script>
-import './loader.scss'
-export default {
-}
-</script>

@@ -54,7 +54,6 @@
   </vf-m-card>
 </template>
 <script>
-import "./product-thumb.scss";
 export default {
   props: ["product", "wide"],
   computed: {

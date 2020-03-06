@@ -1,5 +1,24 @@
 .vf-a-image {
-    &--full-width {
-        width: 100%;
+  position: relative;
+  overflow: hidden;
+  &.layout-flex-item {
+    margin: 0 auto;
+  }
+  &__img {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    z-index: 0;
+    &--cover {
+      background-size: cover;
     }
+  }
+  &__sizer {
+    background-color: transparent;
+  }
 }

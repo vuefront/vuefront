@@ -8,9 +8,8 @@ import { mapGetters } from "vuex";
 import cartGetGql from "./cart.graphql";
 export default {
   head() {
-    console.log(this.$t("pages.store.cart.textTitle"))
     return {
-      title: this.$t("pages.store.cart.textTitle")
+      title: this.$t("pages.store.cart.metaTitle")
     };
   },
   breadcrumbs() {

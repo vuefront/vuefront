@@ -1,0 +1,13 @@
+.vf-m-breadcrumb {
+  .vf-m-breadcrumb-item {
+    &::before {
+      color: rgba(31, 45, 61, 0.5);
+    }
+    a {
+      color: rgba(31, 45, 61, 0.5);
+      &:hover {
+        color: rgba(31, 45, 61, 0.5);
+      }
+    }
+  }
+}

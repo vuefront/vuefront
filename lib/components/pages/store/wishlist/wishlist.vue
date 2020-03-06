@@ -10,7 +10,7 @@ import wishlistGetGql from "./wishlist.graphql";
 export default {
   head() {
     return {
-      title: this.$t("pages.store.wishlist.textTitle")
+      title: this.$t("pages.store.wishlist.metaTitle")
     };
   },
   breadcrumbs() {

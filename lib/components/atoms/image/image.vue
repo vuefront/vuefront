@@ -71,6 +71,12 @@ export default {
       default () {
         return null
       }
+    },
+    cover: {
+      type: Boolean,
+      default () {
+        return false
+      }
     }
   },
   computed: {
@@ -97,7 +103,7 @@ export default {
     // if (typeof this.srcDark === 'object') {
     //   if (this.isDark && this.srcDark !== '') {
     //     return createElement(this.srcDark.default)
-    //   }
+    //   }`
     // }
     // if (typeof this.src === 'object') {
     //   return createElement(this.src.default)
@@ -124,20 +130,26 @@ export default {
         src = this.srcDark
       }
 
+      let imgClass = ''
+
+      if(this.cover) {
+        imgClass = 'vf-a-image__img--cover'
+      }
+
       return createElement('div', {
-        class: `image-wrapper layout-${this.layout}`,
+        class: `vf-a-image image-wrapper layout-${this.layout}`,
         style: {
           ...styles
         }
       }, [
         createElement('div', {
-          class: 'image-sizer',
+          class: 'vf-a-image__sizer image-sizer',
           style: {
             'padding-bottom': `${100 / (this.widthAmp / this.heightAmp)}%`
           }
         }, []),
         createElement('div', {
-          class: 'image-img',
+          class: 'vf-a-image__img image-img '+imgClass,
           directives: [
             {
               name: 'lazy',
@@ -170,26 +182,3 @@ export default {
   }
 }
 </script>
-<style lang="scss">
-.image-wrapper {
-  position: relative;
-  overflow: hidden;
-  &.layout-flex-item {
-    margin: 0 auto;
-  }
-  .image-sizer {
-    background-color: transparent;
-  }
-  .image-img {
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    top: 0;
-    z-index: 0;
-  }
-}
-</style>

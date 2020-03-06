@@ -16,7 +16,3 @@
     </div>
   </section>
 </template>
-<script>
-import "./sidebar.scss";
-export default {};
-</script>

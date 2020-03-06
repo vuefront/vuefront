@@ -1,5 +1,5 @@
 <template>
-  <b-breadcrumb>
+  <b-breadcrumb class="vf-m-breadcrumb">
     <slot></slot>
   </b-breadcrumb>
 </template>

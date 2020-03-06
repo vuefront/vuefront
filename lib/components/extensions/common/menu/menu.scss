@@ -56,7 +56,9 @@
         align-items: center;
         cursor: pointer;
         transition: ease 0.3s;
-        background: #fff;
+        .vf-e-common-menu__item {
+          background: #fff;
+        }
         @media (max-width: 767px) {
             background: transparent;
             flex-flow: column;
@@ -68,7 +70,7 @@
             >.vf-e-common-menu__link {
                 >.vf-e-common-menu__icon {
                     &--float {
-                        right: 20px;
+                        right: 25px;
                     }
                 }
             }

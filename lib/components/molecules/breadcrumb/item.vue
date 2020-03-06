@@ -1,5 +1,5 @@
 <template>
-  <b-breadcrumb-item :to="to">
+  <b-breadcrumb-item class="vf-m-breadcrumb-item" :to="to">
     <slot></slot>
   </b-breadcrumb-item>
 </template>
