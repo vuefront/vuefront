@@ -1,18 +1,21 @@
 <template>
-  <b-form-select
+  <b-form-radio-group
     :value="value"
-    :options="optionsData"
+    :options="options"
     :value-field="valueField"
     :text-field="textField"
+    :stacked="stacked"
     @input="handleChange"
-    class="vf-a-select"
-  />
+    class="vf-a-radio-group"
+  >
+  <slot></slot>
+  </b-form-radio-group>
 </template>
 <script>
-import { BFormSelect } from "bootstrap-vue";
+import { BFormRadioGroup } from "bootstrap-vue";
 export default {
   components: {
-    BFormSelect
+    BFormRadioGroup
   },
   props: {
     options: {
@@ -33,28 +36,13 @@ export default {
         return "text";
       }
     },
-    noSelect: {
+    stacked: {
       type: Boolean,
-      default () {
+      default() {
         return false
       }
     },
     value: {}
-  },
-  computed: {
-    optionsData() {
-      let result = []
-
-      if(this.noSelect) {
-        let option = {}
-        option[this.textField] = this.$t('atoms.select.pleaseSelectText')
-        option[this.valueField] = null
-        result = [...result, option]
-      }
-
-      result = [...result, ...this.options]
-      return result
-    }
   },
   methods: {
     handleChange(value) {

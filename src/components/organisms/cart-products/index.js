@@ -1,0 +1,1 @@
+export {default as oCartProducts} from './cart-products.vue'

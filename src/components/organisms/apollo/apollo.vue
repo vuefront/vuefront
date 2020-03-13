@@ -79,6 +79,7 @@ export default {
             variables: this.variables ? this.variables : {}
           })
           .then(({ data }) => {
+            this.$emit('loaded', data)
             if (ssr) {
               this.$store.commit("apollo/setPrefetchData", {
                 key: this.componentHash,

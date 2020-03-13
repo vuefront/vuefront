@@ -1,7 +1,7 @@
 <template>
   <b-form-select
     :value="value"
-    :options="options"
+    :options="optionsData"
     :value-field="valueField"
     :text-field="textField"
     @input="handleChange"
@@ -33,7 +33,28 @@ export default {
         return "text";
       }
     },
+    noSelect: {
+      type: Boolean,
+      default () {
+        return false
+      }
+    },
     value: {}
+  },
+  computed: {
+    optionsData() {
+      let result = []
+
+      if(this.noSelect) {
+        let option = {}
+        option[this.textField] = this.$t('atoms.select.pleaseSelectText')
+        option[this.valueField] = null
+        result = [...result, option]
+      }
+
+      result = [...result, ...this.options]
+      return result
+    }
   },
   methods: {
     handleChange(value) {

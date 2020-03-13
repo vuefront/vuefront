@@ -1,5 +1,5 @@
 <template>
-  <b-card class="vf-m-card" :no-body="noBody" :body-bg-variant="bodyBgColor">
+  <b-card class="vf-m-card" v-bind="$props">
     <slot></slot>
   </b-card>
 </template>
@@ -10,6 +10,18 @@ export default {
     BCard
   },
   props: {
+    title: {
+      type: String,
+      default() {
+        return null
+      }
+    },
+    subTitle: {
+      type: String,
+      default() {
+        return null
+      }
+    },
     noBody: {
       type: Boolean,
       default() {

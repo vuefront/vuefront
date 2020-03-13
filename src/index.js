@@ -86,7 +86,13 @@ const MainConfig = {
       Loader: "atoms/loader/loader.vue",
       Pagination: "atoms/pagination/pagination.vue",
       Select: "atoms/select/select.vue",
-      Textarea: "atoms/textarea/textarea.vue"
+      Textarea: "atoms/textarea/textarea.vue",
+      Radio: "atoms/radio/radio.vue",
+      RadioGroup: "atoms/radio-group/radio-group.vue",
+      Checkbox: "atoms/checkbox/checkbox.vue",
+      CheckboxGroup: "atoms/checkbox-group/checkbox-group.vue",
+      Datepicker: "atoms/datepicker/datepicker.vue",
+      Timepicker: "atoms/timepicker/timepicker.vue"
     },
     molecules: {
       AccountMenu: "molecules/account-menu/account-menu.vue",
@@ -145,6 +151,7 @@ const MainConfig = {
       WishlistLink: "molecules/wishlist-link/wishlist-link.vue"
     },
     organisms: {
+      CartProducts: "organisms/cart-products/cart-products.vue",
       SearchInlineForm: "organisms/search-inline-form/search-inline-form.vue",
       Breadcrumb: "organisms/breadcrumb/breadcrumb.vue",
       Sidebar: "organisms/sidebar/sidebar.vue",
