@@ -5,6 +5,7 @@
     :value-field="valueField"
     :text-field="textField"
     :stacked="stacked"
+    :state="state"
     @input="handleChange"
     class="vf-a-checkbox-group"
   >
@@ -18,6 +19,10 @@ export default {
     BFormCheckboxGroup
   },
   props: {
+    state: {
+      type: Boolean,
+      default: null
+    },
     options: {
       type: [Array, Object],
       default() {

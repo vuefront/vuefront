@@ -5,6 +5,7 @@
     :value-field="valueField"
     :text-field="textField"
     :stacked="stacked"
+    :state="state"
     @input="handleChange"
     class="vf-a-radio-group"
   >
@@ -41,6 +42,10 @@ export default {
       default() {
         return false
       }
+    },
+    state: {
+      type: Boolean,
+      default: null
     },
     value: {}
   },

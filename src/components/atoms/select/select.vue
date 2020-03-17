@@ -4,6 +4,7 @@
     :options="optionsData"
     :value-field="valueField"
     :text-field="textField"
+    :state="state"
     @input="handleChange"
     class="vf-a-select"
   />
@@ -38,6 +39,10 @@ export default {
       default () {
         return false
       }
+    },
+    state: {
+      type: Boolean,
+      default: null
     },
     value: {}
   },
