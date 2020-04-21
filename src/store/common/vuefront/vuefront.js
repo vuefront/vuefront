@@ -6,6 +6,17 @@ export const state = () => ({
 })
 
 export const mutations = {
+  setResponseError (state, e) {
+    if (e.graphQLErrors && e.graphQLErrors.message) {
+      state.error = e.graphQLErrors.message
+    } else if (e.graphQLErrors && !isUndefined(e.graphQLErrors[0])) {
+      state.error = e.graphQLErrors[0].message
+    } else if (e.graphQLErrors) {
+      state.error = e.graphQLErrors
+    } else {
+      state.error = e
+    }
+  },
   setError(state, payload) {
     state.error = payload
   },
