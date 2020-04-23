@@ -37,7 +37,7 @@ storiesOf('molecule|!!!Account Menu', module)
             </section>`
         }), {
             info: {
-                summary: `<span style="color:red">Important!</span> Needs refactoring becuase requires vf-o-header class (import header.scss)`,
+                summary: `<span style="color:red">Important!</span> Needs refactoring because requires vf-o-header class (import header.scss)`,
             }
         }
     )
