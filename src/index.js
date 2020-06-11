@@ -7,6 +7,10 @@ const MainConfig = {
       store: 'vuefront/lib/store',
       locales: 'vuefront/lib/locales'
     },
+    options: {
+      productGridSize: 4,
+      productGridNoGutters: false
+    },
     css: {
       bootstrap: 'vuefront/assets/scss/bootstrap.scss',
       theme: 'vuefront/assets/scss/theme.scss',

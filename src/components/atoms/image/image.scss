@@ -4,6 +4,13 @@
   &.layout-flex-item {
     margin: 0 auto;
   }
+  &__content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
   &__img {
     background-size: contain;
     background-position: center;

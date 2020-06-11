@@ -1,5 +1,5 @@
 <template>
-  <vf-m-container class="mb-3 vf-o-breadcrumb">
+  <vf-m-container :class="{'mb-3': breadcrumbs.length > 0}" class="vf-o-breadcrumb">
     <vf-m-breadcrumb v-if="loaded && breadcrumbs.length > 0">
       <vf-m-breadcrumb-item>{{$t('elements.common.home.titleText')}}</vf-m-breadcrumb-item>
       <vf-m-breadcrumb-item

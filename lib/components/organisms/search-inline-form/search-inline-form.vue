@@ -1,13 +1,14 @@
 <template>
-  <vf-a-input
-    class="vf-o-search-inline-form"
-    v-model="keyword"
-    :placeholder="$t('elements.common.header.navSearch.placeholderText')"
-    size="sm"
-    :hide-details="!$vuefront.isAMP"
-    @keypress.stop="handleKeyPress"
-    trim
-  />
+  <span class="vf-o-search-inline-form">
+    <vf-a-input
+      v-model="keyword"
+      :placeholder="$t('elements.common.header.navSearch.placeholderText')"
+      size="sm"
+      :hide-details="!$vuefront.isAMP"
+      @keypress.stop="handleKeyPress"
+      trim
+    />
+  </span>
 </template>
 <script>
 export default {

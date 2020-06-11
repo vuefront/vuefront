@@ -160,7 +160,10 @@ export default {
           style: {
             'background-image': this.lazySrc !== '' ? `url(${this.lazySrc})` : null
           }
-        }, [])
+        }, []),
+        createElement('div', {
+          class: 'vf-a-image__content'
+        }, this.$slots.default)
       ])
     } else {
       let src = this.src

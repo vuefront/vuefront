@@ -1,5 +1,5 @@
 <template>
-  <vf-o-apollo class="vf-e-store-related-product" v-if="id" :variables="{id:id}">
+  <vf-o-apollo class="vf-e-store-related-product" v-if="id" :variables="{id:id, limit: $vuefront.options.productGridSize}">
     <template #loader>
       <vf-l-o-product-module :column="column" />
     </template>
@@ -38,10 +38,10 @@ export default {
 };
 </script>
 <graphql>
-query($id: String) {
+query($id: String, $limit: Int) {
     relatedProducts: product(id: $id) {
         id
-        products(limit: 4) {
+        products(limit: $limit) {
             id
             image
             imageLazy

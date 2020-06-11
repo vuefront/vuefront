@@ -1,5 +1,5 @@
 <template>
-  <vf-o-apollo class="vf-e-store-featured-product" :variables="{ids}">
+  <vf-o-apollo class="vf-e-store-featured-product" :variables="{ids, limit: $vuefront.options.productGridSize}">
     <template #loader>
       <vf-l-o-product-module :column="column" />
     </template>
@@ -26,8 +26,8 @@ export default {
 };
 </script>
 <graphql>
-query($ids: [Int]){
-    featuredProducts: productsList(page: 1, size: 4, ids: $ids, sort: "date_added", order: "DESC") {
+query($ids: [Int], $limit: Int){
+    featuredProducts: productsList(page: 1, size: $limit, ids: $ids, sort: "date_added", order: "DESC") {
         content {
             id
             name

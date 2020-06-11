@@ -1,6 +1,6 @@
 <template>
   <section>
-    <vf-m-row>
+    <vf-m-row :no-gutters="noGutters">
       <vf-m-col
         sm="12"
         :md="list || column? 12: 12 / gridSize"
@@ -27,9 +27,17 @@ export default {
       type: Boolean,
       default: false
     },
+    noGutters: {
+      type: Boolean,
+      default() {
+        return this.$vuefront.options.productGridNoGutters
+      }
+    },
     gridSize: {
       type: Number,
-      default: 4
+      default() {
+        return this.$vuefront.options.productGridSize
+      }
     }
   }
 };

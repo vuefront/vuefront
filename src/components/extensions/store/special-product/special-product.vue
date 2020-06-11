@@ -1,7 +1,7 @@
 <template>
   <vf-o-apollo class="vf-e-store-special-product">
     <template #loader>
-      <vf-l-o-product-module :column="column" />
+      <vf-l-o-product-module :column="column" :variables="{size: $vuefront.options.productGridSize}"/>
     </template>
     <template #default="{data}">
       <vf-o-product-module
@@ -22,8 +22,8 @@ export default {
 };
 </script>
 <graphql>
-{
-    specialProducts: productsList(page: 1, size: 4, special: true, sort: "date_added", order: "DESC") {
+query($size: Int){
+    specialProducts: productsList(page: 1, size: $size, special: true, sort: "date_added", order: "DESC") {
         content {
             id
             name
