@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="vf-o-position">
     <slot v-if="modules.length === 0"></slot>
     <div
       v-else
@@ -7,7 +7,7 @@
       :key="index"
       :is="value.component"
       v-bind="value.props"
-      class="mb-3"
+      class="vf-o-position__module"
     ></div>
   </div>
 </template>
