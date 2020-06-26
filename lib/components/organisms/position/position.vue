@@ -1,5 +1,5 @@
 <template>
-  <div class="vf-o-position">
+  <div class="vf-o-position" :class="`vf-o-position--${name}`">
     <slot v-if="modules.length === 0"></slot>
     <div
       v-else
