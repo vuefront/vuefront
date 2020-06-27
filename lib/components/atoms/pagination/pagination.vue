@@ -3,7 +3,7 @@
     <b-pagination
       v-if="totalPages > 1"
       :value="page"
-      :total-rows="totalPages"
+      :total-rows="totalProducts"
       :per-page="perPage"
       @input="handleChange"
     />
@@ -23,6 +23,10 @@ export default {
     totalPages: {
       type: Number,
       default: 1
+    },
+    totalProducts: {
+      type: Number,
+      default: 0
     },
     perPage: {
       type: Number,
