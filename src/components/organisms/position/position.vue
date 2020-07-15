@@ -5,7 +5,7 @@
       v-else
       v-for="(value, index) in modules"
       :key="index"
-      :is="value.component"
+      :is="$vuefront.extensions[value.component]"
       v-bind="value.props"
       class="vf-o-position__module"
     ></div>

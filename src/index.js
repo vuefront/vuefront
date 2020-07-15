@@ -232,6 +232,10 @@ const MainConfig = {
             module: 'common/vuefront/vuefront.js'
         },
         {
+          path: 'position',
+          module: 'common/position/position.js'
+        },
+        {
             path: 'apollo',
             module: 'common/apollo/apollo.js'
         },
