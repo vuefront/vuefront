@@ -25,3 +25,6 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+@import './badge';
+</style>

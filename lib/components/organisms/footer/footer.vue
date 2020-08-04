@@ -58,3 +58,6 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+@import './footer';
+</style>

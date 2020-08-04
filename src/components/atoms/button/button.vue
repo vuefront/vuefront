@@ -93,3 +93,6 @@ export default {
   inheritAttrs: false
 };
 </script>
+<style lang="scss">
+@import './button';
+</style>

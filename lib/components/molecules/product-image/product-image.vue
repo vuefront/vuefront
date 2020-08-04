@@ -26,7 +26,6 @@
 </template>
 <script>
 import Vue from "vue";
-import "vue-image-lightbox/dist/vue-image-lightbox.min.css";
 export default {
   props: ["product"],
   data() {
@@ -81,3 +80,6 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+@import './product-image';
+</style>

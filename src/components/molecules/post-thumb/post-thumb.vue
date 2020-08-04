@@ -38,3 +38,6 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+@import './post-thumb';
+</style>

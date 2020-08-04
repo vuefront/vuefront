@@ -4,3 +4,6 @@
     <span class="d-none d-md-inline-block">{{$t('elements.common.header.nav.shoppingCartText')}}</span>
   </vf-a-link>
 </template>
+<style lang="scss">
+@import './cart-link';
+</style>

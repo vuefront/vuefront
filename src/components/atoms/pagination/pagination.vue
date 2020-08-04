@@ -36,3 +36,6 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+@import './pagination';
+</style>

@@ -5,10 +5,12 @@
 </template>
 <script>
 import { BListGroup } from "bootstrap-vue";
-
 export default {
   components: {
     BListGroup
   }
 };
 </script>
+<style lang="scss">
+@import './list-group';
+</style>

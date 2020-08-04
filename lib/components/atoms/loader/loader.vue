@@ -5,3 +5,6 @@
     </div>
   </section>
 </template>
+<style lang="scss">
+@import './loader';
+</style>

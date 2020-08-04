@@ -19,7 +19,7 @@ export default {
         title: this.$t("elements.common.notification.toast.notificationText"),
         toaster: "b-toaster-top-right",
         solid: true,
-        variant: "success"
+        variant: "success",
       });
     },
     errorNotification(val, oldVal) {
@@ -27,9 +27,12 @@ export default {
         title: this.$t("elements.common.notification.toast.errorText"),
         toaster: "b-toaster-top-right",
         solid: true,
-        variant: "danger"
+        variant: "danger",
       });
     }
   }
 };
 </script>
+<style lang="scss">
+@import './notification-toast';
+</style>

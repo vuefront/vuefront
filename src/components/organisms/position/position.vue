@@ -26,3 +26,6 @@ export default {
   mixins: [BaseLayout]
 };
 </script>
+<style lang="scss">
+@import './position';
+</style>

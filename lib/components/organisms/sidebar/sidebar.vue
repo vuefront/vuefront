@@ -16,3 +16,6 @@
     </div>
   </section>
 </template>
+<style lang="scss">
+@import './sidebar';
+</style>

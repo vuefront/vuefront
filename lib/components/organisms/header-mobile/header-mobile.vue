@@ -34,3 +34,6 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+@import './header-mobile';
+</style>

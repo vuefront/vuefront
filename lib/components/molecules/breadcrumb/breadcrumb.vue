@@ -11,3 +11,6 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+@import './breadcrumb';
+</style>

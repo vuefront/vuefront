@@ -21,3 +21,6 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+  @import './alert.scss';
+</style>

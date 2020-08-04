@@ -68,3 +68,6 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+@import './select';
+</style>
