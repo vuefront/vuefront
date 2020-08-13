@@ -123,6 +123,7 @@ query($page: Int, $size: Int, $sort: String, $order: String) {
       imageLazy
       rating
       keyword
+      url(url: "/store/product/_id")
     }
     size
     number

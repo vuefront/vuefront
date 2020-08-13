@@ -37,6 +37,3 @@ export default {
   }
 };
 </script>
-<style lang="scss">
-@import './row.scss';
-</style>

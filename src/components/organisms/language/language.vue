@@ -45,20 +45,3 @@ export default {
   }
 };
 </script>
-<style lang="scss">
-.language-section {
-  .dropdown-toggle {
-    &::after {
-      display: none;
-    }
-  }
-  &__image {
-  }
-  &__name {
-    @media (max-width: 767px) {
-      color: #000;
-    }
-  }
-}
-</style>
-

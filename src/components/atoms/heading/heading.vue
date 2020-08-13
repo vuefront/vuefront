@@ -21,6 +21,3 @@ export default {
   }
 };
 </script>
-<style lang="scss">
-@import './heading';
-</style>

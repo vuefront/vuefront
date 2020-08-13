@@ -3,7 +3,7 @@
     content {
       id
       title
-      keyword
+      url(url: "/page/_id")
     }
   }
 }

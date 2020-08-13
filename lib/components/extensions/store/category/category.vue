@@ -3,7 +3,7 @@
     <vf-m-list-group>
       <template v-for="(value, index) in data.categoriesList.content">
         <vf-m-list-group-item
-          :to="url(value)"
+          :to="value.url"
           :key="`root-${index}`"
           :active="checkView(value, value.categories)"
           v-html="value.name"
@@ -12,7 +12,7 @@
           <vf-m-list-group-item
             v-for="(subValue, subIndex) in value.categories"
             :key="`sub-${subIndex}`"
-            :to="url(subValue)"
+            :to="subValue.url"
             :active="subValue.id === id"
             v-html="`&nbsp;&nbsp;&nbsp;- ${subValue.name}`"
           />
@@ -73,10 +73,12 @@ export default {
         id
         name
         keyword
+        url(url: "/store/category/:id")
         categories {
           id
           name
           keyword
+          url(url: "/store/category/:id")
         }
       }
     }

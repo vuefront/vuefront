@@ -25,6 +25,3 @@ export default {
   }
 };
 </script>
-<style lang="scss">
-@import './icon.scss';
-</style>

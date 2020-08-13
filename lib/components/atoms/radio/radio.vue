@@ -25,7 +25,7 @@ export default {
       type: Boolean,
       default: null
     },
-    value: {},    
+    value: {},
     checked: {
       // v-model
       default: null
@@ -45,6 +45,3 @@ export default {
   }
 };
 </script>
-<style lang="scss">
-@import './radio';
-</style>

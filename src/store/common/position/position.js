@@ -24,7 +24,14 @@ export const mutations = {
 
   },
   setRoute(state, payload) {
-    state.path = payload
+    let path = payload.path
+    if(payload.matched.length > 0) {
+      path = payload.matched[0].path
+      for (const key in payload.params) {
+        path = path.replace(`:${key}`, payload.params[key])
+      }
+    }
+    state.path = path
   },
   setParams(state, payload) {
     state.params = payload

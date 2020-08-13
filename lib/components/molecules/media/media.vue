@@ -38,6 +38,3 @@ export default {
   }
 };
 </script>
-<style lang="scss">
-@import './media';
-</style>

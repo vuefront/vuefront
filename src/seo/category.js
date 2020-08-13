@@ -9,7 +9,7 @@ export default async ({ client }) => {
           categoriesList(page: 1, size: -1) {
             content {
               id
-              keyword
+              url(url: "/store/category/_id")
             }
           }
         }

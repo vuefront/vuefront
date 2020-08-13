@@ -185,6 +185,3 @@ export default {
   }
 }
 </script>
-<style lang="scss">
-  @import './image.scss';
-</style>

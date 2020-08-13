@@ -40,6 +40,7 @@ query($search: String){
             imageLazy
             rating
             keyword
+            url(url: "/store/product/_id")
         }
     }
 }

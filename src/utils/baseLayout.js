@@ -3,7 +3,7 @@ export const BaseLayout = {
   data() {
     this.$store.dispatch('position/loadModules', {position: this.name})
     this.$store.commit('position/setParams', this.$vuefront.params)
-    this.$store.commit('position/setRoute', this.$route.path)
+    this.$store.commit('position/setRoute', this.$route)
     return {}
   },
   computed: {

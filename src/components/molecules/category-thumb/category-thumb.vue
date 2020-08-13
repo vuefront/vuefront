@@ -1,5 +1,5 @@
 <template>
-  <vf-a-link :to="url" class="mb-2 d-block vf-m-category-thumb">
+  <vf-a-link :to="category.url" class="mb-2 d-block vf-m-category-thumb">
     <vf-a-image
       :src="image"
       :lazy-src="imageLazy"

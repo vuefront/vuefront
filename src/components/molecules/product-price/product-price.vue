@@ -34,6 +34,3 @@ export default {
   }
 };
 </script>
-<style lang="scss">
-@import './product-price';
-</style>

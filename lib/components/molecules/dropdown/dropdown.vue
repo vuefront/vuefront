@@ -47,6 +47,3 @@ export default {
   }
 };
 </script>
-<style lang="scss">
-@import './dropdown';
-</style>

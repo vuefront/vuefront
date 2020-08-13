@@ -1,5 +1,5 @@
 <template>
-  <router-link class="vf-a-link" :to="to">
+  <router-link no-prefetch class="vf-a-link" :to="to">
     <slot></slot>
   </router-link>
 </template>
@@ -15,6 +15,3 @@ export default {
   }
 };
 </script>
-<style lang="scss">
-@import './link';
-</style>

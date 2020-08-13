@@ -36,19 +36,3 @@ export default {
   }
 };
 </script>
-<style lang="scss">
-.currency-section {
-  .dropdown-toggle {
-    &::after {
-      display: none;
-    }
-  }
-  &__symbol {
-  }
-  &__title {
-    @media (max-width: 767px) {
-      color: #000;
-    }
-  }
-}
-</style>

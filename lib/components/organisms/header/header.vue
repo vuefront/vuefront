@@ -27,6 +27,3 @@
     </vf-m-container>
   </section>
 </template>
-<style lang="scss">
-@import './header';
-</style>

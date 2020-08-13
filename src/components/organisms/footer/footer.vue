@@ -4,13 +4,13 @@
       <vf-m-row class="pt-md">
         <vf-m-col sm="4" class="mb-5 mb-lg-0">
           <div>
-            <vf-a-image 
-            :src="logo" 
+            <vf-a-image
+            :src="logo"
             :width-amp="$vuefront.images.logo.width"
-            :height-amp="$vuefront.images.logo.height" 
-            alt 
-            width="180" 
-            class="mb-3" 
+            :height-amp="$vuefront.images.logo.height"
+            alt
+            width="180"
+            class="mb-3"
             />
             <p>{{$t('elements.common.footer.descriptionText')}}</p>
           </div>
@@ -58,6 +58,3 @@ export default {
   }
 };
 </script>
-<style lang="scss">
-@import './footer';
-</style>

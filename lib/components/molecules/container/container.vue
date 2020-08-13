@@ -12,6 +12,3 @@ export default {
   props: ["fluid"]
 };
 </script>
-<style lang="scss">
-@import './container';
-</style>

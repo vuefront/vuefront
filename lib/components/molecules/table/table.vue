@@ -26,6 +26,3 @@ export default {
   }
 };
 </script>
-<style lang="scss">
-@import './table';
-</style>

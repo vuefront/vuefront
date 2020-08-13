@@ -2,14 +2,14 @@
   <vf-m-card :class="{'vf-m-product-thumb--wide' : wide}" class="vf-m-product-thumb" no-body>
     <vf-m-row no-gutters>
       <vf-m-col :md="wide ? 3 : 12" class="px-4">
-        <vf-a-link :to="url" class="vf-m-product-thumb__image">
+        <vf-a-link :to="product.url" class="vf-m-product-thumb__image">
           <vf-m-product-thumb-image :product="product" card />
         </vf-a-link>
       </vf-m-col>
       <vf-m-col :md="wide ? 9 : 12">
         <vf-m-card-body class="pt-0">
           <div>
-            <vf-a-link :to="url" class="mb-0 vf-m-product-thumb__title">
+            <vf-a-link :to="product.url" class="mb-0 vf-m-product-thumb__title">
               <vf-a-heading tag="h3" level="6">{{ product.name }}</vf-a-heading>
             </vf-a-link>
             <vf-m-rating
@@ -78,6 +78,3 @@ export default {
   }
 };
 </script>
-<style lang="scss">
-@import './product-thumb';
-</style>

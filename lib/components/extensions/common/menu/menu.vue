@@ -145,6 +145,3 @@ export default {
   }
 };
 </script>
-<style lang="scss">
-@import './menu';
-</style>

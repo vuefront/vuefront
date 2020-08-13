@@ -135,6 +135,7 @@ export default {
               image
               imageLazy
               rating
+              url(url: "/store/product/_id")
               keyword
           }
           size
@@ -159,6 +160,7 @@ export default {
               image
               imageLazy
               keyword
+              url(url: "/store/category/_id")
           }
       }
   }

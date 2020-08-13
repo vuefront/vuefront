@@ -9,7 +9,7 @@ export default async ({ client }) => {
           pagesList(page: 1, size: -1) {
             content {
               id
-              keyword
+              url(url: "/page/_id")
             }
           }
         }
