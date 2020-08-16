@@ -19,8 +19,3 @@ export default {
   }
 };
 </script>
-<style>
-.vf-m-col {
-  align-items: ;
-}
-</style>

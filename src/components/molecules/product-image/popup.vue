@@ -1,5 +1,5 @@
 <template>
-  <LightBox :images="images" :show-light-box="false" ref="lightbox" @onOpened="handleOpened"></LightBox>
+  <LightBox :media="images" :show-light-box="false" ref="lightbox" @onOpened="handleOpened"></LightBox>
 </template>
 <script>
 import Vue from "vue";

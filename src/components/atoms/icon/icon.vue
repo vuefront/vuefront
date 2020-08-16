@@ -6,6 +6,9 @@ import { isArray, join } from "lodash";
 export default {
   props: ["icon", "size"],
   computed: {
+    getIcons() {
+      
+    },
     currentIcon() {
       let result = "";
       if (isArray(this.icon)) {

@@ -9,7 +9,7 @@ export default async ({ client }) => {
           categoriesBlogList(page: 1, size: -1) {
             content {
               id
-              keyword
+              url(url: "/blog/category/_id")
             }
           }
         }

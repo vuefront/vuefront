@@ -1,4 +1,8 @@
-@import 'node_modules/bootstrap/scss/functions';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/mixins';
 @import 'variables.scss';
-@import 'node_modules/bootstrap/scss/bootstrap';
-@import 'node_modules/bootstrap-vue/src/index.scss';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/root';
+@import '~bootstrap/scss/reboot';
+@import '~bootstrap/scss/utilities';
+@import '~bootstrap-vue/src/index.scss';

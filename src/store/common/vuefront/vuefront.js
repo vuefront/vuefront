@@ -36,16 +36,18 @@ export const getters = {
 
 export const actions = {
   async vuefrontInit({ dispatch, commit }) {
-
     if (this.$cookies.get('token')) {
       commit('common/customer/setToken', this.$cookies.get('token'), {root: true})
+      await Promise.all([
+        dispatch('common/language/load', {}, { root: true }),
+        dispatch('common/customer/checkLogged', {}, { root: true })
+      ])
+  
+    } else {
+      await dispatch('common/language/load', {}, { root: true })
     }
 
-    await Promise.all([
-      dispatch('store/currency/load', {}, { root: true }),
-      dispatch('common/language/load', {}, { root: true }),
-      dispatch('common/customer/checkLogged', {}, { root: true })
-    ])
+    dispatch('store/currency/load', {}, { root: true })
 
     if (this.$cookies.get('mode')) {
       commit('store/category/setMode', this.$cookies.get('mode'), {
@@ -57,7 +59,7 @@ export const actions = {
     await dispatch('vuefrontInit')
     commit('setSSR', true)
   },
-  async nuxtClientInit({ dispatch, rootGetters }) {
+  async nuxtClientInit({ commit, dispatch, rootGetters }) {
     if (!rootGetters['vuefront/ssr']) {
       await dispatch('vuefrontInit')
     }

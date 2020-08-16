@@ -56,9 +56,3 @@ export default {
   }
 };
 </script>
-<style lang="scss">
-.main-content {
-  // padding-top: 65px;
-  // min-height: 600px;
-}
-</style>

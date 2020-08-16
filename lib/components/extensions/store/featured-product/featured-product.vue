@@ -38,6 +38,7 @@ query($ids: [Int], $limit: Int){
             imageLazy
             rating
             keyword
+            url(url: "/store/product/_id")
         }
     }
 }

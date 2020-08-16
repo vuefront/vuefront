@@ -115,6 +115,7 @@ query($page: Int, $size: Int, $categoryId: String) {
       shortDescription
       image
       imageLazy
+      url(url: "/blog/category/_id")
       keyword
       reviews {
         totalElements

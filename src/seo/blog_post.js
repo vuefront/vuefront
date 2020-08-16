@@ -9,7 +9,7 @@ export default async ({ client }) => {
           postsList(page: 1, size: -1) {
             content {
               id
-              keyword
+              url(url: "/blog/post/_id")
             }
           }
         }

@@ -10,6 +10,7 @@ export default async ({ client }) => {
             content {
               id
               keyword
+              url(url: "/store/product/_id")
             }
           }
         }

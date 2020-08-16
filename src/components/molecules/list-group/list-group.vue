@@ -5,7 +5,6 @@
 </template>
 <script>
 import { BListGroup } from "bootstrap-vue";
-
 export default {
   components: {
     BListGroup
