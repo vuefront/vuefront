@@ -1,18 +1,18 @@
 <template>
-  <carousel class="vf-e-common-slideshow">
-    <slide v-for="(item,i) in items" :key="i">
-      <amp-img v-if="$vuefront.isAMP" :src="item" width="1110" height="370" />
-    </slide>
-  </carousel>
+  <b-carousel class="vf-e-common-slideshow" v-model="active" :interval="4000" controls indicators>
+    <b-carousel-slide v-for="(item,i) in items" :key="i" :img-src="item">
+      <template #img v-if="$vuefront.isAMP">
+        <amp-img :src="item" width="1110" height="370" />
+      </template>
+    </b-carousel-slide>
+  </b-carousel>
 </template>
 <script>
-import Vue from "vue";
-import { Carousel, Slide } from "vue-snap";
-
+import { BCarousel, BCarouselSlide } from "bootstrap-vue";
 export default {
   components: {
-    Carousel,
-    Slide,
+    BCarousel,
+    BCarouselSlide,
   },
   props: {
     items: {
