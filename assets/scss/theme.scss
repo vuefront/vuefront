@@ -1,5 +1,4 @@
 @import 'sticky-footer';
-
 @font-face {
     font-family: 'Nunito';
     font-style: normal;
@@ -7,6 +6,7 @@
     font-display: swap;
     src: url('font/Nunito-Regular.ttf');
 }
+
 @font-face {
     font-family: 'Nunito';
     font-style: normal;
@@ -14,6 +14,7 @@
     font-display: swap;
     src: url('font/Nunito-Regular.ttf');
 }
+
 html,
 body {
     font-family: 'Nunito', sans-serif;
@@ -22,11 +23,10 @@ body {
     color: #8492a6;
     position: relative;
     @media (max-width: 768px) {
-        .vf-o-header-mobile + div{
+        .vf-o-header-mobile+div {
             padding-top: calc(65px + 40px);
         }
     }
-
     a {
         text-decoration: none;
         &:hover {
@@ -75,6 +75,7 @@ h6,
 .border-radius-top-left-0 {
     border-top-left-radius: 0 !important;
 }
+
 .border-radius-top-right-0 {
     border-top-left-radius: 0 !important;
 }
@@ -93,6 +94,7 @@ h6,
         font-size: 1.5rem !important;
     }
 }
+
 .delimiter-top,
 .delimiter-bottom {
     position: relative;
@@ -108,12 +110,8 @@ h6,
     left: 50%;
     margin-left: -40%;
     height: 1px;
-    background: radial-gradient(
-      ellipse at center,
-      rgba(222, 228, 239, 0.2) 0,
-      rgba(255, 255, 255, 0) 75%
-      );
-  }
+    background: radial-gradient(ellipse at center, rgba(222, 228, 239, 0.2) 0, rgba(255, 255, 255, 0) 75%);
+}
 
 .cursor-pointer {
     cursor: pointer;
@@ -128,11 +126,7 @@ h6,
     left: 50%;
     margin-left: -40%;
     height: 1px;
-    background: radial-gradient(
-      ellipse at center,
-      rgba(222, 228, 239, 0.2) 0,
-      rgba(255, 255, 255, 0) 75%
-      );
+    background: radial-gradient(ellipse at center, rgba(222, 228, 239, 0.2) 0, rgba(255, 255, 255, 0) 75%);
 }
 
 .color-inherit {
@@ -142,7 +136,6 @@ h6,
     }
 }
 
-
 :focus {
-  outline: none;
+    outline: none;
 }
