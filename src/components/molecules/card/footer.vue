@@ -1,13 +1,8 @@
 <template>
-  <b-card-footer class="vf-m-card-footer">
+  <div class="vf-m-card-footer">
     <slot></slot>
-  </b-card-footer>
+  </div>
 </template>
 <script>
-import { BCardFooter } from "bootstrap-vue";
-export default {
-  components: {
-    BCardFooter
-  }
-};
+export default {};
 </script>

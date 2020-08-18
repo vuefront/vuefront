@@ -10,7 +10,20 @@ module.exports = async({ config, mode }) => {
 
     config.module.rules.push({
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', { loader: 'postcss-loader', options: { config: { path: path.resolve(__dirname, './') } } }, 'sass-loader'],
+        use: ['style-loader', 'css-loader',
+            { loader: 'postcss-loader', options: { config: { path: path.resolve(__dirname, './') } } },
+            {
+                loader: 'sass-loader',
+                options: {
+                    additionalData: `
+          @import "~bootstrap/scss/functions";
+          @import "~vuefront/assets/scss/variables";
+          @import "~bootstrap/scss/variables";
+          @import "~bootstrap/scss/mixins";
+        `
+                }
+            }
+        ],
         include: path.resolve(__dirname, '../'),
     });
 

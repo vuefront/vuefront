@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import { storiesOf } from '@storybook/vue';
 import vfMTableHorizontal from './table-horizontal.vue';
+
 import './table-horizontal.scss';
 
 

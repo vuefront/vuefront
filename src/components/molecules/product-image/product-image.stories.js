@@ -4,6 +4,7 @@ import vfMProductImage from './product-image.vue';
 import vfMProductImagePopup from './popup.vue';
 import vfLMProductImage from './product-image.loader.vue';
 import product from '@/.storybook/store/product.js';
+import "./product-image.scss";
 
 
 Vue.component('vfMProductImage', vfMProductImage);

@@ -6,6 +6,10 @@
         align-items: center;
         justify-content: center;
     }
+    &__content {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
     &__title {
         min-height: 70px;
         max-height: 70px;
@@ -13,11 +17,22 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        >* {
+            color: #3c4858;
+            font-weight: 500;
+            line-height: 20px;
+            font-size: 16px;
+        }
     }
     &__description {
         min-height: 70px;
         max-height: 70px;
         overflow: hidden;
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+    &__price {
+        padding-bottom: 15px;
     }
     &__button-buy {
         width: 50%;

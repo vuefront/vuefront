@@ -1,15 +1,15 @@
 <template>
   <vf-m-card :class="{'vf-m-product-thumb--wide' : wide}" class="vf-m-product-thumb" no-body>
     <vf-m-row no-gutters>
-      <vf-m-col :md="wide ? 3 : 12" class="px-4">
+      <vf-m-col :md="wide ? 3 : 12">
         <vf-a-link :to="product.url" class="vf-m-product-thumb__image">
           <vf-m-product-thumb-image :product="product" card />
         </vf-a-link>
       </vf-m-col>
       <vf-m-col :md="wide ? 9 : 12">
-        <vf-m-card-body class="pt-0">
+        <vf-m-card-body class="vf-m-product-thumb__content">
           <div>
-            <vf-a-link :to="product.url" class="mb-0 vf-m-product-thumb__title">
+            <vf-a-link :to="product.url" class="vf-m-product-thumb__title">
               <vf-a-heading tag="h3" level="6">{{ product.name }}</vf-a-heading>
             </vf-a-link>
             <vf-m-rating
@@ -18,11 +18,13 @@
               color="#ffcc00"
               readonly
             />
-            <div
-              v-html="product.shortDescription"
-              class="vf-m-product-thumb__description text-sm mb-3"
-            ></div>
-            <vf-m-product-price variant="small" :price="product.price" :special="product.special" />
+            <div v-html="product.shortDescription" class="vf-m-product-thumb__description"></div>
+            <vf-m-product-price
+              class="vf-m-product-thumb__price"
+              variant="small"
+              :price="product.price"
+              :special="product.special"
+            />
           </div>
         </vf-m-card-body>
         <vf-m-button-group class="vf-m-product-thumb__buttons" size="sm" block>
@@ -63,7 +65,7 @@ export default {
       } else {
         return "/store/product/" + this.product.id;
       }
-    }
+    },
   },
   methods: {
     handleAddToCart() {
@@ -74,7 +76,7 @@ export default {
     },
     async handleAddToCompare() {
       this.$emit("click:compare");
-    }
-  }
+    },
+  },
 };
 </script>

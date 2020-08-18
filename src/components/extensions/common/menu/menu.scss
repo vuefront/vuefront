@@ -25,8 +25,8 @@
         padding: 0.5rem 0.5rem;
         color: rgba(31, 45, 61, 0.5);
         &:hover {
-          color: rgba(31, 45, 61, 0.5);
-          text-decoration: none;
+            color: rgba(31, 45, 61, 0.5);
+            text-decoration: none;
         }
     }
     &__icon {
@@ -41,9 +41,9 @@
     &__link {
         // padding: 12px 12px;
         &--lg {
-          &.vf-e-common-menu__link {
-            padding: 16px 24px;
-          }
+            &.vf-e-common-menu__link {
+                padding: 16px 24px;
+            }
         }
         &--md {
             padding: 8px 0;
@@ -57,7 +57,7 @@
         cursor: pointer;
         transition: ease 0.3s;
         .vf-e-common-menu__item {
-          background: #fff;
+            background: #fff;
         }
         @media (max-width: 767px) {
             background: transparent;

@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import { storiesOf } from '@storybook/vue';
 import aImage from './image.vue';
-
+import "./image.scss";
 
 Vue.component('vfAImage', aImage);
 storiesOf('Atom|Image', module)

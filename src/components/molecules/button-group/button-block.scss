@@ -1,6 +1,10 @@
 .vf-m-button-group {
     display: flex;
     flex-direction: row;
+    align-items: stretch;
+    &>* {
+        flex: auto
+    }
     &--block {
         width: 100%;
     }

@@ -10,7 +10,7 @@
     :active="active"
     :type="type"
     :pill="rounded"
-    :class="{'vf-a-button--animated': animatedX || animatedY, 'vf-a-button--animated-x': animatedX, 'vf-a-button--animated-y': animatedY }"
+    :class="[{ 'vf-a-button--animated': animatedX || animatedY, 'vf-a-button--animated-x': animatedX, 'vf-a-button--animated-y': animatedY, }, `vf-a-button--${size}`]"
     class="vf-a-button"
   >
     <slot></slot>
@@ -65,6 +65,12 @@ export default {
       type: String,
       default() {
         return "primary";
+      },
+    },
+    size: {
+      type: String,
+      default() {
+        return "md";
       },
     },
     to: {

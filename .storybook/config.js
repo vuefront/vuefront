@@ -1,12 +1,14 @@
 import Vue from 'vue';
 // import Vuex from 'vuex'
 import { configure, addDecorator } from '@storybook/vue';
-import "vuefront/assets/scss/main.scss";
+import "vuefront/assets/scss/bootstrap.scss";
 import centered from '@storybook/addon-centered/vue';
 import { withInfo } from 'storybook-addon-vue-info';
 import VueI18n from 'vue-i18n';
 import * as messages from 'vuefront/lib/locales/en-gb';
 import placeholder from "vuefront/assets/img/placeholder.png"
+
+
 
 // Vue.use(Vuex)
 Vue.use(VueI18n);
@@ -32,39 +34,37 @@ Vue.prototype.$vuefront = {
     get isAMP() {
         return false;
     },
-    get options() {
+    get images() {
         return {
-            image: {
-                placeholder: placeholder,
-                categoryThumb: {
-                    width: 300,
-                    height: 180
-                },
-                product: {
-                    width: 825,
-                    height: 825
+            placeholder: placeholder,
+            categoryThumb: {
+                width: 300,
+                height: 180
+            },
+            product: {
+                width: 825,
+                height: 825
 
-                },
-                productThumb: {
-                    width: 300,
-                    height: 300
-                },
-                productThumbInline: {
-                    width: 200,
-                    height: 200
-                },
-                post: {
-                    width: 825, //10x6
-                    height: 495
-                },
-                postThumb: {
-                    width: 300, //10x6
-                    height: 180
-                },
-                postThumbInline: {
-                    width: 200, //10x6
-                    height: 120
-                }
+            },
+            productThumb: {
+                width: 300,
+                height: 300
+            },
+            productThumbInline: {
+                width: 200,
+                height: 200
+            },
+            post: {
+                width: 825, //10x6
+                height: 495
+            },
+            postThumb: {
+                width: 300, //10x6
+                height: 180
+            },
+            postThumbInline: {
+                width: 200, //10x6
+                height: 120
             }
         }
     }

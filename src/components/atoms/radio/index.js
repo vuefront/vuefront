@@ -1,1 +1,2 @@
-export {default as aRadio} from './radion.vue'
+export { default as aRadio }
+from './radio.vue'
