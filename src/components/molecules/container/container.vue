@@ -1,14 +1,23 @@
 <template>
-  <b-container class="vf-m-container" :fluid="fluid">
+  <div class="container mx-auto" :class="{'vf-m-container--fluid': fluid, 'sm:container': size === 'sm', 'lg:container': size === 'lg'}">
     <slot></slot>
-  </b-container>
+  </div>
 </template>
 <script>
-import { BContainer } from "bootstrap-vue";
-export default {
-  components: {
-    BContainer
-  },
-  props: ["fluid"]
-};
+  export default {
+    props: {
+      fluid: {
+        type: Boolean,
+        default() {
+          return false
+        }
+      },
+      size: {
+        type: String,
+        default() {
+          return null
+        }
+      }
+    }
+  }
 </script>

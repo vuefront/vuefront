@@ -51,13 +51,12 @@
   </section>
 </template>
 <script>
-import { VBToggle } from "bootstrap-vue";
-import { isString, isUndefined } from "lodash";
+// import { VBToggle } from "bootstrap-vue";
 import { mapGetters } from "vuex";
 export default {
-  directives: {
-    BToggle: VBToggle
-  },
+  // directives: {
+  //   BToggle: VBToggle
+  // },
   props: {
     items: {
       type: Array,
@@ -69,7 +68,7 @@ export default {
     loaded() {
       let result = false;
 
-      if (!isUndefined(this.loadedItems[this.idHash])) {
+      if (typeof this.loadedItems[this.idHash] !== 'undefined') {
         result = this.loadedItems[this.idHash];
       }
 
@@ -78,7 +77,7 @@ export default {
     menuItems() {
       let result = [];
 
-      if (!isUndefined(this.menuModules[this.idHash])) {
+      if (typeof this.menuModules[this.idHash] !== 'undefined') {
         result = [...result, ...this.menuModules[this.idHash]];
       }
 
@@ -102,7 +101,7 @@ export default {
         let asyncItems = [];
         for (const key in this.items) {
           const item = this.items[key];
-          if (isString(item)) {
+          if (typeof item === 'string') {
             asyncItems = [
               ...asyncItems,
               this.$store.dispatch(`menu/${item}/load`, {})
@@ -116,7 +115,7 @@ export default {
 
         for (const key in this.items) {
           const item = this.items[key];
-          if (isString(item)) {
+          if (typeof item === 'string') {
             result = [...result, ...this.$store.getters[`menu/${item}/get`]];
           } else {
             result = [...result, item];

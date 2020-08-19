@@ -1,33 +1,15 @@
 <template>
-  <b-col
-    :cols="xs"
-    :sm="sm"
-    :md="md"
-    :lg="lg"
-    :xl="xl"
-    :order="orderXs"
-    :order-sm="orderSm"
-    :order-md="orderMd"
-    :order-lg="orderLg"
-    :order-xl="orderXl"
-    :offset="offsetXs"
-    :offset-sm="offsetSm"
-    :offset-md="offsetMd"
-    :offset-lg="offsetLg"
-    :offset-xl="offsetXl"
-    :align-self="alignSelf"
-    :tag="tag"
+  <div
+    :is="tag"
     class="vf-m-col"
+    :class="classList"
   >
     <slot></slot>
-  </b-col>
+  </div>
 </template>
 <script>
-import { BCol } from "bootstrap-vue";
+import {capitalize} from 'lodash'
 export default {
-  components: {
-    BCol
-  },
   props: {
     alignSelf: {
       type: String,
@@ -130,6 +112,55 @@ export default {
       default() {
         return "div";
       }
+    }
+  },
+  computed: {
+    classList() {
+      let result = ['flex-1']
+
+      const sizes = ['xs', 'sm', 'md', 'lg', 'xl']
+      for (const size of sizes) {
+        const col = this.createSize(size, this[size])
+        if (col) {
+          result = [...result, col]
+        }
+        const offset = this.createSize(size, this[`offset${capitalize(size)}`], '--offset')
+        if (offset) {
+          result = [...result, offset]
+        }
+        const order = this.createSize(size, this[`order${capitalize(size)}`], '--order')
+        if (order) {
+          result = [...result, order]
+        }
+      }
+
+      if(this.alignSelf) {
+        result = [...result, `self-${this.alignSelf}`]
+      }
+
+      return result.join(' ')
+    }
+  },
+  methods: {
+    createSize(name, value, prefix = '') {
+      let result = ''
+      // if (name === 'xs') {
+      //   name = ''
+      // } else {
+      //   name = `-${name}`
+      // }
+      if ((typeof value !== 'undefined' && typeof value !== 'boolean') || (typeof value === 'boolean' && value)) {
+        if (value !== null) {
+
+          if (value === '') {
+            result =  `flex-1`
+          } else {
+            result = `${name}:w-${value}/12`
+          }
+        }
+      }
+
+      return result
     }
   }
 };

@@ -5,36 +5,36 @@
         <vf-m-col sm="4" class="mb-5 mb-lg-0">
           <div>
             <vf-a-image
-            :src="logo"
-            :width-amp="$vuefront.images.logo.width"
-            :height-amp="$vuefront.images.logo.height"
-            alt
-            width="180"
-            class="mb-3"
+              :src="logo"
+              :width-amp="$vuefront.images.logo.width"
+              :height-amp="$vuefront.images.logo.height"
+              alt
+              width="180"
+              class="mb-3"
             />
             <p>{{$t('elements.common.footer.descriptionText')}}</p>
           </div>
         </vf-m-col>
         <vf-m-col sm="4" md="6" lg="2" class="ml-lg-auto mb-5 mb-lg-0">
-          <vf-o-position name="footerLeft" />
+          <!-- <vf-o-position name="footerLeft" /> -->
         </vf-m-col>
         <vf-m-col sm="4" md="6" lg="2" class="mb-5 mb-lg-0">
-          <vf-o-position name="footerCenter" />
+          <!-- <vf-o-position name="footerCenter" /> -->
         </vf-m-col>
         <vf-m-col sm="4" md="6" lg="2" class="mb-5 mb-lg-0">
-          <vf-o-position name="footerRight" />
+          <!-- <vf-o-position name="footerRight" /> -->
         </vf-m-col>
       </vf-m-row>
       <vf-m-row class="py-4 mt-4 delimiter-top">
         <vf-m-col md="6">
           <div
-            class="text-sm text-center text-md-left"
+            class="text-sm text-center md:text-left"
             v-html="$t('elements.common.footer.copyrightText')"
           />
         </vf-m-col>
         <vf-m-col md="6">
           <div
-            class="text-sm text-center text-md-right"
+            class="text-sm text-center md:text-right"
             v-html="$t('elements.common.footer.poweredText')"
           />
         </vf-m-col>
@@ -52,7 +52,7 @@ export default {
       if (typeof this.$vuefront.images.footerLogo !== "undefined") {
         return this.$vuefront.images.footerLogo.image;
       } else {
-        return "";
+        return "https://vuefront.com/logo.png";
       }
     }
   }

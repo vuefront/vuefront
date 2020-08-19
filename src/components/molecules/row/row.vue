@@ -1,14 +1,10 @@
 <template>
-  <b-row :no-gutters="noGutters" :tag="tag" :align-v="alignV" :align-h="alignH">
+  <div class="flex flex-wrap">
     <slot></slot>
-  </b-row>
+  </div>
 </template>
 <script>
-import { BRow } from "bootstrap-vue";
 export default {
-  components: {
-    BRow
-  },
   props: {
     tag: {
       type: String,

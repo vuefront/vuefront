@@ -1,24 +1,15 @@
 <template>
-  <div
-    :is="nav? 'b-nav-item-dropdown': 'b-dropdown'"
-    :variant="variant"
-    :right="right"
-    :size="size"
-    class="vf-m-dropdown"
-  >
-    <template slot="button-content">
+  <t-dropdown text="Menu">
+    <template slot="button">
       <slot name="button-content"></slot>
     </template>
-    <slot></slot>
-  </div>
+    <div class="py-1 rounded-md shadow-xs">
+      <slot></slot>
+    </div>
+  </t-dropdown>
 </template>
 <script>
-import { BDropdown, BNavItemDropdown } from "bootstrap-vue";
 export default {
-  components: {
-    BDropdown,
-    BNavItemDropdown
-  },
   props: {
     right: {
       type: Boolean,
