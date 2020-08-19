@@ -23,6 +23,7 @@
     <vf-a-pagination
       :page="products.number"
       :totalPages="products.totalPages"
+      :totalProducts="products.totalElements"
       @input="handleChangePage"
     />
   </div>
