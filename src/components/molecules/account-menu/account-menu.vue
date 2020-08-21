@@ -1,6 +1,7 @@
 <template>
   <vf-m-dropdown class="vf-m-account-menu" variant="link" size="sm" right>
     <template slot="button-content">
+      Account
       <vf-a-icon :icon="['far', 'user-circle']" />
     </template>
     <vf-m-dropdown-item

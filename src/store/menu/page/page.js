@@ -1,4 +1,5 @@
-import pageMenuGql from "./page.graphql";
+// import pageMenuGql from "./page.graphql";
+import gql from 'graphql-tag'
 
 export const state = () => ({
   entities: []
@@ -33,7 +34,15 @@ export const actions = {
     await dispatch(
       "apollo/query",
       {
-        query: pageMenuGql,
+        query: `{
+          pagesList (page: 1, size: -1) {
+            content {
+              id
+              title
+              url(url: "/page/_id")
+            }
+          }
+        }`,
         variables: {
           url: "/common/page/_id"
         }

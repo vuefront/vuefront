@@ -1,6 +1,7 @@
-import omitDeepLodash from 'omit-deep-lodash'
+// import omitDeepLodash from 'omit-deep-lodash'
 import Axios from 'axios'
 import FormData from 'form-data'
+import { print } from 'graphql/language/printer'
 
 export const state = () => ({
   data: {},
@@ -29,13 +30,14 @@ export const mutations = {
 export const actions = {
   async query({commit}, options) {
     try {
-      const variables = omitDeepLodash(options.variables, '__typename')
-      let res = await this.$vfapollo.query({...options, variables})
+      // const variables = omitDeepLodash(options.variables, '__typename')
+      let {data} = await this.$axios.post(process.env.API_URL, {query: typeof options.query === 'string'? options.query : print(options.query), variables: options.variables}) 
 
-      res = omitDeepLodash(res, '__typename')
+      // data = omitDeepLodash(data, '__typename')
       commit('vuefront/setError', false, {root: true})
-      commit('setData', res)
+      commit('setData', data)
     } catch (e) {
+      console.log(e)
       commit('vuefront/setError', e.graphQLErrors ? e.graphQLErrors[0] : e, {
         root: true
       })
@@ -43,17 +45,17 @@ export const actions = {
   },
   async mutate({commit}, options) {
     try {
-      const variables = omitDeepLodash(options.variables, '__typename')
-      const res = await this.$vfapollo.mutate({...options, variables})
-      if (!res.errors) {
+      // const variables = omitDeepLodash(options.variables, '__typename')
+      let {data} = await this.$axios.post(process.env.API_URL, {mutation: typeof options.query === 'string'? options.query : print(options.query), variables: options.variables}) 
+      if (!data.errors) {
         commit('vuefront/setError', false, {root: true})
-        commit('setData', res)
+        commit('setData', data)
       } else {
-        commit('vuefront/setError', res.errors, {
+        commit('vuefront/setError', data.errors, {
           root: true
         })
       }
-      this.$vfapollo.clearStore()
+      // this.$vfapollo.clearStore()
     } catch (e) {
 
       commit('vuefront/setError', e.graphQLErrors ? e.graphQLErrors[0] : e, {

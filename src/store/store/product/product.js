@@ -1,5 +1,5 @@
-import reviewAddGql from './addReview.graphql'
-
+// import reviewAddGql from './addReview.graphql'
+import gql from 'graphql-tag'
 export const state = () => ({
   entities: {},
   product: {},
@@ -36,7 +36,57 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: reviewAddGql,
+        mutation: `mutation ($id: String, $content: String, $author: String, $rating: Float, $limit: Int, $productLimit: Int) {
+          addReview(id: $id, content: $content, author: $author, rating: $rating) {
+              id
+              name
+              shortDescription
+              description
+              model
+              stock
+              price
+              special
+              image
+              reviews {
+                  author
+                  author_email
+                  content
+                  created_at
+                  rating
+              }
+              options {
+                  id
+                  name
+                  type
+                  values {
+                      id
+                      name
+                  }
+              }
+              imageLazy
+              imageBig
+              rating
+              images(limit: $limit) {
+                  image
+                  imageLazy
+                  imageBig
+              }
+              attributes {
+                  name
+                  options
+              }
+              products(limit: $productLimit) {
+                  id
+                  image
+                  imageLazy
+                  description
+                  shortDescription
+                  price
+                  name
+              }
+          }
+      }
+      `,
         variables: reviewData
       },
       {

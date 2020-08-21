@@ -1,5 +1,6 @@
-import addToWishlistGraphql from './add.graphql'
-import removeWishlistGraphql from './remove.graphql'
+// import addToWishlistGraphql from './add.graphql'
+// import removeWishlistGraphql from './remove.graphql'
+import gql from 'graphql-tag'
 
 export const state = () => ({
   wishlist: {}
@@ -22,7 +23,17 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: addToWishlistGraphql,
+        mutation: `mutation($id: Int) {
+          addToWishlist(id: $id) {
+            id
+            name
+            model
+            price
+            image
+            imageLazy
+          }
+        }
+        `,
         variables: {
           id: Number(product.id)
         }
@@ -48,7 +59,17 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: removeWishlistGraphql,
+        mutation: `mutation($id: String) {
+          removeWishlist(id: $id) {
+            id
+            name
+            model
+            price
+            image
+            imageLazy
+          }
+        }
+        `,
         variables: {
           id
         }

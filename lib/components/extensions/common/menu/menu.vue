@@ -2,7 +2,7 @@
   <section class="vf-e-common-menu">
     <div class="vf-e-common-menu__item" v-for="(item, index) in menuItems" :key="index">
       <vf-a-link :to="item.to" class="vf-e-common-menu__link">
-        <div class="vf-e-common-menu__title" v-b-toggle.menu-collapse>{{item.title}}</div>
+        <div class="vf-e-common-menu__title">{{item.title}}</div>
         <vf-a-icon
           icon="angle-down"
           v-if="item.children && item.children.length > 0"
@@ -18,7 +18,6 @@
           <vf-a-link
             :to="subItem.to"
             class="vf-e-common-menu__link vf-e-common-menu__link--lg"
-            v-b-toggle.menu-collapse
           >
             <div class="vf-e-common-menu__title">
               {{subItem.title}}
@@ -38,7 +37,6 @@
               class="vf-e-common-menu__item"
               v-for="(value, subKey) in subItem.children"
               :key="subKey"
-              v-b-toggle.menu-collapse
             >
               <vf-a-link :to="value.to" class="vf-e-common-menu__link vf-e-common-menu__link--md">
                 <div class="vf-e-common-menu__title">{{value.title}}</div>

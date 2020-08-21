@@ -1,5 +1,4 @@
 import {isUndefined} from 'lodash'
-import Vue from 'vue'
 export const state = () => ({
   error: false,
   ssr: false
@@ -40,14 +39,18 @@ export const actions = {
       commit('common/customer/setToken', this.$cookies.get('token'), {root: true})
       await Promise.all([
         dispatch('common/language/load', {}, { root: true }),
-        dispatch('common/customer/checkLogged', {}, { root: true })
+        dispatch('common/customer/checkLogged', {}, { root: true }),
+        dispatch('store/currency/load', {}, { root: true })
       ])
   
     } else {
-      await dispatch('common/language/load', {}, { root: true })
+      await Promise.all([
+        dispatch('common/language/load', {}, { root: true }),
+        dispatch('store/currency/load', {}, { root: true })
+      ])
     }
 
-    dispatch('store/currency/load', {}, { root: true })
+    
 
     if (this.$cookies.get('mode')) {
       commit('store/category/setMode', this.$cookies.get('mode'), {

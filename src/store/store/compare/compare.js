@@ -1,5 +1,6 @@
-import addToCompareGraphql from './add.graphql'
-import removeCompareGraphql from './remove.graphql'
+// import addToCompareGraphql from './add.graphql'
+// import removeCompareGraphql from './remove.graphql'
+import gql from 'graphql-tag'
 
 export const state = () => ({
   compare: {}
@@ -18,24 +19,24 @@ export const mutations = {
 }
 
 export const actions = {
-  async load({ commit, dispatch, rootGetters }) {
-    await dispatch(
-      'apollo/query',
-      {
-        query: compareGetGql
-      },
-      { root: true }
-    )
-
-    if (!rootGetters['vuefront/error']) {
-      commit('setCompare', rootGetters['apollo/get'].compare)
-    }
-  },
   async add({ commit, dispatch, rootGetters }, { product }) {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: addToCompareGraphql,
+        mutation: `mutation($id: Int) {
+          addToCompare(id: $id) {
+            id
+            name
+            shortDescription
+            model
+            price
+            special
+            stock
+            image
+            imageLazy
+          }
+        }
+        `,
         variables: {
           id: Number(product.id)
         }
@@ -61,7 +62,20 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: removeCompareGraphql,
+        mutation: `mutation($id: String) {
+          removeCompare(id: $id) {
+            id
+            name
+            shortDescription
+            model
+            price
+            special
+            stock
+            image
+            imageLazy
+          }
+        }
+        `,
         variables: {
           id
         }

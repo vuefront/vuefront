@@ -1,5 +1,6 @@
-import ZonesGql from './list.graphql'
-import ZoneGql from './get.graphql'
+// import ZonesGql from './list.graphql'
+// import ZoneGql from './get.graphql'
+import gql from 'graphql-tag'
 
 export const state = () => ({
   zone: false,
@@ -31,7 +32,21 @@ export const actions = {
     await dispatch(
       'apollo/query',
       {
-        query: ZonesGql,
+        query: `query($page: Int, $size: Int, $country_id: String) {
+          zonesList(page: $page, size: $size, country_id: $country_id) {
+            content {
+              id
+              name
+            }
+            totalPages
+            totalElements
+            first
+            last
+            number
+            numberOfElements
+          }
+        }
+        `,
         variables: zoneData
       },
       {
@@ -46,7 +61,13 @@ export const actions = {
     await dispatch(
       'apollo/query',
       {
-        query: ZoneGql,
+        query: `query($id: String) {
+          zone(id: $id) {
+            id
+            name
+          }
+        }
+        `,
         variables: { id }
       },
       {

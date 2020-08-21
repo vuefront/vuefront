@@ -1,9 +1,10 @@
-import RegisterGql from './register.graphql'
-import LoginGql from './login.graphql'
-import LogoutGql from './logout.graphql'
-import EditGql from './edit.graphql'
-import EditPasswordGql from './editPassword.graphql'
-import CheckGql from './check.graphql'
+// import RegisterGql from './register.graphql'
+// import LoginGql from './login.graphql'
+// import LogoutGql from './logout.graphql'
+// import EditGql from './edit.graphql'
+// import EditPasswordGql from './editPassword.graphql'
+// import CheckGql from './check.graphql'
+import gql from 'graphql-tag'
 
 export const state = () => ({
   customer: null,
@@ -41,7 +42,18 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: LoginGql,
+        mutation: `mutation($email: String, $password: String) {
+          accountLogin(email: $email, password: $password) {
+            token
+            customer {
+              id
+              firstName
+              lastName
+              email
+            }
+          }
+        }
+        `,
         variables: customerData
       },
       {
@@ -63,7 +75,12 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: LogoutGql
+        mutation: `mutation {
+          accountLogout {
+            status
+          }
+        }
+        `
       },
       {
         root: true
@@ -80,7 +97,15 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: EditGql,
+        mutation: `mutation($customer: CustomerInput) {
+          accountEdit(customer: $customer) {
+            id
+            firstName
+            lastName
+            email
+          }
+        }
+        `,
         variables: {
           customer: customerData
         }
@@ -102,7 +127,15 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: EditPasswordGql,
+        mutation: `mutation($password: String) {
+          accountEditPassword(password: $password) {
+            id
+            firstName
+            lastName
+            email
+          }
+        }
+        `,
         variables: {
           password
         }
@@ -123,7 +156,15 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: RegisterGql,
+        mutation: `mutation($customer: CustomerInput) {
+          accountRegister(customer: $customer) {
+            id
+            firstName
+            lastName
+            email
+          }
+        }
+        `,
         variables: {
           customer: customerData
         }
@@ -144,7 +185,17 @@ export const actions = {
     await dispatch(
       'apollo/query',
       {
-        query: CheckGql
+        query: `{
+          accountCheckLogged {
+            status
+            customer {
+              id
+              lastName
+              firstName
+              email
+            }
+          }
+        }`
       },
       {
         root: true

@@ -1,6 +1,7 @@
-import editLanguageGraphql from './edit.graphql'
-import languageGetGql from './get.graphql'
-import {find, isEmpty} from 'lodash'
+// import editLanguageGraphql from './edit.graphql'
+// import languageGetGql from './get.graphql'
+import {find} from 'lodash'
+import gql from 'graphql-tag'
 
 export const state = () => ({
   language: [],
@@ -30,7 +31,14 @@ export const actions = {
     await dispatch(
       'apollo/query',
       {
-        query: languageGetGql
+        query: `{
+          language {
+            name
+            image
+            code
+            active
+          }
+        }`
       },
       { root: true }
     )
@@ -48,7 +56,14 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: editLanguageGraphql,
+        mutation: `mutation($code: String) {
+          editLanguage(code: $code) {
+            name
+            image
+            code
+            active
+          }
+        }`,
         variables: {
           code
         }

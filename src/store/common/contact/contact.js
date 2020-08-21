@@ -1,5 +1,4 @@
-import ContactSendGql from './send.graphql'
-import ContactGql from './get.graphql'
+import gql from 'graphql-tag'
 
 export const state = () => ({
   contact: null
@@ -22,7 +21,11 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: ContactSendGql,
+        mutation: `mutation($name: String, $email: String, $message: String) {
+          contactSend(name: $name, email: $email, message: $message) {
+            status
+          }
+        }`,
         variables: contactData
       },
       {
@@ -47,7 +50,26 @@ export const actions = {
     await dispatch(
       'apollo/query',
       {
-        query: ContactGql
+        query: `{
+          contact {
+            locations {
+              address
+              fax
+              image
+              geocode
+              telephone
+              open,
+              comment
+            }
+            address
+            email
+            fax
+            comment
+            open
+            store
+            telephone
+          }
+        }`
       },
       {
         root: true

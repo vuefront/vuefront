@@ -23,8 +23,8 @@
           <vf-m-cart-link />
         </vf-m-col>
       </vf-m-row>
-      <vf-e-menu :items="['store', 'blog']"/>
-      <!-- <vf-o-position class="vf-o-header__menu" name="headerMenu" /> -->
+      <!-- <vf-e-menu :items="['store', 'blog']"/> -->
+      <vf-o-position class="vf-o-header__menu" name="headerMenu" />
     </vf-m-container>
   </section>
 </template>

@@ -11,6 +11,7 @@
 <script>
 import { mapGetters } from "vuex";
 import { isUndefined } from "lodash";
+// import { print } from 'graphql/language/printer'
 export default {
   props: ["query", "variables"],
   data() {
@@ -73,9 +74,9 @@ export default {
         if (this.$parent.$options.query) {
           query = this.$parent.$options.query;
         }
-        this.$vfapollo
-          .query({
-            query,
+        this.$axios
+          .post(process.env.API_URL, {
+            query: query.loc.source.body,
             variables: this.variables ? this.variables : {}
           })
           .then(({ data }) => {

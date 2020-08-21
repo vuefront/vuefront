@@ -1,5 +1,7 @@
-import editCurrencyGraphql from './edit.graphql'
-import currencyGetGql from './get.graphql'
+// import editCurrencyGraphql from './edit.graphql'
+// import currencyGetGql from './get.graphql'
+import gql from 'graphql-tag'
+import Vue from 'vue'
 
 export const state = () => ({
   currency: []
@@ -13,7 +15,7 @@ export const getters = {
 
 export const mutations = {
   setCurrency(state, currency) {
-    state.currency = currency
+    Vue.set(state, 'currency', currency)
   }
 }
 
@@ -22,7 +24,15 @@ export const actions = {
     await dispatch(
       'apollo/query',
       {
-        query: currencyGetGql
+        query: `{
+          currency {
+            code
+            symbol_left
+            symbol_right
+            title
+            active
+          }
+        }`
       },
       { root: true }
     )
@@ -35,7 +45,15 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: editCurrencyGraphql,
+        mutation: `mutation($code: String) {
+          editCurrency(code: $code) {
+            code
+            symbol_left
+            symbol_right
+            title
+            active
+          }
+        }`,
         variables: {
           code
         }

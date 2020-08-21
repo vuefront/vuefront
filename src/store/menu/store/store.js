@@ -1,4 +1,5 @@
-import categoryMenuGql from './query.graphql'
+// import categoryMenuGql from './query.graphql'
+import gql from 'graphql-tag'
 
 export const state = () => ({
   entities: []
@@ -21,7 +22,26 @@ export const actions = {
     await dispatch(
       'apollo/query',
       {
-        query: categoryMenuGql,
+        query: `query($url: String) {
+          categoriesMenu: categoriesList(parent: 0, size: -1) {
+            content {
+              id
+              title: name
+              to: url(url: $url)
+              children: categories {
+                id
+                title: name
+                to: url(url: $url)
+                children: categories {
+                  id
+                  title: name
+                  to: url(url: $url)
+                }
+              }
+            }
+          }
+        }
+        `,
         variables: {
           url: '/store/category/_id'
         }

@@ -1,6 +1,4 @@
-import AddressAddGql from './create.graphql'
-import AddressEditGql from './edit.graphql'
-import AddressRemoveGql from './remove.graphql'
+import gql from 'graphql-tag'
 
 export const state = () => ({
   address: false,
@@ -30,7 +28,20 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: AddressAddGql,
+        mutation: `mutation($address: AccountAddressInput) {
+          accountAddAddress(address: $address) {
+              id
+              firstName
+              lastName
+              city
+              company
+              zipcode
+              countryId
+              address1
+              address2
+          }
+        }
+        `,
         variables: {
           address
         }
@@ -52,7 +63,20 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: AddressEditGql,
+        mutation: `mutation($id: String, $address: AccountAddressInput) {
+          accountEditAddress(id: $id, address: $address) {
+              id
+              firstName
+              lastName
+              city
+              company
+              zipcode
+              address1
+              countryId
+              address2
+          }
+        }
+        `,
         variables: {
           id,
           address
@@ -75,7 +99,29 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: AddressRemoveGql,
+        mutation: `mutation($id: String) {
+          accountRemoveAddress(id: $id, page: 1, size: -1) {
+            id
+            firstName
+            lastName
+            address1
+            address2
+            zoneId
+            zone {
+              id
+              name
+            }
+            countryId
+            country {
+              id
+              name
+            }
+            city
+            company
+            zipcode
+          }
+        }
+        `,
         variables: {
           id
         }

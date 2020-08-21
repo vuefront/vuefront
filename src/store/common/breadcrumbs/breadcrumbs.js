@@ -1,4 +1,3 @@
-import { isUndefined } from "lodash";
 import Vue from 'vue'
 export const state = () => ({
     items: [],
@@ -40,8 +39,8 @@ export const actions = {
         }
         if (this.$router.currentRoute.matched.length > 0) {
             const component = this.$router.currentRoute.matched[0].instances.default;
-            if (!isUndefined(component) &&
-                !isUndefined(component.$options.breadcrumbs)
+            if (typeof component !== 'undefined' &&
+                typeof component.$options.breadcrumbs !== 'undefined'
             ) {
                 const result = component.$options.breadcrumbs.call(component);
                 breadcrumbs = [

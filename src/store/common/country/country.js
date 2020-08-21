@@ -1,5 +1,4 @@
-import CountriesGql from './list.graphql'
-import CountryGql from './get.graphql'
+import gql from 'graphql-tag'
 
 export const state = () => ({
   country: false,
@@ -29,7 +28,21 @@ export const actions = {
     await dispatch(
       'apollo/query',
       {
-        query: CountriesGql,
+        query: `query($page: Int, $size: Int) {
+          countriesList(page: $page, size: $size) {
+            content {
+              id
+              name
+            }
+            totalPages
+            totalElements
+            first
+            last
+            number
+            numberOfElements
+          }
+        }
+        `,
         variables: {page, size}
       },
       {
@@ -44,7 +57,13 @@ export const actions = {
     await dispatch(
       'apollo/query',
       {
-        query: CountryGql,
+        query: `query($id: String) {
+          country(id: $id) {
+            id
+            name
+          }
+        }
+        `,
         variables: { id }
       },
       {
