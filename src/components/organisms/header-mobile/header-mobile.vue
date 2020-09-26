@@ -7,7 +7,7 @@
       <vf-m-logo class="mx-auto ml-2" />
       <vf-m-cart-link />
     </vf-m-container>
-    <!-- <vf-m-collapse id="menu-collapse">
+    <vf-m-collapse id="menu-collapse">
       <vf-o-sidebar>
         <template #top>
           <vf-o-search-inline-form />
@@ -23,14 +23,14 @@
         </template>
         <vf-o-position name="headerMenu" />
       </vf-o-sidebar>
-    </vf-m-collapse> -->
+    </vf-m-collapse>
   </section>
 </template>
 <script>
-// import { VBToggle } from "bootstrap-vue";
+import { VBToggle } from "bootstrap-vue";
 export default {
-  // directives: {
-  //   BToggle: VBToggle
-  // }
+  directives: {
+    BToggle: VBToggle
+  }
 };
 </script>

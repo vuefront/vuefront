@@ -116,7 +116,7 @@ export default {
   },
   computed: {
     classList() {
-      let result = ['flex-1']
+      let result = []
 
       const sizes = ['xs', 'sm', 'md', 'lg', 'xl']
       for (const size of sizes) {

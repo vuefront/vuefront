@@ -16,13 +16,13 @@
           </div>
         </vf-m-col>
         <vf-m-col sm="4" md="6" lg="2" class="ml-lg-auto mb-5 mb-lg-0">
-          <!-- <vf-o-position name="footerLeft" /> -->
+          <vf-o-position name="footerLeft" />
         </vf-m-col>
         <vf-m-col sm="4" md="6" lg="2" class="mb-5 mb-lg-0">
-          <!-- <vf-o-position name="footerCenter" /> -->
+          <vf-o-position name="footerCenter" />
         </vf-m-col>
         <vf-m-col sm="4" md="6" lg="2" class="mb-5 mb-lg-0">
-          <!-- <vf-o-position name="footerRight" /> -->
+          <vf-o-position name="footerRight" />
         </vf-m-col>
       </vf-m-row>
       <vf-m-row class="py-4 mt-4 delimiter-top">

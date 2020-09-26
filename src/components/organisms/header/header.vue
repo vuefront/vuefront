@@ -17,13 +17,12 @@
           <vf-m-logo />
         </vf-m-col>
         <vf-m-col md="auto" align-self="center">
-          <!-- <vf-o-search-inline-form class="mx-auto" /> -->
+         <vf-o-search-inline-form class="mx-auto" />
         </vf-m-col>
         <vf-m-col md class="md:text-right" align-self="center">
           <vf-m-cart-link />
         </vf-m-col>
       </vf-m-row>
-      <!-- <vf-e-menu :items="['store', 'blog']"/> -->
       <vf-o-position class="vf-o-header__menu" name="headerMenu" />
     </vf-m-container>
   </section>
