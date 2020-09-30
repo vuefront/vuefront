@@ -56,7 +56,7 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: `mutation($code: String) {
+        mutation: gql`mutation($code: String) {
           editLanguage(code: $code) {
             name
             image

@@ -45,7 +45,7 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: `mutation($code: String) {
+        mutation: gql`mutation($code: String) {
           editCurrency(code: $code) {
             code
             symbol_left

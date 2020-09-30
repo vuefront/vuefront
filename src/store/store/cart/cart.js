@@ -29,7 +29,7 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: `mutation ($id: String, $quantity: Int, $options: [CartOption]) {
+        mutation: gql`mutation ($id: String, $quantity: Int, $options: [CartOption]) {
           addToCart(id: $id, quantity: $quantity, options: $options) {
               products {
                   key
@@ -86,7 +86,7 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: `mutation ($key: String, $quantity: Int) {
+        mutation: gql`mutation ($key: String, $quantity: Int) {
           updateCart(key: $key, quantity: $quantity) {
               products {
                   key
@@ -128,7 +128,7 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: `mutation ($key: String) {
+        mutation: gql`mutation ($key: String) {
           removeCart(key: $key) {
               products {
                   key

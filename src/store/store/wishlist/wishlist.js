@@ -23,7 +23,7 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: `mutation($id: Int) {
+        mutation: gql`mutation($id: Int) {
           addToWishlist(id: $id) {
             id
             name
@@ -59,7 +59,7 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: `mutation($id: String) {
+        mutation: gql`mutation($id: String) {
           removeWishlist(id: $id) {
             id
             name

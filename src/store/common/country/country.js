@@ -28,7 +28,7 @@ export const actions = {
     await dispatch(
       'apollo/query',
       {
-        query: `query($page: Int, $size: Int) {
+        query: gql`query($page: Int, $size: Int) {
           countriesList(page: $page, size: $size) {
             content {
               id
@@ -57,7 +57,7 @@ export const actions = {
     await dispatch(
       'apollo/query',
       {
-        query: `query($id: String) {
+        query: gql`query($id: String) {
           country(id: $id) {
             id
             name

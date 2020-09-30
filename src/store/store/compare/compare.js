@@ -23,7 +23,7 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: `mutation($id: Int) {
+        mutation: gql`mutation($id: Int) {
           addToCompare(id: $id) {
             id
             name
@@ -62,7 +62,7 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: `mutation($id: String) {
+        mutation: gql`mutation($id: String) {
           removeCompare(id: $id) {
             id
             name

@@ -42,7 +42,7 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: `mutation($email: String, $password: String) {
+        mutation: gql`mutation($email: String, $password: String) {
           accountLogin(email: $email, password: $password) {
             token
             customer {
@@ -75,7 +75,7 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: `mutation {
+        mutation: gql`mutation {
           accountLogout {
             status
           }
@@ -97,7 +97,7 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: `mutation($customer: CustomerInput) {
+        mutation: gql`mutation($customer: CustomerInput) {
           accountEdit(customer: $customer) {
             id
             firstName
@@ -127,7 +127,7 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: `mutation($password: String) {
+        mutation: gql`mutation($password: String) {
           accountEditPassword(password: $password) {
             id
             firstName
@@ -156,7 +156,7 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: `mutation($customer: CustomerInput) {
+        mutation: gql`mutation($customer: CustomerInput) {
           accountRegister(customer: $customer) {
             id
             firstName

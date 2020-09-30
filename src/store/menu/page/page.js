@@ -34,7 +34,7 @@ export const actions = {
     await dispatch(
       "apollo/query",
       {
-        query: `{
+        query: gql`{
           pagesList (page: 1, size: -1) {
             content {
               id

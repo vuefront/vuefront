@@ -21,7 +21,7 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: `mutation($name: String, $email: String, $message: String) {
+        mutation: gql`mutation($name: String, $email: String, $message: String) {
           contactSend(name: $name, email: $email, message: $message) {
             status
           }

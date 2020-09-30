@@ -22,7 +22,7 @@ export const actions = {
     await dispatch(
       'apollo/query',
       {
-        query: `query($url: String) {
+        query: gql`query($url: String) {
           categoriesMenu: categoriesBlogList(parent: 0, size: -1) {
             content {
               id
@@ -47,6 +47,7 @@ export const actions = {
       },
       {root: true}
     )
+
     if (!rootGetters['vuefront/error']) {
       const {categoriesMenu} = rootGetters['apollo/get']
       commit('setEntities', categoriesMenu)

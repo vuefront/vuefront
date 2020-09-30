@@ -28,7 +28,7 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: `mutation($address: AccountAddressInput) {
+        mutation: gql`mutation($address: AccountAddressInput) {
           accountAddAddress(address: $address) {
               id
               firstName
@@ -63,7 +63,7 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: `mutation($id: String, $address: AccountAddressInput) {
+        mutation: gql`mutation($id: String, $address: AccountAddressInput) {
           accountEditAddress(id: $id, address: $address) {
               id
               firstName
@@ -99,7 +99,7 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: `mutation($id: String) {
+        mutation: gql`mutation($id: String) {
           accountRemoveAddress(id: $id, page: 1, size: -1) {
             id
             firstName

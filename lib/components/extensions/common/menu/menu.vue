@@ -49,12 +49,12 @@
   </section>
 </template>
 <script>
-// import { VBToggle } from "bootstrap-vue";
+import { VBToggle } from "bootstrap-vue";
 import { mapGetters } from "vuex";
 export default {
-  // directives: {
-  //   BToggle: VBToggle
-  // },
+  directives: {
+    BToggle: VBToggle
+  },
   props: {
     items: {
       type: Array,

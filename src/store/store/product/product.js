@@ -36,7 +36,7 @@ export const actions = {
     await dispatch(
       'apollo/mutate',
       {
-        mutation: `mutation ($id: String, $content: String, $author: String, $rating: Float, $limit: Int, $productLimit: Int) {
+        mutation: gql`mutation ($id: String, $content: String, $author: String, $rating: Float, $limit: Int, $productLimit: Int) {
           addReview(id: $id, content: $content, author: $author, rating: $rating) {
               id
               name
