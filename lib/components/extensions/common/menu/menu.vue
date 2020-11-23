@@ -78,7 +78,6 @@ export default {
       if (typeof this.menuModules[this.idHash] !== 'undefined') {
         result = [...result, ...this.menuModules[this.idHash]];
       }
-
       return result;
     },
     idHash() {

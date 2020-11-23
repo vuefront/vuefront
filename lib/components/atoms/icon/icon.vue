@@ -1,13 +1,19 @@
 <template>
-  <i class="vf-a-icon" :class="currentIcon"></i>
+  <i class="vf-a-icon" :class="currentIcon" :style="{ backgroundImage: `url('${getIconFromAssetsImg}')` }"></i>
 </template>
 <script>
 import { isArray, join } from "lodash";
 export default {
-  props: ["icon", "size"],
+  props: ["icon", "size", "img"],
   computed: {
     getIcons() {
       
+    },
+    getIconFromAssetsImg(){
+      if(this.img){
+        return require('~/assets/img/'+this.img)
+      }
+      return null;
     },
     currentIcon() {
       let result = "";

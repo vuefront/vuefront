@@ -4,11 +4,13 @@
     :src="mainImage"
     :alt="product.title"
     :title="product.title"
-    :width="width ? width : ''"
     :width-amp="width ? width : $vuefront.images.productThumb.width"
     :height-amp="height ? height : $vuefront.images.productThumb.height"
+    :width="width? width : null"
     :class="{'card-img': card}"
+    :fluid="!width && !height"
     class="vf-m-product-thumb-image"
+    cover
   />
 </template>
 <script>

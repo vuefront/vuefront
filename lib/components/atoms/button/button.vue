@@ -1,5 +1,5 @@
 <template>
-  <b-button
+  <t-button
     v-on="$listeners"
     v-bind="$attrs"
     :variant="color"
@@ -20,7 +20,7 @@
     <span v-if="$slots.hidden" class="btn-inner--hidden">
       <slot name="hidden"></slot>
     </span>
-  </b-button>
+  </t-button>
 </template>
 <script>
 import { BButton } from "bootstrap-vue";
@@ -68,7 +68,7 @@ export default {
     color: {
       type: String,
       default() {
-        return "primary";
+        return "success";
       }
     },
     to: {

@@ -1,14 +1,10 @@
 <template>
-  <b-alert class="vf-a-alert" :show="show" v-on="$listeners" :dismissible="dismissible">
+  <t-alert class="vf-a-alert" :show="show" v-on="$listeners" :dismissible="dismissible" :variant="variant">
     <slot></slot>
-  </b-alert>
+  </t-alert>
 </template>
 <script>
-import { BAlert } from "bootstrap-vue";
 export default {
-  components: {
-    BAlert
-  },
   props: {
     show: {
       type: [Boolean, Number, String],
@@ -17,6 +13,10 @@ export default {
     dismissible: {
       type: Boolean,
       default: false
+    },
+    variant:{
+      type:[String],
+      default: 'Default'
     }
   }
 };

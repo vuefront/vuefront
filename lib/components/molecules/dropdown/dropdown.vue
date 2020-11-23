@@ -1,5 +1,5 @@
 <template>
-  <t-dropdown text="Menu">
+  <t-dropdown class="t-dropdown" text="Menu">
     <template slot="button">
       <slot name="button-content"></slot>
     </template>

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap">
+  <div class="grid grid-cols-12">
     <slot></slot>
   </div>
 </template>

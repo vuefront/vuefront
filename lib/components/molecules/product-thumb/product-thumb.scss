@@ -1,5 +1,14 @@
 .vf-m-product-thumb {
     margin-bottom: 30px;
+    & &-image {
+        min-height: 150px;
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
     &__image {
         min-height: 213px;
         display: flex;

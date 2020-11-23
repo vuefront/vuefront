@@ -153,9 +153,11 @@ export default {
         if (value !== null) {
 
           if (value === '') {
-            result =  `flex-1`
+            result =  `col-span-12`
+          } else if(value === 'auto') {
+            result = `${name}:col-${value}`
           } else {
-            result = `${name}:w-${value}/12`
+            result = `${name}:col-span-${value}`
           }
         }
       }
