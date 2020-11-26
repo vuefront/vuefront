@@ -1,7 +1,10 @@
 <template>
-  <t-alert class="vf-a-alert" :show="show" v-on="$listeners" :dismissible="dismissible" :variant="variant">
-    <slot></slot>
-  </t-alert>
+  <div class="vf-a-alert rounded p-4 flex text-sm border-l-4 mb-4" :class="getClass" v-show="localShow" v-on="$listeners">
+    <div class="flex-grow text-left">
+      <slot></slot>
+    </div>
+    <button v-if="dismissible" type="button" class="ml-4 rounded" @click="hide"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-5 w-5 fill-current h-5 w-5 fill-current"><path clip-rule="evenodd" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"></path></svg></button>
+  </div>
 </template>
 <script>
 export default {
@@ -16,8 +19,59 @@ export default {
     },
     variant:{
       type:[String],
-      default: 'Default'
+      default: 'default'
     }
+  },
+  data() {
+    return {
+      localShow: this.show
+    }
+  },
+  watch: {
+    show(show) {
+      this.localShow = show;
+    },
+    localShow(localShow) {
+      this.$emit('update:show', localShow);
+      if (this.localShow) {
+        this.$emit('shown');
+        if (typeof this.localShow === 'number') {
+          this.initTimeout();
+        }
+      } else {
+        this.$emit('hidden');
+      }
+    },
+  },
+   mounted() {
+    if (this.localShow && typeof this.localShow === 'number') {
+      this.$emit('dismiss-count-down', this.localShow)
+      this.initTimeout();
+    }
+  },
+  computed: {
+    getClass() {
+      const result = []
+
+      result.push('border-'+this.variant+'-darker')
+
+      result.push('bg-'+this.variant)
+      result.push('text-'+this.variant + '-inverted')
+
+      return result.join(' ')
+
+    }
+  },
+
+  methods: {
+    initTimeout() {
+      setTimeout(() => {
+        this.hide();
+      }, this.localShow);
+    },
+    hide() {
+      this.localShow = false;
+    },
   }
 };
 </script>

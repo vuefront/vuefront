@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-12">
+  <div class="grid grid-cols-12" :class="{'gap-4': !noGutters}">
     <slot></slot>
   </div>
 </template>

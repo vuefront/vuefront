@@ -28,7 +28,7 @@
         <vf-m-button-group class="vf-m-product-thumb__buttons" size="sm" block>
           <vf-a-button
             class="rounded-0 vf-m-product-thumb__button-buy"
-            color="light-gray"
+            color="light"
             @click="handleAddToCart"
           >
             <vf-a-icon :icon="['fas', 'shopping-cart']" />
@@ -36,14 +36,14 @@
           </vf-a-button>
           <vf-a-button
             class="vf-m-product-thumb__button-wishlist"
-            color="light-gray"
+            color="light"
             @click="handleAddToWishlist"
           >
             <vf-a-icon :icon="['fas', 'heart']" />
           </vf-a-button>
           <vf-a-button
             class="rounded-0 vf-m-product-thumb__button-compare"
-            color="light-gray"
+            color="light"
             @click="handleAddToCompare"
           >
             <vf-a-icon :icon="['fas', 'exchange-alt']" />

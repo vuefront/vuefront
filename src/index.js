@@ -273,11 +273,11 @@ const MainConfig = {
       },
       LocationGrid: "organisms/location-grid/location-grid.vue",
       ContactForm: "organisms/contact-form/contact-form.vue",
-      // Notification: "organisms/notification-snack-bar/notification-snack-bar.vue",
-      Notification: {
-        css: "organisms/notification-toast/notification-toast.scss",
-        component: "organisms/notification-toast/notification-toast.vue"
-      },
+      Notification: "organisms/notification-snack-bar/notification-snack-bar.vue",
+      // Notification: {
+      //   css: "organisms/notification-toast/notification-toast.scss",
+      //   component: "organisms/notification-toast/notification-toast.vue"
+      // },
       SearchForm: "organisms/search-form/search-form.vue",
       AddressCreateForm: "organisms/address-create-form/address-create-form.vue",
       AddressEditForm: "organisms/address-edit-form/address-edit-form.vue",

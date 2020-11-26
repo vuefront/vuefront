@@ -3,10 +3,10 @@
     <vf-m-row>
       <vf-m-col sm="6" md="2" align-self="center">
         <vf-m-button-group size="sm">
-          <vf-a-button :pressed="mode === 'grid'" color="light-gray" @click="modeValue='grid'">
+          <vf-a-button :pressed="mode === 'grid'" color="light" @click="modeValue='grid'">
             <vf-a-icon icon="th" />
           </vf-a-button>
-          <vf-a-button :pressed="mode === 'list'" color="light-gray" @click="modeValue='list'">
+          <vf-a-button :pressed="mode === 'list'" color="light" @click="modeValue='list'">
             <vf-a-icon icon="th-list" />
           </vf-a-button>
         </vf-m-button-group>

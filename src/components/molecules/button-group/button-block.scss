@@ -1,6 +1,18 @@
 // @import '~bootstrap/scss/buttons';
 // @import '~bootstrap/scss/button-group';
 .vf-m-button-group {
+  display: inline-flex;
+  > * {
+    flex: 1 1 auto;
+    &:not(:last-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    &:not(:first-child) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
   &--block {
       width: 100%;
   }
