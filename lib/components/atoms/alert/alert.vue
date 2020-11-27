@@ -17,7 +17,7 @@ export default {
       type: Boolean,
       default: false
     },
-    variant:{
+    color:{
       type:[String],
       default: 'default'
     }
@@ -53,10 +53,10 @@ export default {
     getClass() {
       const result = []
 
-      result.push('border-'+this.variant+'-darker')
+      result.push('border-'+this.color+'-darker')
 
-      result.push('bg-'+this.variant)
-      result.push('text-'+this.variant + '-inverted')
+      result.push('bg-'+this.color)
+      result.push('text-'+this.color + '-inverted')
 
       return result.join(' ')
 
@@ -67,7 +67,7 @@ export default {
     initTimeout() {
       setTimeout(() => {
         this.hide();
-      }, this.localShow);
+      }, this.localShow * 1000);
     },
     hide() {
       this.localShow = false;

@@ -1,21 +1,20 @@
 <template>
-  <b-form-select
-    :value="value"
-    :options="optionsData"
-    :value-field="valueField"
-    :text-field="textField"
-    :state="state"
+  <select
+    :value="getLocalValue"
     @input="handleChange"
-    class="vf-a-select"
-  />
+    class="vf-a-select block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+    :class="getClass"
+  >
+    <option v-for="(item, index) in options" :key="index" :value="index">{{item[textField]}}</option>
+  </select>
 </template>
 <script>
-import { BFormSelect } from "bootstrap-vue";
 export default {
-  components: {
-    BFormSelect
-  },
   props: {
+    size: {
+      type: String,
+      default: "md"
+    },
     options: {
       type: [Array, Object],
       default() {
@@ -47,6 +46,32 @@ export default {
     value: {}
   },
   computed: {
+    getClass() {
+      const result = []
+
+      if (this.size === 'sm') {
+        result.push('px-2 py-1 text-sm')
+      }
+
+      if (this.size === 'md') {
+        result.push('px-3 py-1.5 text-base')
+      }
+
+      if (this.size === 'lg') {
+        result.push('px-4 py-2 text-xl')
+      }
+
+      return result.join(' ')
+    },
+    getLocalValue() {
+      
+      for (const key in this.options) {
+        if (JSON.stringify(this.options[key][this.valueField]) === JSON.stringify(this.value)) {
+          return key
+        }
+      }
+      return null
+    },
     optionsData() {
       let result = []
 
@@ -62,8 +87,8 @@ export default {
     }
   },
   methods: {
-    handleChange(value) {
-      this.$emit("input", value);
+    handleChange(e) {
+      this.$emit("input", this.options[e.target.value][this.valueField]);
     }
   }
 };

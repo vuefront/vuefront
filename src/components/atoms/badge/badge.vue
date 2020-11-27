@@ -1,14 +1,10 @@
 <template>
-  <b-badge class="vf-a-badge" :variant="color" :pill="rounded">
+  <span class="vf-a-badge px-2 py-1 text-xs text-bold" :class="getClass">
     <slot></slot>
-  </b-badge>
+  </span>
 </template>
 <script>
-import { BBadge } from "bootstrap-vue";
 export default {
-  components: {
-    BBadge
-  },
   props: {
     color: {
       type: String,
@@ -21,6 +17,23 @@ export default {
       default() {
         return false;
       }
+    }
+  },
+  computed: {
+    getClass() {
+      const result = []
+
+      result.push('bg-'+this.color)
+      result.push('text-'+this.color + '-inverted')
+      result.push('hover:bg-'+this.color+'-darker')
+
+      if (this.rounded) {
+        result.push('rounded-full')
+      } else {
+        result.push('rounded')
+      }
+
+      return result.join(' ')
     }
   }
 };

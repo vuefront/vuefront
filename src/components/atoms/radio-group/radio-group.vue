@@ -1,24 +1,22 @@
 <template>
-  <b-form-radio-group
-    :value="value"
-    :options="options"
-    :value-field="valueField"
-    :text-field="textField"
-    :stacked="stacked"
-    :state="state"
-    @input="handleChange"
-    class="vf-a-radio-group"
-  >
-  <slot></slot>
-  </b-form-radio-group>
+  <div class="vf-a-radio-group">
+    {{label}}
+    <div :class="stacked ? 'flex flex-col' : 'flex flex-row -mx-3'">
+      <vf-a-radio :class="stacked ? '' : 'px-3 py-2'" v-for="(item, index) in options" :value="item[valueField]" v-model="localValue" :key="index">{{item[textField]}}</vf-a-radio>
+    </div>
+  </div>
 </template>
 <script>
-import { BFormRadioGroup } from "bootstrap-vue";
 export default {
-  components: {
-    BFormRadioGroup
-  },
   props: {
+    label: {
+      type: String,
+      default: null
+    },
+    state: {
+      type: Boolean,
+      default: null
+    },
     options: {
       type: [Array, Object],
       default() {
@@ -43,15 +41,29 @@ export default {
         return false
       }
     },
-    state: {
-      type: Boolean,
-      default: null
-    },
     value: {}
   },
-  methods: {
-    handleChange(value) {
-      this.$emit("input", value);
+  data() {
+    return {
+      localValue: this.value
+    }
+  },
+  watch: {
+    localValue:{
+      deep: true,
+      handler(val, oldVal) {
+        if (JSON.stringify(val) !== JSON.stringify(this.value)) {
+          this.$emit('input', val)
+        }
+      }
+    },
+    value:{
+      deep: true,
+      handler(val, oldVal) {
+        if (JSON.stringify(val) !== JSON.stringify(this.localValue)) {
+          this.localValue = val
+        }
+      }
     }
   }
 };

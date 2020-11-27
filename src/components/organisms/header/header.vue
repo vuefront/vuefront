@@ -1,7 +1,7 @@
 <template>
   <section class="vf-o-header">
     <vf-m-container>
-      <vf-m-row class="mb-3 py-2 vf-o-header__top">
+      <vf-m-row cols="2" class="mb-3 py-2 vf-o-header__top">
         <vf-m-col align-self="center" class="sm:text-left">
           <vf-o-currency />
           <vf-o-language />
@@ -12,14 +12,14 @@
           <vf-m-account-menu />
         </vf-m-col>
       </vf-m-row>
-      <vf-m-row class="mb-3 vf-o-header__bottom">
-        <vf-m-col md class="md:text-left" align-self="center">
+      <vf-m-row cols="3" class="mb-3 vf-o-header__bottom">
+        <vf-m-col class="md:text-left" align-self="center">
           <vf-m-logo />
         </vf-m-col>
         <vf-m-col md="auto" align-self="center">
          <vf-o-search-inline-form class="mx-auto" />
         </vf-m-col>
-        <vf-m-col md class="md:text-right" align-self="center">
+        <vf-m-col class="md:text-right" align-self="center">
           <vf-m-cart-link />
         </vf-m-col>
       </vf-m-row>

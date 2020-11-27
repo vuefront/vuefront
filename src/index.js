@@ -74,22 +74,13 @@ const MainConfig = {
         'ru-ru': ['ru-ru']
     },
     atoms: {
-      Alert: {
-        css: "atoms/alert/alert.scss",
-        component: "atoms/alert/alert.vue"
-      },
-      Badge: {
-        css: "atoms/badge/badge.scss",
-        component: "atoms/badge/badge.vue"
-      },
+      Alert: "atoms/alert/alert.vue",
+      Badge: "atoms/badge/badge.vue",
       Button: {
         css: "atoms/button/button.scss",
         component: "atoms/button/button.vue"
       },
-      Heading: {
-        css: "atoms/heading/heading.scss",
-        component: "atoms/heading/heading.vue"
-      },
+      Heading: "atoms/heading/heading.vue",
       Icon: {
         css: "atoms/icon/icon.scss",
         component: "atoms/icon/icon.vue"
@@ -98,10 +89,7 @@ const MainConfig = {
         css:  "atoms/image/image.scss",
         component:  "atoms/image/image.vue"
       },
-      Input: {
-        css: "atoms/input/input.scss",
-        component: "atoms/input/input.vue"
-      },
+      Input: "atoms/input/input.vue",
       Link: {
         css: "atoms/link/link.scss",
         component: "atoms/link/link.vue"
@@ -110,27 +98,12 @@ const MainConfig = {
         css: "atoms/loader/loader.scss",
         component: "atoms/loader/loader.vue"
       },
-      Pagination: {
-        css: "atoms/pagination/pagination.scss",
-        component: "atoms/pagination/pagination.vue"
-      },
-      Select: {
-        css: "atoms/select/select.scss",
-        component: "atoms/select/select.vue"
-      },
-      Textarea: {
-        css: "atoms/textarea/textarea.scss",
-        component: "atoms/textarea/textarea.vue"
-      },
-      Radio: {
-        css: "atoms/radio/radio.scss",
-        component: "atoms/radio/radio.vue"
-      },
+      Pagination: "atoms/pagination/pagination.vue",
+      Select: "atoms/select/select.vue",
+      Textarea: "atoms/textarea/textarea.vue",
+      Radio: "atoms/radio/radio.vue",
       RadioGroup: "atoms/radio-group/radio-group.vue",
-      Checkbox: {
-        css: "atoms/checkbox/checkbox.vue",
-        component: "atoms/checkbox/checkbox.vue"
-      },
+      Checkbox: "atoms/checkbox/checkbox.vue",
       CheckboxGroup: "atoms/checkbox-group/checkbox-group.vue",
       Datepicker: "atoms/datepicker/datepicker.vue",
       Timepicker: "atoms/timepicker/timepicker.vue"

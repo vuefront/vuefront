@@ -1,21 +1,19 @@
 <template>
-  <b-form-radio
-    :checked="checked"
-    :value="value"
-    @input="handleInput"
-    @change="handleChange"
-    :state="state"
-    class="vf-a-radio"
-  >
-    <slot></slot>
-  </b-form-radio>
+  <label class="inline-flex items-center">
+    <input
+      type="radio"
+      v-model="model"
+      :value="value"
+      :state="state"
+      class="vf-a-radio rounded-full border-gray-300 color-primary text-primary-600 shadow-sm"
+    >
+    <span class="ml-2">
+      <slot></slot>
+    </span>
+  </label>
 </template>
 <script>
-import { BFormRadio } from "bootstrap-vue";
 export default {
-  components: {
-    BFormRadio
-  },
   props: {
     type: {
       type: String,
@@ -33,15 +31,17 @@ export default {
   },
   model: {
     prop: 'checked',
-    event: 'input'
+    event: 'change',
   },
-  methods: {
-    handleInput(value) {
-      this.$emit("input", value);
+  computed: {
+    model: {
+      get() {
+        return this.checked;
+      },
+      set(val) {
+        this.$emit('change', val);
+      },
     },
-    handleChange(value) {
-      this.$emit("change", value);
-    }
   }
 };
 </script>

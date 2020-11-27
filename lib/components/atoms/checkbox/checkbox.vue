@@ -1,22 +1,19 @@
 <template>
-  <b-form-checkbox
-    :checked="checked"
-    :value="value"
-    @input="handleInput"
-    @update:indeterminate="handleChange"
-    :state="state"
-    class="vf-a-checkbox"
-    v-on="$listeners"
-  >
-    <slot></slot>
-  </b-form-checkbox>
+  <label class="inline-flex items-center">
+    <input
+      type="checkbox"
+      v-model="model"
+      :value="value"
+      :state="state"
+      class="vf-a-checkbox rounded border-gray-300 color-primary text-primary-600 shadow-sm"
+    >
+    <span class="ml-2">
+      <slot></slot>
+    </span>
+  </label>
 </template>
 <script>
-import { BFormCheckbox } from "bootstrap-vue";
 export default {
-  components: {
-    BFormCheckbox
-  },
   props: {
     type: {
       type: String,
@@ -34,15 +31,17 @@ export default {
   },
   model: {
     prop: 'checked',
-    event: 'input'
+    event: 'change',
   },
-  methods: {
-    handleInput(value) {
-      this.$emit("input", value);
+  computed: {
+    model: {
+      get() {
+        return this.checked;
+      },
+      set(val) {
+        this.$emit('change', val);
+      },
     },
-    handleChange(value) {
-      this.$emit("update:indeterminate", value);
-    }
   }
 };
 </script>

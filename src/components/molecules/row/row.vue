@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-12" :class="{'gap-4': !noGutters}">
+  <div class="grid" :class="getClass">
     <slot></slot>
   </div>
 </template>
@@ -10,6 +10,12 @@ export default {
       type: String,
       default() {
         return "div";
+      }
+    },
+    cols: {
+      type: [Number, String],
+      default() {
+        return 12
       }
     },
     noGutters: {
@@ -29,6 +35,19 @@ export default {
       default() {
         return null;
       }
+    }
+  },
+  computed: {
+    getClass() {
+      const result = []
+
+      if (!this.noGutters) {
+        result.push('gap-4')
+      }
+
+      result.push(`grid-cols-${this.cols}`)
+
+      return result.join(' ')
     }
   }
 };

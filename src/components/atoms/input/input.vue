@@ -1,28 +1,23 @@
 <template>
-  <b-form-input
+  <input
     :type="type"
     :value="value"
     @input="handleInput"
     @change="handleChange"
     @keypress="handleKeypress"
     :state="state"
-    :size="size"
     :placeholder="placeholder"
     :trim="trim"
-    class="vf-a-input"
-    :class="`vf-a-input--${type}`"
+    class="vf-a-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+    :class="`vf-a-input--${type} ${getClass}`"
   />
 </template>
 <script>
-import { BFormInput } from "bootstrap-vue";
 export default {
-  components: {
-    BFormInput
-  },
   props: {
     size: {
       type: String,
-      default: null
+      default: "md"
     },
     type: {
       type: String,
@@ -43,6 +38,25 @@ export default {
       }
     },
     value: {}
+  },
+  computed: {
+    getClass() {
+      const result = []
+
+      if (this.size === 'sm') {
+        result.push('px-2 py-1 text-sm')
+      }
+
+      if (this.size === 'md') {
+        result.push('px-3 py-1.5 text-base')
+      }
+
+      if (this.size === 'lg') {
+        result.push('px-4 py-2 text-xl')
+      }
+
+      return result.join(' ')
+    }
   },
   methods: {
     handleInput(value) {
