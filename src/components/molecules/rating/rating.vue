@@ -9,7 +9,7 @@
       style="cursor:pointer;"
     >
       <vf-a-icon
-        :icon="rating <= currentRating ? 'star' : ['far', 'star']"
+        :icon="rating <= currentRating ? 'star-outline' : 'star'"
         :style="{color: color}"
         style="width: 1.125em;"
       />

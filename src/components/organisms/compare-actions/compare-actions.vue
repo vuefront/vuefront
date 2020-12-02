@@ -1,10 +1,10 @@
 <template>
   <div class="vf-m-compare-actions">
     <vf-a-button class="vf-m-compare-actions__add-to-cart" @click="handleAddToCart">
-      <vf-a-icon :icon="['fas', 'shopping-cart']" />
+      <vf-a-icon icon="cart-outline" />
     </vf-a-button>
     <vf-a-button class="vf-m-compare-actions__remove" color="danger" @click="handleRemove">
-      <vf-a-icon icon="trash" />
+      <vf-a-icon icon="delete-outline" />
     </vf-a-button>
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <vf-a-button variant="primary" @click="handleAddToCart">
-    <vf-a-icon icon="shopping-cart" />
+    <vf-a-icon icon="cart-outline" />
     {{$t('elements.store.product.buttonAddToCart')}}
   </vf-a-button>
 </template>

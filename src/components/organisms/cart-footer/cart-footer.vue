@@ -20,7 +20,7 @@
         >
           <template #visible>{{$t('elements.store.cart.checkoutButton')}}</template>
           <template #hidden>
-            <vf-a-icon icon="shopping-cart"></vf-a-icon>
+            <vf-a-icon icon="cart-outline"></vf-a-icon>
           </template>
         </vf-a-button>
         <vf-a-button

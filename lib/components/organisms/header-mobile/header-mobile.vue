@@ -2,7 +2,7 @@
   <section class="vf-o-header-mobile">
     <vf-m-container class="vf-o-header-mobile__top">
       <div class="vf-o-header-mobile__toggle">
-        <vf-a-icon icon="bars"></vf-a-icon>
+        <vf-a-icon icon="apps"></vf-a-icon>
       </div>
       <vf-m-logo class="mx-auto ml-2" />
       <vf-m-cart-link />
@@ -18,7 +18,7 @@
         </template>
         <template #right>
           <div class="vf-o-header-mobile__toggle_close" v-b-toggle.menu-collapse>
-            <vf-a-icon icon="times"></vf-a-icon>
+            <vf-a-icon icon="close"></vf-a-icon>
           </div>
         </template>
         <vf-o-position name="headerMenu" />

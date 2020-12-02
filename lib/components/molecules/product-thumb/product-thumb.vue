@@ -31,7 +31,7 @@
             color="light"
             @click="handleAddToCart"
           >
-            <vf-a-icon :icon="['fas', 'shopping-cart']" />
+            <vf-a-icon icon="cart-outline" />
             {{$t('elements.store.product.buttonAddToCart')}}
           </vf-a-button>
           <vf-a-button
@@ -39,14 +39,14 @@
             color="light"
             @click="handleAddToWishlist"
           >
-            <vf-a-icon :icon="['fas', 'heart']" />
+            <vf-a-icon icon="heart-outline" />
           </vf-a-button>
           <vf-a-button
             class="rounded-0 vf-m-product-thumb__button-compare"
             color="light"
             @click="handleAddToCompare"
           >
-            <vf-a-icon :icon="['fas', 'exchange-alt']" />
+            <vf-a-icon icon="compare-horizontal" />
           </vf-a-button>
         </vf-m-button-group>
       </vf-m-col>

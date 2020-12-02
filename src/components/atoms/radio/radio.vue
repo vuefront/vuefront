@@ -5,7 +5,7 @@
       v-model="model"
       :value="value"
       :state="state"
-      class="vf-a-radio rounded-full border-gray-300 color-primary text-primary-600 shadow-sm"
+      class="vf-a-radio form-radio"
     >
     <span class="ml-2">
       <slot></slot>

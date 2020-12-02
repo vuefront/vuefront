@@ -10,7 +10,7 @@
       />
       <template #append>
         <vf-a-button size="sm" color="primary" @click="handleSearch">
-          <vf-a-icon icon="search" />
+          <vf-a-icon icon="magnify" />
         </vf-a-button>
       </template>
     </vf-m-input-group>

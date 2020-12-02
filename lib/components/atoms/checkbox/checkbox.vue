@@ -5,7 +5,7 @@
       v-model="model"
       :value="value"
       :state="state"
-      class="vf-a-checkbox rounded border-gray-300 color-primary text-primary-600 shadow-sm"
+      class="vf-a-checkbox form-checkbox"
     >
     <span class="ml-2">
       <slot></slot>

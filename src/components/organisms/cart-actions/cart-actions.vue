@@ -1,6 +1,6 @@
 <template>
   <div class="shopping-cart__action cursor-pointer ma-1" @click="handleRemove">
-    <vf-a-icon icon="times" />
+    <vf-a-icon icon="close" />
   </div>
 </template>
 <script>

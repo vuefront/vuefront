@@ -1,5 +1,5 @@
 <template>
-  <input type="time" class="vf-a-datepicker mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" :value="value" @input="handleInput" @change="handleChange" @keypress="handleKeypress">
+  <input type="time" class="vf-a-datepicker mt-1 block w-full form-input" :class="getClass" :value="value" @input="handleInput" @change="handleChange" @keypress="handleKeypress">
 </template>
 <script>
 export default {
@@ -23,6 +23,17 @@ export default {
       }
     },
     value: {}
+  },
+  computed: {
+    getClass() {
+      let result = []
+
+      if (this.state || this.state === null) {
+      } else {
+        result.push('border-red-400 placeholder-red-400 focus:border-red-400 focus:ring-red-400 focus:shadow-none')
+      }
+      return result.join(' ')
+    }
   },
   methods: {
     handleInput(value) {

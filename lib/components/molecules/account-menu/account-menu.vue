@@ -2,7 +2,7 @@
   <vf-m-dropdown class="vf-m-account-menu" variant="link" size="sm" right>
     <template slot="button-content">
       Account
-      <vf-a-icon :icon="['far', 'user-circle']" />
+      <vf-a-icon icon="account-circle-outline" />
     </template>
     <vf-m-dropdown-item
       class="vf-m-account-menu__item"

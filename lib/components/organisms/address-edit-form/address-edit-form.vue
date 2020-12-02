@@ -111,7 +111,7 @@
 
     <template #button>
       {{$t('elements.common.address.edit.buttonSave')}}
-      <vf-a-icon icon="long-arrow-alt-right" size="sm" />
+      <vf-a-icon icon="arrow-right" size="sm" />
     </template>
   </vf-o-form>
 </template>

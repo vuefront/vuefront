@@ -1,32 +1,41 @@
 <template>
-  <i class="vf-a-icon" :class="currentIcon" :style="{ backgroundImage: `url('${getIconFromAssetsImg}')` }"></i>
+  <img :src="require(`@mdi/svg/svg/${icon}.svg`)" alt="" :width="getSize" class="vf-a-icon">
 </template>
 <script>
-import { isArray, join } from "lodash";
 export default {
-  props: ["icon", "size", "img"],
-  computed: {
-    getIcons() {
-      
-    },
-    getIconFromAssetsImg(){
-      if(this.img){
-        return require('~/assets/img/'+this.img)
+  props: {
+    test: {
+      type: String,
+      default() {
+        return 'ab-testing'
       }
-      return null;
     },
-    currentIcon() {
-      let result = "";
-      if (isArray(this.icon)) {
-        result = join(this.icon, " fa-");
-      } else {
-        result = `fas fa-${this.icon}`;
+    size: {
+      type: Number,
+      default() {
+        return 16
+      }
+    },
+    icon: {
+      type: String,
+      default() {
+        return null
+      }
+    },
+    img: {
+      type: String,
+      default() {
+        return null
+      }
+    }
+  },
+  computed: {
+    getSize() {
+      if (this.size === 1) {
+        return 16
       }
 
-      if (this.size) {
-        result += ` fa-${this.size}x`;
-      }
-      return result;
+      return 24
     }
   }
 };

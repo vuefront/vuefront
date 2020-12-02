@@ -8,7 +8,7 @@
     :state="state"
     :placeholder="placeholder"
     :trim="trim"
-    class="vf-a-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+    class="vf-a-input mt-1 block w-full form-input"
     :class="`vf-a-input--${type} ${getClass}`"
   />
 </template>
@@ -53,6 +53,11 @@ export default {
 
       if (this.size === 'lg') {
         result.push('px-4 py-2 text-xl')
+      }
+
+      if (this.state || this.state === null) {
+      } else {
+        result.push('border-red-400 placeholder-red-400 focus:border-red-400 focus:ring-red-400 focus:shadow-none')
       }
 
       return result.join(' ')

@@ -4,7 +4,7 @@
       <vf-a-link :to="item.to" class="vf-e-common-menu__link">
         <div class="vf-e-common-menu__title">{{item.title}}</div>
         <vf-a-icon
-          icon="angle-down"
+          icon="chevron-down"
           v-if="item.children && item.children.length > 0"
           class="vf-e-common-menu__icon"
         />
@@ -25,7 +25,7 @@
             </div>
             <vf-a-icon
               v-if="subItem.children && subItem.children.length > 0"
-              icon="angle-right"
+              icon="chevron-right"
               class="vf-e-common-menu__icon vf-e-common-menu__icon--float"
             />
           </vf-a-link>

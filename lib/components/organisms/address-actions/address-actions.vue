@@ -1,10 +1,10 @@
 <template>
   <div class="vf-o-address-actions">
     <vf-a-button class="vf-o-address-actions__edit" :to="`/account/address/${address.id}/edit`">
-      <vf-a-icon icon="pencil-alt" />
+      <vf-a-icon icon="pencil" />
     </vf-a-button>
     <vf-a-button class="vf-o-address-actions__remove" color="danger" @click="handleRemove">
-      <vf-a-icon icon="trash" />
+      <vf-a-icon icon="delete-outline" />
     </vf-a-button>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <span class="vf-a-badge px-2 py-1 text-xs text-bold" :class="getClass">
+  <span class="vf-a-badge" :class="getClass">
     <slot></slot>
   </span>
 </template>
@@ -23,14 +23,10 @@ export default {
     getClass() {
       const result = []
 
-      result.push('bg-'+this.color)
-      result.push('text-'+this.color + '-inverted')
-      result.push('hover:bg-'+this.color+'-darker')
+      result.push('vf-a-badge--'+this.color)
 
       if (this.rounded) {
-        result.push('rounded-full')
-      } else {
-        result.push('rounded')
+        result.push('vf-a-badge--rounded')
       }
 
       return result.join(' ')

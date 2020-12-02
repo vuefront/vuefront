@@ -4,7 +4,7 @@ import * as seo from 'vuefront/lib/seo'
 
 const MainConfig = {
     plugins: {
-      framework: 'vuefront/lib/plugins/tailwind.js'
+      // framework: 'vuefront/lib/plugins/tailwind.js'
     },
     root: {
       components: 'vuefront/lib/components',
