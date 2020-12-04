@@ -2,7 +2,7 @@
   <select
     :value="getLocalValue"
     @input="handleChange"
-    class="vf-a-select block w-full mt-1 form-select"
+    class="vf-a-select block w-full form-select"
     :class="getClass"
   >
     <option v-for="(item, index) in options" :key="index" :value="index">{{item[textField]}}</option>

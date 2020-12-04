@@ -8,7 +8,7 @@
     :state="state"
     :placeholder="placeholder"
     :trim="trim"
-    class="vf-a-input mt-1 block w-full form-input"
+    class="vf-a-input block w-full form-input"
     :class="`vf-a-input--${type} ${getClass}`"
   />
 </template>

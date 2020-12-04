@@ -1,26 +1,26 @@
 <template>
-  <ul class="vf-a-pagination table border-collapse text-center bg-white mx-auto mt-2">
-    <li class="w-8 h-8 border table-cell">
+  <ul class="vf-a-pagination">
+    <li class="vf-a-pagination__item">
       <button :class="getClass(1, true)" @click.prevent="handleChange(1)">
         &laquo;
       </button>
       </li>
-    <li class="w-8 h-8 border table-cell">
+    <li class="vf-a-pagination__item">
        <button :class="getClass(page > 1 ? page - 1 : 1, true)"  @click.prevent="handleChange(page > 1 ? page - 1 : 1)">&lsaquo;</button>
       </li>
     <template v-for="(item, index) in pageButtons">
-      <li v-if="item === 'less' || item === 'more'" class="w-8 h-8 border table-cell"  :key="index">
+      <li v-if="item === 'less' || item === 'more'" class="vf-a-pagination__item"  :key="index">
          <span>&hellip;</span>
 
          </li>
-      <li v-else class="w-8 h-8 border table-cell"  :key="index">
+      <li v-else class="vf-a-pagination__item"  :key="index">
         <button :class="getClass(item)"  @click.prevent="handleChange(item)">{{item}}</button>
       </li>
     </template>
-    <li class="w-8 h-8 border table-cell">
+    <li class="vf-a-pagination__item">
       <button :class="getClass(page < totalPages ? page + 1: totalPages, true)" @click.prevent="handleChange(page < totalPages ? page + 1 : totalPages)">&rsaquo;</button>
     </li>
-    <li class="w-8 h-8 border table-cell">
+    <li class="vf-a-pagination__item">
       <button :class="getClass(totalPages, true)"  @click.prevent="handleChange(totalPages)">&raquo;</button>
     </li>
   </ul>
@@ -69,12 +69,6 @@ export default {
 
         return Number(page);
       });
-    },
-    activeButton() {
-      return 'focus:outline-none bg-primary-darker text-primary-inverted w-full h-full'
-    },
-    disabledButton() {
-      return 'focus:outline-none opacity-25 w-full h-full cursor-not-allowed'
     }
   },
   methods: {
@@ -82,14 +76,12 @@ export default {
       let result = []
 
       page = Number(page)
+      result.push('vf-a-pagination__link')
 
       if (page === this.page && !disabled) {
-        result.push(this.activeButton)
+        result.push('vf-a-pagination__link--active')
       } else if(page === this.page && disabled) {
-        result.push(this.disabledButton)
-
-      } else {
-        result.push('focus:outline-none hover:bg-primary hover:text-primary-inverted w-full h-full')
+        result.push('vf-a-pagination__link--disabled')
       }
 
       return result.join(' ')

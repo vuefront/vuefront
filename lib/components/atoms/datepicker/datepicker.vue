@@ -1,5 +1,5 @@
 <template>
-  <input type="date" class="vf-a-datepicker form-input mt-1 block w-full" :class="getClass" :value="value" @input="handleInput" @change="handleChange" @keypress="handleKeypress">
+  <input type="date" class="vf-a-datepicker form-input block w-full" :class="getClass" :value="value" @input="handleInput" @change="handleChange" @keypress="handleKeypress">
 </template>
 <script>
 export default {

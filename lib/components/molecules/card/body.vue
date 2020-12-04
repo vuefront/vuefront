@@ -1,14 +1,10 @@
 <template>
-  <b-card-body class="vf-m-card-body">
+  <div class="vf-m-card-body p-4">
     <slot></slot>
-  </b-card-body>
+  </div>
 </template>
 <script>
-import { BCardBody } from "bootstrap-vue";
 export default {
-  components: {
-    BCardBody
-  },
   props: {}
 };
 </script>

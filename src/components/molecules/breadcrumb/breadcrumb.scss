@@ -1,6 +1,6 @@
 // @import '~bootstrap/scss/breadcrumb';
 .vf-m-breadcrumb {
-  .vf-m-breadcrumb-item {
+  &__item {
     &::before {
       color: rgba(31, 45, 61, 0.5);
     }

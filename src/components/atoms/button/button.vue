@@ -2,6 +2,7 @@
   <button
     :is="to ? 'router-link': 'button'"
     v-on="$listeners"
+    :to="to"
     :disabled="disabled"
     :pressed="pressed"
     :active="active"

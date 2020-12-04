@@ -44,6 +44,10 @@ module.exports = (theme) => {
       borderStyle: 'solid',
       cursor: 'pointer'
     },
+    '.vf-a-button--link': {
+      padding: '0',
+      borderWidth: '0px',
+    },
     '.vf-a-button--rounded': {
       borderRadius: theme('borderRadius.full'),
     },

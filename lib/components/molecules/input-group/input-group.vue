@@ -1,23 +1,30 @@
 <template>
-  <b-input-group
+  <div
     :id="id"
     :size="size"
-    :prepend="prepend"
-    :prependHtml="prependHtml"
-    :append="append"
-    :appendHtml="appendHtml"
-    :tag="tag"
+    :is="tag"
     class="vf-m-input-group"
+    :class="`vf-m-input-group--${size}`"
   >
-    <slot v-for="(_, name) in $slots" :name="name" :slot="name" />
-  </b-input-group>
+    <div v-if="$slots.prepend || prepend" class="vf-m-input-group__prepend">
+      <slot name="prepend">
+        <div class="vf-m-input-group__text">
+          {{prepend}}
+        </div>
+      </slot>
+    </div>
+    <slot></slot>
+    <div v-if="$slots.append || append" class="vf-m-input-group__append">
+      <slot name="append">
+        <div class="vf-m-input-group__text">
+          {{append}}
+        </div>
+      </slot>
+    </div>
+  </div>
 </template>
 <script>
-import { BInputGroup } from "bootstrap-vue";
 export default {
-  components: {
-    BInputGroup
-  },
   props: {
     id: {
       type: String

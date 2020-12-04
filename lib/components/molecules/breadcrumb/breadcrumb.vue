@@ -1,13 +1,5 @@
 <template>
-  <b-breadcrumb class="vf-m-breadcrumb">
+  <ul class="vf-m-breadcrumb">
     <slot></slot>
-  </b-breadcrumb>
+  </ul>
 </template>
-<script>
-import { BBreadcrumb } from "bootstrap-vue";
-export default {
-  components: {
-    BBreadcrumb
-  }
-};
-</script>

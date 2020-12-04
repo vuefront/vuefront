@@ -5,11 +5,17 @@ const plugin = require('tailwindcss/plugin')
 const buttonComponent = require('./component/button')
 const alertComponent = require('./component/alert')
 const badgesComponent = require('./component/badges')
+const paginationComponent = require('./component/pagination')
+const breadcrumbsComponent = require('./component/breadcrumb')
+const inputGroupComponent = require('./component/input-group')
 
 module.exports = plugin(function({ addUtilities, e, theme, variants, addComponents }) {
   addComponents(buttonComponent(theme))
   addComponents(alertComponent(theme))
   addComponents(badgesComponent(theme))
+  addComponents(paginationComponent(theme))
+  addComponents(breadcrumbsComponent(theme))
+  addComponents(inputGroupComponent(theme))
 }, {
   purge: [
     './node_modules/vuefront/**/*.vue',

@@ -1,7 +1,7 @@
 <template>
-  <b-card class="vf-m-card" v-bind="$props">
+  <div class="vf-m-card border rounded shadow-inner" v-bind="$props">
     <slot></slot>
-  </b-card>
+  </div>
 </template>
 <script>
 import { BCard } from "bootstrap-vue";
