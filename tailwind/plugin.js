@@ -10,8 +10,10 @@ const breadcrumbsComponent = require('./component/breadcrumb')
 const inputGroupComponent = require('./component/input-group')
 const buttonGroupComponent = require('./component/button-group')
 const listGroupComponent = require('./component/list-group')
+const fieldComponent = require('./component/field')
 
 module.exports = plugin(function({ addUtilities, e, theme, variants, addComponents }) {
+  addComponents(fieldComponent(theme))
   addComponents(listGroupComponent(theme))
   addComponents(buttonGroupComponent(theme))
   addComponents(buttonComponent(theme))

@@ -50,7 +50,7 @@ export const actions = {
     await dispatch(
       'apollo/query',
       {
-        query: `{
+        query: gql`{
           contact {
             locations {
               address

@@ -35,7 +35,7 @@
 
     <template #button>
       {{$t('elements.common.account.edit.buttonSave')}}
-      <vf-a-icon icon="arrow-right" size="sm" />
+      <vf-a-icon icon="arrow-right" size="15" />
     </template>
   </vf-o-form>
 </template>

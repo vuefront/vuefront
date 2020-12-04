@@ -4,18 +4,13 @@
       <slot name="label"></slot>
     </label>
     <slot :aria-describedby="`${id}-feedback`" :state="state"></slot>
-    <div class="vf-m-field__error" v-if="state" :id="`${id}-feedback`">
+    <div class="vf-m-field__error" v-if="!state && state !== null" :id="`${id}-feedback`">
       <slot name="error"></slot>
     </div>
   </div>
 </template>
 <script>
-import { BFormGroup, BFormInvalidFeedback } from "bootstrap-vue";
 export default {
-  components: {
-    BFormGroup,
-    BFormInvalidFeedback
-  },
   props: {
     id: {
       type: String,
