@@ -1,7 +1,9 @@
 <template>
-  <img :src="require(`@mdi/svg/svg/${icon}.svg`)" alt="" :width="getSize" class="vf-a-icon">
+  <svg-icon type="mdi" :path="getPath" :size="size" class="vf-a-icon" ></svg-icon>
 </template>
 <script>
+import SvgIcon from '@jamescoyle/vue-icon/lib/svg-icon.vue'
+import * as icons from '@mdi/js'
 export default {
   props: {
     test: {
@@ -13,7 +15,7 @@ export default {
     size: {
       type: Number,
       default() {
-        return 16
+        return 15
       }
     },
     icon: {
@@ -29,13 +31,14 @@ export default {
       }
     }
   },
+  components: {
+    SvgIcon
+  },
   computed: {
-    getSize() {
-      if (this.size === 1) {
-        return 16
-      }
+    getPath() {
+      let path = 'mdi' + this.icon.split('-').map((value) => value.charAt(0).toUpperCase() + value.slice(1)).join('')
 
-      return 24
+      return icons[path]
     }
   }
 };

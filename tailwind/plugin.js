@@ -8,8 +8,12 @@ const badgesComponent = require('./component/badges')
 const paginationComponent = require('./component/pagination')
 const breadcrumbsComponent = require('./component/breadcrumb')
 const inputGroupComponent = require('./component/input-group')
+const buttonGroupComponent = require('./component/button-group')
+const listGroupComponent = require('./component/list-group')
 
 module.exports = plugin(function({ addUtilities, e, theme, variants, addComponents }) {
+  addComponents(listGroupComponent(theme))
+  addComponents(buttonGroupComponent(theme))
   addComponents(buttonComponent(theme))
   addComponents(alertComponent(theme))
   addComponents(badgesComponent(theme))

@@ -64,14 +64,14 @@ export default {
     }
   },
   methods: {
-    handleInput(value) {
-      this.$emit("input", value);
+    handleInput(e) {
+      this.$emit("input", e.target.value);
     },
-    handleChange(value) {
-      this.$emit("change", value);
+    handleChange(e) {
+      this.$emit("change", e.target.value);
     },
-    handleKeypress(value) {
-      this.$emit("keypress", value);
+    handleKeypress(e) {
+      this.$emit("keypress", e);
     }
   }
 };

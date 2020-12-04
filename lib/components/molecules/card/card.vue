@@ -4,11 +4,7 @@
   </div>
 </template>
 <script>
-import { BCard } from "bootstrap-vue";
 export default {
-  components: {
-    BCard
-  },
   props: {
     title: {
       type: String,

@@ -1,7 +1,7 @@
 <template>
   <div
     v-on="$listeners"
-    :class="{'vf-m-button-group--block': block}"
+    :class="getClass"
     class="vf-m-button-group"
   >
     <slot></slot>
@@ -13,7 +13,7 @@ export default {
     size: {
       type: String,
       default() {
-        return "sm";
+        return "md";
       }
     },
     block: {
@@ -21,6 +21,19 @@ export default {
       default() {
         return false;
       }
+    }
+  },
+  computed: {
+    getClass() {
+      let result = []
+
+      if (this.block) {
+        result.push('vf-m-button-group--block')
+      }
+
+      result.push(`vf-m-button-group--${this.size}`)
+
+      return result.join(' ')
     }
   }
 };

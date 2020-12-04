@@ -1,13 +1,5 @@
 <template>
-  <b-list-group class="vf-m-list-group">
+  <div class="vf-m-list-group">
     <slot></slot>
-  </b-list-group>
+  </div>
 </template>
-<script>
-import { BListGroup } from "bootstrap-vue";
-export default {
-  components: {
-    BListGroup
-  }
-};
-</script>

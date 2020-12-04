@@ -1,13 +1,13 @@
 <template>
-  <b-form-group class="vf-m-field" :label-for="id" :state="state">
-    <template class="vf-m-field__label" #label>
+  <div class="vf-m-field" :label-for="id" :state="state">
+    <label class="vf-m-field__label">
       <slot name="label"></slot>
-    </template>
+    </label>
     <slot :aria-describedby="`${id}-feedback`" :state="state"></slot>
-    <b-form-invalid-feedback class="vf-m-field__error" :state="state" :id="`${id}-feedback`">
+    <div class="vf-m-field__error" v-if="state" :id="`${id}-feedback`">
       <slot name="error"></slot>
-    </b-form-invalid-feedback>
-  </b-form-group>
+    </div>
+  </div>
 </template>
 <script>
 import { BFormGroup, BFormInvalidFeedback } from "bootstrap-vue";
