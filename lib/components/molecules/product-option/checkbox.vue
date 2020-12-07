@@ -7,9 +7,10 @@
         :key="key"
         :pressed="checkActive(value.id, option)"
         :active="checkActive(value.id, option)"
-        color="neutral"
+        color="primary"
         class="col-12 mb-2 text-sm"
         size="lg"
+        block
         @click="handleChange(value.id)"
       >{{value.name}}</vf-a-button>
     </div>

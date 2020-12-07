@@ -1,6 +1,9 @@
 <template>
-  <div class="vf-m-card border rounded shadow-inner" v-bind="$props">
-    <slot></slot>
+  <div class="vf-m-card border rounded shadow-inner">
+    <vf-m-card-body v-if="!noBody">
+      <slot></slot>
+    </vf-m-card-body>
+    <slot v-else></slot>
   </div>
 </template>
 <script>

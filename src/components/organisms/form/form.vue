@@ -1,5 +1,5 @@
 <template>
-  <b-form @submit="onSubmit" @reset="onReset" class="vf-o-form">
+  <form @submit="onSubmit" @reset="onReset" class="vf-o-form">
     <div v-if="!inline" :class="{'mb-5' : $slots['sub-title']}">
       <vf-a-heading v-if="$slots['sub-title']" tag="h6" level="3">
         <slot name="title"></slot>
@@ -21,15 +21,11 @@
         <slot name="button"></slot>
       </vf-a-button>
     </div>
-  </b-form>
+  </form>
 </template>
 <script>
-import { BForm } from "bootstrap-vue";
 import { mapGetters } from "vuex";
 export default {
-  components: {
-    BForm
-  },
   props: {
     inline: {
       type: Boolean,

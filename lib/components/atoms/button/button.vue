@@ -4,8 +4,6 @@
     v-on="$listeners"
     :to="to"
     :disabled="disabled"
-    :pressed="pressed"
-    :active="active"
     :type="type"
     :class="getClass"
     class="vf-a-button"
@@ -22,6 +20,12 @@
 <script>
 export default {
   props: {
+    block: {
+      type: Boolean,
+      default() {
+        return false
+      }
+    },
     animatedY: {
       type: Boolean,
       default() {
@@ -102,7 +106,7 @@ export default {
       if (this.disabled) {
         result.push('disabled:opacity-50')
       }
-      if (this.pressed) {
+      if (this.active || this.pressed) {
         result.push('active')
       }
       if (this.outline) {
@@ -110,6 +114,10 @@ export default {
         
       } else {
         result.push('vf-a-button--'+this.color)
+      }
+
+      if (this.block) {
+        result.push('w-full')
       }
 
       result.push('vf-a-button--'+this.size)

@@ -4,6 +4,12 @@ import VueLazyload from 'vue-lazyload'
 Vue.use(VueLazyload)
 export default {
   props: {
+    blankColor: {
+      type: String,
+      default() {
+        return null
+      }
+    },
     lazySrc: {
       validator () {
         return true
@@ -158,7 +164,8 @@ export default {
             }
           ],
           style: {
-            'background-image': this.lazySrc !== '' ? `url(${this.lazySrc})` : null
+            'background-image': this.lazySrc !== '' ? `url(${this.lazySrc})` : null,
+            'background-color': this.blankColor ? this.blankColor: null
           }
         }, []),
         createElement('div', {

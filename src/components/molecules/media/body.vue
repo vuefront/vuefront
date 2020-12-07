@@ -1,7 +1,7 @@
 <template>
-  <b-media-body class="vf-m-media-body" :tag="tag">
+  <div class="vf-m-media-body" :is="tag">
     <slot></slot>
-  </b-media-body>
+  </div>
 </template>
 <script>
 import { BMediaBody } from "bootstrap-vue";

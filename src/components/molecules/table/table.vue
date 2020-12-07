@@ -1,17 +1,26 @@
 <template>
-  <b-table :items="items" :fields="fields" class="vf-m-table table-auto">
-    <slot v-for="(_, name) in $slots" :name="name" :slot="name" />
-    <template v-for="(_, name) in $scopedSlots" :slot="`cell(${name})`" slot-scope="slotData">
-      <slot :name="name" v-bind="slotData" />
-    </template>
-  </b-table>
+  <table class="vf-m-table w-full mb-4">
+    <thead>
+      <tr>
+        <th class="border-t border-b p-4" v-for="(field, fieldKey) in fields" :key="fieldKey">
+          {{field.label}}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="(item, itemKey) in items" :key="itemKey">
+        <td v-for="(field, fieldKey) in fields" :key="fieldKey" class="border-t p-4">
+          <template v-if="$scopedSlots[field.key]">
+            <slot :name="field.key" v-bind="{item}"></slot>
+          </template>
+          <div v-else v-html="item[field.key]"></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </template>
 <script>
-import { BTable } from "bootstrap-vue";
 export default {
-  components: {
-    BTable
-  },
   props: {
     items: {
       type: Array,
@@ -20,8 +29,10 @@ export default {
       }
     },
     fields: {
-      type: [Array, Object],
-      default: null
+      type: Array,
+      default() {
+        return [];
+      }
     }
   }
 };

@@ -1,1 +1,4 @@
-// @import '~bootstrap/scss/card';
+.card-img {
+  border-top-left-radius: calc(.375rem - 1px);
+  border-top-right-radius: calc(.375rem - 1px);
+}

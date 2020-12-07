@@ -1,16 +1,16 @@
 .vf-m-post-thumb {
     margin-bottom: 30px;
     &__title {
-        min-height: 65px;
-        max-height: 65px;
+        min-height: 60px;
+        max-height: 60px;
         overflow: hidden;
         display: flex;
         align-items: center;
         justify-content: center;
     }
     &__description {
-        min-height: 70px;
-        max-height: 70px;
+        min-height: 60px;
+        max-height: 60px;
         overflow: hidden;
     }
     & &-image {

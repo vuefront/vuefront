@@ -24,7 +24,7 @@ export default {
     activeOptionValue() {
       let result = find(this.selected, { id: this.option.id });
 
-      return result ? result.value : "";
+      return result ? result.value : null;
     }
   },
   methods: {

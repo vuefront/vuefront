@@ -1,15 +1,17 @@
 <template>
-  <b-media-aside class="vf-m-media-aside" :tag="tag" :vertial-align="verticalAlign">
+  <div class="vf-m-media-start flex" :is="tag" :vertial-align="verticalAlign">
     <slot></slot>
-  </b-media-aside>
+  </div>
 </template>
 <script>
-import { BMediaAside } from "bootstrap-vue";
 export default {
-  components: {
-    BMediaAside
-  },
   props: {
+    right: {
+      type: Boolean,
+      default() {
+        return false
+      }
+    },
     tag: {
       type: String,
       default: "div"
@@ -17,6 +19,29 @@ export default {
     verticalAlign: {
       type: String,
       default: "top"
+    }
+  },
+  computed: {
+    asideClass() {
+      let result = []
+
+      if (this.verticalAlign === 'start' ||this.verticalAlign === 'top' ) {
+        result.push('self-start')
+      }
+      if (this.verticalAlign === 'center') {
+        result.push('self-center')
+      }
+      if (this.verticalAlign === 'end' ||this.verticalAlign === 'bottom' ) {
+        result.push('self-end')
+      }
+
+      if (this.right) {
+        result.push('ml-4')
+      } else {
+        result.push('mr-4')
+      }
+
+      return result.join(' ')
     }
   }
 };

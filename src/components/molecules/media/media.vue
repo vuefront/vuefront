@@ -1,23 +1,26 @@
 <template>
-  <b-media
-    class="vf-m-media"
-    :tag="tag"
-    :right-align="rightAlign"
-    :vertival-align="verticalAlign"
-    :noBody="noBody"
+  <div
+    class="vf-m-media flex"
+    :is="tag"
   >
-    <template #aside>
-      <slot name="aside"></slot>
+    <template v-if="!rightAlign">
+      <div class="vf-m-media-aside flex mr-4" :class="asideClass" v-if="$slots.aside">
+        <slot name="aside"></slot>
+      </div>
     </template>
-    <slot></slot>
-  </b-media>
+    <div class="vf-m-media-body" v-if="!noBody">
+      <slot></slot>
+    </div>
+    <slot v-else></slot>
+    <template v-if="rightAlign">
+      <div class="vf-m-media-aside flex ml-4" :class="asideClass" v-if="$slots.aside">
+        <slot name="aside"></slot>
+      </div>
+    </template>
+  </div>
 </template>
 <script>
-import { BMedia } from "bootstrap-vue";
 export default {
-  components: {
-    BMedia
-  },
   props: {
     tag: {
       type: String,
@@ -34,6 +37,23 @@ export default {
     noBody: {
       type: Boolean,
       default: false
+    }
+  },
+  computed: {
+    asideClass() {
+      let result = []
+
+      if (this.verticalAlign === 'start' ||this.verticalAlign === 'top' ) {
+        result.push('self-start')
+      }
+      if (this.verticalAlign === 'center') {
+        result.push('self-center')
+      }
+      if (this.verticalAlign === 'end' ||this.verticalAlign === 'bottom' ) {
+        result.push('self-end')
+      }
+
+      return result.join(' ')
     }
   }
 };
