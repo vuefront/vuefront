@@ -2,9 +2,7 @@
 import * as seo from 'vuefront/lib/seo'
 
 const MainConfig = {
-    plugins: {
-      // framework: 'vuefront/lib/plugins/tailwind.js'
-    },
+    plugins: {},
     root: {
       components: 'vuefront/lib/components',
       store: 'vuefront/lib/store',
@@ -19,11 +17,6 @@ const MainConfig = {
     },
     css: {
       bootstrap: 'vuefront/assets/scss/bootstrap.scss',
-      // core: {
-      //   src: 'vuefront/assets/scss/bootstrap-core.scss',
-      //   head: false,
-      //   global: true
-      // },
       theme: 'vuefront/assets/scss/theme.scss'
     },
     menu: [],
@@ -130,7 +123,6 @@ const MainConfig = {
         component: "molecules/cart-link/cart-link.vue"
       },
       CategoryThumb: "molecules/category-thumb/category-thumb.vue",
-      Collapse: "molecules/collapse/collapse.vue",
       CompareLink: "molecules/compare-link/compare-link.vue",
       Contact: "molecules/contact/contact.vue",
       Container: {
@@ -245,11 +237,11 @@ const MainConfig = {
       },
       LocationGrid: "organisms/location-grid/location-grid.vue",
       ContactForm: "organisms/contact-form/contact-form.vue",
-      Notification: "organisms/notification-snack-bar/notification-snack-bar.vue",
-      // Notification: {
-      //   css: "organisms/notification-toast/notification-toast.scss",
-      //   component: "organisms/notification-toast/notification-toast.vue"
-      // },
+      // Notification: "organisms/notification-snack-bar/notification-snack-bar.vue",
+      Notification: {
+        css: "organisms/notification-toast/notification-toast.scss",
+        component: "organisms/notification-toast/notification-toast.vue"
+      },
       SearchForm: "organisms/search-form/search-form.vue",
       AddressCreateForm: "organisms/address-create-form/address-create-form.vue",
       AddressEditForm: "organisms/address-edit-form/address-edit-form.vue",

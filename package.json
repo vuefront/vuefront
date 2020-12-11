@@ -28,7 +28,6 @@
         "@fortawesome/fontawesome-free": "^5.15.1",
         "@jamescoyle/vue-icon": "^0.1.0",
         "@mdi/js": "^5.8.55",
-        "@mdi/svg": "^5.8.55",
         "@tailwindcss/custom-forms": "tailwindlabs/tailwindcss-custom-forms",
         "@tailwindcss/forms": "^0.2.1",
         "@tailwindcss/typography": "^0.3.1",

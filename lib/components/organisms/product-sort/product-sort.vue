@@ -4,10 +4,10 @@
       <vf-m-col sm="6" md="2" align-self="center">
         <vf-m-button-group size="sm">
           <vf-a-button :pressed="mode === 'grid'" color="light" @click="modeValue='grid'">
-            <vf-a-icon icon="view-grid" />
+            <vf-a-icon :icon="mdiViewGrid" size="26" />
           </vf-a-button>
           <vf-a-button :pressed="mode === 'list'" color="light" @click="modeValue='list'">
-            <vf-a-icon icon="view-list" />
+            <vf-a-icon :icon="mdiViewList" size="26" />
           </vf-a-button>
         </vf-m-button-group>
       </vf-m-col>
@@ -28,10 +28,13 @@
   </section>
 </template>
 <script>
+import {mdiViewGrid, mdiViewList} from '@mdi/js'
 export default {
   props: ["sort", "size", "mode"],
   data() {
     return {
+      mdiViewGrid,
+      mdiViewList,
       sizeOptions: [
         {
           text: this.$t("templates.store.category.15Text"),

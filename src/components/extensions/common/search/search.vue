@@ -10,17 +10,19 @@
       />
       <template #append>
         <vf-a-button size="sm" color="primary" @click="handleSearch">
-          <vf-a-icon icon="magnify" />
+          <vf-a-icon :icon="mdiMagnify" />
         </vf-a-button>
       </template>
     </vf-m-input-group>
   </div>
 </template>
 <script>
+import {mdiMagnify} from '@mdi/js'
 export default {
   data() {
     return {
-      keyword: ""
+      keyword: "",
+      mdiMagnify
     };
   },
   watch: {

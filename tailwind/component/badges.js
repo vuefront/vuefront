@@ -1,9 +1,9 @@
-const {invertColor, alpha, darken} = require('../utils')
+const {invertColor, darken} = require('../utils')
 const {colors} = require('../colors')
 
 module.exports = (theme) => {
   const items = {}
-  const localColors = colors(theme)
+  const localColors = theme('vuefront.colors')
   for (const key in localColors) {
     items[`.vf-a-badge--${key}`] = {
       backgroundColor: localColors[key],
@@ -14,20 +14,7 @@ module.exports = (theme) => {
     }
   }
   return {
-    '.vf-a-badge': {
-      fontSize: theme('fontSize.xs'),
-      lineHeight: theme('lineHeight.4'),
-      fontWeight: theme('fontWeight.bold'),
-      paddingLeft: theme('padding.2'),
-      paddingRight: theme('padding.2'),
-      paddingTop: theme('padding.1'),
-      paddingBottom: theme('padding.1'),
-
-      borderRadius: theme('borderRadius.DEFAULT')
-    },
-    '.vf-a-badge--rounded': {
-      borderRadius: theme('borderRadius.full'),
-    },
+    '.vf-a-badge': theme('vuefrontComponent.badge'),
     ...items
   }
 }

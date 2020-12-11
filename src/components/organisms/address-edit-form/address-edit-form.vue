@@ -111,7 +111,7 @@
 
     <template #button>
       {{$t('elements.common.address.edit.buttonSave')}}
-      <vf-a-icon icon="arrow-right" size="15" />
+      <vf-a-icon :icon="mdiArrowRight" size="15" />
     </template>
   </vf-o-form>
 </template>
@@ -120,10 +120,12 @@ import { validationMixin } from "vuelidate";
 import required from "vuelidate/lib/validators/required";
 import minLength from "vuelidate/lib/validators/minLength";
 import maxLength from "vuelidate/lib/validators/maxLength";
+import {mdiArrowRight} from '@mdi/js'
 export default {
   props: ["address", "countries", "zones"],
   data() {
     return {
+      mdiArrowRight,
       form: {
         firstName: this.address.firstName,
         lastName: this.address.lastName,

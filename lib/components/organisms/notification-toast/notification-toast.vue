@@ -1,12 +1,17 @@
 <template>
-  <div></div>
+  <div class="vf-o-notification-toast" :class="{'vf-o-notification-toast--show': show}">
+    {{messageNotification}}
+  </div>
 </template>
 <script>
 import Vue from "vue";
 import { mapGetters } from "vuex";
-import { ToastPlugin } from "bootstrap-vue";
-Vue.use(ToastPlugin);
 export default {
+  data() {
+    return {
+      show: false
+    }
+  },
   computed: {
     ...mapGetters({
       messageNotification: "notification/get",
@@ -15,20 +20,16 @@ export default {
   },
   watch: {
     messageNotification(val, oldVal) {
-      this.$bvToast.toast(val, {
-        title: this.$t("elements.common.notification.toast.notificationText"),
-        toaster: "b-toaster-top-right",
-        solid: true,
-        variant: "success",
-      });
+      this.show = true
+      setTimeout(() => {
+        this.show = false
+      }, 3000)
     },
     errorNotification(val, oldVal) {
-      this.$bvToast.toast(val, {
-        title: this.$t("elements.common.notification.toast.errorText"),
-        toaster: "b-toaster-top-right",
-        solid: true,
-        variant: "danger",
-      });
+      this.show = true
+      setTimeout(() => {
+        this.show = false
+      }, 3000)
     }
   }
 };

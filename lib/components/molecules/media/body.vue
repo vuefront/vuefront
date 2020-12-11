@@ -4,11 +4,7 @@
   </div>
 </template>
 <script>
-import { BMediaBody } from "bootstrap-vue";
 export default {
-  components: {
-    BMediaBody
-  },
   props: {
     tag: {
       type: String,

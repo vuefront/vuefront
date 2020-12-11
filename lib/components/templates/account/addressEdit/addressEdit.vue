@@ -1,26 +1,13 @@
 <template>
   <section class="account-address-edit">
     <vf-m-card class="mb-0" no-body>
-      <vf-m-card-body class="px-md-5 py-5">
+      <vf-m-card-body class="md:px-5 py-5">
         <vf-o-address-edit-form :address="address" :countries="countries" :zones="zones" />
       </vf-m-card-body>
     </vf-m-card>
   </section>
 </template>
 <script>
-import {
-  BCard,
-  BCardBody,
-  BCardFooter,
-  BForm,
-  BFormGroup,
-  BFormInput,
-  BFormSelect,
-  BFormInvalidFeedback,
-  BButton,
-  BLink,
-  BAlert
-} from "bootstrap-vue";
 import { validationMixin } from "vuelidate";
 import required from "vuelidate/lib/validators/required";
 import minLength from "vuelidate/lib/validators/minLength";
@@ -28,19 +15,6 @@ import maxLength from "vuelidate/lib/validators/maxLength";
 import { mapGetters } from "vuex";
 export default {
   props: ["address", "countries", "zones"],
-  components: {
-    BAlert,
-    BCard,
-    BCardBody,
-    BCardFooter,
-    BForm,
-    BFormGroup,
-    BFormInput,
-    BFormSelect,
-    BButton,
-    BLink,
-    BFormInvalidFeedback
-  },
   data() {
     return {
       form: {

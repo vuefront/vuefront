@@ -3,13 +3,22 @@
   flex-flow: row;
   @media (max-width: 765px) {
     position: fixed;
-    left: 0;
+    left: -540px;
     right: 0;
     bottom: 0;
     top: 0;
     height: 100vh;
     background-color: white;
     z-index: 99;
+
+    width: 100%;
+
+    transition-property: right,left;
+    transition-duration: .5s;
+    transition-timing-function: ease-in-out;
+  }
+  &--open {
+    left: 0;
   }
 
   &__top {

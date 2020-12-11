@@ -1,19 +1,17 @@
 <template>
-  <b-carousel class="vf-e-common-slideshow" v-model="active" :interval="4000" controls indicators>
+  <div class="vf-e-common-slideshow hidden md:block">
+    <!-- <vf-a-image :src="currentSlide" :width-amp="1110" :height-amp="370"></vf-a-image> -->
+  </div>
+  <!-- <b-carousel class="vf-e-common-slideshow" v-model="active" :interval="4000" controls indicators>
     <b-carousel-slide v-for="(item,i) in items" :key="i" :img-src="item">
       <template #img v-if="$vuefront.isAMP">
         <amp-img :src="item" width="1110" height="370" />
       </template>
     </b-carousel-slide>
-  </b-carousel>
+  </b-carousel> -->
 </template>
 <script>
-import { BCarousel, BCarouselSlide } from "bootstrap-vue";
 export default {
-  components: {
-    BCarousel,
-    BCarouselSlide
-  },
   props: {
     items: {
       type: Array,
@@ -24,6 +22,20 @@ export default {
     return {
       active: 0
     };
+  },
+  mounted() {
+    // setInterval(() => {
+    //   if (this.active < (this.items.length - 1)) {
+    //     this.active++
+    //   } else {
+    //     this.active = 0
+    //   }
+    // }, 4000)
+  },
+  computed: {
+    currentSlide() {
+      return this.items[this.active]
+    }
   }
 };
 </script>

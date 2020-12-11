@@ -12,7 +12,7 @@
           <tb-skeleton width="20%" height="18px" style="margin-bottom: .5rem;"></tb-skeleton>
           <vf-m-row>
             <vf-m-col sm="6"></vf-m-col>
-            <vf-m-col sm="6" class="text-sm-right">
+            <vf-m-col sm="6" class="sm:text-right">
               <tb-skeleton width="65px" height="20px" class="d-inline-block"></tb-skeleton>
               <tb-skeleton width="65px" height="20px" class="d-inline-block"></tb-skeleton>
             </vf-m-col>
@@ -37,7 +37,7 @@
                   <tb-skeleton width="110px" height="37px"></tb-skeleton>
                 </div>
               </vf-m-col>
-              <vf-m-col sm="6" md="7" class="text-sm-right">
+              <vf-m-col sm="6" md="7" class="sm:text-right">
                 <tb-skeleton width="165px" height="50px" class="ml-auto"></tb-skeleton>
               </vf-m-col>
             </vf-m-row>

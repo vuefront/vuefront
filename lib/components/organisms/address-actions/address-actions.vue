@@ -1,14 +1,15 @@
 <template>
   <div class="vf-o-address-actions">
     <vf-a-button class="vf-o-address-actions__edit" :to="`/account/address/${address.id}/edit`">
-      <vf-a-icon icon="pencil" />
+      <vf-a-icon :icon="mdiPencil" />
     </vf-a-button>
     <vf-a-button class="vf-o-address-actions__remove" color="danger" @click="handleRemove">
-      <vf-a-icon icon="delete-outline" />
+      <vf-a-icon :icon="mdiDeleteOutline" />
     </vf-a-button>
   </div>
 </template>
 <script>
+import {mdiPencil, mdiDeleteOutline} from '@mdi/js'
 export default {
   props: {
     address: {
@@ -16,6 +17,12 @@ export default {
       default() {
         return null;
       }
+    }
+  },
+  data() {
+    return {
+      mdiPencil,
+      mdiDeleteOutline
     }
   },
   methods: {

@@ -1,5 +1,5 @@
 <template>
-  <vf-a-link class="vf-m-logo d-block" to="/">
+  <vf-a-link class="vf-m-logo block" to="/">
     <vf-a-image
       :src="getLogo"
       alt

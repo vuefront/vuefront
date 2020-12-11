@@ -1,8 +1,7 @@
 <template>
   <vf-m-dropdown class="vf-m-account-menu" variant="link" size="sm" right>
     <template slot="button-content">
-      Account
-      <vf-a-icon icon="account-circle-outline" />
+      <vf-a-icon :icon="mdiAccountCircleOutline" />
     </template>
     <vf-m-dropdown-item
       class="vf-m-account-menu__item"
@@ -26,3 +25,13 @@
     >{{$t('elements.common.header.topNav.signOutText')}}</vf-m-dropdown-item>
   </vf-m-dropdown>
 </template>
+<script>
+import {mdiAccountCircleOutline} from '@mdi/js'
+export default {
+  data() {
+    return {
+      mdiAccountCircleOutline
+    }
+  }
+}
+</script>

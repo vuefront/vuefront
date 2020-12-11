@@ -1,14 +1,15 @@
 <template>
   <div class="vf-m-compare-actions">
     <vf-a-button class="vf-m-compare-actions__add-to-cart" @click="handleAddToCart">
-      <vf-a-icon icon="cart-outline" />
+      <vf-a-icon :icon="mdiCartOutline" />
     </vf-a-button>
     <vf-a-button class="vf-m-compare-actions__remove" color="danger" @click="handleRemove">
-      <vf-a-icon icon="delete-outline" />
+      <vf-a-icon :icon="mdiDeleteOutline" />
     </vf-a-button>
   </div>
 </template>
 <script>
+import {mdiCartOutline, mdiDeleteOutline} from '@mdi/js'
 export default {
   props: {
     product: {
@@ -16,6 +17,12 @@ export default {
       default() {
         return null;
       }
+    }
+  },
+  data() {
+    return {
+      mdiCartOutline,
+      mdiDeleteOutline
     }
   },
   methods: {

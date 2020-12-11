@@ -1,5 +1,5 @@
 <template>
-  <div class="grid" :class="getClass">
+  <div class="flex flex-wrap" :class="getClass">
     <slot></slot>
   </div>
 </template>
@@ -10,12 +10,6 @@ export default {
       type: String,
       default() {
         return "div";
-      }
-    },
-    cols: {
-      type: [Number, String],
-      default() {
-        return 12
       }
     },
     noGutters: {
@@ -39,13 +33,19 @@ export default {
   },
   computed: {
     getClass() {
-      const result = []
+      let result = []
 
       if (!this.noGutters) {
-        result.push('gap-4')
+        result.push('-mx-4')
       }
 
-      result.push(`grid-cols-${this.cols}`)
+      if (this.alignV) {
+        result.push('items-'+this.alignV)
+      }
+
+      if (this.alignH) {
+        result.push('justify-'+this.alignH)
+      }
 
       return result.join(' ')
     }

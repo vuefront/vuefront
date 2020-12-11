@@ -1,11 +1,11 @@
 <template>
   <vf-m-card class="mt-5">
-    <vf-m-row align-v="center" align-h="between">
-      <vf-m-col md="6" order-md="2" class="mb-4 mb-md-0">
-        <div class="d-flex align-items-center justify-content-md-end">
-          <span
-            class="h6 text-muted d-inline-block mr-3 mb-0"
-          >{{$t('elements.store.cart.totalText')}}</span>
+    <vf-m-row align-v="center" align-h="between" cols="2">
+      <vf-m-col md="6" order-md="2" class="mb-4 md:mb-0">
+        <div class="flex items-center md:justify-end">
+          <vf-a-heading level="6"
+            class="text-muted inline-block mr-3 mb-0"
+          >{{$t('elements.store.cart.totalText')}}</vf-a-heading>
           <vf-a-heading level="4" tag="span" class="mb-0">{{cart.total}}</vf-a-heading>
         </div>
       </vf-m-col>
@@ -20,22 +20,28 @@
         >
           <template #visible>{{$t('elements.store.cart.checkoutButton')}}</template>
           <template #hidden>
-            <vf-a-icon icon="cart-outline"></vf-a-icon>
+            <vf-a-icon :icon="mdiCartOutline"></vf-a-icon>
           </template>
         </vf-a-button>
         <vf-a-button
-          color="flat"
+          color="link"
           nuxt
           to="/"
-          class="btn-link text-sm text-dark font-weight-bold"
+          class="text-sm text-dark font-bold"
         >{{$t('elements.store.cart.returnButton')}}</vf-a-button>
       </vf-m-col>
     </vf-m-row>
   </vf-m-card>
 </template>
 <script>
+import {mdiCartOutline} from '@mdi/js'
 export default {
   props: ["cart"],
+  data() {
+    return {
+      mdiCartOutline
+    }
+  },
   computed: {
     isProducts() {
       return this.cart.products.length > 0;

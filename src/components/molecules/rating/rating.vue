@@ -9,21 +9,24 @@
       style="cursor:pointer;"
     >
       <vf-a-icon
-        :icon="rating <= currentRating ? 'star-outline' : 'star'"
+        :icon="rating <= currentRating ? mdiStar : mdiStarOutline "
         :style="{color: color}"
-        style="width: 1.125em;"
+        size="22"
       />
     </span>
   </section>
 </template>
 <script>
 import { isUndefined } from "lodash";
+import {mdiStar, mdiStarOutline} from '@mdi/js'
 export default {
   props: ["value", "color", "readonly"],
   data() {
     return {
       rating: 0,
-      hover: false
+      hover: false,
+      mdiStar,
+      mdiStarOutline
     };
   },
   computed: {

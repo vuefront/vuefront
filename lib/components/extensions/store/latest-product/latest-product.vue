@@ -1,5 +1,5 @@
 <template>
-  <vf-o-apollo class="vf-e-store-latest-product":variables="{size: $vuefront.options.productGridSize}">
+  <vf-o-apollo class="vf-e-store-latest-product" :variables="{size: $vuefront.options.productGridSize}">
     <template #loader>
       <vf-l-o-product-module :column="column" />
     </template>

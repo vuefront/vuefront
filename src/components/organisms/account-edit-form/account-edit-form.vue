@@ -35,7 +35,7 @@
 
     <template #button>
       {{$t('elements.common.account.edit.buttonSave')}}
-      <vf-a-icon icon="arrow-right" size="15" />
+      <vf-a-icon :icon="mdiArrowRight" :size="15" />
     </template>
   </vf-o-form>
 </template>
@@ -45,6 +45,7 @@ import required from "vuelidate/lib/validators/required";
 import minLength from "vuelidate/lib/validators/minLength";
 import maxLength from "vuelidate/lib/validators/maxLength";
 import email from "vuelidate/lib/validators/email";
+import {mdiArrowRight} from '@mdi/js'
 export default {
   props: {
     account: {
@@ -56,6 +57,7 @@ export default {
   },
   data() {
     return {
+      mdiArrowRight,
       form: {
         firstName: this.account.firstName,
         lastName: this.account.lastName,

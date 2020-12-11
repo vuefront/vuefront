@@ -121,7 +121,7 @@
     </vf-m-row>
     <template #button>
       {{$t('elements.common.address.create.buttonSave')}}
-      <vf-a-icon icon="arrow-right" />
+      <vf-a-icon :icon="mdiArrowRight" />
     </template>
   </vf-o-form>
 </template>
@@ -131,6 +131,7 @@ import { isEmpty } from "lodash";
 import required from "vuelidate/lib/validators/required";
 import minLength from "vuelidate/lib/validators/minLength";
 import maxLength from "vuelidate/lib/validators/maxLength";
+import {mdiArrowRight} from '@mdi/js'
 export default {
   props: {
     countries: {
@@ -148,6 +149,7 @@ export default {
   },
   data() {
     return {
+      mdiArrowRight,
       form: {
         firstName: "",
         lastName: "",

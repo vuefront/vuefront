@@ -1,9 +1,3 @@
-// import RegisterGql from './register.graphql'
-// import LoginGql from './login.graphql'
-// import LogoutGql from './logout.graphql'
-// import EditGql from './edit.graphql'
-// import EditPasswordGql from './editPassword.graphql'
-// import CheckGql from './check.graphql'
 import gql from 'graphql-tag'
 
 export const state = () => ({
@@ -185,7 +179,7 @@ export const actions = {
     await dispatch(
       'apollo/query',
       {
-        query: `{
+        query: gql`{
           accountCheckLogged {
             status
             customer {

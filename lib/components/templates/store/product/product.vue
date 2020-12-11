@@ -18,7 +18,7 @@
                 readonly
               />
             </vf-m-col>
-            <vf-m-col sm="6" class="text-sm-right">
+            <vf-m-col sm="6" class="sm:text-right">
               <vf-a-badge color="primary">{{$t('elements.store.product.idText')}}{{product.id}}</vf-a-badge>
               <vf-a-badge
                 v-if="product.stock"
@@ -48,7 +48,7 @@
               <vf-m-col sm="6" md="5" class="mb-4 mb-sm-0">
                 <vf-m-product-price :price="product.price" :special="product.special" />
               </vf-m-col>
-              <vf-m-col sm="6" md="7" class="text-sm-right">
+              <vf-m-col sm="6" md="7" class="sm:text-right">
                 <vf-o-product-buy :product="product" />
               </vf-m-col>
             </vf-m-row>

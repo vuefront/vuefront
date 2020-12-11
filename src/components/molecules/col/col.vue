@@ -116,9 +116,14 @@ export default {
   },
   computed: {
     classList() {
-      let result = []
+      let result = ['flex-grow']
+
+      if (!this.$parent.noGutters) {
+        result.push('px-4')
+      }
 
       const sizes = ['xs', 'sm', 'md', 'lg', 'xl']
+
       for (const size of sizes) {
         const col = this.createSize(size, this[size])
         if (col) {
@@ -128,7 +133,8 @@ export default {
         if (offset) {
           result = [...result, offset]
         }
-        const order = this.createSize(size, this[`order${capitalize(size)}`], '--order')
+        const order = this.createOrder(size, this[`order${capitalize(size)}`], '--order')
+        
         if (order) {
           result = [...result, order]
         }
@@ -144,20 +150,29 @@ export default {
   methods: {
     createSize(name, value, prefix = '') {
       let result = ''
-      // if (name === 'xs') {
-      //   name = ''
-      // } else {
-      //   name = `-${name}`
-      // }
       if ((typeof value !== 'undefined' && typeof value !== 'boolean') || (typeof value === 'boolean' && value)) {
         if (value !== null) {
 
           if (value === '') {
-            result =  `col-span-12`
-          } else if(value === 'auto') {
-            result = `${name}:col-${value}`
+            result =  `flex-1`
+          } else if (value === 12) {
+            result = `${name}:w-full ${name}:flex-grow-0`
           } else {
-            result = `${name}:col-span-${value}`
+            result = `${name}:w-${value}/12 ${name}:flex-grow-0`
+          }
+        }
+      }
+
+      return result
+    },
+    createOrder(name, value, prefix = '') {
+      let result = ''
+      if ((typeof value !== 'undefined' && typeof value !== 'boolean') || (typeof value === 'boolean' && value)) {
+        if (value !== null) {
+
+          if (value === '') {
+          } else {
+            result = `${name}:order-${value}`
           }
         }
       }

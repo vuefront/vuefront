@@ -10,7 +10,7 @@
     <vf-m-card-body class>
       <vf-a-heading
         :level="3"
-        class="font-weight-bold mb-4 vf-m-location__address"
+        class="font-bold mb-4 vf-m-location__address"
       >{{ location.address }}</vf-a-heading>
       <vf-a-heading
         :level="5"

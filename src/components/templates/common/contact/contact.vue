@@ -4,7 +4,7 @@
       <vf-m-col sm="12" md="6">
         <vf-o-contact-form />
       </vf-m-col>
-      <vf-m-col sm="12" md="6" class="ml-lg-auto">
+      <vf-m-col sm="12" md="6" class="lg:ml-auto">
         <vf-m-contact :contact="contact" />
       </vf-m-col>
     </vf-m-row>

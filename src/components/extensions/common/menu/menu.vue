@@ -4,7 +4,8 @@
       <vf-a-link :to="item.to" class="vf-e-common-menu__link">
         <div class="vf-e-common-menu__title">{{item.title}}</div>
         <vf-a-icon
-          icon="chevron-down"
+          :icon="mdiChevronDown"
+          size="15"
           v-if="item.children && item.children.length > 0"
           class="vf-e-common-menu__icon"
         />
@@ -25,7 +26,7 @@
             </div>
             <vf-a-icon
               v-if="subItem.children && subItem.children.length > 0"
-              icon="chevron-right"
+              :icon="mdiChevronRight"
               class="vf-e-common-menu__icon vf-e-common-menu__icon--float"
             />
           </vf-a-link>
@@ -49,16 +50,19 @@
   </section>
 </template>
 <script>
-import { VBToggle } from "bootstrap-vue";
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
+import { mdiChevronDown, mdiChevronRight } from '@mdi/js'
 export default {
-  directives: {
-    BToggle: VBToggle
-  },
   props: {
     items: {
       type: Array,
       default: []
+    }
+  },
+  data() {
+    return {
+      mdiChevronDown,
+      mdiChevronRight
     }
   },
   computed: {
@@ -93,6 +97,9 @@ export default {
     }
   },
   methods: {
+    ...mapMutations({
+      toggleSidebar: 'vuefront/toggleSidebar'
+    }),
     async handleLoadMenu() {
       if (!this.loaded) {
         let asyncItems = [];

@@ -1,10 +1,14 @@
 import {isUndefined} from 'lodash'
 export const state = () => ({
   error: false,
-  ssr: false
+  ssr: false,
+  sidebar: false
 })
 
 export const mutations = {
+  toggleSidebar (state) {
+    state.sidebar = !state.sidebar
+  },
   setResponseError (state, e) {
     if (e.graphQLErrors && e.graphQLErrors.message) {
       state.error = e.graphQLErrors.message
@@ -25,6 +29,9 @@ export const mutations = {
 }
 
 export const getters = {
+  sidebar(state) {
+    return state.sidebar
+  },
   error(state) {
     return state.error
   },
@@ -37,21 +44,13 @@ export const actions = {
   async vuefrontInit({ dispatch, commit }) {
     if (this.$cookies.get('token')) {
       commit('common/customer/setToken', this.$cookies.get('token'), {root: true})
-      await Promise.all([
-        dispatch('common/language/load', {}, { root: true }),
-        dispatch('common/customer/checkLogged', {}, { root: true }),
-        dispatch('store/currency/load', {}, { root: true })
-      ])
-  
-    } else {
-      await Promise.all([
-        dispatch('common/language/load', {}, { root: true }),
-        dispatch('store/currency/load', {}, { root: true })
-      ])
     }
-
-    
-
+    await Promise.all([
+      dispatch('common/language/load', {}, { root: true }),
+      dispatch('common/customer/checkLogged', {}, { root: true }),
+      dispatch('store/currency/load', {}, { root: true })
+    ])
+  
     if (this.$cookies.get('mode')) {
       commit('store/category/setMode', this.$cookies.get('mode'), {
         root: true

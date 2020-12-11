@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto" :class="{'vf-m-container--fluid': fluid, 'sm:container': size === 'sm', 'lg:container': size === 'lg'}">
+  <div class="container mx-auto px-4" :class="{'vf-m-container--fluid': fluid, 'sm:container': size === 'sm', 'lg:container': size === 'lg'}">
     <slot></slot>
   </div>
 </template>

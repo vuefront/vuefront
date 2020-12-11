@@ -1,5 +1,5 @@
 <template>
-  <section class="vf-m-empty text-sm-center">
+  <section class="vf-m-empty sm:text-center">
     <slot></slot>
   </section>
 </template>

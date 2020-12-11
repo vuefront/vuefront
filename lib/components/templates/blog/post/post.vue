@@ -1,10 +1,10 @@
 <template>
   <section class="post-section">
-    <vf-a-heading level="1" class="post-section__title mb-3 text-sm-left">{{post.title}}</vf-a-heading>
+    <vf-a-heading level="1" class="post-section__title mb-3 sm:text-left">{{post.title}}</vf-a-heading>
     <vf-m-row>
       <vf-m-col sm="6">
         <div
-          class="post-section__date mb-3 h6 text-sm-left"
+          class="post-section__date mb-3 h6 sm:text-left"
         >{{$t('elements.blog.post.postByText')}} {{post.datePublished}}</div>
       </vf-m-col>
       <vf-m-col sm="6">

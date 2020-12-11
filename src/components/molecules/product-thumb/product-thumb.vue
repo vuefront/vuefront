@@ -31,7 +31,7 @@
             color="light"
             @click="handleAddToCart"
           >
-            <vf-a-icon icon="cart-outline" />
+            <vf-a-icon :icon="mdiCartOutline" />
             {{$t('elements.store.product.buttonAddToCart')}}
           </vf-a-button>
           <vf-a-button
@@ -39,14 +39,14 @@
             color="light"
             @click="handleAddToWishlist"
           >
-            <vf-a-icon icon="heart-outline" />
+            <vf-a-icon :icon="mdiHeartOutline" />
           </vf-a-button>
           <vf-a-button
             class="rounded-0 vf-m-product-thumb__button-compare"
             color="light"
             @click="handleAddToCompare"
           >
-            <vf-a-icon icon="compare-horizontal" />
+            <vf-a-icon :icon="mdiCompareHorizontal" />
           </vf-a-button>
         </vf-m-button-group>
       </vf-m-col>
@@ -54,8 +54,16 @@
   </vf-m-card>
 </template>
 <script>
+import {mdiCartOutline,mdiHeartOutline, mdiCompareHorizontal} from '@mdi/js'
 export default {
   props: ["product", "wide"],
+  data() {
+    return {
+      mdiCartOutline,
+      mdiHeartOutline,
+      mdiCompareHorizontal
+    }
+  },
   computed: {
     url() {
       if (this.product.keyword && this.product.keyword !== "") {

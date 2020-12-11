@@ -11,7 +11,7 @@
           <vf-m-col
             v-if="checkModules('columnLeft')"
             sm="3"
-            class="d-none d-md-block vf-o-layout__content-left"
+            class="hidden md:block vf-o-layout__content-left"
           >
             <vf-o-position name="columnLeft" />
           </vf-m-col>
@@ -23,7 +23,7 @@
          <vf-m-col
             v-if="checkModules('columnRight')"
             sm="3"
-            class="d-none d-md-block vf-o-layout__content-right"
+            class="hidden md:block vf-o-layout__content-right"
           >
             <vf-o-position name="columnRight" />
           </vf-m-col>

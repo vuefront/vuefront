@@ -27,7 +27,7 @@
 
     <template #button>
       {{$t('elements.common.account.password.buttonSave')}}
-      <vf-a-icon icon="arrow-right" size="15" />
+      <vf-a-icon :icon="mdiArrowRight" size="15" />
     </template>
   </vf-o-form>
 </template>
@@ -37,9 +37,11 @@ import required from "vuelidate/lib/validators/required";
 import minLength from "vuelidate/lib/validators/minLength";
 import maxLength from "vuelidate/lib/validators/maxLength";
 import sameAs from "vuelidate/lib/validators/sameAs";
+import {mdiArrowRight} from '@mdi/js'
 export default {
   data() {
     return {
+      mdiArrowRight,
       form: {
         password: null,
         confirmPassword: null

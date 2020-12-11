@@ -1,9 +1,8 @@
-const {invertColor, alpha, darken} = require('../utils')
-const {colors} = require('../colors')
+const {invertColor, darken} = require('../utils')
 
 module.exports = (theme) => {
   const buttons = {}
-  const localColors = colors(theme)
+  const localColors = theme('vuefront.colors')
   for (const key in localColors) {
     buttons[`.vf-a-button--${key}`] = {
       backgroundColor: localColors[key],
@@ -34,50 +33,8 @@ module.exports = (theme) => {
       },
     }
   }
-
   return {
-    '.vf-a-button': {
-      padding: '.5rem 1rem',
-      borderRadius: '.25rem',
-      fontWeight: '600',
-      borderWidth: '2px',
-      borderStyle: 'solid',
-      cursor: 'pointer',
-      display: 'inline-flex',
-      alignItems: 'center',
-      justifyContent: 'center'
-    },
-    '.vf-a-button--link': {
-      padding: '0',
-      borderWidth: '0px',
-    },
-    '.vf-a-button--rounded': {
-      borderRadius: theme('borderRadius.full'),
-    },
-    '.vf-a-button--sm': {
-      paddingLeft: theme('padding.2'),
-      paddingRight: theme('padding.2'),
-      paddingTop: theme('padding.1'),
-      paddingBottom: theme('padding.1'),
-      fontSize: theme('fontSize.sm'),
-      lineHeight: theme('lineHeight.normal'),
-      borderRadius: theme('borderRadius.DEFAULT')
-    },
-    '.vf-a-button--md': {
-      paddingLeft: theme('padding.3'),
-      paddingRight: theme('padding.3'),
-      paddingTop: theme('padding.2'),
-      paddingBottom: theme('padding.2'),
-    },
-    '.vf-a-button--lg': {
-      paddingLeft: theme('padding.4'),
-      paddingRight: theme('padding.4'),
-      paddingTop: theme('padding.3'),
-      paddingBottom: theme('padding.3'),
-      fontSize: theme('fontSize.xl'),
-      lineHeight: theme('lineHeight.normal'),
-      borderRadius: theme('borderRadius.md')
-    },
+    '.vf-a-button':theme('vuefrontComponent.button'),
     ...buttons
   }
 }

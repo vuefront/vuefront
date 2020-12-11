@@ -5,10 +5,10 @@
     </vf-m-media-aside>
     <vf-m-media-body class="pl-3">
       <div class="lh-100">
-        <span class="text-dark font-weight-bold mb-0">{{product.name}}</span>
+        <span class="text-dark font-bold mb-0">{{product.name}}</span>
       </div>
-      <span class="font-weight-bold text-muted">{{product.model}}</span>
-      <span class="font-weight-bold text-muted" v-for="(value, index) in option" :key="index">
+      <span class="font-bold text-muted">{{product.model}}</span>
+      <span class="font-bold text-muted" v-for="(value, index) in option" :key="index">
         <div>
           <span v-html="value.name"></span>:
           <span v-html="value.value"></span>
