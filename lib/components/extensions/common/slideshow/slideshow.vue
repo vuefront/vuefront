@@ -1,6 +1,6 @@
 <template>
   <div class="vf-e-common-slideshow hidden md:block">
-    <!-- <vf-a-image :src="currentSlide" :width-amp="1110" :height-amp="370"></vf-a-image> -->
+    <vf-a-image :src="currentSlide" :width-amp="1110" :height-amp="370"></vf-a-image>
   </div>
   <!-- <b-carousel class="vf-e-common-slideshow" v-model="active" :interval="4000" controls indicators>
     <b-carousel-slide v-for="(item,i) in items" :key="i" :img-src="item">
@@ -24,13 +24,13 @@ export default {
     };
   },
   mounted() {
-    // setInterval(() => {
-    //   if (this.active < (this.items.length - 1)) {
-    //     this.active++
-    //   } else {
-    //     this.active = 0
-    //   }
-    // }, 4000)
+    setInterval(() => {
+      if (this.active < (this.items.length - 1)) {
+        this.active++
+      } else {
+        this.active = 0
+      }
+    }, 4000)
   },
   computed: {
     currentSlide() {
