@@ -13,10 +13,9 @@ const MainConfig = {
       productGridNoGutters: false
     },
     cssImport: {
-      core: 'vuefront/assets/scss/bootstrap-core.scss',
     },
     css: {
-      bootstrap: 'vuefront/assets/scss/bootstrap.scss',
+      tailwind: 'vuefront/assets/scss/tailwind.scss',
       theme: 'vuefront/assets/scss/theme.scss'
     },
     menu: [],
