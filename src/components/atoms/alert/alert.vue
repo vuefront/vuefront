@@ -50,9 +50,22 @@ export default {
     }
   },
   computed: {
+    getColors() {
+      return {
+        primary: 'vf-a-alert--primary',
+        secondary: 'vf-a-alert--secondary',
+        success: 'vf-a-alert--success',
+        info: 'vf-a-alert--info',
+        warning: 'vf-a-alert--warning',
+        danger: 'vf-a-alert--danger',
+        white: 'vf-a-alert--white',
+        light: 'vf-a-alert--light',
+        dark: 'vf-a-alert--dark'
+      }
+    },
     getClass() {
       const result = []
-      result.push('vf-a-alert--'+this.color)
+      result.push(this.getColors[this.color])
 
       return result.join(' ')
 

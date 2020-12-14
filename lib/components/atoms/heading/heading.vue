@@ -20,10 +20,20 @@ export default {
     }
   },
   computed: {
+    getLevels() {
+      return {
+        1: 'vf-a-heading--1',
+        2: 'vf-a-heading--2',
+        3: 'vf-a-heading--3',
+        4: 'vf-a-heading--4',
+        5: 'vf-a-heading--5',
+        6: 'vf-a-heading--6'
+      }
+    },
     getClass() {
       const result = []
 
-      result.push(`vf-a-heading--${this.level}`)
+      result.push(this.getLevels[this.level])
 
       return result.join(' ')
     }

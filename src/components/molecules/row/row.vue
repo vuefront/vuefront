@@ -32,6 +32,20 @@ export default {
     }
   },
   computed: {
+    getAlignV() {
+      return {
+        start: 'items-start',
+        center: 'items-center',
+        end: 'items-end'
+      }
+    },
+    getAlignH() {
+      return {
+        start: 'justify-start',
+        center: 'justify-center',
+        end: 'justify-end'
+      }
+    },
     getClass() {
       let result = []
 
@@ -40,11 +54,11 @@ export default {
       }
 
       if (this.alignV) {
-        result.push('items-'+this.alignV)
+        result.push(this.getAlignV[this.alignV])
       }
 
       if (this.alignH) {
-        result.push('justify-'+this.alignH)
+        result.push(this.getAlignH[this.alignH])
       }
 
       return result.join(' ')

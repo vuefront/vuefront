@@ -99,7 +99,46 @@ export default {
       }
     }
   },
+  data() {
+    return {
+      error: false
+    }
+  },
   computed: {
+    getSizes() {
+      return {
+        sm: 'vf-a-button--sm',
+        md: 'vf-a-button--md',
+        lg: 'vf-a-button--lg',
+      }
+    },
+    getColors() {
+      return {
+        link: 'vf-a-button--link',
+        primary: 'vf-a-button--primary',
+        secondary: 'vf-a-button--secondary',
+        success: 'vf-a-button--success',
+        info: 'vf-a-button--info',
+        warning: 'vf-a-button--warning',
+        danger: 'vf-a-button--danger',
+        white: 'vf-a-button--white',
+        light: 'vf-a-button--light',
+        dark: 'vf-a-button--dark'
+      }
+    },
+    getOutlineColors() {
+      return {
+        primary: 'vf-a-button--outline-primary',
+        secondary: 'vf-a-button--outline-secondary',
+        success: 'vf-a-button--outline-success',
+        info: 'vf-a-button--outline-info',
+        warning: 'vf-a-button--outline-warning',
+        danger: 'vf-a-button--outline-danger',
+        white: 'vf-a-button--outline-white',
+        light: 'vf-a-button--outline-light',
+        dark: 'vf-a-button--outline-dark'
+      }
+    },
     getClass() {
       const result = []
 
@@ -110,17 +149,17 @@ export default {
         result.push('active')
       }
       if (this.outline) {
-        result.push('vf-a-button--outline-'+this.color)
+        result.push(this.getOutlineColors[this.color])
         
       } else {
-        result.push('vf-a-button--'+this.color)
+        result.push(this.getColors[this.color])
       }
 
       if (this.block) {
         result.push('w-full')
       }
 
-      result.push('vf-a-button--'+this.size)
+      result.push(this.getSizes[this.size])
 
       if (this.rounded) {
         result.push('vf-a-button--rounded')

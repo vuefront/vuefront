@@ -26,8 +26,12 @@ module.exports = plugin(function({ addUtilities, e, theme, variants, addComponen
   addComponents(headingComponent(theme))
 }, {
   purge: [
-    './node_modules/vuefront/**/*.vue',
-    './components/**/*.vue'
+    `./components/**/*.{vue,js}`,
+    `./layouts/**/*.vue`,
+    `./pages/**/*.vue`,
+    `./plugins/**/*.{js,ts}`,
+    `./nuxt.config.{js,ts}`,
+    './node_modules/vuefront/**/*.{js,vue}'
   ],
   theme: {
     vuefrontComponent: (theme) => (defaultOptions(theme)),

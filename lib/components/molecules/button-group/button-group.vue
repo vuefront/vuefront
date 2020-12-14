@@ -24,6 +24,13 @@ export default {
     }
   },
   computed: {
+    getSizes() {
+      return {
+        sm: 'vf-m-button-group--sm',
+        md: 'vf-m-button-group--md',
+        lg: 'vf-m-button-group--lg',
+      }
+    },
     getClass() {
       let result = []
 
@@ -31,7 +38,7 @@ export default {
         result.push('vf-m-button-group--block')
       }
 
-      result.push(`vf-m-button-group--${this.size}`)
+      result.push(this.getSizes[this.size])
 
       return result.join(' ')
     }

@@ -4,7 +4,7 @@
     :size="size"
     :is="tag"
     class="vf-m-input-group"
-    :class="`vf-m-input-group--${size}`"
+    :class="getClass"
   >
     <div v-if="$slots.prepend || prepend" class="vf-m-input-group__prepend">
       <slot name="prepend">
@@ -47,6 +47,22 @@ export default {
     tag: {
       type: String,
       default: "div"
+    }
+  },
+  computed: {
+    getSizes() {
+      return {
+        sm: 'vf-m-input-group--sm',
+        md: 'vf-m-input-group--md',
+        lg: 'vf-m-input-group--lg',
+      }
+    },
+    getClass() {
+      let result = []
+
+      result.push(this.getSizes[this.size])
+
+      return result.join(' ')
     }
   }
 };

@@ -71,6 +71,14 @@ module.exports = (theme) => ({
         borderRadius: theme('borderRadius.DEFAULT')
       }
     },
+    '&--md': {
+      '.vf-a-button': {
+        paddingLeft: theme('padding.3'),
+        paddingRight: theme('padding.3'),
+        paddingTop: theme('padding.2'),
+        paddingBottom: theme('padding.2'),
+      }
+    },
     '&--lg': {
       '.vf-a-button': {
         paddingLeft: theme('padding.4'),
