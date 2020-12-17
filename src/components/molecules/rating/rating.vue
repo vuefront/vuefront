@@ -17,7 +17,7 @@
   </section>
 </template>
 <script>
-import { isUndefined } from "lodash";
+import isUndefined from "lodash/isUndefined";
 import {mdiStar, mdiStarOutline} from '@mdi/js'
 export default {
   props: ["value", "color", "readonly"],

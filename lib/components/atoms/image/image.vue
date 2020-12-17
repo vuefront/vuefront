@@ -1,7 +1,9 @@
 <script>
 import Vue from 'vue'
 import VueLazyload from 'vue-lazyload'
-Vue.use(VueLazyload)
+Vue.use(VueLazyload, {
+  throttleWait: 2000
+})
 export default {
   props: {
     blankColor: {
@@ -142,6 +144,16 @@ export default {
         imgClass = 'vf-a-image__img--cover'
       }
 
+      let directives = []
+
+      if (this.lazySrc !== '') {
+        directives.push({
+          name: 'lazy',
+          arg: 'background-image',
+          value: {loading: this.lazySrc, src}
+        })
+      }
+
       return createElement('div', {
         class: `vf-a-image image-wrapper layout-${this.layout}`,
         style: {
@@ -157,14 +169,10 @@ export default {
         createElement('div', {
           class: 'vf-a-image__img image-img '+imgClass,
           directives: [
-            {
-              name: 'lazy',
-              arg: 'background-image',
-              value: src
-            }
+            ...directives
           ],
           style: {
-            'background-image': this.lazySrc !== '' ? `url(${this.lazySrc})` : null,
+            'background-image': this.lazySrc !== '' ? `url(${this.lazySrc})` : `url(${this.src})`,
             'background-color': this.blankColor ? this.blankColor: null
           }
         }, []),

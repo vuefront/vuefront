@@ -1,13 +1,17 @@
 <template>
   <vf-o-apollo class="vf-e-blog-latest-post">
     <template #loader>
-      <vf-l-o-post-module :column="column" />
+      <span> 
+        <vf-l-o-post-module :column="column" />
+      </span>
     </template>
     <template #default="{data}">
-      <vf-o-post-module
-        :items="data.latestPosts.content"
-        :column="column"
-      >{{$t('modules.blog.latestPost.textTitle')}}</vf-o-post-module>
+      <span>
+        <vf-o-post-module
+          :items="data.latestPosts.content"
+          :column="column"
+          >{{$t('modules.blog.latestPost.textTitle')}}</vf-o-post-module>
+      </span>
     </template>
   </vf-o-apollo>
 </template>

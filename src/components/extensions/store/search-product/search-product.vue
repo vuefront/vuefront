@@ -1,14 +1,18 @@
 <template>
   <vf-o-apollo class="vf-e-store-search-product" :variables="{search:keyword}">
     <template #loader>
-      <vf-l-o-product-module :column="column" />
+      <span>
+        <vf-l-o-product-module :column="column" />
+      </span>
     </template>
     <template #default="{data}">
-      <vf-o-product-module
-        v-if="data.searchProduct.content.length > 0"
-        :items="data.searchProduct.content"
-        :column="column"
-      >{{$t('modules.store.searchProduct.textTitle')}}</vf-o-product-module>
+      <span>
+        <vf-o-product-module
+          v-if="data.searchProduct.content.length > 0"
+          :items="data.searchProduct.content"
+          :column="column"
+        >{{$t('modules.store.searchProduct.textTitle')}}</vf-o-product-module>
+      </span>
     </template>
   </vf-o-apollo>
 </template>

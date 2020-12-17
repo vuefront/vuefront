@@ -1,14 +1,18 @@
 <template>
   <vf-o-apollo class="vf-e-blog-search-post" :variables="{search:keyword}">
     <template #loader>
-      <vf-l-o-post-module :column="column" />
+      <span>
+        <vf-l-o-post-module :column="column" />
+      </span>
     </template>
     <template #default="{data}">
-      <vf-o-post-module
-        v-if="data.searchPosts.content.length > 0"
-        :items="data.searchPosts.content"
-        :column="column"
-      >{{$t('modules.blog.searchPost.textTitle')}}</vf-o-post-module>
+      <span>
+        <vf-o-post-module
+          v-if="data.searchPosts.content.length > 0"
+          :items="data.searchPosts.content"
+          :column="column"
+        >{{$t('modules.blog.searchPost.textTitle')}}</vf-o-post-module>
+      </span>
     </template>
   </vf-o-apollo>
 </template>

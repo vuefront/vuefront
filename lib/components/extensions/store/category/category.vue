@@ -1,28 +1,32 @@
 <template>
   <vf-o-apollo class="vf-e-store-category" v-slot="{data}">
-    <vf-m-list-group>
-      <template v-for="(value, index) in data.categoriesList.content">
-        <vf-m-list-group-item
-          :to="value.url"
-          :key="`root-${index}`"
-          :active="checkView(value, value.categories)"
-          v-html="value.name"
-        />
-        <template v-if="checkView(value, value.categories)">
+    <span>
+      <vf-m-list-group>
+        <template v-for="(value, index) in data.categoriesList.content">
           <vf-m-list-group-item
-            v-for="(subValue, subIndex) in value.categories"
-            :key="`sub-${subIndex}`"
-            :to="subValue.url"
-            :active="subValue.id === id"
-            v-html="`&nbsp;&nbsp;&nbsp;- ${subValue.name}`"
+            :to="value.url"
+            :key="`root-${index}`"
+            :active="checkView(value, value.categories)"
+            v-html="value.name"
           />
+          <template v-if="checkView(value, value.categories)">
+            <vf-m-list-group-item
+              v-for="(subValue, subIndex) in value.categories"
+              :key="`sub-${subIndex}`"
+              :to="subValue.url"
+              :active="subValue.id === id"
+              v-html="`&nbsp;&nbsp;&nbsp;- ${subValue.name}`"
+            />
+          </template>
         </template>
-      </template>
-    </vf-m-list-group>
+      </vf-m-list-group>
+    </span>
   </vf-o-apollo>
 </template>
 <script>
-import { isEmpty, map, includes } from "lodash";
+import isEmpty from "lodash/isEmpty";
+import map from "lodash/map";
+import includes from "lodash/includes";
 
 export default {
   computed: {

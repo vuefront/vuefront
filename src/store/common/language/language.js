@@ -1,6 +1,6 @@
 // import editLanguageGraphql from './edit.graphql'
 // import languageGetGql from './get.graphql'
-import {find} from 'lodash'
+import find from 'lodash/find'
 import gql from 'graphql-tag'
 
 export const state = () => ({
@@ -31,7 +31,7 @@ export const actions = {
     await dispatch(
       'apollo/query',
       {
-        query: `{
+        query: gql`{
           language {
             name
             image

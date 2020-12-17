@@ -24,7 +24,7 @@ export const actions = {
     await dispatch(
       'apollo/query',
       {
-        query: `{
+        query: gql`{
           currency {
             code
             symbol_left

@@ -127,7 +127,7 @@
 </template>
 <script>
 import { validationMixin } from "vuelidate";
-import { isEmpty } from "lodash";
+import isEmpty from "lodash/isEmpty";
 import required from "vuelidate/lib/validators/required";
 import minLength from "vuelidate/lib/validators/minLength";
 import maxLength from "vuelidate/lib/validators/maxLength";

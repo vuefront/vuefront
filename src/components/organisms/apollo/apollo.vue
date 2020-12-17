@@ -1,41 +1,46 @@
 <template>
-  <div>
+  <div class="vf-o-apollo" :class="{'vf-o-apollo--loading': loading, 'vf-o-apollo--loaded': !loading}">
     <template v-if="loading">
       <slot name="loader">
         <vf-a-loader />
       </slot>
     </template>
-    <slot v-else :data="data"></slot>
+    <span v-else>
+      <slot :data="data"></slot>
+    </span>
   </div>
 </template>
 <script>
 import { mapGetters } from "vuex";
-import { isUndefined } from "lodash";
+import isUndefined from "lodash/isUndefined";
 export default {
   props: ["query", "variables"],
   data() {
-    const prefetchData = this.$store.getters["apollo/prefetchData"];
-    let query = this.query;
-    if (this.$parent.$options.query) {
-      query = this.$parent.$options.query;
-    }
-    const hashCode = this.hashCode(
-      JSON.stringify({ query, variables: this.variables })
-    );
+    // const prefetchData = this.$store.getters["apollo/prefetchData"];
+    // let query = this.query;
+    // if (this.$parent.$options.query) {
+    //   query = this.$parent.$options.query;
+    // }
+    // const hashCode = this.hashCode(
+    //   JSON.stringify({ query, variables: this.variables })
+    // );
+    // console.log('data-hash')
+    // console.log(hashCode)
 
-    let data = {};
+    // let data = {};
     let error = {};
-    let loading = true;
+    // let loading = true;
 
-    if (!isUndefined(prefetchData[hashCode])) {
-      data = prefetchData[hashCode].data;
-      loading = prefetchData[hashCode].loading;
-    }
+    // if (!isUndefined(prefetchData[hashCode])) {
+    //   data = prefetchData[hashCode].data;
+    //   loading = prefetchData[hashCode].loading;
+    // }
+    // console.log(data)
 
     return {
-      data,
+      // data,
       error,
-      loading
+      // loading
     };
   },
   watch: {
@@ -48,6 +53,24 @@ export default {
     ...mapGetters({
       prefetchData: "apollo/prefetchData"
     }),
+    data() {
+      let data = {};
+
+      if (!isUndefined(this.prefetchData[this.componentHash])) {
+        data = this.prefetchData[this.componentHash].data;
+      }
+
+      return data
+    },
+    loading() {
+      let loading = true;
+
+      if (!isUndefined(this.prefetchData[this.componentHash])) {
+        loading = this.prefetchData[this.componentHash].loading;
+      }
+
+      return loading
+    },
     componentHash() {
       let query = this.query;
       if (this.$parent.$options.query) {
@@ -80,25 +103,25 @@ export default {
           })
           .then(({ data }) => {
             this.$emit('loaded', data)
-            if (ssr) {
-              this.$store.commit("apollo/setPrefetchData", {
-                key: this.componentHash,
-                data: { data, loading: false }
-              });
-            }
-            this.data = data;
-            this.loading = false;
+            // if (ssr) {
+            this.$store.commit("apollo/setPrefetchData", {
+              key: this.componentHash,
+              data: { data, loading: false }
+            });
+            // }
+            // this.data = data;
+            // this.loading = false;
             resolve();
           })
           .catch(e => {
-            if (ssr) {
-              this.$store.commit("apollo/setPrefetchData", {
-                key: this.componentHash,
-                data: { error: {}, loading: false }
-              });
-            }
+            // if (ssr) {
+            this.$store.commit("apollo/setPrefetchData", {
+              key: this.componentHash,
+              data: { error: {}, loading: false }
+            });
+            // }
             this.error = {};
-            this.loading = false;
+            // this.loading = false;
             rejects(e);
           });
       });

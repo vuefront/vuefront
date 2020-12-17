@@ -17,7 +17,9 @@
   </div>
 </template>
 <script>
-import { find, filter, includes } from "lodash";
+import find from "lodash/find";
+import filter from "lodash/filter";
+import includes from "lodash/includes";
 export default {
   props: ["option", "selected"],
   computed: {

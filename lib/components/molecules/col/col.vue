@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-import {capitalize} from 'lodash'
+import capitalize from 'lodash/capitalize'
 export default {
   props: {
     alignSelf: {

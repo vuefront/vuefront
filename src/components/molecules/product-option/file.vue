@@ -7,7 +7,7 @@
 <script>
 import uploadFileGql from "./upload.graphql";
 import { mapGetters } from "vuex";
-import { find } from "lodash";
+import find from "lodash/find";
 
 export default {
   props: ["option", "selected"],

@@ -10,7 +10,7 @@
   </div>
 </template>
 <script>
-import { find } from "lodash";
+import find from "lodash/find";
 
 export default {
   props: ["option", "selected"],

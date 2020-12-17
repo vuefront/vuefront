@@ -1,19 +1,23 @@
 <template>
   <vf-o-apollo class="vf-e-store-related-product" v-if="id" :variables="{id:id, limit: $vuefront.options.productGridSize}">
     <template #loader>
-      <vf-l-o-product-module :column="column" />
+      <span>
+        <vf-l-o-product-module :column="column" />
+      </span>
     </template>
     <template #default="{data}">
-      <vf-o-product-module
-        v-if="data.relatedProducts.products.length > 0"
-        :items="data.relatedProducts.products"
-        :column="column"
-      >{{$t('modules.store.relatedProduct.textTitle')}}</vf-o-product-module>
+      <span>
+        <vf-o-product-module
+          v-if="data.relatedProducts.products.length > 0"
+          :items="data.relatedProducts.products"
+          :column="column"
+        >{{$t('modules.store.relatedProduct.textTitle')}}</vf-o-product-module>
+      </span>
     </template>
   </vf-o-apollo>
 </template>
 <script>
-import { isEmpty } from "lodash";
+import isEmpty from "lodash/isEmpty";
 export default {
   props: {
     column: {

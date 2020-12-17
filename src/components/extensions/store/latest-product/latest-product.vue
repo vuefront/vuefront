@@ -1,18 +1,25 @@
 <template>
   <vf-o-apollo class="vf-e-store-latest-product" :variables="{size: $vuefront.options.productGridSize}">
     <template #loader>
-      <vf-l-o-product-module :column="column" />
+      <span>
+        <vf-l-o-product-module :column="column" />
+      </span>
     </template>
     <template #default="{data}">
-      <vf-o-product-module
-        :items="data.latestProducts.content"
-        :column="column"
-      >{{$t('modules.store.latestProduct.textTitle')}}</vf-o-product-module>
+      <span>
+        <vf-o-product-module
+          :items="data.latestProducts.content"
+          :column="column"
+        >{{$t('modules.store.latestProduct.textTitle')}}</vf-o-product-module>
+      </span>
     </template>
   </vf-o-apollo>
 </template>
 <script>
 export default {
+  components: {
+    vfOApollo: () => import('vuefront/lib/components/organisms/apollo/apollo.vue')
+  },
   props: {
     column: {
       type: Boolean,

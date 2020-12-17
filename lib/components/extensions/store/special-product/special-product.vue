@@ -1,13 +1,17 @@
 <template>
   <vf-o-apollo class="vf-e-store-special-product">
     <template #loader>
-      <vf-l-o-product-module :column="column" :variables="{size: $vuefront.options.productGridSize}"/>
+      <span>
+        <vf-l-o-product-module :column="column" :variables="{size: $vuefront.options.productGridSize}"/>
+      </span>
     </template>
     <template #default="{data}">
-      <vf-o-product-module
-        :items="data.specialProducts.content"
-        :column="column"
-      >{{$t('modules.store.specialProduct.textTitle')}}</vf-o-product-module>
+      <span>
+        <vf-o-product-module
+          :items="data.specialProducts.content"
+          :column="column"
+        >{{$t('modules.store.specialProduct.textTitle')}}</vf-o-product-module>
+      </span>
     </template>
   </vf-o-apollo>
 </template>

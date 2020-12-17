@@ -1,6 +1,7 @@
 import omitDeepLodash from 'omit-deep-lodash'
 import Axios from 'axios'
 import FormData from 'form-data'
+import Vue from 'vue'
 
 export const state = () => ({
   data: {},
@@ -21,7 +22,7 @@ export const mutations = {
     state.data = {...state.data, ...payload.data}
   },
   setPrefetchData(state, {key, data}) {
-    state.prefetchData[key] = data
+    Vue.set(state.prefetchData, key, data)
   }
 
 }

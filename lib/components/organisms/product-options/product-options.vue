@@ -59,7 +59,8 @@
   </section>
 </template>
 <script>
-import { isEmpty, filter } from "lodash";
+import isEmpty from "lodash/isEmpty";
+import filter from "lodash/filter";
 import { mapGetters } from "vuex";
 export default {
   props: ["product"],
