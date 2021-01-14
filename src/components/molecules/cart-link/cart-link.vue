@@ -1,6 +1,6 @@
 <template>
   <vf-a-link class="vf-m-cart-link" to="/store/cart">
-    <vf-a-icon :icon="mdiCartOutline" />
+    <vf-a-icon :icon="mdiCartOutline" :size="18" />
     <span class="hidden md:inline-block">{{$t('elements.common.header.nav.shoppingCartText')}}</span>
   </vf-a-link>
 </template>

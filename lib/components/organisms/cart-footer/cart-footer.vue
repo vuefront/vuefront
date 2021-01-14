@@ -20,7 +20,7 @@
         >
           <template #visible>{{$t('elements.store.cart.checkoutButton')}}</template>
           <template #hidden>
-            <vf-a-icon :icon="mdiCartOutline"></vf-a-icon>
+            <vf-a-icon :icon="mdiCartOutline" :size="18"></vf-a-icon>
           </template>
         </vf-a-button>
         <vf-a-button

@@ -104,6 +104,7 @@ module.exports = (theme) => ({
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
+    textAlign: 'center',
     '&--link': {
       padding: '0',
       borderWidth: '0px',
