@@ -77,12 +77,12 @@ export default {
         id
         name
         keyword
-        url(url: "/store/category/:id")
+        url(url: "/store/category/_id")
         categories {
           id
           name
           keyword
-          url(url: "/store/category/:id")
+          url(url: "/store/category/_id")
         }
       }
     }
