@@ -1,8 +1,5 @@
-// import addToCartGraphql from './add.graphql'
-// import updateCartGraphql from './update.graphql'
-// import removeCartGraphql from './remove.graphql'
 import gql from 'graphql-tag'
-
+import find from 'lodash/find'
 export const state = () => ({
   cart: {
     products: []
@@ -124,6 +121,13 @@ export const actions = {
       commit('setCart', rootGetters['apollo/get'].updateCart)
     }
   },
+  async removeByProductId({ dispatch, getters }, { productId }) {
+    const product = find(getters.get.products,(o) => (o.product.id === productId))
+    if (product) {
+      await dispatch('remove', {key: product.key})
+    }
+    
+  },
   async remove({ commit, dispatch, rootGetters }, { key }) {
     await dispatch(
       'apollo/mutate',
@@ -163,6 +167,45 @@ export const actions = {
 
     if (!rootGetters['vuefront/error']) {
       commit('setCart', rootGetters['apollo/get'].removeCart)
+    }
+  },
+  async load({commit, dispatch, rootGetters}) {
+    await dispatch("apollo/query", {
+      query: gql`{
+        cart {
+            products {
+                key
+                quantity
+                total
+                option {
+                    name
+                    value
+                    type
+                }
+                product {
+                    id
+                    name
+                    model
+                    price
+                    image
+                    imageLazy
+                }
+            }
+            total
+        }
+      }`
+    }, {
+      root: true
+    });
+
+    if (
+      !rootGetters["vuefront/error"] &&
+      rootGetters["apollo/get"].cart
+    ) {
+      commit(
+        "setCart",
+        rootGetters["apollo/get"].cart
+      );
     }
   }
 }
