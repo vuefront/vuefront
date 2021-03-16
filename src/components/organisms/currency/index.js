@@ -1,1 +1,1 @@
-export { default as oCurrency } from './currency.vue'
+export { default as oCurrency } from "./currency.vue";

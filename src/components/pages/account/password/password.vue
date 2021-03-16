@@ -9,9 +9,9 @@ export default {
     return [
       {
         title: this.$t("pages.account.password.breadcrumbTitle"),
-        to: this.$route.path
-      }
+        to: this.$route.path,
+      },
     ];
-  }
+  },
 };
 </script>

@@ -1,17 +1,23 @@
 <template>
-  <vf-o-apollo class="vf-e-store-search-product" :variables="{search:keyword}">
+  <vf-o-apollo
+    class="vf-e-store-search-product"
+    :variables="{ search: keyword }"
+  >
     <template #loader>
       <span>
         <vf-l-o-product-module :column="column" />
       </span>
     </template>
-    <template #default="{data}">
+    <template #default="{ data }">
       <span>
         <vf-o-product-module
           v-if="data.searchProduct.content.length > 0"
           :items="data.searchProduct.content"
           :column="column"
-        >{{$t('modules.store.searchProduct.textTitle')}}</vf-o-product-module>
+          >{{
+            $t("modules.store.searchProduct.textTitle")
+          }}</vf-o-product-module
+        >
       </span>
     </template>
   </vf-o-apollo>
@@ -21,14 +27,14 @@ export default {
   props: {
     column: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     keyword() {
       return this.$route.params.slug ? this.$route.params.slug : "";
-    }
-  }
+    },
+  },
 };
 </script>
 <graphql>

@@ -1,28 +1,45 @@
 <template>
   <section class="vf-e-common-menu">
-    <div class="vf-e-common-menu__item" v-for="(item, index) in menuItems" :key="index">
+    <div
+      v-for="(item, index) in menuItems"
+      :key="index"
+      class="vf-e-common-menu__item"
+    >
       <vf-a-link :to="item.to" class="vf-e-common-menu__link">
-        <div class="vf-e-common-menu__title">{{item.title}}</div>
+        <div class="vf-e-common-menu__title">{{ item.title }}</div>
         <vf-a-icon
+          v-if="item.children && item.children.length > 0"
           :icon="mdiChevronDown"
           size="15"
-          v-if="item.children && item.children.length > 0"
           class="vf-e-common-menu__icon"
         />
       </vf-a-link>
       <div
         v-if="item.children && item.children.length > 0"
         class="vf-e-common-menu__submenu vf-e-common-menu__submenu--vertical"
-        :class="[ ( item.children.length > 5 && item.children.length <= 10 ? 'vf-e-common-menu__submenu--two-columns' : ''), (item.children.length > 10 ? 'vf-e-common-menu__submenu--three-columns': '' ) ]"
+        :class="[
+          item.children.length > 5 && item.children.length <= 10
+            ? 'vf-e-common-menu__submenu--two-columns'
+            : '',
+          item.children.length > 10
+            ? 'vf-e-common-menu__submenu--three-columns'
+            : '',
+        ]"
       >
-        <div class="vf-e-common-menu__item" v-for="(subItem, key) in item.children" :key="key">
+        <div
+          v-for="(subItem, key) in item.children"
+          :key="key"
+          class="vf-e-common-menu__item"
+        >
           <vf-a-link
             :to="subItem.to || '/'"
             class="vf-e-common-menu__link vf-e-common-menu__link--lg"
           >
             <div class="vf-e-common-menu__title">
-              {{subItem.title}}
-              <span v-if="subItem.children && subItem.children.length">({{ subItem.children.length }})</span>
+              {{ subItem.title }}
+              <span v-if="subItem.children && subItem.children.length"
+                >({{ subItem.children.length }})</span
+              >
             </div>
             <vf-a-icon
               v-if="subItem.children && subItem.children.length > 0"
@@ -35,12 +52,15 @@
             class="vf-e-common-menu__submenu vf-e-common-menu__submenu--horizontal"
           >
             <div
-              class="vf-e-common-menu__item"
               v-for="(value, subKey) in subItem.children"
               :key="subKey"
+              class="vf-e-common-menu__item"
             >
-              <vf-a-link :to="value.to || '/'" class="vf-e-common-menu__link vf-e-common-menu__link--md">
-                <div class="vf-e-common-menu__title">{{value.title}}</div>
+              <vf-a-link
+                :to="value.to || '/'"
+                class="vf-e-common-menu__link vf-e-common-menu__link--md"
+              >
+                <div class="vf-e-common-menu__title">{{ value.title }}</div>
               </vf-a-link>
             </div>
           </div>
@@ -51,26 +71,28 @@
 </template>
 <script>
 import { mapGetters, mapMutations } from "vuex";
-import { mdiChevronDown, mdiChevronRight } from '@mdi/js'
+import { mdiChevronDown, mdiChevronRight } from "@mdi/js";
 export default {
   props: {
     items: {
       type: Array,
-      default: []
-    }
+      default() {
+        return [];
+      },
+    },
   },
   data() {
     return {
       mdiChevronDown,
-      mdiChevronRight
-    }
+      mdiChevronRight,
+    };
   },
   computed: {
     ...mapGetters({ menuModules: "menu/list", loadedItems: "menu/loaded" }),
     loaded() {
       let result = false;
 
-      if (typeof this.loadedItems[this.idHash] !== 'undefined') {
+      if (typeof this.loadedItems[this.idHash] !== "undefined") {
         result = this.loadedItems[this.idHash];
       }
 
@@ -79,14 +101,14 @@ export default {
     menuItems() {
       let result = [];
 
-      if (typeof this.menuModules[this.idHash] !== 'undefined') {
+      if (typeof this.menuModules[this.idHash] !== "undefined") {
         result = [...result, ...this.menuModules[this.idHash]];
       }
       return result;
     },
     idHash() {
       return this.hashCode(JSON.stringify(this.items));
-    }
+    },
   },
   serverPrefetch() {
     return this.handleLoadMenu();
@@ -98,17 +120,17 @@ export default {
   },
   methods: {
     ...mapMutations({
-      toggleSidebar: 'vuefront/toggleSidebar'
+      toggleSidebar: "vuefront/toggleSidebar",
     }),
     async handleLoadMenu() {
       if (!this.loaded) {
         let asyncItems = [];
         for (const key in this.items) {
           const item = this.items[key];
-          if (typeof item === 'string') {
+          if (typeof item === "string") {
             asyncItems = [
               ...asyncItems,
-              this.$store.dispatch(`menu/${item}/load`, {})
+              this.$store.dispatch(`menu/${item}/load`, {}),
             ];
           }
         }
@@ -119,24 +141,24 @@ export default {
 
         for (const key in this.items) {
           const item = this.items[key];
-          if (typeof item === 'string') {
+          if (typeof item === "string") {
             result = [...result, ...this.$store.getters[`menu/${item}/get`]];
           } else {
             result = [...result, item];
           }
         }
-        
+
         this.$store.commit("menu/setEntities", {
           id: this.idHash,
-          items: result
+          items: result,
         });
         this.$store.commit("menu/setLoaded", { id: this.idHash, loaded: true });
       }
     },
     hashCode(str) {
-      var hash = 0,
-        i,
-        chr;
+      let hash = 0;
+      let i;
+      let chr;
       if (str.length === 0) return hash;
       for (i = 0; i < str.length; i++) {
         chr = str.charCodeAt(i);
@@ -145,7 +167,7 @@ export default {
       }
 
       return hash;
-    }
-  }
+    },
+  },
 };
 </script>

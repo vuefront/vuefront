@@ -5,8 +5,8 @@
       :placeholder="$t('elements.common.header.navSearch.placeholderText')"
       size="sm"
       :hide-details="!$vuefront.isAMP"
-      @keypress.stop="handleKeyPress"
       trim
+      @keypress.stop="handleKeyPress"
     />
   </span>
 </template>
@@ -14,7 +14,7 @@
 export default {
   data() {
     return {
-      keyword: ""
+      keyword: "",
     };
   },
   watch: {
@@ -24,9 +24,17 @@ export default {
       } else {
         this.keyword = "";
       }
-    }
+    },
   },
   watchQuery: true,
+  beforeMount() {
+    if (
+      this.$route.matched.length > 0 &&
+      this.$route.matched[0].path === "/search/:slug"
+    ) {
+      this.keyword = this.$route.params.slug;
+    }
+  },
   methods: {
     handleKeyPress(e) {
       if (e.key === "Enter") {
@@ -39,15 +47,7 @@ export default {
     },
     doSearch() {
       this.$router.push(`/search/${this.keyword}`);
-    }
+    },
   },
-  beforeMount() {
-    if (
-      this.$route.matched.length > 0 &&
-      this.$route.matched[0].path === "/search/:slug"
-    ) {
-      this.keyword = this.$route.params.slug;
-    }
-  }
 };
 </script>

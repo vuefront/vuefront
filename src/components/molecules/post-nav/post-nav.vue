@@ -17,8 +17,8 @@ export default {
       type: Object,
       default() {
         return null;
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>

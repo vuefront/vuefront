@@ -17,12 +17,12 @@
   </div>
 </template>
 <script>
-import {mdiMagnify} from '@mdi/js'
+import { mdiMagnify } from "@mdi/js";
 export default {
   data() {
     return {
       keyword: "",
-      mdiMagnify
+      mdiMagnify,
     };
   },
   watch: {
@@ -32,9 +32,17 @@ export default {
       } else {
         this.keyword = "";
       }
-    }
+    },
   },
   watchQuery: true,
+  beforeMount() {
+    if (
+      this.$route.matched.length > 0 &&
+      this.$route.matched[0].path === "/search/:slug"
+    ) {
+      this.keyword = this.$route.params.slug;
+    }
+  },
   methods: {
     handleKeyPress(e) {
       if (e.key === "Enter") {
@@ -51,15 +59,7 @@ export default {
       } else {
         this.$router.push("/search");
       }
-    }
+    },
   },
-  beforeMount() {
-    if (
-      this.$route.matched.length > 0 &&
-      this.$route.matched[0].path === "/search/:slug"
-    ) {
-      this.keyword = this.$route.params.slug;
-    }
-  }
 };
 </script>

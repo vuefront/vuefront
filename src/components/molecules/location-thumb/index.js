@@ -1,1 +1,1 @@
-export { default as mLocationThumb } from './location-thumb.vue'
+export { default as mLocationThumb } from "./location-thumb.vue";

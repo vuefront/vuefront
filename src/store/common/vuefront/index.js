@@ -1,5 +1,3 @@
-import * as Vuefront from './vuefront'
+import * as Vuefront from "./vuefront";
 
-export {
-  Vuefront
-}
+export { Vuefront };

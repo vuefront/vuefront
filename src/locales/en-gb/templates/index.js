@@ -1,7 +1,7 @@
-import blog from './store'
-import store from './store'
+import * as blog from "./blog";
+import * as store from "./store";
 
 export default {
   store,
-  blog
-}
+  blog,
+};

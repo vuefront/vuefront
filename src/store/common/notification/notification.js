@@ -1,22 +1,22 @@
 export const state = () => ({
-  message: '',
-  error: ''
-})
+  message: "",
+  error: "",
+});
 
 export const getters = {
   get(state) {
-    return state.message
+    return state.message;
   },
   error(state) {
-    return state.error
-  }
-}
+    return state.error;
+  },
+};
 
 export const mutations = {
   add(state, message) {
-    state.message = message
+    state.message = message;
   },
   error(state, error) {
-    state.error = error
+    state.error = error;
   },
-}
+};

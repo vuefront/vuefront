@@ -14,8 +14,8 @@ export default {
       type: Array,
       default() {
         return [];
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>

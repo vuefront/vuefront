@@ -2,15 +2,21 @@
   <vf-o-apollo class="vf-e-store-special-product">
     <template #loader>
       <span>
-        <vf-l-o-product-module :column="column" :variables="{size: $vuefront.options.productGridSize}"/>
+        <vf-l-o-product-module
+          :column="column"
+          :variables="{ size: $vuefront.options.productGridSize }"
+        />
       </span>
     </template>
-    <template #default="{data}">
+    <template #default="{ data }">
       <span>
         <vf-o-product-module
           :items="data.specialProducts.content"
           :column="column"
-        >{{$t('modules.store.specialProduct.textTitle')}}</vf-o-product-module>
+          >{{
+            $t("modules.store.specialProduct.textTitle")
+          }}</vf-o-product-module
+        >
       </span>
     </template>
   </vf-o-apollo>
@@ -20,9 +26,9 @@ export default {
   props: {
     column: {
       type: Boolean,
-      default: false
-    }
-  }
+      default: false,
+    },
+  },
 };
 </script>
 <graphql>

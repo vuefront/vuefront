@@ -1,11 +1,11 @@
 <template>
-  <vf-o-apollo class="vf-e-store-category" v-slot="{data}">
+  <vf-o-apollo v-slot="{ data }" class="vf-e-store-category">
     <span>
       <vf-m-list-group>
         <template v-for="(value, index) in data.categoriesList.content">
           <vf-m-list-group-item
-            :to="value.url"
             :key="`root-${index}`"
+            :to="value.url"
             :active="checkView(value, value.categories)"
             v-html="value.name"
           />
@@ -41,7 +41,7 @@ export default {
       }
 
       return result;
-    }
+    },
   },
   methods: {
     url(category) {
@@ -57,7 +57,7 @@ export default {
           return true;
         } else if (
           includes(
-            map(subValues, subValue => subValue.id),
+            map(subValues, (subValue) => subValue.id),
             this.id
           )
         ) {
@@ -66,8 +66,8 @@ export default {
       }
 
       return false;
-    }
-  }
+    },
+  },
 };
 </script>
 <graphql>

@@ -1,5 +1,3 @@
-import * as Position from './position'
+import * as Position from "./position";
 
-export {
-  Position
-}
+export { Position };

@@ -6,8 +6,8 @@
     :title="product.title"
     :width-amp="width ? width : $vuefront.images.productThumb.width"
     :height-amp="height ? height : $vuefront.images.productThumb.height"
-    :width="width? width : null"
-    :class="{'card-img': card}"
+    :width="width ? width : null"
+    :class="{ 'card-img': card }"
     :fluid="!width && !height"
     class="vf-m-product-thumb-image"
     cover
@@ -20,32 +20,32 @@ export default {
       type: Boolean,
       default() {
         return false;
-      }
+      },
     },
     product: {
       type: Object,
       default() {
         return null;
-      }
+      },
     },
     width: {
-      type: String | Number,
+      type: [String, Number],
       default() {
         return null;
-      }
+      },
     },
     height: {
-      type: String | Number,
+      type: [String, Number],
       default() {
         return null;
-      }
+      },
     },
     layout: {
       type: String,
       default() {
         return null;
-      }
-    }
+      },
+    },
   },
   computed: {
     mainImage() {
@@ -57,8 +57,7 @@ export default {
       return this.product.imageLazy !== ""
         ? this.product.imageLazy
         : this.$vuefront.images.placeholder.image;
-    }
-  }
+    },
+  },
 };
 </script>
-

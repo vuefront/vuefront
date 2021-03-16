@@ -1,1 +1,1 @@
-export { default as oNotificationToast } from './notification-toast.vue'
+export { default as oNotificationToast } from "./notification-toast.vue";

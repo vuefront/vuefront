@@ -1,5 +1,11 @@
 <template>
-  <skeleton shape="radius" theme="opacity" bg-color="#eee" width="100%" duration="2">
+  <skeleton
+    shape="radius"
+    theme="opacity"
+    bg-color="#eee"
+    width="100%"
+    duration="2"
+  >
     <div>
       <tb-skeleton width="100px" height="20px" class="mb-4"></tb-skeleton>
       <tb-skeleton width="100px" height="18px" class="mb-2"></tb-skeleton>
@@ -18,8 +24,7 @@ import { TbSkeleton, Skeleton } from "tb-skeleton";
 export default {
   components: {
     TbSkeleton,
-    Skeleton
-  }
+    Skeleton,
+  },
 };
 </script>
-

@@ -4,34 +4,42 @@
       <vf-a-icon :icon="mdiAccountCircleOutline" />
     </template>
     <vf-m-dropdown-item
-      class="vf-m-account-menu__item"
       v-if="!$vuefront.isAuth"
+      class="vf-m-account-menu__item"
       to="/account/login"
-    >{{$t('elements.common.header.topNav.signInText')}}</vf-m-dropdown-item>
+      >{{ $t("elements.common.header.topNav.signInText") }}</vf-m-dropdown-item
+    >
     <vf-m-dropdown-item
-      class="vf-m-account-menu__item"
       v-if="!$vuefront.isAuth"
+      class="vf-m-account-menu__item"
       to="/account/register"
-    >{{$t('elements.common.header.topNav.registerText')}}</vf-m-dropdown-item>
+      >{{
+        $t("elements.common.header.topNav.registerText")
+      }}</vf-m-dropdown-item
+    >
     <vf-m-dropdown-item
-      class="vf-m-account-menu__item"
       v-if="$vuefront.isAuth"
+      class="vf-m-account-menu__item"
       to="/account"
-    >{{$t('elements.common.header.topNav.myAccountText')}}</vf-m-dropdown-item>
+      >{{
+        $t("elements.common.header.topNav.myAccountText")
+      }}</vf-m-dropdown-item
+    >
     <vf-m-dropdown-item
-      class="vf-m-account-menu__item"
       v-if="$vuefront.isAuth"
+      class="vf-m-account-menu__item"
       @click="$vuefront.logout"
-    >{{$t('elements.common.header.topNav.signOutText')}}</vf-m-dropdown-item>
+      >{{ $t("elements.common.header.topNav.signOutText") }}</vf-m-dropdown-item
+    >
   </vf-m-dropdown>
 </template>
 <script>
-import {mdiAccountCircleOutline} from '@mdi/js'
+import { mdiAccountCircleOutline } from "@mdi/js";
 export default {
   data() {
     return {
-      mdiAccountCircleOutline
-    }
-  }
-}
+      mdiAccountCircleOutline,
+    };
+  },
+};
 </script>

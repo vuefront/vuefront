@@ -1,5 +1,3 @@
-import * as Product from './product'
+import * as Product from "./product";
 
-export {
-  Product
-}
+export { Product };

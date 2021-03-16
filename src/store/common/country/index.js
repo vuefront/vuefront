@@ -1,5 +1,3 @@
-import * as Country from './country'
+import * as Country from "./country";
 
-export  {
-  Country
-}
+export { Country };

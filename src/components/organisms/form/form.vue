@@ -1,14 +1,14 @@
 <template>
-  <form @submit="onSubmit" @reset="onReset" class="vf-o-form">
-    <div v-if="!inline" :class="{'mb-5' : $slots['sub-title']}">
+  <form class="vf-o-form" @submit="onSubmit" @reset="onReset">
+    <div v-if="!inline" :class="{ 'mb-5': $slots['sub-title'] }">
       <vf-a-heading v-if="$slots['sub-title']" tag="h6" level="3">
         <slot name="title"></slot>
       </vf-a-heading>
       <div
-        :class="{'mb-3': !$slots['sub-title'], 'mb-0': $slots['sub-title']}"
+        :class="{ 'mb-3': !$slots['sub-title'], 'mb-0': $slots['sub-title'] }"
         class="vf-o-form__title title"
       >
-        <slot :name="$slots['sub-title'] ? 'sub-title': 'title'"></slot>
+        <slot :name="$slots['sub-title'] ? 'sub-title' : 'title'"></slot>
       </div>
     </div>
 
@@ -16,7 +16,7 @@
 
     <slot></slot>
 
-    <div class="mt-4" v-if="button">
+    <div v-if="button" class="mt-4">
       <vf-a-button type="submit" color="primary">
         <slot name="button"></slot>
       </vf-a-button>
@@ -31,19 +31,19 @@ export default {
       type: Boolean,
       default() {
         return false;
-      }
+      },
     },
     button: {
       type: Boolean,
       default() {
         return true;
-      }
-    }
+      },
+    },
   },
   computed: {
     ...mapGetters({
-      error: "vuefront/error"
-    })
+      error: "vuefront/error",
+    }),
   },
   methods: {
     onSubmit(e) {
@@ -53,7 +53,7 @@ export default {
     onReset(e) {
       e.preventDefault();
       this.$emit("reset", e);
-    }
-  }
+    },
+  },
 };
 </script>

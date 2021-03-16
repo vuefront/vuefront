@@ -7,6 +7,16 @@
 <script>
 import { mapGetters } from "vuex";
 export default {
+  asyncData(ctx) {
+    return {
+      loaded: !process.client,
+    };
+  },
+  data() {
+    return {
+      loaded: true,
+    };
+  },
   head() {
     if (!this.post.meta) {
       return {};
@@ -17,59 +27,49 @@ export default {
         {
           hid: "description",
           name: "description",
-          content: this.post.meta.description
+          content: this.post.meta.description,
         },
         {
           name: "keywords",
-          content: this.post.meta.keyword
-        }
-      ]
+          content: this.post.meta.keyword,
+        },
+      ],
     };
   },
   breadcrumbs() {
     return [
       {
         title: this.post.meta.title,
-        to: this.$route.path
-      }
+        to: this.$route.path,
+      },
     ];
-  },
-  data() {
-    return {
-      loaded: true
-    };
   },
   computed: {
     ...mapGetters({
-      post: "blog/post/get"
-    })
+      post: "blog/post/get",
+    }),
   },
   mounted() {
     if (!this.loaded) {
       this.handleLoadData();
     }
   },
-  asyncData(ctx) {
-    return {
-      loaded: !process.client
-    };
-  },
   serverPrefetch() {
     return this.handleLoadData(this);
   },
   methods: {
     async handleLoadData(ctx) {
-      let { id } = this.$vuefront.params;
+      const { id } = this.$vuefront.params;
       await this.$store.dispatch("apollo/query", {
         query: this.$options.query,
-        variables: { id }
+        variables: { id },
       });
       const { post } = this.$store.getters["apollo/get"];
 
       this.$store.commit("blog/post/setPost", post);
       this.loaded = true;
-    }
-  }
+    },
+  },
 };
 </script>
 <graphql>

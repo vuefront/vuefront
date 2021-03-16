@@ -9,7 +9,9 @@
       full-width
       fluid
     />
-    <vf-a-heading level="6" class="sm:text-center">{{category.name}}</vf-a-heading>
+    <vf-a-heading level="6" class="sm:text-center">{{
+      category.name
+    }}</vf-a-heading>
   </vf-a-link>
 </template>
 <script>
@@ -58,7 +60,7 @@ export default {
         }
       }
       return height;
-    }
-  }
+    },
+  },
 };
 </script>

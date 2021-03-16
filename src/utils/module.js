@@ -1,55 +1,58 @@
-import isEmpty from 'lodash/isEmpty'
-import isNull from 'lodash/isNull'
-import isUndefined from 'lodash/isUndefined'
-import {mapGetters} from 'vuex'
+import isEmpty from "lodash/isEmpty";
+import isNull from "lodash/isNull";
+import isUndefined from "lodash/isUndefined";
+import { mapGetters } from "vuex";
 export const BaseModule = {
   data() {
-    this.$store.commit('position/setParams', this.$vuefront.params)
+    this.$store.commit("position/setParams", this.$vuefront.params);
 
-    let path = this.$route.path
-    if(this.$route.matched.length > 0) {
-      path = this.$route.matched[0].path
+    let path = this.$route.path;
+    if (this.$route.matched.length > 0) {
+      path = this.$route.matched[0].path;
       for (const key in this.$route.params) {
-        path = path.replace(`:${key}`, this.$route.params[key])
+        path = path.replace(`:${key}`, this.$route.params[key]);
       }
     }
-    this.$store.commit('position/setRoute', path)
+    this.$store.commit("position/setRoute", path);
 
-    return {}
+    return {};
   },
   computed: {
     ...mapGetters({
-      currentRoute: 'position/currentRoute',
-      positions: 'position/position'
-    })
+      currentRoute: "position/currentRoute",
+      positions: "position/position",
+    }),
   },
   methods: {
     checkModules(position) {
-      let result = false
-      let status = this.positions(position)
+      let result = false;
+      const status = this.positions(position);
 
-      if(isNull(status)) {
+      if (isNull(status)) {
         for (const route in this.$vuefront.layouts) {
-          const layout = this.$vuefront.layouts[route]
-          let regexRoute = route.replace('*', '.*')
-          regexRoute = regexRoute.replace('//', '\\//')
-          const regex = new RegExp('^' + regexRoute + '$', 'i')
+          const layout = this.$vuefront.layouts[route];
+          let regexRoute = route.replace("*", ".*");
+          regexRoute = regexRoute.replace("//", "\\//");
+          const regex = new RegExp("^" + regexRoute + "$", "i");
 
-  
           if (regex.test(this.currentRoute) && !isUndefined(layout[position])) {
             if (!isEmpty(layout[position])) {
-              result = true
+              result = true;
               break;
             }
           }
         }
       } else {
-        result = status
+        result = status;
       }
 
-      this.$store.commit('position/setPosition', {name: position, status: result, route: this.currentRoute})
+      this.$store.commit("position/setPosition", {
+        name: position,
+        status: result,
+        route: this.currentRoute,
+      });
 
-      return result
+      return result;
     },
   },
-}
+};

@@ -19,7 +19,7 @@ export default {
       } else {
         return "https://vuefront.com/logo.png";
       }
-    }
-  }
+    },
+  },
 };
 </script>

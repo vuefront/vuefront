@@ -1,14 +1,14 @@
 // import pageMenuGql from "./page.graphql";
-import gql from 'graphql-tag'
+import gql from "graphql-tag";
 
 export const state = () => ({
-  entities: []
+  entities: [],
 });
 
 export const getters = {
   get(state) {
     return state.entities;
-  }
+  },
 };
 
 export const mutations = {
@@ -22,11 +22,11 @@ export const mutations = {
           to:
             pages.content[key].keyword !== ""
               ? `/${pages.content[key].keyword}`
-              : `/common/page/${pages.content[key].id}`
-        }
+              : `/common/page/${pages.content[key].id}`,
+        },
       ];
     }
-  }
+  },
 };
 
 export const actions = {
@@ -34,18 +34,20 @@ export const actions = {
     await dispatch(
       "apollo/query",
       {
-        query: gql`{
-          pagesList (page: 1, size: -1) {
-            content {
-              id
-              title
-              url(url: "/page/_id")
+        query: gql`
+          {
+            pagesList(page: 1, size: -1) {
+              content {
+                id
+                title
+                url(url: "/page/_id")
+              }
             }
           }
-        }`,
+        `,
         variables: {
-          url: "/common/page/_id"
-        }
+          url: "/common/page/_id",
+        },
       },
       { root: true }
     );
@@ -54,5 +56,5 @@ export const actions = {
       const { pagesList } = rootGetters["apollo/get"];
       commit("setEntities", pagesList);
     }
-  }
+  },
 };

@@ -1,109 +1,110 @@
-import omitDeepLodash from 'omit-deep-lodash'
-import Axios from 'axios'
-import FormData from 'form-data'
-import Vue from 'vue'
+import omitDeepLodash from "omit-deep-lodash";
+import Axios from "axios";
+import FormData from "form-data";
+import Vue from "vue";
 
 export const state = () => ({
   data: {},
-  prefetchData: {}
-})
+  prefetchData: {},
+});
 
 export const getters = {
   get(state) {
-    return state.data
+    return state.data;
   },
   prefetchData(state) {
-    return state.prefetchData
-  }
-}
+    return state.prefetchData;
+  },
+};
 
 export const mutations = {
   setData(state, payload) {
-    state.data = {...state.data, ...payload.data}
+    state.data = { ...state.data, ...payload.data };
   },
-  setPrefetchData(state, {key, data}) {
-    Vue.set(state.prefetchData, key, data)
-  }
-
-}
+  setPrefetchData(state, { key, data }) {
+    Vue.set(state.prefetchData, key, data);
+  },
+};
 
 export const actions = {
-  async query({commit}, options) {
+  async query({ commit }, options) {
     try {
-      const variables = omitDeepLodash(options.variables, '__typename')
-      let res = await this.$vfapollo.query({...options, variables})
+      const variables = omitDeepLodash(options.variables, "__typename");
+      let res = await this.$vfapollo.query({ ...options, variables });
 
-      res = omitDeepLodash(res, '__typename')
-      commit('vuefront/setError', false, {root: true})
-      commit('setData', res)
+      res = omitDeepLodash(res, "__typename");
+      commit("vuefront/setError", false, { root: true });
+      commit("setData", res);
     } catch (e) {
-      commit('vuefront/setError', e.graphQLErrors ? e.graphQLErrors[0] : e, {
-        root: true
-      })
+      commit("vuefront/setError", e.graphQLErrors ? e.graphQLErrors[0] : e, {
+        root: true,
+      });
     }
   },
-  async mutate({commit}, options) {
+  async mutate({ commit }, options) {
     try {
-      const variables = omitDeepLodash(options.variables, '__typename')
-      const res = await this.$vfapollo.mutate({...options, variables})
+      const variables = omitDeepLodash(options.variables, "__typename");
+      const res = await this.$vfapollo.mutate({ ...options, variables });
       if (!res.errors) {
-        commit('vuefront/setError', false, {root: true})
-        commit('setData', res)
+        commit("vuefront/setError", false, { root: true });
+        commit("setData", res);
       } else {
-        commit('vuefront/setError', res.errors, {
-          root: true
-        })
+        commit("vuefront/setError", res.errors, {
+          root: true,
+        });
       }
-      this.$vfapollo.clearStore()
+      this.$vfapollo.clearStore();
     } catch (e) {
-
-      commit('vuefront/setError', e.graphQLErrors ? e.graphQLErrors[0] : e, {
-        root: true
-      })
+      commit("vuefront/setError", e.graphQLErrors ? e.graphQLErrors[0] : e, {
+        root: true,
+      });
     }
   },
-  async upload({commit}, options) {
+  async upload({ commit }, options) {
     try {
-      const variables = omitDeepLodash(options.variables, '__typename')
+      const variables = omitDeepLodash(options.variables, "__typename");
 
-      let o = {
+      const o = {
         query: options.mutation.loc.source.body,
-        variables
-      }
+        variables,
+      };
 
-      let map = {
-        '0': 'file'
-      }
+      const map = {
+        0: "file",
+      };
 
       let i = 0;
-      let fd = new FormData()
-      fd.append('operations', JSON.stringify(o))
+      const fd = new FormData();
+      fd.append("operations", JSON.stringify(o));
       for (const key in variables) {
-        if (typeof variables[key] === 'object' && variables[key] instanceof File) {
-          map[i] = key
-          fd.append(i, variables[key])
-          i++
+        if (
+          typeof variables[key] === "object" &&
+          variables[key] instanceof File
+        ) {
+          map[i] = key;
+          fd.append(i, variables[key]);
+          i++;
         }
       }
 
-      fd.append('map', JSON.stringify(map))
+      fd.append("map", JSON.stringify(map));
       const axios = Axios.create({
-        withCredentials: true
-      })
-      let {data} = await axios.post(this.$vuefront.baseURL, fd)
+        withCredentials: true,
+      });
+      const { data } = await axios.post(this.$vuefront.baseURL, fd);
 
       if (!data.errors) {
-        commit('vuefront/setError', false, {root: true})
-        commit('setData', data)
+        commit("vuefront/setError", false, { root: true });
+        commit("setData", data);
       } else {
-        commit('vuefront/setError', res.errors, {
-          root: true
-        })
+        commit("vuefront/setError", data.errors, {
+          root: true,
+        });
       }
     } catch (e) {
-      commit('vuefront/setError', e.graphQLErrors ? e.graphQLErrors[0] : e, {
-        root: true
-      })
+      commit("vuefront/setError", e.graphQLErrors ? e.graphQLErrors[0] : e, {
+        root: true,
+      });
     }
   },
-}
+};

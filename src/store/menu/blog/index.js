@@ -1,3 +1,3 @@
-import * as BlogMenu from './blog.js'
+import * as BlogMenu from "./blog.js";
 
-export {BlogMenu}
+export { BlogMenu };

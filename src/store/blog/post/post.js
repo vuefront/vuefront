@@ -1,89 +1,95 @@
-import gql from 'graphql-tag'
+import gql from "graphql-tag";
 export const state = () => ({
   entities: {},
-  post: {}
-})
+  post: {},
+});
 
 export const getters = {
   list(state) {
-    return state.entities
+    return state.entities;
   },
   get(state) {
-    return state.post
-  }
-}
+    return state.post;
+  },
+};
 
 export const mutations = {
   setEntities(state, posts) {
-    state.entities = posts
+    state.entities = posts;
   },
   setPost(state, post) {
-    state.post = post
-  }
-}
+    state.post = post;
+  },
+};
 
 export const actions = {
   async addReview({ commit, dispatch, rootGetters }, reviewData) {
     await dispatch(
-      'apollo/mutate',
+      "apollo/mutate",
       {
-        mutation: gql`mutation($id: String, $content: String, $author: String, $rating: Float) {
-          addBlogPostReview(
-            id: $id
-            content: $content
-            author: $author
-            rating: $rating
+        mutation: gql`
+          mutation(
+            $id: String
+            $content: String
+            $author: String
+            $rating: Float
           ) {
-            id
-            title
-            description
-            image
-            imageLazy
-            datePublished
-            rating
-            categories {
+            addBlogPostReview(
+              id: $id
+              content: $content
+              author: $author
+              rating: $rating
+            ) {
               id
-              name
-              url(url: "/blog/category/_id")
-            }
-            prev {
-              id
-              name
+              title
+              description
               image
               imageLazy
-              shortDescription
-              keyword
-            }
-            next {
-              id
-              name
-              image
-              imageLazy
-              shortDescription
-              keyword
-            }
-            reviews {
-              totalElements
-              content {
-                author
-                author_email
-                content
-                created_at
-                rating
+              datePublished
+              rating
+              categories {
+                id
+                name
+                url(url: "/blog/category/_id")
+              }
+              prev {
+                id
+                name
+                image
+                imageLazy
+                shortDescription
+                keyword
+              }
+              next {
+                id
+                name
+                image
+                imageLazy
+                shortDescription
+                keyword
+              }
+              reviews {
+                totalElements
+                content {
+                  author
+                  author_email
+                  content
+                  created_at
+                  rating
+                }
               }
             }
           }
-        }
         `,
-        variables: reviewData
+        variables: reviewData,
       },
       {
-        root: true
+        root: true,
       }
-    )
+    );
 
-    if (!rootGetters['vuefront/error']) {
-      commit('setPost', rootGetters['apollo/get'].addBlogPostReview)
+    if (!rootGetters["vuefront/error"]) {
+      commit("setPost", rootGetters["apollo/get"].addBlogPostReview);
     }
-  }
-}
+  },
+};

@@ -5,11 +5,17 @@
         <vf-m-product-thumb-image :product="data" width="80" height="80" />
       </template>
       <template #price="data">
-        <vf-m-product-price :price="data.price" :special="data.special" variant="small" />
+        <vf-m-product-price
+          :price="data.price"
+          :special="data.special"
+          variant="small"
+        />
       </template>
       <template #stock="data">
-        <div v-if="data.stock">{{$t('elements.store.compare.inStockText')}}</div>
-        <div v-else>{{$t('elements.store.compare.outOfStockText')}}</div>
+        <div v-if="data.stock">
+          {{ $t("elements.store.compare.inStockText") }}
+        </div>
+        <div v-else>{{ $t("elements.store.compare.outOfStockText") }}</div>
       </template>
       <template #rating="data">
         <vf-m-rating :value="data.rating" color="#ffcc00" readonly />
@@ -28,42 +34,42 @@ export default {
       fields: [
         {
           key: "name",
-          label: this.$t("elements.store.compare.productRow")
+          label: this.$t("elements.store.compare.productRow"),
         },
         {
           key: "image",
-          label: this.$t("elements.store.compare.imageRow")
+          label: this.$t("elements.store.compare.imageRow"),
         },
         {
           key: "price",
-          label: this.$t("elements.store.compare.priceRow")
+          label: this.$t("elements.store.compare.priceRow"),
         },
         {
           key: "model",
-          label: this.$t("elements.store.compare.modelRow")
+          label: this.$t("elements.store.compare.modelRow"),
         },
         {
           key: "stock",
           class: "vf-t-store-compare__stock",
-          label: this.$t("elements.store.compare.availabilityRow")
+          label: this.$t("elements.store.compare.availabilityRow"),
         },
         {
           key: "rating",
           class: "vf-t-store-compare__rating",
-          label: this.$t("elements.store.compare.ratingRow")
+          label: this.$t("elements.store.compare.ratingRow"),
         },
         {
           key: "shortDescription",
           class: "vf-t-store-compare__description",
-          label: this.$t("elements.store.compare.summaryRow")
+          label: this.$t("elements.store.compare.summaryRow"),
         },
         {
           key: "actions",
           class: "vf-t-store-compare__actions",
-          label: ""
-        }
-      ]
+          label: "",
+        },
+      ],
     };
-  }
+  },
 };
 </script>

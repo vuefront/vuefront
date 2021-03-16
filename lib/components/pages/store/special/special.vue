@@ -1,7 +1,12 @@
 <template>
   <vf-o-layout class="store-special-page">
     <template v-if="loaded">
-      <vf-t-store-special :products="products" :grid-size="gridSize" :mode="mode" :sort="sort" />
+      <vf-t-store-special
+        :products="products"
+        :grid-size="gridSize"
+        :mode="mode"
+        :sort="sort"
+      />
     </template>
     <template v-else>
       <vf-l-t-store-special :grid-size="gridSize" />
@@ -12,25 +17,11 @@
 import { mapGetters } from "vuex";
 import { BaseModule } from "vuefront/lib/utils/module.js";
 export default {
-  head() {
+  mixins: [BaseModule],
+  asyncData(ctx) {
     return {
-      title: this.$t("pages.store.special.metaTitle"),
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content: this.$t("pages.store.special.metaTitle")
-        }
-      ]
+      loaded: !process.client,
     };
-  },
-  breadcrumbs() {
-    return [
-      {
-        title: this.$t("pages.store.special.breadcrumbTitle"),
-        to: this.$route.path
-      }
-    ];
   },
   data() {
     const page = this.$route.query.page ? Number(this.$route.query.page) : 1;
@@ -41,13 +32,33 @@ export default {
       loaded: true,
       size,
       sort: `${sort}|${order}`,
-      page
+      page,
     };
+  },
+  head() {
+    return {
+      title: this.$t("pages.store.special.metaTitle"),
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.$t("pages.store.special.metaTitle"),
+        },
+      ],
+    };
+  },
+  breadcrumbs() {
+    return [
+      {
+        title: this.$t("pages.store.special.breadcrumbTitle"),
+        to: this.$route.path,
+      },
+    ];
   },
   computed: {
     ...mapGetters({
       mode: "store/category/mode",
-      products: "store/product/list"
+      products: "store/product/list",
     }),
     gridSize() {
       if (this.checkModules("columnLeft") && this.checkModules("columnRight")) {
@@ -60,29 +71,23 @@ export default {
       } else {
         return 4;
       }
-    }
+    },
   },
-  mixins: [BaseModule],
-  mounted() {
-    if (!this.loaded) {
-      this.handleLoadData();
-    }
-  },
-  asyncData(ctx) {
-    return {
-      loaded: !process.client
-    };
-  },
-  serverPrefetch() {
-    return this.handleLoadData(this);
-  },
-  watchQuery: true,
   watch: {
     loaded(newValue, oldValue) {
       if (!newValue && oldValue) {
         this.handleLoadData();
       }
+    },
+  },
+  watchQuery: true,
+  mounted() {
+    if (!this.loaded) {
+      this.handleLoadData();
     }
+  },
+  serverPrefetch() {
+    return this.handleLoadData(this);
   },
   methods: {
     async handleLoadData(ctx) {
@@ -93,15 +98,15 @@ export default {
           page: this.page,
           size: this.size,
           sort: sortData[0],
-          order: sortData[1]
-        }
+          order: sortData[1],
+        },
       });
       const { productsList } = this.$store.getters["apollo/get"];
       this.$store.commit("store/product/setEntities", productsList);
 
       this.loaded = true;
-    }
-  }
+    },
+  },
 };
 </script>
 <graphql>

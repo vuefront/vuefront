@@ -1,1 +1,1 @@
-export { default as oForm } from './form.vue'
+export { default as oForm } from "./form.vue";

@@ -1,77 +1,79 @@
-import gql from 'graphql-tag'
+import gql from "graphql-tag";
 
 export const state = () => ({
   country: false,
-  entities: []
-})
+  entities: [],
+});
 
 export const getters = {
   get(state) {
-    return state.country
+    return state.country;
   },
   list(state) {
-    return state.entities
-  }
-}
+    return state.entities;
+  },
+};
 
 export const mutations = {
   setCountry(state, payload) {
-    state.country = payload
+    state.country = payload;
   },
   setEntities(state, payload) {
-    state.entities = payload
-  }
-}
+    state.entities = payload;
+  },
+};
 
 export const actions = {
-  async list({ commit, dispatch, rootGetters }, {page, size}) {
+  async list({ commit, dispatch, rootGetters }, { page, size }) {
     await dispatch(
-      'apollo/query',
+      "apollo/query",
       {
-        query: gql`query($page: Int, $size: Int) {
-          countriesList(page: $page, size: $size) {
-            content {
-              id
-              name
+        query: gql`
+          query($page: Int, $size: Int) {
+            countriesList(page: $page, size: $size) {
+              content {
+                id
+                name
+              }
+              totalPages
+              totalElements
+              first
+              last
+              number
+              numberOfElements
             }
-            totalPages
-            totalElements
-            first
-            last
-            number
-            numberOfElements
           }
-        }
         `,
-        variables: {page, size}
+        variables: { page, size },
       },
       {
-        root: true
+        root: true,
       }
-    )
-    if (!rootGetters['vuefront/error']) {
-      commit('setEntities', rootGetters['apollo/get'].countriesList)
+    );
+    if (!rootGetters["vuefront/error"]) {
+      commit("setEntities", rootGetters["apollo/get"].countriesList);
     }
   },
   async get({ commit, dispatch, rootGetters }, { id }) {
     await dispatch(
-      'apollo/query',
+      "apollo/query",
       {
-        query: gql`query($id: String) {
-          country(id: $id) {
-            id
-            name
+        query: gql`
+          query($id: String) {
+            country(id: $id) {
+              id
+              name
+            }
           }
-        }
         `,
-        variables: { id }
+        variables: { id },
       },
       {
-        root: true
+        root: true,
       }
-    )
-    if (!rootGetters['vuefront/error']) {
-      commit('setCountry', rootGetters['apollo/get'].country)
+    );
+    if (!rootGetters["vuefront/error"]) {
+      commit("setCountry", rootGetters["apollo/get"].country);
     }
-  }
-}
+  },
+};

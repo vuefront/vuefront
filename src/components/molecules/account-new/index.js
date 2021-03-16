@@ -1,2 +1,1 @@
-export { default as mAccountNew }
-from './account-new.vue'
+export { default as mAccountNew } from "./account-new.vue";

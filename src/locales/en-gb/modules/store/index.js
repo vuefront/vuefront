@@ -1,13 +1,13 @@
-import featuredProduct from './featuredProduct.json'
-import latestProduct from './latestProduct.json'
-import relatedProduct from './relatedProduct.json'
-import searchProduct from './searchProduct.json'
-import specialProduct from './specialProduct.json'
+import featuredProduct from "./featuredProduct.json";
+import latestProduct from "./latestProduct.json";
+import relatedProduct from "./relatedProduct.json";
+import searchProduct from "./searchProduct.json";
+import specialProduct from "./specialProduct.json";
 
 export default {
   featuredProduct,
   latestProduct,
   relatedProduct,
   searchProduct,
-  specialProduct
-}
+  specialProduct,
+};

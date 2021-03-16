@@ -1,7 +1,9 @@
 <template>
-  <vf-o-apollo v-slot="{data}">
+  <vf-o-apollo v-slot="{ data }">
     <section class="vf-e-common-pages">
-      <vf-a-heading level="6" class="heading mb-3">{{$t('modules.common.pages.textTitle')}}</vf-a-heading>
+      <vf-a-heading level="6" class="heading mb-3">{{
+        $t("modules.common.pages.textTitle")
+      }}</vf-a-heading>
       <ul class="list-unstyled">
         <li v-for="(value, key) in data.pagesList.content" :key="key">
           <vf-a-link :to="value.url" v-html="value.title" />
@@ -19,8 +21,8 @@ export default {
       } else {
         return `/page/${page.id}`;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <graphql>

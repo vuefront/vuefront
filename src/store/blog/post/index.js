@@ -1,5 +1,3 @@
-import * as Post from './post'
+import * as Post from "./post";
 
-export {
-  Post
-}
+export { Post };

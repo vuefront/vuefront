@@ -1,5 +1,5 @@
 <template>
-  <div class="vf-m-media-start flex" :is="tag" :vertial-align="verticalAlign">
+  <div :is="tag" class="vf-m-media-start flex" :vertial-align="verticalAlign">
     <slot></slot>
   </div>
 </template>
@@ -9,40 +9,40 @@ export default {
     right: {
       type: Boolean,
       default() {
-        return false
-      }
+        return false;
+      },
     },
     tag: {
       type: String,
-      default: "div"
+      default: "div",
     },
     verticalAlign: {
       type: String,
-      default: "top"
-    }
+      default: "top",
+    },
   },
   computed: {
     asideClass() {
-      let result = []
+      const result = [];
 
-      if (this.verticalAlign === 'start' ||this.verticalAlign === 'top' ) {
-        result.push('self-start')
+      if (this.verticalAlign === "start" || this.verticalAlign === "top") {
+        result.push("self-start");
       }
-      if (this.verticalAlign === 'center') {
-        result.push('self-center')
+      if (this.verticalAlign === "center") {
+        result.push("self-center");
       }
-      if (this.verticalAlign === 'end' ||this.verticalAlign === 'bottom' ) {
-        result.push('self-end')
+      if (this.verticalAlign === "end" || this.verticalAlign === "bottom") {
+        result.push("self-end");
       }
 
       if (this.right) {
-        result.push('ml-4')
+        result.push("ml-4");
       } else {
-        result.push('mr-4')
+        result.push("mr-4");
       }
 
-      return result.join(' ')
-    }
-  }
+      return result.join(" ");
+    },
+  },
 };
 </script>

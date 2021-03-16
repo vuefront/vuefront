@@ -12,7 +12,7 @@
               width="180"
               class="mb-3"
             />
-            <p>{{$t('elements.common.footer.descriptionText')}}</p>
+            <p>{{ $t("elements.common.footer.descriptionText") }}</p>
           </div>
         </vf-m-col>
         <vf-m-col sm="4" md="6" lg="2" class="lg:ml-auto mb-5 lg:mb-0">
@@ -54,7 +54,7 @@ export default {
       } else {
         return "https://vuefront.com/logo.png";
       }
-    }
-  }
+    },
+  },
 };
 </script>

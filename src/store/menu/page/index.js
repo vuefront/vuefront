@@ -1,3 +1,3 @@
-import * as PageMenu from './page.js'
+import * as PageMenu from "./page.js";
 
-export {PageMenu}
+export { PageMenu };

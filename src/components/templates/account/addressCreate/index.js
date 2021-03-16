@@ -1,2 +1,1 @@
-export { default as tAccountAddressCreate }
-from './addressCreate.vue'
+export { default as tAccountAddressCreate } from "./addressCreate.vue";

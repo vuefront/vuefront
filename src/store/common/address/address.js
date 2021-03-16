@@ -1,35 +1,36 @@
-import gql from 'graphql-tag'
+import gql from "graphql-tag";
 
 export const state = () => ({
   address: false,
-  entities: []
-})
+  entities: [],
+});
 
 export const getters = {
   get(state) {
-    return state.address
+    return state.address;
   },
   list(state) {
-    return state.entities
-  }
-}
+    return state.entities;
+  },
+};
 
 export const mutations = {
   setAddress(state, payload) {
-    state.address = payload
+    state.address = payload;
   },
   setEntities(state, payload) {
-    state.entities = payload
-  }
-}
+    state.entities = payload;
+  },
+};
 
 export const actions = {
   async create({ commit, dispatch, rootGetters }, { address }) {
     await dispatch(
-      'apollo/mutate',
+      "apollo/mutate",
       {
-        mutation: gql`mutation($address: AccountAddressInput) {
-          accountAddAddress(address: $address) {
+        mutation: gql`
+          mutation($address: AccountAddressInput) {
+            accountAddAddress(address: $address) {
               id
               firstName
               lastName
@@ -39,32 +40,33 @@ export const actions = {
               countryId
               address1
               address2
+            }
           }
-        }
         `,
         variables: {
-          address
-        }
+          address,
+        },
       },
       {
-        root: true
+        root: true,
       }
-    )
+    );
 
-    if (!rootGetters['vuefront/error']) {
-      commit('setAddress', rootGetters['apollo/get'].accountAddAddress)
+    if (!rootGetters["vuefront/error"]) {
+      commit("setAddress", rootGetters["apollo/get"].accountAddAddress);
 
-      return true
+      return true;
     }
 
-    return false
+    return false;
   },
   async edit({ commit, dispatch, rootGetters }, { id, address }) {
     await dispatch(
-      'apollo/mutate',
+      "apollo/mutate",
       {
-        mutation: gql`mutation($id: String, $address: AccountAddressInput) {
-          accountEditAddress(id: $id, address: $address) {
+        mutation: gql`
+          mutation($id: String, $address: AccountAddressInput) {
+            accountEditAddress(id: $id, address: $address) {
               id
               firstName
               lastName
@@ -74,65 +76,66 @@ export const actions = {
               address1
               countryId
               address2
+            }
           }
-        }
         `,
         variables: {
           id,
-          address
-        }
+          address,
+        },
       },
       {
-        root: true
+        root: true,
       }
-    )
+    );
 
-    if (!rootGetters['vuefront/error']) {
-      commit('setAddress', rootGetters['apollo/get'].accountEditAddress)
+    if (!rootGetters["vuefront/error"]) {
+      commit("setAddress", rootGetters["apollo/get"].accountEditAddress);
 
-      return true
+      return true;
     }
 
-    return false
+    return false;
   },
   async remove({ commit, dispatch, rootGetters }, { id }) {
     await dispatch(
-      'apollo/mutate',
+      "apollo/mutate",
       {
-        mutation: gql`mutation($id: String) {
-          accountRemoveAddress(id: $id, page: 1, size: -1) {
-            id
-            firstName
-            lastName
-            address1
-            address2
-            zoneId
-            zone {
+        mutation: gql`
+          mutation($id: String) {
+            accountRemoveAddress(id: $id, page: 1, size: -1) {
               id
-              name
+              firstName
+              lastName
+              address1
+              address2
+              zoneId
+              zone {
+                id
+                name
+              }
+              countryId
+              country {
+                id
+                name
+              }
+              city
+              company
+              zipcode
             }
-            countryId
-            country {
-              id
-              name
-            }
-            city
-            company
-            zipcode
           }
-        }
         `,
         variables: {
-          id
-        }
+          id,
+        },
       },
       {
-        root: true
+        root: true,
       }
-    )
+    );
 
-    if (!rootGetters['vuefront/error']) {
-      commit('setEntities', rootGetters['apollo/get'].accountRemoveAddress)
+    if (!rootGetters["vuefront/error"]) {
+      commit("setEntities", rootGetters["apollo/get"].accountRemoveAddress);
     }
-  }
-}
+  },
+};

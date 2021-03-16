@@ -1,2 +1,1 @@
-export { default as pStoreCategory }
-from './category.vue'
+export { default as pStoreCategory } from "./category.vue";

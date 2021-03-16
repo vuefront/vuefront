@@ -1,5 +1,3 @@
-import * as Address from './address'
+import * as Address from "./address";
 
-export  {
-  Address
-}
+export { Address };

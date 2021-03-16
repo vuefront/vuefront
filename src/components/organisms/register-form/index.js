@@ -1,1 +1,1 @@
-export { default as oRegisterForm } from './register-form.vue'
+export { default as oRegisterForm } from "./register-form.vue";

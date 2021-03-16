@@ -1,1 +1,1 @@
-export { default as pAccountAddress } from './address.vue'
+export { default as pAccountAddress } from "./address.vue";

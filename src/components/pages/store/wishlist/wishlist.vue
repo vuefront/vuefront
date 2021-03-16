@@ -8,27 +8,9 @@ import { mapGetters } from "vuex";
 import wishlistGetGql from "./wishlist.graphql";
 
 export default {
-  head() {
-    return {
-      title: this.$t("pages.store.wishlist.metaTitle")
-    };
-  },
-  breadcrumbs() {
-    return [
-      {
-        title: this.$t("pages.store.wishlist.breadcrumbTitle"),
-        to: this.$route.path
-      }
-    ];
-  },
-  computed: {
-    ...mapGetters({
-      wishlist: "store/wishlist/get"
-    })
-  },
   async fetch({ store, app }) {
     await store.dispatch("apollo/query", {
-      query: wishlistGetGql
+      query: wishlistGetGql,
     });
 
     if (!store.getters["vuefront/error"]) {
@@ -37,6 +19,24 @@ export default {
         store.getters["apollo/get"].wishlist
       );
     }
-  }
+  },
+  head() {
+    return {
+      title: this.$t("pages.store.wishlist.metaTitle"),
+    };
+  },
+  breadcrumbs() {
+    return [
+      {
+        title: this.$t("pages.store.wishlist.breadcrumbTitle"),
+        to: this.$route.path,
+      },
+    ];
+  },
+  computed: {
+    ...mapGetters({
+      wishlist: "store/wishlist/get",
+    }),
+  },
 };
 </script>

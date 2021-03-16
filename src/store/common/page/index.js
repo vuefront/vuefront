@@ -1,5 +1,3 @@
-import * as Page from './page'
+import * as Page from "./page";
 
-export  {
-  Page
-}
+export { Page };

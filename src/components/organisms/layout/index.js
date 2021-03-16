@@ -1,1 +1,1 @@
-export { default as oLayout } from './layout.vue'
+export { default as oLayout } from "./layout.vue";

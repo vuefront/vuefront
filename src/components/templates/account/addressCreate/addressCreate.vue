@@ -14,14 +14,14 @@ export default {
       type: Object,
       default() {
         return null;
-      }
+      },
     },
     zones: {
       type: Object,
       default() {
         return null;
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>

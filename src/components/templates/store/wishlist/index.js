@@ -1,2 +1,1 @@
-export { default as tStoreWishlist }
-from './wishlist.vue'
+export { default as tStoreWishlist } from "./wishlist.vue";

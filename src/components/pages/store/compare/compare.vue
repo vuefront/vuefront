@@ -8,27 +8,9 @@ import { mapGetters } from "vuex";
 import compareGetGql from "./compare.graphql";
 
 export default {
-  head() {
-    return {
-      title: this.$t("pages.store.compare.metaTitle")
-    };
-  },
-  breadcrumbs() {
-    return [
-      {
-        title: this.$t("pages.store.compare.breadcrumbTitle"),
-        to: this.$route.path
-      }
-    ];
-  },
-  computed: {
-    ...mapGetters({
-      compare: "store/compare/get"
-    })
-  },
   async fetch({ store }) {
     await store.dispatch("apollo/query", {
-      query: compareGetGql
+      query: compareGetGql,
     });
 
     if (!store.getters["vuefront/error"]) {
@@ -37,6 +19,24 @@ export default {
         store.getters["apollo/get"].compare
       );
     }
-  }
+  },
+  head() {
+    return {
+      title: this.$t("pages.store.compare.metaTitle"),
+    };
+  },
+  breadcrumbs() {
+    return [
+      {
+        title: this.$t("pages.store.compare.breadcrumbTitle"),
+        to: this.$route.path,
+      },
+    ];
+  },
+  computed: {
+    ...mapGetters({
+      compare: "store/compare/get",
+    }),
+  },
 };
 </script>

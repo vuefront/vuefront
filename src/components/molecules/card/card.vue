@@ -12,27 +12,27 @@ export default {
     title: {
       type: String,
       default() {
-        return null
-      }
+        return null;
+      },
     },
     subTitle: {
       type: String,
       default() {
-        return null
-      }
+        return null;
+      },
     },
     noBody: {
       type: Boolean,
       default() {
         return false;
-      }
+      },
     },
     bodyBgColor: {
       type: String,
       default() {
         return "";
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>

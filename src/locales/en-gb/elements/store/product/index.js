@@ -1,5 +1,5 @@
-import option from './option'
+import option from "./option";
 
 export default {
-  option
-}
+  option,
+};

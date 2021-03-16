@@ -1,1 +1,1 @@
-export { default as oLanguage } from './language.vue'
+export { default as oLanguage } from "./language.vue";

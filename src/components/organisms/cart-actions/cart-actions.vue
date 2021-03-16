@@ -4,21 +4,20 @@
   </div>
 </template>
 <script>
-import {mdiClose} from '@mdi/js'
+import { mdiClose } from "@mdi/js";
 export default {
   props: ["cartProduct"],
   data() {
     return {
-      mdiClose
-    }
+      mdiClose,
+    };
   },
   methods: {
     handleRemove() {
       this.$store.dispatch("store/cart/remove", {
-        key: this.cartProduct.key
+        key: this.cartProduct.key,
       });
-    }
-  }
+    },
+  },
 };
 </script>
-

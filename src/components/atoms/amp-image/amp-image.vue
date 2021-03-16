@@ -16,38 +16,38 @@ export default {
       type: String,
       default() {
         return "";
-      }
+      },
     },
     title: {
       type: String,
       default() {
         return "";
-      }
+      },
     },
     src: {
       type: String,
       default() {
         return "";
-      }
+      },
     },
     width: {
-      type: String | Number,
+      type: [String, Number],
       default() {
         return null;
-      }
+      },
     },
     height: {
-      type: String | Number,
+      type: [String, Number],
       default() {
         return null;
-      }
+      },
     },
     layout: {
       type: String,
       default() {
         return "";
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>

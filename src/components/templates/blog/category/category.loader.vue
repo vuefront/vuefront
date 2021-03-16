@@ -7,6 +7,6 @@
 </template>
 <script>
 export default {
-  props: ["gridSize"]
+  props: ["gridSize"],
 };
 </script>

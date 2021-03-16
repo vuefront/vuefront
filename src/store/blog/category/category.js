@@ -1,17 +1,17 @@
 export const state = () => ({
-  category: {}
-})
+  category: {},
+});
 
 export const getters = {
   get(state) {
-    return state.category
-  }
-}
+    return state.category;
+  },
+};
 
 export const mutations = {
   setCategory(state, category) {
-    state.category = category
-  }
-}
+    state.category = category;
+  },
+};
 
-export const actions = {}
+export const actions = {};

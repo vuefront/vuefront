@@ -1,94 +1,134 @@
 <template>
   <vf-o-form @submit="onSubmit">
-    <template #title>{{$t('elements.common.address.create.titleText')}}</template>
-    <template #sub-title>{{$t('elements.common.address.create.subTitleText')}}</template>
+    <template #title>{{
+      $t("elements.common.address.create.titleText")
+    }}</template>
+    <template #sub-title>{{
+      $t("elements.common.address.create.subTitleText")
+    }}</template>
     <vf-m-row>
       <vf-m-col md>
         <vf-m-field
-          :state="$v.form.firstName.$dirty ? !$v.form.firstName.$error : null"
           id="input-first-name"
+          :state="$v.form.firstName.$dirty ? !$v.form.firstName.$error : null"
         >
-          <template #label>{{$t('elements.common.address.create.firstNameEntry')}}</template>
+          <template #label>{{
+            $t("elements.common.address.create.firstNameEntry")
+          }}</template>
           <template #default="data">
-            <vf-a-input v-bind="data" v-model="form.firstName" trim />
+            <vf-a-input v-model="form.firstName" v-bind="data" trim />
           </template>
-          <template #error>{{$t('elements.common.address.create.firstNameError')}}</template>
+          <template #error>{{
+            $t("elements.common.address.create.firstNameError")
+          }}</template>
         </vf-m-field>
       </vf-m-col>
       <vf-m-col md>
         <vf-m-field
-          :state="$v.form.lastName.$dirty ? !$v.form.lastName.$error : null"
           id="input-last-name"
+          :state="$v.form.lastName.$dirty ? !$v.form.lastName.$error : null"
         >
-          <template #label>{{$t('elements.common.address.create.lastNameEntry')}}</template>
+          <template #label>{{
+            $t("elements.common.address.create.lastNameEntry")
+          }}</template>
           <template #default="data">
-            <vf-a-input v-bind="data" v-model="form.lastName" trim />
+            <vf-a-input v-model="form.lastName" v-bind="data" trim />
           </template>
-          <template #error>{{$t('elements.common.address.create.lastNameError')}}</template>
+          <template #error>{{
+            $t("elements.common.address.create.lastNameError")
+          }}</template>
         </vf-m-field>
       </vf-m-col>
     </vf-m-row>
-    <vf-m-field :state="$v.form.company.$dirty ? !$v.form.company.$error : null" id="input-company">
-      <template #label>{{$t('elements.common.address.create.companyEntry')}}</template>
+    <vf-m-field
+      id="input-company"
+      :state="$v.form.company.$dirty ? !$v.form.company.$error : null"
+    >
+      <template #label>{{
+        $t("elements.common.address.create.companyEntry")
+      }}</template>
       <template #default="data">
-        <vf-a-input v-bind="data" v-model="form.company" trim />
+        <vf-a-input v-model="form.company" v-bind="data" trim />
       </template>
-      <template #error>{{$t('elements.common.address.create.companyError')}}</template>
+      <template #error>{{
+        $t("elements.common.address.create.companyError")
+      }}</template>
     </vf-m-field>
 
     <vf-m-field
-      :state="$v.form.address1.$dirty ? !$v.form.address1.$error : null"
       id="input-address1"
+      :state="$v.form.address1.$dirty ? !$v.form.address1.$error : null"
     >
-      <template #label>{{$t('elements.common.address.create.address1Entry')}}</template>
+      <template #label>{{
+        $t("elements.common.address.create.address1Entry")
+      }}</template>
       <template #default="data">
-        <vf-a-input v-bind="data" v-model="form.address1" trim />
+        <vf-a-input v-model="form.address1" v-bind="data" trim />
       </template>
-      <template #error>{{$t('elements.common.address.create.address1Error')}}</template>
+      <template #error>{{
+        $t("elements.common.address.create.address1Error")
+      }}</template>
     </vf-m-field>
 
     <vf-m-field
-      :state="$v.form.address2.$dirty ? !$v.form.address2.$error : null"
       id="input-address2"
+      :state="$v.form.address2.$dirty ? !$v.form.address2.$error : null"
     >
-      <template #label>{{$t('elements.common.address.create.address2Entry')}}</template>
+      <template #label>{{
+        $t("elements.common.address.create.address2Entry")
+      }}</template>
       <template #default="data">
-        <vf-a-input v-bind="data" v-model="form.address2" trim />
+        <vf-a-input v-model="form.address2" v-bind="data" trim />
       </template>
-      <template #error>{{$t('elements.common.address.create.address2Error')}}</template>
+      <template #error>{{
+        $t("elements.common.address.create.address2Error")
+      }}</template>
     </vf-m-field>
     <vf-m-row>
       <vf-m-col md>
-        <vf-m-field :state="$v.form.city.$dirty ? !$v.form.city.$error : null" id="input-city">
-          <template #label>{{$t('elements.common.address.create.cityEntry')}}</template>
+        <vf-m-field
+          id="input-city"
+          :state="$v.form.city.$dirty ? !$v.form.city.$error : null"
+        >
+          <template #label>{{
+            $t("elements.common.address.create.cityEntry")
+          }}</template>
           <template #default="data">
-            <vf-a-input v-bind="data" v-model="form.city" trim />
+            <vf-a-input v-model="form.city" v-bind="data" trim />
           </template>
-          <template #error>{{$t('elements.common.address.create.cityError')}}</template>
+          <template #error>{{
+            $t("elements.common.address.create.cityError")
+          }}</template>
         </vf-m-field>
       </vf-m-col>
       <vf-m-col md>
         <vf-m-field
-          :state="$v.form.zipcode.$dirty ? !$v.form.zipcode.$error : null"
           id="input-zipcode"
+          :state="$v.form.zipcode.$dirty ? !$v.form.zipcode.$error : null"
         >
-          <template #label>{{$t('elements.common.address.create.zipcodeEntry')}}</template>
+          <template #label>{{
+            $t("elements.common.address.create.zipcodeEntry")
+          }}</template>
           <template #default="data">
-            <vf-a-input v-bind="data" v-model="form.zipcode" trim />
+            <vf-a-input v-model="form.zipcode" v-bind="data" trim />
           </template>
-          <template #error>{{$t('elements.common.address.create.zipcodeError')}}</template>
+          <template #error>{{
+            $t("elements.common.address.create.zipcodeError")
+          }}</template>
         </vf-m-field>
       </vf-m-col>
       <vf-m-col md>
         <vf-m-field
-          :state="$v.form.countryId.$dirty ? !$v.form.countryId.$error : null"
           id="input-country"
+          :state="$v.form.countryId.$dirty ? !$v.form.countryId.$error : null"
         >
-          <template #label>{{$t('elements.common.address.create.countryEntry')}}</template>
+          <template #label>{{
+            $t("elements.common.address.create.countryEntry")
+          }}</template>
           <template #default="data">
             <vf-a-select
-              v-bind="data"
               v-model="form.countryId"
+              v-bind="data"
               :options="countries.content"
               value-field="id"
               text-field="name"
@@ -96,31 +136,37 @@
               @input="handleChangeCountry"
             />
           </template>
-          <template #error>{{$t('elements.common.address.create.countryError')}}</template>
+          <template #error>{{
+            $t("elements.common.address.create.countryError")
+          }}</template>
         </vf-m-field>
 
         <vf-m-field
           v-if="zones.content.length > 0"
-          :state="$v.form.zoneId.$dirty ? !$v.form.zoneId.$error : null"
           id="input-zone"
+          :state="$v.form.zoneId.$dirty ? !$v.form.zoneId.$error : null"
         >
-          <template #label>{{$t('elements.common.address.create.zoneEntry')}}</template>
+          <template #label>{{
+            $t("elements.common.address.create.zoneEntry")
+          }}</template>
           <template #default="data">
             <vf-a-select
-              v-bind="data"
               v-model="form.zoneId"
+              v-bind="data"
               :options="zones.content"
               value-field="id"
               text-field="name"
               trim
             />
           </template>
-          <template #error>{{$t('elements.common.address.create.zoneError')}}</template>
+          <template #error>{{
+            $t("elements.common.address.create.zoneError")
+          }}</template>
         </vf-m-field>
       </vf-m-col>
     </vf-m-row>
     <template #button>
-      {{$t('elements.common.address.create.buttonSave')}}
+      {{ $t("elements.common.address.create.buttonSave") }}
       <vf-a-icon :icon="mdiArrowRight" />
     </template>
   </vf-o-form>
@@ -131,21 +177,22 @@ import isEmpty from "lodash/isEmpty";
 import required from "vuelidate/lib/validators/required";
 import minLength from "vuelidate/lib/validators/minLength";
 import maxLength from "vuelidate/lib/validators/maxLength";
-import {mdiArrowRight} from '@mdi/js'
+import { mdiArrowRight } from "@mdi/js";
 export default {
+  mixins: [validationMixin],
   props: {
     countries: {
       type: Object,
       default() {
         return null;
-      }
+      },
     },
     zones: {
       type: Object,
       default() {
         return null;
-      }
-    }
+      },
+    },
   },
   data() {
     return {
@@ -159,11 +206,10 @@ export default {
         city: "",
         countryId: "",
         zoneId: "",
-        zipcode: ""
-      }
+        zipcode: "",
+      },
     };
   },
-  mixins: [validationMixin],
   validations() {
     let fields = {};
 
@@ -171,8 +217,8 @@ export default {
       fields = {
         ...fields,
         zoneId: {
-          required
-        }
+          required,
+        },
       };
     }
     return {
@@ -180,41 +226,41 @@ export default {
         firstName: {
           required,
           minLength: minLength(1),
-          maxLength: maxLength(32)
+          maxLength: maxLength(32),
         },
         lastName: {
           required,
           minLength: minLength(1),
-          maxLength: maxLength(32)
+          maxLength: maxLength(32),
         },
         company: {
           minLength: minLength(1),
-          maxLength: maxLength(32)
+          maxLength: maxLength(32),
         },
         address1: {
           required,
           minLength: minLength(3),
-          maxLength: maxLength(128)
+          maxLength: maxLength(128),
         },
         address2: {
           minLength: minLength(3),
-          maxLength: maxLength(128)
+          maxLength: maxLength(128),
         },
         city: {
           required,
           minLength: minLength(2),
-          maxLength: maxLength(128)
+          maxLength: maxLength(128),
         },
         zipcode: {
           required,
           minLength: minLength(2),
-          maxLength: maxLength(10)
+          maxLength: maxLength(10),
         },
         countryId: {
-          required
+          required,
         },
-        ...fields
-      }
+        ...fields,
+      },
     };
   },
   methods: {
@@ -222,7 +268,7 @@ export default {
       await this.$store.dispatch("common/zone/list", {
         page: 1,
         size: -1,
-        country_id: value
+        country_id: value,
       });
       this.form.zoneId = "";
     },
@@ -240,16 +286,15 @@ export default {
             city: this.form.city,
             countryId: this.form.countryId,
             zoneId: this.form.zoneId,
-            zipcode: this.form.zipcode
-          }
+            zipcode: this.form.zipcode,
+          },
         });
 
         if (status) {
           this.$router.push("/account/address");
         }
       }
-    }
-  }
+    },
+  },
 };
 </script>
-

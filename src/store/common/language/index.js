@@ -1,5 +1,3 @@
-import * as Language from './language'
+import * as Language from "./language";
 
-export  {
-  Language
-}
+export { Language };

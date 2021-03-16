@@ -5,9 +5,14 @@
     </vf-a-link>
     <vf-m-card-body class="pt-0">
       <vf-a-link :to="url">
-        <vf-a-heading tag="h3" level="6" class="mb-0 vf-m-post-thumb__title">{{ post.title }}</vf-a-heading>
+        <vf-a-heading tag="h3" level="6" class="mb-0 vf-m-post-thumb__title">{{
+          post.title
+        }}</vf-a-heading>
       </vf-a-link>
-      <div v-html="post.shortDescription" class="vf-m-post-thumb__description text-sm mb-3"></div>
+      <div
+        class="vf-m-post-thumb__description text-sm mb-3"
+        v-html="post.shortDescription"
+      ></div>
     </vf-m-card-body>
   </vf-m-card>
 </template>
@@ -22,10 +27,10 @@ export default {
           image: "",
           imageLazy: "",
           keyword: "",
-          shortDescription: ""
+          shortDescription: "",
         };
-      }
-    }
+      },
+    },
   },
   computed: {
     url() {
@@ -34,7 +39,7 @@ export default {
       } else {
         return "/blog/post/" + this.post.id;
       }
-    }
-  }
+    },
+  },
 };
 </script>

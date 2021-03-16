@@ -1,5 +1,3 @@
-import * as Notification from './notification'
+import * as Notification from "./notification";
 
-export {
-  Notification
-}
+export { Notification };

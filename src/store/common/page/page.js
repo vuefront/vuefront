@@ -1,15 +1,15 @@
 export const state = () => ({
-  page: {}
-})
+  page: {},
+});
 
 export const getters = {
   get(state) {
-    return state.page
-  }
-}
+    return state.page;
+  },
+};
 
 export const mutations = {
   setPage(state, page) {
-    state.page = page
-  }
-}
+    state.page = page;
+  },
+};

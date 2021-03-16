@@ -1,2 +1,1 @@
-export { default as mProductThumbImage }
-from './product-thumb-image.vue'
+export { default as mProductThumbImage } from "./product-thumb-image.vue";

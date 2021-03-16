@@ -1,7 +1,13 @@
 <template>
   <section class="vf-l-t-store-special">
-    <skeleton bg-color="#eee" duration="2" theme="opacity" shape="radius" width="100%">
-      <vf-m-row align-h="center" style="padding-top: 7px;">
+    <skeleton
+      bg-color="#eee"
+      duration="2"
+      theme="opacity"
+      shape="radius"
+      width="100%"
+    >
+      <vf-m-row align-h="center" style="padding-top: 7px">
         <vf-m-col sm="4">
           <tb-skeleton height="37px" class="mx-auto mb-5"></tb-skeleton>
         </vf-m-col>
@@ -16,8 +22,8 @@ import { TbSkeleton, Skeleton } from "tb-skeleton";
 export default {
   components: {
     TbSkeleton,
-    Skeleton
+    Skeleton,
   },
-  props: ["gridSize"]
+  props: ["gridSize"],
 };
 </script>

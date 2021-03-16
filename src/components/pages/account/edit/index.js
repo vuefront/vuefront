@@ -1,1 +1,1 @@
-export { default as pAccountEdit } from './edit.vue'
+export { default as pAccountEdit } from "./edit.vue";

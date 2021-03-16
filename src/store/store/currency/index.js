@@ -1,5 +1,3 @@
-import * as Currency from './currency'
+import * as Currency from "./currency";
 
-export {
-  Currency
-}
+export { Currency };

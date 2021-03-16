@@ -7,27 +7,9 @@
 import { mapGetters } from "vuex";
 import cartGetGql from "./cart.graphql";
 export default {
-  head() {
-    return {
-      title: this.$t("pages.store.cart.metaTitle")
-    };
-  },
-  breadcrumbs() {
-    return [
-      {
-        title: this.$t("pages.store.cart.breadcrumbTitle"),
-        to: this.$route.path
-      }
-    ];
-  },
-  computed: {
-    ...mapGetters({
-      cart: "store/cart/get"
-    })
-  },
   async fetch(ctx) {
     await ctx.store.dispatch("apollo/query", {
-      query: cartGetGql
+      query: cartGetGql,
     });
 
     if (
@@ -39,6 +21,24 @@ export default {
         ctx.store.getters["apollo/get"].cart
       );
     }
-  }
+  },
+  head() {
+    return {
+      title: this.$t("pages.store.cart.metaTitle"),
+    };
+  },
+  breadcrumbs() {
+    return [
+      {
+        title: this.$t("pages.store.cart.breadcrumbTitle"),
+        to: this.$route.path,
+      },
+    ];
+  },
+  computed: {
+    ...mapGetters({
+      cart: "store/cart/get",
+    }),
+  },
 };
 </script>

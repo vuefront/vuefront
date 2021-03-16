@@ -1,6 +1,6 @@
 <template>
-  <vf-a-link :to="url" v-if="post" class="vf-m-post-thumb-inline">
-    <vf-m-media noBody vertical-align="center">
+  <vf-a-link v-if="post" :to="url" class="vf-m-post-thumb-inline">
+    <vf-m-media no-body vertical-align="center">
       <vf-m-media-aside
         v-if="!rightAlign"
         class="mr-3 vf-m-post-thumb-inline__image vf-m-post-thumb-inline__image--left"
@@ -12,8 +12,15 @@
         />
       </vf-m-media-aside>
       <vf-m-media-body>
-        <vf-a-heading level="5" class="mt-0 mb-1 vf-m-post-thumb-inline__name">{{post.name}}</vf-a-heading>
-        <p class="mb-0 text-sm vf-m-post-thumb-inline__description" v-html="post.shortDescription" />
+        <vf-a-heading
+          level="5"
+          class="mt-0 mb-1 vf-m-post-thumb-inline__name"
+          >{{ post.name }}</vf-a-heading
+        >
+        <p
+          class="mb-0 text-sm vf-m-post-thumb-inline__description"
+          v-html="post.shortDescription"
+        />
       </vf-m-media-body>
       <vf-m-media-aside
         v-if="rightAlign"
@@ -35,14 +42,14 @@ export default {
       type: Object,
       default() {
         return null;
-      }
+      },
     },
     rightAlign: {
       type: Boolean,
       default() {
         return false;
-      }
-    }
+      },
+    },
   },
   computed: {
     url() {
@@ -51,7 +58,7 @@ export default {
       } else {
         return "/blog/post/" + this.post.id;
       }
-    }
-  }
+    },
+  },
 };
 </script>

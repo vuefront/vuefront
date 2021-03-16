@@ -1,1 +1,1 @@
-export { default as pAccountPassword } from './password.vue'
+export { default as pAccountPassword } from "./password.vue";

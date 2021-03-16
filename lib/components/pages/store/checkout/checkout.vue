@@ -7,9 +7,9 @@ export default {
     return [
       {
         title: this.$t("pages.store.checkout.breadcrumbTitle"),
-        to: this.$route.path
-      }
+        to: this.$route.path,
+      },
     ];
-  }
+  },
 };
 </script>

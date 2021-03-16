@@ -1,14 +1,13 @@
-import Vue from 'vue';
-import { storiesOf } from '@storybook/vue';
-import vfMField from './field.vue';
+import Vue from "vue";
+import { storiesOf } from "@storybook/vue";
+import vfMField from "./field.vue";
 
-
-storiesOf('molecule|!!!Field', module)
-    .add(
-        '!!!input',
-        () => ({
-            components: { vfMField },
-            template: `<div>
+storiesOf("molecule|!!!Field", module)
+  .add(
+    "!!!input",
+    () => ({
+      components: { vfMField },
+      template: `<div>
             <vf-m-field :state="null" id="input-1"
                 >
                 <template #label>{{field.label}}</template>
@@ -38,27 +37,28 @@ storiesOf('molecule|!!!Field', module)
 
             <div>Input value (v-model) : <strong>{{field.value}}</strong></div>
             </div>`,
-            data() {
-                return {
-                    field: {
-                        id: 'name',
-                        label: 'Name',
-                        value: 'John',
-                        error: 'Firstname not provided'
-                    }
-                }
-            }
-        }), {
-            info: {
-                summary: `Why do we use trim all the time for input`
-            }
-        }
-    )
-    .add(
-        '!!!textarea',
-        () => ({
-            components: { vfMField },
-            template: `<div>
+      data() {
+        return {
+          field: {
+            id: "name",
+            label: "Name",
+            value: "John",
+            error: "Firstname not provided",
+          },
+        };
+      },
+    }),
+    {
+      info: {
+        summary: `Why do we use trim all the time for input`,
+      },
+    }
+  )
+  .add(
+    "!!!textarea",
+    () => ({
+      components: { vfMField },
+      template: `<div>
             <vf-m-field :state="null" id="textarea-1"
                 >
                 <template #label>{{field.label}}</template>
@@ -88,30 +88,31 @@ storiesOf('molecule|!!!Field', module)
 
             <div>Input value (v-model) : <strong>{{field.value}}</strong></div>
             </div>`,
-            data() {
-                return {
-                    field: {
-                        id: 'name',
-                        label: 'Name',
-                        value: 'John',
-                        error: 'Firstname not provided'
-                    }
-                }
-            }
-        }), {
-            info: {
-                summary: `the CSS does not have     
+      data() {
+        return {
+          field: {
+            id: "name",
+            label: "Name",
+            value: "John",
+            error: "Firstname not provided",
+          },
+        };
+      },
+    }),
+    {
+      info: {
+        summary: `the CSS does not have     
                 -webkit-appearance: none;     
                 -moz-appearance: none;   
-                appearance: none;`
-            }
-        }
-    )
-    .add(
-        '!!!select',
-        () => ({
-            components: { vfMField },
-            template: `<div>
+                appearance: none;`,
+      },
+    }
+  )
+  .add(
+    "!!!select",
+    () => ({
+      components: { vfMField },
+      template: `<div>
             <vf-m-field :state="null" id="select-1"
                 >
                 <template #label>{{field.label}}</template>
@@ -141,48 +142,52 @@ storiesOf('molecule|!!!Field', module)
 
             <div>Input value (v-model) : <strong>{{field.value}}</strong></div>
             </div>`,
-            data() {
-                return {
-                    field: {
-                        id: 'name',
-                        label: 'Name',
-                        value: 'John',
-                        options: ['John', 'Mary', 'Steven'],
-                        error: 'Firstname not provided'
-                    }
-                }
-            }
-        }), {
-            info: {
-                summary: `the CSS does not have     
+      data() {
+        return {
+          field: {
+            id: "name",
+            label: "Name",
+            value: "John",
+            options: ["John", "Mary", "Steven"],
+            error: "Firstname not provided",
+          },
+        };
+      },
+    }),
+    {
+      info: {
+        summary: `the CSS does not have     
                 -webkit-appearance: none;     
                 -moz-appearance: none;   
-                appearance: none;`
-            }
-        }
-    ).add(
-        '!!!No Checkbox',
-        () => ({
-            components: { vfMField },
-            template: `<div>
+                appearance: none;`,
+      },
+    }
+  )
+  .add(
+    "!!!No Checkbox",
+    () => ({
+      components: { vfMField },
+      template: `<div>
              NO Checkboxes
-            </div>`
-        }), {
-            info: {
-                summary: `VueFront replaced checkboxes with button toggle`
-            }
-        }
-    )
-    .add(
-        '!!!No Radio',
-        () => ({
-            components: { vfMField },
-            template: `<div>
+            </div>`,
+    }),
+    {
+      info: {
+        summary: `VueFront replaced checkboxes with button toggle`,
+      },
+    }
+  )
+  .add(
+    "!!!No Radio",
+    () => ({
+      components: { vfMField },
+      template: `<div>
              NO Radio
-            </div>`
-        }), {
-            info: {
-                summary: `VueFront replaced Radio buttons with button toggle`
-            }
-        }
-    )
+            </div>`,
+    }),
+    {
+      info: {
+        summary: `VueFront replaced Radio buttons with button toggle`,
+      },
+    }
+  );

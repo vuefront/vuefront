@@ -1,81 +1,83 @@
 // import ZonesGql from './list.graphql'
 // import ZoneGql from './get.graphql'
-import gql from 'graphql-tag'
+import gql from "graphql-tag";
 
 export const state = () => ({
   zone: false,
   entities: {
-    content: []
-  }
-})
+    content: [],
+  },
+});
 
 export const getters = {
   get(state) {
-    return state.zone
+    return state.zone;
   },
   list(state) {
-    return state.entities
-  }
-}
+    return state.entities;
+  },
+};
 
 export const mutations = {
   setZone(state, payload) {
-    state.zone = payload
+    state.zone = payload;
   },
   setEntities(state, payload) {
-    state.entities = payload
-  }
-}
+    state.entities = payload;
+  },
+};
 
 export const actions = {
   async list({ commit, dispatch, rootGetters }, zoneData) {
     await dispatch(
-      'apollo/query',
+      "apollo/query",
       {
-        query: gql`query($page: Int, $size: Int, $country_id: String) {
-          zonesList(page: $page, size: $size, country_id: $country_id) {
-            content {
-              id
-              name
+        query: gql`
+          query($page: Int, $size: Int, $country_id: String) {
+            zonesList(page: $page, size: $size, country_id: $country_id) {
+              content {
+                id
+                name
+              }
+              totalPages
+              totalElements
+              first
+              last
+              number
+              numberOfElements
             }
-            totalPages
-            totalElements
-            first
-            last
-            number
-            numberOfElements
           }
-        }
         `,
-        variables: zoneData
+        variables: zoneData,
       },
       {
-        root: true
+        root: true,
       }
-    )
-    if (!rootGetters['vuefront/error']) {
-      commit('setEntities', rootGetters['apollo/get'].zonesList)
+    );
+    if (!rootGetters["vuefront/error"]) {
+      commit("setEntities", rootGetters["apollo/get"].zonesList);
     }
   },
   async get({ commit, dispatch, rootGetters }, { id }) {
     await dispatch(
-      'apollo/query',
+      "apollo/query",
       {
-        query: gql`query($id: String) {
-          zone(id: $id) {
-            id
-            name
+        query: gql`
+          query($id: String) {
+            zone(id: $id) {
+              id
+              name
+            }
           }
-        }
         `,
-        variables: { id }
+        variables: { id },
       },
       {
-        root: true
+        root: true,
       }
-    )
-    if (!rootGetters['vuefront/error']) {
-      commit('setZone', rootGetters['apollo/get'].zone)
+    );
+    if (!rootGetters["vuefront/error"]) {
+      commit("setZone", rootGetters["apollo/get"].zone);
     }
-  }
-}
+  },
+};

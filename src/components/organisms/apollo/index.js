@@ -1,1 +1,1 @@
-export { default as oApollo } from './apollo.vue'
+export { default as oApollo } from "./apollo.vue";

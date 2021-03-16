@@ -1,1 +1,1 @@
-export {default as eSearchPost} from './search-post'
+export { default as eSearchPost } from "./search-post";

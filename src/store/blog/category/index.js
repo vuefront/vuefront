@@ -1,3 +1,3 @@
-import * as CategoryBlog from './category'
+import * as CategoryBlog from "./category";
 
-export {CategoryBlog}
+export { CategoryBlog };

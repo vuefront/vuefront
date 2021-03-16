@@ -1,5 +1,3 @@
-import * as Cart from './cart'
+import * as Cart from "./cart";
 
-export {
-  Cart
-}
+export { Cart };

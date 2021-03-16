@@ -7,7 +7,7 @@
     :width-amp="getWidth"
     :height-amp="getHeight"
     :fluid="fluid"
-    :class="{'card-img': card}"
+    :class="{ 'card-img': card }"
     :full-width="fullWidth"
     class="vf-m-post-image"
   />
@@ -21,44 +21,44 @@ export default {
       type: Boolean,
       default() {
         return false;
-      }
+      },
     },
     fluid: {
       type: Boolean,
       default() {
         return false;
-      }
+      },
     },
     fullWidth: {
       type: Boolean,
       default() {
         return false;
-      }
+      },
     },
     post: {
       type: Object,
       default() {
         return null;
-      }
+      },
     },
     width: {
-      type: String | Number,
+      type: [String, Number],
       default() {
         return null;
-      }
+      },
     },
     height: {
-      type: String | Number,
+      type: [String, Number],
       default() {
         return null;
-      }
+      },
     },
     layout: {
       type: String,
       default() {
         return null;
-      }
-    }
+      },
+    },
   },
   computed: {
     mainImage() {
@@ -92,7 +92,7 @@ export default {
         }
       }
       return height;
-    }
-  }
+    },
+  },
 };
 </script>

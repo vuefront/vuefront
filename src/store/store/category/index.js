@@ -1,5 +1,3 @@
-import * as Category from './category'
+import * as Category from "./category";
 
-export {
-  Category
-}
+export { Category };

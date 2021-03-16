@@ -1,1 +1,1 @@
-export { default as aImage } from './image.vue'
+export { default as aImage } from "./image.vue";

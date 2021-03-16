@@ -4,7 +4,11 @@
       <slot name="label"></slot>
     </label>
     <slot :aria-describedby="`${id}-feedback`" :state="state"></slot>
-    <div class="vf-m-field__error" v-if="!state && state !== null" :id="`${id}-feedback`">
+    <div
+      v-if="!state && state !== null"
+      :id="`${id}-feedback`"
+      class="vf-m-field__error"
+    >
       <slot name="error"></slot>
     </div>
   </div>
@@ -16,26 +20,26 @@ export default {
       type: String,
       default() {
         return "";
-      }
+      },
     },
     label: {
       type: String,
       default() {
         return null;
-      }
+      },
     },
     error: {
       type: String,
       default() {
         return "";
-      }
+      },
     },
     state: {
       type: Boolean,
       default() {
         return null;
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>

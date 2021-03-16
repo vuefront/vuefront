@@ -1,6 +1,10 @@
 <template>
   <section class="product-option">
-    <div v-for="(option, index) in product.options" :key="index" class="mb-5 mt-3">
+    <div
+      v-for="(option, index) in product.options"
+      :key="index"
+      class="mb-5 mt-3"
+    >
       <vf-m-product-option-checkbox
         v-if="option.type === 'checkbox'"
         :option="option"
@@ -66,27 +70,27 @@ export default {
   props: ["product"],
   computed: {
     ...mapGetters({
-      options: "store/product/options"
-    })
+      options: "store/product/options",
+    }),
   },
   methods: {
     checkActive(e, option) {
-      let result = filter(
+      const result = filter(
         this.options,
-        value => value.id === option.id && e === value.value
+        (value) => value.id === option.id && e === value.value
       );
 
       return !isEmpty(result);
     },
     handleOptionChange(e, option) {
-      let result = filter(this.options, value => value.id !== option.id);
+      const result = filter(this.options, (value) => value.id !== option.id);
       result.push({
         id: option.id,
-        value: e
+        value: e,
       });
 
       this.$store.commit("store/product/setOptions", result);
-    }
-  }
+    },
+  },
 };
 </script>

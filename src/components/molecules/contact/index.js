@@ -1,1 +1,1 @@
-export { default as mContact } from './contact.vue'
+export { default as mContact } from "./contact.vue";

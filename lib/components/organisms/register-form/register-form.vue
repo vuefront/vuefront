@@ -1,62 +1,101 @@
 <template>
   <vf-o-form @submit="onSubmit" @success="onSuccess">
-    <template #title>{{$t('elements.common.account.register.titleText')}}</template>
-    <template #sub-title>{{$t('elements.common.account.register.subTitleText')}}</template>
+    <template #title>{{
+      $t("elements.common.account.register.titleText")
+    }}</template>
+    <template #sub-title>{{
+      $t("elements.common.account.register.subTitleText")
+    }}</template>
 
     <vf-m-field
+      id="input-first-name"
       :state="$v.form.firstName.$dirty ? !$v.form.firstName.$error : null"
-      id="input-first-name"
     >
-      <template #label>{{$t('elements.common.account.register.firstNameEntry')}}</template>
+      <template #label>{{
+        $t("elements.common.account.register.firstNameEntry")
+      }}</template>
       <template #default="data">
-        <vf-a-input v-bind="data" v-model="form.firstName" trim />
+        <vf-a-input v-model="form.firstName" v-bind="data" trim />
       </template>
-      <template #error>{{$t('elements.common.account.register.firstNameError')}}</template>
+      <template #error>{{
+        $t("elements.common.account.register.firstNameError")
+      }}</template>
     </vf-m-field>
 
     <vf-m-field
+      id="input-first-name"
       :state="$v.form.lastName.$dirty ? !$v.form.lastName.$error : null"
-      id="input-first-name"
     >
-      <template #label>{{$t('elements.common.account.register.lastNameEntry')}}</template>
+      <template #label>{{
+        $t("elements.common.account.register.lastNameEntry")
+      }}</template>
       <template #default="data">
-        <vf-a-input v-bind="data" v-model="form.lastName" trim />
+        <vf-a-input v-model="form.lastName" v-bind="data" trim />
       </template>
-      <template #error>{{$t('elements.common.account.register.lastNameError')}}</template>
-    </vf-m-field>
-
-    <vf-m-field :state="$v.form.email.$dirty ? !$v.form.email.$error : null" id="input-email">
-      <template #label>{{$t('elements.common.account.register.emailEntry')}}</template>
-      <template #default="data">
-        <vf-a-input v-bind="data" v-model="form.email" trim />
-      </template>
-      <template #error>{{$t('elements.common.account.register.emailError')}}</template>
+      <template #error>{{
+        $t("elements.common.account.register.lastNameError")
+      }}</template>
     </vf-m-field>
 
     <vf-m-field
-      :state="$v.form.password.$dirty ? !$v.form.password.$error : null"
+      id="input-email"
+      :state="$v.form.email.$dirty ? !$v.form.email.$error : null"
+    >
+      <template #label>{{
+        $t("elements.common.account.register.emailEntry")
+      }}</template>
+      <template #default="data">
+        <vf-a-input v-model="form.email" v-bind="data" trim />
+      </template>
+      <template #error>{{
+        $t("elements.common.account.register.emailError")
+      }}</template>
+    </vf-m-field>
+
+    <vf-m-field
       id="input-password"
+      :state="$v.form.password.$dirty ? !$v.form.password.$error : null"
     >
-      <template #label>{{$t('elements.common.account.register.passwordEntry')}}</template>
+      <template #label>{{
+        $t("elements.common.account.register.passwordEntry")
+      }}</template>
       <template #default="data">
-        <vf-a-input v-bind="data" v-model="form.password" type="password" trim />
+        <vf-a-input
+          v-model="form.password"
+          v-bind="data"
+          type="password"
+          trim
+        />
       </template>
-      <template #error>{{$t('elements.common.account.register.passwordError')}}</template>
+      <template #error>{{
+        $t("elements.common.account.register.passwordError")
+      }}</template>
     </vf-m-field>
 
     <vf-m-field
-      :state="$v.form.confirmPassword.$dirty ? !$v.form.confirmPassword.$error : null"
       id="input-confirm-password"
+      :state="
+        $v.form.confirmPassword.$dirty ? !$v.form.confirmPassword.$error : null
+      "
     >
-      <template #label>{{$t('elements.common.account.register.confirmPasswordEntry')}}</template>
+      <template #label>{{
+        $t("elements.common.account.register.confirmPasswordEntry")
+      }}</template>
       <template #default="data">
-        <vf-a-input v-bind="data" v-model="form.confirmPassword" type="password" trim />
+        <vf-a-input
+          v-model="form.confirmPassword"
+          v-bind="data"
+          type="password"
+          trim
+        />
       </template>
-      <template #error>{{$t('elements.common.account.register.confirmPasswordError')}}</template>
+      <template #error>{{
+        $t("elements.common.account.register.confirmPasswordError")
+      }}</template>
     </vf-m-field>
 
     <template #button>
-      {{$t('elements.common.account.register.buttonSave')}}
+      {{ $t("elements.common.account.register.buttonSave") }}
       <vf-a-icon :icon="mdiArrowRight" size="15" />
     </template>
   </vf-o-form>
@@ -68,8 +107,9 @@ import minLength from "vuelidate/lib/validators/minLength";
 import maxLength from "vuelidate/lib/validators/maxLength";
 import sameAs from "vuelidate/lib/validators/sameAs";
 import email from "vuelidate/lib/validators/email";
-import {mdiArrowRight} from '@mdi/js'
+import { mdiArrowRight } from "@mdi/js";
 export default {
+  mixins: [validationMixin],
   data() {
     return {
       mdiArrowRight,
@@ -78,39 +118,38 @@ export default {
         lastName: null,
         email: null,
         password: null,
-        confirmPassword: null
-      }
+        confirmPassword: null,
+      },
     };
   },
-  mixins: [validationMixin],
   validations: {
     form: {
       firstName: {
         required,
         minLength: minLength(1),
-        maxLength: maxLength(32)
+        maxLength: maxLength(32),
       },
       lastName: {
         required,
         minLength: minLength(1),
-        maxLength: maxLength(32)
+        maxLength: maxLength(32),
       },
       email: {
         required,
-        email
+        email,
       },
       password: {
         required,
         minLength: minLength(4),
-        maxLength: maxLength(20)
+        maxLength: maxLength(20),
       },
       confirmPassword: {
         required,
         minLength: minLength(4),
         maxLength: maxLength(20),
-        sameAsPassword: sameAs("password")
-      }
-    }
+        sameAsPassword: sameAs("password"),
+      },
+    },
   },
   methods: {
     onSuccess() {
@@ -124,14 +163,14 @@ export default {
           firstName: this.form.firstName,
           lastName: this.form.lastName,
           email: this.form.email,
-          password: this.form.password
+          password: this.form.password,
         });
 
         if (status) {
           this.$router.push("/account/login");
         }
       }
-    }
-  }
+    },
+  },
 };
 </script>

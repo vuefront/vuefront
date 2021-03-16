@@ -1,5 +1,5 @@
-import toast from './toast.json'
+import toast from "./toast.json";
 
 export default {
-  toast
-}
+  toast,
+};

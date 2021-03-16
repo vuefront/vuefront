@@ -1,5 +1,3 @@
-import * as Wishlist from './wishlist'
+import * as Wishlist from "./wishlist";
 
-export {
-  Wishlist
-}
+export { Wishlist };

@@ -21,7 +21,9 @@
         "yalc-watch": "nodemon -e vue,js,scss,json -x yalc push",
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook",
-        "deploy-storybook": "storybook-to-ghpages"
+        "deploy-storybook": "storybook-to-ghpages",
+        "lint": "eslint --fix src --ext .vue,.js",
+        "watch": "concurrently -k -p \"[{name}]\" -n \"Build,Yalc\" -c \"yellow.bold,cyan.bold\" \"npm run build\" \"npm run yalc-watch\""
     },
     "dependencies": {
         "@babel/standalone": "^7.13.7",
@@ -31,6 +33,7 @@
         "axios": "^0.21.1",
         "color": "^3.1.3",
         "core-js": "^3.9.0",
+        "concurrently": "^6.0.0",
         "form-data": "^4.0.0",
         "global": "^4.4.0",
         "graphql": "^15.5.0",
@@ -78,6 +81,14 @@
         "vue-i18n": "^8.23.0",
         "vue-loader": "^15.9.6",
         "vue-router": "^3.5.1",
-        "vue-template-compiler": "^2.6.12"
+        "vue-template-compiler": "^2.6.12",
+        "@nuxtjs/eslint-config": "^6.0.0",
+        "@nuxtjs/eslint-config-typescript": "^6.0.0",
+        "eslint": "^7.21.0",
+        "eslint-config-prettier": "^8.1.0",
+        "eslint-plugin-nuxt": ">=2.0.0",
+        "eslint-plugin-prettier": "^3.3.1",
+        "prettier": "^2.2.1",
+        "typescript": "^4.2.3"
     }
 }

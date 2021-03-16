@@ -7,22 +7,9 @@
 import { mapGetters } from "vuex";
 import AddressesGql from "./address.graphql";
 export default {
-  computed: {
-    ...mapGetters({
-      items: "common/address/list"
-    })
-  },
-  breadcrumbs() {
-    return [
-      {
-        title: this.$t("pages.account.address.breadcrumbTitle"),
-        to: this.$route.path
-      }
-    ];
-  },
   async fetch({ store }) {
     await store.dispatch("apollo/query", {
-      query: AddressesGql
+      query: AddressesGql,
     });
     if (!store.getters["vuefront/error"]) {
       store.commit(
@@ -30,6 +17,19 @@ export default {
         store.getters["apollo/get"].accountAddressList
       );
     }
-  }
+  },
+  computed: {
+    ...mapGetters({
+      items: "common/address/list",
+    }),
+  },
+  breadcrumbs() {
+    return [
+      {
+        title: this.$t("pages.account.address.breadcrumbTitle"),
+        to: this.$route.path,
+      },
+    ];
+  },
 };
 </script>

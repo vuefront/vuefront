@@ -20,11 +20,17 @@
             <vf-o-position name="columnLeft" />
           </vf-m-col>
           <vf-m-col :sm="contentWidth">
-            <vf-o-position name="columnCenterTop" class="vf-o-layout__content-center-top" />
+            <vf-o-position
+              name="columnCenterTop"
+              class="vf-o-layout__content-center-top"
+            />
             <slot></slot>
-            <vf-o-position name="columnCenterBottom" class="vf-o-layout__content-center-bottom" />
+            <vf-o-position
+              name="columnCenterBottom"
+              class="vf-o-layout__content-center-bottom"
+            />
           </vf-m-col>
-         <vf-m-col
+          <vf-m-col
             v-if="checkModules('columnRight')"
             sm="3"
             class="hidden md:block vf-o-layout__content-right"
@@ -32,7 +38,10 @@
             <vf-o-position name="columnRight" />
           </vf-m-col>
         </vf-m-row>
-        <vf-o-position name="contentBottom" class="vf-o-layout__content-bottom" />
+        <vf-o-position
+          name="contentBottom"
+          class="vf-o-layout__content-bottom"
+        />
       </div>
     </vf-m-container>
     <LazyHydrate when-visible>
@@ -42,11 +51,11 @@
 </template>
 <script>
 import { BaseModule } from "vuefront/lib/utils/module.js";
-import { mapGetters } from 'vuex';
-import LazyHydrate from 'vue-lazy-hydration';
+import { mapGetters } from "vuex";
+import LazyHydrate from "vue-lazy-hydration";
 export default {
   components: {
-    LazyHydrate
+    LazyHydrate,
   },
   mixins: [BaseModule],
   computed: {
@@ -61,7 +70,7 @@ export default {
         result = 9;
       }
       return result;
-    }
-  }
+    },
+  },
 };
 </script>

@@ -1,70 +1,74 @@
 // import editCurrencyGraphql from './edit.graphql'
 // import currencyGetGql from './get.graphql'
-import gql from 'graphql-tag'
-import Vue from 'vue'
+import gql from "graphql-tag";
+import Vue from "vue";
 
 export const state = () => ({
-  currency: []
-})
+  currency: [],
+});
 
 export const getters = {
   get(state) {
-    return state.currency
-  }
-}
+    return state.currency;
+  },
+};
 
 export const mutations = {
   setCurrency(state, currency) {
-    Vue.set(state, 'currency', currency)
-  }
-}
+    Vue.set(state, "currency", currency);
+  },
+};
 
 export const actions = {
   async load({ commit, dispatch, rootGetters }) {
     await dispatch(
-      'apollo/query',
+      "apollo/query",
       {
-        query: gql`{
-          currency {
-            code
-            symbol_left
-            symbol_right
-            title
-            active
+        query: gql`
+          {
+            currency {
+              code
+              symbol_left
+              symbol_right
+              title
+              active
+            }
           }
-        }`
+        `,
       },
       { root: true }
-    )
+    );
 
-    if (!rootGetters['vuefront/error']) {
-      commit('setCurrency', rootGetters['apollo/get'].currency)
+    if (!rootGetters["vuefront/error"]) {
+      commit("setCurrency", rootGetters["apollo/get"].currency);
     }
   },
   async edit({ commit, dispatch, rootGetters }, { code }) {
     await dispatch(
-      'apollo/mutate',
+      "apollo/mutate",
       {
-        mutation: gql`mutation($code: String) {
-          editCurrency(code: $code) {
-            code
-            symbol_left
-            symbol_right
-            title
-            active
+        mutation: gql`
+          mutation($code: String) {
+            editCurrency(code: $code) {
+              code
+              symbol_left
+              symbol_right
+              title
+              active
+            }
           }
-        }`,
+        `,
         variables: {
-          code
-        }
+          code,
+        },
       },
       {
-        root: true
+        root: true,
       }
-    )
+    );
 
-    if (!rootGetters['vuefront/error']) {
-      commit('setCurrency', rootGetters['apollo/get'].editCurrency)
+    if (!rootGetters["vuefront/error"]) {
+      commit("setCurrency", rootGetters["apollo/get"].editCurrency);
     }
-  }
-}
+  },
+};

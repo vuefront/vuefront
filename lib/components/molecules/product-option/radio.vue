@@ -1,7 +1,11 @@
 <template>
   <div class="vf-m-product-option vf-m-product-option--radio">
-    <vf-a-heading level="6" class="mt-5 vf-m-product-option__name">{{option.name}}</vf-a-heading>
-    <div class="btn-group-toggle btn-group-options row mx-0 mt-3 mb-5 vf-m-product-option__value">
+    <vf-a-heading level="6" class="mt-5 vf-m-product-option__name">{{
+      option.name
+    }}</vf-a-heading>
+    <div
+      class="btn-group-toggle btn-group-options row mx-0 mt-3 mb-5 vf-m-product-option__value"
+    >
       <vf-a-button
         v-for="(value, key) in option.values"
         :key="key"
@@ -12,7 +16,8 @@
         size="lg"
         block
         @click="handleChange(value.id)"
-      >{{value.name}}</vf-a-button>
+        >{{ value.name }}</vf-a-button
+      >
     </div>
   </div>
 </template>
@@ -26,13 +31,13 @@ export default {
       this.$emit("change", value);
     },
     checkActive(e, option) {
-      let result = filter(
+      const result = filter(
         this.selected,
-        value => value.id === option.id && e === value.value
+        (value) => value.id === option.id && e === value.value
       );
 
       return !isEmpty(result);
-    }
-  }
+    },
+  },
 };
 </script>

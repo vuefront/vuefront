@@ -16,19 +16,19 @@ export default {
     handleClickCart() {
       this.$store.dispatch("store/cart/add", {
         product: this.product,
-        redirect: true
+        redirect: true,
       });
     },
     handleClickWishlist() {
       this.$store.dispatch("store/wishlist/add", {
-        product: this.product
+        product: this.product,
       });
     },
     handleClickCompare() {
       this.$store.dispatch("store/compare/add", {
-        product: this.product
+        product: this.product,
       });
-    }
-  }
+    },
+  },
 };
 </script>

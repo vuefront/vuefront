@@ -1,39 +1,53 @@
 <template>
-  <input type="date" class="vf-a-datepicker form-input block w-full" :class="getClass" :value="value" @input="handleInput" @change="handleChange" @keypress="handleKeypress">
+  <input
+    type="date"
+    class="vf-a-datepicker form-input block w-full"
+    :class="getClass"
+    :value="value"
+    @input="handleInput"
+    @change="handleChange"
+    @keypress="handleKeypress"
+  />
 </template>
 <script>
 export default {
   props: {
     size: {
       type: String,
-      default: null
+      default: null,
     },
     placeholder: {
       type: String,
-      default: ""
+      default: "",
     },
     state: {
       type: Boolean,
-      default: null
+      default: null,
     },
     trim: {
       type: Boolean,
       default() {
         return false;
-      }
+      },
     },
-    value: {}
+    value: {
+      type: [String, Number, Object],
+      default() {
+        return null;
+      },
+    },
   },
   computed: {
     getClass() {
-      let result = []
+      const result = [];
 
-      if (this.state || this.state === null) {
-      } else {
-        result.push('border-red-400 placeholder-red-400 focus:border-red-400 focus:ring-red-400 focus:shadow-none')
+      if (!(this.state || this.state === null)) {
+        result.push(
+          "border-red-400 placeholder-red-400 focus:border-red-400 focus:ring-red-400 focus:shadow-none"
+        );
       }
-      return result.join(' ')
-    }
+      return result.join(" ");
+    },
   },
   methods: {
     handleInput(value) {
@@ -44,7 +58,7 @@ export default {
     },
     handleKeypress(value) {
       this.$emit("keypress", value);
-    }
-  }
+    },
+  },
 };
 </script>

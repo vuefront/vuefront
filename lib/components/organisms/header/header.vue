@@ -17,7 +17,7 @@
           <vf-m-logo />
         </vf-m-col>
         <vf-m-col md="auto" align-self="center">
-         <vf-o-search-inline-form class="mx-auto" />
+          <vf-o-search-inline-form class="mx-auto" />
         </vf-m-col>
         <vf-m-col class="md:text-right" align-self="center">
           <vf-m-cart-link />
@@ -49,6 +49,8 @@
     }
   }
   &__top {
+    button,
+    button:hover,
     a,
     a:hover {
       &:not([aria-controls]):not(.vf-e-common-menu__link) {
@@ -58,5 +60,4 @@
     }
   }
 }
-
 </style>

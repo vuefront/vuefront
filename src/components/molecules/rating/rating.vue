@@ -1,16 +1,16 @@
 <template>
   <section class="rating-section">
     <span
-      v-for="(rating) in [1,2,3,4,5]"
-      @mouseover="handleMouseOver(rating)"
+      v-for="ratingValue in [1, 2, 3, 4, 5]"
+      :key="ratingValue"
+      style="cursor: pointer"
+      @mouseover="handleMouseOver(ratingValue)"
       @mouseout="handleMouseOut"
-      @click="handleClick(rating)"
-      :key="rating"
-      style="cursor:pointer;"
+      @click="handleClick(ratingValue)"
     >
       <vf-a-icon
-        :icon="rating <= currentRating ? mdiStar : mdiStarOutline "
-        :style="{color: color}"
+        :icon="ratingValue <= currentRating ? mdiStar : mdiStarOutline"
+        :style="{ color: color }"
         size="22"
       />
     </span>
@@ -18,7 +18,7 @@
 </template>
 <script>
 import isUndefined from "lodash/isUndefined";
-import {mdiStar, mdiStarOutline} from '@mdi/js'
+import { mdiStar, mdiStarOutline } from "@mdi/js";
 export default {
   props: ["value", "color", "readonly"],
   data() {
@@ -26,13 +26,13 @@ export default {
       rating: 0,
       hover: false,
       mdiStar,
-      mdiStarOutline
+      mdiStarOutline,
     };
   },
   computed: {
     currentRating() {
       return this.hover ? this.rating : this.value;
-    }
+    },
   },
   methods: {
     handleMouseOver(rating) {
@@ -50,7 +50,7 @@ export default {
       if (isUndefined(this.readonly)) {
         this.$emit("input", rating);
       }
-    }
-  }
+    },
+  },
 };
 </script>

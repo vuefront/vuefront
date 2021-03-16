@@ -1,5 +1,3 @@
-import * as Compare from './compare'
+import * as Compare from "./compare";
 
-export {
-  Compare
-}
+export { Compare };

@@ -1,15 +1,15 @@
-import Vue from 'vue';
-import { storiesOf } from '@storybook/vue';
-import vfMContainer from './container.vue';
+import Vue from "vue";
+import { storiesOf } from "@storybook/vue";
+import vfMContainer from "./container.vue";
 
-Vue.component('vfMContainer', vfMContainer);
+Vue.component("VfMContainer", vfMContainer);
 
-storiesOf('molecule|Container', module)
-    .add(
-        'default',
-        () => ({
-            components: { vfMContainer },
-            template: `
+storiesOf("molecule|Container", module)
+  .add(
+    "default",
+    () => ({
+      components: { vfMContainer },
+      template: `
             <div style="width:800px">
             <vf-m-container>
                 <vf-m-row>
@@ -32,16 +32,17 @@ storiesOf('molecule|Container', module)
                     </vf-m-col>
                 </vf-m-row>
             </vf-m-container>
-            </div>`
-        }), {
-            info: {}
-        }
-    )
-    .add(
-        'fluid',
-        () => ({
-            components: { vfMContainer },
-            template: `
+            </div>`,
+    }),
+    {
+      info: {},
+    }
+  )
+  .add(
+    "fluid",
+    () => ({
+      components: { vfMContainer },
+      template: `
             <div style="width:1200px">
             <vf-m-container fluid>
                 <vf-m-row>
@@ -64,8 +65,9 @@ storiesOf('molecule|Container', module)
                     </vf-m-col>
                 </vf-m-row>
             </vf-m-container>
-            </div>`
-        }), {
-            info: {}
-        }
-    )
+            </div>`,
+    }),
+    {
+      info: {},
+    }
+  );

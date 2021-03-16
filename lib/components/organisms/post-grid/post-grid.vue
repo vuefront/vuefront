@@ -2,10 +2,10 @@
   <section>
     <vf-m-row>
       <vf-m-col
-        sm="12"
-        :md="column? 12: 12 / gridSize"
         v-for="(value, index) in posts"
         :key="index"
+        sm="12"
+        :md="column ? 12 : 12 / gridSize"
       >
         <vf-m-post-thumb :post="value" />
       </vf-m-col>
@@ -17,16 +17,18 @@ export default {
   props: {
     posts: {
       type: Array,
-      default: []
+      default() {
+        return [];
+      },
     },
     column: {
       type: Boolean,
-      default: false
+      default: false,
     },
     gridSize: {
       type: Number,
-      default: 4
-    }
-  }
+      default: 4,
+    },
+  },
 };
 </script>

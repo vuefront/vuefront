@@ -1,4 +1,2 @@
-import * as Apollo from './apollo'
-export {
-  Apollo
-}
+import * as Apollo from "./apollo";
+export { Apollo };

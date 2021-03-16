@@ -18,33 +18,12 @@
 import { mapGetters } from "vuex";
 import { BaseModule } from "vuefront/lib/utils/module.js";
 export default {
-  head() {
-    if (!this.category.meta) {
-      return {};
-    }
+  mixins: [BaseModule],
+  props: ["id", "keyword", "url"],
+  asyncData(ctx) {
     return {
-      title: this.category.meta.title,
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content: this.category.meta.description
-        },
-        {
-          name: "keywords",
-          content: this.category.meta.keyword
-        }
-      ]
+      loaded: !process.client,
     };
-  },
-  breadcrumbs() {
-    const category = this.$store.getters["store/category/get"];
-    return [
-      {
-        title: category.meta.title,
-        to: this.$route.path
-      }
-    ];
   },
   data() {
     const page = this.$route.query.page ? Number(this.$route.query.page) : 1;
@@ -55,26 +34,42 @@ export default {
       loaded: true,
       size,
       sort: `${sort}|${order}`,
-      page
+      page,
     };
   },
-  props: ["id", "keyword", "url"],
-  mixins: [BaseModule],
-  mounted() {
-    if (!this.loaded) {
-      this.handleLoadData();
+  head() {
+    if (!this.category.meta) {
+      return {};
     }
-  },
-  async asyncData(ctx) {
     return {
-      loaded: !process.client
+      title: this.category.meta.title,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.category.meta.description,
+        },
+        {
+          name: "keywords",
+          content: this.category.meta.keyword,
+        },
+      ],
     };
+  },
+  breadcrumbs() {
+    const category = this.$store.getters["store/category/get"];
+    return [
+      {
+        title: category.meta.title,
+        to: this.$route.path,
+      },
+    ];
   },
   computed: {
     ...mapGetters({
       category: "store/category/get",
       mode: "store/category/mode",
-      products: "store/product/list"
+      products: "store/product/list",
     }),
     isList() {
       return this.mode === "list";
@@ -90,19 +85,24 @@ export default {
       } else {
         return 4;
       }
-    }
+    },
   },
-  watchQuery: true,
   watch: {
     loaded(newValue, oldValue) {
       if (!newValue && oldValue) {
         this.handleLoadData();
       }
+    },
+  },
+  watchQuery: true,
+  mounted() {
+    if (!this.loaded) {
+      this.handleLoadData();
     }
   },
   methods: {
     async handleLoadData(ctx) {
-      let { id } = this.$vuefront.params;
+      const { id } = this.$vuefront.params;
       const sortData = this.sort.split("|");
 
       await this.$store.dispatch("apollo/query", {
@@ -112,15 +112,15 @@ export default {
           size: this.size,
           categoryId: id,
           sort: sortData[0],
-          order: sortData[1]
-        }
+          order: sortData[1],
+        },
       });
       const { productsList, category } = this.$store.getters["apollo/get"];
       this.$store.commit("store/product/setEntities", productsList);
       this.$store.commit("store/category/setCategory", category);
       this.loaded = true;
-    }
-  }
+    },
+  },
 };
 </script>
 <graphql>

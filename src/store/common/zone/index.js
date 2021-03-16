@@ -1,5 +1,3 @@
-import * as Zone from './zone'
+import * as Zone from "./zone";
 
-export  {
-  Zone
-}
+export { Zone };

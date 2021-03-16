@@ -1,1 +1,1 @@
-export { default as aPagination } from './pagination.vue'
+export { default as aPagination } from "./pagination.vue";

@@ -1,4 +1,4 @@
-  <template>
+<template>
   <section class="vf-t-store-wishlist">
     <div class="wishlist__products">
       <vf-m-table :fields="fields" :items="wishlist" class="table-wishlist">
@@ -21,22 +21,22 @@ export default {
         {
           key: "product",
           label: this.$t("elements.store.wishlist.productColumn"),
-          sortable: false
+          sortable: false,
         },
         {
           key: "price",
           label: this.$t("elements.store.wishlist.priceColumn"),
-          sortable: false
+          sortable: false,
         },
         {
           key: "action",
           class: "vf-t-store-wishlist__actions text-right",
           label: this.$t("elements.store.wishlist.actionColumn"),
-          sortable: false
-        }
-      ]
+          sortable: false,
+        },
+      ],
     };
-  }
+  },
 };
 </script>
 <style lang="scss">

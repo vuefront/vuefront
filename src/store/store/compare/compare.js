@@ -1,92 +1,94 @@
 // import addToCompareGraphql from './add.graphql'
 // import removeCompareGraphql from './remove.graphql'
-import gql from 'graphql-tag'
+import gql from "graphql-tag";
 
 export const state = () => ({
-  compare: {}
-})
+  compare: {},
+});
 
 export const getters = {
   get(state) {
-    return state.compare
-  }
-}
+    return state.compare;
+  },
+};
 
 export const mutations = {
   setCompare(state, compare) {
-    state.compare = compare
-  }
-}
+    state.compare = compare;
+  },
+};
 
 export const actions = {
   async add({ commit, dispatch, rootGetters }, { product }) {
     await dispatch(
-      'apollo/mutate',
+      "apollo/mutate",
       {
-        mutation: gql`mutation($id: Int) {
-          addToCompare(id: $id) {
-            id
-            name
-            shortDescription
-            model
-            price
-            special
-            stock
-            image
-            imageLazy
+        mutation: gql`
+          mutation($id: Int) {
+            addToCompare(id: $id) {
+              id
+              name
+              shortDescription
+              model
+              price
+              special
+              stock
+              image
+              imageLazy
+            }
           }
-        }
         `,
         variables: {
-          id: Number(product.id)
-        }
+          id: Number(product.id),
+        },
       },
       {
-        root: true
+        root: true,
       }
-    )
+    );
 
-    if (!rootGetters['vuefront/error']) {
-      commit('setCompare', rootGetters['apollo/get'].addToCompare)
+    if (!rootGetters["vuefront/error"]) {
+      commit("setCompare", rootGetters["apollo/get"].addToCompare);
       commit(
-        'notification/add',
+        "notification/add",
         product.name +
           this.app.i18n.t(
-            'elements.store.productThumb.compareNotificationText'
+            "elements.store.productThumb.compareNotificationText"
           ),
         { root: true }
-      )
+      );
     }
   },
   async remove({ commit, dispatch, rootGetters }, { id }) {
     await dispatch(
-      'apollo/mutate',
+      "apollo/mutate",
       {
-        mutation: gql`mutation($id: String) {
-          removeCompare(id: $id) {
-            id
-            name
-            shortDescription
-            model
-            price
-            special
-            stock
-            image
-            imageLazy
+        mutation: gql`
+          mutation($id: String) {
+            removeCompare(id: $id) {
+              id
+              name
+              shortDescription
+              model
+              price
+              special
+              stock
+              image
+              imageLazy
+            }
           }
-        }
         `,
         variables: {
-          id
-        }
+          id,
+        },
       },
       {
-        root: true
+        root: true,
       }
-    )
+    );
 
-    if (!rootGetters['vuefront/error']) {
-      commit('setCompare', rootGetters['apollo/get'].removeCompare)
+    if (!rootGetters["vuefront/error"]) {
+      commit("setCompare", rootGetters["apollo/get"].removeCompare);
     }
-  }
-}
+  },
+};

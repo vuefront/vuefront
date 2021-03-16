@@ -8,8 +8,11 @@
         <vf-m-contact :contact="contact" />
       </vf-m-col>
     </vf-m-row>
-    </br>
-    <vf-o-location-grid v-if="contact.locations.length > 0" :items="contact.locations" />
+    <br />
+    <vf-o-location-grid
+      v-if="contact.locations.length > 0"
+      :items="contact.locations"
+    />
   </section>
 </template>
 <script>
@@ -19,8 +22,8 @@ export default {
       type: Object,
       default() {
         return null;
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>

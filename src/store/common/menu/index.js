@@ -1,4 +1,2 @@
-import * as  Menu from './menu'
-export {
-  Menu
-}
+import * as Menu from "./menu";
+export { Menu };

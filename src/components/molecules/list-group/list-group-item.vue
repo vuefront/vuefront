@@ -1,5 +1,11 @@
 <template>
-  <vf-a-link class="vf-m-list-group__item" :class="{'vf-m-list-group__item--active': active}" :to="to" :is="to ? 'vf-a-link' : 'div'" v-on="$listeners">
+  <vf-a-link
+    :is="to ? 'vf-a-link' : 'div'"
+    class="vf-m-list-group__item"
+    :class="{ 'vf-m-list-group__item--active': active }"
+    :to="to"
+    v-on="$listeners"
+  >
     <slot></slot>
   </vf-a-link>
 </template>
@@ -10,14 +16,14 @@ export default {
       type: Boolean,
       default() {
         return false;
-      }
+      },
     },
     to: {
       type: String,
       default() {
         return null;
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>

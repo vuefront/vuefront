@@ -1,1 +1,1 @@
-export { default as oBlogCategoryPost } from './blog-category-post.vue'
+export { default as oBlogCategoryPost } from "./blog-category-post.vue";

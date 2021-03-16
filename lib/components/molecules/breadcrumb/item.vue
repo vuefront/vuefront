@@ -7,11 +7,11 @@
 export default {
   props: {
     to: {
-      type: String | Object,
+      type: [String, Object],
       default() {
         return "/";
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>

@@ -4,8 +4,8 @@
     :class="getClass"
     :value="value"
     :rows="rows"
-    @input="handleChange"
     :state="state"
+    @input="handleChange"
   />
 </template>
 <script>
@@ -14,53 +14,63 @@ export default {
     rows: {
       type: [Number, String],
       default() {
-        null
-      }
+        return null;
+      },
     },
     size: {
       type: String,
-      default: null
+      default() {
+        return null;
+      },
     },
     state: {
       type: Boolean,
-      default: null
+      default() {
+        return null;
+      },
     },
-    value: {},
+    value: {
+      type: [String, Number, Object],
+      default() {
+        return null;
+      },
+    },
     trim: {
       type: Boolean,
       default() {
         return false;
-      }
-    }
+      },
+    },
   },
   computed: {
     getClass() {
-      const result = []
+      const result = [];
 
-      if (this.size === 'sm') {
-        result.push('px-2 py-1 text-sm')
+      if (this.size === "sm") {
+        result.push("px-2 py-1 text-sm");
       }
 
-      if (this.size === 'md') {
-        result.push('px-3 py-1.5 text-base')
+      if (this.size === "md") {
+        result.push("px-3 py-1.5 text-base");
       }
 
-      if (this.size === 'lg') {
-        result.push('px-4 py-2 text-xl')
+      if (this.size === "lg") {
+        result.push("px-4 py-2 text-xl");
       }
 
-      if (this.state || this.state === null) {
-      } else {
-        result.push('border-red-400 placeholder-red-400 focus:border-red-400 focus:ring-red-400 focus:shadow-none')
+      if (!(this.state || this.state === null)) {
+        result.push(
+          "border-red-400 placeholder-red-400 focus:border-red-400 focus:ring-red-400 focus:shadow-none"
+        );
       }
 
-      return result.join(' ')
-    }
+      return result.join(" ");
+    },
   },
   methods: {
     handleChange(value) {
       this.$emit("input", value);
-    }
-  }
+    },
+  },
 };
 </script>

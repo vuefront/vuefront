@@ -9,14 +9,14 @@ export default {
     return [
       {
         title: this.$t("pages.account.account.breadcrumbTitle"),
-        to: this.$route.path
-      }
+        to: this.$route.path,
+      },
     ];
   },
   fetch(ctx) {
     if (!ctx.store.getters["common/customer/auth"]) {
       ctx.redirect("/account/login");
     }
-  }
+  },
 };
 </script>

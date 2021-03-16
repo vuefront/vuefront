@@ -15,20 +15,9 @@
 <script>
 import { mapGetters } from "vuex";
 export default {
-  head() {
+  asyncData(ctx) {
     return {
-      title: this.title,
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content: this.description
-        },
-        {
-          name: "keywords",
-          content: this.keyword
-        }
-      ]
+      loaded: !process.client,
     };
   },
   data() {
@@ -36,39 +25,50 @@ export default {
       title: "",
       description: "",
       keyword: "",
-      loaded: false
+      loaded: false,
+    };
+  },
+  head() {
+    return {
+      title: this.title,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.description,
+        },
+        {
+          name: "keywords",
+          content: this.keyword,
+        },
+      ],
     };
   },
   computed: {
     ...mapGetters({
-      error: "vuefront/error"
-    })
+      error: "vuefront/error",
+    }),
   },
-  mounted() {
-    if (!this.loaded) {
-      this.handleLoadData();
-    }
-  },
-  asyncData(ctx) {
-    return {
-      loaded: !process.client
-    };
-  },
-  serverPrefetch() {
-    return this.handleLoadData();
-  },
-  watchQuery: true,
   watch: {
     loaded(newValue, oldValue) {
       if (!newValue && oldValue) {
         this.handleLoadData();
       }
+    },
+  },
+  watchQuery: true,
+  mounted() {
+    if (!this.loaded) {
+      this.handleLoadData();
     }
+  },
+  serverPrefetch() {
+    return this.handleLoadData();
   },
   methods: {
     async handleLoadData() {
       await this.$store.dispatch("apollo/query", {
-        query: this.$options.query
+        query: this.$options.query,
       });
       if (!this.error) {
         const { home } = this.$store.getters["apollo/get"];
@@ -78,7 +78,7 @@ export default {
         this.keyword = home.meta.keyword;
         this.loaded = true;
       }
-    }
-  }
+    },
+  },
 };
 </script>

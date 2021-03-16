@@ -6,26 +6,26 @@
 <script>
 import { mapGetters } from "vuex";
 export default {
+  async fetch({ store }) {
+    await store.dispatch("common/contact/get");
+  },
   head() {
     return {
-      title: this.$t("pages.common.contact.metaTitle")
+      title: this.$t("pages.common.contact.metaTitle"),
     };
   },
   breadcrumbs() {
     return [
       {
         title: this.$t("pages.common.contact.breadcrumbTitle"),
-        to: this.$route.path
-      }
+        to: this.$route.path,
+      },
     ];
   },
   computed: {
     ...mapGetters({
-      contact: "common/contact/get"
-    })
+      contact: "common/contact/get",
+    }),
   },
-  async fetch({ store }) {
-    await store.dispatch("common/contact/get");
-  }
 };
 </script>

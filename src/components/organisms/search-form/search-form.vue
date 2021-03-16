@@ -1,19 +1,26 @@
 <template>
   <vf-o-form @submit="onSubmit">
     <vf-m-field id="input-keyword">
-      <template #label>{{$t('elements.common.search.keywordEntry')}}</template>
+      <template #label>{{
+        $t("elements.common.search.keywordEntry")
+      }}</template>
       <template #default="data">
-        <vf-a-input v-bind="data" v-model="keyword" @keypress.stop="handleKeyPress" trim />
+        <vf-a-input
+          v-model="keyword"
+          v-bind="data"
+          trim
+          @keypress.stop="handleKeyPress"
+        />
       </template>
     </vf-m-field>
-    <template #button>{{$t('elements.common.search.buttonSearch')}}</template>
+    <template #button>{{ $t("elements.common.search.buttonSearch") }}</template>
   </vf-o-form>
 </template>
 <script>
 export default {
   data() {
     return {
-      keyword: this.$route.params.slug
+      keyword: this.$route.params.slug,
     };
   },
   methods: {
@@ -32,7 +39,7 @@ export default {
           this.$router.push("/search");
         }
       }
-    }
-  }
+    },
+  },
 };
 </script>

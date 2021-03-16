@@ -1,2 +1,1 @@
-export { default as pAccountAddressEdit }
-from './addressEdit.vue'
+export { default as pAccountAddressEdit } from "./addressEdit.vue";

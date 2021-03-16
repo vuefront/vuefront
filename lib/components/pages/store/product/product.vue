@@ -55,6 +55,16 @@
 <script>
 import { mapGetters } from "vuex";
 export default {
+  asyncData(ctx) {
+    return {
+      loaded: !process.client,
+    };
+  },
+  data() {
+    return {
+      loaded: true,
+    };
+  },
   head() {
     if (!this.product.meta) {
       return {};
@@ -65,57 +75,47 @@ export default {
         {
           hid: "description",
           name: "description",
-          content: this.product.meta.description
+          content: this.product.meta.description,
         },
         {
           name: "keywords",
-          content: this.product.meta.keyword
-        }
-      ]
+          content: this.product.meta.keyword,
+        },
+      ],
     };
   },
   breadcrumbs() {
     return [
       {
         title: this.product.meta.title,
-        to: this.$route.path
-      }
+        to: this.$route.path,
+      },
     ];
-  },
-  data() {
-    return {
-      loaded: true
-    };
   },
   computed: {
     ...mapGetters({
-      product: "store/product/get"
-    })
+      product: "store/product/get",
+    }),
   },
   mounted() {
     if (!this.loaded) {
       this.handleLoadData();
     }
   },
-  asyncData(ctx) {
-    return {
-      loaded: !process.client
-    };
-  },
   serverPrefetch() {
     return this.handleLoadData(this);
   },
   methods: {
     async handleLoadData(ctx) {
-      let { id } = this.$vuefront.params;
+      const { id } = this.$vuefront.params;
       await this.$store.dispatch("apollo/query", {
         query: this.$options.query,
-        variables: { id, limit: 5 }
+        variables: { id, limit: 5 },
       });
       const { product } = this.$store.getters["apollo/get"];
       this.$store.commit("store/product/setProduct", product);
       this.loaded = true;
-    }
-  }
+    },
+  },
 };
 </script>

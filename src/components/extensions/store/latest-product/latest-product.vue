@@ -1,16 +1,22 @@
 <template>
-  <vf-o-apollo class="vf-e-store-latest-product" :variables="{size: $vuefront.options.productGridSize}">
+  <vf-o-apollo
+    class="vf-e-store-latest-product"
+    :variables="{ size: $vuefront.options.productGridSize }"
+  >
     <template #loader>
       <span>
         <vf-l-o-product-module :column="column" />
       </span>
     </template>
-    <template #default="{data}">
+    <template #default="{ data }">
       <span>
         <vf-o-product-module
           :items="data.latestProducts.content"
           :column="column"
-        >{{$t('modules.store.latestProduct.textTitle')}}</vf-o-product-module>
+          >{{
+            $t("modules.store.latestProduct.textTitle")
+          }}</vf-o-product-module
+        >
       </span>
     </template>
   </vf-o-apollo>
@@ -18,14 +24,15 @@
 <script>
 export default {
   components: {
-    vfOApollo: () => import('vuefront/lib/components/organisms/apollo/apollo.vue')
+    vfOApollo: () =>
+      import("vuefront/lib/components/organisms/apollo/apollo.vue"),
   },
   props: {
     column: {
       type: Boolean,
-      default: false
-    }
-  }
+      default: false,
+    },
+  },
 };
 </script>
 <graphql>
@@ -46,4 +53,3 @@ query($size: Int){
     }
 }
 </graphql>
-

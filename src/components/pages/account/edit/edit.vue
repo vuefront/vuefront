@@ -8,16 +8,16 @@ import { mapGetters } from "vuex";
 export default {
   computed: {
     ...mapGetters({
-      account: "common/customer/get"
-    })
+      account: "common/customer/get",
+    }),
   },
   breadcrumbs() {
     return [
       {
         title: this.$t("pages.account.edit.breadcrumbTitle"),
-        to: this.$route.path
-      }
+        to: this.$route.path,
+      },
     ];
-  }
+  },
 };
 </script>

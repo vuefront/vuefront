@@ -1,1 +1,1 @@
-export {default as eAccount} from './account'
+export { default as eAccount } from "./account";

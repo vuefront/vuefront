@@ -1,7 +1,7 @@
-import omitDeepLodash from 'omit-deep-lodash'
-import gql from 'graphql-tag'
+import omitDeepLodash from "omit-deep-lodash";
+import gql from "graphql-tag";
 export default async ({ client }) => {
-  let result = []
+  let result = [];
   try {
     let res = await client.query({
       query: gql`
@@ -14,11 +14,11 @@ export default async ({ client }) => {
             }
           }
         }
-      `
-    })
-    res = omitDeepLodash(res, '__typename')
-    result = res.data.productsList.content
+      `,
+    });
+    res = omitDeepLodash(res, "__typename");
+    result = res.data.productsList.content;
   } catch (e) {}
 
-  return result
-}
+  return result;
+};

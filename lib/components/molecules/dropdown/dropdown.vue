@@ -1,13 +1,22 @@
 <template>
   <div ref="wrapper" class="inline-flex flex-col vf-m-dropdown">
-    <vf-a-button :color="variant" size="size" @click="show = !show"  @keydown="keydownHandler"
- @blur="blurHandler" class="flex items-center">
+    <vf-a-button
+      :color="variant"
+      size="size"
+      class="flex items-center"
+      @click="show = !show"
+      @keydown.esc="keydownHandler"
+      @blur="blurHandler"
+    >
       <slot name="button-content">
-        {{text}}
+        {{ text }}
       </slot>
     </vf-a-button>
     <div v-if="show" class="relative z-10">
-      <div :class="getClassManu" class="absolute w-auto rounded-md shadow-lg bg-white">
+      <div
+        :class="getClassManu"
+        class="absolute w-auto rounded-md shadow-lg bg-white"
+      >
         <div class="rounded-md shadow-xs py-1">
           <slot></slot>
         </div>
@@ -21,58 +30,55 @@ export default {
     text: {
       type: String,
       default() {
-        return ''
-      }
+        return "";
+      },
     },
     right: {
       type: Boolean,
       default() {
         return null;
-      }
+      },
     },
     size: {
       type: String,
       default() {
-        return 'md';
-      }
+        return "md";
+      },
     },
     variant: {
       type: String,
       default() {
-        return 'primary';
-      }
+        return "primary";
+      },
     },
     nav: {
       type: Boolean,
       default() {
         return false;
-      }
-    }
+      },
+    },
   },
   data() {
     return {
-      show: false
-    }
+      show: false,
+    };
   },
   computed: {
     getClassManu() {
-      let result = []
+      const result = [];
 
       if (this.right) {
-        result.push('origin-top-right right-0')
+        result.push("origin-top-right right-0");
       } else {
-        result.push('origin-top-left left-0')
+        result.push("origin-top-left left-0");
       }
 
-      return result.join(' ') 
-    }
+      return result.join(" ");
+    },
   },
   methods: {
     keydownHandler(e) {
-      if ([Key.ENTER, Key.SPACE].includes(e.keyCode)) {
-      } else if (e.keyCode === Key.ESC) {
-        this.show = false
-      }
+      this.show = false;
     },
     blurEventTargetIsChild(e) {
       const blurredElement = e.relatedTarget;
@@ -86,12 +92,12 @@ export default {
     },
     hideIfFocusOutside(e) {
       if (!this.blurEventTargetIsChild(e)) {
-        this.show = false
+        this.show = false;
       }
     },
     blurHandler(e) {
       this.hideIfFocusOutside(e);
     },
-  }
+  },
 };
 </script>

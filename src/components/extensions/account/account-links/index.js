@@ -1,2 +1,1 @@
-export { default as eAccountLinks }
-from './account-links'
+export { default as eAccountLinks } from "./account-links";

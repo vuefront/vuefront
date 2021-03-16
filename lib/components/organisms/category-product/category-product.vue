@@ -19,10 +19,12 @@
       @click:wishlist="handleClickWishlist"
       @click:compare="handleClickCompare"
     />
-    <vf-m-empty v-if="products.content.length === 0">{{$t('templates.store.category.emptyText')}}</vf-m-empty>
+    <vf-m-empty v-if="products.content.length === 0">{{
+      $t("templates.store.category.emptyText")
+    }}</vf-m-empty>
     <vf-a-pagination
       :page="products.number"
-      :totalPages="products.totalPages"
+      :total-pages="products.totalPages"
       @input="handleChangePage"
     />
   </div>
@@ -36,14 +38,14 @@ export default {
     },
     grid() {
       return this.gridSize;
-    }
+    },
   },
   methods: {
-    async handleChangePage(page) {
-      let { id } = this.$vuefront.params;
+    handleChangePage(page) {
+      const { id } = this.$vuefront.params;
       this.$router.push({
         path: this.$route.path,
-        query: { page }
+        query: { page },
       });
     },
     handleChangeSort(sort) {
@@ -54,8 +56,8 @@ export default {
         query: {
           size: this.products.size.toString(),
           sort: sorts[0],
-          order: sorts[1]
-        }
+          order: sorts[1],
+        },
       });
     },
 
@@ -68,25 +70,25 @@ export default {
 
       this.$router.push({
         path: this.$route.path,
-        query: { size: size.toString(), sort: sorts[0], order: sorts[1] }
+        query: { size: size.toString(), sort: sorts[0], order: sorts[1] },
       });
     },
     handleClickCart(product) {
       this.$store.dispatch("store/cart/add", {
         product,
-        redirect: true
+        redirect: true,
       });
     },
     handleClickWishlist(product) {
       this.$store.dispatch("store/wishlist/add", {
-        product
+        product,
       });
     },
     handleClickCompare(product) {
       this.$store.dispatch("store/compare/add", {
-        product
+        product,
       });
-    }
-  }
+    },
+  },
 };
 </script>

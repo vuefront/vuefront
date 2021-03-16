@@ -1,2 +1,2 @@
-export * from './account'
-export * from './account-links'
+export * from "./account";
+export * from "./account-links";

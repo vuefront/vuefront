@@ -1,5 +1,11 @@
 <template>
-  <div class="vf-o-apollo" :class="{'vf-o-apollo--loading': loading, 'vf-o-apollo--loaded': !loading}">
+  <div
+    class="vf-o-apollo"
+    :class="{
+      'vf-o-apollo--loading': loading,
+      'vf-o-apollo--loaded': !loading,
+    }"
+  >
     <template v-if="loading">
       <slot name="loader">
         <vf-a-loader />
@@ -28,7 +34,7 @@ export default {
     // console.log(hashCode)
 
     // let data = {};
-    let error = {};
+    const error = {};
     // let loading = true;
 
     // if (!isUndefined(prefetchData[hashCode])) {
@@ -43,15 +49,9 @@ export default {
       // loading
     };
   },
-  watch: {
-    $route(to, from) {
-      this.loadData();
-    }
-  },
-  watchQuery: true,
   computed: {
     ...mapGetters({
-      prefetchData: "apollo/prefetchData"
+      prefetchData: "apollo/prefetchData",
     }),
     data() {
       let data = {};
@@ -60,7 +60,7 @@ export default {
         data = this.prefetchData[this.componentHash].data;
       }
 
-      return data
+      return data;
     },
     loading() {
       let loading = true;
@@ -69,7 +69,7 @@ export default {
         loading = this.prefetchData[this.componentHash].loading;
       }
 
-      return loading
+      return loading;
     },
     componentHash() {
       let query = this.query;
@@ -79,8 +79,14 @@ export default {
       return this.hashCode(
         JSON.stringify({ query, variables: this.variables })
       );
-    }
+    },
   },
+  watch: {
+    $route(to, from) {
+      this.loadData();
+    },
+  },
+  watchQuery: true,
   serverPrefetch() {
     return this.loadData(true);
   },
@@ -91,7 +97,7 @@ export default {
   },
   methods: {
     loadData(ssr = false) {
-      return new Promise((resolve, rejects) => {
+      return new Promise((resolve, reject) => {
         let query = this.query;
         if (this.$parent.$options.query) {
           query = this.$parent.$options.query;
@@ -99,37 +105,37 @@ export default {
         this.$vfapollo
           .query({
             query,
-            variables: this.variables ? this.variables : {}
+            variables: this.variables ? this.variables : {},
           })
           .then(({ data }) => {
-            this.$emit('loaded', data)
+            this.$emit("loaded", data);
             // if (ssr) {
             this.$store.commit("apollo/setPrefetchData", {
               key: this.componentHash,
-              data: { data, loading: false }
+              data: { data, loading: false },
             });
             // }
             // this.data = data;
             // this.loading = false;
             resolve();
           })
-          .catch(e => {
+          .catch((e) => {
             // if (ssr) {
             this.$store.commit("apollo/setPrefetchData", {
               key: this.componentHash,
-              data: { error: {}, loading: false }
+              data: { error: {}, loading: false },
             });
             // }
             this.error = {};
             // this.loading = false;
-            rejects(e);
+            reject(e);
           });
       });
     },
     hashCode(str) {
-      var hash = 0,
-        i,
-        chr;
+      let hash = 0;
+      let i;
+      let chr;
       if (str.length === 0) return hash;
       for (i = 0; i < str.length; i++) {
         chr = str.charCodeAt(i);
@@ -137,7 +143,7 @@ export default {
         hash |= 0;
       }
       return hash;
-    }
-  }
+    },
+  },
 };
 </script>

@@ -1,5 +1,9 @@
 <template>
-  <vf-m-card :class="{'vf-m-product-thumb--wide' : wide}" class="vf-m-product-thumb" no-body>
+  <vf-m-card
+    :class="{ 'vf-m-product-thumb--wide': wide }"
+    class="vf-m-product-thumb"
+    no-body
+  >
     <vf-m-row no-gutters>
       <vf-m-col :md="wide ? 3 : 12" class="px-4">
         <vf-a-link :to="product.url" class="vf-m-product-thumb__image">
@@ -19,10 +23,14 @@
               readonly
             />
             <div
-              v-html="product.shortDescription"
               class="vf-m-product-thumb__description text-sm mb-3"
+              v-html="product.shortDescription"
             ></div>
-            <vf-m-product-price variant="small" :price="product.price" :special="product.special" />
+            <vf-m-product-price
+              variant="small"
+              :price="product.price"
+              :special="product.special"
+            />
           </div>
         </vf-m-card-body>
         <vf-m-button-group class="vf-m-product-thumb__buttons" size="sm" block>
@@ -32,7 +40,7 @@
             @click="handleAddToCart"
           >
             <vf-a-icon :icon="mdiCartOutline" />
-            {{$t('elements.store.product.buttonAddToCart')}}
+            {{ $t("elements.store.product.buttonAddToCart") }}
           </vf-a-button>
           <vf-a-button
             class="vf-m-product-thumb__button-wishlist"
@@ -54,15 +62,15 @@
   </vf-m-card>
 </template>
 <script>
-import {mdiCartOutline,mdiHeartOutline, mdiCompareHorizontal} from '@mdi/js'
+import { mdiCartOutline, mdiHeartOutline, mdiCompareHorizontal } from "@mdi/js";
 export default {
   props: ["product", "wide"],
   data() {
     return {
       mdiCartOutline,
       mdiHeartOutline,
-      mdiCompareHorizontal
-    }
+      mdiCompareHorizontal,
+    };
   },
   computed: {
     url() {
@@ -71,18 +79,18 @@ export default {
       } else {
         return "/store/product/" + this.product.id;
       }
-    }
+    },
   },
   methods: {
     handleAddToCart() {
       this.$emit("click:cart");
     },
-    async handleAddToWishlist() {
+    handleAddToWishlist() {
       this.$emit("click:wishlist");
     },
-    async handleAddToCompare() {
+    handleAddToCompare() {
       this.$emit("click:compare");
-    }
-  }
+    },
+  },
 };
 </script>

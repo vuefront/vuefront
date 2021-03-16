@@ -1,5 +1,3 @@
-import * as Contact from './contact'
+import * as Contact from "./contact";
 
-export  {
-  Contact
-}
+export { Contact };

@@ -1,1 +1,1 @@
-export {default as eCategory} from './category'
+export { default as eCategory } from "./category";

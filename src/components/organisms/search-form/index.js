@@ -1,1 +1,1 @@
-export { default as oSearchForm } from './search-form.vue'
+export { default as oSearchForm } from "./search-form.vue";

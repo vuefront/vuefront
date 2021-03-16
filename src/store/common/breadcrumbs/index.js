@@ -1,5 +1,3 @@
-import * as Breadcrumbs from './breadcrumbs'
+import * as Breadcrumbs from "./breadcrumbs";
 
-export {
-    Breadcrumbs
-}
+export { Breadcrumbs };

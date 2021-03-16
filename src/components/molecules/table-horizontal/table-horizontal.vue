@@ -1,11 +1,17 @@
 <template>
   <section class="vf-m-table-horizontal">
-    <div class="vf-m-table-horizontal__item" v-for="(field, fieldKey) in fields" :key="fieldKey">
-      <div class="vf-m-table-horizontal__title border p-2">{{field.label}}</div>
+    <div
+      v-for="(field, fieldKey) in fields"
+      :key="fieldKey"
+      class="vf-m-table-horizontal__item"
+    >
+      <div class="vf-m-table-horizontal__title border p-2">
+        {{ field.label }}
+      </div>
       <div
-        class="vf-m-table-horizontal__value border p-2"
         v-for="(item, itemKey) in items"
         :key="itemKey"
+        class="vf-m-table-horizontal__value border p-2"
       >
         <template v-if="$scopedSlots[field.key]">
           <slot :name="field.key" v-bind="item"></slot>
@@ -22,14 +28,14 @@ export default {
       type: Array,
       default() {
         return [];
-      }
+      },
     },
     fields: {
       type: Array,
       default() {
         return [];
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>

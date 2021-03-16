@@ -1,17 +1,24 @@
 <template>
-  <vf-o-apollo class="vf-e-store-related-product" v-if="id" :variables="{id:id, limit: $vuefront.options.productGridSize}">
+  <vf-o-apollo
+    v-if="id"
+    class="vf-e-store-related-product"
+    :variables="{ id: id, limit: $vuefront.options.productGridSize }"
+  >
     <template #loader>
       <span>
         <vf-l-o-product-module :column="column" />
       </span>
     </template>
-    <template #default="{data}">
+    <template #default="{ data }">
       <span>
         <vf-o-product-module
           v-if="data.relatedProducts.products.length > 0"
           :items="data.relatedProducts.products"
           :column="column"
-        >{{$t('modules.store.relatedProduct.textTitle')}}</vf-o-product-module>
+          >{{
+            $t("modules.store.relatedProduct.textTitle")
+          }}</vf-o-product-module
+        >
       </span>
     </template>
   </vf-o-apollo>
@@ -22,8 +29,8 @@ export default {
   props: {
     column: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     id() {
@@ -37,8 +44,8 @@ export default {
       }
 
       return result;
-    }
-  }
+    },
+  },
 };
 </script>
 <graphql>

@@ -7,16 +7,16 @@
 export default {
   head() {
     return {
-      title: this.$t("pages.common.search.metaTitle")
+      title: this.$t("pages.common.search.metaTitle"),
     };
   },
   breadcrumbs() {
     return [
       {
         title: this.$t("pages.common.search.breadcrumbTitle"),
-        to: this.$route.path
-      }
+        to: this.$route.path,
+      },
     ];
-  }
+  },
 };
 </script>

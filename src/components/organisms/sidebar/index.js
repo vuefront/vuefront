@@ -1,1 +1,1 @@
-export { default as oSidebar } from './sidebar.vue'
+export { default as oSidebar } from "./sidebar.vue";

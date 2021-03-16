@@ -1,32 +1,56 @@
 <template>
   <vf-o-form @submit="onSubmit">
-    <template #title>{{$t('elements.common.account.password.titleText')}}</template>
-    <template #sub-title>{{$t('elements.common.account.password.subTitleText')}}</template>
+    <template #title>{{
+      $t("elements.common.account.password.titleText")
+    }}</template>
+    <template #sub-title>{{
+      $t("elements.common.account.password.subTitleText")
+    }}</template>
 
     <vf-m-field
-      :state="$v.form.password.$dirty ? !$v.form.password.$error : null"
       id="input-password"
+      :state="$v.form.password.$dirty ? !$v.form.password.$error : null"
     >
-      <template #label>{{$t('elements.common.account.password.passwordEntry')}}</template>
+      <template #label>{{
+        $t("elements.common.account.password.passwordEntry")
+      }}</template>
       <template #default="data">
-        <vf-a-input v-bind="data" v-model="form.password" type="password" trim />
+        <vf-a-input
+          v-model="form.password"
+          v-bind="data"
+          type="password"
+          trim
+        />
       </template>
-      <template #error>{{$t('elements.common.account.password.passwordError')}}</template>
+      <template #error>{{
+        $t("elements.common.account.password.passwordError")
+      }}</template>
     </vf-m-field>
 
     <vf-m-field
-      :state="$v.form.confirmPassword.$dirty ? !$v.form.confirmPassword.$error : null"
       id="input-confirm-password"
+      :state="
+        $v.form.confirmPassword.$dirty ? !$v.form.confirmPassword.$error : null
+      "
     >
-      <template #label>{{$t('elements.common.account.password.confirmPasswordEntry')}}</template>
+      <template #label>{{
+        $t("elements.common.account.password.confirmPasswordEntry")
+      }}</template>
       <template #default="data">
-        <vf-a-input v-bind="data" v-model="form.confirmPassword" type="password" trim />
+        <vf-a-input
+          v-model="form.confirmPassword"
+          v-bind="data"
+          type="password"
+          trim
+        />
       </template>
-      <template #error>{{$t('elements.common.account.password.confirmPasswordError')}}</template>
+      <template #error>{{
+        $t("elements.common.account.password.confirmPasswordError")
+      }}</template>
     </vf-m-field>
 
     <template #button>
-      {{$t('elements.common.account.password.buttonSave')}}
+      {{ $t("elements.common.account.password.buttonSave") }}
       <vf-a-icon :icon="mdiArrowRight" size="15" />
     </template>
   </vf-o-form>
@@ -37,32 +61,32 @@ import required from "vuelidate/lib/validators/required";
 import minLength from "vuelidate/lib/validators/minLength";
 import maxLength from "vuelidate/lib/validators/maxLength";
 import sameAs from "vuelidate/lib/validators/sameAs";
-import {mdiArrowRight} from '@mdi/js'
+import { mdiArrowRight } from "@mdi/js";
 export default {
+  mixins: [validationMixin],
   data() {
     return {
       mdiArrowRight,
       form: {
         password: null,
-        confirmPassword: null
-      }
+        confirmPassword: null,
+      },
     };
   },
-  mixins: [validationMixin],
   validations: {
     form: {
       password: {
         required,
         minLength: minLength(4),
-        maxLength: maxLength(20)
+        maxLength: maxLength(20),
       },
       confirmPassword: {
         required,
         minLength: minLength(4),
         maxLength: maxLength(20),
-        sameAsPassword: sameAs("password")
-      }
-    }
+        sameAsPassword: sameAs("password"),
+      },
+    },
   },
   methods: {
     async onSubmit() {
@@ -72,7 +96,7 @@ export default {
         const status = await this.$store.dispatch(
           "common/customer/editPassword",
           {
-            password: this.form.password
+            password: this.form.password,
           }
         );
 
@@ -80,7 +104,7 @@ export default {
           this.$router.push("/account");
         }
       }
-    }
-  }
+    },
+  },
 };
 </script>

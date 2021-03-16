@@ -1,8 +1,8 @@
 <template>
   <div class="vf-o-position" :class="`vf-o-position--${name}`">
     <slot v-if="modules.length === 0"></slot>
-    <template v-else v-for="(value, index) in modules">
-      <LazyHydrate when-visible :key="index">
+    <template v-for="(value, index) in modules" v-else>
+      <LazyHydrate :key="index" when-visible>
         <div
           :is="$vuefront.extensions[value.component]"
           v-bind="value.props"
@@ -14,20 +14,25 @@
 </template>
 <script>
 import { BaseLayout } from "vuefront/lib/utils/baseLayout.js";
-import LazyHydrate from 'vue-lazy-hydration';
+import LazyHydrate from "vue-lazy-hydration";
 
 export default {
   components: {
-    LazyHydrate
+    LazyHydrate,
   },
+  mixins: [BaseLayout],
   props: {
-    name: String
+    name: {
+      type: String,
+      default() {
+        return null;
+      },
+    },
   },
   computed: {
     position() {
       return this.name;
-    }
+    },
   },
-  mixins: [BaseLayout]
 };
 </script>

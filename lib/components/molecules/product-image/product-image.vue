@@ -3,14 +3,27 @@
     <a href="#" @click.prevent="handleOpenPopup(0)">
       <vf-a-image :lazy-src="mainImagelazy" :src="mainImage" fluid full-width />
     </a>
-    <vf-m-row v-if="product.images.length > 0" class="mt-3 vf-m-product-image__thumbnails">
-      <vf-m-col sm="12" md="3" v-for="(value, index) in product.images" :key="index">
+    <vf-m-row
+      v-if="product.images.length > 0"
+      class="mt-3 vf-m-product-image__thumbnails"
+    >
+      <vf-m-col
+        v-for="(value, index) in product.images"
+        :key="index"
+        sm="12"
+        md="3"
+      >
         <a
           class="vf-m-product-image__thumbnail"
           href="#"
           @click.prevent="handleOpenPopup(index + 1)"
         >
-          <vf-a-image :lazy-src="value.imageLazy" :src="value.image" fluid full-width />
+          <vf-a-image
+            :lazy-src="value.imageLazy"
+            :src="value.image"
+            fluid
+            full-width
+          />
         </a>
       </vf-m-col>
     </vf-m-row>
@@ -31,7 +44,7 @@ export default {
   data() {
     return {
       popup: false,
-      popupIndex: 0
+      popupIndex: 0,
     };
   },
   computed: {
@@ -42,8 +55,8 @@ export default {
         ...result,
         {
           thumb: this.mainImage,
-          src: this.mainImage
-        }
+          src: this.mainImage,
+        },
       ];
 
       this.product.images.forEach(({ imageBig }) => {
@@ -51,8 +64,8 @@ export default {
           ...result,
           {
             thumb: imageBig,
-            src: imageBig
-          }
+            src: imageBig,
+          },
         ];
       });
 
@@ -67,7 +80,7 @@ export default {
       return this.product.imageLazy !== ""
         ? this.product.imageLazy
         : this.$vuefront.images.placeholder.image;
-    }
+    },
   },
   methods: {
     handleOpenPopup(index) {
@@ -76,7 +89,7 @@ export default {
     },
     handleClosePopup() {
       this.popup = false;
-    }
-  }
+    },
+  },
 };
 </script>

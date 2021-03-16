@@ -1,2 +1,1 @@
-export { default as tCommonError }
-from './error.vue'
+export { default as tCommonError } from "./error.vue";

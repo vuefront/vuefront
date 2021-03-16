@@ -1,2 +1,1 @@
-export { default as mCol }
-from './col.vue'
+export { default as mCol } from "./col.vue";

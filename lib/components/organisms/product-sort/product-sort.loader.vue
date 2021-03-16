@@ -1,6 +1,12 @@
 <template>
   <div class="vf-l-o-product-sort">
-    <skeleton shape="radius" theme="opacity" bg-color="#eee" width="100%" duration="2">
+    <skeleton
+      shape="radius"
+      theme="opacity"
+      bg-color="#eee"
+      width="100%"
+      duration="2"
+    >
       <vf-m-row>
         <vf-m-col sm="6" md="2" align-self="center">
           <tb-skeleton height="40px"></tb-skeleton>
@@ -32,7 +38,7 @@ import { TbSkeleton, Skeleton } from "tb-skeleton";
 export default {
   components: {
     TbSkeleton,
-    Skeleton
-  }
+    Skeleton,
+  },
 };
 </script>

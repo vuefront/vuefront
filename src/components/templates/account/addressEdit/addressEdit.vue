@@ -2,7 +2,11 @@
   <section class="account-address-edit">
     <vf-m-card class="mb-0" no-body>
       <vf-m-card-body class="md:px-5 py-5">
-        <vf-o-address-edit-form :address="address" :countries="countries" :zones="zones" />
+        <vf-o-address-edit-form
+          :address="address"
+          :countries="countries"
+          :zones="zones"
+        />
       </vf-m-card-body>
     </vf-m-card>
   </section>
@@ -14,6 +18,7 @@ import minLength from "vuelidate/lib/validators/minLength";
 import maxLength from "vuelidate/lib/validators/maxLength";
 import { mapGetters } from "vuex";
 export default {
+  mixins: [validationMixin],
   props: ["address", "countries", "zones"],
   data() {
     return {
@@ -26,11 +31,10 @@ export default {
         city: this.address.city,
         countryId: this.address.countryId,
         zoneId: this.address.zoneId,
-        zipcode: this.address.zipcode
-      }
+        zipcode: this.address.zipcode,
+      },
     };
   },
-  mixins: [validationMixin],
   validations() {
     let fields = {};
 
@@ -38,8 +42,8 @@ export default {
       fields = {
         ...fields,
         zoneId: {
-          required
-        }
+          required,
+        },
       };
     }
 
@@ -48,54 +52,54 @@ export default {
         firstName: {
           required,
           minLength: minLength(1),
-          maxLength: maxLength(32)
+          maxLength: maxLength(32),
         },
         lastName: {
           required,
           minLength: minLength(1),
-          maxLength: maxLength(32)
+          maxLength: maxLength(32),
         },
         company: {
           minLength: minLength(1),
-          maxLength: maxLength(32)
+          maxLength: maxLength(32),
         },
         address1: {
           required,
           minLength: minLength(3),
-          maxLength: maxLength(128)
+          maxLength: maxLength(128),
         },
         address2: {
           minLength: minLength(3),
-          maxLength: maxLength(128)
+          maxLength: maxLength(128),
         },
         city: {
           required,
           minLength: minLength(2),
-          maxLength: maxLength(128)
+          maxLength: maxLength(128),
         },
         countryId: {
-          required
+          required,
         },
         zipcode: {
           required,
           minLength: minLength(2),
-          maxLength: maxLength(10)
+          maxLength: maxLength(10),
         },
-        ...fields
-      }
+        ...fields,
+      },
     };
   },
   computed: {
     ...mapGetters({
-      error: "vuefront/error"
-    })
+      error: "vuefront/error",
+    }),
   },
   methods: {
     async handleChangeCountry(value) {
       await this.$store.dispatch("common/zone/list", {
         page: 1,
         size: -1,
-        country_id: value
+        country_id: value,
       });
       this.form.zoneId = "";
     },
@@ -114,15 +118,15 @@ export default {
             countryId: this.form.countryId,
             zoneId: this.form.zoneId,
             city: this.form.city,
-            zipcode: this.form.zipcode
-          }
+            zipcode: this.form.zipcode,
+          },
         });
 
         if (!this.error) {
           this.$router.push("/account/address");
         }
       }
-    }
-  }
+    },
+  },
 };
 </script>

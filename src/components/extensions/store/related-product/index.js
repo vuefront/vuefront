@@ -1,1 +1,1 @@
-export {default as eRelatedProduct} from './related-product'
+export { default as eRelatedProduct } from "./related-product";

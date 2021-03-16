@@ -1,1 +1,1 @@
-export { default as tAccountLogin } from './login.vue'
+export { default as tAccountLogin } from "./login.vue";

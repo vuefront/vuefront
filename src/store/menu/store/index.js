@@ -1,4 +1,2 @@
-import * as StoreMenu from './store'
-export {
-  StoreMenu
-}
+import * as StoreMenu from "./store";
+export { StoreMenu };

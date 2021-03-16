@@ -1,1 +1,1 @@
-export { default as oLoginForm } from './login-form.vue'
+export { default as oLoginForm } from "./login-form.vue";

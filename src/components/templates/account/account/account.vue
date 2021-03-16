@@ -9,7 +9,9 @@
         <vf-a-link to="/account/password">Change your password</vf-a-link>
       </li>
       <li>
-        <vf-a-link to="/account/address">Modify your address book entries</vf-a-link>
+        <vf-a-link to="/account/address"
+          >Modify your address book entries</vf-a-link
+        >
       </li>
       <li>
         <vf-a-link to="/account/wishlist">Modify your wish list</vf-a-link>

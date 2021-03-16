@@ -1,1 +1,1 @@
-export {default as aTimepicker} from './timepicker.vue'
+export { default as aTimepicker } from "./timepicker.vue";

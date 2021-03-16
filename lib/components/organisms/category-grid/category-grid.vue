@@ -3,7 +3,8 @@
     <vf-a-heading
       level="4"
       class="category-section__sub_name sm:text-center mt-2"
-    >{{$t('elements.store.category.categoriesText')}}</vf-a-heading>
+      >{{ $t("elements.store.category.categoriesText") }}</vf-a-heading
+    >
     <vf-m-row>
       <vf-m-col v-for="(value, index) in items" :key="index" sm="4" md="2">
         <vf-m-category-thumb :category="value" />
@@ -18,8 +19,8 @@ export default {
       type: Array,
       default() {
         return [];
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>

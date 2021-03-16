@@ -14,10 +14,9 @@ export default {
     return [
       {
         title: this.$t("pages.account.login.breadcrumbTitle"),
-        to: this.$route.path
-      }
+        to: this.$route.path,
+      },
     ];
-  }
+  },
 };
 </script>
-

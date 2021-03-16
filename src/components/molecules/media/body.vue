@@ -1,5 +1,5 @@
 <template>
-  <div class="vf-m-media-body" :is="tag">
+  <div :is="tag" class="vf-m-media-body">
     <slot></slot>
   </div>
 </template>
@@ -8,8 +8,8 @@ export default {
   props: {
     tag: {
       type: String,
-      default: "div"
-    }
-  }
+      default: "div",
+    },
+  },
 };
 </script>

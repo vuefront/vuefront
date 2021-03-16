@@ -1,1 +1,1 @@
-export { default as oWishlistActions } from './wishlist-actions.vue'
+export { default as oWishlistActions } from "./wishlist-actions.vue";

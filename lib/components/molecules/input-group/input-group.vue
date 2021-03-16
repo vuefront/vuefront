@@ -1,15 +1,15 @@
 <template>
   <div
+    :is="tag"
     :id="id"
     :size="size"
-    :is="tag"
     class="vf-m-input-group"
     :class="getClass"
   >
     <div v-if="$slots.prepend || prepend" class="vf-m-input-group__prepend">
       <slot name="prepend">
         <div class="vf-m-input-group__text">
-          {{prepend}}
+          {{ prepend }}
         </div>
       </slot>
     </div>
@@ -17,7 +17,7 @@
     <div v-if="$slots.append || append" class="vf-m-input-group__append">
       <slot name="append">
         <div class="vf-m-input-group__text">
-          {{append}}
+          {{ append }}
         </div>
       </slot>
     </div>
@@ -27,43 +27,63 @@
 export default {
   props: {
     id: {
-      type: String
+      type: String,
+      default() {
+        return null;
+      },
     },
     size: {
-      type: String
+      type: String,
+      default() {
+        return null;
+      },
     },
     prepend: {
-      type: String
+      type: String,
+      default() {
+        return null;
+      },
     },
     prependHtml: {
-      type: String
+      type: String,
+      default() {
+        return null;
+      },
     },
     append: {
-      type: String
+      type: String,
+      default() {
+        return null;
+      },
     },
     appendHtml: {
-      type: String
+      type: String,
+      default() {
+        return null;
+      },
     },
     tag: {
       type: String,
-      default: "div"
-    }
+      default() {
+        return "div";
+      },
+    },
   },
   computed: {
     getSizes() {
       return {
-        sm: 'vf-m-input-group--sm',
-        md: 'vf-m-input-group--md',
-        lg: 'vf-m-input-group--lg',
-      }
+        sm: "vf-m-input-group--sm",
+        md: "vf-m-input-group--md",
+        lg: "vf-m-input-group--lg",
+      };
     },
     getClass() {
-      let result = []
+      const result = [];
 
-      result.push(this.getSizes[this.size])
+      result.push(this.getSizes[this.size]);
 
-      return result.join(' ')
-    }
-  }
+      return result.join(" ");
+    },
+  },
 };
 </script>

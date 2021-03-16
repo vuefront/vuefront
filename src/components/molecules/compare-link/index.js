@@ -1,1 +1,1 @@
-export { default as mCompareLink } from './compare-link.vue'
+export { default as mCompareLink } from "./compare-link.vue";
