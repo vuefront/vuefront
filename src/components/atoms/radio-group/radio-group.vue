@@ -64,7 +64,7 @@ export default {
     localValue: {
       deep: true,
       handler(val, oldVal) {
-        if (JSON.stringify(val) !== JSON.stringify(this.value)) {
+        if (JSON.stringify(val) !== JSON.stringify(oldVal)) {
           this.$emit("input", val);
         }
       },
@@ -72,7 +72,7 @@ export default {
     value: {
       deep: true,
       handler(val, oldVal) {
-        if (JSON.stringify(val) !== JSON.stringify(this.localValue)) {
+        if (JSON.stringify(val) !== JSON.stringify(oldVal)) {
           this.localValue = val;
         }
       },
