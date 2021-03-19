@@ -8,6 +8,7 @@
         v-model="localValue"
         :class="stacked ? '' : 'px-3 py-2'"
         :value="item[valueField]"
+        @input="handleInput"
         >{{ item[textField] }}</vf-a-checkbox
       >
     </div>
@@ -16,6 +17,12 @@
 <script>
 export default {
   props: {
+    name: {
+      type: String,
+      default() {
+        return "checkbox";
+      },
+    },
     label: {
       type: String,
       default: null,
@@ -49,9 +56,9 @@ export default {
       },
     },
     value: {
-      type: [String, Number, Object],
+      type: Array,
       default() {
-        return null;
+        return [];
       },
     },
   },
@@ -76,6 +83,11 @@ export default {
           this.localValue = val;
         }
       },
+    },
+  },
+  methods: {
+    handleInput(e) {
+      this.localValue = e;
     },
   },
 };

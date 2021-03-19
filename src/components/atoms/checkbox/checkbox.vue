@@ -13,10 +13,11 @@
   </label>
 </template>
 <script>
+import isArray from "lodash/isArray";
 export default {
   model: {
     prop: "checked",
-    event: "change",
+    event: "input",
   },
   props: {
     type: {
@@ -38,13 +39,29 @@ export default {
       default: null,
     },
   },
+  data() {
+    return {
+      stuff: [],
+      bool: false,
+    };
+  },
   computed: {
     model: {
       get() {
         return this.checked;
       },
       set(val) {
-        this.$emit("change", val);
+        if (isArray(this.checked)) {
+          const result = this.checked;
+          if (result.includes(this.value)) {
+            result.splice(result.indexOf(this.value), 1);
+          } else {
+            result.push(this.value);
+          }
+          this.$emit("input", result);
+        } else {
+          this.$emit("input", !this.checked);
+        }
       },
     },
   },

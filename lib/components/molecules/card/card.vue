@@ -1,6 +1,7 @@
 <template>
   <div class="vf-m-card border rounded shadow-inner">
     <vf-m-card-body v-if="!noBody">
+      <vf-a-heading v-if="title" level="4">{{ title }}</vf-a-heading>
       <slot></slot>
     </vf-m-card-body>
     <slot v-else></slot>
