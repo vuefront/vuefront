@@ -1,6 +1,5 @@
 <template>
   <div class="vf-e-common-slideshow hidden md:block">
-    1
     <vf-a-image
       :src="currentSlide"
       :width-amp="1110"
