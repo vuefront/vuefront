@@ -1,5 +1,6 @@
 <template>
   <div class="vf-e-common-slideshow hidden md:block">
+    1
     <vf-a-image
       :src="currentSlide"
       :width-amp="1110"
@@ -35,13 +36,16 @@ export default {
     },
   },
   mounted() {
-    setInterval(() => {
-      if (this.active < this.items.length - 1) {
-        this.active++;
-      } else {
-        this.active = 0;
-      }
-    }, 4000);
+    setTimeout(() => {
+      setInterval(() => {
+        console.log("change");
+        if (this.active < this.items.length - 1) {
+          this.active++;
+        } else {
+          this.active = 0;
+        }
+      }, 4000);
+    }, 10000);
   },
 };
 </script>
