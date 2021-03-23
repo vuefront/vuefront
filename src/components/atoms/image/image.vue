@@ -2,7 +2,7 @@
 import Vue from "vue";
 import VueLazyload from "vue-lazyload";
 Vue.use(VueLazyload, {
-  throttleWait: 2000,
+  throttleWait: 100,
 });
 export default {
   props: {
