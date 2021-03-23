@@ -2,7 +2,7 @@
 import Vue from "vue";
 import VueLazyload from "vue-lazyload";
 Vue.use(VueLazyload, {
-  throttleWait: 100,
+  throttleWait: 2000,
 });
 export default {
   props: {
@@ -144,13 +144,13 @@ export default {
 
       const directives = [];
 
-      if (this.lazySrc !== "") {
-        directives.push({
-          name: "lazy",
-          arg: "background-image",
-          value: { loading: this.lazySrc, src },
-        });
-      }
+      // if (this.lazySrc !== "") {
+      directives.push({
+        name: "lazy",
+        arg: "background-image",
+        value: { /* loading: this.lazySrc, */ src },
+      });
+      // }
 
       return createElement(
         "div",
@@ -177,10 +177,10 @@ export default {
               class: "vf-a-image__img image-img " + imgClass,
               directives: [...directives],
               style: {
-                "background-image":
+                /* "background-image":
                   this.lazySrc !== ""
                     ? `url(${this.lazySrc})`
-                    : `url(${this.src})`,
+                    : `url(${this.src})`, */
                 "background-color": this.blankColor ? this.blankColor : null,
               },
             },
