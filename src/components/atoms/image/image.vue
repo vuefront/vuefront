@@ -106,14 +106,6 @@ export default {
     },
   },
   render(createElement) {
-    // if (typeof this.srcDark === 'object') {
-    //   if (this.isDark && this.srcDark !== '') {
-    //     return createElement(this.srcDark.default)
-    //   }`
-    // }
-    // if (typeof this.src === 'object') {
-    //   return createElement(this.src.default)
-    // }
     if (!this.$vuefront.isAMP) {
       const styles = {};
       if (this.width !== "") {
