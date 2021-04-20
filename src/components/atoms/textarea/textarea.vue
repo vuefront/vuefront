@@ -68,8 +68,8 @@ export default {
     },
   },
   methods: {
-    handleChange(value) {
-      this.$emit("input", value);
+    handleChange(e) {
+      this.$emit("input", e.target.value);
     },
   },
 };

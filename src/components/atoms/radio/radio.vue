@@ -1,5 +1,8 @@
 <template>
-  <label class="inline-flex items-center">
+  <label
+    class="inline-flex items-center vf-a-radio"
+    :class="{ 'vf-a-radio--active': model === value }"
+  >
     <input
       v-model="model"
       type="radio"

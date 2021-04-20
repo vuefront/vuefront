@@ -6,7 +6,9 @@
         v-for="(item, index) in options"
         :key="index"
         v-model="localValue"
-        :class="stacked ? '' : 'px-3 py-2'"
+        :class="{
+          'px-3 py-2': stacked,
+        }"
         :value="item[valueField]"
         >{{ item[textField] }}</vf-a-radio
       >
