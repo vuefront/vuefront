@@ -1,5 +1,5 @@
 <template>
-  <vf-o-layout class="store-category-page">
+  <vf-o-position name="layout" class="store-category-page">
     <template v-if="loaded">
       <vf-t-store-category
         :category="category"
@@ -12,7 +12,7 @@
     <template v-else>
       <vf-l-t-store-category :grid-size="gridSize" />
     </template>
-  </vf-o-layout>
+  </vf-o-position>
 </template>
 <script>
 import { mapGetters } from "vuex";

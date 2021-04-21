@@ -37,7 +37,6 @@ export default {
   mounted() {
     setTimeout(() => {
       setInterval(() => {
-        console.log("change");
         if (this.active < this.items.length - 1) {
           this.active++;
         } else {

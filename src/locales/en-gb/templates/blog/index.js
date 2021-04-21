@@ -1,1 +1,5 @@
-export { default as Category } from "./category";
+import category from "./category.json";
+
+export default {
+  category
+}

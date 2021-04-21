@@ -7,20 +7,23 @@
           :is="$vuefront.extensions[value.component]"
           v-bind="value.props"
           class="vf-o-position__module"
-        ></div>
+        >
+          <slot></slot>
+        </div>
       </LazyHydrate>
     </template>
   </div>
 </template>
 <script>
 import { BaseLayout } from "vuefront/lib/utils/baseLayout.js";
+import { BaseModule } from "vuefront/lib/utils/module.js";
 import LazyHydrate from "vue-lazy-hydration";
 
 export default {
   components: {
     LazyHydrate,
   },
-  mixins: [BaseLayout],
+  mixins: [BaseLayout, BaseModule],
   props: {
     name: {
       type: String,
@@ -33,6 +36,9 @@ export default {
     position() {
       return this.name;
     },
+  },
+  mounted() {
+    this.checkModules(this.name);
   },
 };
 </script>

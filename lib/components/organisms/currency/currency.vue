@@ -41,7 +41,6 @@ export default {
   },
   methods: {
     async handleEdit({ code }) {
-      console.log("handleEdit");
       await this.$store.dispatch("store/currency/edit", { code });
       if (!this.error) {
         location.reload();

@@ -436,6 +436,7 @@ const MainConfig = {
     StoreWishlist: "templates/store/wishlist/wishlist.vue",
   },
   extensions: {
+    LayoutDefault: "extensions/layout/default/default.vue",
     Account: "extensions/account/account/account.vue",
     AccountLinks: "extensions/account/account-links/account-links.vue",
     BlogCategory: "extensions/blog/category/category.vue",
@@ -560,6 +561,11 @@ const MainConfig = {
     },
     "/store/special": {
       component: "StoreSpecial",
+    },
+  },
+  layouts: {
+    "*": {
+      layout: "LayoutDefault",
     },
   },
 };
