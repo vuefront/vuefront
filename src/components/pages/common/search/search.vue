@@ -1,7 +1,7 @@
 <template>
-  <vf-o-layout class="search-page">
+  <vf-t-common-layout class="search-page">
     <vf-t-common-search />
-  </vf-o-layout>
+  </vf-t-common-layout>
 </template>
 <script>
 export default {

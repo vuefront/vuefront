@@ -1,7 +1,7 @@
 <template>
-  <vf-o-layout class="common-page">
+  <vf-t-common-layout class="common-page">
     <vf-t-common-page :page="page" />
-  </vf-o-layout>
+  </vf-t-common-layout>
 </template>
 <script>
 import { mapGetters } from "vuex";

@@ -1,7 +1,7 @@
 <template>
-  <vf-o-layout>
+  <vf-t-common-layout>
     <vf-t-account-edit :account="account" />
-  </vf-o-layout>
+  </vf-t-common-layout>
 </template>
 <script>
 import { mapGetters } from "vuex";

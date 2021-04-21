@@ -1,5 +1,5 @@
 <template>
-  <vf-o-layout class="vf-p-common-home"></vf-o-layout>
+  <vf-t-common-layout class="vf-p-common-home"></vf-t-common-layout>
 </template>
 <graphql>
 {

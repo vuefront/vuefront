@@ -1,8 +1,9 @@
 <template>
   <div
-    class="container mx-auto px-4"
+    class="vf-m-container px-4"
     :class="{
       'vf-m-container--fluid': fluid,
+      'container mx-auto': !fluid,
       'sm:container': size === 'sm',
       'lg:container': size === 'lg',
     }"

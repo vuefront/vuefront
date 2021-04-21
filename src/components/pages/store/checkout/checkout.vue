@@ -1,5 +1,5 @@
 <template>
-  <vf-o-layout class="checkout-page"></vf-o-layout>
+  <vf-t-common-layout class="checkout-page"></vf-t-common-layout>
 </template>
 <script>
 export default {

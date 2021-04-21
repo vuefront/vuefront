@@ -1,7 +1,7 @@
 <template>
-  <vf-o-layout>
+  <vf-t-common-layout>
     <vf-t-common-contact :contact="contact" />
-  </vf-o-layout>
+  </vf-t-common-layout>
 </template>
 <script>
 import { mapGetters } from "vuex";

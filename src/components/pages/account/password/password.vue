@@ -1,7 +1,7 @@
 <template>
-  <vf-o-layout>
+  <vf-t-common-layout>
     <vf-t-account-password />
-  </vf-o-layout>
+  </vf-t-common-layout>
 </template>
 <script>
 export default {

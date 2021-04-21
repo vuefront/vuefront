@@ -1,8 +1,8 @@
 <template>
-  <vf-o-layout>
+  <vf-t-common-layout>
     <vf-t-blog-post v-if="loaded" :post="post" />
     <vf-l-t-blog-post v-else />
-  </vf-o-layout>
+  </vf-t-common-layout>
 </template>
 <script>
 import { mapGetters } from "vuex";

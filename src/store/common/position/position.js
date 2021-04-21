@@ -6,6 +6,7 @@ import Vue from "vue";
 export const state = () => ({
   positions: {},
   modules: {},
+  layouts: {},
   path: "",
   params: {
     url: "",
@@ -18,6 +19,9 @@ export const mutations = {
       Vue.set(state.positions, route, {});
     }
     Vue.set(state.positions[route], name, status);
+  },
+  setLayout(state, { route, layout }) {
+    Vue.set(state.layouts, route, layout);
   },
   setModule(state, { name, route, list }) {
     if (isUndefined(state.modules[route])) {
@@ -44,6 +48,12 @@ export const getters = {
       }
       return state.modules[rootGetters.currentRoute][name];
     };
+  },
+  layout(state, rootGetters) {
+    if (isUndefined(state.layouts[rootGetters.currentRoute])) {
+      return null;
+    }
+    return state.layouts[rootGetters.currentRoute];
   },
   position(state, rootGetters) {
     return (name) => {
@@ -87,52 +97,42 @@ export const actions = {
       regexRoute = regexRoute.replace("//", "\\//");
       const regex = new RegExp("^" + regexRoute + "$", "i");
 
-      if (regex.test(getters.currentRoute) && !isUndefined(layout[position])) {
-        console.log(layout[position]);
-        if (isString(layout[position])) {
-          if (!isUndefined(this.app.$vuefront.extensions[layout[position]])) {
-            result = [
-              ...result,
-              {
-                component: layout[position],
-                props: {},
-              },
-            ];
-          }
-        } else {
-          for (const key in layout[position]) {
-            if (isString(layout[position][key])) {
-              if (
-                !isUndefined(
-                  this.app.$vuefront.extensions[layout[position][key]]
-                )
-              ) {
-                result = [
-                  ...result,
-                  {
-                    component: layout[position][key],
-                    props: {},
-                  },
-                ];
-              }
-            } else if (
-              !isUndefined(
-                this.app.$vuefront.extensions[layout[position][key][0]]
-              )
-            ) {
+      if (regex.test(getters.currentRoute)) {
+        let extensions = [];
+        if (!isUndefined(layout[position])) {
+          extensions = layout[position];
+        }
+        if (
+          !isUndefined(layout.extensions) &&
+          !isUndefined(layout.extensions[position])
+        ) {
+          extensions = layout.extensions[position];
+        }
+        for (const key in extensions) {
+          if (isString(extensions[key])) {
+            if (!isUndefined(this.app.$vuefront.extensions[extensions[key]])) {
               result = [
                 ...result,
                 {
-                  component: layout[position][key][0],
-                  props: layout[position][key][1],
+                  component: extensions[key],
+                  props: {},
                 },
               ];
             }
+          } else if (
+            !isUndefined(this.app.$vuefront.extensions[extensions[key][0]])
+          ) {
+            result = [
+              ...result,
+              {
+                component: extensions[key][0],
+                props: extensions[key][1],
+              },
+            ];
           }
         }
       }
     }
-    console.log(result);
 
     commit("setModule", {
       name: position,

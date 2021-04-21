@@ -1,5 +1,5 @@
 <template>
-  <vf-o-layout class="blog-category">
+  <vf-t-common-layout class="blog-category">
     <template v-if="loaded">
       <vf-t-blog-category
         :category="category"
@@ -10,7 +10,7 @@
     <template v-else>
       <vf-l-t-blog-category :grid-size="gridSize" />
     </template>
-  </vf-o-layout>
+  </vf-t-common-layout>
 </template>
 <script>
 import { mapGetters } from "vuex";

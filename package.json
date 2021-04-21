@@ -18,7 +18,7 @@
     "license": "MIT",
     "scripts": {
         "build": "shx mkdir -p lib && shx rm -r lib && cross-env NODE_ENV=lib babel src -D --watch --verbose --out-dir lib",
-        "yalc-watch": "nodemon --watch lib --delay 6 -e vue,js,scss,json -x yalc push",
+        "yalc-watch": "nodemon --delay 6 -e vue,js,scss,json -x yalc push",
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook",
         "deploy-storybook": "storybook-to-ghpages",

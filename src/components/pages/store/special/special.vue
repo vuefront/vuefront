@@ -1,5 +1,5 @@
 <template>
-  <vf-o-layout class="store-special-page">
+  <vf-t-common-layout class="store-special-page">
     <template v-if="loaded">
       <vf-t-store-special
         :products="products"
@@ -11,7 +11,7 @@
     <template v-else>
       <vf-l-t-store-special :grid-size="gridSize" />
     </template>
-  </vf-o-layout>
+  </vf-t-common-layout>
 </template>
 <script>
 import { mapGetters } from "vuex";

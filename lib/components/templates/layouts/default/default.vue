@@ -1,5 +1,5 @@
 <template>
-  <div class="vf-o-layout">
+  <div class="vf-t-layout-default">
     <LazyHydrate when-visible>
       <vf-o-header />
     </LazyHydrate>
@@ -9,38 +9,41 @@
     <vf-o-notification />
     <vf-o-breadcrumb />
     <vf-m-container>
-      <div class="vf-o-layout__content">
-        <vf-o-position name="contentTop" class="vf-o-layout__content-top" />
+      <div class="vf-t-layout-default__content">
+        <vf-o-position
+          name="contentTop"
+          class="vf-t-layout-default__content-top"
+        />
         <vf-m-row>
           <vf-m-col
             v-if="checkModules('columnLeft')"
             sm="3"
-            class="hidden md:block vf-o-layout__content-left"
+            class="hidden md:block vf-t-layout-default__content-left"
           >
             <vf-o-position name="columnLeft" />
           </vf-m-col>
           <vf-m-col :sm="contentWidth">
             <vf-o-position
               name="columnCenterTop"
-              class="vf-o-layout__content-center-top"
+              class="vf-t-layout-default__content-center-top"
             />
             <slot></slot>
             <vf-o-position
               name="columnCenterBottom"
-              class="vf-o-layout__content-center-bottom"
+              class="vf-t-layout-default__content-center-bottom"
             />
           </vf-m-col>
           <vf-m-col
             v-if="checkModules('columnRight')"
             sm="3"
-            class="hidden md:block vf-o-layout__content-right"
+            class="hidden md:block vf-t-layout-default__content-right"
           >
             <vf-o-position name="columnRight" />
           </vf-m-col>
         </vf-m-row>
         <vf-o-position
           name="contentBottom"
-          class="vf-o-layout__content-bottom"
+          class="vf-t-layout-default__content-bottom"
         />
       </div>
     </vf-m-container>
