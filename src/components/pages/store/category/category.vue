@@ -137,6 +137,13 @@ export default {
               rating
               url(url: "/store/product/_id")
               keyword
+              manufacturer {
+                id
+                name
+                image
+                imageLazy
+                url(url: "/store/manufacturer/_id")
+              }
           }
           size
           number

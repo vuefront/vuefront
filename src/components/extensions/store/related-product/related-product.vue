@@ -62,6 +62,13 @@ query($id: String, $limit: Int) {
             special
             name
             keyword
+            manufacturer {
+                id
+                name
+                image
+                imageLazy
+                url(url: "/store/manufacturer/_id")
+              }
         }
     }
 }

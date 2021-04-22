@@ -1,5 +1,7 @@
 export * from "./cart";
 export * from "./category";
+export * from "./manufacturer";
+export * from "./manufacturerList";
 export * from "./product";
 export * from "./special";
 export * from "./checkout";

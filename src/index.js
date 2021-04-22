@@ -279,8 +279,13 @@ const MainConfig = {
     ProductOptions: "organisms/product-options/product-options.vue",
     ProductBuy: "organisms/product-buy/product-buy.vue",
     CategoryProduct: "organisms/category-product/category-product.vue",
+    ManufacturerProduct:
+      "organisms/manufacturer-product/manufacturer-product.vue",
     CategoryInfo: "organisms/category-info/category-info.vue",
+    ManufacturerInfo: "organisms/manufacturer-info/manufacturer-info.vue",
     CategoryGrid: "organisms/category-grid/category-grid.vue",
+    ManufacturerList: "organisms/manufacturer-list/manufacturer-list.vue",
+    ManufacturerFilter: "organisms/manufacturer-filter/manufacturer-filter.vue",
   },
   pages: {
     AccountAccount: "pages/account/account/account.vue",
@@ -304,6 +309,8 @@ const MainConfig = {
     StoreProduct: "pages/store/product/product.vue",
     StoreSpecial: "pages/store/special/special.vue",
     StoreWishlist: "pages/store/wishlist/wishlist.vue",
+    StoreManufacturer: "pages/store/manufacturer/manufacturer.vue",
+    StoreManufacturerList: "pages/store/manufacturerList/manufacturerList.vue",
   },
   store: [
     {
@@ -408,6 +415,10 @@ const MainConfig = {
       module: "store/category/category.js",
     },
     {
+      path: ["store", "manufacturer"],
+      module: "store/manufacturer/manufacturer.js",
+    },
+    {
       path: ["store", "product"],
       module: "store/product/product.js",
     },
@@ -432,6 +443,9 @@ const MainConfig = {
     CommonSearch: "templates/common/search/search.vue",
     StoreCart: "templates/store/cart/cart.vue",
     StoreCategory: "templates/store/category/category.vue",
+    StoreManufacturer: "templates/store/manufacturer/manufacturer.vue",
+    StoreManufacturerList:
+      "templates/store/manufacturerList/manufacturerList.vue",
     StoreCompare: "templates/store/compare/compare.vue",
     StoreProduct: "templates/store/product/product.vue",
     StoreSpecial: "templates/store/special/special.vue",
@@ -469,7 +483,11 @@ const MainConfig = {
     OBreadcrumb: "/organisms/breadcrumb/breadcrumb.loader.vue",
     OCategoryGrid: "/organisms/category-grid/category-grid.loader.vue",
     OCategoryInfo: "/organisms/category-info/category-info.loader.vue",
+    OManufacturerInfo:
+      "/organisms/manufacturer-info/manufacturer-info.loader.vue",
     OCategoryProduct: "/organisms/category-product/category-product.loader.vue",
+    OManufacturerProduct:
+      "/organisms/manufacturer-product/manufacturer-product.loader.vue",
     OPostGrid: "/organisms/post-grid/post-grid.loader.vue",
     OPostModule: "/organisms/post-module/post-module.loader.vue",
     OProductGrid: "/organisms/product-grid/product-grid.loader.vue",
@@ -481,6 +499,13 @@ const MainConfig = {
     TBlogPost: "/templates/blog/post/post.loader.vue",
     TStoreProduct: "/templates/store/product/product.loader.vue",
     TStoreCategory: "/templates/store/category/category.loader.vue",
+    TStoreManufacturer: "/templates/store/manufacturer/manufacturer.loader.vue",
+    TStoreManufacturerList:
+      "/templates/store/manufacturerList/manufacturerList.loader.vue",
+    OManufacturerList:
+      "/organisms/manufacturer-list/manufacturer-list.loader.vue",
+    OManufacturerFilter:
+      "/organisms/manufacturer-filter/manufacturer-filter.loader.vue",
     TStoreSpecial: "/templates/store/special/special.loader.vue",
   },
   seo: {
@@ -551,6 +576,13 @@ const MainConfig = {
     "/store/category/:id": {
       seo: seo.CategorySeo,
       component: "StoreCategory",
+    },
+    "/store/manufacturer/:id": {
+      seo: seo.ManufacturerSeo,
+      component: "StoreManufacturer",
+    },
+    "/store/manufacturer": {
+      component: "StoreManufacturerList",
     },
     "/store/compare": {
       generate: false,

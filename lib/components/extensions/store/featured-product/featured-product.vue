@@ -51,6 +51,13 @@ query($ids: [Int], $limit: Int){
             rating
             keyword
             url(url: "/store/product/_id")
+            manufacturer {
+              id
+              name
+              image
+              imageLazy
+              url(url: "/store/manufacturer/_id")
+            }
         }
     }
 }

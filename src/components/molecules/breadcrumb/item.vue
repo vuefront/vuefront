@@ -1,6 +1,8 @@
 <template>
-  <li class="vf-m-breadcrumb__item" :to="to">
-    <slot></slot>
+  <li class="vf-m-breadcrumb__item">
+    <vf-a-link :to="to">
+      <slot></slot>
+    </vf-a-link>
   </li>
 </template>
 <script>

@@ -129,6 +129,13 @@ query($page: Int, $size: Int, $sort: String, $order: String) {
       rating
       keyword
       url(url: "/store/product/_id")
+      manufacturer {
+        id
+        name
+        image
+        imageLazy
+        url(url: "/store/manufacturer/_id")
+      }
     }
     size
     number

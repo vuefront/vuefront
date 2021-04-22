@@ -1,7 +1,14 @@
 <template>
   <section class="vf-m-product-image mb-4">
     <a href="#" @click.prevent="handleOpenPopup(0)">
-      <vf-a-image :lazy-src="mainImagelazy" :src="mainImage" fluid full-width />
+      <vf-a-image
+        :lazy-src="mainImagelazy"
+        :src="mainImage"
+        fluid
+        full-width
+        :width-amp="getWidth"
+        :height-amp="getHeight"
+      />
     </a>
     <vf-m-row
       v-if="product.images.length > 0"
@@ -38,9 +45,27 @@
   </section>
 </template>
 <script>
-import Vue from "vue";
 export default {
-  props: ["product"],
+  props: {
+    product: {
+      type: Object,
+      default() {
+        return null;
+      },
+    },
+    width: {
+      type: [String, Number],
+      default() {
+        return null;
+      },
+    },
+    height: {
+      type: [String, Number],
+      default() {
+        return null;
+      },
+    },
+  },
   data() {
     return {
       popup: false,
@@ -48,6 +73,32 @@ export default {
     };
   },
   computed: {
+    getWidth() {
+      let width = this.width;
+      if (!this.width) {
+        if (this.height) {
+          width =
+            (this.height * this.$vuefront.images.product.width) /
+            this.$vuefront.images.product.height;
+        } else {
+          width = this.$vuefront.images.product.width;
+        }
+      }
+      return width;
+    },
+    getHeight() {
+      let height = this.height;
+      if (!this.height) {
+        if (this.width) {
+          height =
+            (this.width * this.$vuefront.images.product.height) /
+            this.$vuefront.images.product.width;
+        } else {
+          height = this.$vuefront.images.product.height;
+        }
+      }
+      return height;
+    },
     images() {
       let result = [];
 

@@ -35,6 +35,13 @@
           imageLazy
           imageBig
           rating
+          manufacturer {
+            id
+            name
+            image
+            imageLazy
+            url(url: "/store/manufacturer/_id")
+          }
           images(limit: $limit) {
               image
               imageLazy
