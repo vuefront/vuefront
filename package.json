@@ -1,6 +1,6 @@
 {
     "name": "vuefront",
-    "version": "0.3.37",
+    "version": "0.3.38",
     "description": "vuefront",
     "files": [
         "lib",
@@ -17,7 +17,7 @@
     "author": "Dreamvention",
     "license": "MIT",
     "scripts": {
-        "build": "shx mkdir -p lib && shx rm -r lib && cross-env NODE_ENV=lib babel src -D --watch --verbose --out-dir lib",
+        "build": "shx mkdir -p lib && shx rm -r lib && cross-env NODE_ENV=lib babel src -D --watch --quiet --out-dir lib",
         "yalc-watch": "nodemon --delay 6 -e vue,js,scss,json -x yalc push",
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook",
@@ -76,6 +76,7 @@
         "eslint-plugin-nuxt": ">=2.0.0",
         "eslint-plugin-prettier": "^3.3.1",
         "file-loader": "^6.2.0",
+        "fsevents": "^2.3.2",
         "node-sass": "^5.0.0",
         "nodemon": "^2.0.7",
         "postcss-import": "^14.0.0",
