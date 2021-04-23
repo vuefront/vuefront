@@ -43,7 +43,6 @@ export default {
   },
   methods: {
     handleChangePage(page) {
-      const { id } = this.$vuefront.params;
       this.$router.push({
         path: this.$route.path,
         query: { page },

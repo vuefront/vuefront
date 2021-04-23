@@ -143,7 +143,6 @@ export default {
         value: { /* loading: this.lazySrc, */ src },
       });
       // }
-
       return createElement(
         "div",
         {

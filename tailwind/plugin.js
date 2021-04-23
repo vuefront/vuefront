@@ -11,6 +11,8 @@ const buttonGroupComponent = require("./component/button-group");
 const listGroupComponent = require("./component/list-group");
 const fieldComponent = require("./component/field");
 const headingComponent = require("./component/heading");
+const selectComponent = require("./component/select");
+const inputComponent = require("./component/input");
 const defaultOptions = require("./defaultOptions");
 module.exports = plugin(
   function ({ addUtilities, e, theme, variants, addComponents }) {
@@ -24,6 +26,8 @@ module.exports = plugin(
     addComponents(breadcrumbsComponent(theme));
     addComponents(inputGroupComponent(theme));
     addComponents(headingComponent(theme));
+    addComponents(selectComponent(theme));
+    addComponents(inputComponent(theme));
   },
   {
     theme: {

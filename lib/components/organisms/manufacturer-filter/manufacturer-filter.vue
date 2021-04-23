@@ -3,7 +3,11 @@
     <strong>{{ $t("organisms.manufacturerFilter.textBrandIndex") }}</strong>
     <span v-for="value in getBrandIndex" :key="value.name">
       &nbsp;&nbsp;&nbsp;
-      <vf-a-link :to="`#${value.name}`">{{ value.name }}</vf-a-link>
+      <vf-a-link :to="`#${value.name}`"
+        ><span @click="handleScroll(value.name)">{{
+          value.name
+        }}</span></vf-a-link
+      >
     </span>
   </div>
 </template>
@@ -45,6 +49,12 @@ export default {
       }
 
       return result;
+    },
+  },
+  methods: {
+    handleScroll(id) {
+      const el = document.getElementById(id);
+      el.scrollIntoView();
     },
   },
 };

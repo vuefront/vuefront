@@ -32,12 +32,6 @@ export default {
         return null;
       },
     },
-    img: {
-      type: String,
-      default() {
-        return null;
-      },
-    },
   },
   computed: {
     getViewBox() {

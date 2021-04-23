@@ -1,5 +1,11 @@
 const { invertColor, alpha, darken } = require("./utils");
 module.exports = (theme) => ({
+  select: {
+    "-webkit-appearance": "none",
+  },
+  input: {
+    "-webkit-appearance": "none",
+  },
   alert: {
     borderLeftWidth: theme("borderWidth.4"),
     borderStyle: "solid",
@@ -305,7 +311,6 @@ module.exports = (theme) => ({
         borderTopWidth: theme("borderWidth.0"),
       },
       "&--active": {
-        backgroundColor: theme("colors.white"),
         backgroundColor: theme("vuefront.colors.primary"),
         borderColor: theme("vuefront.colors.primary"),
         color: invertColor(theme("vuefront.colors.primary"), true),

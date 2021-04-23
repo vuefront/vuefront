@@ -105,6 +105,7 @@ export default {
     },
     handleChange(e) {
       this.$emit("change", e);
+      this.$emit("input", e);
     },
   },
 };
