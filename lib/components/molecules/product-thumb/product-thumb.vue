@@ -5,7 +5,7 @@
     no-body
   >
     <vf-m-row no-gutters>
-      <vf-m-col :md="wide ? 3 : 12" class="px-4">
+      <vf-m-col :md="wide ? 3 : 12" class="vf-m-product-thumb__header">
         <vf-a-link :to="product.url" class="vf-m-product-thumb__image">
           <vf-m-product-thumb-image :product="product" card />
         </vf-a-link>
@@ -35,7 +35,7 @@
         </vf-m-card-body>
         <vf-m-button-group class="vf-m-product-thumb__buttons" size="sm" block>
           <vf-a-button
-            class="rounded-0 vf-m-product-thumb__button-buy"
+            class="vf-m-product-thumb__button-buy"
             color="light"
             @click="handleAddToCart"
           >
@@ -50,7 +50,7 @@
             <vf-a-icon :icon="mdiHeartOutline" />
           </vf-a-button>
           <vf-a-button
-            class="rounded-0 vf-m-product-thumb__button-compare"
+            class="vf-m-product-thumb__button-compare"
             color="light"
             @click="handleAddToCompare"
           >

@@ -1,5 +1,5 @@
 <template>
-  <section class="vf-m-product-image mb-4">
+  <section class="vf-m-product-image">
     <a href="#" @click.prevent="handleOpenPopup(0)">
       <vf-a-image
         :lazy-src="mainImagelazy"
@@ -12,7 +12,7 @@
     </a>
     <vf-m-row
       v-if="product.images.length > 0"
-      class="mt-3 vf-m-product-image__thumbnails"
+      class="vf-m-product-image__thumbnails"
     >
       <vf-m-col
         v-for="(value, index) in product.images"

@@ -1,10 +1,10 @@
 <template>
-  <vf-m-card class="mb-3">
+  <vf-m-card class="vf-m-review">
     <div>
-      <vf-a-heading level="5" class="reviews-section__author mb-1 font-bold">{{
+      <vf-a-heading level="5" class="vf-m-review__author reviews-section__author">{{
         review.author
       }}</vf-a-heading>
-      <div class="review-section_content lead">{{ review.content }}</div>
+      <div class="vf-m-review__content">{{ review.content }}</div>
     </div>
   </vf-m-card>
 </template>

@@ -1,4 +1,13 @@
-.card-img {
-  border-top-left-radius: calc(.375rem - 1px);
-  border-top-right-radius: calc(.375rem - 1px);
+.vf-m-card {
+  @apply border rounded shadow-inner;
+  .card-img {
+    border-top-left-radius: calc(.375rem - 1px);
+    border-top-right-radius: calc(.375rem - 1px);
+  }
+}
+.vf-m-card-footer {
+  @apply p-2 border-t;
+}
+.vf-m-card-body {
+  @apply p-4;
 }

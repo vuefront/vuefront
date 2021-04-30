@@ -1,8 +1,8 @@
 <template>
-  <div v-if="items.length > 0" class="post-module-section mb-5">
+  <div v-if="items.length > 0" class="vf-o-post-module">
     <vf-a-heading
       level="4"
-      class="post-module-section__title sm:text-center mb-4"
+      class="vf-o-post-module__title"
     >
       <slot></slot>
     </vf-a-heading>

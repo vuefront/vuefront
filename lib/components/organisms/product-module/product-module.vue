@@ -2,7 +2,7 @@
   <div v-if="items.length > 0" class="vf-o-product-module">
     <vf-a-heading
       level="4"
-      class="vf-o-product-module__title sm:text-center mb-4"
+      class="vf-o-product-module__title"
     >
       <slot></slot>
     </vf-a-heading>

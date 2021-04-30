@@ -1,0 +1,21 @@
+.vf-m-dropdown {
+  @apply inline-flex flex-col ;
+  &__trigger {
+    @apply flex items-center;
+  }
+  &__menu {
+    @apply relative z-10;
+  }
+  &__menu-content {
+    @apply absolute w-auto rounded-md shadow-lg bg-white;
+    &--right {
+      @apply origin-top-right right-0;
+    }
+    &--left {
+      @apply origin-top-left left-0;
+    }
+  }
+  &__menu-content-wrapper {
+    @apply rounded-md shadow-sm py-1;
+  }
+}

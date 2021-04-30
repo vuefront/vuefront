@@ -1,5 +1,10 @@
 .vf-m-table {
+  @apply w-full mb-4;
   th {
+    @apply border-t border-b p-4;
     text-align: inherit;
+  }
+  td {
+    @apply border-t p-4;
   }
 }

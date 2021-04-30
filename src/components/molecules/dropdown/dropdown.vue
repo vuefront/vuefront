@@ -1,9 +1,9 @@
 <template>
-  <div ref="wrapper" class="inline-flex flex-col vf-m-dropdown">
+  <div ref="wrapper" class="vf-m-dropdown">
     <vf-a-button
       :color="variant"
       size="size"
-      class="flex items-center"
+      class="vf-m-dropdown__trigger"
       @click="show = !show"
       @keydown.esc="keydownHandler"
       @blur="blurHandler"
@@ -12,12 +12,12 @@
         {{ text }}
       </slot>
     </vf-a-button>
-    <div v-if="show" class="relative z-10">
+    <div v-if="show" class="vf-m-dropdown__menu">
       <div
         :class="getClassManu"
-        class="absolute w-auto rounded-md shadow-lg bg-white"
+        class="vf-m-dropdown__menu-content"
       >
-        <div class="rounded-md shadow-xs py-1">
+        <div class="vf-m-dropdown__menu-content-wrapper">
           <slot></slot>
         </div>
       </div>
@@ -68,9 +68,9 @@ export default {
       const result = [];
 
       if (this.right) {
-        result.push("origin-top-right right-0");
+        result.push("vf-m-dropdown__menu-content--right");
       } else {
-        result.push("origin-top-left left-0");
+        result.push("vf-m-dropdown__menu-content--left");
       }
 
       return result.join(" ");

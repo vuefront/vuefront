@@ -3,4 +3,7 @@
   &:hover {
     color: rgba(31, 45, 61, 0.5);
   }
+  &__title {
+    @apply hidden md:inline-block;
+  }
 }

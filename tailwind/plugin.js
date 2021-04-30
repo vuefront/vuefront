@@ -1,5 +1,6 @@
 const _ = require("lodash");
 const plugin = require("tailwindcss/plugin");
+const { colors, vuefrontColors } = require('./colors');
 
 const buttonComponent = require("./component/button");
 const alertComponent = require("./component/alert");
@@ -33,17 +34,17 @@ module.exports = plugin(
     theme: {
       vuefrontComponent: (theme) => defaultOptions(theme),
       vuefront: {
-        colors: {
-          primary: "#6e00ff",
-          secondary: "#eff2f7",
-          success: "#36b37e",
-          info: "#00b8d9",
-          warning: "#ffab00",
-          danger: "#ff5630",
-          white: "#ffffff",
-          light: "#eff2f7",
-          dark: "#273444",
-        },
+        colors:{
+      primary: '#6e00ff',
+      secondary: '#eff2f7',
+      success: '#36b37e',
+      info: '#00b8d9',
+      warning: '#ffab00',
+      danger: '#ff5630',
+      white: '#ffffff',
+      light: '#eff2f7',
+      dark: '#273444'
+  }
       },
       screens: {
         sm: "540px",
@@ -52,6 +53,18 @@ module.exports = plugin(
         xl: "1140px",
       },
       extend: {
+        colors: vuefrontColors,
+        // colors: {
+        //     primary: '#6e00ff',
+        //     secondary: '#eff2f7',
+        //     success: '#36b37e',
+        //     info: '#00b8d9',
+        //     warning: '#ffab00',
+        //     danger: '#ff5630',
+        //     white: '#ffffff',
+        //     light: '#eff2f7',
+        //     dark: '#273444'
+        // },
         customForms: {
           default: {
             checkbox: {

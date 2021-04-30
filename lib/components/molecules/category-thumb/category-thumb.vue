@@ -1,5 +1,5 @@
 <template>
-  <vf-a-link :to="category.url" class="mb-2 block vf-m-category-thumb">
+  <vf-a-link :to="category.url" class="vf-m-category-thumb">
     <vf-a-image
       :src="image"
       :lazy-src="imageLazy"
@@ -9,7 +9,7 @@
       full-width
       fluid
     />
-    <vf-a-heading level="6" class="sm:text-center">{{
+    <vf-a-heading level="6" class="vf-m-category-thumb__title">{{
       category.name
     }}</vf-a-heading>
   </vf-a-link>

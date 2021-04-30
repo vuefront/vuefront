@@ -1,0 +1,24 @@
+.vf-m-row {
+  @apply flex flex-wrap;
+  &.--no-gutter {
+    @apply -mx-4;
+  }
+  &.--align-v-start {
+    @apply items-start;
+  }
+  &.--align-v-center {
+    @apply items-center;
+  }
+  &.--align-v-end {
+    @apply items-end;
+  }
+  &.--align-h-start {
+    @apply justify-start;
+  }
+  &.--align-h-center {
+    @apply justify-center;
+  }
+  &.--align-h-end {
+    @apply justify-end;
+  }
+}

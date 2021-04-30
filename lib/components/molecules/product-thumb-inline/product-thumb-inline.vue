@@ -1,6 +1,6 @@
 <template>
-  <vf-m-media no-body>
-    <vf-m-media-aside vertical-align="center" class="pl-3">
+  <vf-m-media no-body class="vf-m-product-thumb-inline">
+    <vf-m-media-aside vertical-align="center" class="vf-m-product-thumb-inline__image">
       <vf-a-image
         :lazy-src="imageLazy"
         :src="image"
@@ -9,15 +9,15 @@
         width="80"
       />
     </vf-m-media-aside>
-    <vf-m-media-body class="pl-3">
-      <div class="lh-100">
-        <span class="text-dark font-bold mb-0">{{ product.name }}</span>
+    <vf-m-media-body class="vf-m-product-thumb-inline__content">
+      <div class="vf-m-product-thumb-inline__name">
+        <span>{{ product.name }}</span>
       </div>
-      <span class="font-bold text-muted">{{ product.model }}</span>
+      <span class="vf-m-product-thumb-inline__model">{{ product.model }}</span>
       <span
         v-for="(value, index) in option"
         :key="index"
-        class="font-bold text-muted"
+        class="vf-m-product-thumb-inline__option"
       >
         <div>
           <span v-html="value.name"></span>:

@@ -1,11 +1,10 @@
 <template>
   <div
-    class="vf-m-container px-4"
+    class="vf-m-container"
     :class="{
       'vf-m-container--fluid': fluid,
-      'container mx-auto': !fluid,
-      'sm:container': size === 'sm',
-      'lg:container': size === 'lg',
+      'vf-m-container--sm': size === 'sm',
+      'vf-m-container--lg': size === 'lg',
     }"
   >
     <slot></slot>

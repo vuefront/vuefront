@@ -1,5 +1,4 @@
-module.exports.colors = (theme) => {
-  return {
+var defaultColors = {
       primary: '#6e00ff',
       secondary: '#eff2f7',
       success: '#36b37e',
@@ -9,5 +8,17 @@ module.exports.colors = (theme) => {
       white: '#ffffff',
       light: '#eff2f7',
       dark: '#273444'
+  }
+
+module.exports.colors = (theme) => {
+  return {
+      ...defaultColors
+  }
+}
+
+module.exports.vuefrontColors = (theme) => {
+  return {
+    ...defaultColors,
+    ...theme('vuefront.colors')
   }
 }

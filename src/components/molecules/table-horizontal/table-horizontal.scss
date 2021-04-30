@@ -5,6 +5,12 @@
         display: flex;
         flex-flow: row;
     }
+    &__title {
+      @apply border p-2;
+    }
+    &__value {
+      @apply border p-2;
+    }
     &__title,
     &__value {
         flex: 1;

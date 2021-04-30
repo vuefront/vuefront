@@ -1,0 +1,21 @@
+.vf-m-media {
+  @apply flex;
+  &__aside {
+    @apply flex;
+    &--start {
+      @apply self-start;
+    }
+    &--center {
+      @apply self-center;
+    }
+    &--end {
+      @apply self-end;
+    }
+    &--left {
+      @apply flex mr-4;
+    }
+    &--right {
+      @apply flex ml-4;
+    }
+  }
+}

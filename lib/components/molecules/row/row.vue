@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap" :class="getClass">
+  <div class="vf-m-row" :class="getClass">
     <slot></slot>
   </div>
 </template>
@@ -34,23 +34,23 @@ export default {
   computed: {
     getAlignV() {
       return {
-        start: "items-start",
-        center: "items-center",
-        end: "items-end",
+        start: "--align-v-start",
+        center: "--align-v-center",
+        end: "--align-v-end",
       };
     },
     getAlignH() {
       return {
-        start: "justify-start",
-        center: "justify-center",
-        end: "justify-end",
+        start: "--align-h-start",
+        center: "--align-h-center",
+        end: "--align-h-end",
       };
     },
     getClass() {
       const result = [];
 
       if (!this.noGutters) {
-        result.push("-mx-4");
+        result.push("--no-gutter");
       }
 
       if (this.alignV) {

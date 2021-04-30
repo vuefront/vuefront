@@ -1,10 +1,10 @@
 <template>
-  <div class="reviews-section">
-    <vf-a-heading level="3" class="reviews-section__title mb-3">{{
+  <div class="vf-o-post-reviews">
+    <vf-a-heading level="3" class="vf-o-post-reviews__title">{{
       $t("elements.common.reviews.titleText")
     }}</vf-a-heading>
-    <vf-o-review-list :reviews="post.reviews.content" class="mb-4" />
-    <vf-o-review-form class="review-section__new" @submit="onSubmit" />
+    <vf-o-review-list :reviews="post.reviews.content" class="vf-o-post-reviews__content" />
+    <vf-o-review-form class="vf-o-post-reviews__form" @submit="onSubmit" />
   </div>
 </template>
 <script>

@@ -1,9 +1,9 @@
 <template>
-  <div :is="tag" class="vf-m-media flex">
+  <div :is="tag" class="vf-m-media">
     <template v-if="!rightAlign">
       <div
         v-if="$slots.aside"
-        class="vf-m-media-aside flex mr-4"
+        class="vf-m-media-aside vf-m-media-aside--left"
         :class="asideClass"
       >
         <slot name="aside"></slot>
@@ -16,7 +16,7 @@
     <template v-if="rightAlign">
       <div
         v-if="$slots.aside"
-        class="vf-m-media-aside flex ml-4"
+        class="vf-m-media-aside vf-m-media-aside--right"
         :class="asideClass"
       >
         <slot name="aside"></slot>
@@ -49,13 +49,13 @@ export default {
       const result = [];
 
       if (this.verticalAlign === "start" || this.verticalAlign === "top") {
-        result.push("self-start");
+        result.push("vf-m-media-aside--start");
       }
       if (this.verticalAlign === "center") {
-        result.push("self-center");
+        result.push("vf-m-media-aside--center");
       }
       if (this.verticalAlign === "end" || this.verticalAlign === "bottom") {
-        result.push("self-end");
+        result.push("vf-m-media-aside--end");
       }
 
       return result.join(" ");

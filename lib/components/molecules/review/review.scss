@@ -1,0 +1,9 @@
+.vf-m-review {
+  @apply mb-3;
+  &__author {
+    @apply mb-1 font-bold font-light;
+  }
+  &__content {
+    @apply text-xl;
+  }
+}

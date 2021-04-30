@@ -5,7 +5,7 @@
         <vf-m-col :key="`name-${key}`" sm="4" tag="dt">
           <vf-a-heading
             level="6"
-            class="vf-m-product-attribute__name text-sm mb-0"
+            class="vf-m-product-attribute__name"
             >{{ value.name }}</vf-a-heading
           >
         </vf-m-col>
@@ -13,7 +13,7 @@
           <div
             v-for="(option, optionKey) in value.options"
             :key="optionKey"
-            class="vf-m-product-attribute__value text-sm"
+            class="vf-m-product-attribute__value"
           >
             {{ option }}
           </div>

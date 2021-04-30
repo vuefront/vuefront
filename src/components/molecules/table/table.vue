@@ -1,11 +1,10 @@
 <template>
-  <table class="vf-m-table w-full mb-4">
+  <table class="vf-m-table">
     <thead>
       <tr>
         <th
           v-for="(field, fieldKey) in fields"
           :key="fieldKey"
-          class="border-t border-b p-4"
         >
           {{ field.label }}
         </th>
@@ -16,7 +15,6 @@
         <td
           v-for="(field, fieldKey) in fields"
           :key="fieldKey"
-          class="border-t p-4"
         >
           <template v-if="$scopedSlots[field.key]">
             <slot :name="field.key" v-bind="{ item }"></slot>

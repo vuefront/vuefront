@@ -1,9 +1,9 @@
 <template>
-  <section class="product-option">
+  <section class="vf-o-product-options">
     <div
       v-for="(option, index) in product.options"
       :key="index"
-      class="mb-5 mt-3"
+      class="vf-o-product-options__item"
     >
       <vf-m-product-option-checkbox
         v-if="option.type === 'checkbox'"

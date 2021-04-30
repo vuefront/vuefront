@@ -5,13 +5,13 @@
       :key="fieldKey"
       class="vf-m-table-horizontal__item"
     >
-      <div class="vf-m-table-horizontal__title border p-2">
+      <div class="vf-m-table-horizontal__title">
         {{ field.label }}
       </div>
       <div
         v-for="(item, itemKey) in items"
         :key="itemKey"
-        class="vf-m-table-horizontal__value border p-2"
+        class="vf-m-table-horizontal__value"
       >
         <template v-if="$scopedSlots[field.key]">
           <slot :name="field.key" v-bind="item"></slot>

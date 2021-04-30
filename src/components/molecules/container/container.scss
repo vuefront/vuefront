@@ -1,4 +1,15 @@
-
+.vf-m-container {
+  @apply px-4;
+  &:not(&--fluid) {
+    @apply container mx-auto;
+  }
+  &--sm {
+    @apply sm:container;
+  }
+  &--lg {
+    @apply lg:container;
+  }
+}
 // .vf-m-container {
 // 	width: 100%;
 // 	padding-right: 2rem;
@@ -30,6 +41,3 @@
 //     }
 //   }
 // }
-
-
-

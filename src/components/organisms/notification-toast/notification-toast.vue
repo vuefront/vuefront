@@ -1,7 +1,7 @@
 <template>
   <div
     class="vf-o-notification-toast"
-    :class="{ 'vf-o-notification-toast--show': show }"
+    :class="{ '--show': show, '--error': error }"
   >
     {{ error ? errorNotification : messageNotification }}
   </div>

@@ -1,0 +1,8 @@
+.vf-m-product-attribute {
+  &__name {
+    @apply text-sm mb-0;
+  }
+  &__value {
+    @apply text-sm;
+  }
+}

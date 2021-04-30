@@ -1,0 +1,17 @@
+.vf-m-product-thumb-inline {
+  &__name {
+    @apply text-black font-semibold mb-0 leading-none;
+  }
+  &__model {
+    @apply font-semibold text-gray-400 text-sm leading-none;
+  }
+  &__image {
+    @apply pl-3;
+  }
+  &__option {
+    @apply font-semibold text-gray-400 text-sm leading-none;
+  }
+  &__content {
+    @apply pl-3;
+  }
+}

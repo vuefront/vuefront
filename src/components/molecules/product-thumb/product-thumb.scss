@@ -1,5 +1,8 @@
 .vf-m-product-thumb {
     margin-bottom: 30px;
+    &__header {
+      @apply px-4;
+    }
     & &-image {
         min-height: 150px;
         width: 100%;
@@ -30,6 +33,16 @@
     }
     &__button-buy {
         width: 50%;
+    }
+    .vf-m-button-group {
+      > * {
+        &:first-child {
+          @apply rounded-tl-none;
+        }
+        &:last-child {
+          @apply rounded-tr-none;
+        }
+      }
     }
     &--wide {
         .vf-m-product-thumb__title {

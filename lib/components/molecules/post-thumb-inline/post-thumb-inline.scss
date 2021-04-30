@@ -4,7 +4,13 @@
         max-height: 60px;
         overflow: hidden;
     }
-    .vf-post-thumb-image {
+    .vf-m-post-thumb-inline__image {
         max-height: 160px;
+        &--left {
+          @apply mr-3;
+        }
+        &--right {
+          @apply ml-3;
+        }
     }
 }

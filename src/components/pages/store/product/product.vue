@@ -1,5 +1,5 @@
 <template>
-  <vf-t-common-layout>
+  <vf-t-common-layout >
     <vf-t-store-product v-if="loaded" :product="product" />
     <vf-l-t-store-product v-else />
   </vf-t-common-layout>

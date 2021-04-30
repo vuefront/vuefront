@@ -1,5 +1,5 @@
 <template>
-  <div class="vf-m-card-footer p-2 border-t">
+  <div class="vf-m-card-footer">
     <slot></slot>
   </div>
 </template>

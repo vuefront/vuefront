@@ -3,7 +3,7 @@
     <vf-m-media no-body vertical-align="center">
       <vf-m-media-aside
         v-if="!rightAlign"
-        class="mr-3 vf-m-post-thumb-inline__image vf-m-post-thumb-inline__image--left"
+        class="vf-m-post-thumb-inline__image vf-m-post-thumb-inline__image--left"
       >
         <vf-m-post-thumb-image
           :post="post"
@@ -24,7 +24,7 @@
       </vf-m-media-body>
       <vf-m-media-aside
         v-if="rightAlign"
-        class="ml-3 vf-m-post-thumb-inline__image vf-m-post-thumb-inline__image--right"
+        class="vf-m-post-thumb-inline__image vf-m-post-thumb-inline__image--right"
       >
         <vf-m-post-thumb-image
           :post="post"

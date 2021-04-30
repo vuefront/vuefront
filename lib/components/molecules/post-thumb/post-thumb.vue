@@ -5,12 +5,12 @@
     </vf-a-link>
     <vf-m-card-body class="pt-0">
       <vf-a-link :to="url">
-        <vf-a-heading tag="h3" level="6" class="mb-0 vf-m-post-thumb__title">{{
+        <vf-a-heading tag="h3" level="6" class="vf-m-post-thumb__title">{{
           post.title
         }}</vf-a-heading>
       </vf-a-link>
       <div
-        class="vf-m-post-thumb__description text-sm mb-3"
+        class="vf-m-post-thumb__description"
         v-html="post.shortDescription"
       ></div>
     </vf-m-card-body>
