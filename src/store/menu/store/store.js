@@ -24,7 +24,7 @@ export const actions = {
       {
         query: gql`
           query($url: String) {
-            categoriesMenu: categoriesList(parent: 0, size: -1) {
+            categoriesMenu: categoriesList(parent: 0, size: -1, top: true) {
               content {
                 id
                 title: name
