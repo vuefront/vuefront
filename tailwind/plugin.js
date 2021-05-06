@@ -1,7 +1,7 @@
 const _ = require("lodash");
 const plugin = require("tailwindcss/plugin");
 const { colors, vuefrontColors } = require('./colors');
-
+const { replaceIconDeclarations } = require("./utils");
 const buttonComponent = require("./component/button");
 const alertComponent = require("./component/alert");
 const badgesComponent = require("./component/badges");
@@ -27,7 +27,7 @@ module.exports = plugin(
     addComponents(breadcrumbsComponent(theme));
     addComponents(inputGroupComponent(theme));
     addComponents(headingComponent(theme));
-    addComponents(selectComponent(theme));
+    addComponents(replaceIconDeclarations(selectComponent(theme)));
     addComponents(inputComponent(theme));
   },
   {
