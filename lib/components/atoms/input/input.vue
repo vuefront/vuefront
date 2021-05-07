@@ -62,7 +62,7 @@ export default {
 
       if (!(this.state || this.state === null)) {
         result.push(
-          "--error border-red-400 placeholder-red-400 focus:border-red-400 focus:ring-red-400 focus:shadow-none"
+          "--error"
         );
       }
 

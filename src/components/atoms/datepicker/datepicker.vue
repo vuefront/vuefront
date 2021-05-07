@@ -1,7 +1,7 @@
 <template>
   <input
     type="date"
-    class="vf-a-datepicker form-input block w-full"
+    class="vf-a-datepicker vf-a-input"
     :class="getClass"
     :value="value"
     @input="handleInput"
@@ -14,7 +14,7 @@ export default {
   props: {
     size: {
       type: String,
-      default: null,
+      default: "md",
     },
     placeholder: {
       type: String,
@@ -41,11 +41,24 @@ export default {
     getClass() {
       const result = [];
 
+      if (this.size === "sm") {
+        result.push("--sm");
+      }
+
+      if (this.size === "md") {
+        result.push("--md");
+      }
+
+      if (this.size === "lg") {
+        result.push("--lg");
+      }
+
       if (!(this.state || this.state === null)) {
         result.push(
-          "border-red-400 placeholder-red-400 focus:border-red-400 focus:ring-red-400 focus:shadow-none"
+          "--error"
         );
       }
+      
       return result.join(" ");
     },
   },

@@ -7,18 +7,56 @@ module.exports = (theme) => ({
     backgroundColor: theme('backgroundColor.white'),
     borderWidth: theme('borderWidth.DEFAULT'),
     display: theme('display.block'),
+    iconColor: theme('colors.gray.400'),
+    backgroundPosition: `right ${theme('spacing.2')} center`,
+    backgroundSize: `1.5em 1.5em`,
+    backgroundRepeat: 'no-repeat',
     icon: (iconColor) =>
       `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"><path stroke="${iconColor}" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 8l4 4 4-4"/></svg>`,
-    '&:focus': {
-      outline: 'none',
-      '--ring-offset-shadow': `0 0 0 var(--ring-offset-width, 0) var(--ring-offset-color, #fff)`,
-      '--ring-shadow': `0 0 0 calc(1px + var(--ring-offset-width, 0px)) var(--ring-color, ${theme(
-        'colors.blue.600',
-        colors.blue[600]
-      )})`,
-      'box-shadow': [`var(--ring-offset-shadow)`, `var(--ring-shadow)`, `var(--box-shadow, 0 0 #0000)`].join(', '),
-      borderColor: theme('colors.blue.600', colors.blue[600]),
+    '&.--sm': {
+      fontSize: theme('fontSize.sm.0'),
+      lineHeight: theme('fontSize.sm.0.lineHeight'),
+      paddingLeft: theme("padding.2"),
+      paddingRight: theme("padding.2"),
+      paddingTop: theme("padding.1"),
+      paddingBottom: theme("padding.1"),
     },
+    '&.--md': {
+      fontSize: theme('fontSize.base.0'),
+      lineHeight: theme('fontSize.base.1.lineHeight'),
+      paddingLeft: theme("padding.3"),
+      paddingRight: theme("padding.3"),
+      paddingTop: theme("padding")['1.5'],
+      paddingBottom: theme("padding")['1.5'],
+    },
+    '&.--lg': {
+      fontSize: theme('fontSize.xl.0'),
+      lineHeight: theme('fontSize.xl.1.lineHeight'),
+      paddingLeft: theme("padding.4"),
+      paddingRight: theme("padding.4"),
+      paddingTop: theme("padding.2"),
+      paddingBottom: theme("padding.2"),
+    },
+    '&.--error': {
+      borderColor: theme('colors.red.400'),
+      color: theme('colors.red.400'),
+      '--tw-ring-color': theme('ringColors.red.400'),
+      '&::placeholder': {
+        color: theme('colors.red.400')
+      },
+      '&::focus': {
+        borderColor: theme('colors.red.400'),
+        boxShadow: theme('boxShadow.none')
+      }
+    }
+  },
+  input: {
+    "-webkit-appearance": "none",
+    borderRadius: theme("borderRadius.DEFAULT"),
+    width: theme('width.full'),
+    backgroundColor: theme('backgroundColor.white'),
+    borderWidth: theme('borderWidth.DEFAULT'),
+    display: theme('display.block'),
     '&.--sm': {
       fontSize: theme('fontSize.sm.0'),
       lineHeight: theme('fontSize.sm.0.lineHeight'),
@@ -55,7 +93,7 @@ module.exports = (theme) => ({
       }
     }
   },
-  input: {
+  textarea: {
     "-webkit-appearance": "none",
     borderRadius: theme("borderRadius.DEFAULT"),
     width: theme('width.full'),

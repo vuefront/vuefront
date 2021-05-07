@@ -120,7 +120,7 @@ query($page: Int, $size: Int, $categoryId: String) {
       shortDescription
       image
       imageLazy
-      url(url: "/blog/category/_id")
+      url(url: "/blog/post/_id")
       keyword
       reviews {
         totalElements
@@ -139,12 +139,14 @@ query($page: Int, $size: Int, $categoryId: String) {
     id
     name
     description
+    url(url: "/blog/category/_id")
     categories {
       id
       name
       image
       imageLazy
       keyword
+      url(url: "/blog/category/_id")
     }
     meta {
       title

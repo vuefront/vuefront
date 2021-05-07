@@ -202,7 +202,7 @@ export const actions = {
         root: true,
       }
     );
-
+    console.log(rootGetters["apollo/get"]);
     if (
       !rootGetters["vuefront/error"] &&
       rootGetters["apollo/get"].accountCheckLogged &&
@@ -215,9 +215,9 @@ export const actions = {
 
       commit("setAuth", rootGetters["apollo/get"].accountCheckLogged.status);
 
-      if (!rootGetters["apollo/get"].accountCheckLogged.status) {
-        commit("setToken", null);
-      }
+      // if (!rootGetters["apollo/get"].accountCheckLogged.status) {
+      //   commit("setToken", null);
+      // }
     }
   },
 };

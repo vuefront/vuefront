@@ -1,6 +1,6 @@
 {
     "name": "vuefront",
-    "version": "0.3.42",
+    "version": "0.3.43",
     "description": "vuefront",
     "files": [
         "lib",
@@ -17,7 +17,7 @@
     "author": "Dreamvention",
     "license": "MIT",
     "scripts": {
-        "build": "shx mkdir -p lib && shx rm -r lib && cross-env NODE_ENV=lib babel src -D --watch --quiet --out-dir lib",
+        "build": "shx mkdir -p lib && shx rm -r lib && cross-env NODE_ENV=lib babel src -D --watch --out-dir lib",
         "yalc-watch": "nodemon --delay 6 -e vue,js,scss,json -x yalc push",
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook",

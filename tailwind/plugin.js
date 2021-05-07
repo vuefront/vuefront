@@ -14,6 +14,7 @@ const fieldComponent = require("./component/field");
 const headingComponent = require("./component/heading");
 const selectComponent = require("./component/select");
 const inputComponent = require("./component/input");
+const textareaComponent = require("./component/textarea")
 const defaultOptions = require("./defaultOptions");
 module.exports = plugin(
   function ({ addUtilities, e, theme, variants, addComponents }) {
@@ -28,6 +29,7 @@ module.exports = plugin(
     addComponents(inputGroupComponent(theme));
     addComponents(headingComponent(theme));
     addComponents(replaceIconDeclarations(selectComponent(theme)));
+    addComponents(textareaComponent(theme));
     addComponents(inputComponent(theme));
   },
   {
