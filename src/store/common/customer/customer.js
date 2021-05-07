@@ -202,7 +202,7 @@ export const actions = {
         root: true,
       }
     );
-    console.log(rootGetters["apollo/get"]);
+
     if (
       !rootGetters["vuefront/error"] &&
       rootGetters["apollo/get"].accountCheckLogged &&
