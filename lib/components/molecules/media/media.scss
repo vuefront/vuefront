@@ -1,5 +1,8 @@
 .vf-m-media {
   @apply flex;
+  &-body {
+    @apply flex-1;
+  }
   &__aside {
     @apply flex;
     &--start {

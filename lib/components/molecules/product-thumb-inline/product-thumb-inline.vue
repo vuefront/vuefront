@@ -4,9 +4,9 @@
       <vf-a-image
         :lazy-src="imageLazy"
         :src="image"
-        width-amp="80"
-        height-amp="80"
-        width="80"
+        :width-amp="$vuefront.images.productThumb.width"
+        :height-amp="$vuefront.images.productThumb.height"
+        :width="width"
       />
     </vf-m-media-aside>
     <vf-m-media-body class="vf-m-product-thumb-inline__content">
@@ -24,6 +24,7 @@
           <span v-html="value.value"></span>
         </div>
       </span>
+      <slot></slot>
     </vf-m-media-body>
   </vf-m-media>
 </template>
@@ -42,6 +43,12 @@ export default {
       type: Array,
       default() {
         return [];
+      },
+    },
+    width: {
+      type: [String, Number],
+      default() {
+        return '80';
       },
     },
   },
