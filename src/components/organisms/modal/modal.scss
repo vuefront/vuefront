@@ -1,5 +1,3 @@
-//   display: block;
-// }
 .vf-o-modal--open {
   overflow: hidden;
   .vf-o-modal {
@@ -18,7 +16,7 @@
     text-align: center;
     padding: 0 !important;
     &:before {
-      content: '';
+      content: "";
       display: inline-block;
       height: 100%;
       vertical-align: middle;
@@ -120,31 +118,31 @@
       }
     }
     &__transition {
-    transition: all 0.6s ease;
-    .vf-o-modal__dialog,
-    .vf-o-modal__backdrop {
-      transition: all 0.5s ease;
+      transition: all 0.6s ease;
+      .vf-o-modal__dialog,
+      .vf-o-modal__backdrop {
+        transition: all 0.5s ease;
+      }
     }
-  }
 
-  &__leave {
-    border-radius: 1px !important;
-    .vf-modal__dialog {
-      opacity: 0;
-      transform: translateY(-30%);
+    &__leave {
+      border-radius: 1px !important;
+      .vf-modal__dialog {
+        opacity: 0;
+        transform: translateY(-30%);
+      }
+      .vf-modal__backdrop {
+        opacity: 0;
+      }
     }
-    .vf-modal__backdrop {
-      opacity: 0;
+    &__enter {
+      .vf-modal__dialog {
+        opacity: 0;
+        transform: translateY(-30%);
+      }
+      .vf-modal__backdrop {
+        opacity: 0;
+      }
     }
-  }
-  &__enter {
-    .vf-modal__dialog {
-      opacity: 0;
-      transform: translateY(-30%);
-    }
-    .vf-modal__backdrop {
-      opacity: 0;
-    }
-  }
   }
 }
