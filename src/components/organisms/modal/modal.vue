@@ -123,7 +123,6 @@ export default {
       }
     },
     value(value) {
-      console.log(value)
       if (value) {
         document.body.className += ' vf-o-modal--open'
         document.querySelector('html').className += ' vf-o-modal--open'
@@ -154,7 +153,7 @@ export default {
   },
   beforeDestroy() {
     document.body.className = document.body.className.replace(
-      /\s?vf-o-modal-open/,
+      /\s?vf-o-modal--open/,
       ''
     )
     document.querySelector('html').className = document
