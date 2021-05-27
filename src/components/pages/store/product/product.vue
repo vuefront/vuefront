@@ -35,6 +35,10 @@
           imageLazy
           imageBig
           rating
+          extra {
+            name
+            value
+          }
           manufacturer {
             id
             name

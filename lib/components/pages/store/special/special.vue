@@ -129,6 +129,10 @@ query($page: Int, $size: Int, $sort: String, $order: String) {
       rating
       keyword
       url(url: "/store/product/_id")
+      extra {
+        name
+        value
+      }
       manufacturer {
         id
         name

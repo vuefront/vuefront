@@ -62,6 +62,10 @@ query($id: String, $limit: Int) {
             special
             name
             keyword
+            extra {
+              name
+              value
+            }
             manufacturer {
                 id
                 name

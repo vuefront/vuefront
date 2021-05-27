@@ -51,6 +51,10 @@ query($ids: [Int], $limit: Int){
             rating
             keyword
             url(url: "/store/product/_id")
+            extra {
+              name
+              value
+            }
             manufacturer {
               id
               name

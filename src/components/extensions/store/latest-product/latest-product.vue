@@ -49,6 +49,10 @@ query($size: Int){
             rating
             keyword
             url(url: "/store/product/_id")
+            extra {
+              name
+              value
+            }
             manufacturer {
               id
               name

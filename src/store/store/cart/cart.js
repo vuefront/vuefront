@@ -45,6 +45,10 @@ export const actions = {
                   price
                   image
                   imageLazy
+                  extra {
+                    name
+                    value
+                  }
                   manufacturer {
                     id
                     name
@@ -108,6 +112,10 @@ export const actions = {
                   price
                   image
                   imageLazy
+                  extra {
+                    name
+                    value
+                  }
                   manufacturer {
                     id
                     name
@@ -165,6 +173,10 @@ export const actions = {
                   price
                   image
                   imageLazy
+                  extra {
+                    name
+                    value
+                  }
                   manufacturer {
                     id
                     name
@@ -212,6 +224,10 @@ export const actions = {
                   price
                   image
                   imageLazy
+                  extra {
+                    name
+                    value
+                  }
                   manufacturer {
                     id
                     name

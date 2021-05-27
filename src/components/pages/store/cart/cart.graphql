@@ -16,6 +16,10 @@
                 price
                 image
                 imageLazy
+                extra {
+                  name
+                  value
+                }
                 manufacturer {
                   id
                   name

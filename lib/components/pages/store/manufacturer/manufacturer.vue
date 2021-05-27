@@ -131,6 +131,10 @@ export default {
               rating
               url(url: "/store/product/_id")
               keyword
+              extra {
+                name
+                value
+              }
               manufacturer {
                 id
                 name
