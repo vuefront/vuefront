@@ -20,7 +20,7 @@
       display: inline-block;
       height: 100%;
       vertical-align: middle;
-      margin-right: -4px;
+      margin-right: -0.25rem;
     }
     &__dialog {
       display: inline-block;
@@ -28,52 +28,52 @@
       vertical-align: middle;
       position: relative;
       width: auto;
-      margin: 10px;
-      @media (min-width: 600px) {
-        width: 532px;
-        margin: 30px auto;
+      margin: 0.625rem;
+      @media (min-width: 37.5rem) {
+        width: 33.25rem;
+        margin: 1.875rem auto;
       }
-      @media (min-width: 960px) {
-        width: 920px;
-        margin: 30px auto;
+      @media (min-width: 60rem) {
+        width: 57.5rem;
+        margin: 1.875rem auto;
       }
-      @media (min-width: 1280px) {
-        width: 920px;
-        margin: 30px auto;
+      @media (min-width: 80rem) {
+        width: 57.5rem;
+        margin: 1.875rem auto;
       }
     }
     &__close {
       position: absolute;
-      right: 40px;
-      top: 30px;
+      right: 2.5rem;
+      top: 1.875rem;
       color: #1a1a1a;
       cursor: pointer;
       z-index: 2;
-      font-size: 35px;
+      font-size: 2.1875rem;
     }
     &__content {
       position: relative;
       background-color: #fff;
-      border-radius: 3px;
-      box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
+      border-radius: 0.1875rem;
+      box-shadow: 0 0 1.875rem 0 rgba(0, 0, 0, 0.1);
       background-clip: padding-box;
-      @media (min-width: 600px) {
-        box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+      @media (min-width: 37.5rem) {
+        box-shadow: 0 0 0.9375rem 0 rgba(0, 0, 0, 0.1);
       }
     }
     &__header {
-      padding: 22px 36px 40px;
+      padding: 1.375rem 2.25rem 2.5rem;
       text-align: center;
       font-weight: 400;
       font-family: "Open Sans", sans-serif;
-      font-size: 30px;
+      font-size: 1.875rem;
       color: #1a1a1a;
     }
     &__title {
       margin: 0;
       line-height: 1.42857143;
       text-transform: uppercase;
-      letter-spacing: -1.5px;
+      letter-spacing: -0.0938rem;
       span.yellow {
         font-weight: bold;
         color: #f7cf42 !important;
@@ -81,23 +81,23 @@
       }
       .sub-title {
         text-transform: none;
-        font-size: 35px;
-        padding: 3px;
+        font-size: 2.1875rem;
+        padding: 0.1875rem;
       }
     }
     &__sub-title {
-      margin-top: 9px;
-      font-size: 17px;
-      letter-spacing: -1.5px;
+      margin-top: 0.5625rem;
+      font-size: 1.0625rem;
+      letter-spacing: -0.0938rem;
       line-height: 2.26;
     }
     &__body {
       position: relative;
-      padding: 35px 70px 0;
+      padding: 2.1875rem 4.375rem 0;
       color: #000000;
     }
     &__footer {
-      padding: 20px 70px 35px;
+      padding: 1.25rem 4.375rem 2.1875rem;
       text-align: center;
     }
     &__backdrop {
@@ -126,7 +126,7 @@
     }
 
     &__leave {
-      border-radius: 1px !important;
+      border-radius: 0.0625rem !important;
       .vf-modal__dialog {
         opacity: 0;
         transform: translateY(-30%);

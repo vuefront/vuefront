@@ -1,16 +1,16 @@
 .vf-o-notification-toast {
   visibility: hidden;
-  min-width: 250px;
-  margin-left: -125px;
+  min-width: 15.625rem;
+  margin-left: -7.8125rem;
   background-color: #333;
   color: #fff;
   text-align: center;
-  border-radius: 2px;
-  padding: 16px;
+  border-radius: 0.125rem;
+  padding: 1rem;
   position: fixed;
   z-index: 999;
   left: 50%;
-  bottom: 30px;
+  bottom: 1.875rem;
   @apply bg-success;
   &.--error {
     @apply bg-danger;
@@ -24,20 +24,20 @@
 
 @-webkit-keyframes fadein {
   from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
+  to {bottom: 1.875rem; opacity: 1;}
 }
 
 @keyframes fadein {
   from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
+  to {bottom: 1.875rem; opacity: 1;}
 }
 
 @-webkit-keyframes fadeout {
-  from {bottom: 30px; opacity: 1;}
+  from {bottom: 1.875rem; opacity: 1;}
   to {bottom: 0; opacity: 0;}
 }
 
 @keyframes fadeout {
-  from {bottom: 30px; opacity: 1;}
+  from {bottom: 1.875rem; opacity: 1;}
   to {bottom: 0; opacity: 0;}
 }

@@ -72,6 +72,7 @@
 <script>
 import { mapGetters, mapMutations } from "vuex";
 import { mdiChevronDown, mdiChevronRight } from "@mdi/js";
+import isUndefined from "lodash/isUndefined";
 export default {
   props: {
     items: {
@@ -88,12 +89,23 @@ export default {
     };
   },
   computed: {
-    ...mapGetters({ menuModules: "menu/list", loadedItems: "menu/loaded" }),
+    ...mapGetters({
+      menuModules: "menu/list",
+      loadedItems: "menu/loaded",
+      loadingItems: "menu/loading",
+    }),
     loaded() {
       let result = false;
-
       if (typeof this.loadedItems[this.idHash] !== "undefined") {
         result = this.loadedItems[this.idHash];
+      }
+
+      return result;
+    },
+    loading() {
+      let result = false;
+      if (typeof this.loadingItems[this.idHash] !== "undefined") {
+        result = this.loadingItems[this.idHash];
       }
 
       return result;
@@ -111,11 +123,21 @@ export default {
     },
   },
   serverPrefetch() {
+    this.$store.commit("menu/setLoading", {
+      id: this.idHash,
+      loading: true,
+    });
     return this.handleLoadMenu();
   },
   mounted() {
-    if (!this.loaded) {
-      this.handleLoadMenu();
+    if (!this.loaded && !this.loading) {
+      this.$store.commit("menu/setLoading", {
+        id: this.idHash,
+        loading: true,
+      });
+      this.$nextTick(() => {
+        this.handleLoadMenu();
+      });
     }
   },
   methods: {
@@ -152,7 +174,12 @@ export default {
           id: this.idHash,
           items: result,
         });
+
         this.$store.commit("menu/setLoaded", { id: this.idHash, loaded: true });
+        this.$store.commit("menu/setLoading", {
+          id: this.idHash,
+          loading: false,
+        });
       }
     },
     hashCode(str) {

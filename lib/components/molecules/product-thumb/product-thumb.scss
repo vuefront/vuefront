@@ -1,10 +1,10 @@
 .vf-m-product-thumb {
-    margin-bottom: 30px;
+    margin-bottom: 1.875rem;
     &__header {
       @apply px-4;
     }
     & &-image {
-        min-height: 150px;
+        min-height: 9.375rem;
         width: 100%;
         display: flex;
         align-items: flex-start;
@@ -13,22 +13,22 @@
         border-bottom-right-radius: 0;
     }
     &__image {
-        min-height: 213px;
+        min-height: 13.3125rem;
         display: flex;
         align-items: center;
         justify-content: center;
     }
     &__title {
-        min-height: 60px;
-        max-height: 60px;
+        min-height: 3.75rem;
+        max-height: 3.75rem;
         overflow: hidden;
         display: flex;
         align-items: center;
         justify-content: center;
     }
     &__description {
-        min-height: 60px;
-        max-height: 60px;
+        min-height: 3.75rem;
+        max-height: 3.75rem;
         overflow: hidden;
     }
     &__button-buy {
