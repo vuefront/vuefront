@@ -29,9 +29,9 @@ export const mutations = {
 
 export const actions = {
   async list({ commit, dispatch, rootGetters }, zoneData) {
-    await dispatch(
-      "apollo/query",
-      {
+    try {
+      const { data } = await this.$vfapollo.query(
+        {
         query: gql`
           query($page: Int, $size: Int, $country_id: String) {
             zonesList(page: $page, size: $size, country_id: $country_id) {
@@ -49,19 +49,18 @@ export const actions = {
           }
         `,
         variables: zoneData,
-      },
-      {
+      });
+      commit("setEntities", data.zonesList);
+    } catch (e) {
+      commit("vuefront/setResponseError", e, {
         root: true,
-      }
-    );
-    if (!rootGetters["vuefront/error"]) {
-      commit("setEntities", rootGetters["apollo/get"].zonesList);
+      });
     }
   },
   async get({ commit, dispatch, rootGetters }, { id }) {
-    await dispatch(
-      "apollo/query",
-      {
+    try {
+      const { data } = await this.$vfapollo.query(
+        {
         query: gql`
           query($id: String) {
             zone(id: $id) {
@@ -71,13 +70,13 @@ export const actions = {
           }
         `,
         variables: { id },
-      },
-      {
+      },);
+      commit("setZone", data.zone);
+    } catch (e) {
+      commit("vuefront/setResponseError", e, {
         root: true,
-      }
-    );
-    if (!rootGetters["vuefront/error"]) {
-      commit("setZone", rootGetters["apollo/get"].zone);
+      });
     }
+
   },
 };

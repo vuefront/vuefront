@@ -180,44 +180,36 @@ export const actions = {
 
     return false;
   },
-  async checkLogged({ commit, dispatch, rootGetters }) {
-    await dispatch(
-      "apollo/query",
-      {
+  async checkLogged({ commit }) {
+    try {
+      const { data } = await this.$vfapollo.query({
         query: gql`
-          {
-            accountCheckLogged {
-              status
-              customer {
-                id
-                lastName
-                firstName
-                email
+            {
+              accountCheckLogged {
+                status
+                customer {
+                  id
+                  lastName
+                  firstName
+                  email
               }
             }
-          }
-        `,
-      },
-      {
-        root: true,
+          `,
+      });
+
+      if (data.accountCheckLogged && data.accountCheckLogged.customer) {
+        commit("setCustomer", data.accountCheckLogged.customer);
+
+        commit("setAuth", data.accountCheckLogged.status);
+
+        // if (!rootGetters["apollo/get"].accountCheckLogged.status) {
+        //   commit("setToken", null);
+        // }
       }
-    );
-
-    if (
-      !rootGetters["vuefront/error"] &&
-      rootGetters["apollo/get"].accountCheckLogged &&
-      rootGetters["apollo/get"].accountCheckLogged.customer
-    ) {
-      commit(
-        "setCustomer",
-        rootGetters["apollo/get"].accountCheckLogged.customer
-      );
-
-      commit("setAuth", rootGetters["apollo/get"].accountCheckLogged.status);
-
-      // if (!rootGetters["apollo/get"].accountCheckLogged.status) {
-      //   commit("setToken", null);
-      // }
+    } catch (e) {
+      commit("vuefront/setResponseError", e, {
+        root: true,
+      });
     }
   },
 };

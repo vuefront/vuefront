@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <vf-a-alert :show="error.message" v-html="error.message" />
+    <vf-a-alert :show="error.message" color="info" v-html="error.message" />
 
     <slot></slot>
 

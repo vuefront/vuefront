@@ -167,7 +167,17 @@ export default {
         });
 
         if (status) {
-          this.$router.push("/account/login");
+          const loginStatus = await this.$store.dispatch(
+            "common/customer/login",
+            {
+              email: this.form.email,
+              password: this.form.password,
+            }
+          );
+
+          if (loginStatus) {
+            this.$router.push("/account/success");
+          }
         }
       }
     },

@@ -24,56 +24,54 @@ export const mutations = {
 };
 
 export const actions = {
-  async list({ commit, dispatch, rootGetters }, { page, size }) {
-    await dispatch(
-      "apollo/query",
-      {
-        query: gql`
-          query($page: Int, $size: Int) {
-            countriesList(page: $page, size: $size) {
-              content {
-                id
-                name
+  async list({ commit }, { page, size }) {
+    try {
+      const { data } = await this.$vfapollo.query(
+        {
+          query: gql`
+            query($page: Int, $size: Int) {
+              countriesList(page: $page, size: $size) {
+                content {
+                  id
+                  name
+                }
+                totalPages
+                totalElements
+                first
+                last
+                number
+                numberOfElements
               }
-              totalPages
-              totalElements
-              first
-              last
-              number
-              numberOfElements
             }
-          }
-        `,
-        variables: { page, size },
-      },
-      {
+          `,
+          variables: { page, size },
+        });
+      commit("setEntities", data.countriesList);
+    } catch (e) {
+      commit("vuefront/setResponseError", e, {
         root: true,
-      }
-    );
-    if (!rootGetters["vuefront/error"]) {
-      commit("setEntities", rootGetters["apollo/get"].countriesList);
+      });
     }
   },
   async get({ commit, dispatch, rootGetters }, { id }) {
-    await dispatch(
-      "apollo/query",
-      {
-        query: gql`
-          query($id: String) {
-            country(id: $id) {
-              id
-              name
+    try {
+      const { data } = await this.$vfapollo.query(
+        {
+          query: gql`
+            query($id: String) {
+              country(id: $id) {
+                id
+                name
+              }
             }
-          }
-        `,
-        variables: { id },
-      },
-      {
+          `,
+          variables: { id },
+        });
+      commit("setCountry", data.country);
+    } catch (e) {
+      commit("vuefront/setResponseError", e, {
         root: true,
-      }
-    );
-    if (!rootGetters["vuefront/error"]) {
-      commit("setCountry", rootGetters["apollo/get"].country);
+      });
     }
   },
 };

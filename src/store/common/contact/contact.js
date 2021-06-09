@@ -49,39 +49,38 @@ export const actions = {
     return false;
   },
   async get({ dispatch, rootGetters, commit }) {
-    await dispatch(
-      "apollo/query",
-      {
-        query: gql`
-          {
-            contact {
-              locations {
+    try {
+      const { data } = await this.$vfapollo.query(
+        {
+          query: gql`
+            {
+              contact {
+                locations {
+                  address
+                  fax
+                  image
+                  geocode
+                  telephone
+                  open
+                  comment
+                }
                 address
+                email
                 fax
-                image
-                geocode
-                telephone
-                open
                 comment
+                open
+                store
+                telephone
               }
-              address
-              email
-              fax
-              comment
-              open
-              store
-              telephone
             }
-          }
-        `,
-      },
-      {
-        root: true,
-      }
-    );
+          `,
+        });
 
-    if (!rootGetters["vuefront/error"]) {
-      commit("setContact", rootGetters["apollo/get"].contact);
+      commit("setContact", data.contact);
+    } catch (e) {
+      commit("vuefront/setResponseError", e, {
+        root: true,
+      });
     }
   },
 };

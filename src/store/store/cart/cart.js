@@ -202,9 +202,8 @@ export const actions = {
     }
   },
   async load({ commit, dispatch, rootGetters }) {
-    await dispatch(
-      "apollo/query",
-      {
+    try {
+      const { data } = await this.$vfapollo.query({
         query: gql`
           {
             cart {
@@ -239,14 +238,13 @@ export const actions = {
             }
           }
         `,
-      },
-      {
-        root: true,
-      }
-    );
+      });
 
-    if (!rootGetters["vuefront/error"] && rootGetters["apollo/get"].cart) {
-      commit("setCart", rootGetters["apollo/get"].cart);
+      commit("setCart", data.cart);
+    } catch (e) {
+      commit("vuefront/setResponseError", e, {
+        root: true,
+      });
     }
   },
 };

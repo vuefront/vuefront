@@ -1,0 +1,8 @@
+.vf-m-account-success {
+  p {
+    @apply text-xl mb-2;
+  }
+  &__buttons {
+    @apply text-right;
+  }
+}

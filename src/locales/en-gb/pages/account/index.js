@@ -6,6 +6,7 @@ import edit from "./edit.json";
 import login from "./login.json";
 import password from "./password.json";
 import register from "./register.json";
+import success from "./success.json";
 
 export default {
   account,
@@ -16,4 +17,5 @@ export default {
   login,
   password,
   register,
+  success,
 };

@@ -101,6 +101,10 @@ const MainConfig = {
   molecules: {
     AccountMenu: "molecules/account-menu/account-menu.vue",
     AccountNew: "molecules/account-new/account-new.vue",
+    AccountSuccess: {
+      css: "molecules/account-success/account-success.scss",
+      component: "molecules/account-success/account-success.vue",
+    },
     Breadcrumb: {
       css: "molecules/breadcrumb/breadcrumb.scss",
       component: "molecules/breadcrumb/breadcrumb.vue",
@@ -122,7 +126,7 @@ const MainConfig = {
     },
     CategoryThumb: {
       css: "molecules/category-thumb/category-thumb.scss",
-      component: "molecules/category-thumb/category-thumb.vue"
+      component: "molecules/category-thumb/category-thumb.vue",
     },
     CompareLink: "molecules/compare-link/compare-link.vue",
     Contact: "molecules/contact/contact.vue",
@@ -140,7 +144,7 @@ const MainConfig = {
     },
     DropdownItem: {
       css: "molecules/dropdown/dropdown-item.scss",
-      component: "molecules/dropdown/dropdown-item.vue"
+      component: "molecules/dropdown/dropdown-item.vue",
     },
     Empty: "molecules/empty/empty.vue",
     Field: {
@@ -160,14 +164,14 @@ const MainConfig = {
     Logo: "molecules/logo/logo.vue",
     Media: {
       css: "molecules/media/media.scss",
-      component: "molecules/media/media.vue"
+      component: "molecules/media/media.vue",
     },
     MediaAside: "molecules/media/aside.vue",
     MediaBody: "molecules/media/body.vue",
     PostImage: "molecules/post-image/post-image.vue",
     PostNav: {
       css: "molecules/post-nav/post-nav.scss",
-      component: "molecules/post-nav/post-nav.vue"
+      component: "molecules/post-nav/post-nav.vue",
     },
     PostThumb: {
       css: "molecules/post-thumb/post-thumb.scss",
@@ -180,7 +184,7 @@ const MainConfig = {
     },
     ProductAttribute: {
       css: "molecules/product-attribute/product-attribute.scss",
-      component: "molecules/product-attribute/product-attribute.vue"
+      component: "molecules/product-attribute/product-attribute.vue",
     },
     ProductImage: {
       css: "molecules/product-image/product-image.scss",
@@ -205,14 +209,14 @@ const MainConfig = {
       component: "molecules/product-thumb/product-thumb.vue",
     },
     ProductThumbImage: "molecules/product-thumb-image/product-thumb-image.vue",
-    ProductThumbInline:{
+    ProductThumbInline: {
       css: "molecules/product-thumb-inline/product-thumb-inline.scss",
-      component: "molecules/product-thumb-inline/product-thumb-inline.vue"
+      component: "molecules/product-thumb-inline/product-thumb-inline.vue",
     },
     Rating: "molecules/rating/rating.vue",
     Review: {
       css: "molecules/review/review.scss",
-      component: "molecules/review/review.vue"
+      component: "molecules/review/review.vue",
     },
     Row: {
       css: "molecules/row/row.scss",
@@ -278,11 +282,11 @@ const MainConfig = {
     LoginForm: "organisms/login-form/login-form.vue",
     PostReviews: {
       css: "organisms/post-reviews/post-reviews.scss",
-      component: "organisms/post-reviews/post-reviews.vue"
+      component: "organisms/post-reviews/post-reviews.vue",
     },
     PostModule: {
       css: "organisms/post-module/post-module.scss",
-      component: "organisms/post-module/post-module.vue"
+      component: "organisms/post-module/post-module.vue",
     },
     BlogCategoryPost: "organisms/blog-category-post/blog-category-post.vue",
     PostGrid: "organisms/post-grid/post-grid.vue",
@@ -297,7 +301,7 @@ const MainConfig = {
     CartActions: "organisms/cart-actions/cart-actions.vue",
     ProductModule: {
       css: "organisms/product-module/product-module.scss",
-      component: "organisms/product-module/product-module.vue"
+      component: "organisms/product-module/product-module.vue",
     },
     ProductThumb: "organisms/product-thumb/product-thumb.vue",
     ProductGrid: "organisms/product-grid/product-grid.vue",
@@ -311,7 +315,7 @@ const MainConfig = {
     ProductReviews: "organisms/product-reviews/product-reviews.vue",
     ProductOptions: {
       css: "organisms/product-options/product-options.scss",
-      component: "organisms/product-options/product-options.vue"
+      component: "organisms/product-options/product-options.vue",
     },
     ProductBuy: "organisms/product-buy/product-buy.vue",
     CategoryProduct: "organisms/category-product/category-product.vue",
@@ -330,6 +334,7 @@ const MainConfig = {
     AccountAddressCreate: "pages/account/addressCreate/addressCreate.vue",
     AccountEdit: "pages/account/edit/edit.vue",
     AccountLogin: "pages/account/login/login.vue",
+    AccountSuccess: "pages/account/success/success.vue",
     AccountPassword: "pages/account/password/password.vue",
     AccountRegister: "pages/account/register/register.vue",
     BlogCategory: "pages/blog/category/category.vue",
@@ -471,6 +476,7 @@ const MainConfig = {
     AccountLogin: "templates/account/login/login.vue",
     AccountPassword: "templates/account/password/password.vue",
     AccountRegister: "templates/account/register/register.vue",
+    AccountSuccess: "templates/account/success/success.vue",
     BlogCategory: "templates/blog/category/category.vue",
     BlogPost: "templates/blog/post/post.vue",
     CommonContact: "templates/common/contact/contact.vue",
@@ -580,6 +586,10 @@ const MainConfig = {
     "/account/wishlist": {
       generate: false,
       component: "StoreWishlist",
+    },
+    "/account/success": {
+      generate: false,
+      component: "AccountSuccess",
     },
     "/blog/category/:id": {
       seo: seo.CategoryBlogSeo,

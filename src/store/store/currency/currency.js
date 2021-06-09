@@ -20,27 +20,28 @@ export const mutations = {
 };
 
 export const actions = {
-  async load({ commit, dispatch, rootGetters }) {
-    await dispatch(
-      "apollo/query",
-      {
-        query: gql`
-          {
-            currency {
-              code
-              symbol_left
-              symbol_right
-              title
-              active
+  async load({ commit }) {
+    try {
+      const { data } = await this.$vfapollo.query(
+        {
+          query: gql`
+            {
+              currency {
+                code
+                symbol_left
+                symbol_right
+                title
+                active
+              }
             }
-          }
-        `,
-      },
-      { root: true }
-    );
+          `,
+        });
 
-    if (!rootGetters["vuefront/error"]) {
-      commit("setCurrency", rootGetters["apollo/get"].currency);
+      commit("setCurrency", data.currency);
+    } catch (e) {
+      commit("vuefront/setResponseError", e, {
+        root: true,
+      });
     }
   },
   async edit({ commit, dispatch, rootGetters }, { code }) {

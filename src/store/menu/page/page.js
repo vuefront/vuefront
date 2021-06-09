@@ -30,10 +30,9 @@ export const mutations = {
 };
 
 export const actions = {
-  async load({ dispatch, commit, rootGetters }) {
-    await dispatch(
-      "apollo/query",
-      {
+  async load({ commit }) {
+    try {
+      const { data } = await this.$vfapollo.query({
         query: gql`
           {
             pagesList(page: 1, size: -1) {
@@ -48,13 +47,13 @@ export const actions = {
         variables: {
           url: "/common/page/_id",
         },
-      },
-      { root: true }
-    );
+      });
 
-    if (!rootGetters["vuefront/error"]) {
-      const { pagesList } = rootGetters["apollo/get"];
-      commit("setEntities", pagesList);
+      commit("setEntities", data.pagesList);
+    } catch (e) {
+      commit("vuefront/setResponseError", e, {
+        root: true,
+      });
     }
   },
 };

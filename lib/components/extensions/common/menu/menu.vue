@@ -135,9 +135,7 @@ export default {
         id: this.idHash,
         loading: true,
       });
-      this.$nextTick(() => {
-        this.handleLoadMenu();
-      });
+      this.handleLoadMenu();
     }
   },
   methods: {
@@ -160,7 +158,6 @@ export default {
         await Promise.all(asyncItems);
 
         let result = [];
-
         for (const key in this.items) {
           const item = this.items[key];
           if (typeof item === "string") {
@@ -169,7 +166,6 @@ export default {
             result = [...result, item];
           }
         }
-
         this.$store.commit("menu/setEntities", {
           id: this.idHash,
           items: result,

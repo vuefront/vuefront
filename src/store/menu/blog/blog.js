@@ -18,10 +18,9 @@ export const mutations = {
 };
 
 export const actions = {
-  async load({ dispatch, commit, rootGetters }) {
-    await dispatch(
-      "apollo/query",
-      {
+  async load({ commit }) {
+    try {
+      const { data } = await this.$vfapollo.query({
         query: gql`
           query($url: String) {
             categoriesMenu: categoriesBlogList(parent: 0, size: -1) {
@@ -46,13 +45,13 @@ export const actions = {
         variables: {
           url: "/blog/category/_id",
         },
-      },
-      { root: true }
-    );
+      });
 
-    if (!rootGetters["vuefront/error"]) {
-      const { categoriesMenu } = rootGetters["apollo/get"];
-      commit("setEntities", categoriesMenu);
+      commit("setEntities", data.categoriesMenu);
+    } catch (e) {
+      commit("vuefront/setResponseError", e, {
+        root: true,
+      });
     }
   },
 };

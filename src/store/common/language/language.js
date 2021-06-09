@@ -27,31 +27,34 @@ export const mutations = {
 };
 
 export const actions = {
-  async load({ commit, dispatch, rootGetters }) {
-    await dispatch(
-      "apollo/query",
-      {
-        query: gql`
-          {
-            language {
-              name
-              image
-              code
-              active
+  async load({ commit }) {
+    try {
+      const { data } = await this.$vfapollo.query(
+        {
+          query: gql`
+            {
+              language {
+                name
+                image
+                code
+                active
+              }
             }
-          }
-        `,
-      },
-      { root: true }
-    );
+          `,
+        });
 
-    if (!rootGetters["vuefront/error"]) {
-      commit("setLanguage", rootGetters["apollo/get"].language);
-      const active = find(rootGetters["apollo/get"].language, { active: true });
+      commit("setLanguage", data.language);
+      const active = find(data.language, {
+        active: true,
+      });
 
       if (active) {
         commit("setLocal", active.code);
       }
+    } catch (e) {
+      commit("vuefront/setResponseError", e, {
+        root: true,
+      });
     }
   },
   async edit({ commit, dispatch, rootGetters }, { code }) {
