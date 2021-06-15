@@ -1,6 +1,6 @@
 {
     "name": "vuefront",
-    "version": "0.3.53",
+    "version": "0.3.54",
     "description": "vuefront",
     "files": [
         "lib",
@@ -44,7 +44,7 @@
         "tailwindcss": "2.1.4",
         "tb-skeleton": "^0.3.6",
         "traverse": "^0.6.6",
-        "vue": "^2.6.14",
+        "vue": "^2.6.12",
         "vue-image-lightbox": "^7.2.0",
         "vue-lazy-hydration": "^2.0.0-beta.4",
         "vue-lazyload": "^1.3.3",
