@@ -1,11 +1,11 @@
 <template>
   <section class="product-section">
     <vf-m-row>
-      <vf-m-col sm="12" md="6">
+      <vf-m-col xs="12" md="6">
         <vf-m-product-image :product="product" />
         <vf-o-product-reviews :product="product" />
       </vf-m-col>
-      <vf-m-col sm="12" md="6">
+      <vf-m-col xs="12" md="6">
         <div class="product-info pl-lg-5">
           <vf-a-heading level="4" class="product-info__name" tag="h1">{{
             product.name
@@ -14,7 +14,7 @@
             product.model
           }}</vf-a-heading>
           <vf-m-row>
-            <vf-m-col sm="6">
+            <vf-m-col xs="6">
               <vf-m-rating
                 v-if="product.rating > 0"
                 :value="product.rating"
@@ -22,7 +22,7 @@
                 readonly
               />
             </vf-m-col>
-            <vf-m-col sm="6" class="sm:text-right">
+            <vf-m-col xs="6" class="sm:text-right">
               <vf-a-badge color="primary"
                 >{{ $t("elements.store.product.idText")
                 }}{{ product.id }}</vf-a-badge
@@ -60,13 +60,13 @@
               :product="product"
             />
             <vf-m-row>
-              <vf-m-col sm="6" md="5" class="mb-4 mb-sm-0">
+              <vf-m-col xs="6" md="5" class="mb-4 mb-sm-0">
                 <vf-m-product-price
                   :price="product.price"
                   :special="product.special"
                 />
               </vf-m-col>
-              <vf-m-col sm="6" md="7" class="sm:text-right">
+              <vf-m-col xs="6" md="7" class="sm:text-right">
                 <vf-o-product-buy :product="product" />
               </vf-m-col>
             </vf-m-row>

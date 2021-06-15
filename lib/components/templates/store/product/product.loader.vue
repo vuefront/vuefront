@@ -7,12 +7,12 @@
     width="100%"
   >
     <vf-m-row>
-      <vf-m-col sm="12" md="6">
+      <vf-m-col xs="12" md="6">
         <vf-l-m-product-image />
         <vf-l-o-review-list />
         <vf-l-o-review-form />
       </vf-m-col>
-      <vf-m-col sm="12" md="6">
+      <vf-m-col xs="12" md="6">
         <div class="product-info pl-lg-5">
           <tb-skeleton
             width="30%"
@@ -25,8 +25,8 @@
             style="margin-bottom: 0.5rem"
           ></tb-skeleton>
           <vf-m-row>
-            <vf-m-col sm="6"></vf-m-col>
-            <vf-m-col sm="6" class="sm:text-right">
+            <vf-m-col xs="6"></vf-m-col>
+            <vf-m-col xs="6" class="sm:text-right">
               <tb-skeleton
                 width="65px"
                 height="20px"
@@ -82,12 +82,12 @@
           </div>
           <div class="py-4 my-4 border-bottom border-top">
             <vf-m-row>
-              <vf-m-col sm="6" md="5" class="mb-4 mb-sm-0">
+              <vf-m-col xs="6" md="5" class="mb-4 mb-sm-0">
                 <div class="product-info__price h3">
                   <tb-skeleton width="110px" height="37px"></tb-skeleton>
                 </div>
               </vf-m-col>
-              <vf-m-col sm="6" md="7" class="sm:text-right">
+              <vf-m-col xs="6" md="7" class="sm:text-right">
                 <tb-skeleton
                   width="165px"
                   height="50px"

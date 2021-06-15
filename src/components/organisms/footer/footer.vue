@@ -2,7 +2,7 @@
   <footer class="vf-o-footer clearfix">
     <vf-m-container>
       <vf-m-row class="md:pt">
-        <vf-m-col sm="4" class="mb-5 lg:mb-0">
+        <vf-m-col xs="4" class="mb-5 lg:mb-0">
           <div>
             <vf-a-image
               :src="logo"
@@ -15,13 +15,13 @@
             <p>{{ $t("elements.common.footer.descriptionText") }}</p>
           </div>
         </vf-m-col>
-        <vf-m-col sm="4" md="6" lg="2" class="lg:ml-auto mb-5 lg:mb-0">
+        <vf-m-col xs="4" md="6" lg="2" class="lg:ml-auto mb-5 lg:mb-0">
           <vf-o-position name="footerLeft" />
         </vf-m-col>
-        <vf-m-col sm="4" md="6" lg="2" class="mb-5 lg:mb-0">
+        <vf-m-col xs="4" md="6" lg="2" class="mb-5 lg:mb-0">
           <vf-o-position name="footerCenter" />
         </vf-m-col>
-        <vf-m-col sm="4" md="6" lg="2" class="mb-5 lg:mb-0">
+        <vf-m-col xs="4" md="6" lg="2" class="mb-5 lg:mb-0">
           <vf-o-position name="footerRight" />
         </vf-m-col>
       </vf-m-row>

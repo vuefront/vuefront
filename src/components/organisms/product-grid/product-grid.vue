@@ -4,7 +4,7 @@
       <vf-m-col
         v-for="(value, index) in products"
         :key="index"
-        sm="12"
+        xs="12"
         :md="list || column ? 12 : 12 / gridSize"
       >
         <vf-o-product-thumb :product="value" :wide="list" />

@@ -8,7 +8,7 @@
       width="100%"
     >
       <vf-m-row align-h="flex-start" style="padding-top: 7px">
-        <vf-m-col sm="4">
+        <vf-m-col xs="4">
           <tb-skeleton height="37px" class="mx-auto mb-5"></tb-skeleton>
         </vf-m-col>
       </vf-m-row>

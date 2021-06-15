@@ -7,12 +7,12 @@
     width="100%"
   >
     <vf-m-row align-h="start" style="padding-top: 8px; margin-bottom: 20px">
-      <vf-m-col sm="4">
+      <vf-m-col xs="4">
         <tb-skeleton height="37px" class="mx-auto"></tb-skeleton>
       </vf-m-col>
     </vf-m-row>
     <vf-m-row align-h="start" style="margin-bottom: 20px">
-      <vf-m-col sm="4">
+      <vf-m-col xs="4">
         <tb-skeleton height="20px" class="mx-auto"></tb-skeleton>
       </vf-m-col>
     </vf-m-row>

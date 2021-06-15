@@ -8,17 +8,17 @@
       width="100%"
     >
       <vf-m-row align-h="center" style="padding-top: 7px">
-        <vf-m-col sm="4">
+        <vf-m-col xs="4">
           <tb-skeleton height="37px" class="mx-auto"></tb-skeleton>
         </vf-m-col>
       </vf-m-row>
       <vf-m-row align-h="center" style="padding-top: 38px">
-        <vf-m-col sm="9">
+        <vf-m-col xs="9">
           <tb-skeleton height="18px"></tb-skeleton>
         </vf-m-col>
       </vf-m-row>
       <vf-m-row align-h="center" style="padding-top: 28px">
-        <vf-m-col sm="3">
+        <vf-m-col xs="3">
           <tb-skeleton height="20px" class="mx-auto"></tb-skeleton>
         </vf-m-col>
       </vf-m-row>

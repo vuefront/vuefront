@@ -4,7 +4,7 @@
       $t("elements.common.search.titleText")
     }}</vf-a-heading>
     <vf-m-row>
-      <vf-m-col sm="12" md="4">
+      <vf-m-col xs="12" md="4">
         <vf-o-search-form />
       </vf-m-col>
     </vf-m-row>

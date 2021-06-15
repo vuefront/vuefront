@@ -4,7 +4,7 @@
       <vf-m-col
         v-for="(value, index) in posts"
         :key="index"
-        sm="12"
+        xs="12"
         :md="column ? 12 : 12 / gridSize"
       >
         <vf-m-post-thumb :post="value" />

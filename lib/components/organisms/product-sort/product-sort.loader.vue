@@ -8,16 +8,16 @@
       duration="2"
     >
       <vf-m-row>
-        <vf-m-col sm="6" md="2" align-self="center">
+        <vf-m-col xs="6" md="2" align-self="center">
           <tb-skeleton height="40px"></tb-skeleton>
         </vf-m-col>
         <vf-m-col align-self="center">
           <tb-skeleton height="22px"></tb-skeleton>
         </vf-m-col>
-        <vf-m-col sm="6" md="4" align-self="center">
+        <vf-m-col xs="6" md="4" align-self="center">
           <tb-skeleton height="40px"></tb-skeleton>
         </vf-m-col>
-        <vf-m-col sm="6" md="3" align-self="center">
+        <vf-m-col xs="6" md="3" align-self="center">
           <tb-skeleton
             theme="opacity"
             shape="radius"

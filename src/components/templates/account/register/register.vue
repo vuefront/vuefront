@@ -1,7 +1,7 @@
 <template>
   <section class="vf-t-account-register">
     <vf-m-row>
-      <vf-m-col sm="12" md="8" offset-md="2">
+      <vf-m-col xs="12" md="8" offset-md="2">
         <vf-m-card class="mb-0" no-body>
           <vf-m-card-body class="md:px-5 py-5">
             <vf-o-register-form />

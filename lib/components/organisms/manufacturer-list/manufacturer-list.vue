@@ -14,7 +14,7 @@
             <vf-m-col
               v-for="(manufacturer, index2) in manufacturerChunk"
               :key="index2"
-              sm="3"
+              xs="3"
               md="3"
             >
               <vf-a-link :to="manufacturer.url">{{

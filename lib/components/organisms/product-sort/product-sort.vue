@@ -1,7 +1,7 @@
 <template>
   <section class="sort-section mb-4">
     <vf-m-row cols="12">
-      <vf-m-col sm="6" md="2" align-self="center">
+      <vf-m-col xs="6" md="2" align-self="center">
         <vf-m-button-group size="sm">
           <vf-a-button
             :pressed="mode === 'grid'"
@@ -24,7 +24,7 @@
           $t("elements.store.productSort.compareText")
         }}</vf-a-link>
       </vf-m-col>
-      <vf-m-col sm="6" md="4" align-self="center">
+      <vf-m-col xs="6" md="4" align-self="center">
         <vf-m-input-group
           :prepend="$t('elements.store.productSort.sortByText')"
           size="sm"
@@ -36,7 +36,7 @@
           />
         </vf-m-input-group>
       </vf-m-col>
-      <vf-m-col sm="6" md="3" align-self="center">
+      <vf-m-col xs="6" md="3" align-self="center">
         <vf-m-input-group
           :prepend="$t('elements.store.productSort.showText')"
           size="sm"

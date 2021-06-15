@@ -4,12 +4,12 @@
       post.title
     }}</vf-a-heading>
     <vf-m-row>
-      <vf-m-col sm="6">
+      <vf-m-col xs="6">
         <div class="post-section__date mb-3 h6 sm:text-left">
           {{ $t("elements.blog.post.postByText") }} {{ post.datePublished }}
         </div>
       </vf-m-col>
-      <vf-m-col sm="6">
+      <vf-m-col xs="6">
         <vf-m-rating
           v-if="post.rating > 0"
           :value="post.rating"
