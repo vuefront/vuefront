@@ -230,6 +230,10 @@ const MainConfig = {
       css: "molecules/table-horizontal/table-horizontal.scss",
       component: "molecules/table-horizontal/table-horizontal.vue",
     },
+    CheckoutSuccess: {
+      css: "molecules/checkout-success/checkout-success.scss",
+      component: "molecules/checkout-success/checkout-success.vue",
+    },
     WishlistLink: "molecules/wishlist-link/wishlist-link.vue",
   },
   organisms: {
@@ -328,6 +332,7 @@ const MainConfig = {
     ManufacturerFilter: "organisms/manufacturer-filter/manufacturer-filter.vue",
   },
   pages: {
+    StoreCheckoutSuccess: "pages/store/checkout-success/checkout-success.vue",
     AccountAccount: "pages/account/account/account.vue",
     AccountAddress: "pages/account/address/address.vue",
     AccountAddressEdit: "pages/account/addressEdit/addressEdit.vue",
@@ -465,6 +470,7 @@ const MainConfig = {
     },
   ],
   templates: {
+    StoreCheckoutSuccess: "templates/store/checkout-success/checkout-success.vue",
     CommonLayout: "templates/common/layout/layout.vue",
     LayoutDefault: "templates/layouts/default/default.vue",
     LayoutFullWidth: "templates/layouts/fullWidth/fullWidth.vue",
@@ -618,6 +624,10 @@ const MainConfig = {
     "/store/checkout": {
       generate: false,
       component: "StoreCheckout",
+    },
+    "/store/checkout/success": {
+      generate: false,
+      component: "StoreCheckoutSuccess"
     },
     "/store/category/:id": {
       seo: seo.CategorySeo,

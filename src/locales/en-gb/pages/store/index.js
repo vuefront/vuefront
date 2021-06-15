@@ -4,6 +4,7 @@ import compare from "./compare.json";
 import special from "./special.json";
 import wishlist from "./wishlist.json";
 import manufacturerList from "./manufacturerList.json";
+import checkoutSuccess from './checkoutSuccess.json';
 export default {
   cart,
   checkout,
@@ -11,4 +12,5 @@ export default {
   special,
   wishlist,
   manufacturerList,
+  checkoutSuccess,
 };
