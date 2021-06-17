@@ -184,17 +184,18 @@ export const actions = {
     try {
       const { data } = await this.$vfapollo.query({
         query: gql`
-            {
-              accountCheckLogged {
-                status
-                customer {
-                  id
-                  lastName
-                  firstName
-                  email
+          {
+            accountCheckLogged {
+              status
+              customer {
+                id
+                lastName
+                firstName
+                email
               }
             }
-          `,
+          }
+        `,
       });
 
       if (data.accountCheckLogged && data.accountCheckLogged.customer) {
