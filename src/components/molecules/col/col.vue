@@ -14,7 +14,7 @@ export default {
       },
     },
     xs: {
-      type: [Number, Boolean],
+      type: [String, Number, Boolean],
       default() {
         return null;
       },
