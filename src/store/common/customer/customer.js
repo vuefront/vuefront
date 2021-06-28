@@ -37,7 +37,7 @@ export const actions = {
       "apollo/mutate",
       {
         mutation: gql`
-          mutation($email: String, $password: String) {
+          mutation ($email: String, $password: String) {
             accountLogin(email: $email, password: $password) {
               token
               customer {
@@ -94,7 +94,7 @@ export const actions = {
       "apollo/mutate",
       {
         mutation: gql`
-          mutation($customer: CustomerInput) {
+          mutation ($customer: CustomerInput) {
             accountEdit(customer: $customer) {
               id
               firstName
@@ -125,7 +125,7 @@ export const actions = {
       "apollo/mutate",
       {
         mutation: gql`
-          mutation($password: String) {
+          mutation ($password: String) {
             accountEditPassword(password: $password) {
               id
               firstName
@@ -155,7 +155,7 @@ export const actions = {
       "apollo/mutate",
       {
         mutation: gql`
-          mutation($customer: CustomerInput) {
+          mutation ($customer: CustomerInput) {
             accountRegister(customer: $customer) {
               id
               firstName
@@ -197,7 +197,6 @@ export const actions = {
           }
         `,
       });
-
       if (data.accountCheckLogged && data.accountCheckLogged.customer) {
         commit("setCustomer", data.accountCheckLogged.customer);
 

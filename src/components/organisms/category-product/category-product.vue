@@ -14,6 +14,7 @@
       :products="products.content"
       :list="isList"
       :grid-size="grid"
+      :grid-size-tablet="gridTablet"
       class="mb-4"
       @click:cart="handleClickCart"
       @click:wishlist="handleClickWishlist"
@@ -31,13 +32,16 @@
 </template>
 <script>
 export default {
-  props: ["products", "mode", "sort", "gridSize"],
+  props: ["products", "mode", "sort", "gridSize", "gridSizeTablet"],
   computed: {
     isList() {
       return this.mode === "list";
     },
     grid() {
       return this.gridSize;
+    },
+    gridTablet() {
+      return this.gridSizeTablet;
     },
   },
   methods: {

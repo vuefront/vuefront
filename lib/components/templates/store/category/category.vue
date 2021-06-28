@@ -10,12 +10,13 @@
       :mode="mode"
       :sort="sort"
       :grid-size="gridSize"
+      :grid-size-tablet="gridSizeTablet"
       class="mt-5"
     />
   </section>
 </template>
 <script>
 export default {
-  props: ["category", "products", "mode", "sort", "gridSize"],
+  props: ["category", "products", "mode", "sort", "gridSize", "gridSizeTablet"],
 };
 </script>

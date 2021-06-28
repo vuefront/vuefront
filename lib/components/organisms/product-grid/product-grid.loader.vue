@@ -6,7 +6,8 @@
           v-for="value in [1, 2, 3, 4]"
           :key="value"
           xs="12"
-          :md="list || column ? 12 : 12 / gridSize"
+          :md="list || column ? 12 : 12 / gridSizeTablet"
+          :lg="list || column ? 12 : 12 / gridSize"
         >
           <vf-l-m-product-thumb :wide="list" />
         </vf-m-col>
@@ -29,6 +30,10 @@ export default {
     gridSize: {
       type: Number,
       default: 4,
+    },
+    gridSizeTablet: {
+      type: Number,
+      default: 3,
     },
   },
 };

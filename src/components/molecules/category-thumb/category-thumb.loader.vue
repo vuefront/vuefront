@@ -1,5 +1,8 @@
 <template>
-  <div class="vf-m-category-thumb-loader loading-page">
+  <div
+    class="vf-m-category-thumb-loader loading-page"
+    style="margin-bottom: 2rem"
+  >
     <skeleton
       bg-color="#eee"
       duration="2"

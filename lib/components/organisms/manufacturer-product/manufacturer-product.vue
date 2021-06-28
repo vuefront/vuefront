@@ -14,6 +14,7 @@
       :products="products.content"
       :list="isList"
       :grid-size="grid"
+      :grid-size-tablet="gridSizeTablet"
       class="mb-4"
       @click:cart="handleClickCart"
       @click:wishlist="handleClickWishlist"

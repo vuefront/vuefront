@@ -1,9 +1,6 @@
 <template>
   <div v-if="items.length > 0" class="vf-o-product-module">
-    <vf-a-heading
-      level="4"
-      class="vf-o-product-module__title"
-    >
+    <vf-a-heading level="4" class="vf-o-product-module__title">
       <slot></slot>
     </vf-a-heading>
     <vf-o-product-grid

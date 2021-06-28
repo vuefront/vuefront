@@ -136,7 +136,6 @@ export const actions = {
         root: true,
       }
     );
-
     if (!rootGetters["vuefront/error"]) {
       commit("setCart", rootGetters["apollo/get"].updateCart);
     }

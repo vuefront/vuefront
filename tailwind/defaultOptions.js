@@ -3,138 +3,138 @@ module.exports = (theme) => ({
   select: {
     "-webkit-appearance": "none",
     borderRadius: theme("borderRadius.DEFAULT"),
-    width: theme('width.full'),
-    backgroundColor: theme('backgroundColor.white'),
-    borderWidth: theme('borderWidth.DEFAULT'),
-    display: theme('display.block'),
-    iconColor: theme('colors.gray.400'),
-    backgroundPosition: `right ${theme('spacing.2')} center`,
+    width: theme("width.full"),
+    backgroundColor: theme("backgroundColor.white"),
+    borderWidth: theme("borderWidth.DEFAULT"),
+    display: theme("display.block"),
+    iconColor: theme("colors.gray.400"),
+    backgroundPosition: `right ${theme("spacing.2")} center`,
     backgroundSize: `1.5em 1.5em`,
-    backgroundRepeat: 'no-repeat',
+    backgroundRepeat: "no-repeat",
     icon: (iconColor) =>
       `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"><path stroke="${iconColor}" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 8l4 4 4-4"/></svg>`,
-    '&.--sm': {
-      fontSize: theme('fontSize.sm.0'),
-      lineHeight: theme('fontSize.sm.0.lineHeight'),
+    "&.--sm": {
+      fontSize: theme("fontSize.sm.0"),
+      lineHeight: theme("fontSize.sm.0.lineHeight"),
       paddingLeft: theme("padding.2"),
       paddingRight: theme("padding.2"),
       paddingTop: theme("padding.1"),
       paddingBottom: theme("padding.1"),
     },
-    '&.--md': {
-      fontSize: theme('fontSize.base.0'),
-      lineHeight: theme('fontSize.base.1.lineHeight'),
+    "&.--md": {
+      fontSize: theme("fontSize.base.0"),
+      lineHeight: theme("fontSize.base.1.lineHeight"),
       paddingLeft: theme("padding.3"),
       paddingRight: theme("padding.3"),
-      paddingTop: theme("padding")['1.5'],
-      paddingBottom: theme("padding")['1.5'],
+      paddingTop: theme("padding")["1.5"],
+      paddingBottom: theme("padding")["1.5"],
     },
-    '&.--lg': {
-      fontSize: theme('fontSize.xl.0'),
-      lineHeight: theme('fontSize.xl.1.lineHeight'),
+    "&.--lg": {
+      fontSize: theme("fontSize.xl.0"),
+      lineHeight: theme("fontSize.xl.1.lineHeight"),
       paddingLeft: theme("padding.4"),
       paddingRight: theme("padding.4"),
       paddingTop: theme("padding.2"),
       paddingBottom: theme("padding.2"),
     },
-    '&.--error': {
-      borderColor: theme('colors.red.400'),
-      color: theme('colors.red.400'),
-      '--tw-ring-color': theme('ringColors.red.400'),
-      '&::placeholder': {
-        color: theme('colors.red.400')
+    "&.--error": {
+      borderColor: theme("colors.red.400"),
+      color: theme("colors.red.400"),
+      "--tw-ring-color": theme("ringColors.red.400"),
+      "&::placeholder": {
+        color: theme("colors.red.400"),
       },
-      '&::focus': {
-        borderColor: theme('colors.red.400'),
-        boxShadow: theme('boxShadow.none')
-      }
-    }
+      "&::focus": {
+        borderColor: theme("colors.red.400"),
+        boxShadow: theme("boxShadow.none"),
+      },
+    },
   },
   input: {
     "-webkit-appearance": "none",
     borderRadius: theme("borderRadius.DEFAULT"),
-    width: theme('width.full'),
-    backgroundColor: theme('backgroundColor.white'),
-    borderWidth: theme('borderWidth.DEFAULT'),
-    display: theme('display.block'),
-    '&.--sm': {
-      fontSize: theme('fontSize.sm.0'),
-      lineHeight: theme('fontSize.sm.0.lineHeight'),
+    width: theme("width.full"),
+    backgroundColor: theme("backgroundColor.white"),
+    borderWidth: theme("borderWidth.DEFAULT"),
+    display: theme("display.block"),
+    "&.--sm": {
+      fontSize: theme("fontSize.sm.0"),
+      lineHeight: theme("fontSize.sm.0.lineHeight"),
       paddingLeft: theme("padding.2"),
       paddingRight: theme("padding.2"),
       paddingTop: theme("padding.1"),
       paddingBottom: theme("padding.1"),
     },
-    '&.--md': {
-      fontSize: theme('fontSize.base.0'),
-      lineHeight: theme('fontSize.base.1.lineHeight'),
+    "&.--md": {
+      fontSize: theme("fontSize.base.0"),
+      lineHeight: theme("fontSize.base.1.lineHeight"),
       paddingLeft: theme("padding.3"),
       paddingRight: theme("padding.3"),
-      paddingTop: theme("padding")['1.5'],
-      paddingBottom: theme("padding")['1.5'],
+      paddingTop: theme("padding")["1.5"],
+      paddingBottom: theme("padding")["1.5"],
     },
-    '&.--lg': {
-      fontSize: theme('fontSize.xl.0'),
-      lineHeight: theme('fontSize.xl.1.lineHeight'),
+    "&.--lg": {
+      fontSize: theme("fontSize.xl.0"),
+      lineHeight: theme("fontSize.xl.1.lineHeight"),
       paddingLeft: theme("padding.4"),
       paddingRight: theme("padding.4"),
       paddingTop: theme("padding.2"),
       paddingBottom: theme("padding.2"),
     },
-    '&.--error': {
-      borderColor: theme('colors.red.400'),
-      '--tw-ring-color': theme('ringColors.red.400'),
-      '&::placeholder': {
-        color: theme('colors.red.400')
+    "&.--error": {
+      borderColor: theme("colors.red.400"),
+      "--tw-ring-color": theme("ringColors.red.400"),
+      "&::placeholder": {
+        color: theme("colors.red.400"),
       },
-      '&::focus': {
-        borderColor: theme('colors.red.400'),
-        boxShadow: theme('boxShadow.none')
-      }
-    }
+      "&::focus": {
+        borderColor: theme("colors.red.400"),
+        boxShadow: theme("boxShadow.none"),
+      },
+    },
   },
   textarea: {
     "-webkit-appearance": "none",
     borderRadius: theme("borderRadius.DEFAULT"),
-    width: theme('width.full'),
-    backgroundColor: theme('backgroundColor.white'),
-    borderWidth: theme('borderWidth.DEFAULT'),
-    display: theme('display.block'),
-    '&.--sm': {
-      fontSize: theme('fontSize.sm.0'),
-      lineHeight: theme('fontSize.sm.0.lineHeight'),
+    width: theme("width.full"),
+    backgroundColor: theme("backgroundColor.white"),
+    borderWidth: theme("borderWidth.DEFAULT"),
+    display: theme("display.block"),
+    "&.--sm": {
+      fontSize: theme("fontSize.sm.0"),
+      lineHeight: theme("fontSize.sm.0.lineHeight"),
       paddingLeft: theme("padding.2"),
       paddingRight: theme("padding.2"),
       paddingTop: theme("padding.1"),
       paddingBottom: theme("padding.1"),
     },
-    '&.--md': {
-      fontSize: theme('fontSize.base.0'),
-      lineHeight: theme('fontSize.base.1.lineHeight'),
+    "&.--md": {
+      fontSize: theme("fontSize.base.0"),
+      lineHeight: theme("fontSize.base.1.lineHeight"),
       paddingLeft: theme("padding.3"),
       paddingRight: theme("padding.3"),
-      paddingTop: theme("padding")['1.5'],
-      paddingBottom: theme("padding")['1.5'],
+      paddingTop: theme("padding")["1.5"],
+      paddingBottom: theme("padding")["1.5"],
     },
-    '&.--lg': {
-      fontSize: theme('fontSize.xl.0'),
-      lineHeight: theme('fontSize.xl.1.lineHeight'),
+    "&.--lg": {
+      fontSize: theme("fontSize.xl.0"),
+      lineHeight: theme("fontSize.xl.1.lineHeight"),
       paddingLeft: theme("padding.4"),
       paddingRight: theme("padding.4"),
       paddingTop: theme("padding.2"),
       paddingBottom: theme("padding.2"),
     },
-    '&.--error': {
-      borderColor: theme('colors.red.400'),
-      '--tw-ring-color': theme('ringColors.red.400'),
-      '&::placeholder': {
-        color: theme('colors.red.400')
+    "&.--error": {
+      borderColor: theme("colors.red.400"),
+      "--tw-ring-color": theme("ringColors.red.400"),
+      "&::placeholder": {
+        color: theme("colors.red.400"),
       },
-      '&::focus': {
-        borderColor: theme('colors.red.400'),
-        boxShadow: theme('boxShadow.none')
-      }
-    }
+      "&::focus": {
+        borderColor: theme("colors.red.400"),
+        boxShadow: theme("boxShadow.none"),
+      },
+    },
   },
   alert: {
     borderLeftWidth: theme("borderWidth.4"),
@@ -337,22 +337,24 @@ module.exports = (theme) => ({
     alignItems: "stretch",
     width: theme("width.full"),
     "&--sm": {
-      ".vf-m-input-group__text, .vf-a-button, .vf-a-input, vf-a-select, vf-a-datepicker, .vf-a-timepicker": {
-        paddingTop: theme("padding.1"),
-        paddingBottom: theme("padding.1"),
-        paddingLeft: theme("padding.2"),
-        paddingRight: theme("padding.2"),
-        fontSize: theme("fontSize.sm.0"),
-      },
+      ".vf-m-input-group__text, .vf-a-button, .vf-a-input, vf-a-select, vf-a-datepicker, .vf-a-timepicker":
+        {
+          paddingTop: theme("padding.1"),
+          paddingBottom: theme("padding.1"),
+          paddingLeft: theme("padding.2"),
+          paddingRight: theme("padding.2"),
+          fontSize: theme("fontSize.sm.0"),
+        },
     },
     "&--lg": {
-      ".vf-m-input-group__text, .vf-a-button, .vf-a-input, vf-a-select, vf-a-datepicker, .vf-a-timepicker": {
-        paddingTop: theme("padding.2"),
-        paddingBottom: theme("padding.2"),
-        paddingLeft: theme("padding.4"),
-        paddingRight: theme("padding.4"),
-        fontSize: theme("fontSize.xl.0"),
-      },
+      ".vf-m-input-group__text, .vf-a-button, .vf-a-input, vf-a-select, vf-a-datepicker, .vf-a-timepicker":
+        {
+          paddingTop: theme("padding.2"),
+          paddingBottom: theme("padding.2"),
+          paddingLeft: theme("padding.4"),
+          paddingRight: theme("padding.4"),
+          fontSize: theme("fontSize.xl.0"),
+        },
     },
     "> *:not(:first-child)": {
       borderTopLeftRadius: 0,
@@ -365,28 +367,16 @@ module.exports = (theme) => ({
     "&__prepend": {
       display: "flex",
       marginRight: "-1px",
-      "> .vf-m-input-group__text,> .vf-a-button,> .vf-m-dropdown,> .vf-a-input,> .vf-a-select,> .vf-a-datepicker,> .vf-a-timepicker": {
-        "&:not(:first-child)": {
-          borderTopLeftRadius: 0,
-          borderBottomLeftRadius: 0,
-          ".vf-a-button": {
+      "> .vf-m-input-group__text,> .vf-a-button,> .vf-m-dropdown,> .vf-a-input,> .vf-a-select,> .vf-a-datepicker,> .vf-a-timepicker":
+        {
+          "&:not(:first-child)": {
             borderTopLeftRadius: 0,
             borderBottomLeftRadius: 0,
+            ".vf-a-button": {
+              borderTopLeftRadius: 0,
+              borderBottomLeftRadius: 0,
+            },
           },
-        },
-        borderTopRightRadius: 0,
-        borderBottomRightRadius: 0,
-        ".vf-a-button": {
-          borderTopRightRadius: 0,
-          borderBottomRightRadius: 0,
-        },
-      },
-    },
-    "&__append": {
-      display: "flex",
-      marginLeft: "-1px",
-      "> .vf-m-input-group__text,> .vf-a-button,> .vf-m-dropdown,> .vf-a-input,> .vf-a-select,> .vf-a-datepicker,> .vf-a-timepicker": {
-        "&:not(:last-child)": {
           borderTopRightRadius: 0,
           borderBottomRightRadius: 0,
           ".vf-a-button": {
@@ -394,13 +384,27 @@ module.exports = (theme) => ({
             borderBottomRightRadius: 0,
           },
         },
-        ".vf-a-button": {
+    },
+    "&__append": {
+      display: "flex",
+      marginLeft: "-1px",
+      "> .vf-m-input-group__text,> .vf-a-button,> .vf-m-dropdown,> .vf-a-input,> .vf-a-select,> .vf-a-datepicker,> .vf-a-timepicker":
+        {
+          "&:not(:last-child)": {
+            borderTopRightRadius: 0,
+            borderBottomRightRadius: 0,
+            ".vf-a-button": {
+              borderTopRightRadius: 0,
+              borderBottomRightRadius: 0,
+            },
+          },
+          ".vf-a-button": {
+            borderTopLeftRadius: 0,
+            borderBottomLeftRadius: 0,
+          },
           borderTopLeftRadius: 0,
           borderBottomLeftRadius: 0,
         },
-        borderTopLeftRadius: 0,
-        borderBottomLeftRadius: 0,
-      },
     },
     "&__text": {
       display: "flex",
@@ -457,6 +461,7 @@ module.exports = (theme) => ({
     backgroundColor: theme("colors.white"),
     "&__item": {
       display: "table-cell",
+      float: "left",
       width: theme("width.8"),
       height: theme("height.8"),
       borderWidth: theme("borderWidth.DEFAULT"),
@@ -464,12 +469,13 @@ module.exports = (theme) => ({
     "&__link": {
       width: theme("width.full"),
       height: theme("height.full"),
-      "&:not(.vf-a-pagination__link--active):not(.vf-a-pagination__link--disabled)": {
-        "&:hover": {
-          backgroundColor: theme("vuefront.colors.primary"),
-          color: invertColor(theme("vuefront.colors.primary"), true),
+      "&:not(.vf-a-pagination__link--active):not(.vf-a-pagination__link--disabled)":
+        {
+          "&:hover": {
+            backgroundColor: theme("vuefront.colors.primary"),
+            color: invertColor(theme("vuefront.colors.primary"), true),
+          },
         },
-      },
       "&--active": {
         backgroundColor: darken(theme("vuefront.colors.primary"), 0.25),
         color: invertColor(theme("vuefront.colors.primary"), true),

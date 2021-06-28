@@ -10,6 +10,7 @@ const MainConfig = {
   },
   options: {
     productGridSize: 4,
+    productGridSizeTablet: 3,
     productGridNoGutters: false,
   },
   cssImport: {},
@@ -470,7 +471,8 @@ const MainConfig = {
     },
   ],
   templates: {
-    StoreCheckoutSuccess: "templates/store/checkout-success/checkout-success.vue",
+    StoreCheckoutSuccess:
+      "templates/store/checkout-success/checkout-success.vue",
     CommonLayout: "templates/common/layout/layout.vue",
     LayoutDefault: "templates/layouts/default/default.vue",
     LayoutFullWidth: "templates/layouts/fullWidth/fullWidth.vue",
@@ -627,7 +629,7 @@ const MainConfig = {
     },
     "/store/checkout/success": {
       generate: false,
-      component: "StoreCheckoutSuccess"
+      component: "StoreCheckoutSuccess",
     },
     "/store/category/:id": {
       seo: seo.CategorySeo,

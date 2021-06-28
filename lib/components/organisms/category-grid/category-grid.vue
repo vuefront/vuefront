@@ -6,7 +6,13 @@
       >{{ $t("elements.store.category.categoriesText") }}</vf-a-heading
     >
     <vf-m-row>
-      <vf-m-col v-for="(value, index) in items" :key="index" xs="4" md="2">
+      <vf-m-col
+        v-for="(value, index) in items"
+        :key="index"
+        xs="4"
+        md="3"
+        lg="2"
+      >
         <vf-m-category-thumb :category="value" />
       </vf-m-col>
     </vf-m-row>

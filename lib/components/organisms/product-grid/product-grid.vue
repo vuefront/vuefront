@@ -5,7 +5,8 @@
         v-for="(value, index) in products"
         :key="index"
         xs="12"
-        :md="list || column ? 12 : 12 / gridSize"
+        :md="list || column ? 12 : 12 / gridSizeTablet"
+        :lg="list || column ? 12 : 12 / gridSize"
       >
         <vf-o-product-thumb :product="value" :wide="list" />
       </vf-m-col>
@@ -39,6 +40,12 @@ export default {
       type: Number,
       default() {
         return this.$vuefront.options.productGridSize;
+      },
+    },
+    gridSizeTablet: {
+      type: Number,
+      default() {
+        return this.$vuefront.options.productGridSizeTablet;
       },
     },
   },

@@ -7,10 +7,14 @@
         :mode="mode"
         :sort="sort"
         :grid-size="gridSize"
+        :grid-size-tablet="gridSizeTablet"
       />
     </template>
     <template v-else>
-      <vf-l-t-store-category :grid-size="gridSize" />
+      <vf-l-t-store-category
+        :grid-size="gridSize"
+        :grid-size-tablet="gridSizeTablet"
+      />
     </template>
   </vf-t-common-layout>
 </template>
@@ -58,6 +62,7 @@ export default {
   },
   breadcrumbs() {
     const category = this.$store.getters["store/category/get"];
+
     return [
       {
         title: category.meta.title,
@@ -84,6 +89,18 @@ export default {
         return 3;
       } else {
         return 4;
+      }
+    },
+    gridSizeTablet() {
+      if (this.checkModules("columnLeft") && this.checkModules("columnRight")) {
+        return 1;
+      } else if (
+        this.checkModules("columnLeft") ||
+        this.checkModules("columnRight")
+      ) {
+        return 2;
+      } else {
+        return 3;
       }
     },
   },
