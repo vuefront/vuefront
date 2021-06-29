@@ -62,6 +62,7 @@ query($id: String, $limit: Int) {
             special
             name
             keyword
+            url(url: "/store/product/_id")
             extra {
               name
               value
