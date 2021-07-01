@@ -14,6 +14,7 @@
       :products="products.content"
       :list="isList"
       :grid-size="grid"
+      :suffix-url="suffixUrl"
       :grid-size-tablet="gridTablet"
       class="mb-4"
       @click:cart="handleClickCart"
@@ -34,6 +35,9 @@
 export default {
   props: ["products", "mode", "sort", "gridSize", "gridSizeTablet"],
   computed: {
+    suffixUrl() {
+      return `category_id=${this.$route.params.id}`;
+    },
     isList() {
       return this.mode === "list";
     },

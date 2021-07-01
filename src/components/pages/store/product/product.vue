@@ -1,5 +1,5 @@
 <template>
-  <vf-t-common-layout >
+  <vf-t-common-layout>
     <vf-t-store-product v-if="loaded" :product="product" />
     <vf-l-t-store-product v-else />
   </vf-t-common-layout>
@@ -64,6 +64,7 @@
   }
 </graphql>
 <script>
+import gql from "graphql-tag";
 import { mapGetters } from "vuex";
 export default {
   asyncData(ctx) {
@@ -74,12 +75,14 @@ export default {
   data() {
     return {
       loaded: true,
+      category: null,
     };
   },
   head() {
     if (!this.product.meta) {
       return {};
     }
+
     return {
       title: this.product.meta.title,
       meta: [
@@ -96,7 +99,16 @@ export default {
     };
   },
   breadcrumbs() {
+    const items = [];
+
+    if (this.category?.meta?.title) {
+      items.push({
+        title: this.category.meta.title,
+        to: this.category.url,
+      });
+    }
     return [
+      ...items,
       {
         title: this.product.meta.title,
         to: this.$route.path,
@@ -125,6 +137,25 @@ export default {
       });
       const { product } = this.$store.getters["apollo/get"];
       this.$store.commit("store/product/setProduct", product);
+
+      if (this.$route.query.category_id) {
+        const { data } = await this.$vfapollo.query({
+          query: gql`
+            query ($id: String) {
+              category(id: $id) {
+                id
+                name
+                url(url: "/store/category/_id")
+                meta {
+                  title
+                }
+              }
+            }
+          `,
+          variables: { id: this.$route.query.category_id },
+        });
+        this.category = data.category;
+      }
       this.loaded = true;
     },
   },

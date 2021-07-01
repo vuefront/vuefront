@@ -3,6 +3,7 @@
     <vf-m-product-thumb
       :product="product"
       :wide="wide"
+      :suffix-url="suffixUrl"
       @click:cart="handleClickCart"
       @click:wishlist="handleClickWishlist"
       @click:compare="handleClickCompare"
@@ -11,7 +12,7 @@
 </template>
 <script>
 export default {
-  props: ["product", "wide"],
+  props: ["product", "wide", "suffixUrl"],
   methods: {
     handleClickCart() {
       this.$store.dispatch("store/cart/add", {

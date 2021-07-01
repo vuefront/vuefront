@@ -6,14 +6,14 @@
   >
     <vf-m-row no-gutters>
       <vf-m-col :md="wide ? 3 : 12" class="vf-m-product-thumb__header">
-        <vf-a-link :to="product.url" class="vf-m-product-thumb__image">
+        <vf-a-link :to="url" class="vf-m-product-thumb__image">
           <vf-m-product-thumb-image :product="product" card />
         </vf-a-link>
       </vf-m-col>
       <vf-m-col :md="wide ? 9 : 12">
         <vf-m-card-body class="pt-0">
           <div>
-            <vf-a-link :to="product.url" class="mb-0 vf-m-product-thumb__title">
+            <vf-a-link :to="url" class="mb-0 vf-m-product-thumb__title">
               <vf-a-heading tag="h3" level="6">{{ product.name }}</vf-a-heading>
             </vf-a-link>
             <vf-m-rating
@@ -64,7 +64,7 @@
 <script>
 import { mdiCartOutline, mdiHeartOutline, mdiCompareHorizontal } from "@mdi/js";
 export default {
-  props: ["product", "wide"],
+  props: ["product", "wide", "suffixUrl"],
   data() {
     return {
       mdiCartOutline,
@@ -74,10 +74,10 @@ export default {
   },
   computed: {
     url() {
-      if (this.product.keyword && this.product.keyword !== "") {
-        return "/" + this.product.keyword;
+      if (this.product.url) {
+        return this.product.url + "?" + this.suffixUrl;
       } else {
-        return "/store/product/" + this.product.id;
+        return "/store/product/" + this.product.id + "?" + this.suffixUrl;
       }
     },
   },

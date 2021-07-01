@@ -8,7 +8,11 @@
         :md="list || column ? 12 : 12 / gridSizeTablet"
         :lg="list || column ? 12 : 12 / gridSize"
       >
-        <vf-o-product-thumb :product="value" :wide="list" />
+        <vf-o-product-thumb
+          :product="value"
+          :wide="list"
+          :suffix-url="suffixUrl"
+        />
       </vf-m-col>
     </vf-m-row>
   </section>
@@ -34,6 +38,12 @@ export default {
       type: Boolean,
       default() {
         return this.$vuefront.options.productGridNoGutters;
+      },
+    },
+    suffixUrl: {
+      type: String,
+      default() {
+        return "";
       },
     },
     gridSize: {

@@ -9,7 +9,7 @@
       }}</vf-m-breadcrumb-item>
       <vf-m-breadcrumb-item
         v-for="(value, key) in breadcrumbs"
-        :key="key"
+        :key="`breadcrumb-${key}`"
         :to="value.to"
         >{{ value.title }}</vf-m-breadcrumb-item
       >
