@@ -5,7 +5,7 @@
     :class="getClass"
     @input="handleChange"
   >
-    <option v-for="(item, index) in options" :key="index" :value="index">
+    <option v-for="(item, index) in optionsData" :key="index" :value="index">
       {{ item[textField] }}
     </option>
   </select>
