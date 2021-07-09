@@ -1,4 +1,3 @@
-// albert
 import * as seo from "vuefront/lib/seo";
 
 const MainConfig = {
