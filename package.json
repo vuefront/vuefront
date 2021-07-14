@@ -1,6 +1,6 @@
 {
     "name": "vuefront",
-    "version": "0.3.61",
+    "version": "0.3.62",
     "description": "vuefront",
     "files": [
         "lib",
@@ -24,6 +24,9 @@
         "deploy-storybook": "storybook-to-ghpages",
         "lint": "eslint --fix src --ext .vue,.js",
         "watch": "concurrently -k -p \"[{name}]\" -n \"Build,Yalc\" -c \"yellow.bold,cyan.bold\" \"npm run build\" \"npm run yalc-watch\""
+    },
+    "peerDependencies": {
+        "fsevents": "^2.3.2"
     },
     "dependencies": {
         "@babel/standalone": "^7.14.7",
@@ -78,7 +81,6 @@
         "eslint-plugin-nuxt": ">=2.0.0",
         "eslint-plugin-prettier": "^3.4.0",
         "file-loader": "^6.2.0",
-        "fsevents": "^2.3.2",
         "node-sass": "^6.0.1",
         "nodemon": "^2.0.9",
         "postcss-import": "^14.0.2",
