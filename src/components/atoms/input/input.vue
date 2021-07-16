@@ -61,9 +61,7 @@ export default {
       }
 
       if (!(this.state || this.state === null)) {
-        result.push(
-          "--error"
-        );
+        result.push("--error");
       }
 
       return result.join(" ");

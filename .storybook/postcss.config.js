@@ -1,5 +1,6 @@
 module.exports = {
     plugins: {
+        tailwindcss: {},
         // PostCSS Preset Env includes autoprefixer and browsers option will be passed to it automatically.
         'postcss-preset-env': {
             stage: 0,

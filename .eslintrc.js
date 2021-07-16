@@ -9,5 +9,11 @@ module.exports = {
     "vue/max-attributes-per-line": "off",
     "vue/require-prop-types": "off",
     "vue/no-v-html": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        endOfLine: "auto",
+      },
+    ],
   },
 };

@@ -21,18 +21,14 @@ module.exports = {
     // Make whatever fine-grained changes you need
     config.module.rules.push({
       test: /\.scss$/,
-      use: ['style-loader', 'css-loader', 'sass-loader', 
-      { 
-          loader: 'postcss-loader', 
-          options: { 
-              postcssOptions: { 
-                  path: path.resolve(__dirname, './') 
-              } 
-          } 
-      }
+      use: [
+        "style-loader",
+        "css-loader",
+        "postcss-loader",
+        // Add the sass loader to process scss files
+        "sass-loader",
       ],
-      include: path.resolve(__dirname, '../'),
-    });
+    })
 
     config.module.rules.push({
         test: /\.(graphql|gql)$/,

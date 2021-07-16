@@ -1,9 +1,8 @@
 import vfAAlert from "./alert.vue";
 
-
 export default {
   component: vfAAlert,
-  title: 'atom|!!!Alert',
+  title: "atom|!!!Alert",
 };
 
 export const Default = () => ({
@@ -14,7 +13,7 @@ Default.story = {
   parameters: {
     info: {
       inline: true,
-      text: `<span style="color:red">Important!</span> Alert should be a molecule since it can include other components via Slots.`
+      text: `<span style="color:red">Important!</span> Alert should be a molecule since it can include other components via Slots.`,
     },
   },
 };
@@ -27,6 +26,7 @@ Dismissible.story = {
   parameters: {
     info: {
       inline: true,
-      text: `<span style="color:red">Important!</span> Alert should be a molecule since it can include other components via Slots.`},
+      text: `<span style="color:red">Important!</span> Alert should be a molecule since it can include other components via Slots.`,
+    },
   },
 };
