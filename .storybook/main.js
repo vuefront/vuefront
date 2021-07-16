@@ -1,7 +1,7 @@
 const path = require('path');
 module.exports = {
   "stories": [
-    "../src/components/atoms/alert/*.stories.@(js|jsx|ts|tsx)"
+    "../src/components/atoms/*/*.stories.@(js|jsx|ts|tsx)"
   ],
   "addons": [
     "@storybook/addon-info",
@@ -11,6 +11,7 @@ module.exports = {
     '@storybook/addon-viewport',
     '@storybook/addon-storysource',
     '@storybook/addon-knobs',
+    '@storybook/addon-postcss'
   ],
   webpackFinal: async (config, { configType }) => {
     // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'

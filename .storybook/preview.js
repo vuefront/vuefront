@@ -1,7 +1,8 @@
-import { addDecorator } from '@storybook/vue';
-import { withInfo } from '@storybook/addon-info';
+// import { addDecorator } from '@storybook/vue';
+// import { withInfo } from '@storybook/addon-info';
 
-addDecorator(withInfo); 
+// addDecorator(withInfo); 
+import '../assets/scss/tailwind.scss'
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
