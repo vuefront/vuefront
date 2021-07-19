@@ -1,0 +1,30 @@
+{
+  "name": "vuefront-storybook-vite",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "dependencies": {
+    "vue": "^3.0.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@storybook/addon-actions": "^6.4.0-alpha.18",
+    "@storybook/addon-essentials": "^6.4.0-alpha.18",
+    "@storybook/addon-links": "^6.4.0-alpha.18",
+    "@storybook/vue3": "^6.4.0-alpha.18",
+    "@vitejs/plugin-vue": "^1.2.5",
+    "@vue/compiler-sfc": "^3.0.5",
+    "autoprefixer": "^10.3.1",
+    "babel-loader": "^8.2.2",
+    "postcss": "^8.3.5",
+    "storybook-builder-vite": "0.0.12",
+    "tailwindcss": "^2.2.4",
+    "vite": "^2.4.2",
+    "vue-loader": "^16.3.1"
+  }
+}
