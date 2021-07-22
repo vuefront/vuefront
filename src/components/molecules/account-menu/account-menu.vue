@@ -4,13 +4,13 @@
       <vf-a-icon :icon="mdiAccountCircleOutline" />
     </template>
     <vf-m-dropdown-item
-      v-if="!$vuefront.isAuth"
+      v-if="isAuth"
       class="vf-m-account-menu__item"
       to="/account/login"
       >{{ $t("elements.common.header.topNav.signInText") }}</vf-m-dropdown-item
     >
     <vf-m-dropdown-item
-      v-if="!$vuefront.isAuth"
+      v-if="isAuth"
       class="vf-m-account-menu__item"
       to="/account/register"
       >{{
@@ -18,7 +18,7 @@
       }}</vf-m-dropdown-item
     >
     <vf-m-dropdown-item
-      v-if="$vuefront.isAuth"
+      v-if="isAuth"
       class="vf-m-account-menu__item"
       to="/account"
       >{{
@@ -26,9 +26,9 @@
       }}</vf-m-dropdown-item
     >
     <vf-m-dropdown-item
-      v-if="$vuefront.isAuth"
+      v-if="isAuth"
       class="vf-m-account-menu__item"
-      @click="$vuefront.logout"
+      @click="e => logout(e)"
       >{{ $t("elements.common.header.topNav.signOutText") }}</vf-m-dropdown-item
     >
   </vf-m-dropdown>
@@ -36,10 +36,24 @@
 <script>
 import { mdiAccountCircleOutline } from "@mdi/js";
 export default {
+  props: {
+    isAuth: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       mdiAccountCircleOutline,
     };
   },
+  methods: {
+    logout(e) {
+     this.$emit("click", e)
+    }
+  },
+  mounted() {
+    console.log(this.$vuefront)
+  }
 };
 </script>

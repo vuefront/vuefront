@@ -1,10 +1,20 @@
-import Vue from "vue";
-import { storiesOf } from "@storybook/vue";
 import vfMAccountMenu from "./account-menu.vue";
 
-import "vuefront/src/components/organisms/header/header.scss";
 
-// import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
+export default {
+  component: vfMAccountMenu,
+  title: 'molecule|!!!Account menu',
+};
+
+export const Default = () => ({
+  components: { vfMAccountMenu },
+  template: `<vf-m-account-menu isAuth="true"></vf-m-account-menu>`,
+});
+
+
+
+
+/* // import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
 
 Vue.component("VfMAccountMenu", vfMAccountMenu);
 
@@ -42,3 +52,4 @@ storiesOf("molecule|!!!Account Menu", module)
       },
     }
   );
+ */

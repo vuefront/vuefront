@@ -12,6 +12,7 @@
     "vue": "^3.0.5"
   },
   "devDependencies": {
+    "sass": "^1.35.2",
     "@babel/core": "^7.14.6",
     "@storybook/addon-actions": "^6.4.0-alpha.18",
     "@storybook/addon-essentials": "^6.4.0-alpha.18",

@@ -100,7 +100,10 @@ const MainConfig = {
   },
   molecules: {
     AccountMenu: "molecules/account-menu/account-menu.vue",
-    AccountNew: "molecules/account-new/account-new.vue",
+    AccountNew: {
+      component: "molecules/account-new/account-new.vue",
+      css: "molecules/account-new/account-new.scss",
+    },
     AccountSuccess: {
       css: "molecules/account-success/account-success.scss",
       component: "molecules/account-success/account-success.vue",

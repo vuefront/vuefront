@@ -1,6 +1,11 @@
 .vf-m-category-thumb {
-  @apply mb-2 block;
+  @apply mb-8 block;
   &__title {
     @apply sm:text-center;
+  }
+  &__tb-skeleton {
+    &.--middle {
+      @apply mb-2;
+    }
   }
 }

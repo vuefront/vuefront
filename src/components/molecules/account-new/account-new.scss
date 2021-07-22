@@ -1,0 +1,11 @@
+.vf-m-account-new {
+    &__header {
+        @apply mb-5;
+        &__subtitle {
+            @apply mb-0;
+        }
+    }
+    &__bottom {
+        @apply mt-4;
+    }
+}
