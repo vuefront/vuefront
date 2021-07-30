@@ -46,7 +46,7 @@
   </ul>
 </template>
 <script>
-import range from "lodash/range";
+import range from "lodash-es/range";
 
 export default {
   model: {

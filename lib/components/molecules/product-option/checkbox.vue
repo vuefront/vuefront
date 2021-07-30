@@ -22,9 +22,9 @@
   </div>
 </template>
 <script>
-import find from "lodash/find";
-import filter from "lodash/filter";
-import includes from "lodash/includes";
+import find from "lodash-es/find";
+import filter from "lodash-es/filter";
+import includes from "lodash-es/includes";
 export default {
   props: ["option", "selected"],
   computed: {

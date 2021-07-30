@@ -63,8 +63,8 @@
   </section>
 </template>
 <script>
-import isEmpty from "lodash/isEmpty";
-import filter from "lodash/filter";
+import isEmpty from "lodash-es/isEmpty";
+import filter from "lodash-es/filter";
 import { mapGetters } from "vuex";
 export default {
   props: ["product"],

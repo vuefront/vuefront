@@ -24,9 +24,9 @@
   </vf-o-apollo>
 </template>
 <script>
-import isEmpty from "lodash/isEmpty";
-import map from "lodash/map";
-import includes from "lodash/includes";
+import isEmpty from "lodash-es/isEmpty";
+import map from "lodash-es/map";
+import includes from "lodash-es/includes";
 
 export default {
   computed: {

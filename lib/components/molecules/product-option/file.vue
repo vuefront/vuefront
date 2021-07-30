@@ -13,7 +13,7 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
-import find from "lodash/find";
+import find from "lodash-es/find";
 import uploadFileGql from "./upload.graphql";
 
 export default {

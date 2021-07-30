@@ -22,8 +22,8 @@
   </div>
 </template>
 <script>
-import filter from "lodash/filter";
-import isEmpty from "lodash/isEmpty";
+import filter from "lodash-es/filter";
+import isEmpty from "lodash-es/isEmpty";
 export default {
   props: ["option", "selected"],
   methods: {

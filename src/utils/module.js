@@ -1,6 +1,6 @@
-import isEmpty from "lodash/isEmpty";
-import isNull from "lodash/isNull";
-import isUndefined from "lodash/isUndefined";
+import isEmpty from "lodash-es/isEmpty";
+import isNull from "lodash-es/isNull";
+import isUndefined from "lodash-es/isUndefined";
 import { mapGetters } from "vuex";
 export const BaseModule = {
   data() {

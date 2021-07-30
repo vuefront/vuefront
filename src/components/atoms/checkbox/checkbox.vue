@@ -13,7 +13,7 @@
   </label>
 </template>
 <script>
-import isArray from "lodash/isArray";
+import isArray from "lodash-es/isArray";
 export default {
   model: {
     prop: "checked",

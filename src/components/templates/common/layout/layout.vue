@@ -5,7 +5,7 @@
 </template>
 <script>
 import { BaseLayout } from "vuefront/lib/utils/baseLayout.js";
-import isUndefined from "lodash/isUndefined";
+import isUndefined from "lodash-es/isUndefined";
 export default {
   mixins: [BaseLayout],
   computed: {

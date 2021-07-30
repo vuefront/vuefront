@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import find from "lodash/find";
+import find from "lodash-es/find";
 export const state = () => ({
   cart: {
     products: [],

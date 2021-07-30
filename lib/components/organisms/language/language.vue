@@ -37,7 +37,7 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
-import find from "lodash/find";
+import find from "lodash-es/find";
 export default {
   computed: {
     ...mapGetters({

@@ -72,7 +72,7 @@
 <script>
 import { mapGetters, mapMutations } from "vuex";
 import { mdiChevronDown, mdiChevronRight } from "@mdi/js";
-import isUndefined from "lodash/isUndefined";
+import isUndefined from "lodash-es/isUndefined";
 export default {
   props: {
     items: {

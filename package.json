@@ -1,6 +1,6 @@
 {
     "name": "vuefront",
-    "version": "0.3.68",
+    "version": "0.3.70",
     "description": "vuefront",
     "files": [
         "lib",
@@ -42,6 +42,7 @@
         "graphql": "^15.5.1",
         "graphql-tag": "^2.12.5",
         "lodash": "^4.17.21",
+        "lodash-es": "^4.17.21",
         "mini-svg-data-uri": "^1.3.3",
         "omit-deep-lodash": "^1.1.5",
         "tailwindcss": "2.2.4",

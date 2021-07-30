@@ -1,6 +1,6 @@
 // import editLanguageGraphql from './edit.graphql'
 // import languageGetGql from './get.graphql'
-import find from "lodash/find";
+import find from "lodash-es/find";
 import gql from "graphql-tag";
 
 export const state = () => ({

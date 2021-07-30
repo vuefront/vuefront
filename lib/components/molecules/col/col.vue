@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import capitalize from "lodash/capitalize";
+import capitalize from "lodash-es/capitalize";
 export default {
   props: {
     alignSelf: {
