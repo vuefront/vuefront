@@ -513,7 +513,7 @@ const MainConfig = {
     FeaturedProduct: "extensions/store/featured-product/featured-product.vue",
     Slideshow: {
       component: "extensions/common/slideshow/slideshow.vue",
-      css: "extensions/common/slideshow/slideshow.vue",
+      css: "extensions/common/slideshow/slideshow.scss",
     },
     Pages: "extensions/common/pages/pages.vue",
     StoreCategory: "extensions/store/category/category.vue",
