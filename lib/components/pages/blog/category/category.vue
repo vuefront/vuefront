@@ -21,13 +21,13 @@ export default {
   props: ["id", "keyword", "url"],
   asyncData(ctx) {
     return {
-      loaded: !process.client,
+      loaded: !document,
     };
   },
   data() {
     const page = this.$route.query.page ? Number(this.$route.query.page) : 1;
     return {
-      loaded: true,
+      loaded: !document,
       page,
     };
   },

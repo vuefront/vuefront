@@ -99,6 +99,7 @@ const MainConfig = {
     Timepicker: "atoms/timepicker/timepicker.vue",
   },
   molecules: {
+    Skeleton: "molecules/skeleton/skeleton.vue",
     AccountMenu: "molecules/account-menu/account-menu.vue",
     AccountNew: "molecules/account-new/account-new.vue",
     AccountSuccess: {
@@ -332,6 +333,7 @@ const MainConfig = {
     ManufacturerFilter: "organisms/manufacturer-filter/manufacturer-filter.vue",
   },
   pages: {
+    CommonError: "pages/common/error/error.vue",
     StoreCheckoutSuccess: "pages/store/checkout-success/checkout-success.vue",
     AccountAccount: "pages/account/account/account.vue",
     AccountAddress: "pages/account/address/address.vue",
@@ -513,7 +515,7 @@ const MainConfig = {
     FeaturedProduct: "extensions/store/featured-product/featured-product.vue",
     Slideshow: {
       component: "extensions/common/slideshow/slideshow.vue",
-      css: "extensions/common/slideshow/slideshow.vue",
+      css: "extensions/common/slideshow/slideshow.scss",
     },
     Pages: "extensions/common/pages/pages.vue",
     StoreCategory: "extensions/store/category/category.vue",
@@ -561,6 +563,9 @@ const MainConfig = {
     TStoreSpecial: "/templates/store/special/special.loader.vue",
   },
   seo: {
+    "/404": {
+      component: "CommonError",
+    },
     "/": { component: "CommonHome" },
     "/account": {
       generate: false,

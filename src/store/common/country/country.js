@@ -1,9 +1,9 @@
 import gql from "graphql-tag";
 
-export const state = () => ({
+export const state = {
   country: false,
   entities: [],
-});
+};
 
 export const getters = {
   get(state) {
@@ -26,26 +26,25 @@ export const mutations = {
 export const actions = {
   async list({ commit }, { page, size }) {
     try {
-      const { data } = await this.$vfapollo.query(
-        {
-          query: gql`
-            query($page: Int, $size: Int) {
-              countriesList(page: $page, size: $size) {
-                content {
-                  id
-                  name
-                }
-                totalPages
-                totalElements
-                first
-                last
-                number
-                numberOfElements
+      const { data } = await this.$vfapollo.query({
+        query: gql`
+          query ($page: Int, $size: Int) {
+            countriesList(page: $page, size: $size) {
+              content {
+                id
+                name
               }
+              totalPages
+              totalElements
+              first
+              last
+              number
+              numberOfElements
             }
-          `,
-          variables: { page, size },
-        });
+          }
+        `,
+        variables: { page, size },
+      });
       commit("setEntities", data.countriesList);
     } catch (e) {
       commit("vuefront/setResponseError", e, {
@@ -55,18 +54,17 @@ export const actions = {
   },
   async get({ commit, dispatch, rootGetters }, { id }) {
     try {
-      const { data } = await this.$vfapollo.query(
-        {
-          query: gql`
-            query($id: String) {
-              country(id: $id) {
-                id
-                name
-              }
+      const { data } = await this.$vfapollo.query({
+        query: gql`
+          query ($id: String) {
+            country(id: $id) {
+              id
+              name
             }
-          `,
-          variables: { id },
-        });
+          }
+        `,
+        variables: { id },
+      });
       commit("setCountry", data.country);
     } catch (e) {
       commit("vuefront/setResponseError", e, {

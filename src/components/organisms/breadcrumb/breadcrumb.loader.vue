@@ -1,34 +1,21 @@
 <template>
   <div class="vf-l-o-breadcrumb">
-    <skeleton
-      shape="radius"
-      theme="opacity"
-      bg-color="#eee"
-      width="100%"
-      duration="2"
-    >
-      <vf-m-row>
-        <vf-m-col xs="3" md="1" align-self="center">
-          <tb-skeleton height="38px"></tb-skeleton>
-        </vf-m-col>
-        <vf-m-col xs="3" md="1" align-self="center">
-          <tb-skeleton height="38px"></tb-skeleton>
-        </vf-m-col>
-        <vf-m-col xs="6" md="10" align-self="center">
-          <tb-skeleton height="38px"></tb-skeleton>
-        </vf-m-col>
-      </vf-m-row>
-    </skeleton>
+    <vf-m-row>
+      <vf-m-col xs="3" md="1" align-self="center">
+        <vf-m-skeleton height="38px"></vf-m-skeleton>
+      </vf-m-col>
+      <vf-m-col xs="3" md="1" align-self="center">
+        <vf-m-skeleton height="38px"></vf-m-skeleton>
+      </vf-m-col>
+      <vf-m-col xs="6" md="10" align-self="center">
+        <vf-m-skeleton height="38px"></vf-m-skeleton>
+      </vf-m-col>
+    </vf-m-row>
   </div>
 </template>
 
 <script>
-import { TbSkeleton, Skeleton } from "tb-skeleton";
-
 export default {
-  components: {
-    TbSkeleton,
-    Skeleton,
-  },
+  
 };
 </script>

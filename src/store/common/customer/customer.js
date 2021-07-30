@@ -1,10 +1,10 @@
 import gql from "graphql-tag";
 
-export const state = () => ({
+export const state = {
   customer: null,
   auth: false,
   token: false,
-});
+};
 
 export const getters = {
   get(state) {

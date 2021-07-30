@@ -7,9 +7,6 @@
   ></LightBox>
 </template>
 <script>
-import Vue from "vue";
-import VueLazyLoad from "vue-lazyload";
-Vue.use(VueLazyLoad);
 export default {
   components: {
     LightBox: () => import("vue-image-lightbox"),

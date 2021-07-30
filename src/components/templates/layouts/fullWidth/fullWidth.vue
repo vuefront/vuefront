@@ -1,11 +1,7 @@
 <template>
   <div class="vf-t-layout-full-width">
-    <LazyHydrate when-visible>
       <vf-o-header />
-    </LazyHydrate>
-    <LazyHydrate when-visible>
       <vf-o-header-mobile />
-    </LazyHydrate>
     <vf-o-notification />
     <vf-o-breadcrumb />
     <vf-m-container fluid>
@@ -47,9 +43,7 @@
         />
       </div>
     </vf-m-container>
-    <LazyHydrate when-visible>
       <vf-o-footer />
-    </LazyHydrate>
   </div>
 </template>
 <script>

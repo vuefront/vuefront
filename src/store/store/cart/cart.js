@@ -1,10 +1,10 @@
 import gql from "graphql-tag";
-import find from "lodash/find";
-export const state = () => ({
+import find from "lodash-es/find";
+export const state = {
   cart: {
     products: [],
   },
-});
+};
 
 export const getters = {
   get(state) {
@@ -27,7 +27,7 @@ export const actions = {
       "apollo/mutate",
       {
         mutation: gql`
-          mutation($id: String, $quantity: Int, $options: [CartOption]) {
+          mutation ($id: String, $quantity: Int, $options: [CartOption]) {
             addToCart(id: $id, quantity: $quantity, options: $options) {
               products {
                 key
@@ -94,7 +94,7 @@ export const actions = {
       "apollo/mutate",
       {
         mutation: gql`
-          mutation($key: String, $quantity: Int) {
+          mutation ($key: String, $quantity: Int) {
             updateCart(key: $key, quantity: $quantity) {
               products {
                 key
@@ -154,7 +154,7 @@ export const actions = {
       "apollo/mutate",
       {
         mutation: gql`
-          mutation($key: String) {
+          mutation ($key: String) {
             removeCart(key: $key) {
               products {
                 key

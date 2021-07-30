@@ -1,11 +1,7 @@
 <template>
   <div class="vf-t-layout-default">
-    <LazyHydrate when-visible>
-      <vf-o-header />
-    </LazyHydrate>
-    <LazyHydrate when-visible>
-      <vf-o-header-mobile />
-    </LazyHydrate>
+    <vf-o-header />
+    <vf-o-header-mobile />
     <vf-o-notification />
     <vf-o-breadcrumb />
     <vf-m-container>
@@ -47,19 +43,12 @@
         />
       </div>
     </vf-m-container>
-    <LazyHydrate when-visible>
-      <vf-o-footer />
-    </LazyHydrate>
+    <vf-o-footer />
   </div>
 </template>
 <script>
 import { BaseModule } from "vuefront/lib/utils/module.js";
-import { mapGetters } from "vuex";
-import LazyHydrate from "vue-lazy-hydration";
 export default {
-  components: {
-    LazyHydrate,
-  },
   mixins: [BaseModule],
   computed: {
     contentWidth() {

@@ -23,13 +23,13 @@ export const store = new Vuex.Store({
       },
       mutations: {
         setEntities(state, { id, items }) {
-          Vue.set(state.entities, id, items);
+          state.entities[id] = items
         },
         addEntities(state, { id, items }) {
-          Vue.set(state.entities, id, [...state.entities[id], ...items]);
+          state.entities[id] = [...state.entities[id], ...items]
         },
         setLoaded(state, { id, loaded }) {
-          Vue.set(state.loaded, id, loaded);
+          state.loaded[id] = loaded
         },
       },
     },

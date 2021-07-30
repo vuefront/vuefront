@@ -2,9 +2,9 @@
 // import removeCompareGraphql from './remove.graphql'
 import gql from "graphql-tag";
 
-export const state = () => ({
+export const state = {
   compare: {},
-});
+};
 
 export const getters = {
   get(state) {
@@ -24,7 +24,7 @@ export const actions = {
       "apollo/mutate",
       {
         mutation: gql`
-          mutation($id: Int) {
+          mutation ($id: Int) {
             addToCompare(id: $id) {
               id
               name
@@ -64,7 +64,7 @@ export const actions = {
       "apollo/mutate",
       {
         mutation: gql`
-          mutation($id: String) {
+          mutation ($id: String) {
             removeCompare(id: $id) {
               id
               name

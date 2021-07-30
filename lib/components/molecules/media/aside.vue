@@ -1,7 +1,7 @@
 <template>
-  <div :is="tag" class="vf-m-media-start flex" :vertial-align="verticalAlign">
+  <component :is="tag" class="vf-m-media-start flex" :vertial-align="verticalAlign">
     <slot></slot>
-  </div>
+  </component>
 </template>
 <script>
 export default {

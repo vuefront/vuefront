@@ -1,8 +1,7 @@
-import Vue from "vue";
-export const state = () => ({
+export const state = {
   items: [],
   loaded: false,
-});
+};
 
 export const getters = {
   get(state) {
@@ -15,8 +14,7 @@ export const getters = {
 
 export const mutations = {
   setItems(state, payload) {
-    Vue.set(state, "items", payload);
-    // state.items = payload
+    state.items = payload
   },
   clearItems(state, payload) {
     state.items = [];
@@ -37,10 +35,14 @@ export const actions = {
     if (contactData && contactData.length > 0) {
       breadcrumbs = contactData;
     }
-    if (this.$router.currentRoute.matched.length > 0) {
-      const component = this.$router.currentRoute.matched[0].instances.default;
+    if (this.$router.currentRoute.value.matched.length > 0) {
+      const component =
+        this.$router.currentRoute.value.matched[0].instances.default;
       if (
+        component !== null,
         typeof component !== "undefined" &&
+        typeof component.$options !== "undefined" &&
+        component.$options !== null &&
         typeof component.$options.breadcrumbs !== "undefined"
       ) {
         const result = component.$options.breadcrumbs.call(component);

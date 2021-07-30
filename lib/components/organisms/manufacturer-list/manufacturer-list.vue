@@ -28,10 +28,10 @@
   </div>
 </template>
 <script>
-import isNumber from "lodash/isNumber";
-import upperCase from "lodash/upperCase";
-import chunk from "lodash/chunk";
-import isUndefined from "lodash/isUndefined";
+import isNumber from "lodash-es/isNumber";
+import upperCase from "lodash-es/upperCase";
+import chunk from "lodash-es/chunk";
+import isUndefined from "lodash-es/isUndefined";
 export default {
   props: {
     manufacturers: {

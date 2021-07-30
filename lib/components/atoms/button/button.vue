@@ -1,12 +1,12 @@
 <template>
-  <button
+  <component
     :is="to ? 'router-link' : 'button'"
     :to="to"
     :disabled="disabled"
     :type="type"
     :class="getClass"
     class="vf-a-button"
-    v-on="$listeners"
+    v-bind="$attrs"
   >
     <slot></slot>
     <span v-if="$slots.visible" class="btn-inner--visible">
@@ -15,7 +15,7 @@
     <span v-if="$slots.hidden" class="btn-inner--hidden">
       <slot name="hidden"></slot>
     </span>
-  </button>
+  </component>
 </template>
 <script>
 export default {

@@ -4,7 +4,7 @@
 
     <vf-m-field
       id="input-rating"
-      :state="$v.rating.$dirty ? !$v.rating.$error : null"
+      :state="v$.rating.$dirty ? !v$.rating.$error : null"
     >
       <template #label>{{
         $t("elements.common.reviews.ratingEntry")
@@ -19,7 +19,7 @@
 
     <vf-m-field
       id="input-name"
-      :state="$v.author.$dirty ? !$v.author.$error : null"
+      :state="v$.author.$dirty ? !v$.author.$error : null"
     >
       <template #label>{{ $t("elements.common.reviews.nameEntry") }}</template>
       <template #default="data">
@@ -32,7 +32,7 @@
 
     <vf-m-field
       id="input-review"
-      :state="$v.review.$dirty ? !$v.review.$error : null"
+      :state="v$.review.$dirty ? !v$.review.$error : null"
     >
       <template #label>{{
         $t("elements.common.reviews.reviewEntry")
@@ -49,15 +49,16 @@
   </vf-o-form>
 </template>
 <script>
-import { validationMixin } from "vuelidate";
-import required from "vuelidate/lib/validators/required";
-import minLength from "vuelidate/lib/validators/minLength";
-import minValue from "vuelidate/lib/validators/minValue";
-import maxLength from "vuelidate/lib/validators/maxLength";
-import maxValue from "vuelidate/lib/validators/maxValue";
+import { useVuelidate } from "@vuelidate/core";
+import {
+  maxValue,
+  maxLength,
+  minValue,
+  minLength,
+  required,
+} from "@vuelidate/validators";
 
 export default {
-  mixins: [validationMixin],
   data() {
     return {
       author: "",
@@ -65,6 +66,7 @@ export default {
       review: "",
     };
   },
+  setup: () => ({ v$: useVuelidate() }),
   validations: {
     rating: {
       required,
@@ -84,9 +86,9 @@ export default {
   },
   methods: {
     onSubmit(e) {
-      this.$v.$touch();
+      this.v$.$touch();
 
-      if (!this.$v.$invalid) {
+      if (!this.v$.$invalid) {
         this.$emit("submit", {
           content: this.review,
           author: this.author,

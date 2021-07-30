@@ -1,9 +1,8 @@
-import isUndefined from "lodash/isUndefined";
-import isEmpty from "lodash/isEmpty";
-import isString from "lodash/isString";
-import isNull from "lodash/isNull";
-import Vue from "vue";
-export const state = () => ({
+import isUndefined from "lodash-es/isUndefined";
+import isEmpty from "lodash-es/isEmpty";
+import isString from "lodash-es/isString";
+import isNull from "lodash-es/isNull";
+export const state = {
   positions: {},
   modules: {},
   layouts: {},
@@ -11,23 +10,23 @@ export const state = () => ({
   params: {
     url: "",
   },
-});
+};
 
 export const mutations = {
   setPosition(state, { name, route, status }) {
     if (isUndefined(state.positions[route])) {
-      Vue.set(state.positions, route, {});
+      state.positions[route] = {}
     }
-    Vue.set(state.positions[route], name, status);
+    state.positions[route][name] = status
   },
   setLayout(state, { route, layout }) {
-    Vue.set(state.layouts, route, layout);
+    state.layouts[route] = layout
   },
   setModule(state, { name, route, list }) {
     if (isUndefined(state.modules[route])) {
-      Vue.set(state.modules, route, {});
+      state.modules[route] = {}
     }
-    Vue.set(state.modules[route], name, list);
+    state.modules[route][name] = list
   },
   setRoute(state, payload) {
     state.path = payload;

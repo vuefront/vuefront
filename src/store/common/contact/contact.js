@@ -1,8 +1,8 @@
 import gql from "graphql-tag";
 
-export const state = () => ({
+export const state = {
   contact: null,
-});
+};
 
 export const getters = {
   get(state) {
@@ -22,7 +22,7 @@ export const actions = {
       "apollo/mutate",
       {
         mutation: gql`
-          mutation($name: String, $email: String, $message: String) {
+          mutation ($name: String, $email: String, $message: String) {
             contactSend(name: $name, email: $email, message: $message) {
               status
             }
@@ -50,31 +50,30 @@ export const actions = {
   },
   async get({ dispatch, rootGetters, commit }) {
     try {
-      const { data } = await this.$vfapollo.query(
-        {
-          query: gql`
-            {
-              contact {
-                locations {
-                  address
-                  fax
-                  image
-                  geocode
-                  telephone
-                  open
-                  comment
-                }
+      const { data } = await this.$vfapollo.query({
+        query: gql`
+          {
+            contact {
+              locations {
                 address
-                email
                 fax
-                comment
-                open
-                store
+                image
+                geocode
                 telephone
+                open
+                comment
               }
+              address
+              email
+              fax
+              comment
+              open
+              store
+              telephone
             }
-          `,
-        });
+          }
+        `,
+      });
 
       commit("setContact", data.contact);
     } catch (e) {

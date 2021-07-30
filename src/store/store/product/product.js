@@ -1,10 +1,10 @@
 // import reviewAddGql from './addReview.graphql'
 import gql from "graphql-tag";
-export const state = () => ({
+export const state = {
   entities: {},
   product: {},
   options: {},
-});
+};
 
 export const getters = {
   list(state) {
@@ -37,7 +37,7 @@ export const actions = {
       "apollo/mutate",
       {
         mutation: gql`
-          mutation(
+          mutation (
             $id: String
             $content: String
             $author: String

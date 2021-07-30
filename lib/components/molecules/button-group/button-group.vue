@@ -1,5 +1,5 @@
 <template>
-  <div :class="getClass" class="vf-m-button-group" v-on="$listeners">
+  <div :class="getClass" class="vf-m-button-group" v-bind="$attrs">
     <slot></slot>
   </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
-  <div :is="tag" class="vf-a-heading" :class="getClass">
+  <component :is="tag" class="vf-a-heading" :class="getClass">
     <slot></slot>
-  </div>
+  </component>
 </template>
 <script>
 export default {

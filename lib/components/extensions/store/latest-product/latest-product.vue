@@ -23,10 +23,6 @@
 </template>
 <script>
 export default {
-  components: {
-    vfOApollo: () =>
-      import("vuefront/lib/components/organisms/apollo/apollo.vue"),
-  },
   props: {
     column: {
       type: Boolean,

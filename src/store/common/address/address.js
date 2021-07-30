@@ -1,9 +1,9 @@
 import gql from "graphql-tag";
 
-export const state = () => ({
+export const state = {
   address: false,
   entities: [],
-});
+};
 
 export const getters = {
   get(state) {
@@ -29,7 +29,7 @@ export const actions = {
       "apollo/mutate",
       {
         mutation: gql`
-          mutation($address: AccountAddressInput) {
+          mutation ($address: AccountAddressInput) {
             accountAddAddress(address: $address) {
               id
               firstName
@@ -65,7 +65,7 @@ export const actions = {
       "apollo/mutate",
       {
         mutation: gql`
-          mutation($id: String, $address: AccountAddressInput) {
+          mutation ($id: String, $address: AccountAddressInput) {
             accountEditAddress(id: $id, address: $address) {
               id
               firstName
@@ -102,7 +102,7 @@ export const actions = {
       "apollo/mutate",
       {
         mutation: gql`
-          mutation($id: String) {
+          mutation ($id: String) {
             accountRemoveAddress(id: $id, page: 1, size: -1) {
               id
               firstName

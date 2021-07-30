@@ -1,5 +1,5 @@
 <template>
-  <div :is="tag" class="vf-m-media">
+  <component :is="tag" class="vf-m-media">
     <template v-if="!rightAlign">
       <div
         v-if="$slots.aside"
@@ -22,7 +22,7 @@
         <slot name="aside"></slot>
       </div>
     </template>
-  </div>
+  </component>
 </template>
 <script>
 export default {

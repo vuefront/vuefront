@@ -13,15 +13,14 @@
         &lsaquo;
       </button>
     </li>
-    <template v-for="(item, index) in pageButtons">
+    <template v-for="(item, index) in pageButtons" :key="`pagination-${index}`">
       <li
         v-if="item === 'less' || item === 'more'"
-        :key="index"
         class="vf-a-pagination__item"
       >
         <span>&hellip;</span>
       </li>
-      <li v-else :key="index" class="vf-a-pagination__item">
+      <li v-else class="vf-a-pagination__item">
         <button :class="getClass(item)" @click.prevent="handleChange(item)">
           {{ item }}
         </button>
@@ -46,7 +45,7 @@
   </ul>
 </template>
 <script>
-import range from "lodash/range";
+import range from "lodash-es/range";
 
 export default {
   model: {

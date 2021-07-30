@@ -1,11 +1,11 @@
 // import editCurrencyGraphql from './edit.graphql'
 // import currencyGetGql from './get.graphql'
 import gql from "graphql-tag";
-import Vue from "vue";
 
-export const state = () => ({
+
+export const state = {
   currency: [],
-});
+};
 
 export const getters = {
   get(state) {
@@ -15,27 +15,26 @@ export const getters = {
 
 export const mutations = {
   setCurrency(state, currency) {
-    Vue.set(state, "currency", currency);
+    state.currency = currency
   },
 };
 
 export const actions = {
   async load({ commit }) {
     try {
-      const { data } = await this.$vfapollo.query(
-        {
-          query: gql`
-            {
-              currency {
-                code
-                symbol_left
-                symbol_right
-                title
-                active
-              }
+      const { data } = await this.$vfapollo.query({
+        query: gql`
+          {
+            currency {
+              code
+              symbol_left
+              symbol_right
+              title
+              active
             }
-          `,
-        });
+          }
+        `,
+      });
 
       commit("setCurrency", data.currency);
     } catch (e) {
@@ -49,7 +48,7 @@ export const actions = {
       "apollo/mutate",
       {
         mutation: gql`
-          mutation($code: String) {
+          mutation ($code: String) {
             editCurrency(code: $code) {
               code
               symbol_left

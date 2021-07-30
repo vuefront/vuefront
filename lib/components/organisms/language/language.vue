@@ -37,7 +37,7 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
-import find from "lodash/find";
+import * as _ from "lodash"
 export default {
   computed: {
     ...mapGetters({
@@ -45,7 +45,7 @@ export default {
       error: "vuefront/error",
     }),
     activeLanguage() {
-      return find(this.language, { active: true });
+      return _.find(this.language, { active: true });
     },
   },
   methods: {

@@ -1,7 +1,7 @@
-export const state = () => ({
+export const state = {
   message: "",
   error: "",
-});
+};
 
 export const getters = {
   get(state) {

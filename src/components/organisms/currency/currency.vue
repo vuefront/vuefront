@@ -8,7 +8,13 @@
     >
       <template slot="button-content">
         <span
-          class="d-none d-md-inline-block currency-section__symbol mr-1 font-normal text-base"
+          class="
+            d-none d-md-inline-block
+            currency-section__symbol
+            mr-1
+            font-normal
+            text-base
+          "
           >{{ activeCurrency.symbol_left || activeCurrency.symbol_right }}</span
         >
         <span class="currency-section__title font-normal text-base">{{
@@ -28,7 +34,7 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
-import find from "lodash/find";
+import * as _ from "lodash";
 export default {
   computed: {
     ...mapGetters({
@@ -36,7 +42,7 @@ export default {
       error: "vuefront/error",
     }),
     activeCurrency() {
-      return find(this.currency, { active: true });
+      return _.find(this.currency, { active: true });
     },
   },
   methods: {

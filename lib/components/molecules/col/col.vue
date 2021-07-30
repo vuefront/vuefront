@@ -1,10 +1,10 @@
 <template>
-  <div :is="tag" class="vf-m-col" :class="classList">
+  <component :is="tag" class="vf-m-col" :class="classList">
     <slot></slot>
-  </div>
+  </component>
 </template>
 <script>
-import capitalize from "lodash/capitalize";
+import capitalize from "lodash-es/capitalize";
 export default {
   props: {
     alignSelf: {

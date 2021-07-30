@@ -2,9 +2,11 @@
   <vf-o-apollo v-slot="{ data }" class="vf-e-store-category">
     <span>
       <vf-m-list-group>
-        <template v-for="(value, index) in data.categoriesList.content">
+        <template
+          v-for="(value, index) in data.categoriesList.content"
+          :key="`root-${index}`"
+        >
           <vf-m-list-group-item
-            :key="`root-${index}`"
             :to="value.url"
             :active="checkView(value, value.categories)"
             v-html="value.name"
@@ -24,9 +26,9 @@
   </vf-o-apollo>
 </template>
 <script>
-import isEmpty from "lodash/isEmpty";
-import map from "lodash/map";
-import includes from "lodash/includes";
+import isEmpty from "lodash-es/isEmpty";
+import map from "lodash-es/map";
+import includes from "lodash-es/includes";
 
 export default {
   computed: {

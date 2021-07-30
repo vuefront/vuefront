@@ -11,7 +11,7 @@
   </div>
 </template>
 <script>
-import find from "lodash/find";
+import find from "lodash-es/find";
 export default {
   props: ["option", "selected"],
   computed: {

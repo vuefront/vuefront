@@ -19,7 +19,7 @@ export default {
   },
   watch: {
     $route(to, from) {
-      if (to.matched[0].path === "/search/:slug") {
+      if (to.matched.length > 0 && to.matched[0].path === "/search/:slug") {
         this.keyword = to.params.slug;
       } else {
         this.keyword = "";

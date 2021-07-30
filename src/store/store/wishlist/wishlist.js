@@ -2,9 +2,9 @@
 // import removeWishlistGraphql from './remove.graphql'
 import gql from "graphql-tag";
 
-export const state = () => ({
+export const state = {
   wishlist: {},
-});
+};
 
 export const getters = {
   get(state) {
@@ -24,7 +24,7 @@ export const actions = {
       "apollo/mutate",
       {
         mutation: gql`
-          mutation($id: Int) {
+          mutation ($id: Int) {
             addToWishlist(id: $id) {
               id
               name
@@ -61,7 +61,7 @@ export const actions = {
       "apollo/mutate",
       {
         mutation: gql`
-          mutation($id: String) {
+          mutation ($id: String) {
             removeWishlist(id: $id) {
               id
               name

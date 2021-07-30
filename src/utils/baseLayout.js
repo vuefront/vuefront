@@ -1,5 +1,5 @@
 import { mapGetters } from "vuex";
-import isUndefined from "lodash/isUndefined";
+import isUndefined from "lodash-es/isUndefined";
 export const BaseLayout = {
   data() {
     this.$store.dispatch("position/loadModules", { position: this.name });

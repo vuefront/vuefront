@@ -26,7 +26,7 @@ export default {
   props: ["id", "keyword", "url"],
   asyncData(ctx) {
     return {
-      loaded: !process.client,
+      loaded: !document,
     };
   },
   data() {
@@ -35,7 +35,7 @@ export default {
     const sort = this.$route.query.sort ? this.$route.query.sort : "id";
     const order = this.$route.query.order ? this.$route.query.order : "ASC";
     return {
-      loaded: true,
+      loaded: !document,
       size,
       sort: `${sort}|${order}`,
       page,
@@ -62,7 +62,9 @@ export default {
   },
   breadcrumbs() {
     const category = this.$store.getters["store/category/get"];
-
+    if (!category) {
+      return [];
+    }
     return [
       {
         title: category.meta.title,
@@ -110,32 +112,46 @@ export default {
         this.handleLoadData();
       }
     },
+    $route: {
+      deep: true,
+      handler(value) {
+        this.loaded = false;
+      },
+    },
   },
   watchQuery: true,
   mounted() {
+    console.log("mounted");
+    console.log(this.loaded);
     if (!this.loaded) {
       this.handleLoadData();
     }
   },
   methods: {
     async handleLoadData(ctx) {
-      const { id } = this.$vuefront.params;
-      const sortData = this.sort.split("|");
+      console.log("handleLoadData");
+      console.log(this.$vuefront.params);
+      try {
+        const { id } = this.$vuefront.params;
+        const sortData = this.sort.split("|");
 
-      await this.$store.dispatch("apollo/query", {
-        query: this.$options.query,
-        variables: {
-          page: this.page,
-          size: this.size,
-          categoryId: id,
-          sort: sortData[0],
-          order: sortData[1],
-        },
-      });
-      const { productsList, category } = this.$store.getters["apollo/get"];
-      this.$store.commit("store/product/setEntities", productsList);
-      this.$store.commit("store/category/setCategory", category);
-      this.loaded = true;
+        await this.$store.dispatch("apollo/query", {
+          query: this.$options.query,
+          variables: {
+            page: this.page,
+            size: this.size,
+            categoryId: id,
+            sort: sortData[0],
+            order: sortData[1],
+          },
+        });
+        const { productsList, category } = this.$store.getters["apollo/get"];
+        this.$store.commit("store/product/setEntities", productsList);
+        this.$store.commit("store/category/setCategory", category);
+        this.loaded = true;
+      } catch (e) {
+        console.log(e);
+      }
     },
   },
 };

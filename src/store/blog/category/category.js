@@ -1,6 +1,6 @@
-export const state = () => ({
+export const state = {
   category: {},
-});
+};
 
 export const getters = {
   get(state) {

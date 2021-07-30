@@ -14,7 +14,6 @@
         >{{ value.title }}</vf-m-breadcrumb-item
       >
     </vf-m-breadcrumb>
-    <vf-l-o-breadcrumb v-else-if="!loaded" />
   </vf-m-container>
 </template>
 <script>

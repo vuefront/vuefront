@@ -1,12 +1,24 @@
 <template>
   <section>
-    <vf-m-row :no-gutters="noGutters">
+    <vf-m-row
+      :no-gutters="
+        noGutters !== null ? noGutters : $vuefront.options.productGridNoGutters
+      "
+    >
       <vf-m-col
         v-for="(value, index) in products"
         :key="index"
         xs="12"
-        :md="list || column ? 12 : 12 / gridSizeTablet"
-        :lg="list || column ? 12 : 12 / gridSize"
+        :md="
+          list || column
+            ? 12
+            : 12 / (gridSizeTablet | $vuefront.options.productGridSizeTablet)
+        "
+        :lg="
+          list || column
+            ? 12
+            : 12 / (gridSize | $vuefront.options.productGridSize)
+        "
       >
         <vf-o-product-thumb
           :product="value"
@@ -37,7 +49,7 @@ export default {
     noGutters: {
       type: Boolean,
       default() {
-        return this.$vuefront.options.productGridNoGutters;
+        return null;
       },
     },
     suffixUrl: {
@@ -49,13 +61,13 @@ export default {
     gridSize: {
       type: Number,
       default() {
-        return this.$vuefront.options.productGridSize;
+        return null;
       },
     },
     gridSizeTablet: {
       type: Number,
       default() {
-        return this.$vuefront.options.productGridSizeTablet;
+        return null;
       },
     },
   },

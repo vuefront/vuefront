@@ -1,13 +1,13 @@
 <template>
-  <vf-a-link
+  <component
     :is="to ? 'vf-a-link' : 'div'"
     class="vf-m-list-group__item"
     :class="{ 'vf-m-list-group__item--active': active }"
     :to="to"
-    v-on="$listeners"
+    v-bind="$attrs"
   >
     <slot></slot>
-  </vf-a-link>
+  </component>
 </template>
 <script>
 export default {

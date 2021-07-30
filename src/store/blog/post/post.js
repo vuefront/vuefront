@@ -1,8 +1,8 @@
 import gql from "graphql-tag";
-export const state = () => ({
+export const state = {
   entities: {},
   post: {},
-});
+};
 
 export const getters = {
   list(state) {
@@ -28,7 +28,7 @@ export const actions = {
       "apollo/mutate",
       {
         mutation: gql`
-          mutation(
+          mutation (
             $id: String
             $content: String
             $author: String

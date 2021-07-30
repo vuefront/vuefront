@@ -74,7 +74,7 @@ export default {
   },
   data() {
     return {
-      loaded: true,
+      loaded: !document,
       category: null,
     };
   },
@@ -127,6 +127,14 @@ export default {
   },
   serverPrefetch() {
     return this.handleLoadData(this);
+  },
+  watch: {
+    $route: {
+      deep: true,
+      handler(value) {
+        this.loaded = false;
+      },
+    },
   },
   methods: {
     async handleLoadData(ctx) {

@@ -1,12 +1,10 @@
-// import editLanguageGraphql from './edit.graphql'
-// import languageGetGql from './get.graphql'
-import find from "lodash/find";
+import find from "lodash-es/find";
 import gql from "graphql-tag";
 
-export const state = () => ({
+export const state = {
   language: [],
   locale: "en-gb",
-});
+};
 
 export const getters = {
   get(state) {
@@ -29,19 +27,18 @@ export const mutations = {
 export const actions = {
   async load({ commit }) {
     try {
-      const { data } = await this.$vfapollo.query(
-        {
-          query: gql`
-            {
-              language {
-                name
-                image
-                code
-                active
-              }
+      const { data } = await this.$vfapollo.query({
+        query: gql`
+          {
+            language {
+              name
+              image
+              code
+              active
             }
-          `,
-        });
+          }
+        `,
+      });
 
       commit("setLanguage", data.language);
       const active = find(data.language, {
@@ -62,7 +59,7 @@ export const actions = {
       "apollo/mutate",
       {
         mutation: gql`
-          mutation($code: String) {
+          mutation ($code: String) {
             editLanguage(code: $code) {
               name
               image

@@ -1,10 +1,5 @@
 <template>
-  <div
-    v-show="localShow"
-    class="vf-a-alert"
-    :class="getClass"
-    v-on="$listeners"
-  >
+  <div v-show="localShow" class="vf-a-alert" :class="getClass" v-bind="$attrs">
     <div class="vf-a-alert__content">
       <slot></slot>
     </div>

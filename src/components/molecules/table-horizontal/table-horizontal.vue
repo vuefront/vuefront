@@ -13,7 +13,7 @@
         :key="itemKey"
         class="vf-m-table-horizontal__value"
       >
-        <template v-if="$scopedSlots[field.key]">
+        <template v-if="$slots[field.key]">
           <slot :name="field.key" v-bind="item"></slot>
         </template>
         <div v-else v-html="item[field.key]"></div>

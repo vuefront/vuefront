@@ -1,9 +1,6 @@
 <script>
-import Vue from "vue";
-import VueLazyload from "vue-lazyload";
-Vue.use(VueLazyload, {
-  throttleWait: 100,
-});
+import { h, resolveDirective, withDirectives } from "vue";
+
 export default {
   props: {
     blankColor: {
@@ -90,7 +87,7 @@ export default {
   computed: {
     isDark() {
       let theme = false;
-      if (process.client) {
+      if (document) {
         if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
           theme = true;
         }
@@ -105,7 +102,7 @@ export default {
       return this.src;
     },
   },
-  render(createElement) {
+  render() {
     if (!this.$vuefront.isAMP) {
       const styles = {};
       if (this.width !== "") {
@@ -134,16 +131,11 @@ export default {
         imgClass = "vf-a-image__img--cover";
       }
 
-      const directives = [];
 
       // if (this.lazySrc !== "") {
-      directives.push({
-        name: "lazy",
-        arg: "background-image",
-        value: { /* loading: this.lazySrc, */ src },
-      });
+      const lazy = resolveDirective("lazy");
       // }
-      return createElement(
+      return h(
         "div",
         {
           class: `vf-a-image image-wrapper layout-${this.layout}`,
@@ -152,7 +144,7 @@ export default {
           },
         },
         [
-          createElement(
+          h(
             "div",
             {
               class: "vf-a-image__sizer image-sizer",
@@ -162,22 +154,24 @@ export default {
             },
             []
           ),
-          createElement(
-            "div",
-            {
-              class: "vf-a-image__img image-img " + imgClass,
-              directives: [...directives],
-              style: {
-                /* "background-image":
+          withDirectives(
+            h(
+              "div",
+              {
+                class: "vf-a-image__img image-img " + imgClass,
+                style: {
+                  /* "background-image":
                   this.lazySrc !== ""
                     ? `url(${this.lazySrc})`
                     : `url(${this.src})`, */
-                "background-color": this.blankColor ? this.blankColor : null,
+                  "background-color": this.blankColor ? this.blankColor : null,
+                },
               },
-            },
-            []
+              []
+            ),
+            [[lazy, src]]
           ),
-          createElement(
+          h(
             "div",
             {
               class: "vf-a-image__content",
@@ -192,7 +186,7 @@ export default {
       if (this.isDark && this.srcDark !== "") {
         src = this.srcDark;
       }
-      return createElement(
+      return h(
         "amp-img",
         {
           attrs: {

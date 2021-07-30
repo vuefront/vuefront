@@ -1,5 +1,5 @@
 <template>
-  <div
+  <component
     :is="tag"
     :id="id"
     :size="size"
@@ -21,7 +21,7 @@
         </div>
       </slot>
     </div>
-  </div>
+  </component>
 </template>
 <script>
 export default {
