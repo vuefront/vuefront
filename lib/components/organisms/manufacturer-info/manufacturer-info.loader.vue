@@ -25,7 +25,9 @@ export default {};
 </script>
 
 <script>
-import { TbSkeleton, Skeleton } from "tb-skeleton";
+import * as ISkeleton from "tb-skeleton";
+const { TbSkeleton, Skeleton } = ISkeleton
+
 
 export default {
   components: {

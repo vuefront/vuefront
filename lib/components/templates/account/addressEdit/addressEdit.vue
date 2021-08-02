@@ -12,11 +12,10 @@
   </section>
 </template>
 <script>
-import { validationMixin } from "vuelidate";
-import required from "vuelidate/lib/validators/required";
-import minLength from "vuelidate/lib/validators/minLength";
-import maxLength from "vuelidate/lib/validators/maxLength";
+import * as vuelidate from "vuelidate";
+import { required, minLength, maxLength } from "vuelidate/lib/validators";
 import { mapGetters } from "vuex";
+const { validationMixin } = vuelidate;
 export default {
   mixins: [validationMixin],
   props: ["address", "countries", "zones"],

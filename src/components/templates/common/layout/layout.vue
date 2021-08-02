@@ -13,7 +13,6 @@ export default {
       let result = this.layout;
       result = result.charAt(0).toUpperCase() + result.slice(1);
       const name = "Layout" + result;
-
       if (!isUndefined(this.$vuefront.templates[name])) {
         return this.$vuefront.templates[name];
       }

@@ -56,11 +56,13 @@
   </vf-o-form>
 </template>
 <script>
-import { validationMixin } from "vuelidate";
-import required from "vuelidate/lib/validators/required";
-import minLength from "vuelidate/lib/validators/minLength";
-import maxLength from "vuelidate/lib/validators/maxLength";
-import sameAs from "vuelidate/lib/validators/sameAs";
+import * as vuelidate from "vuelidate";
+import {
+  required,
+  maxLength,
+  minLength,
+  sameAs,
+} from "vuelidate/lib/validators";
 import { mdiArrowRight } from "@mdi/js";
 export default {
   mixins: [validationMixin],

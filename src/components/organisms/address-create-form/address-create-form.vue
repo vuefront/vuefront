@@ -172,12 +172,11 @@
   </vf-o-form>
 </template>
 <script>
-import { validationMixin } from "vuelidate";
+import * as vuelidate from "vuelidate";
 import isEmpty from "lodash-es/isEmpty";
-import required from "vuelidate/lib/validators/required";
-import minLength from "vuelidate/lib/validators/minLength";
-import maxLength from "vuelidate/lib/validators/maxLength";
+import { required, minLength, maxLength } from "vuelidate/lib/validators";
 import { mdiArrowRight } from "@mdi/js";
+const { validationMixin } = vuelidate;
 export default {
   mixins: [validationMixin],
   props: {
