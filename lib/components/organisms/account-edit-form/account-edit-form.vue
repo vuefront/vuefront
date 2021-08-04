@@ -67,6 +67,7 @@ import {
   email,
 } from "vuelidate/lib/validators";
 import { mdiArrowRight } from "@mdi/js";
+const { validationMixin } = vuelidate;
 export default {
   mixins: [validationMixin],
   props: {

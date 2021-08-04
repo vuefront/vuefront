@@ -39,6 +39,10 @@ export default {
   },
   mounted() {
     this.checkModules(this.name);
+    this.$router.beforeResolve((to, from, next) => {
+      this.$store.dispatch("position/loadModules", { position: this.name });
+      next();
+    });
   },
 };
 </script>

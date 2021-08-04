@@ -38,15 +38,15 @@ export const mutations = {
 };
 
 export const getters = {
-  modules(state, rootGetters) {
+  modules(state, getters) {
     return (name) => {
-      if (isUndefined(state.modules[rootGetters.currentRoute])) {
+      if (isUndefined(state.modules[getters.currentRoute])) {
         return null;
       }
-      if (isUndefined(state.modules[rootGetters.currentRoute][name])) {
+      if (isUndefined(state.modules[getters.currentRoute][name])) {
         return null;
       }
-      return state.modules[rootGetters.currentRoute][name];
+      return state.modules[getters.currentRoute][name];
     };
   },
   layout(state, rootGetters) {

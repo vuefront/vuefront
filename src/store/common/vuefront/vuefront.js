@@ -67,5 +67,22 @@ export const actions = {
     if (!rootGetters["vuefront/ssr"]) {
       await dispatch("vuefrontInit");
     }
+    this.$router.beforeResolve((to, from, next) => {
+      let path = to.path;
+      if (to.matched.length > 0) {
+        path = to.matched[0].path;
+        for (const key in to.params) {
+          path = path.replace(`:${key}`, to.params[key]);
+        }
+      }
+      let result = to.params;
+
+      if (to.matched.length > 0) {
+        result = { ...result, ...to.matched[0].props.default };
+      }
+      commit("position/setParams", result, { root: true });
+      commit("position/setRoute", path, { root: true });
+      next();
+    });
   },
 };
