@@ -79,6 +79,13 @@ export default {
   serverPrefetch() {
     return this.handleLoadData(this);
   },
+  watch: {
+    loaded(newValue, oldValue) {
+      if (!newValue && oldValue) {
+        this.handleLoadData();
+      }
+    },
+  },
   watchQuery: true,
   mounted() {
     if (!this.loaded) {
