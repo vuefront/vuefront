@@ -1,5 +1,10 @@
 <template>
-  <form class="vf-o-form" @submit="onSubmit" @reset="onReset">
+  <form
+    class="vf-o-form test"
+    autocomplete="off"
+    @submit="onSubmit"
+    @reset="onReset"
+  >
     <div v-if="!inline" :class="{ 'mb-5': $slots['sub-title'] }">
       <vf-a-heading v-if="$slots['sub-title']" tag="h6" level="3">
         <slot name="title"></slot>
