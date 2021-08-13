@@ -1,3 +1,4 @@
+const { colors } = require("./colors");
 const { invertColor, alpha, darken } = require("./utils");
 module.exports = (theme) => ({
   select: {
@@ -465,6 +466,14 @@ module.exports = (theme) => ({
       width: theme("width.8"),
       height: theme("height.8"),
       borderWidth: theme("borderWidth.DEFAULT"),
+      "&__hellip": {
+        lineHeight: "2.5"
+      },
+      "&:nth-child(-n + 2),&:nth-last-child(-n + 2)": {
+        ".vf-a-pagination__link": {
+          lineHeight: "2",
+        },
+      },
     },
     "&__link": {
       width: theme("width.full"),
