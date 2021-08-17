@@ -113,12 +113,12 @@ export default {
         }
         window.setTimeout(() => {
           document.body.className = document.body.className.replace(
-            /\s?vf-o-modal-open/,
+            /\s?vf-o-modal--open/,
             ''
           )
           document.querySelector('html').className = document
             .querySelector('html')
-            .className.replace(/\s?vf-o-modal-open/, '')
+            .className.replace(/\s?vf-o-modal--open/, '')
         }, this.duration || 0)
       }
     },
