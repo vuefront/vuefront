@@ -12,6 +12,7 @@
       value
     }
     manufacturer {
+      id
       name
       url(url: "/store/manufacturer/_id")
     }

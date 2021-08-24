@@ -38,6 +38,7 @@ export const actions = {
                 value
               }
               manufacturer {
+                id
                 name
                 url(url: "/store/manufacturer/_id")
               }
@@ -84,6 +85,7 @@ export const actions = {
                 value
               }
               manufacturer {
+                id
                 name
                 url(url: "/store/manufacturer/_id")
               }
