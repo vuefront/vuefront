@@ -32,6 +32,15 @@ export const actions = {
               price
               image
               imageLazy
+              url(url: "/store/product/_id")
+              extra {
+                name
+                value
+              }
+              manufacturer {
+                name
+                url(url: "/store/manufacturer/_id")
+              }
             }
           }
         `,
@@ -69,6 +78,15 @@ export const actions = {
               price
               image
               imageLazy
+              url(url: "/store/product/_id")
+              extra {
+                name
+                value
+              }
+              manufacturer {
+                name
+                url(url: "/store/manufacturer/_id")
+              }
             }
           }
         `,
