@@ -121,16 +121,12 @@ export default {
   },
   watchQuery: true,
   mounted() {
-    console.log("mounted");
-    console.log(this.loaded);
     if (!this.loaded) {
       this.handleLoadData();
     }
   },
   methods: {
     async handleLoadData(ctx) {
-      console.log("handleLoadData");
-      console.log(this.$vuefront.params);
       try {
         const { id } = this.$vuefront.params;
         const sortData = this.sort.split("|");

@@ -38,7 +38,7 @@ export default {
       if (!isEmpty(this.$route.params.id)) {
         result = this.$route.params.id;
       }
-      if (!isEmpty(this.$route.matched[0].props)) {
+      if (!isEmpty(this.$route.matched[0].props) && this.$route.matched[0].props.default) {
         result = this.$route.matched[0].props.default.id;
       }
 

@@ -7,6 +7,7 @@
     :trim="trim"
     class="vf-a-input"
     :class="`vf-a-input--${type} ${getClass}`"
+    autocomplete="none"
     @input="handleInput"
     @change="handleChange"
     @keypress="handleKeypress"
@@ -61,9 +62,7 @@ export default {
       }
 
       if (!(this.state || this.state === null)) {
-        result.push(
-          "--error"
-        );
+        result.push("--error");
       }
 
       return result.join(" ");

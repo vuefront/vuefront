@@ -21,6 +21,7 @@ export default {
         {
           value: null,
           text: this.$t("elements.store.product.option.select.selectText"),
+          disabled:true
         },
       ];
 

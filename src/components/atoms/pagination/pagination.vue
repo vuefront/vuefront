@@ -1,24 +1,29 @@
 <template>
   <ul class="vf-a-pagination">
     <li class="vf-a-pagination__item">
-      <button :class="getClass(1, true)" @click.prevent="handleChange(1)">
-        &laquo;
-      </button>
+      <div :class="getClass(1, true)">
+        <button @click.prevent="handleChange(1)">
+          &laquo;
+        </button>
+      </div> 
     </li>
     <li class="vf-a-pagination__item">
-      <button
-        :class="getClass(page > 1 ? page - 1 : 1, true)"
-        @click.prevent="handleChange(page > 1 ? page - 1 : 1)"
-      >
-        &lsaquo;
-      </button>
+      <div :class="getClass(page > 1 ? page - 1 : 1, true)">
+          <button
+          @click.prevent="handleChange(page > 1 ? page - 1 : 1)"
+        >
+          &lsaquo;
+        </button>
+      </div>
     </li>
     <template v-for="(item, index) in pageButtons" :key="`pagination-${index}`">
       <li
         v-if="item === 'less' || item === 'more'"
         class="vf-a-pagination__item"
       >
-        <span>&hellip;</span>
+      <div class="vf-a-pagination__item__hellip">
+          <span>&hellip;</span>
+      </div>
       </li>
       <li v-else class="vf-a-pagination__item">
         <button :class="getClass(item)" @click.prevent="handleChange(item)">
@@ -27,20 +32,21 @@
       </li>
     </template>
     <li class="vf-a-pagination__item">
-      <button
-        :class="getClass(page < totalPages ? page + 1 : totalPages, true)"
-        @click.prevent="handleChange(page < totalPages ? page + 1 : totalPages)"
-      >
-        &rsaquo;
-      </button>
+      <div          :class="getClass(page < totalPages ? page + 1 : totalPages, true)" >
+          <button
+          @click.prevent="handleChange(page < totalPages ? page + 1 : totalPages)"
+          > 
+          &rsaquo;
+        </button>
+      </div>
     </li>
     <li class="vf-a-pagination__item">
-      <button
-        :class="getClass(totalPages, true)"
-        @click.prevent="handleChange(totalPages)"
-      >
+      <div  :class="getClass(totalPages, true)">
+        <button
+        @click.prevent="handleChange(totalPages)">
         &raquo;
       </button>
+      </div>
     </li>
   </ul>
 </template>

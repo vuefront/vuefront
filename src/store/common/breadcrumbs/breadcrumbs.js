@@ -39,7 +39,7 @@ export const actions = {
       const component =
         this.$router.currentRoute.value.matched[0].instances.default;
       if (
-        component !== null,
+        component !== null &&
         typeof component !== "undefined" &&
         typeof component.$options !== "undefined" &&
         component.$options !== null &&

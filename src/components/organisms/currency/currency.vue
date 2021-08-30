@@ -34,7 +34,7 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
-import * as _ from "lodash";
+import find from "lodash-es/find";
 export default {
   computed: {
     ...mapGetters({
@@ -42,7 +42,7 @@ export default {
       error: "vuefront/error",
     }),
     activeCurrency() {
-      return _.find(this.currency, { active: true });
+      return find(this.currency, { active: true });
     },
   },
   methods: {

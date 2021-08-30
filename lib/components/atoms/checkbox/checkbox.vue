@@ -28,7 +28,7 @@ export default {
       type: Boolean,
       default: null,
     },
-    value: {
+    modelValue: {
       type: [String, Number, Object],
       default() {
         return null;
@@ -52,15 +52,18 @@ export default {
       },
       set(val) {
         if (isArray(this.checked)) {
+          console.log('isArray')
           const result = this.checked;
-          if (result.includes(this.value)) {
-            result.splice(result.indexOf(this.value), 1);
+          if (result.includes(this.modelValue)) {
+            result.splice(result.indexOf(this.modelValue), 1);
           } else {
-            result.push(this.value);
+            result.push(this.modelValue);
           }
-          this.$emit("input", result);
+          console.log('result')
+          console.log(result)
+          this.$emit("update:modelValue", result);
         } else {
-          this.$emit("input", !this.checked);
+          this.$emit("update:modelValue", val);
         }
       },
     },

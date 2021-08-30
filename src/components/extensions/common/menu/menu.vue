@@ -46,10 +46,19 @@
               :icon="mdiChevronRight"
               class="vf-e-common-menu__icon vf-e-common-menu__icon--float"
             />
+            <vf-a-icon
+              v-if="subItem.children && subItem.children.length > 0"
+              :icon="mdiChevronDown"
+              class="
+                vf-e-common-menu__icon vf-e-common-menu__icon--float-mobile
+              "
+            />
           </vf-a-link>
           <div
             v-if="subItem.children && subItem.children.length > 0"
-            class="vf-e-common-menu__submenu vf-e-common-menu__submenu--horizontal"
+            class="
+              vf-e-common-menu__submenu vf-e-common-menu__submenu--horizontal
+            "
           >
             <div
               v-for="(value, subKey) in subItem.children"

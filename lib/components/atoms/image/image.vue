@@ -3,6 +3,10 @@ import { h, resolveDirective, withDirectives } from "vue";
 
 export default {
   props: {
+    contentClass: {
+      type: String,
+      default: (()=>"")
+    },
     blankColor: {
       type: String,
       default() {
@@ -174,7 +178,7 @@ export default {
           h(
             "div",
             {
-              class: "vf-a-image__content",
+              class: `vf-a-image__content ${this.contentClass}`,
             },
             this.$slots.default
           ),
