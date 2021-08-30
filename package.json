@@ -4,6 +4,7 @@
     "description": "vuefront",
     "files": [
         "lib",
+        "es5",
         "assets",
         "src",
         "seo.js",
@@ -17,6 +18,7 @@
     "author": "Dreamvention",
     "license": "MIT",
     "scripts": {
+        "build-es": "shx mkdir -p es5 && shx rm -r es5 && cross-env NODE_ENV=es5 babel src -D --watch --out-dir es5",
         "build": "shx mkdir -p lib && shx rm -r lib && cross-env NODE_ENV=lib babel src -D --watch --out-dir lib",
         "yalc-watch": "nodemon --delay 6 -e vue,js,scss,json -x yalc push",
         "storybook": "start-storybook -p 6006",

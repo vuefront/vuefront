@@ -1,6 +1,4 @@
-import * as seo from "vuefront/lib/seo";
-
-const MainConfig = {
+module.exports = {
   plugins: {},
   root: {
     components: "vuefront/lib/components",
@@ -607,12 +605,10 @@ const MainConfig = {
       component: "AccountSuccess",
     },
     "/blog/category/:id": {
-      seo: seo.CategoryBlogSeo,
       component: "BlogCategory",
     },
     "/blog/post/:id": {
       component: "BlogPost",
-      seo: seo.PostSeo,
     },
     "/contact": {
       generate: false,
@@ -620,7 +616,6 @@ const MainConfig = {
     },
     "/page/:id": {
       component: "CommonPage",
-      seo: seo.PageSeo,
     },
     "/search": { component: "CommonSearch" },
     "/search/:slug": {
@@ -639,11 +634,9 @@ const MainConfig = {
       component: "StoreCheckoutSuccess",
     },
     "/store/category/:id": {
-      seo: seo.CategorySeo,
       component: "StoreCategory",
     },
     "/store/manufacturer/:id": {
-      seo: seo.ManufacturerSeo,
       component: "StoreManufacturer",
     },
     "/store/manufacturer": {
@@ -655,12 +648,9 @@ const MainConfig = {
     },
     "/store/product/:id": {
       component: "StoreProduct",
-      seo: seo.ProductSeo,
     },
     "/store/special": {
       component: "StoreSpecial",
     },
   },
 };
-
-export default MainConfig;

@@ -85,13 +85,12 @@ export const getters = {
 export const actions = {
   loadModules({ commit, getters }, { position }) {
     let result = [];
-
     if (!isNull(getters.modules(position))) {
       return;
     }
 
-    for (const route in this.app.$vuefront.layouts) {
-      const layout = this.app.$vuefront.layouts[route];
+    for (const route in this.$vuefront.layouts) {
+      const layout = this.$vuefront.layouts[route];
       let regexRoute = route.replace("*", ".*");
       regexRoute = regexRoute.replace("//", "\\//");
       const regex = new RegExp("^" + regexRoute + "$", "i");
@@ -101,6 +100,7 @@ export const actions = {
         if (!isUndefined(layout[position])) {
           extensions = layout[position];
         }
+
         if (
           !isUndefined(layout.extensions) &&
           !isUndefined(layout.extensions[position])
@@ -109,7 +109,7 @@ export const actions = {
         }
         for (const key in extensions) {
           if (isString(extensions[key])) {
-            if (!isUndefined(this.app.$vuefront.extensions[extensions[key]])) {
+            if (!isUndefined(this.$vuefront.extensions[extensions[key]])) {
               result = [
                 ...result,
                 {
@@ -119,7 +119,7 @@ export const actions = {
               ];
             }
           } else if (
-            !isUndefined(this.app.$vuefront.extensions[extensions[key][0]])
+            !isUndefined(this.$vuefront.extensions[extensions[key][0]])
           ) {
             result = [
               ...result,
