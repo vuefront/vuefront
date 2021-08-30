@@ -2,7 +2,6 @@ import { mapGetters } from "vuex";
 import isUndefined from "lodash-es/isUndefined";
 export const BaseLayout = {
   data() {
-    console.log('data BaseLayout')
     this.$store.dispatch("position/loadModules", { position: this.name });
 
     let path = this.$route.path;
@@ -28,7 +27,6 @@ export const BaseLayout = {
   },
   methods: {
     initLayout() {
-      console.log('initLayout')
       let template = "default";
       for (const route in this.$vuefront.layouts) {
         const layout = this.$vuefront.layouts[route];

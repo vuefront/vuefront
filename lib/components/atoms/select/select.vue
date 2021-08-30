@@ -45,7 +45,7 @@ export default {
       type: Boolean,
       default: null,
     },
-    value: {
+    modelValue: {
       type: [String, Number, Object],
       default() {
         return null;
@@ -78,7 +78,7 @@ export default {
       for (const key in this.options) {
         if (
           JSON.stringify(this.options[key][this.valueField]) ===
-          JSON.stringify(this.value)
+          JSON.stringify(this.modelValue)
         ) {
           return key;
         }
@@ -102,7 +102,7 @@ export default {
   },
   methods: {
     handleChange(e) {
-      this.$emit("input", this.options[e.target.value][this.valueField]);
+      this.$emit("update:modelValue", this.options[e.target.value][this.valueField]);
     },
   },
 };

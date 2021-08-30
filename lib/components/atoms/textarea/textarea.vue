@@ -2,7 +2,7 @@
   <textarea
     class="vf-a-textarea"
     :class="getClass"
-    :value="value"
+    :value="modelValue"
     :rows="rows"
     :state="state"
     @input="handleChange"
@@ -29,7 +29,7 @@ export default {
         return null;
       },
     },
-    value: {
+    modelValue: {
       type: [String, Number, Object],
       default() {
         return null;
@@ -69,7 +69,7 @@ export default {
   },
   methods: {
     handleChange(e) {
-      this.$emit("input", e.target.value);
+      this.$emit("update:modelValue", e.target.value);
     },
   },
 };

@@ -1,7 +1,7 @@
 <template>
   <input
     :type="type"
-    :value="value"
+    :value="modelValue"
     :state="state"
     :placeholder="placeholder"
     :trim="trim"
@@ -38,7 +38,7 @@ export default {
         return false;
       },
     },
-    value: {
+    modelValue: {
       type: [String, Number, Object],
       default() {
         return null;
@@ -70,7 +70,7 @@ export default {
   },
   methods: {
     handleInput(e) {
-      this.$emit("input", e.target.value);
+      this.$emit("update:modelValue", e.target.value);
     },
     handleChange(e) {
       this.$emit("change", e.target.value);

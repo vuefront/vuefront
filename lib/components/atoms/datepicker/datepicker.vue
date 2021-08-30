@@ -3,7 +3,7 @@
     type="date"
     class="vf-a-datepicker vf-a-input"
     :class="getClass"
-    :value="value"
+    :value="modelValue"
     @input="handleInput"
     @change="handleChange"
     @keypress="handleKeypress"
@@ -30,7 +30,7 @@ export default {
         return false;
       },
     },
-    value: {
+    modelValue: {
       type: [String, Number, Object],
       default() {
         return null;
@@ -64,7 +64,7 @@ export default {
   },
   methods: {
     handleInput(e) {
-      this.$emit("input", e.target.value);
+      this.$emit("update:modelValue", e.target.value);
     },
     handleChange(e) {
       this.$emit("change", e.target.value);

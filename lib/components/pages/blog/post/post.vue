@@ -9,12 +9,12 @@ import { mapGetters } from "vuex";
 export default {
   asyncData(ctx) {
     return {
-      loaded: !process.client,
+      loaded: !document,
     };
   },
   data() {
     return {
-      loaded: true,
+      loaded: !document,
     };
   },
   head() {

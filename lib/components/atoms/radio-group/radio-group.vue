@@ -1,6 +1,5 @@
 <template>
   <div class="vf-a-radio-group">
-    {{ label }}
     <div :class="stacked ? 'flex flex-col' : 'flex flex-row -mx-3'">
       <vf-a-radio
         v-for="(item, index) in options"
@@ -50,7 +49,7 @@ export default {
         return false;
       },
     },
-    value: {
+    modelValue: {
       type: [String, Number, Object],
       default() {
         return null;
@@ -59,7 +58,7 @@ export default {
   },
   data() {
     return {
-      localValue: this.value,
+      localValue: this.modelValue,
     };
   },
   watch: {
@@ -67,11 +66,11 @@ export default {
       deep: true,
       handler(val, oldVal) {
         if (JSON.stringify(val) !== JSON.stringify(oldVal)) {
-          this.$emit("input", val);
+          this.$emit("update:modelValue", val);
         }
       },
     },
-    value: {
+    modelValue: {
       deep: true,
       handler(val, oldVal) {
         if (JSON.stringify(val) !== JSON.stringify(oldVal)) {

@@ -1,7 +1,7 @@
 <template>
   <label
     class="inline-flex items-center vf-a-radio"
-    :class="{ 'vf-a-radio--active': model === value }"
+    :class="{ 'vf-a-radio--active': model === modelValue }"
   >
     <input
       v-model="model"
@@ -17,10 +17,6 @@
 </template>
 <script>
 export default {
-  model: {
-    prop: "checked",
-    event: "change",
-  },
   props: {
     type: {
       type: String,
@@ -31,12 +27,12 @@ export default {
       default: null,
     },
     value: {
-      type: [String, Number, Object],
+      type: [String, Number, Object, Boolean],
       default() {
         return null;
       },
     },
-    checked: {
+    modelValue: {
       // v-model
       default: null,
     },
@@ -44,10 +40,10 @@ export default {
   computed: {
     model: {
       get() {
-        return this.checked;
+        return this.modelValue;
       },
       set(val) {
-        this.$emit("change", val);
+        this.$emit("update:modelValue", val);
       },
     },
   },

@@ -8,9 +8,9 @@
       </div> 
     </li>
     <li class="vf-a-pagination__item">
-      <div :class="getClass(page > 1 ? page - 1 : 1, true)">
+      <div :class="getClass(modelValue > 1 ? modelValue - 1 : 1, true)">
           <button
-          @click.prevent="handleChange(page > 1 ? page - 1 : 1)"
+          @click.prevent="handleChange(modelValue > 1 ? modelValue - 1 : 1)"
         >
           &lsaquo;
         </button>
@@ -32,9 +32,9 @@
       </li>
     </template>
     <li class="vf-a-pagination__item">
-      <div          :class="getClass(page < totalPages ? page + 1 : totalPages, true)" >
+      <div          :class="getClass(modelValue < totalPages ? modelValue + 1 : totalPages, true)" >
           <button
-          @click.prevent="handleChange(page < totalPages ? page + 1 : totalPages)"
+          @click.prevent="handleChange(modelValue < totalPages ? modelValue + 1 : totalPages)"
           > 
           &rsaquo;
         </button>
@@ -54,12 +54,8 @@
 import range from "lodash-es/range";
 
 export default {
-  model: {
-    prop: "page",
-    event: "change",
-  },
   props: {
-    page: {
+    modelValue: {
       type: Number,
       default: 0,
     },
@@ -74,7 +70,7 @@ export default {
   },
   computed: {
     pageButtons() {
-      const from1 = Number(this.page) - Math.round(this.perPage / 2) + 1;
+      const from1 = Number(this.modelValue) - Math.round(this.perPage / 2) + 1;
       const from2 = this.totalPages + 1 - this.perPage;
       const from = Math.max(Math.min(from1, from2), 1);
 
@@ -100,9 +96,9 @@ export default {
       page = Number(page);
       result.push("vf-a-pagination__link");
 
-      if (page === this.page && !disabled) {
+      if (page === this.modelValue && !disabled) {
         result.push("vf-a-pagination__link--active");
-      } else if (page === this.page && disabled) {
+      } else if (page === this.modelValue && disabled) {
         result.push("vf-a-pagination__link--disabled");
       }
 
@@ -110,7 +106,7 @@ export default {
     },
     handleChange(e) {
       this.$emit("change", e);
-      this.$emit("input", e);
+      this.$emit("update:modelValue", e);
     },
   },
 };

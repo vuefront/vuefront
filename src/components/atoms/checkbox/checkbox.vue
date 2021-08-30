@@ -3,7 +3,7 @@
     <input
       v-model="model"
       type="checkbox"
-      :value="value"
+      :value="modelValue"
       :state="state"
       class="vf-a-checkbox form-checkbox"
     />
@@ -15,10 +15,6 @@
 <script>
 import isArray from "lodash-es/isArray";
 export default {
-  model: {
-    prop: "checked",
-    event: "input",
-  },
   props: {
     type: {
       type: String,
@@ -29,7 +25,7 @@ export default {
       default: null,
     },
     modelValue: {
-      type: [String, Number, Object],
+      type: [String, Number, Object, Boolean],
       default() {
         return null;
       },
@@ -52,15 +48,12 @@ export default {
       },
       set(val) {
         if (isArray(this.checked)) {
-          console.log('isArray')
           const result = this.checked;
           if (result.includes(this.modelValue)) {
             result.splice(result.indexOf(this.modelValue), 1);
           } else {
             result.push(this.modelValue);
           }
-          console.log('result')
-          console.log(result)
           this.$emit("update:modelValue", result);
         } else {
           this.$emit("update:modelValue", val);

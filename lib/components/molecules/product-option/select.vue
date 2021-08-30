@@ -5,9 +5,9 @@
     }}</vf-a-heading>
     <vf-a-select
       class="vf-m-product-option__value"
-      :value="activeOptionValue"
+      :modelValue="activeOptionValue"
       :options="selectOptions"
-      @input="handleChange"
+      @update:modelValue="handleChange"
     />
   </div>
 </template>

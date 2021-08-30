@@ -20,9 +20,6 @@ export const mutations = {
     state.positions[route][name] = status
   },
   setLayout(state, { route, layout }) {
-    console.log('setLayout')
-    console.log(route)
-    console.log(layout)
     state.layouts[route] = layout
   },
   setModule(state, { name, route, list }) {

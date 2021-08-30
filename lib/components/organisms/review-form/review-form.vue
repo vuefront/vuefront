@@ -49,15 +49,14 @@
   </vf-o-form>
 </template>
 <script>
-import * as vuelidate from "vuelidate";
-import {
+import { 
   required,
   minLength,
   minValue,
   maxLength,
-  maxValue,
-} from "vuelidate/lib/validators";
-const { validationMixin } = vuelidate;
+  maxValue 
+} from '@vuelidate/validators'
+import { useVuelidate } from '@vuelidate/core'
 
 export default {
   data() {

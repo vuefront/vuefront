@@ -5,8 +5,8 @@
     }}</vf-a-heading>
     <vf-a-textarea
       class="vf-m-product-option__value"
-      :value="activeOptionValue"
-      @input="handleChange"
+      :modelValue="activeOptionValue"
+      @update:modelValue="handleChange"
     />
   </div>
 </template>
