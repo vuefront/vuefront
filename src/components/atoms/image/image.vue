@@ -6,6 +6,10 @@ Vue.use(VueLazyload, {
 });
 export default {
   props: {
+    contentClass: {
+      type: String,
+      default: (()=>"")
+    },
     blankColor: {
       type: String,
       default() {
@@ -180,7 +184,7 @@ export default {
           createElement(
             "div",
             {
-              class: "vf-a-image__content",
+              class: `vf-a-image__content ${this.contentClass}`,
             },
             this.$slots.default
           ),
