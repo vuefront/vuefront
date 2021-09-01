@@ -9,7 +9,7 @@
 
     <vf-m-field
       id="input-first-name"
-      :state="$v.form.firstName.$dirty ? !$v.form.firstName.$error : null"
+      :state="v$.form.firstName.$dirty ? !v$.form.firstName.$error : null"
     >
       <template #label>{{
         $t("elements.common.account.register.firstNameEntry")
@@ -24,7 +24,7 @@
 
     <vf-m-field
       id="input-first-name"
-      :state="$v.form.lastName.$dirty ? !$v.form.lastName.$error : null"
+      :state="v$.form.lastName.$dirty ? !v$.form.lastName.$error : null"
     >
       <template #label>{{
         $t("elements.common.account.register.lastNameEntry")
@@ -39,7 +39,7 @@
 
     <vf-m-field
       id="input-email"
-      :state="$v.form.email.$dirty ? !$v.form.email.$error : null"
+      :state="v$.form.email.$dirty ? !v$.form.email.$error : null"
     >
       <template #label>{{
         $t("elements.common.account.register.emailEntry")
@@ -54,7 +54,7 @@
 
     <vf-m-field
       id="input-password"
-      :state="$v.form.password.$dirty ? !$v.form.password.$error : null"
+      :state="v$.form.password.$dirty ? !v$.form.password.$error : null"
     >
       <template #label>{{
         $t("elements.common.account.register.passwordEntry")
@@ -75,7 +75,7 @@
     <vf-m-field
       id="input-confirm-password"
       :state="
-        $v.form.confirmPassword.$dirty ? !$v.form.confirmPassword.$error : null
+        v$.form.confirmPassword.$dirty ? !v$.form.confirmPassword.$error : null
       "
     >
       <template #label>{{
@@ -101,18 +101,17 @@
   </vf-o-form>
 </template>
 <script>
-import * as vuelidate from "vuelidate";
 import {
   required,
   minLength,
   maxLength,
   sameAs,
   email,
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators"
+import { useVuelidate } from '@vuelidate/core'
 import { mdiArrowRight } from "@mdi/js";
-const { validationMixin } = vuelidate;
 export default {
-  mixins: [validationMixin],
+  setup: () => ({ v$: useVuelidate() }),
   data() {
     return {
       mdiArrowRight,
@@ -159,9 +158,9 @@ export default {
       this.$router.push("/account");
     },
     async onSubmit() {
-      this.$v.$touch();
+      this.v$.$touch();
 
-      if (!this.$v.form.$invalid) {
+      if (!this.v$.form.$invalid) {
         const status = await this.$store.dispatch("common/customer/register", {
           firstName: this.form.firstName,
           lastName: this.form.lastName,

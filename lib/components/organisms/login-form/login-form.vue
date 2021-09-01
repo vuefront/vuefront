@@ -9,7 +9,7 @@
 
     <vf-m-field
       id="input-email"
-      :state="$v.form.email.$dirty ? !$v.form.email.$error : null"
+      :state="v$.form.email.$dirty ? !v$.form.email.$error : null"
     >
       <template #label>{{
         $t("elements.common.account.login.emailEntry")
@@ -24,7 +24,7 @@
 
     <vf-m-field
       id="input-password"
-      :state="$v.form.password.$dirty ? !$v.form.password.$error : null"
+      :state="v$.form.password.$dirty ? !v$.form.password.$error : null"
     >
       <template #label>{{
         $t("elements.common.account.login.passwordEntry")
@@ -48,17 +48,17 @@
   </vf-o-form>
 </template>
 <script>
-import * as vuelidate from "vuelidate";
 import {
   required,
   minLength,
   maxLength,
   email,
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 
-const { validationMixin } = vuelidate;
+import { useVuelidate } from '@vuelidate/core'
+
 export default {
-  mixins: [validationMixin],
+  setup: () => ({ v$: useVuelidate() }),
   data() {
     return {
       form: {
@@ -82,9 +82,9 @@ export default {
   },
   methods: {
     async onSubmit() {
-      this.$v.$touch();
+      this.v$.$touch();
 
-      if (!this.$v.form.$invalid) {
+      if (!this.v$.form.$invalid) {
         const status = await this.$store.dispatch("common/customer/login", {
           email: this.form.email,
           password: this.form.password,
