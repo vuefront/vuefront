@@ -20,7 +20,7 @@
 import isUndefined from "lodash-es/isUndefined";
 import { mdiStar, mdiStarOutline } from "@mdi/js";
 export default {
-  props: ["value", "color", "readonly"],
+  props: ["modelValue", "color", "readonly"],
   data() {
     return {
       rating: 0,
@@ -31,7 +31,7 @@ export default {
   },
   computed: {
     currentRating() {
-      return this.hover ? this.rating : this.value;
+      return this.hover ? this.rating : this.modelValue;
     },
   },
   methods: {
@@ -48,7 +48,7 @@ export default {
     },
     handleClick(rating) {
       if (isUndefined(this.readonly)) {
-        this.$emit("input", rating);
+        this.$emit("update:modelValue", rating);
       }
     },
   },

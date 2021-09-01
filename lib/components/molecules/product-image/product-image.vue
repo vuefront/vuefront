@@ -34,6 +34,7 @@
         </a>
       </vf-m-col>
     </vf-m-row>
+    <pre>{{popup ? 'true' : 'false'}}</pre>
     <client-only>
       <vf-m-product-image-popup
         :show="popup"

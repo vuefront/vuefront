@@ -31,6 +31,7 @@
 <script>
 import { mapGetters } from "vuex";
 export default {
+  emits: ['submit', 'reset'],
   props: {
     inline: {
       type: Boolean,

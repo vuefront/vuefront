@@ -1,18 +1,18 @@
 <template>
-  <LightBox
+  <div>{{show ? 'true' : 'false'}}</div>
+  <pre>{{images}}</pre>
+  <vue-easy-lightbox
     ref="lightbox"
-    :media="images"
-    :show-light-box="false"
+    :imgs="images"
+    :visible="visible"
     @onOpened="handleOpened"
-  ></LightBox>
+  ></vue-easy-lightbox>
 </template>
-<script>
-export default {
-  components: {
-    LightBox: () => import("vue-image-lightbox"),
-  },
-  props: {
-    images: {
+<script setup>
+import { reactive, watch } from 'vue'
+import VueEasyLightbox from 'vue-easy-lightbox'
+const {images, show, index} = defineProps({
+  images: {
       type: Array,
       default() {
         return [];
@@ -30,20 +30,24 @@ export default {
         return 0;
       },
     },
-  },
-  watch: {
-    show(value, oldValue) {
-      if (!oldValue && value) {
-        this.$refs.lightbox.showImage(this.index);
-      }
-    },
-  },
-  methods: {
-    handleOpened(value) {
-      if (!value) {
-        this.$emit("click:close", value);
-      }
-    },
-  },
-};
+})
+
+const {visible} = reactive({
+  visible: false
+})
+
+function handleOpened(value) {
+  if (!value) {
+    this.$emit("click:close", value);
+  }
+}
+
+watch(() => show, (value, oldValue) => {
+  console.log('watch show')
+  console.log(value)
+  if (!oldValue && value) {
+    state.visible = true
+    // this.$refs.lightbox.showImage(this.index);
+  }
+})
 </script>

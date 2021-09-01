@@ -35,8 +35,9 @@
         <vf-m-col md="6">
           <div
             class="text-sm text-center md:text-right"
-            v-html="$t('elements.common.footer.poweredText')"
-          />
+          >
+          {{$t('elements.common.footer.poweredByText')}} <a class='heading' href='http://vuefront.com' target='_blank'>{{$t('elements.common.footer.vuefrontText')}}</a> {{$t('elements.common.footer.withLoveText')}}
+          </div>
         </vf-m-col>
       </vf-m-row>
     </vf-m-container>

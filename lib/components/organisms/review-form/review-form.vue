@@ -59,6 +59,7 @@ import {
 import { useVuelidate } from '@vuelidate/core'
 
 export default {
+  emits: ['submit'],
   data() {
     return {
       author: "",
