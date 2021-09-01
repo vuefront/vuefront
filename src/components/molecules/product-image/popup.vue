@@ -1,53 +1,43 @@
 <template>
-  <div>{{show ? 'true' : 'false'}}</div>
-  <pre>{{images}}</pre>
   <vue-easy-lightbox
-    ref="lightbox"
     :imgs="images"
     :visible="visible"
-    @onOpened="handleOpened"
+    :index="index"
+    @hide="handleOpened"
   ></vue-easy-lightbox>
 </template>
-<script setup>
-import { reactive, watch } from 'vue'
-import VueEasyLightbox from 'vue-easy-lightbox'
-const {images, show, index} = defineProps({
-  images: {
-      type: Array,
-      default() {
-        return [];
-      },
-    },
-    show: {
-      type: Boolean,
-      default() {
-        return false;
-      },
-    },
-    index: {
-      type: Number,
-      default() {
-        return 0;
-      },
-    },
-})
+<script lang="ts">
+import { defineComponent, PropType, ref, watch } from "vue";
+import VueEasyLightbox from "vue-easy-lightbox";
+export default defineComponent({
+  components: {
+    VueEasyLightbox,
+  },
+  props: {
+    show: { type: Boolean, required: true },
+    index: { type: Number, required: true },
+    images: { type: Array as PropType<Array<string>>, required: true }
+  },
+  emits: ["click:close"],
+  setup(props, ctx) {
+    let visible = ref(false);
+    const handleOpened = () => {
+      ctx.emit("click:close");
+    };
 
-const {visible} = reactive({
-  visible: false
-})
+    watch(() => props.show, (value, oldValue) => {
+      if (!oldValue && value) {
+        visible.value = true
+      }
+      if (oldValue && !value) {
+        visible.value = false
+      }
+    })
 
-function handleOpened(value) {
-  if (!value) {
-    this.$emit("click:close", value);
-  }
-}
-
-watch(() => show, (value, oldValue) => {
-  console.log('watch show')
-  console.log(value)
-  if (!oldValue && value) {
-    state.visible = true
-    // this.$refs.lightbox.showImage(this.index);
-  }
-})
+    return {
+      visible,
+      handleOpened,
+    };
+  },
+});
 </script>

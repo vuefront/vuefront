@@ -34,7 +34,6 @@
         </a>
       </vf-m-col>
     </vf-m-row>
-    <pre>{{popup ? 'true' : 'false'}}</pre>
     <client-only>
       <vf-m-product-image-popup
         :show="popup"
@@ -45,61 +44,65 @@
     </client-only>
   </section>
 </template>
-<script>
-export default {
+<script lang="ts">
+import {computed, defineComponent, PropType, ref} from "vue"
+export default defineComponent({
   props: {
     product: {
       type: Object,
-      default() {
-        return null;
-      },
+      required: true,
+      default: null
     },
     width: {
-      type: [String, Number],
-      default() {
-        return null;
-      },
+      type: [String, Number] as PropType<String | Number>,
+      required: true,
+      default: null
     },
     height: {
-      type: [String, Number],
-      default() {
-        return null;
-      },
+      type: [String, Number] as PropType<String | Number>,
+      required: true,
+      default: null
     },
   },
-  data() {
-    return {
-      popup: false,
-      popupIndex: 0,
-    };
-  },
-  computed: {
-    getWidth() {
-      let width = this.width;
-      if (!this.width) {
-        if (this.height) {
+  setup(props, ctx) {
+    let popup = ref(false)
+    let popupIndex = ref(0)
+    
+    const getWidth = computed(() => {
+      let width = props.width;
+      if (!props.width) {
+        if (props.height) {
           width =
-            (this.height * this.$vuefront.images.product.width) /
+            (props.height * props.$vuefront.images.product.width) /
             this.$vuefront.images.product.height;
         } else {
           width = this.$vuefront.images.product.width;
         }
       }
       return width;
-    },
-    getHeight() {
-      let height = this.height;
-      if (!this.height) {
-        if (this.width) {
+    })
+    const getHeight = computed(() => {
+      let height = props.height;
+      if (!props.height) {
+        if (props.width) {
           height =
-            (this.width * this.$vuefront.images.product.height) /
+            (props.width * this.$vuefront.images.product.height) /
             this.$vuefront.images.product.width;
         } else {
           height = this.$vuefront.images.product.height;
         }
       }
       return height;
-    },
+    })
+
+    return {
+      getWidth,
+      getHeight,
+      popup,
+      popupIndex
+    }
+  },
+  computed: {
     images() {
       let result = [];
 
@@ -143,5 +146,5 @@ export default {
       this.popup = false;
     },
   },
-};
+});
 </script>
