@@ -53,19 +53,17 @@ const props = defineProps({
 });
 const localShow = ref(props.show);
 
-const getColors = computed(() => {
-  return {
-    primary: "vf-a-alert--primary",
-    secondary: "vf-a-alert--secondary",
-    success: "vf-a-alert--success",
-    info: "vf-a-alert--info",
-    warning: "vf-a-alert--warning",
-    danger: "vf-a-alert--danger",
-    white: "vf-a-alert--white",
-    light: "vf-a-alert--light",
-    dark: "vf-a-alert--dark",
-  };
-});
+const getColors = {
+  primary: "vf-a-alert--primary",
+  secondary: "vf-a-alert--secondary",
+  success: "vf-a-alert--success",
+  info: "vf-a-alert--info",
+  warning: "vf-a-alert--warning",
+  danger: "vf-a-alert--danger",
+  white: "vf-a-alert--white",
+  light: "vf-a-alert--light",
+  dark: "vf-a-alert--dark",
+};
 
 const emits = defineEmits([
   "update:show",
@@ -76,7 +74,7 @@ const emits = defineEmits([
 
 const getClass = computed(() => {
   const result: string[] = [];
-  result.push(getColors.value[props.color]);
+  result.push(getColors[props.color]);
 
   return result.join(" ");
 });

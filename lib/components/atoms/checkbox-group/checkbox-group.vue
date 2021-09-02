@@ -2,7 +2,7 @@
   <div class="vf-a-checkbox-group">
     <div :class="stacked ? 'flex flex-col' : 'flex flex-row -mx-3'">
       <vf-a-checkbox
-        v-for="(item, index) in options" 
+        v-for="(item, index) in options"
         :key="index"
         v-model:checked="localValue"
         :class="stacked ? '' : 'px-3 py-2'"
@@ -13,81 +13,80 @@
     </div>
   </div>
 </template>
-<script>
-export default {
-  props: {
-    name: {
-      type: String,
-      default() {
-        return "checkbox";
-      },
-    },
-    label: {
-      type: String,
-      default: null,
-    },
-    state: {
-      type: Boolean,
-      default: null,
-    },
-    options: {
-      type: [Array, Object],
-      default() {
-        return [];
-      },
-    },
-    valueField: {
-      type: String,
-      default() {
-        return "value";
-      },
-    },
-    textField: {
-      type: String,
-      default() {
-        return "text";
-      },
-    },
-    stacked: {
-      type: Boolean,
-      default() {
-        return false;
-      },
-    },
-    modelValue: {
-      type: Array,
-      default() {
-        return [];
-      },
+<script lang="ts" setup>
+import { PropType, ref, watch } from "vue";
+const props = defineProps({
+  name: {
+    type: String,
+    default() {
+      return "checkbox";
     },
   },
-  data() {
-    return {
-      localValue: this.modelValue,
-    };
+  label: {
+    type: String,
+    default: null,
   },
-  watch: {
-    localValue: {
-      deep: true,
-      handler(val, oldVal) {
-        if (JSON.stringify(val) !== JSON.stringify(this.modelValue)) {
-          this.$emit("update:modelValue", val);
-        }
-      },
-    },
-    value: {
-      deep: true,
-      handler(val, oldVal) {
-        if (JSON.stringify(val) !== JSON.stringify(this.localValue)) {
-          this.localValue = val;
-        }
-      },
+  state: {
+    type: Boolean,
+    default: null,
+  },
+  options: {
+    type: [Array, Object] as PropType<Array<any> | object>,
+    default() {
+      return [];
     },
   },
-  methods: {
-    handleInput(e) {
-      this.localValue = e;
+  valueField: {
+    type: String,
+    default() {
+      return "value";
     },
   },
+  textField: {
+    type: String,
+    default() {
+      return "text";
+    },
+  },
+  stacked: {
+    type: Boolean,
+    default() {
+      return false;
+    },
+  },
+  modelValue: {
+    type: Array,
+    default() {
+      return [];
+    },
+  },
+});
+
+const localValue = ref<any[]>(props.modelValue);
+const emit = defineEmits(["update:modelValue"]);
+watch(
+  () => localValue.value,
+  (val, oldValue) => {
+    if (JSON.stringify(val) !== JSON.stringify(props.modelValue)) {
+      emit("update:modelValue", val);
+    }
+  },
+  {
+    deep: true,
+  }
+);
+watch(
+  () => props.modelValue,
+  (val, oldVal) => {
+    if (JSON.stringify(val) !== JSON.stringify(localValue)) {
+      localValue.value = val;
+    }
+  },
+  {
+    deep: true,
+  }
+);
+const handleInput = (e: any) => {
+  localValue.value = e;
 };
 </script>
