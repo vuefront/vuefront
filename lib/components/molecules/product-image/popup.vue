@@ -16,7 +16,7 @@ export default defineComponent({
   props: {
     show: { type: Boolean, required: true },
     index: { type: Number, required: true },
-    images: { type: Array as PropType<Array<string>>, required: true }
+    images: { type: Array as PropType<Array<string>>, required: true },
   },
   emits: ["click:close"],
   setup(props, ctx) {
@@ -25,14 +25,17 @@ export default defineComponent({
       ctx.emit("click:close");
     };
 
-    watch(() => props.show, (value, oldValue) => {
-      if (!oldValue && value) {
-        visible.value = true
+    watch(
+      () => props.show,
+      (value, oldValue) => {
+        if (!oldValue && value) {
+          visible.value = true;
+        }
+        if (oldValue && !value) {
+          visible.value = false;
+        }
       }
-      if (oldValue && !value) {
-        visible.value = false
-      }
-    })
+    );
 
     return {
       visible,

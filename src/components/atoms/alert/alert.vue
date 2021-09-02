@@ -24,80 +24,101 @@
     </button>
   </div>
 </template>
-<script>
-export default {
-  props: {
-    show: {
-      type: [Boolean, Number, String],
-      default: false,
-    },
-    dismissible: {
-      type: Boolean,
-      default: false,
-    },
-    color: {
-      type: [String],
-      default: "default",
-    },
+<script lang="ts" setup>
+import { computed, onMounted, PropType, ref, watch } from "vue";
+enum Colors {
+  primary = "primary",
+  secondary = "secondary",
+  success = "success",
+  info = "info",
+  warning = "warning",
+  danger = "danger",
+  white = "white",
+  light = "light",
+  dark = "dark",
+}
+const props = defineProps({
+  show: {
+    type: [Boolean, Number, String],
+    default: false,
   },
-  data() {
-    return {
-      localShow: this.show,
-    };
+  dismissible: {
+    type: Boolean,
+    default: false,
   },
-  computed: {
-    getColors() {
-      return {
-        primary: "vf-a-alert--primary",
-        secondary: "vf-a-alert--secondary",
-        success: "vf-a-alert--success",
-        info: "vf-a-alert--info",
-        warning: "vf-a-alert--warning",
-        danger: "vf-a-alert--danger",
-        white: "vf-a-alert--white",
-        light: "vf-a-alert--light",
-        dark: "vf-a-alert--dark",
-      };
-    },
-    getClass() {
-      const result = [];
-      result.push(this.getColors[this.color]);
+  color: {
+    type: String as PropType<Colors>,
+    default: "default",
+  },
+});
+const localShow = ref(props.show);
 
-      return result.join(" ");
-    },
-  },
-  watch: {
-    show(show) {
-      this.localShow = show;
-    },
-    localShow(localShow) {
-      this.$emit("update:show", localShow);
-      if (this.localShow) {
-        this.$emit("shown");
-        if (typeof this.localShow === "number") {
-          this.initTimeout();
-        }
-      } else {
-        this.$emit("hidden");
-      }
-    },
-  },
-  mounted() {
-    if (this.localShow && typeof this.localShow === "number") {
-      this.$emit("dismiss-count-down", this.localShow);
-      this.initTimeout();
-    }
-  },
+const getColors = computed(() => {
+  return {
+    primary: "vf-a-alert--primary",
+    secondary: "vf-a-alert--secondary",
+    success: "vf-a-alert--success",
+    info: "vf-a-alert--info",
+    warning: "vf-a-alert--warning",
+    danger: "vf-a-alert--danger",
+    white: "vf-a-alert--white",
+    light: "vf-a-alert--light",
+    dark: "vf-a-alert--dark",
+  };
+});
 
-  methods: {
-    initTimeout() {
-      setTimeout(() => {
-        this.hide();
-      }, this.localShow * 1000);
-    },
-    hide() {
-      this.localShow = false;
-    },
-  },
+const emits = defineEmits([
+  "update:show",
+  "show",
+  "hidden",
+  "dismiss-count-down",
+]);
+
+const getClass = computed(() => {
+  const result: string[] = [];
+  result.push(getColors.value[props.color]);
+
+  return result.join(" ");
+});
+
+const hide = () => {
+  localShow.value = false;
 };
+
+const initTimeout = () => {
+  if (typeof localShow.value === "number") {
+    setTimeout(() => {
+      hide();
+    }, localShow.value * 1000);
+  }
+};
+
+watch(
+  () => props.show,
+  (val) => {
+    localShow.value = val;
+  }
+);
+
+watch(
+  () => localShow.value,
+  (val) => {
+    emits("update:show", localShow.value);
+    if (localShow.value) {
+      emits("show");
+      if (typeof localShow.value === "number") {
+        initTimeout();
+      }
+    } else {
+      emits("hidden");
+    }
+  }
+);
+
+onMounted(() => {
+  if (localShow.value && typeof localShow.value === "number") {
+    emits("dismiss-count-down", localShow.value);
+    initTimeout();
+  }
+});
 </script>

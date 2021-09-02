@@ -76,8 +76,6 @@
     </vf-m-row>
   </section>
 </template>
-<script>
-export default {
-  props: ["product"],
-};
+<script lang="ts" setup>
+defineProps(["product"]);
 </script>

@@ -45,30 +45,30 @@
   </section>
 </template>
 <script lang="ts">
-import {computed, defineComponent, inject, PropType, ref} from "vue"
+import { computed, defineComponent, inject, PropType, ref } from "vue";
 export default defineComponent({
   props: {
     product: {
       type: Object,
       required: true,
-      default: null
+      default: null,
     },
     width: {
       type: [String, Number] as PropType<String | Number>,
       required: false,
-      default: null
+      default: null,
     },
     height: {
       type: [String, Number] as PropType<String | Number>,
       required: false,
-      default: null
+      default: null,
     },
   },
   setup(props) {
-    let popup = ref(false)
-    let popupIndex = ref(0)
-    
-    const $vuefront = inject<any>('$vuefront')
+    let popup = ref(false);
+    let popupIndex = ref(0);
+
+    const $vuefront = inject<any>("$vuefront");
 
     const getWidth = computed(() => {
       let width = props.width;
@@ -82,7 +82,7 @@ export default defineComponent({
         }
       }
       return width;
-    })
+    });
     const getHeight = computed(() => {
       let height = props.height;
 
@@ -96,22 +96,22 @@ export default defineComponent({
         }
       }
       return height;
-    })
+    });
 
     const mainImage = computed<string>(() => {
       return props.product.imageBig !== ""
         ? props.product.imageBig
         : $vuefront.images.placeholder.image;
-    })
+    });
 
     const mainImageLazy = computed<string>(() => {
       return props.product.imageLazy !== ""
         ? props.product.imageLazy
         : $vuefront.images.placeholder.image;
-    })
+    });
 
     const images = computed(() => {
-      let result: {thumb: string;src: string}[] = [];
+      let result: { thumb: string; src: string }[] = [];
 
       result = [
         ...result,
@@ -121,7 +121,7 @@ export default defineComponent({
         },
       ];
 
-      props.product.images.forEach(({ imageBig }: {imageBig: string}) => {
+      props.product.images.forEach(({ imageBig }: { imageBig: string }) => {
         result = [
           ...result,
           {
@@ -132,16 +132,16 @@ export default defineComponent({
       });
 
       return result;
-    })
+    });
 
     const handleOpenPopup = (index: number) => {
       popupIndex.value = index;
       popup.value = true;
-    }
+    };
 
     const handleClosePopup = () => {
       popup.value = false;
-    }
+    };
 
     return {
       mainImage,
@@ -152,8 +152,8 @@ export default defineComponent({
       popup,
       popupIndex,
       handleOpenPopup,
-      handleClosePopup
-    }
+      handleClosePopup,
+    };
   },
 });
 </script>
