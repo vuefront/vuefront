@@ -2,7 +2,7 @@
   <section class="vf-m-product-image">
     <a href="#" @click.prevent="handleOpenPopup(0)">
       <vf-a-image
-        :lazy-src="mainImagelazy"
+        :lazy-src="mainImageLazy"
         :src="mainImage"
         fluid
         full-width
@@ -23,7 +23,7 @@
         <a
           class="vf-m-product-image__thumbnail"
           href="#"
-          @click.prevent="handleOpenPopup(index + 1)"
+          @click.prevent="handleOpenPopup(Number(index) + 1)"
         >
           <vf-a-image
             :lazy-src="value.imageLazy"
@@ -45,7 +45,7 @@
   </section>
 </template>
 <script lang="ts">
-import {computed, defineComponent, PropType, ref} from "vue"
+import {computed, defineComponent, inject, PropType, ref} from "vue"
 export default defineComponent({
   props: {
     product: {
@@ -55,66 +55,73 @@ export default defineComponent({
     },
     width: {
       type: [String, Number] as PropType<String | Number>,
-      required: true,
+      required: false,
       default: null
     },
     height: {
       type: [String, Number] as PropType<String | Number>,
-      required: true,
+      required: false,
       default: null
     },
   },
-  setup(props, ctx) {
+  setup(props) {
     let popup = ref(false)
     let popupIndex = ref(0)
     
+    const $vuefront = inject<any>('$vuefront')
+
     const getWidth = computed(() => {
       let width = props.width;
       if (!props.width) {
         if (props.height) {
           width =
-            (props.height * props.$vuefront.images.product.width) /
-            this.$vuefront.images.product.height;
+            (Number(props.height) * $vuefront.images.product.width) /
+            $vuefront.images.product.height;
         } else {
-          width = this.$vuefront.images.product.width;
+          width = $vuefront.images.product.width;
         }
       }
       return width;
     })
     const getHeight = computed(() => {
       let height = props.height;
+
       if (!props.height) {
         if (props.width) {
           height =
-            (props.width * this.$vuefront.images.product.height) /
-            this.$vuefront.images.product.width;
+            (Number(props.width) * $vuefront.images.product.height) /
+            $vuefront.images.product.width;
         } else {
-          height = this.$vuefront.images.product.height;
+          height = $vuefront.images.product.height;
         }
       }
       return height;
     })
 
-    return {
-      getWidth,
-      getHeight,
-      popup,
-      popupIndex
-    }
-  },
-  computed: {
-    images() {
-      let result = [];
+    const mainImage = computed<string>(() => {
+      return props.product.imageBig !== ""
+        ? props.product.imageBig
+        : $vuefront.images.placeholder.image;
+    })
+
+    const mainImageLazy = computed<string>(() => {
+      return props.product.imageLazy !== ""
+        ? props.product.imageLazy
+        : $vuefront.images.placeholder.image;
+    })
+
+    const images = computed(() => {
+      let result: {thumb: string;src: string}[] = [];
 
       result = [
         ...result,
         {
-          thumb: this.mainImage,
-          src: this.mainImage,
+          thumb: mainImage.value,
+          src: mainImage.value,
         },
       ];
 
-      this.product.images.forEach(({ imageBig }) => {
+      props.product.images.forEach(({ imageBig }: {imageBig: string}) => {
         result = [
           ...result,
           {
@@ -125,26 +132,28 @@ export default defineComponent({
       });
 
       return result;
-    },
-    mainImage() {
-      return this.product.imageBig !== ""
-        ? this.product.imageBig
-        : this.$vuefront.images.placeholder.image;
-    },
-    mainImagelazy() {
-      return this.product.imageLazy !== ""
-        ? this.product.imageLazy
-        : this.$vuefront.images.placeholder.image;
-    },
-  },
-  methods: {
-    handleOpenPopup(index) {
-      this.popupIndex = index;
-      this.popup = true;
-    },
-    handleClosePopup() {
-      this.popup = false;
-    },
+    })
+
+    const handleOpenPopup = (index: number) => {
+      popupIndex.value = index;
+      popup.value = true;
+    }
+
+    const handleClosePopup = () => {
+      popup.value = false;
+    }
+
+    return {
+      mainImage,
+      mainImageLazy,
+      images,
+      getWidth,
+      getHeight,
+      popup,
+      popupIndex,
+      handleOpenPopup,
+      handleClosePopup
+    }
   },
 });
 </script>
