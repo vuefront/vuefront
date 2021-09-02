@@ -1,5 +1,5 @@
 <template>
-  <vf-o-form @submit="onSubmit">
+  <vf-o-form ref="review-form" @submit="onSubmit">
     <template #title>{{ $t("elements.common.reviews.writeText") }}</template>
 
     <vf-m-field
@@ -98,6 +98,7 @@ export default {
         this.author = "";
         this.rating = 0;
         this.review = "";
+        this.v$.$reset()
       }
     },
   },
