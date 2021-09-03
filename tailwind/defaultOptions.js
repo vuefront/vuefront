@@ -467,7 +467,7 @@ module.exports = (theme) => ({
       height: theme("height.8"),
       borderWidth: theme("borderWidth.DEFAULT"),
       "&__hellip": {
-        lineHeight: "2.5"
+        lineHeight: "2.5",
       },
       "&:nth-child(-n + 2),&:nth-last-child(-n + 2)": {
         ".vf-a-pagination__link": {

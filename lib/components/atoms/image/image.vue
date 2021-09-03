@@ -1,210 +1,182 @@
-<script>
-import { h, resolveDirective, withDirectives } from "vue";
+<template>
+  <div
+    v-if="!$vuefront.isAMP"
+    :class="`vf-a-image image-wrapper layout-${layout}`"
+    :style="styles"
+  >
+    <div
+      class="vf-a-image__sizer image-sizer"
+      :style="{ paddingBottom: aspectRatio + '%' }"
+    ></div>
+    <div
+      v-lazy="image"
+      class="vf-a-image__img image-img"
+      :class="imageClass"
+      :style="{ backgroundColor: blankColor || null }"
+    ></div>
+    <div class="vf-a-image__content" :class="contentClass">
+      <slot></slot>
+    </div>
+  </div>
+  <img
+    v-else
+    :src="src"
+    :alt="alt"
+    :width="widthAmp"
+    :height="heightAmp"
+    :heights="heights"
+    :layout="layout"
+  />
+</template>
+<script lang="ts" setup>
+import { PropType, computed, getCurrentInstance, ref } from "vue";
 
-export default {
-  props: {
-    contentClass: {
-      type: String,
-      default: (()=>"")
-    },
-    blankColor: {
-      type: String,
-      default() {
-        return null;
-      },
-    },
-    lazySrc: {
-      validator() {
-        return true;
-      },
-      default() {
-        return "";
-      },
-    },
-    src: {
-      validator() {
-        return true;
-      },
-      default() {
-        return "";
-      },
-    },
-    srcDark: {
-      validator() {
-        return true;
-      },
-      default() {
-        return "";
-      },
-    },
-    lazySrcDark: {
-      validator() {
-        return true;
-      },
-      default() {
-        return "";
-      },
-    },
-    width: {
-      type: [String, Number],
-      default() {
-        return "";
-      },
-    },
-    alt: {
-      type: String,
-      default() {
-        return "";
-      },
-    },
-    layout: {
-      type: String,
-      default() {
-        return "responsive";
-      },
-    },
-    widthAmp: {
-      type: [String, Number],
-      default() {
-        return "1";
-      },
-    },
-    heightAmp: {
-      type: [String, Number],
-      default() {
-        return "1";
-      },
-    },
-    heights: {
-      type: String,
-      default() {
-        return null;
-      },
-    },
-    cover: {
-      type: Boolean,
-      default() {
-        return false;
-      },
+const props = defineProps({
+  contentClass: {
+    type: String,
+    default: () => "",
+  },
+  blankColor: {
+    type: String,
+    default() {
+      return null;
     },
   },
-  computed: {
-    isDark() {
-      let theme = false;
-      if (document) {
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-          theme = true;
-        }
-      }
-
-      return theme;
+  lazySrc: {
+    validator() {
+      return true;
     },
-    isSVG() {
-      return /.svg$/.test(this.src);
-    },
-    srcImage() {
-      return this.src;
+    default() {
+      return "";
     },
   },
-  render() {
-    if (!this.$vuefront.isAMP) {
-      const styles = {};
-      if (this.width !== "") {
-        styles.width = this.width + "px";
-      }
-      if (this.layout === "flex-item") {
-        styles.width = this.widthAmp + "px";
-        styles.height = this.heightAmp + "px";
-      }
+  src: {
+    validator() {
+      return true;
+    },
+    default() {
+      return "";
+    },
+  },
+  srcDark: {
+    validator() {
+      return true;
+    },
+    default() {
+      return "";
+    },
+  },
+  lazySrcDark: {
+    validator() {
+      return true;
+    },
+    default() {
+      return "";
+    },
+  },
+  width: {
+    type: [String, Number] as PropType<string | number>,
+    default() {
+      return "";
+    },
+  },
+  alt: {
+    type: String,
+    default() {
+      return "";
+    },
+  },
+  layout: {
+    type: String,
+    default() {
+      return "responsive";
+    },
+  },
+  widthAmp: {
+    type: [String, Number] as PropType<string | number>,
+    default() {
+      return "1";
+    },
+  },
+  heightAmp: {
+    type: [String, Number] as PropType<string | number>,
+    default() {
+      return "1";
+    },
+  },
+  heights: {
+    type: String,
+    default() {
+      return null;
+    },
+  },
+  cover: {
+    type: Boolean,
+    default() {
+      return false;
+    },
+  },
+});
 
-      let src = this.src;
+const aspectRatio = computed(() => {
+  return 100 / (+props.widthAmp / +props.heightAmp);
+});
 
-      let lazySrc = this.lazySrc;
+const styles = computed<{ width?: string; height?: string }>(() => {
+  const styles: { width?: string; height?: string } = {};
 
-      if (this.isDark && this.lazySrcDark !== "") {
-        lazySrc = this.lazySrcDark;
-      }
+  if (props.width !== "") {
+    styles.width = props.width + "px";
+  }
 
-      if (this.isDark && this.srcDark !== "") {
-        src = this.srcDark;
-      }
+  if (props.layout === "flex-item") {
+    styles.width = props.widthAmp + "px";
+    styles.height = props.heightAmp + "px";
+  }
 
-      let imgClass = "";
+  return styles;
+});
 
-      if (this.cover) {
-        imgClass = "vf-a-image__img--cover";
-      }
-
-
-      // if (this.lazySrc !== "") {
-      const lazy = resolveDirective("lazy");
-      // }
-      return h(
-        "div",
-        {
-          class: `vf-a-image image-wrapper layout-${this.layout}`,
-          style: {
-            ...styles,
-          },
-        },
-        [
-          h(
-            "div",
-            {
-              class: "vf-a-image__sizer image-sizer",
-              style: {
-                "padding-bottom": `${100 / (this.widthAmp / this.heightAmp)}%`,
-              },
-            },
-            []
-          ),
-          withDirectives(
-            h(
-              "div",
-              {
-                class: "vf-a-image__img image-img " + imgClass,
-                style: {
-                  /* "background-image":
-                  this.lazySrc !== ""
-                    ? `url(${this.lazySrc})`
-                    : `url(${this.src})`, */
-                  "background-color": this.blankColor ? this.blankColor : null,
-                },
-              },
-              []
-            ),
-            [[lazy, src]]
-          ),
-          h(
-            "div",
-            {
-              class: `vf-a-image__content ${this.contentClass}`,
-            },
-            this.$slots.default
-          ),
-        ]
-      );
-    } else {
-      let src = this.src;
-
-      if (this.isDark && this.srcDark !== "") {
-        src = this.srcDark;
-      }
-      return h(
-        "amp-img",
-        {
-          attrs: {
-            src,
-            alt: this.alt,
-            width: this.widthAmp,
-            height: this.heightAmp,
-            heights: this.heights,
-            layout: this.layout,
-          },
-        },
-        []
-      );
+const isDark = computed(() => {
+  let theme = false;
+  if (document) {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      theme = true;
     }
-  },
-};
+  }
+
+  return theme;
+});
+
+const isSVG = computed(() => {
+  return /.svg$/.test(props.src);
+});
+
+const image = computed(() => {
+  let result = props.src;
+  if (isDark.value && props.srcDark !== "") {
+    result = props.srcDark;
+  }
+
+  return result;
+});
+
+const lazyImage = computed(() => {
+  let result = props.lazySrc;
+
+  if (isDark.value && props.lazySrcDark !== "") {
+    result = props.lazySrcDark;
+  }
+
+  return result;
+});
+
+const imageClass = computed(() => {
+  let result = "";
+
+  if (props.cover) {
+    result += "vf-a-image__img--cover";
+  }
+  return result;
+});
 </script>

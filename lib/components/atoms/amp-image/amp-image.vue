@@ -10,6 +10,7 @@
   />
 </template>
 <script setup lang="ts">
+import { PropType } from "vue";
 defineProps({
   alt: {
     type: String,
@@ -30,13 +31,13 @@ defineProps({
     },
   },
   width: {
-    type: [String, Number],
+    type: [String, Number] as PropType<string | number>,
     default() {
       return null;
     },
   },
   height: {
-    type: [String, Number],
+    type: [String, Number] as PropType<string | number>,
     default() {
       return null;
     },

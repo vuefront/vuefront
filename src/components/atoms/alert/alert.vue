@@ -39,7 +39,7 @@ enum Colors {
 }
 const props = defineProps({
   show: {
-    type: [Boolean, Number, String],
+    type: [Boolean, Number, String] as PropType<boolean | number | string>,
     default: false,
   },
   dismissible: {

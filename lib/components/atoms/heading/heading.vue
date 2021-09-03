@@ -3,40 +3,37 @@
     <slot></slot>
   </component>
 </template>
-<script>
-export default {
-  props: {
-    level: {
-      type: [Number, String],
-      default() {
-        return 1;
-      },
-    },
-    tag: {
-      type: String,
-      default() {
-        return "div";
-      },
+<script lang="ts" setup>
+import { PropType } from "vue";
+
+const props = defineProps({
+  level: {
+    type: [Number, String] as PropType<number | string>,
+    default() {
+      return 1;
     },
   },
-  computed: {
-    getLevels() {
-      return {
-        1: "vf-a-heading--1",
-        2: "vf-a-heading--2",
-        3: "vf-a-heading--3",
-        4: "vf-a-heading--4",
-        5: "vf-a-heading--5",
-        6: "vf-a-heading--6",
-      };
-    },
-    getClass() {
-      const result = [];
-
-      result.push(this.getLevels[this.level]);
-
-      return result.join(" ");
+  tag: {
+    type: String,
+    default() {
+      return "div";
     },
   },
+});
+/**
+ * vf-a-heading--1
+ * vf-a-heading--2
+ * vf-a-heading--3
+ * vf-a-heading--4
+ * vf-a-heading--5
+ * vf-a-heading--6
+ */
+const getClass = () => {
+  const result = [];
+
+  if (props.level > 0 && props.level < 7)
+    result.push(`vf-a-heading--${props.level}`);
+
+  return result.join(" ");
 };
 </script>

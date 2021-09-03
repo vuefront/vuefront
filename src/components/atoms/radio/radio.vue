@@ -15,37 +15,40 @@
     </span>
   </label>
 </template>
-<script>
-export default {
-  props: {
-    type: {
-      type: String,
-      default: "text",
-    },
-    state: {
-      type: Boolean,
-      default: null,
-    },
-    value: {
-      type: [String, Number, Object, Boolean],
-      default() {
-        return null;
-      },
-    },
-    modelValue: {
-      // v-model
-      default: null,
+<script lang="ts" setup>
+import { computed, PropType } from "vue";
+
+const props = defineProps({
+  type: {
+    type: String,
+    default: "text",
+  },
+  state: {
+    type: Boolean,
+    default: null,
+  },
+  value: {
+    type: [String, Number, Object, Boolean] as PropType<
+      string | number | object | boolean
+    >,
+    default() {
+      return null;
     },
   },
-  computed: {
-    model: {
-      get() {
-        return this.modelValue;
-      },
-      set(val) {
-        this.$emit("update:modelValue", val);
-      },
-    },
+  modelValue: {
+    // v-model
+    default: null,
   },
-};
+});
+
+const emit = defineEmits(["update:modelValue"]);
+
+const model = computed({
+  get() {
+    return props.modelValue;
+  },
+  set(val) {
+    emit("update:modelValue", val);
+  },
+});
 </script>
