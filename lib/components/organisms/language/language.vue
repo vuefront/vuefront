@@ -6,7 +6,7 @@
     variant="link"
     size="sm"
   >
-    <template slot="button-content">
+    <template v-slot:button-content>
       <vf-a-image
         :src="activeLanguage.image"
         width="16"
@@ -35,26 +35,21 @@
     </vf-m-dropdown-item>
   </vf-m-dropdown>
 </template>
-<script>
-import { mapGetters } from "vuex";
+<script lang="ts" setup>
+import { useStore } from "vuex";
 import find from "lodash-es/find";
-export default {
-  computed: {
-    ...mapGetters({
-      language: "common/language/get",
-      error: "vuefront/error",
-    }),
-    activeLanguage() {
-      return find(this.language, { active: true });
-    },
-  },
-  methods: {
-    async handleEdit({ code }) {
-      await this.$store.dispatch("common/language/edit", { code });
-      if (!this.error) {
-        location.reload();
-      }
-    },
-  },
+import { computed } from "vue";
+const store = useStore();
+
+const language = computed(() => store.getters["common/language/get"]);
+const error = computed(() => store.getters["vuefront/error"]);
+const activeLanguage = computed(() => {
+  return find(language, { active: true });
+});
+const handleEdit = async ({ code }: { code: string }) => {
+  await store.dispatch("common/language/edit", { code });
+  if (!error) {
+    location.reload();
+  }
 };
 </script>

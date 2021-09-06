@@ -2,7 +2,7 @@
   <section>
     <vf-m-row
       :no-gutters="
-        noGutters !== null ? noGutters : $vuefront.options.productGridNoGutters
+        noGutters !== null ? noGutters : vuefront$.options.productGridNoGutters
       "
     >
       <vf-m-col
@@ -12,12 +12,12 @@
         :md="
           list || column
             ? 12
-            : 12 / (gridSizeTablet || $vuefront.options.productGridSizeTablet)
+            : 12 / (gridSizeTablet || vuefront$.options.productGridSizeTablet)
         "
         :lg="
           list || column
             ? 12
-            : 12 / (gridSize || $vuefront.options.productGridSize)
+            : 12 / (gridSize || vuefront$.options.productGridSize)
         "
       >
         <vf-o-product-thumb
@@ -29,47 +29,48 @@
     </vf-m-row>
   </section>
 </template>
-<script>
-export default {
-  props: {
-    products: {
-      type: Array,
-      default() {
-        return [];
-      },
-    },
-    column: {
-      type: Boolean,
-      default: false,
-    },
-    list: {
-      type: Boolean,
-      default: false,
-    },
-    noGutters: {
-      type: Boolean,
-      default() {
-        return null;
-      },
-    },
-    suffixUrl: {
-      type: String,
-      default() {
-        return "";
-      },
-    },
-    gridSize: {
-      type: Number,
-      default() {
-        return null;
-      },
-    },
-    gridSizeTablet: {
-      type: Number,
-      default() {
-        return null;
-      },
+<script lang="ts" setup>
+import { inject } from "vue";
+
+defineProps({
+  products: {
+    type: Array,
+    default() {
+      return [];
     },
   },
-};
+  column: {
+    type: Boolean,
+    default: false,
+  },
+  list: {
+    type: Boolean,
+    default: false,
+  },
+  noGutters: {
+    type: Boolean,
+    default() {
+      return null;
+    },
+  },
+  suffixUrl: {
+    type: String,
+    default() {
+      return "";
+    },
+  },
+  gridSize: {
+    type: Number,
+    default() {
+      return null;
+    },
+  },
+  gridSizeTablet: {
+    type: Number,
+    default() {
+      return null;
+    },
+  },
+});
+const vuefront$ = inject<any>("$vuefront");
 </script>

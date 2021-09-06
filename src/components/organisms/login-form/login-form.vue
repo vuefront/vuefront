@@ -47,54 +47,44 @@
     }}</template>
   </vf-o-form>
 </template>
-<script>
-import {
-  required,
-  minLength,
-  maxLength,
-  email,
-} from "@vuelidate/validators";
-
-import { useVuelidate } from '@vuelidate/core'
-
-export default {
-  setup: () => ({ v$: useVuelidate() }),
-  data() {
-    return {
-      form: {
-        email: "",
-        password: "",
-      },
-    };
-  },
-  validations: {
-    form: {
-      email: {
-        required,
-        email,
-      },
-      password: {
-        required,
-        minLength: minLength(4),
-        maxLength: maxLength(20),
-      },
+<script lang="ts" setup>
+import { required, minLength, maxLength, email } from "@vuelidate/validators";
+import { useVuelidate } from "@vuelidate/core";
+import { reactive } from "vue";
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
+const store = useStore();
+const router = useRouter();
+const form = reactive({
+  email: "",
+  password: "",
+});
+const v$ = useVuelidate(
+  {
+    email: {
+      required,
+      email,
+    },
+    password: {
+      required,
+      minLength: minLength(4),
+      maxLength: maxLength(20),
     },
   },
-  methods: {
-    async onSubmit() {
-      this.v$.$touch();
+  form
+);
+const onSubmit = async () => {
+  v$.value.$touch();
 
-      if (!this.v$.form.$invalid) {
-        const status = await this.$store.dispatch("common/customer/login", {
-          email: this.form.email,
-          password: this.form.password,
-        });
+  if (!v$.value.$invalid) {
+    const status = await store.dispatch("common/customer/login", {
+      email: form.email,
+      password: form.password,
+    });
 
-        if (status) {
-          this.$router.push("/account");
-        }
-      }
-    },
-  },
+    if (status) {
+      router.push("/account");
+    }
+  }
 };
 </script>
