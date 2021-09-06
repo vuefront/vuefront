@@ -79,7 +79,7 @@ const options = computed(() => store.getters["store/product/options"]);
 
 const checkActive = (e, option) => {
   const result = filter(
-    this.options,
+    options,
     (value) => value.id === option.id && e === value.value
   );
 
