@@ -16,6 +16,8 @@ const selectComponent = require("./component/select");
 const inputComponent = require("./component/input");
 const textareaComponent = require("./component/textarea");
 const defaultOptions = require("./defaultOptions");
+const columnComponent = require("./component/column");
+const rowComponent = require("./component/row");
 module.exports = plugin(
   function ({ addUtilities, e, theme, variants, addComponents }) {
     addComponents(fieldComponent(theme));
@@ -29,8 +31,12 @@ module.exports = plugin(
     addComponents(inputGroupComponent(theme));
     addComponents(headingComponent(theme));
     addComponents(replaceIconDeclarations(selectComponent(theme)));
+    addComponents(rowComponent(theme));
     addComponents(textareaComponent(theme));
     addComponents(inputComponent(theme));
+    addComponents(columnComponent(theme), {
+      variants: ["responsive"],
+    });
   },
   {
     theme: {

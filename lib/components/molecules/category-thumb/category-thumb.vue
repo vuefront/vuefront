@@ -14,53 +14,62 @@
     }}</vf-a-heading>
   </vf-a-link>
 </template>
-<script>
+<script lang="ts" setup>
 import placeholder from "vuefront/assets/img/placeholder.png";
-
-export default {
-  props: ["category", "width", "height"],
-  computed: {
-    url() {
-      if (this.category.keyword && this.category.keyword !== "") {
-        return "/" + this.category.keyword;
-      } else {
-        return `/store/category/${this.category.id}`;
-      }
-    },
-    image() {
-      return this.category.image !== "" ? this.category.image : placeholder;
-    },
-    imageLazy() {
-      return this.category.imageLazy !== ""
-        ? this.category.imageLazy
-        : placeholder;
-    },
-    getWidth() {
-      let width = this.width;
-      if (!this.width) {
-        if (this.height) {
-          width =
-            (this.height * this.$vuefront.images.categoryThumb.width) /
-            this.$vuefront.images.categoryThumb.height;
-        } else {
-          width = this.$vuefront.images.categoryThumb.width;
-        }
-      }
-      return width;
-    },
-    getHeight() {
-      let height = this.height;
-      if (!this.height) {
-        if (this.width) {
-          height =
-            (this.width * this.$vuefront.images.categoryThumb.height) /
-            this.$vuefront.images.categoryThumb.width;
-        } else {
-          height = this.$vuefront.images.categoryThumb.height;
-        }
-      }
-      return height;
-    },
+import { computed, inject, PropType } from "vue";
+const $vuefront = inject<any>("$vuefront");
+const props = defineProps({
+  category: {
+    type: Object,
+    default: () => null,
   },
-};
+  width: {
+    type: [String, Number] as PropType<string | number>,
+    default: () => null,
+  },
+  height: {
+    type: [String, Number] as PropType<string | number>,
+    default: () => null,
+  },
+});
+
+const url = computed(() => {
+  if (props.category.keyword && props.category.keyword !== "") {
+    return "/" + props.category.keyword;
+  } else {
+    return `/store/category/${props.category.id}`;
+  }
+});
+const getWidth = computed(() => {
+  let width = props.width;
+  if (!props.width) {
+    if (props.height) {
+      width =
+        (+props.height * $vuefront.images.categoryThumb.width) /
+        $vuefront.images.categoryThumb.height;
+    } else {
+      width = $vuefront.images.categoryThumb.width;
+    }
+  }
+  return width;
+});
+const getHeight = computed(() => {
+  let height = props.height;
+  if (!props.height) {
+    if (props.width) {
+      height =
+        (+props.width * $vuefront.images.categoryThumb.height) /
+        $vuefront.images.categoryThumb.width;
+    } else {
+      height = $vuefront.images.categoryThumb.height;
+    }
+  }
+  return height;
+});
+const image = computed(() =>
+  props.category.image !== "" ? props.category.image : placeholder
+);
+const imageLazy = computed(() =>
+  props.category.imageLazy !== "" ? props.category.imageLazy : placeholder
+);
 </script>
