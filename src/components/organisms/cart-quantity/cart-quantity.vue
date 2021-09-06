@@ -5,16 +5,24 @@
     @change="handleChangeQuantity"
   />
 </template>
-<script>
-export default {
-  props: ["cartProduct"],
-  methods: {
-    handleChangeQuantity(e) {
-      this.$store.dispatch("store/cart/update", {
-        key: this.cartProduct.key,
-        quantity: Number(e),
-      });
+<script lang="ts" setup>
+import { useStore } from "vuex";
+
+const props = defineProps({
+  cartProduct: {
+    type: Object,
+    default() {
+      return null;
     },
   },
+});
+
+const store = useStore();
+
+const handleChangeQuantity = (e: string) => {
+  store.dispatch("store/cart/update", {
+    key: props.cartProduct.key,
+    quantity: Number(e),
+  });
 };
 </script>

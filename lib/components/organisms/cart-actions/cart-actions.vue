@@ -3,21 +3,21 @@
     <vf-a-icon :icon="mdiClose" />
   </div>
 </template>
-<script>
+<script lang="ts" setup>
 import { mdiClose } from "@mdi/js";
-export default {
-  props: ["cartProduct"],
-  data() {
-    return {
-      mdiClose,
-    };
-  },
-  methods: {
-    handleRemove() {
-      this.$store.dispatch("store/cart/remove", {
-        key: this.cartProduct.key,
-      });
+import { useStore } from "vuex";
+const props = defineProps({
+  cartProduct: {
+    type: Object,
+    default() {
+      return null;
     },
   },
+});
+const store = useStore();
+const handleRemove = () => {
+  store.dispatch("store/cart/remove", {
+    key: props.cartProduct.key,
+  });
 };
 </script>

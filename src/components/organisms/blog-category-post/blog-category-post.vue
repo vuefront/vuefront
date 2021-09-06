@@ -16,17 +16,31 @@
     />
   </div>
 </template>
-<script>
-export default {
-  props: ["posts", "gridSize"],
-  methods: {
-    handleChangePage(page) {
-      const { id } = this.$vuefront.params;
-      this.$router.push({
-        path: this.$route.path,
-        query: { page },
-      });
+<script lang="ts" setup>
+import { useRoute, useRouter } from "vue-router";
+
+defineProps({
+  posts: {
+    type: Object,
+    default() {
+      return null;
     },
   },
+  gridSize: {
+    type: Number,
+    default() {
+      return 4;
+    },
+  },
+});
+
+const router = useRouter();
+const route = useRoute();
+
+const handleChangePage = (page: number) => {
+  router.push({
+    path: route.path,
+    query: { page },
+  });
 };
 </script>

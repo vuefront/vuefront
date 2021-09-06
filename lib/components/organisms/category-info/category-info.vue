@@ -12,8 +12,13 @@
     />
   </div>
 </template>
-<script>
-export default {
-  props: ["category"],
-};
+<script lang="ts" setup>
+defineProps({
+  category: {
+    type: Object,
+    default() {
+      return null;
+    },
+  },
+});
 </script>

@@ -1281,7 +1281,7 @@
   optionalDependencies:
     prettier "^1.18.2"
 
-"@vue/devtools-api@^6.0.0-beta.7":
+"@vue/devtools-api@^6.0.0-beta.11", "@vue/devtools-api@^6.0.0-beta.14", "@vue/devtools-api@^6.0.0-beta.7":
   version "6.0.0-beta.15"
   resolved "https://registry.yarnpkg.com/@vue/devtools-api/-/devtools-api-6.0.0-beta.15.tgz#ad7cb384e062f165bcf9c83732125bffbc2ad83d"
   integrity sha512-quBx4Jjpexo6KDiNUGFr/zF/2A4srKM9S9v2uHgMXSU//hjgq1eGzqkIFql8T9gfX5ZaVOUzYBP3jIdIR3PKIA==
@@ -5220,10 +5220,12 @@ vue-loader@^15.9.8:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
-vue-router@^3.5.2:
-  version "3.5.2"
-  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.5.2.tgz#5f55e3f251970e36c3e8d88a7cd2d67a350ade5c"
-  integrity sha512-807gn82hTnjCYGrnF3eNmIw/dk7/GE4B5h69BlyCK9KHASwSloD1Sjcn06zg9fVG4fYH2DrsNBZkpLtb25WtaQ==
+vue-router@^4.0.0-beta.4:
+  version "4.0.11"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.0.11.tgz#cd649a0941c635281763a20965b599643ddc68ed"
+  integrity sha512-sha6I8fx9HWtvTrFZfxZkiQQBpqSeT+UCwauYjkdOQYRvwsGwimlQQE2ayqUwuuXGzquFpCPoXzYKWlzL4OuXg==
+  dependencies:
+    "@vue/devtools-api" "^6.0.0-beta.14"
 
 vue-skeletor@^1.0.6:
   version "1.0.6"
@@ -5264,6 +5266,13 @@ vuera@^0.2.3:
   version "0.2.7"
   resolved "https://registry.yarnpkg.com/vuera/-/vuera-0.2.7.tgz#8046ac9a7ce961b1c81f84218b3be4eaaa7ba940"
   integrity sha512-MZErNEK+xXjxBzIDFL9cdEtX3TDZk4pMJGB+WLrlFOVro9okS/FeOSpdPFkpdyZUImZN/or4CrmztA932ChGEQ==
+
+vuex@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/vuex/-/vuex-4.0.2.tgz#f896dbd5bf2a0e963f00c67e9b610de749ccacc9"
+  integrity sha512-M6r8uxELjZIK8kTKDGgZTYX/ahzblnzC4isU1tpmEuOIIKmV+TRdc+H4s8ds2NuZ7wpUTdGRzJRtoj+lI+pc0Q==
+  dependencies:
+    "@vue/devtools-api" "^6.0.0-beta.11"
 
 which@^2.0.1:
   version "2.0.2"

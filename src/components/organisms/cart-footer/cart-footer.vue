@@ -38,19 +38,18 @@
     </vf-m-row>
   </vf-m-card>
 </template>
-<script>
+<script lang="ts" setup>
 import { mdiCartOutline } from "@mdi/js";
-export default {
-  props: ["cart"],
-  data() {
-    return {
-      mdiCartOutline,
-    };
-  },
-  computed: {
-    isProducts() {
-      return this.cart.products.length > 0;
+import { computed } from "vue";
+const props = defineProps({
+  cart: {
+    type: Object,
+    default() {
+      return null;
     },
   },
-};
+});
+const isProducts = computed(() => {
+  return props.cart.products.length > 0;
+});
 </script>
