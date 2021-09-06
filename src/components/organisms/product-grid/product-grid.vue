@@ -12,12 +12,12 @@
         :md="
           list || column
             ? 12
-            : 12 / (gridSizeTablet | $vuefront.options.productGridSizeTablet)
+            : 12 / (gridSizeTablet || $vuefront.options.productGridSizeTablet)
         "
         :lg="
           list || column
             ? 12
-            : 12 / (gridSize | $vuefront.options.productGridSize)
+            : 12 / (gridSize || $vuefront.options.productGridSize)
         "
       >
         <vf-o-product-thumb

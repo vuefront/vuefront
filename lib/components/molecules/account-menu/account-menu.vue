@@ -1,6 +1,6 @@
 <template>
   <vf-m-dropdown class="vf-m-account-menu" variant="link" size="sm" right>
-    <template slot="button-content">
+    <template v-slot:button-content>
       <vf-a-icon :icon="mdiAccountCircleOutline" />
     </template>
     <vf-m-dropdown-item
@@ -33,13 +33,6 @@
     >
   </vf-m-dropdown>
 </template>
-<script>
+<script lang="ts" setup>
 import { mdiAccountCircleOutline } from "@mdi/js";
-export default {
-  data() {
-    return {
-      mdiAccountCircleOutline,
-    };
-  },
-};
 </script>
