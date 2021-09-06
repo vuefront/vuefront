@@ -11,16 +11,21 @@
 import { useStore } from "vuex";
 import { computed } from "vue";
 
-defineProps({
+const props = defineProps({
   product: {
     type: Object,
     default: () => null,
   },
 });
 const store = useStore();
-const onSubmit = async ({ content, author, rating }) => {
+interface IReview {
+  content: string;
+  author: string;
+  rating: number;
+}
+const onSubmit = async ({ content, author, rating }: IReview) => {
   await store.dispatch("store/product/addReview", {
-    id: this.product.id,
+    id: props.product.id,
     content,
     author,
     rating,

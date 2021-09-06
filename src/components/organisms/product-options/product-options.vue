@@ -77,7 +77,7 @@ defineProps({
 const store = useStore();
 const options = computed(() => store.getters["store/product/options"]);
 
-const checkActive = (e, option) => {
+const checkActive = (e: any, option: { id: string }) => {
   const result = filter(
     options,
     (value) => value.id === option.id && e === value.value
@@ -86,7 +86,7 @@ const checkActive = (e, option) => {
   return !isEmpty(result);
 };
 
-const handleOptionChange = (e, option) => {
+const handleOptionChange = (e: any, option: { id: string }) => {
   const result = filter(options, (value) => value.id !== option.id);
   result.push({
     id: option.id,
