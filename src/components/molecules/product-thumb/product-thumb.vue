@@ -61,36 +61,41 @@
     </vf-m-row>
   </vf-m-card>
 </template>
-<script>
+<script lang="ts" setup>
 import { mdiCartOutline, mdiHeartOutline, mdiCompareHorizontal } from "@mdi/js";
-export default {
-  props: ["product", "wide", "suffixUrl"],
-  data() {
-    return {
-      mdiCartOutline,
-      mdiHeartOutline,
-      mdiCompareHorizontal,
-    };
+import { computed } from "vue";
+const props = defineProps({
+  product: {
+    type: Object,
+    default: () => null,
   },
-  computed: {
-    url() {
-      if (this.product.url) {
-        return this.product.url + "?" + this.suffixUrl;
-      } else {
-        return "/store/product/" + this.product.id + "?" + this.suffixUrl;
-      }
-    },
+  wide: {
+    type: Boolean,
+    default: () => false,
   },
-  methods: {
-    handleAddToCart() {
-      this.$emit("click:cart");
-    },
-    handleAddToWishlist() {
-      this.$emit("click:wishlist");
-    },
-    handleAddToCompare() {
-      this.$emit("click:compare");
-    },
+  suffixUrl: {
+    type: String,
+    default: () => "",
   },
-};
+});
+
+const url = computed(() => {
+  if (props.product.url) {
+    return props.product.url + "?" + props.suffixUrl;
+  } else {
+    return "/store/product/" + props.product.id + "?" + props.suffixUrl;
+  }
+});
+
+const emits = defineEmits(["click:cart", "click:wishlist", "click:compare"]);
+
+function handleAddToCart() {
+  emits("click:cart");
+}
+function handleAddToWishlist() {
+  emits("click:wishlist");
+}
+function handleAddToCompare() {
+  emits("click:compare");
+}
 </script>

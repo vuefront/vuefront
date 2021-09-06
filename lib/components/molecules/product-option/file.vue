@@ -11,33 +11,38 @@
     />
   </div>
 </template>
-<script>
-import { mapGetters } from "vuex";
+<script lang="ts" setup>
+import { mapGetters, useStore } from "vuex";
 import find from "lodash-es/find";
 import uploadFileGql from "./upload.graphql";
-
-export default {
-  props: ["option", "selected"],
-  computed: {
-    ...mapGetters({ error: "vuefront/error" }),
-    activeOptionValue() {
-      const result = find(this.selected, { id: this.option.id });
-
-      return result ? result.value : null;
-    },
+import { PropType, computed } from "vue";
+const props = defineProps({
+  option: {
+    type: Object,
+    default: () => null,
   },
-  methods: {
-    async handleChange(value) {
-      await this.$store.dispatch("apollo/upload", {
-        mutation: uploadFileGql,
-        variables: { file: value },
-      });
-
-      if (!this.error) {
-        const { uploadFile } = this.$store.getters["apollo/get"];
-        this.$emit("change", uploadFile.code);
-      }
-    },
+  selected: {
+    type: Array as PropType<{ id: string; value: string }[]>,
+    default: () => [],
   },
+});
+const store = useStore();
+const error = computed(() => store.getters["vuefront/error"]);
+const activeOptionValue = () => {
+  const result = find(props.selected, { id: props.option.id });
+
+  return result ? result.value : null;
+};
+const emits = defineEmits(["change"]);
+const handleChange = async (value: any) => {
+  await store.dispatch("apollo/upload", {
+    mutation: uploadFileGql,
+    variables: { file: value },
+  });
+
+  if (!error.value) {
+    const { uploadFile } = store.getters["apollo/get"];
+    emits("change", uploadFile.code);
+  }
 };
 </script>

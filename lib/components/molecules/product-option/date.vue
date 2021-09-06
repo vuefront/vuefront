@@ -11,21 +11,27 @@
     />
   </div>
 </template>
-<script>
+<script lang="ts" setup>
 import find from "lodash-es/find";
-export default {
-  props: ["option", "selected"],
-  computed: {
-    activeOptionValue() {
-      const result = find(this.selected, { id: this.option.id });
+import { computed, PropType } from "vue";
+const props = defineProps({
+  option: {
+    type: Object,
+    default: () => null,
+  },
+  selected: {
+    type: Array as PropType<{ id: string; value: string }[]>,
+    default: () => [],
+  },
+});
 
-      return result ? result.value : "";
-    },
-  },
-  methods: {
-    handleChange(value) {
-      this.$emit("change", value);
-    },
-  },
+const activeOptionValue = computed(() => {
+  const result = find(props.selected, { id: props.option.id });
+  return result ? result.value : "";
+});
+
+const emits = defineEmits(["change"]);
+const handleChange = (value: any) => {
+  emits("change", value);
 };
 </script>

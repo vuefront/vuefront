@@ -12,8 +12,3 @@
     </vf-m-row>
   </section>
 </template>
-<script>
-export default {
-  
-};
-</script>

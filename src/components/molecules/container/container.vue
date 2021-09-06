@@ -10,21 +10,19 @@
     <slot></slot>
   </div>
 </template>
-<script>
-export default {
-  props: {
-    fluid: {
-      type: Boolean,
-      default() {
-        return false;
-      },
-    },
-    size: {
-      type: String,
-      default() {
-        return null;
-      },
+<script lang="ts" setup>
+defineProps({
+  fluid: {
+    type: Boolean,
+    default() {
+      return false;
     },
   },
-};
+  size: {
+    type: String,
+    default() {
+      return null;
+    },
+  },
+});
 </script>

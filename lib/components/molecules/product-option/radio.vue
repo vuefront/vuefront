@@ -4,7 +4,14 @@
       option.name
     }}</vf-a-heading>
     <div
-      class="btn-group-toggle btn-group-options row mx-0 mt-3 mb-5 vf-m-product-option__value"
+      class="
+        btn-group-toggle btn-group-options
+        row
+        mx-0
+        mt-3
+        mb-5
+        vf-m-product-option__value
+      "
     >
       <vf-a-button
         v-for="(value, key) in option.values"
@@ -21,23 +28,30 @@
     </div>
   </div>
 </template>
-<script>
+<script setup lang="ts">
 import filter from "lodash-es/filter";
 import isEmpty from "lodash-es/isEmpty";
-export default {
-  props: ["option", "selected"],
-  methods: {
-    handleChange(value) {
-      this.$emit("change", value);
-    },
-    checkActive(e, option) {
-      const result = filter(
-        this.selected,
-        (value) => value.id === option.id && e === value.value
-      );
-
-      return !isEmpty(result);
-    },
+import { PropType } from "vue";
+const props = defineProps({
+  option: {
+    type: Object,
+    default: () => null,
   },
+  selected: {
+    type: Array as PropType<{ id: string; value: string }[]>,
+    default: () => [],
+  },
+});
+const emits = defineEmits(["change"]);
+const handleChange = (value: any) => {
+  emits("change", value);
+};
+const checkActive = (e: any, option: { id: string }) => {
+  const result = filter(
+    props.selected,
+    (value) => value.id === option.id && e === value.value
+  );
+
+  return !isEmpty(result);
 };
 </script>

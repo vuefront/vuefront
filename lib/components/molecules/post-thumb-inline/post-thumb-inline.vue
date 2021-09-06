@@ -3,7 +3,9 @@
     <vf-m-media no-body vertical-align="center">
       <vf-m-media-aside
         v-if="!rightAlign"
-        class="vf-m-post-thumb-inline__image vf-m-post-thumb-inline__image--left"
+        class="
+          vf-m-post-thumb-inline__image vf-m-post-thumb-inline__image--left
+        "
       >
         <vf-m-post-thumb-image
           :post="post"
@@ -24,7 +26,9 @@
       </vf-m-media-body>
       <vf-m-media-aside
         v-if="rightAlign"
-        class="vf-m-post-thumb-inline__image vf-m-post-thumb-inline__image--right"
+        class="
+          vf-m-post-thumb-inline__image vf-m-post-thumb-inline__image--right
+        "
       >
         <vf-m-post-thumb-image
           :post="post"
@@ -35,30 +39,29 @@
     </vf-m-media>
   </vf-a-link>
 </template>
-<script>
-export default {
-  props: {
-    post: {
-      type: Object,
-      default() {
-        return null;
-      },
-    },
-    rightAlign: {
-      type: Boolean,
-      default() {
-        return false;
-      },
+<script lang="ts" setup>
+import { computed } from "vue";
+
+const props = defineProps({
+  post: {
+    type: Object,
+    default() {
+      return null;
     },
   },
-  computed: {
-    url() {
-      if (this.post.keyword && this.post.keyword !== "") {
-        return "/" + this.post.keyword;
-      } else {
-        return "/blog/post/" + this.post.id;
-      }
+  rightAlign: {
+    type: Boolean,
+    default() {
+      return false;
     },
   },
-};
+});
+
+const url = computed(() => {
+  if (props.post.keyword && props.post.keyword !== "") {
+    return "/" + props.post.keyword;
+  } else {
+    return "/blog/post/" + props.post.id;
+  }
+});
 </script>

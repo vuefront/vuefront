@@ -16,30 +16,29 @@
     </vf-m-card-body>
   </vf-m-card>
 </template>
-<script>
-export default {
-  props: {
-    post: {
-      type: Object,
-      default() {
-        return {
-          title: "",
-          image: "",
-          imageLazy: "",
-          keyword: "",
-          shortDescription: "",
-        };
-      },
+<script lang="ts" setup>
+import { computed } from "vue";
+
+const props = defineProps({
+  post: {
+    type: Object,
+    default() {
+      return {
+        title: "",
+        image: "",
+        imageLazy: "",
+        keyword: "",
+        shortDescription: "",
+      };
     },
   },
-  computed: {
-    url() {
-      if (this.post.keyword && this.post.keyword !== "") {
-        return "/" + this.post.keyword;
-      } else {
-        return "/blog/post/" + this.post.id;
-      }
-    },
-  },
-};
+});
+
+const url = computed(() => {
+  if (props.post.keyword && props.post.keyword !== "") {
+    return "/" + props.post.keyword;
+  } else {
+    return "/blog/post/" + props.post.id;
+  }
+});
 </script>

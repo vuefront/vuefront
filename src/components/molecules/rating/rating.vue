@@ -16,41 +16,48 @@
     </span>
   </section>
 </template>
-<script>
+<script setup lang="ts">
 import isUndefined from "lodash-es/isUndefined";
 import { mdiStar, mdiStarOutline } from "@mdi/js";
-export default {
-  props: ["modelValue", "color", "readonly"],
-  data() {
-    return {
-      rating: 0,
-      hover: false,
-      mdiStar,
-      mdiStarOutline,
-    };
+import { computed, ref } from "vue";
+
+const props = defineProps({
+  modelValue: {
+    type: Number,
+    default: () => 0,
   },
-  computed: {
-    currentRating() {
-      return this.hover ? this.rating : this.modelValue;
-    },
+  color: {
+    type: String,
+    default: () => "#FFFF33",
   },
-  methods: {
-    handleMouseOver(rating) {
-      if (isUndefined(this.readonly)) {
-        this.rating = rating;
-        this.hover = true;
-      }
-    },
-    handleMouseOut() {
-      if (isUndefined(this.readonly)) {
-        this.hover = false;
-      }
-    },
-    handleClick(rating) {
-      if (isUndefined(this.readonly)) {
-        this.$emit("update:modelValue", rating);
-      }
-    },
+  readonly: {
+    type: Boolean,
+    default: () => false,
   },
-};
+});
+
+let rating = ref(0),
+  hover = ref(false);
+
+const currentRating = computed(() => {
+  return hover.value ? rating : props.modelValue;
+});
+
+function handleMouseOver(hoverRating: number) {
+  if (isUndefined(props.readonly)) {
+    rating.value = hoverRating;
+    hover.value = true;
+  }
+}
+function handleMouseOut() {
+  if (isUndefined(props.readonly)) {
+    hover.value = false;
+  }
+}
+const emits = defineEmits(["update:modelValue"]);
+function handleClick(rating: number) {
+  if (isUndefined(props.readonly)) {
+    emits("update:modelValue", rating);
+  }
+}
 </script>

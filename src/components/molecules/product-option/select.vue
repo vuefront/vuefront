@@ -11,36 +11,48 @@
     />
   </div>
 </template>
-<script>
+<script lang="ts" setup>
 import find from "lodash-es/find";
-export default {
-  props: ["option", "selected"],
-  computed: {
-    selectOptions() {
-      let result = [
-        {
-          value: null,
-          text: this.$t("elements.store.product.option.select.selectText"),
-          disabled:true
-        },
-      ];
-
-      this.option.values.forEach((value) => {
-        result = [...result, { text: value.name, value: value.id }];
-      });
-
-      return result;
-    },
-    activeOptionValue() {
-      const result = find(this.selected, { id: this.option.id });
-
-      return result ? result.value : null;
-    },
+import { computed, PropType } from "vue";
+import { useI18n } from "vue-i18n";
+const i18n = useI18n();
+const props = defineProps({
+  option: {
+    type: Object,
+    default: () => null,
   },
-  methods: {
-    handleChange(value) {
-      this.$emit("change", value);
-    },
+  selected: {
+    type: Array as PropType<{ id: string; value: string }[]>,
+    default: () => [],
   },
+});
+interface ISelectOption {
+  value: string | null;
+  text: string;
+  disabled?: boolean;
+}
+const selectOptions = computed(() => {
+  let result: ISelectOption[] = [
+    {
+      value: null,
+      text: i18n.t("elements.store.product.option.select.selectText"),
+      disabled: true,
+    },
+  ];
+
+  props.option.values.forEach((value: { name: string; id: string }) => {
+    result = [...result, { text: value.name, value: value.id }];
+  });
+
+  return result;
+});
+
+const activeOptionValue = computed(() => {
+  const result = find(props.selected, { id: props.option.id });
+  return result ? result.value : null;
+});
+const emits = defineEmits(["change"]);
+const handleChange = (value: any) => {
+  emits("change", value);
 };
 </script>

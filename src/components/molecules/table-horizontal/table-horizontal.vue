@@ -21,21 +21,19 @@
     </div>
   </section>
 </template>
-<script>
-export default {
-  props: {
-    items: {
-      type: Array,
-      default() {
-        return [];
-      },
-    },
-    fields: {
-      type: Array,
-      default() {
-        return [];
-      },
+<script setup lang="ts">
+defineProps({
+  items: {
+    type: Array,
+    default() {
+      return [];
     },
   },
-};
+  fields: {
+    type: Array,
+    default() {
+      return [];
+    },
+  },
+});
 </script>

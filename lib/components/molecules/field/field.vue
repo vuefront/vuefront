@@ -13,33 +13,31 @@
     </div>
   </div>
 </template>
-<script>
-export default {
-  props: {
-    id: {
-      type: String,
-      default() {
-        return "";
-      },
-    },
-    label: {
-      type: String,
-      default() {
-        return null;
-      },
-    },
-    error: {
-      type: String,
-      default() {
-        return "";
-      },
-    },
-    state: {
-      type: Boolean,
-      default() {
-        return null;
-      },
+<script lang="ts" setup>
+defineProps({
+  id: {
+    type: String,
+    default() {
+      return "";
     },
   },
-};
+  label: {
+    type: String,
+    default() {
+      return null;
+    },
+  },
+  error: {
+    type: String,
+    default() {
+      return "";
+    },
+  },
+  state: {
+    type: Boolean,
+    default() {
+      return null;
+    },
+  },
+});
 </script>

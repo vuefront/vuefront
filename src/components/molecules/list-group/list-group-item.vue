@@ -17,21 +17,19 @@
     <slot></slot>
   </div>
 </template>
-<script>
-export default {
-  props: {
-    active: {
-      type: Boolean,
-      default() {
-        return false;
-      },
-    },
-    to: {
-      type: String,
-      default() {
-        return null;
-      },
+<script lang="ts" setup>
+defineProps({
+  active: {
+    type: Boolean,
+    default() {
+      return false;
     },
   },
-};
+  to: {
+    type: String,
+    default() {
+      return null;
+    },
+  },
+});
 </script>
