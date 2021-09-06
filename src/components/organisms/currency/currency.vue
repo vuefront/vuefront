@@ -6,7 +6,7 @@
       variant="link"
       size="sm"
     >
-      <template slot="button-content">
+      <template v-slot:button-content>
         <span
           class="
             d-none d-md-inline-block
@@ -32,26 +32,20 @@
     </vf-m-dropdown>
   </span>
 </template>
-<script>
-import { mapGetters } from "vuex";
+<script lang="ts" setup>
+import { mapGetters, useStore } from "vuex";
 import find from "lodash-es/find";
-export default {
-  computed: {
-    ...mapGetters({
-      currency: "store/currency/get",
-      error: "vuefront/error",
-    }),
-    activeCurrency() {
-      return find(this.currency, { active: true });
-    },
-  },
-  methods: {
-    async handleEdit({ code }) {
-      await this.$store.dispatch("store/currency/edit", { code });
-      if (!this.error) {
-        location.reload();
-      }
-    },
-  },
+import { computed } from "vue";
+const store = useStore();
+const currency = computed(() => store.getters["store/currency/get"]);
+const error = computed(() => store.getters["vuefront/error"]);
+const activeCurrency = computed(() => {
+  return find(currency, { active: true });
+});
+const handleEdit = async ({ code }: { code: string }) => {
+  await store.dispatch("store/currency/edit", { code });
+  if (!error.value) {
+    location.reload();
+  }
 };
 </script>

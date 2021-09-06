@@ -6,8 +6,8 @@
           <div>
             <vf-a-image
               :src="logo"
-              :width-amp="$vuefront.images.logo.width"
-              :height-amp="$vuefront.images.logo.height"
+              :width-amp="vuefront$.images.logo.width"
+              :height-amp="vuefront$.images.logo.height"
               alt
               width="180"
               class="mb-3"
@@ -33,29 +33,23 @@
           />
         </vf-m-col>
         <vf-m-col md="6">
-          <div
-            class="text-sm text-center md:text-right"
-          >
-          {{$t('elements.common.footer.poweredByText')}} <a class='heading' href='http://vuefront.com' target='_blank'>{{$t('elements.common.footer.vuefrontText')}}</a> {{$t('elements.common.footer.withLoveText')}}
+          <div class="text-sm text-center md:text-right">
+            {{ $t("elements.common.footer.poweredByText") }}
+            <a class="heading" href="http://vuefront.com" target="_blank">{{
+              $t("elements.common.footer.vuefrontText")
+            }}</a>
+            {{ $t("elements.common.footer.withLoveText") }}
           </div>
         </vf-m-col>
       </vf-m-row>
     </vf-m-container>
   </footer>
 </template>
-<script>
-export default {
-  data() {
-    return {};
-  },
-  computed: {
-    logo() {
-      if (typeof this.$vuefront.images.footerLogo !== "undefined") {
-        return this.$vuefront.images.footerLogo.image;
-      } else {
-        return "https://vuefront.com/logo.png";
-      }
-    },
-  },
-};
+<script lang="ts" setup>
+import { inject } from "vue";
+const vuefront$ = inject<any>("$vuefront");
+let logo = "https://vuefront.com/logo.png";
+if (typeof vuefront$.images.footerLogo !== "undefined") {
+  logo = vuefront$.images.footerLogo.image;
+}
 </script>

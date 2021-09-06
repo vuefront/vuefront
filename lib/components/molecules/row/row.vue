@@ -48,7 +48,7 @@ const getAlignH = {
 const getClass = computed(() => {
   const result = [];
 
-  if (!props.noGutters) {
+  if (props.noGutters) {
     result.push("--no-gutter");
   }
 

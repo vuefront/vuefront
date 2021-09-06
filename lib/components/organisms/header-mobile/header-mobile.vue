@@ -24,22 +24,11 @@
     </vf-o-sidebar>
   </section>
 </template>
-<script>
+<script lang="ts" setup>
 import { mdiClose, mdiApps } from "@mdi/js";
-import { mapMutations } from "vuex";
-export default {
-  data() {
-    return {
-      mdiClose,
-      mdiApps,
-    };
-  },
-  methods: {
-    ...mapMutations({
-      toggleSidebar: "vuefront/toggleSidebar",
-    }),
-  },
-};
+import { useStore } from "vuex";
+const store = useStore();
+const toggleSidebar = () => store.commit("vuefront/toggleSidebar");
 </script>
 <style lang="scss">
 .vf-o-header-mobile {
