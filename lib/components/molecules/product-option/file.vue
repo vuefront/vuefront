@@ -6,7 +6,6 @@
     <input
       class="vf-m-product-option__value"
       type="file"
-      :value="activeOptionValue"
       @input="handleChange"
     />
   </div>
@@ -28,11 +27,7 @@ const props = defineProps({
 });
 const store = useStore();
 const error = computed(() => store.getters["vuefront/error"]);
-const activeOptionValue = () => {
-  const result = find(props.selected, { id: props.option.id });
 
-  return result ? result.value : null;
-};
 const emits = defineEmits(["change"]);
 const handleChange = async (value: any) => {
   await store.dispatch("apollo/upload", {
