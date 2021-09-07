@@ -24,9 +24,3 @@
     </vf-m-card-body>
   </vf-m-card>
 </template>
-
-<script>
-export default {
-  
-};
-</script>

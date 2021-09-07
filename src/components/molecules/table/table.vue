@@ -19,21 +19,19 @@
     </tbody>
   </table>
 </template>
-<script>
-export default {
-  props: {
-    items: {
-      type: Array,
-      default() {
-        return [];
-      },
-    },
-    fields: {
-      type: Array,
-      default() {
-        return [];
-      },
+<script lang="ts" setup>
+defineProps({
+  items: {
+    type: Array,
+    default() {
+      return [];
     },
   },
-};
+  fields: {
+    type: Array,
+    default() {
+      return [];
+    },
+  },
+});
 </script>

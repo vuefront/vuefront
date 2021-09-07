@@ -6,15 +6,13 @@
     <slot></slot>
   </div>
 </template>
-<script>
-export default {
-  props: {
-    to: {
-      type: String,
-      default() {
-        return null;
-      },
+<script lang="ts" setup>
+defineProps({
+  to: {
+    type: String,
+    default() {
+      return null;
     },
   },
-};
+});
 </script>

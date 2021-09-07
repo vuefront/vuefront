@@ -21,80 +21,72 @@
     </div>
   </div>
 </template>
-<script>
-export default {
-  props: {
-    text: {
-      type: String,
-      default() {
-        return "";
-      },
-    },
-    right: {
-      type: Boolean,
-      default() {
-        return null;
-      },
-    },
-    size: {
-      type: String,
-      default() {
-        return "md";
-      },
-    },
-    variant: {
-      type: String,
-      default() {
-        return "primary";
-      },
-    },
-    nav: {
-      type: Boolean,
-      default() {
-        return false;
-      },
+<script lang="ts" setup>
+import { computed, ref } from "vue";
+
+const props = defineProps({
+  text: {
+    type: String,
+    default() {
+      return "";
     },
   },
-  data() {
-    return {
-      show: false,
-    };
-  },
-  computed: {
-    getClassManu() {
-      const result = [];
-
-      if (this.right) {
-        result.push("vf-m-dropdown__menu-content--right");
-      } else {
-        result.push("vf-m-dropdown__menu-content--left");
-      }
-
-      return result.join(" ");
+  right: {
+    type: Boolean,
+    default() {
+      return null;
     },
   },
-  methods: {
-    keydownHandler(e) {
-      this.show = false;
+  size: {
+    type: String,
+    default() {
+      return "md";
     },
-    blurEventTargetIsChild(e) {
-      const blurredElement = e.relatedTarget;
-
-      if (blurredElement) {
-        const wrapper = this.$refs.wrapper;
-        return wrapper.contains(blurredElement);
-      }
-
+  },
+  variant: {
+    type: String,
+    default() {
+      return "primary";
+    },
+  },
+  nav: {
+    type: Boolean,
+    default() {
       return false;
     },
-    hideIfFocusOutside(e) {
-      if (!this.blurEventTargetIsChild(e)) {
-        this.show = false;
-      }
-    },
-    blurHandler(e) {
-      this.hideIfFocusOutside(e);
-    },
   },
+});
+const show = ref(false);
+const getClassMenu = computed(() => {
+  const result = [];
+
+  if (props.right) {
+    result.push("vf-m-dropdown__menu-content--right");
+  } else {
+    result.push("vf-m-dropdown__menu-content--left");
+  }
+
+  return result.join(" ");
+});
+const keydownHandler = (e: any) => {
+  show.value = false;
+};
+const wrapper = ref<any>(null);
+const blurEventTargetIsChild = (e: any) => {
+  const blurredElement = e.relatedTarget;
+
+  if (blurredElement) {
+    return wrapper.value.contains(blurredElement);
+  }
+
+  return false;
+};
+const hideIfFocusOutside = (e: any) => {
+  if (!blurEventTargetIsChild(e)) {
+    show.value = false;
+  }
+};
+const blurHandler = (e: any) => {
+  hideIfFocusOutside(e);
 };
 </script>

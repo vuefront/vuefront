@@ -44,116 +44,100 @@
     </client-only>
   </section>
 </template>
-<script lang="ts">
+<script lang="ts" setup>
 import { computed, defineComponent, inject, PropType, ref } from "vue";
-export default defineComponent({
-  props: {
-    product: {
-      type: Object,
-      required: true,
-      default: null,
-    },
-    width: {
-      type: [String, Number] as PropType<String | Number>,
-      required: false,
-      default: null,
-    },
-    height: {
-      type: [String, Number] as PropType<String | Number>,
-      required: false,
-      default: null,
-    },
+const props = defineProps({
+  product: {
+    type: Object,
+    required: true,
+    default: null,
   },
-  setup(props) {
-    let popup = ref(false);
-    let popupIndex = ref(0);
-
-    const $vuefront = inject<any>("$vuefront");
-
-    const getWidth = computed(() => {
-      let width = props.width;
-      if (!props.width) {
-        if (props.height) {
-          width =
-            (Number(props.height) * $vuefront.images.product.width) /
-            $vuefront.images.product.height;
-        } else {
-          width = $vuefront.images.product.width;
-        }
-      }
-      return width;
-    });
-    const getHeight = computed(() => {
-      let height = props.height;
-
-      if (!props.height) {
-        if (props.width) {
-          height =
-            (Number(props.width) * $vuefront.images.product.height) /
-            $vuefront.images.product.width;
-        } else {
-          height = $vuefront.images.product.height;
-        }
-      }
-      return height;
-    });
-
-    const mainImage = computed<string>(() => {
-      return props.product.imageBig !== ""
-        ? props.product.imageBig
-        : $vuefront.images.placeholder.image;
-    });
-
-    const mainImageLazy = computed<string>(() => {
-      return props.product.imageLazy !== ""
-        ? props.product.imageLazy
-        : $vuefront.images.placeholder.image;
-    });
-
-    const images = computed(() => {
-      let result: { thumb: string; src: string }[] = [];
-
-      result = [
-        ...result,
-        {
-          thumb: mainImage.value,
-          src: mainImage.value,
-        },
-      ];
-
-      props.product.images.forEach(({ imageBig }: { imageBig: string }) => {
-        result = [
-          ...result,
-          {
-            thumb: imageBig,
-            src: imageBig,
-          },
-        ];
-      });
-
-      return result;
-    });
-
-    const handleOpenPopup = (index: number) => {
-      popupIndex.value = index;
-      popup.value = true;
-    };
-
-    const handleClosePopup = () => {
-      popup.value = false;
-    };
-
-    return {
-      mainImage,
-      mainImageLazy,
-      images,
-      getWidth,
-      getHeight,
-      popup,
-      popupIndex,
-      handleOpenPopup,
-      handleClosePopup,
-    };
+  width: {
+    type: [String, Number] as PropType<String | Number>,
+    required: false,
+    default: null,
+  },
+  height: {
+    type: [String, Number] as PropType<String | Number>,
+    required: false,
+    default: null,
   },
 });
+let popup = ref(false);
+let popupIndex = ref(0);
+
+const $vuefront = inject<any>("$vuefront");
+
+const getWidth = computed(() => {
+  let width = props.width;
+  if (!props.width) {
+    if (props.height) {
+      width =
+        (Number(props.height) * $vuefront.images.product.width) /
+        $vuefront.images.product.height;
+    } else {
+      width = $vuefront.images.product.width;
+    }
+  }
+  return width;
+});
+const getHeight = computed(() => {
+  let height = props.height;
+
+  if (!props.height) {
+    if (props.width) {
+      height =
+        (Number(props.width) * $vuefront.images.product.height) /
+        $vuefront.images.product.width;
+    } else {
+      height = $vuefront.images.product.height;
+    }
+  }
+  return height;
+});
+
+const mainImage = computed<string>(() => {
+  return props.product.imageBig !== ""
+    ? props.product.imageBig
+    : $vuefront.images.placeholder.image;
+});
+
+const mainImageLazy = computed<string>(() => {
+  return props.product.imageLazy !== ""
+    ? props.product.imageLazy
+    : $vuefront.images.placeholder.image;
+});
+
+const images = computed(() => {
+  let result: { thumb: string; src: string }[] = [];
+
+  result = [
+    ...result,
+    {
+      thumb: mainImage.value,
+      src: mainImage.value,
+    },
+  ];
+
+  props.product.images.forEach(({ imageBig }: { imageBig: string }) => {
+    result = [
+      ...result,
+      {
+        thumb: imageBig,
+        src: imageBig,
+      },
+    ];
+  });
+
+  return result;
+});
+
+const handleOpenPopup = (index: number) => {
+  popupIndex.value = index;
+  popup.value = true;
+};
+
+const handleClosePopup = () => {
+  popup.value = false;
+};
 </script>

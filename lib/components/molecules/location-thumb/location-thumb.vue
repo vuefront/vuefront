@@ -21,21 +21,19 @@
     </vf-m-card-body>
   </vf-m-card>
 </template>
-<script>
-export default {
-  props: {
-    location: {
-      type: Object,
-      default() {
-        return {
-          address: "",
-          telephone: "",
-          image: "",
-          imageLazy: "",
-          comment: "",
-        };
-      },
+<script lang="ts" setup>
+defineProps({
+  location: {
+    type: Object,
+    default() {
+      return {
+        address: "",
+        telephone: "",
+        image: "",
+        imageLazy: "",
+        comment: "",
+      };
     },
   },
-};
+});
 </script>

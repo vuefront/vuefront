@@ -16,27 +16,25 @@
     <span v-else class="vf-m-product-price__price">{{ price }}</span>
   </vf-a-heading>
 </template>
-<script>
-export default {
-  props: {
-    price: {
-      type: String,
-      default() {
-        return "";
-      },
-    },
-    special: {
-      type: String,
-      default() {
-        return "";
-      },
-    },
-    variant: {
-      type: String,
-      default() {
-        return "normal";
-      },
+<script setup lang="ts">
+defineProps({
+  price: {
+    type: String,
+    default() {
+      return "";
     },
   },
-};
+  special: {
+    type: String,
+    default() {
+      return "";
+    },
+  },
+  variant: {
+    type: String,
+    default() {
+      return "normal";
+    },
+  },
+});
 </script>

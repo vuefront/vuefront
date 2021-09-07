@@ -13,51 +13,52 @@
     cover
   />
 </template>
-<script>
-export default {
-  props: {
-    card: {
-      type: Boolean,
-      default() {
-        return false;
-      },
-    },
-    post: {
-      type: Object,
-      default() {
-        return null;
-      },
-    },
-    width: {
-      type: [String, Number],
-      default() {
-        return null;
-      },
-    },
-    height: {
-      type: [String, Number],
-      default() {
-        return null;
-      },
-    },
-    layout: {
-      type: String,
-      default() {
-        return null;
-      },
+<script setup lang="ts">
+import { computed, inject } from "vue";
+
+const vuefront$ = inject<any>("$vuefront");
+const props = defineProps({
+  card: {
+    type: Boolean,
+    default() {
+      return false;
     },
   },
-  computed: {
-    mainImage() {
-      return this.post.image !== ""
-        ? this.post.image
-        : this.$vuefront.images.placeholder.image;
-    },
-    mainImagelazy() {
-      return this.post.imageLazy !== ""
-        ? this.post.imageLazy
-        : this.$vuefront.images.placeholder.image;
+  post: {
+    type: Object,
+    default() {
+      return null;
     },
   },
-};
+  width: {
+    type: [String, Number],
+    default() {
+      return null;
+    },
+  },
+  height: {
+    type: [String, Number],
+    default() {
+      return null;
+    },
+  },
+  layout: {
+    type: String,
+    default() {
+      return null;
+    },
+  },
+});
+
+const mainImage = computed(() =>
+  props.post.image !== ""
+    ? props.post.image
+    : vuefront$.images.placeholder.image
+);
+
+const mainImagelazy = computed(() =>
+  props.post.imageLazy !== ""
+    ? props.post.imageLazy
+    : vuefront$.images.placeholder.image
+);
 </script>

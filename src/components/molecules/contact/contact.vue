@@ -18,21 +18,17 @@
     <p v-if="contact.comment">{{ contact.comment }}</p>
   </section>
 </template>
-<script>
-export default {
-  props: {
-    contact: {
-      type: Object,
-      default() {
-        return {
-          address: "",
-          email: "",
-          telephone: "",
-          fax: "",
-          comment: "",
-        };
-      },
-    },
+<script lang="ts" setup>
+defineProps({
+  contact: {
+    type: Object,
+    default: () => ({
+      address: "",
+      email: "",
+      telephone: "",
+      fax: "",
+      comment: "",
+    }),
   },
-};
+});
 </script>

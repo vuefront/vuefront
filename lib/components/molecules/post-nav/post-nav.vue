@@ -10,15 +10,13 @@
     </vf-m-row>
   </div>
 </template>
-<script>
-export default {
-  props: {
-    post: {
-      type: Object,
-      default() {
-        return null;
-      },
+<script lang="ts" setup>
+defineProps({
+  post: {
+    type: Object,
+    default() {
+      return null;
     },
   },
-};
+});
 </script>

@@ -20,8 +20,11 @@
     </vf-m-row>
   </section>
 </template>
-<script>
-export default {
-  props: ["attributes"],
-};
+<script setup lang="ts">
+defineProps({
+  attributes: {
+    type: Array,
+    default: () => null,
+  },
+});
 </script>

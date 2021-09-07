@@ -13,51 +13,51 @@
     cover
   />
 </template>
-<script>
-export default {
-  props: {
-    card: {
-      type: Boolean,
-      default() {
-        return false;
-      },
-    },
-    product: {
-      type: Object,
-      default() {
-        return null;
-      },
-    },
-    width: {
-      type: [String, Number],
-      default() {
-        return null;
-      },
-    },
-    height: {
-      type: [String, Number],
-      default() {
-        return null;
-      },
-    },
-    layout: {
-      type: String,
-      default() {
-        return null;
-      },
+<script setup lang="ts">
+import { inject, PropType, computed } from "vue";
+const vuefront$ = inject<any>("$vuefront");
+const props = defineProps({
+  card: {
+    type: Boolean,
+    default() {
+      return false;
     },
   },
-  computed: {
-    mainImage() {
-      return this.product.image !== ""
-        ? this.product.image
-        : this.$vuefront.images.placeholder.image;
-    },
-    mainImagelazy() {
-      return this.product.imageLazy !== ""
-        ? this.product.imageLazy
-        : this.$vuefront.images.placeholder.image;
+  product: {
+    type: Object,
+    default() {
+      return null;
     },
   },
-};
+  width: {
+    type: [String, Number] as PropType<string | number>,
+    default() {
+      return null;
+    },
+  },
+  height: {
+    type: [String, Number] as PropType<string | number>,
+    default() {
+      return null;
+    },
+  },
+  layout: {
+    type: String,
+    default() {
+      return null;
+    },
+  },
+});
+
+const mainImage = computed(() =>
+  props.product.image !== ""
+    ? props.product.image
+    : vuefront$.images.placeholder.image
+);
+
+const mainImagelazy = computed(() =>
+  props.product.imageLazy !== ""
+    ? props.product.imageLazy
+    : vuefront$.images.placeholder.image
+);
 </script>
