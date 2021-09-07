@@ -11,51 +11,53 @@
     </span>
   </div>
 </template>
-<script>
+<script lang="ts" setup>
 import isNumber from "lodash-es/isNumber";
 import upperCase from "lodash-es/upperCase";
 import isUndefined from "lodash-es/isUndefined";
-export default {
-  props: {
-    manufacturers: {
-      type: Object,
-      default() {
-        return {
-          content: [],
-        };
-      },
+import { computed } from "vue";
+const props = defineProps({
+  manufacturers: {
+    type: Object,
+    default() {
+      return {
+        content: [],
+      };
     },
   },
-  computed: {
-    getBrandIndex() {
-      const result = {};
+});
+interface BrandIndex {
+  [x: string]: {
+    name: string;
+    manufacturer: object[];
+  };
+}
+const getBrandIndex = computed(() => {
+  const result: BrandIndex = {};
 
-      for (const index in this.manufacturers.content) {
-        const manufacturer = this.manufacturers.content[index];
-        let key = "";
-        if (isNumber(manufacturer.name.substring(0, 1))) {
-          key = "0 - 9";
-        } else {
-          key = upperCase(manufacturer.name).substring(0, 1);
-        }
-        if (isUndefined(result[key])) {
-          result[key] = {
-            name: key,
-            manufacturer: [manufacturer],
-          };
-        } else {
-          result[key].manufacturer.push(manufacturer);
-        }
-      }
+  for (const index in props.manufacturers.content) {
+    const manufacturer = props.manufacturers.content[index];
+    let key = "";
+    if (isNumber(manufacturer.name.substring(0, 1))) {
+      key = "0 - 9";
+    } else {
+      key = upperCase(manufacturer.name).substring(0, 1);
+    }
+    if (isUndefined(result[key])) {
+      result[key] = {
+        name: key,
+        manufacturer: [manufacturer],
+      };
+    } else {
+      result[key].manufacturer.push(manufacturer);
+    }
+  }
 
-      return result;
-    },
-  },
-  methods: {
-    handleScroll(id) {
-      const el = document.getElementById(id);
-      el.scrollIntoView();
-    },
-  },
+  return result;
+});
+
+const handleScroll = (id: string) => {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView();
 };
 </script>

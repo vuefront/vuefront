@@ -10,44 +10,37 @@
     />
   </span>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      keyword: "",
-    };
-  },
-  watch: {
-    $route(to, from) {
-      if (to.matched.length > 0 && to.matched[0].path === "/search/:slug") {
-        this.keyword = to.params.slug;
-      } else {
-        this.keyword = "";
-      }
-    },
-  },
-  watchQuery: true,
-  beforeMount() {
-    if (
-      this.$route.matched.length > 0 &&
-      this.$route.matched[0].path === "/search/:slug"
-    ) {
-      this.keyword = this.$route.params.slug;
+<script lang="ts" setup>
+import { onBeforeMount, ref, watch } from "vue";
+import { useRoute, useRouter } from "vue-router";
+const keyword = ref("");
+const route = useRoute();
+const router = useRouter();
+watch(
+  () => route,
+  (to, from) => {
+    if (to.matched.length > 0 && to.matched[0].path === "/search/:slug") {
+      keyword.value = to.params.slug as string;
+    } else {
+      keyword.value = "";
     }
-  },
-  methods: {
-    handleKeyPress(e) {
-      if (e.key === "Enter") {
-        if (this.keyword !== "") {
-          this.$router.push(`/search/${this.keyword}`);
-        } else {
-          this.$router.push("/search");
-        }
-      }
-    },
-    doSearch() {
-      this.$router.push(`/search/${this.keyword}`);
-    },
-  },
+  }
+);
+onBeforeMount(() => {
+  if (route.matched.length > 0 && route.matched[0].path === "/search/:slug") {
+    keyword.value = route.params.slug as string;
+  }
+});
+const handleKeyPress = (e: any) => {
+  if (e.key === "Enter") {
+    if (keyword.value !== "") {
+      router.push(`/search/${keyword.value}`);
+    } else {
+      router.push("/search");
+    }
+  }
+};
+const doSearch = () => {
+  router.push(`/search/${keyword.value}`);
 };
 </script>

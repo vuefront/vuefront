@@ -4,29 +4,27 @@
     {{ $t("elements.store.product.buttonAddToCart") }}
   </vf-a-button>
 </template>
-<script>
-import { mapGetters } from "vuex";
+<script lang="ts" setup>
+import { useStore } from "vuex";
 import { mdiCartOutline } from "@mdi/js";
-export default {
-  props: ["product"],
-  data() {
-    return {
-      mdiCartOutline,
-    };
-  },
-  computed: {
-    ...mapGetters({
-      options: "store/product/options",
-    }),
-  },
-  methods: {
-    async handleAddToCart() {
-      await this.$store.dispatch("store/cart/add", {
-        product: this.product,
-        quantity: 1,
-        options: this.options,
-      });
+import { computed } from "vue";
+const props = defineProps({
+  product: {
+    type: Object,
+    default() {
+      return null;
     },
   },
+});
+const store = useStore();
+
+const options = computed(() => store.getters["store/product/options"]);
+
+const handleAddToCart = async () => {
+  await store.dispatch("store/cart/add", {
+    product: props.product,
+    quantity: 1,
+    options: options,
+  });
 };
 </script>

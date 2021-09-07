@@ -7,8 +7,11 @@
     <vf-o-manufacturer-list :manufacturers="manufacturers" class="mt-5" />
   </section>
 </template>
-<script>
-export default {
-  props: ["manufacturers"],
-};
+<script lang="ts" setup>
+defineProps({
+  manufacturers: {
+    type: Object,
+    default: () => null,
+  },
+});
 </script>

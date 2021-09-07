@@ -55,59 +55,46 @@
     </template>
   </vf-o-form>
 </template>
-<script>
-import * as vuelidate from "vuelidate";
-import {
-  required,
-  maxLength,
-  minLength,
-  sameAs,
-} from "vuelidate/lib/validators";
+<script lang="ts" setup>
+import { useVuelidate } from "@vuelidate/core";
+import { required, maxLength, minLength, sameAs } from "@vuelidate/validators";
 import { mdiArrowRight } from "@mdi/js";
-const { validationMixin } = vuelidate;
-export default {
-  mixins: [validationMixin],
-  data() {
-    return {
-      mdiArrowRight,
-      form: {
-        password: null,
-        confirmPassword: null,
-      },
-    };
-  },
-  validations: {
-    form: {
-      password: {
-        required,
-        minLength: minLength(4),
-        maxLength: maxLength(20),
-      },
-      confirmPassword: {
-        required,
-        minLength: minLength(4),
-        maxLength: maxLength(20),
-        sameAsPassword: sameAs("password"),
-      },
+import { reactive } from "vue";
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
+const form = reactive({
+  password: null,
+  confirmPassword: null,
+});
+const v$ = useVuelidate(
+  {
+    password: {
+      required,
+      minLength: minLength(4),
+      maxLength: maxLength(20),
+    },
+    confirmPassword: {
+      required,
+      minLength: minLength(4),
+      maxLength: maxLength(20),
+      sameAsPassword: sameAs("password"),
     },
   },
-  methods: {
-    async onSubmit() {
-      this.$v.$touch();
+  form
+);
+const store = useStore();
+const router = useRouter();
+const onSubmit = async () => {
+  v$.value.$touch();
 
-      if (!this.$v.form.$invalid) {
-        const status = await this.$store.dispatch(
-          "common/customer/editPassword",
-          {
-            password: this.form.password,
-          }
-        );
+  if (!v$.value.$invalid) {
+    const status = await store.dispatch("common/customer/editPassword", {
+      password: form.password,
+    });
 
-        if (status) {
-          this.$router.push("/account");
-        }
-      }
-    },
-  },
+    if (status) {
+      router.push("/account");
+    }
+  }
 };
 </script>

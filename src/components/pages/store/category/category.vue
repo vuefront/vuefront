@@ -19,12 +19,17 @@
   </vf-t-common-layout>
 </template>
 <script>
+import { defineComponent } from "vue";
 import { mapGetters } from "vuex";
-import { BaseModule } from "vuefront/lib/utils/module.js";
-export default {
-  mixins: [BaseModule],
+import useModule from "../../../../utils/module";
+export default defineComponent({
+  setup() {
+    const { checkModules } = useModule();
+
+    return { checkModules };
+  },
   props: ["id", "keyword", "url"],
-  asyncData(ctx) {
+  asyncData() {
     return {
       loaded: !document,
     };
@@ -150,7 +155,7 @@ export default {
       }
     },
   },
-};
+});
 </script>
 <graphql>
   query($page: Int, $size: Int, $sort: String, $order: String, $categoryId: String) {

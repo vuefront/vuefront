@@ -9,8 +9,15 @@
     />
   </section>
 </template>
-<script>
-export default {
-  props: ["gridSize", "gridSizeTablet"],
-};
+<script lang="ts" setup>
+defineProps({
+  gridSize: {
+    type: Number,
+    default: () => 4,
+  },
+  gridSizeTablet: {
+    type: Number,
+    default: () => 3,
+  },
+});
 </script>

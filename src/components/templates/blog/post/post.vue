@@ -31,8 +31,11 @@
     <vf-o-post-reviews :post="post" />
   </section>
 </template>
-<script>
-export default {
-  props: ["post"],
-};
+<script lang="ts" setup>
+defineProps({
+  post: {
+    type: Object,
+    default: () => null,
+  },
+});
 </script>

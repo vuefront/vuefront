@@ -1,7 +1,7 @@
 <template>
   <div class="vf-t-layout-full-width">
-      <vf-o-header />
-      <vf-o-header-mobile />
+    <vf-o-header />
+    <vf-o-header-mobile />
     <vf-o-notification />
     <vf-o-breadcrumb />
     <vf-m-container fluid>
@@ -43,12 +43,20 @@
         />
       </div>
     </vf-m-container>
-      <vf-o-footer />
+    <vf-o-footer />
   </div>
 </template>
-<script>
-import vfTLayoutsDefault from "vuefront/lib/components/templates/layouts/default/default.vue";
-export default {
-  mixins: [vfTLayoutsDefault],
-};
+<script lang="ts" setup>
+import { computed } from "vue";
+import useModule from "../../../../utils/module";
+const { checkModules } = useModule();
+const contentWidth = computed(() => {
+  let result = 12;
+  if (checkModules("columnLeft") && checkModules("columnRight")) {
+    result = 6;
+  } else if (checkModules("columnLeft") || checkModules("columnRight")) {
+    result = 9;
+  }
+  return result;
+});
 </script>

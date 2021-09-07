@@ -46,23 +46,17 @@
     <vf-o-footer />
   </div>
 </template>
-<script>
-import { BaseModule } from "vuefront/lib/utils/module.js";
-export default {
-  mixins: [BaseModule],
-  computed: {
-    contentWidth() {
-      let result = 12;
-      if (this.checkModules("columnLeft") && this.checkModules("columnRight")) {
-        result = 6;
-      } else if (
-        this.checkModules("columnLeft") ||
-        this.checkModules("columnRight")
-      ) {
-        result = 9;
-      }
-      return result;
-    },
-  },
-};
+<script lang="ts" setup>
+import { computed } from "vue";
+import useModule from "../../../../utils/module";
+const { checkModules } = useModule();
+const contentWidth = computed(() => {
+  let result = 12;
+  if (checkModules("columnLeft") && checkModules("columnRight")) {
+    result = 6;
+  } else if (checkModules("columnLeft") || checkModules("columnRight")) {
+    result = 9;
+  }
+  return result;
+});
 </script>

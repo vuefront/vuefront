@@ -1,9 +1,6 @@
 <template>
   <div v-if="items.length > 0" class="vf-o-post-module">
-    <vf-a-heading
-      level="4"
-      class="vf-o-post-module__title"
-    >
+    <vf-a-heading level="4" class="vf-o-post-module__title">
       <slot></slot>
     </vf-a-heading>
     <vf-o-post-grid
@@ -13,8 +10,19 @@
     />
   </div>
 </template>
-<script>
-export default {
-  props: ["items", "column"],
-};
+<script lang="ts" setup>
+defineProps({
+  items: {
+    type: Array,
+    default() {
+      return [];
+    },
+  },
+  column: {
+    type: Boolean,
+    default() {
+      return false;
+    },
+  },
+});
 </script>

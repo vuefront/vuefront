@@ -10,8 +10,13 @@
     <vf-l-o-post-grid :column="column" />
   </div>
 </template>
-<script>
-export default {
-  props: ["column"],
-};
+<script lang="ts" setup>
+defineProps({
+  column: {
+    type: Boolean,
+    default() {
+      return false;
+    },
+  },
+});
 </script>

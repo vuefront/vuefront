@@ -12,23 +12,21 @@
     </vf-m-row>
   </section>
 </template>
-<script>
-export default {
-  props: {
-    posts: {
-      type: Array,
-      default() {
-        return [];
-      },
-    },
-    column: {
-      type: Boolean,
-      default: false,
-    },
-    gridSize: {
-      type: Number,
-      default: 4,
+<script lang="ts" setup>
+defineProps({
+  posts: {
+    type: Array,
+    default() {
+      return [];
     },
   },
-};
+  column: {
+    type: Boolean,
+    default: false,
+  },
+  gridSize: {
+    type: Number,
+    default: 4,
+  },
+});
 </script>

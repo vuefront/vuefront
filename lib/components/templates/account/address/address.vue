@@ -25,33 +25,30 @@
     </div>
   </section>
 </template>
-<script>
-export default {
-  props: {
-    items: {
-      type: Array,
-      default() {
-        return [];
-      },
+<script lang="ts" setup>
+import { useI18n } from "vue-i18n";
+
+const props = defineProps({
+  items: {
+    type: Array,
+    default() {
+      return [];
     },
   },
-  data() {
-    return {
-      fields: [
-        {
-          key: "address",
-          class: "account-address__description",
-          label: this.$t("elements.common.account.address.addressColumn"),
-          sortable: false,
-        },
-        {
-          key: "action",
-          class: "account-address__action text-right",
-          label: this.$t("elements.common.account.address.actionColumn"),
-          sortable: false,
-        },
-      ],
-    };
+});
+const i18n = useI18n();
+const fields = [
+  {
+    key: "address",
+    class: "account-address__description",
+    label: i18n.t("elements.common.account.address.addressColumn"),
+    sortable: false,
   },
-};
+  {
+    key: "action",
+    class: "account-address__action text-right",
+    label: i18n.t("elements.common.account.address.actionColumn"),
+    sortable: false,
+  },
+];
 </script>

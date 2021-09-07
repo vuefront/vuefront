@@ -47,7 +47,7 @@ const props = defineProps({
   },
 });
 const store = useStore();
-const error = computed(() => store.getters['vuefront/error"']);
+const error = computed(() => store.getters["vuefront/error"]);
 const onSubmit = (e: Event) => {
   e.preventDefault();
   emits("submit", e);

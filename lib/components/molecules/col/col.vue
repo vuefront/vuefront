@@ -148,7 +148,6 @@ const classList = computed(() => {
   let result = [];
   for (let size of Object.entries(propsObj.sizes)) {
     if (size[1] && typeof size[1] !== "boolean") {
-      console.log(size);
       result.push(
         `${size[0] == "xs" ? "" : `${size[0]}:`}vf-m-col${
           size[1] ? `--${size[1]}` : ""

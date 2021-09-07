@@ -12,42 +12,37 @@
     </template>
   </div>
 </template>
-<script>
-import { BaseLayout } from "vuefront/lib/utils/baseLayout.js";
-import { BaseModule } from "vuefront/lib/utils/module.js";
-import { defineAsyncComponent } from "vue";
-export default {
-  mixins: [BaseLayout, BaseModule],
-  props: {
-    name: {
-      type: String,
-      default() {
-        return null;
-      },
+<script lang="ts" setup>
+import { onMounted } from "vue";
+import useLayout from "../../../utils/baseLayout";
+import useModule from "../../../utils/module";
+const props = defineProps({
+  name: {
+    type: String,
+    default() {
+      return null;
     },
   },
-  computed: {
-    position() {
-      return this.name;
-    },
-  },
-  mounted() {
-    this.checkModules(this.name);
-  },
-  methods: {
-    kebabize(str) {
-      return str
-        .split("")
-        .map((letter, idx) => {
-          return letter.toUpperCase() === letter
-            ? `${idx !== 0 ? "-" : ""}${letter.toLowerCase()}`
-            : letter;
-        })
-        .join("");
-    },
-    extension(value) {
-      return "vf-e-" + this.kebabize(value.component);
-    },
-  },
+});
+const { modules } = useLayout(props.name);
+const { checkModules } = useModule();
+
+onMounted(() => {
+  checkModules(props.name);
+});
+
+const kebabize = (str: string) => {
+  return str
+    .split("")
+    .map((letter, idx) => {
+      return letter.toUpperCase() === letter
+        ? `${idx !== 0 ? "-" : ""}${letter.toLowerCase()}`
+        : letter;
+    })
+    .join("");
+};
+
+const extension = (value: { component: string }) => {
+  return "vf-e-" + kebabize(value.component);
 };
 </script>

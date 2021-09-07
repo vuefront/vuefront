@@ -13,15 +13,13 @@
     </vf-m-card>
   </section>
 </template>
-<script>
-export default {
-  props: {
-    account: {
-      type: Object,
-      default() {
-        return null;
-      },
+<script lang="ts" setup>
+defineProps({
+  account: {
+    type: Object,
+    default() {
+      return null;
     },
   },
-};
+});
 </script>

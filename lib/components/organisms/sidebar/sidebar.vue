@@ -16,13 +16,9 @@
     </div>
   </section>
 </template>
-<script>
-import { mapGetters } from "vuex";
-export default {
-  computed: {
-    ...mapGetters({
-      sidebar: "vuefront/sidebar",
-    }),
-  },
-};
+<script lang="ts" setup>
+import { computed } from "vue";
+const store = useStore();
+import { useStore } from "vuex";
+const sidebar = computed(() => store.getters["vuefront/sidebar"]);
 </script>

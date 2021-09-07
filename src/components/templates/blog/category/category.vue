@@ -12,8 +12,19 @@
     />
   </section>
 </template>
-<script>
-export default {
-  props: ["category", "posts", "gridSize"],
-};
+<script lang="ts" setup>
+defineProps({
+  category: {
+    type: Object,
+    default: () => null,
+  },
+  posts: {
+    type: Object,
+    default: () => null,
+  },
+  gridSize: {
+    type: Number,
+    default: () => 4,
+  },
+});
 </script>

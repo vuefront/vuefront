@@ -9,10 +9,9 @@
     </vf-m-row>
   </vf-t-common-layout>
 </template>
-<script>
-export default {
-  created() {
-    this.$store.commit("common/breadcrumbs/setLoaded", true);
-  },
-};
+<script lang="ts" setup>
+import { useStore } from "vuex";
+
+const store = useStore();
+store.commit("common/breadcrumbs/setLoaded", true);
 </script>

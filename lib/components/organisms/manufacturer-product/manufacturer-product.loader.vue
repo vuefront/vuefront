@@ -7,8 +7,19 @@
     />
   </section>
 </template>
-<script>
-export default {
-  props: ["gridSize", "gridSizeTablet"],
-};
+<script lang="ts" setup>
+defineProps({
+  gridSize: {
+    type: Number,
+    default() {
+      return 4;
+    },
+  },
+  gridSizeTablet: {
+    type: Number,
+    default() {
+      return 2;
+    },
+  },
+});
 </script>

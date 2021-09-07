@@ -6,15 +6,13 @@
     <div v-html="page.description"></div>
   </section>
 </template>
-<script>
-export default {
-  props: {
-    page: {
-      type: Object,
-      default() {
-        return null;
-      },
+<script lang="ts" setup>
+defineProps({
+  page: {
+    type: Object,
+    default() {
+      return null;
     },
   },
-};
+});
 </script>

@@ -10,8 +10,27 @@
     />
   </section>
 </template>
-<script>
-export default {
-  props: ["manufacturer", "products", "mode", "sort", "gridSize"],
-};
+<script lang="ts" setup>
+defineProps({
+  manufacturer: {
+    type: Object,
+    default: () => null,
+  },
+  products: {
+    type: Object,
+    default: () => null,
+  },
+  mode: {
+    type: String,
+    default: () => "grid",
+  },
+  sort: {
+    type: String,
+    default: () => "id|ASC",
+  },
+  gridSize: {
+    type: Number,
+    default: () => 4,
+  },
+});
 </script>

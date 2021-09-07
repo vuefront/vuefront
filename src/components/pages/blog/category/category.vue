@@ -14,12 +14,17 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
-import { BaseModule } from "vuefront/lib/utils/module.js";
+import useModule from "../../../../utils/module";
+import { defineComponent } from "vue";
 
-export default {
-  mixins: [BaseModule],
+export default defineComponent({
   props: ["id", "keyword", "url"],
-  asyncData(ctx) {
+  setup() {
+    const { checkModules } = useModule();
+
+    return { checkModules };
+  },
+  asyncData() {
     return {
       loaded: !document,
     };
@@ -77,7 +82,7 @@ export default {
     },
   },
   serverPrefetch() {
-    return this.handleLoadData(this);
+    return this.handleLoadData();
   },
   watch: {
     loaded(newValue, oldValue) {
@@ -94,7 +99,7 @@ export default {
   },
 
   methods: {
-    async handleLoadData(ctx) {
+    async handleLoadData() {
       const { id } = this.$vuefront.params;
       await this.$store.dispatch("apollo/query", {
         query: this.$options.query,
@@ -108,14 +113,14 @@ export default {
 
       this.loaded = true;
     },
-    handleChangePage(page) {
+    handleChangePage(page: number) {
       this.$router.push({
         path: "/blog/category/" + this.$route.params.id,
         query: { page },
       });
     },
   },
-};
+});
 </script>
 <graphql>
 query($page: Int, $size: Int, $categoryId: String) {

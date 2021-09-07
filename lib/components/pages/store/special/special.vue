@@ -15,9 +15,13 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
-import { BaseModule } from "vuefront/lib/utils/module.js";
+import useModule from "../../../../utils/module";
 export default {
-  mixins: [BaseModule],
+  setup() {
+    const { checkModules } = useModule();
+
+    return { checkModules };
+  },
   asyncData(ctx) {
     return {
       loaded: !process.client,

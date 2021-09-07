@@ -15,36 +15,28 @@
     </vf-a-button>
   </div>
 </template>
-<script>
+<script lang="ts" setup>
 import { mdiCartOutline, mdiDeleteOutline } from "@mdi/js";
-export default {
-  props: {
-    product: {
-      type: Object,
-      default() {
-        return null;
-      },
+import { useStore } from "vuex";
+const props = defineProps({
+  product: {
+    type: Object,
+    default() {
+      return null;
     },
   },
-  data() {
-    return {
-      mdiCartOutline,
-      mdiDeleteOutline,
-    };
-  },
-  methods: {
-    handleRemove() {
-      this.$store.dispatch("store/wishlist/remove", {
-        id: this.product.id,
-      });
-    },
-    handleAddToCart() {
-      this.$store.dispatch("store/cart/add", {
-        product: this.product,
-        quantity: 1,
-        options: [],
-      });
-    },
-  },
+});
+const store = useStore();
+const handleRemove = () => {
+  store.dispatch("store/wishlist/remove", {
+    id: props.product.id,
+  });
+};
+const handleAddToCart = () => {
+  store.dispatch("store/cart/add", {
+    product: props.product,
+    quantity: 1,
+    options: [],
+  });
 };
 </script>

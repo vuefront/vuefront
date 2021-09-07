@@ -48,27 +48,22 @@
     <template #button>{{ $t("elements.common.reviews.buttonSend") }}</template>
   </vf-o-form>
 </template>
-<script>
-import { 
+<script lang="ts" setup>
+import { ref } from "vue";
+import {
   required,
   minLength,
   minValue,
   maxLength,
-  maxValue 
-} from '@vuelidate/validators'
-import { useVuelidate } from '@vuelidate/core'
-
-export default {
-  emits: ['submit'],
-  data() {
-    return {
-      author: "",
-      rating: 0,
-      review: "",
-    };
-  },
-  setup: () => ({ v$: useVuelidate() }),
-  validations: {
+  maxValue,
+} from "@vuelidate/validators";
+import { useVuelidate } from "@vuelidate/core";
+const emits = defineEmits(["submit"]);
+const rating = ref(0);
+const author = ref("");
+const review = ref("");
+const v$ = useVuelidate(
+  {
     rating: {
       required,
       minValue: minValue(1),
@@ -85,22 +80,22 @@ export default {
       maxLength: maxLength(1000),
     },
   },
-  methods: {
-    onSubmit(e) {
-      this.v$.$touch();
+  { rating, author, review }
+);
 
-      if (!this.v$.$invalid) {
-        this.$emit("submit", {
-          content: this.review,
-          author: this.author,
-          rating: this.rating,
-        });
-        this.author = "";
-        this.rating = 0;
-        this.review = "";
-        this.v$.$reset()
-      }
-    },
-  },
+const onSubmit = () => {
+  v$.value.$touch();
+
+  if (!v$.value.$invalid) {
+    emits("submit", {
+      content: review.value,
+      author: author.value,
+      rating: rating.value,
+    });
+    author.value = "";
+    rating.value = 0;
+    review.value = "";
+    v$.value.$reset();
+  }
 };
 </script>

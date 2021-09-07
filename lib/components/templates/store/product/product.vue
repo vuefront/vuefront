@@ -77,5 +77,10 @@
   </section>
 </template>
 <script lang="ts" setup>
-defineProps(["product"]);
+defineProps({
+  product: {
+    type: Object,
+    default: () => null,
+  },
+});
 </script>

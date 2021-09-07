@@ -7,21 +7,19 @@
     </vf-m-card>
   </section>
 </template>
-<script>
-export default {
-  props: {
-    countries: {
-      type: Object,
-      default() {
-        return null;
-      },
-    },
-    zones: {
-      type: Object,
-      default() {
-        return null;
-      },
+<script lang="ts" setup>
+defineProps({
+  countries: {
+    type: Object,
+    default() {
+      return null;
     },
   },
-};
+  zones: {
+    type: Object,
+    default() {
+      return null;
+    },
+  },
+});
 </script>

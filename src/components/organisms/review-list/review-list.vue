@@ -7,8 +7,13 @@
     />
   </div>
 </template>
-<script>
-export default {
-  props: ["reviews"],
-};
+<script lang="ts" setup>
+defineProps({
+  reviews: {
+    type: Array,
+    default() {
+      return [];
+    },
+  },
+});
 </script>

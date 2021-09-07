@@ -9,7 +9,7 @@
 
     <vf-m-field
       id="input-first-name"
-      :state="v$.form.firstName.$dirty ? !v$.form.firstName.$error : null"
+      :state="v$.firstName.$dirty ? !v$.firstName.$error : null"
     >
       <template #label>{{
         $t("elements.common.account.register.firstNameEntry")
@@ -24,7 +24,7 @@
 
     <vf-m-field
       id="input-first-name"
-      :state="v$.form.lastName.$dirty ? !v$.form.lastName.$error : null"
+      :state="v$.lastName.$dirty ? !v$.lastName.$error : null"
     >
       <template #label>{{
         $t("elements.common.account.register.lastNameEntry")
@@ -39,7 +39,7 @@
 
     <vf-m-field
       id="input-email"
-      :state="v$.form.email.$dirty ? !v$.form.email.$error : null"
+      :state="v$.email.$dirty ? !v$.email.$error : null"
     >
       <template #label>{{
         $t("elements.common.account.register.emailEntry")
@@ -54,7 +54,7 @@
 
     <vf-m-field
       id="input-password"
-      :state="v$.form.password.$dirty ? !v$.form.password.$error : null"
+      :state="v$.password.$dirty ? !v$.password.$error : null"
     >
       <template #label>{{
         $t("elements.common.account.register.passwordEntry")
@@ -74,9 +74,7 @@
 
     <vf-m-field
       id="input-confirm-password"
-      :state="
-        v$.form.confirmPassword.$dirty ? !v$.form.confirmPassword.$error : null
-      "
+      :state="v$.confirmPassword.$dirty ? !v$.confirmPassword.$error : null"
     >
       <template #label>{{
         $t("elements.common.account.register.confirmPasswordEntry")
@@ -100,89 +98,82 @@
     </template>
   </vf-o-form>
 </template>
-<script>
+<script lang="ts" setup>
 import {
   required,
   minLength,
   maxLength,
   sameAs,
   email,
-} from "@vuelidate/validators"
-import { useVuelidate } from '@vuelidate/core'
+} from "@vuelidate/validators";
+import { useVuelidate } from "@vuelidate/core";
 import { mdiArrowRight } from "@mdi/js";
-export default {
-  setup: () => ({ v$: useVuelidate() }),
-  data() {
-    return {
-      mdiArrowRight,
-      form: {
-        firstName: null,
-        lastName: null,
-        email: null,
-        password: null,
-        confirmPassword: null,
-      },
-    };
-  },
-  validations: {
-    form: {
-      firstName: {
-        required,
-        minLength: minLength(1),
-        maxLength: maxLength(32),
-      },
-      lastName: {
-        required,
-        minLength: minLength(1),
-        maxLength: maxLength(32),
-      },
-      email: {
-        required,
-        email,
-      },
-      password: {
-        required,
-        minLength: minLength(4),
-        maxLength: maxLength(20),
-      },
-      confirmPassword: {
-        required,
-        minLength: minLength(4),
-        maxLength: maxLength(20),
-        sameAsPassword: sameAs("password"),
-      },
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
+import { reactive } from "vue";
+const form = reactive({
+  firstName: null,
+  lastName: null,
+  email: null,
+  password: null,
+  confirmPassword: null,
+});
+const v$ = useVuelidate(
+  {
+    firstName: {
+      required,
+      minLength: minLength(1),
+      maxLength: maxLength(32),
+    },
+    lastName: {
+      required,
+      minLength: minLength(1),
+      maxLength: maxLength(32),
+    },
+    email: {
+      required,
+      email,
+    },
+    password: {
+      required,
+      minLength: minLength(4),
+      maxLength: maxLength(20),
+    },
+    confirmPassword: {
+      required,
+      minLength: minLength(4),
+      maxLength: maxLength(20),
+      sameAsPassword: sameAs("password"),
     },
   },
-  methods: {
-    onSuccess() {
-      this.$router.push("/account");
-    },
-    async onSubmit() {
-      this.v$.$touch();
+  form
+);
+const router = useRouter();
+const store = useStore();
+const onSuccess = () => {
+  router.push("/account");
+};
+const onSubmit = async () => {
+  v$.value.$touch();
 
-      if (!this.v$.form.$invalid) {
-        const status = await this.$store.dispatch("common/customer/register", {
-          firstName: this.form.firstName,
-          lastName: this.form.lastName,
-          email: this.form.email,
-          password: this.form.password,
-        });
+  if (!v$.value.$invalid) {
+    const status = await store.dispatch("common/customer/register", {
+      firstName: form.firstName,
+      lastName: form.lastName,
+      email: form.email,
+      password: form.password,
+    });
 
-        if (status) {
-          const loginStatus = await this.$store.dispatch(
-            "common/customer/login",
-            {
-              email: this.form.email,
-              password: this.form.password,
-            }
-          );
+    if (status) {
+      const loginStatus = await store.dispatch("common/customer/login", {
+        email: form.email,
+        password: form.password,
+      });
 
-          if (loginStatus) {
-            this.$router.push("/account/success");
-          }
-        }
+      if (loginStatus) {
+        router.push("/account/success");
       }
-    },
-  },
+    }
+  }
 };
 </script>

@@ -4,8 +4,11 @@
     <vf-o-cart-footer :cart="cart" />
   </section>
 </template>
-<script>
-export default {
-  props: ["cart"],
-};
+<script lang="ts" setup>
+defineProps({
+  cart: {
+    type: Object,
+    default: () => null,
+  },
+});
 </script>

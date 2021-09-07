@@ -16,25 +16,23 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    column: {
-      type: Boolean,
-      default: false,
-    },
-    list: {
-      type: Boolean,
-      default: false,
-    },
-    gridSize: {
-      type: Number,
-      default: 4,
-    },
-    gridSizeTablet: {
-      type: Number,
-      default: 3,
-    },
+<script lang="ts" setup>
+defineProps({
+  column: {
+    type: Boolean,
+    default: false,
   },
-};
+  list: {
+    type: Boolean,
+    default: false,
+  },
+  gridSize: {
+    type: Number,
+    default: 4,
+  },
+  gridSizeTablet: {
+    type: Number,
+    default: 3,
+  },
+});
 </script>

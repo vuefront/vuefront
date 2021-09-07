@@ -16,30 +16,25 @@
     <template #button>{{ $t("elements.common.search.buttonSearch") }}</template>
   </vf-o-form>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      keyword: this.$route.params.slug,
-    };
-  },
-  methods: {
-    onSubmit() {
-      if (this.keyword !== "") {
-        this.$router.push(`/search/${this.keyword}`);
-      } else {
-        this.$router.push("/search");
-      }
-    },
-    handleKeyPress(e) {
-      if (e.key === "Enter") {
-        if (this.keyword !== "") {
-          this.$router.push(`/search/${this.keyword}`);
-        } else {
-          this.$router.push("/search");
-        }
-      }
-    },
-  },
+<script lang="ts" setup>
+import { useRoute, useRouter } from "vue-router";
+
+const router = useRouter();
+const route = useRoute();
+const onSubmit = () => {
+  if (route.params.slug !== "") {
+    router.push(`/search/${route.params.slug}`);
+  } else {
+    router.push("/search");
+  }
+};
+const handleKeyPress = (e: any) => {
+  if (e.key === "Enter") {
+    if (route.params.slug !== "") {
+      router.push(`/search/${route.params.slug}`);
+    } else {
+      router.push("/search");
+    }
+  }
 };
 </script>
