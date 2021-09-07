@@ -38,7 +38,7 @@ const handleChange = async (value: any) => {
         }
       }
     `,
-    variables: { file: value },
+    variables: { file: value.target.files[0] },
   });
 
   if (!error.value) {
