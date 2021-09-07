@@ -12,10 +12,10 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { mapGetters, useStore } from "vuex";
+import { useStore } from "vuex";
 import find from "lodash-es/find";
-import uploadFileGql from "./upload.graphql";
 import { PropType, computed } from "vue";
+import gql from "graphql-tag";
 const props = defineProps({
   option: {
     type: Object,
@@ -36,7 +36,13 @@ const activeOptionValue = () => {
 const emits = defineEmits(["change"]);
 const handleChange = async (value: any) => {
   await store.dispatch("apollo/upload", {
-    mutation: uploadFileGql,
+    mutation: gql`
+      mutation ($file: Upload) {
+        uploadFile(file: $file) {
+          code
+        }
+      }
+    `,
     variables: { file: value },
   });
 
