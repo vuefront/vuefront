@@ -38,10 +38,11 @@
     </vf-m-row>
   </vf-m-card>
 </template>
-
-<script>
-export default {
-  
-  props: ["wide"],
-};
+<script lang="ts" setup>
+defineProps({
+  wide: {
+    type: Boolean,
+    default: () => false,
+  },
+});
 </script>

@@ -3,7 +3,7 @@ import gql from "graphql-tag";
 export const state = {
   entities: {},
   product: {},
-  options: {},
+  options: [],
 };
 
 export const getters = {
@@ -24,7 +24,7 @@ export const mutations = {
   },
   setProduct(state, product) {
     state.product = product;
-    state.options = {};
+    state.options = [];
   },
   setOptions(state, options) {
     state.options = options;

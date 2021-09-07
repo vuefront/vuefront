@@ -11,9 +11,3 @@
     ></vf-m-skeleton>
   </div>
 </template>
-
-<script>
-export default {
-  
-};
-</script>

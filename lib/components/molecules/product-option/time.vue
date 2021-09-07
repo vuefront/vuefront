@@ -11,16 +11,16 @@
     />
   </div>
 </template>
-<script>
+<script lang="ts" setup>
 import find from "lodash-es/find";
-import {computed, PropType} from "vue";
+import { computed, PropType } from "vue";
 const props = defineProps({
   option: {
     type: Object,
     default: () => null,
   },
   selected: {
-    type: Array as PropType<{ id: string, value: string }[]>,
+    type: Array as PropType<{ id: string; value: string }[]>,
     default: () => [],
   },
 });

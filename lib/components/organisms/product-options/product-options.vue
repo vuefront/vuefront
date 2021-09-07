@@ -63,9 +63,8 @@
   </section>
 </template>
 <script lang="ts" setup>
-import isEmpty from "lodash-es/isEmpty";
 import filter from "lodash-es/filter";
-import { mapGetters, useStore } from "vuex";
+import { useStore } from "vuex";
 import { computed } from "vue";
 defineProps({
   product: {
@@ -77,17 +76,8 @@ defineProps({
 const store = useStore();
 const options = computed(() => store.getters["store/product/options"]);
 
-const checkActive = (e: any, option: { id: string }) => {
-  const result = filter(
-    options,
-    (value) => value.id === option.id && e === value.value
-  );
-
-  return !isEmpty(result);
-};
-
 const handleOptionChange = (e: any, option: { id: string }) => {
-  const result = filter(options, (value) => value.id !== option.id);
+  const result = filter(options.value, (value) => value.id !== option.id);
   result.push({
     id: option.id,
     value: e,

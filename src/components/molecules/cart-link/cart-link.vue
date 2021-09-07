@@ -6,6 +6,6 @@
     }}</span>
   </vf-a-link>
 </template>
-<script lang="ts">
+<script lang="ts" setup>
 import { mdiCartOutline } from "@mdi/js";
 </script>

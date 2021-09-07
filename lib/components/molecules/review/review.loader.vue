@@ -12,8 +12,3 @@
     </div>
   </vf-m-card>
 </template>
-<script>
-export default {
-  
-};
-</script>
