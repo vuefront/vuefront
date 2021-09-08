@@ -23,30 +23,25 @@
     </template>
   </vf-o-apollo>
 </template>
-<script>
+<script setup lang="ts">
 import isEmpty from "lodash-es/isEmpty";
-export default {
-  props: {
-    column: {
-      type: Boolean,
-      default: false,
-    },
+import { computed } from "vue";
+import { useRoute } from "vue-router";
+const route = useRoute();
+const props = defineProps({
+  column: {
+    type: Boolean,
+    default: false,
   },
-  computed: {
-    id() {
-      let result = false;
+});
+const id = computed(() => {
+  let result: boolean | string = false;
 
-      if (!isEmpty(this.$route.params.id)) {
-        result = this.$route.params.id;
-      }
-      if (!isEmpty(this.$route.matched[0].props)) {
-        result = this.$route.matched[0].props.default.id;
-      }
-
-      return result;
-    },
-  },
-};
+  if (!isEmpty(route.params.id)) {
+    result = route.params.id as string;
+  }
+  return result;
+});
 </script>
 <graphql>
 query($id: String, $limit: Int) {

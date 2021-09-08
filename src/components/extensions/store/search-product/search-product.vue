@@ -22,20 +22,18 @@
     </template>
   </vf-o-apollo>
 </template>
-<script>
-export default {
-  props: {
-    column: {
-      type: Boolean,
-      default: false,
-    },
+<script lang="ts" setup>
+import { computed } from "vue";
+import { useRoute } from "vue-router";
+const route = useRoute();
+defineProps({
+  column: {
+    type: Boolean,
+    default: false,
   },
-  computed: {
-    keyword() {
-      return this.$route.params.slug ? this.$route.params.slug : "";
-    },
-  },
-};
+});
+
+const keyword = computed(() => (route.params.slug ? route.params.slug : ""));
 </script>
 <graphql>
 query($search: String){
@@ -43,7 +41,7 @@ query($search: String){
         content {
             id
             name
-            shortDescription
+            shortDescription 
             price
             special
             image

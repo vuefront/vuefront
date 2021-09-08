@@ -21,21 +21,19 @@
     </template>
   </vf-o-apollo>
 </template>
-<script>
-export default {
-  props: {
-    ids: {
-      type: Array,
-      default() {
-        return [];
-      },
+<script setup lang="ts">
+defineProps({
+  ids: {
+    type: Array,
+    default() {
+      return [];
     },
     column: {
       type: Boolean,
       default: false,
     },
   },
-};
+});
 </script>
 <graphql>
 query($ids: [Int], $limit: Int){
