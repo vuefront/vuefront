@@ -78,128 +78,117 @@
     </div>
   </section>
 </template>
-<script>
-import { mapGetters, mapMutations } from "vuex";
+<script lang="ts" setup>
+import { computed, onMounted, onServerPrefetch, PropType } from "vue";
+import { useStore } from "vuex";
 import { mdiChevronDown, mdiChevronRight } from "@mdi/js";
-import isUndefined from "lodash-es/isUndefined";
-export default {
-  props: {
-    items: {
-      type: Array,
-      default() {
-        return [];
-      },
+const props = defineProps({
+  items: {
+    type: Array as PropType<string[]>,
+    default() {
+      return [];
     },
   },
-  data() {
-    return {
-      mdiChevronDown,
-      mdiChevronRight,
-    };
-  },
-  computed: {
-    ...mapGetters({
-      menuModules: "menu/list",
-      loadedItems: "menu/loaded",
-      loadingItems: "menu/loading",
-    }),
-    loaded() {
-      let result = false;
-      if (typeof this.loadedItems[this.idHash] !== "undefined") {
-        result = this.loadedItems[this.idHash];
-      }
+});
 
-      return result;
-    },
-    loading() {
-      let result = false;
-      if (typeof this.loadingItems[this.idHash] !== "undefined") {
-        result = this.loadingItems[this.idHash];
-      }
+const store = useStore();
+const menuModules = computed(() => store.getters["menu/list"]);
+const loadedItems = computed(() => store.getters["menu/loaded"]);
+const loadingItems = computed(() => store.getters["menu/loading"]);
+const idHash = computed(() => {
+  return hashCode(JSON.stringify(props.items));
+});
+const loaded = computed(() => {
+  let result = false;
+  if (typeof loadedItems.value[idHash.value] !== "undefined") {
+    result = loadedItems.value[idHash.value];
+  }
 
-      return result;
-    },
-    menuItems() {
-      let result = [];
+  return result;
+});
+const loading = computed(() => {
+  let result = false;
+  if (typeof loadingItems.value[idHash.value] !== "undefined") {
+    result = loadingItems.value[idHash.value];
+  }
 
-      if (typeof this.menuModules[this.idHash] !== "undefined") {
-        result = [...result, ...this.menuModules[this.idHash]];
-      }
-      return result;
-    },
-    idHash() {
-      return this.hashCode(JSON.stringify(this.items));
-    },
-  },
-  serverPrefetch() {
-    this.$store.commit("menu/setLoading", {
-      id: this.idHash,
+  return result;
+});
+interface IMenuLink {
+  title: string;
+  to: string;
+  children: IMenuLink[];
+}
+const menuItems = computed(() => {
+  let result: IMenuLink[] = [];
+
+  if (typeof menuModules.value[idHash.value] !== "undefined") {
+    result = [...result, ...menuModules.value[idHash.value]];
+  }
+  return result;
+});
+
+onServerPrefetch(() => {
+  store.commit("menu/setLoading", {
+    id: idHash.value,
+    loading: true,
+  });
+  return handleLoadMenu();
+});
+
+onMounted(() => {
+  if (!loaded.value && !loading.value) {
+    store.commit("menu/setLoading", {
+      id: idHash.value,
       loading: true,
     });
-    return this.handleLoadMenu();
-  },
-  mounted() {
-    if (!this.loaded && !this.loading) {
-      this.$store.commit("menu/setLoading", {
-        id: this.idHash,
-        loading: true,
-      });
-      this.handleLoadMenu();
+    handleLoadMenu();
+  }
+});
+const handleLoadMenu = async () => {
+  if (!loaded.value) {
+    let asyncItems: Promise<any>[] = [];
+    for (const key in props.items) {
+      const item = props.items[key];
+      if (typeof item === "string") {
+        asyncItems = [...asyncItems, store.dispatch(`menu/${item}/load`, {})];
+      }
     }
-  },
-  methods: {
-    ...mapMutations({
-      toggleSidebar: "vuefront/toggleSidebar",
-    }),
-    async handleLoadMenu() {
-      if (!this.loaded) {
-        let asyncItems = [];
-        for (const key in this.items) {
-          const item = this.items[key];
-          if (typeof item === "string") {
-            asyncItems = [
-              ...asyncItems,
-              this.$store.dispatch(`menu/${item}/load`, {}),
-            ];
-          }
-        }
 
-        await Promise.all(asyncItems);
+    await Promise.all(asyncItems);
 
-        let result = [];
-        for (const key in this.items) {
-          const item = this.items[key];
-          if (typeof item === "string") {
-            result = [...result, ...this.$store.getters[`menu/${item}/get`]];
-          } else {
-            result = [...result, item];
-          }
-        }
-        this.$store.commit("menu/setEntities", {
-          id: this.idHash,
-          items: result,
-        });
-
-        this.$store.commit("menu/setLoaded", { id: this.idHash, loaded: true });
-        this.$store.commit("menu/setLoading", {
-          id: this.idHash,
-          loading: false,
-        });
+    let result: IMenuLink[] = [];
+    for (const key in props.items) {
+      const item = props.items[key];
+      if (typeof item === "string") {
+        result = [...result, ...store.getters[`menu/${item}/get`]];
+      } else {
+        result = [...result, item];
       }
-    },
-    hashCode(str) {
-      let hash = 0;
-      let i;
-      let chr;
-      if (str.length === 0) return hash;
-      for (i = 0; i < str.length; i++) {
-        chr = str.charCodeAt(i);
-        hash = (hash << 5) - hash + chr;
-        hash |= 0;
-      }
+    }
+    store.commit("menu/setEntities", {
+      id: idHash.value,
+      items: result,
+    });
 
-      return hash;
-    },
-  },
+    store.commit("menu/setLoaded", { id: idHash.value, loaded: true });
+    store.commit("menu/setLoading", {
+      id: idHash.value,
+      loading: false,
+    });
+  }
+};
+const hashCode = (str: string) => {
+  let hash = 0;
+  let i;
+  let chr;
+  if (str.length === 0) return hash;
+  for (i = 0; i < str.length; i++) {
+    chr = str.charCodeAt(i);
+    hash = (hash << 5) - hash + chr;
+    hash |= 0;
+  }
+
+  return hash;
 };
 </script>

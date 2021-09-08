@@ -53,6 +53,7 @@
         "vue-easy-lightbox": "^1.2.3",
         "vue-image-lightbox": "^7.2.0",
         "vue-lazy-hydration": "^2.0.0-beta.4",
+        "vue-meta": "^3.0.0-alpha.2",
         "vue-skeletor": "^1.0.6"
     },
     "devDependencies": {
@@ -76,9 +77,9 @@
         "vite": "^2.5.2",
         "vue": "3.2.6",
         "vue-i18n": "9.1.7",
-        "vuex": "^4.0.2",
-        "vue-router": "^4.0.0-beta.4",
         "vue-loader": "^15.9.8",
-        "vue-template-compiler": "^2.6.14"
+        "vue-router": "^4.0.0-beta.4",
+        "vue-template-compiler": "^2.6.14",
+        "vuex": "^4.0.2"
     }
 }

@@ -25,50 +25,48 @@
     </span>
   </vf-o-apollo>
 </template>
-<script>
+<script lang="ts" setup>
 import isEmpty from "lodash-es/isEmpty";
 import map from "lodash-es/map";
 import includes from "lodash-es/includes";
-export default {
-  computed: {
-    id() {
-      let result = false;
+import { useRoute } from "vue-router";
+import { computed } from "vue";
+const route = useRoute();
+const id = computed(() => {
+  let result = "";
 
-      if (!isEmpty(this.$route.params.id)) {
-        result = this.$route.params.id;
-      }
-      if (!isEmpty(this.$route.matched[0].props)) {
-        result = this.$route.matched[0].props.default.id;
-      }
+  if (!isEmpty(route.params.id)) {
+    result = route.params.id as string;
+  }
 
-      return result;
-    },
-  },
-  methods: {
-    url(category) {
-      if (category.keyword && category.keyword !== "") {
-        return "/" + category.keyword;
-      } else {
-        return `/blog/category/${category.id}`;
-      }
-    },
-    checkView(value, subValues) {
-      if (this.id) {
-        if (this.id === value.id) {
-          return true;
-        } else if (
-          includes(
-            map(subValues, (subValue) => subValue.id),
-            this.id
-          )
-        ) {
-          return true;
-        }
-      }
+  return result;
+});
+interface ICategory {
+  id: string;
+  keyword: string;
+}
+const url = (category: ICategory) => {
+  if (category.keyword && category.keyword !== "") {
+    return "/" + category.keyword;
+  } else {
+    return `/blog/category/${category.id}`;
+  }
+};
+const checkView = (value: ICategory, subValues: ICategory[]) => {
+  if (id.value !== "") {
+    if (id.value === value.id) {
+      return true;
+    } else if (
+      includes(
+        map(subValues, (subValue) => subValue.id),
+        id.value
+      )
+    ) {
+      return true;
+    }
+  }
 
-      return false;
-    },
-  },
+  return false;
 };
 </script>
 <graphql>

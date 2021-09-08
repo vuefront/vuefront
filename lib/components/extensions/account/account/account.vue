@@ -31,19 +31,13 @@
     </vf-m-list-group>
   </section>
 </template>
-<script>
-import { mapGetters } from "vuex";
-
-export default {
-  computed: {
-    ...mapGetters({
-      auth: "common/customer/auth",
-    }),
-  },
-  methods: {
-    handleLogout() {
-      this.$vuefront.logout();
-    },
-  },
+<script lang="ts" setup>
+import { useStore } from "vuex";
+import { computed, inject } from "vue";
+const store = useStore();
+const auth = computed(() => store.getters["common/customer/auth"]);
+const vuefront$ = inject<any>("$vuefront");
+const handleLogout = () => {
+  vuefront$.logout();
 };
 </script>

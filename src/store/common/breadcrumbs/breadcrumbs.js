@@ -14,7 +14,7 @@ export const getters = {
 
 export const mutations = {
   setItems(state, payload) {
-    state.items = payload
+    state.items = payload;
   },
   clearItems(state, payload) {
     state.items = [];

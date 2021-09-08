@@ -17,21 +17,23 @@
   </vf-o-form>
 </template>
 <script lang="ts" setup>
+import { ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
 const router = useRouter();
 const route = useRoute();
+const keyword = ref(route.params.slug as string);
 const onSubmit = () => {
-  if (route.params.slug !== "") {
-    router.push(`/search/${route.params.slug}`);
+  if (keyword.value !== "") {
+    router.push(`/search/${keyword.value}`);
   } else {
     router.push("/search");
   }
 };
 const handleKeyPress = (e: any) => {
   if (e.key === "Enter") {
-    if (route.params.slug !== "") {
-      router.push(`/search/${route.params.slug}`);
+    if (keyword.value !== "") {
+      router.push(`/search/${keyword.value}`);
     } else {
       router.push("/search");
     }
