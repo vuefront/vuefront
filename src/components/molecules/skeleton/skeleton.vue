@@ -1,14 +1,18 @@
 <template>
-  <Skeletor v-bind="$attrs"></Skeletor>
+  <Skeletor :width="width" :height="height"></Skeletor>
 </template>
-<script>
+<script lang="ts" setup>
 import { defineComponent } from "vue";
 import "vue-skeletor/dist/vue-skeletor.css";
 import { Skeletor } from "vue-skeletor";
-export default defineComponent({
-  components: {
-    Skeletor,
+defineProps({
+  width: {
+    type: String,
+    default: () => null,
   },
-  inheritAttrs: false,
+  height: {
+    type: String,
+    default: () => null,
+  },
 });
 </script>

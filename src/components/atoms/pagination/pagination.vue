@@ -88,7 +88,7 @@ const pageButtons = computed(() => {
     return Number(page);
   });
 });
-const getClass = (page, disabled) => {
+const getClass = (page: string | number, disabled: boolean) => {
   const result = [];
 
   page = Number(page);
@@ -105,7 +105,7 @@ const getClass = (page, disabled) => {
 
 const emit = defineEmits(["change", "update:modelValue"]);
 
-const handleChange = (e) => {
+const handleChange = (e: any) => {
   emit("change", e);
   emit("update:modelValue", e);
 };

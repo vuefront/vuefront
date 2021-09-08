@@ -26,7 +26,8 @@
     </vf-m-table-horizontal>
   </section>
 </template>
-<script lang="ts" setup>import { useI18n } from "vue-i18n";
+<script lang="ts" setup>
+import { useI18n } from "vue-i18n";
 
 defineProps({
   compare: {
@@ -34,44 +35,43 @@ defineProps({
     default: () => [],
   },
 });
-const i18n = useI18n()
+const i18n = useI18n();
 const fields = [
-        {
-          key: "name",
-          label: i18n.t("elements.store.compare.productRow"),
-        },
-        {
-          key: "image",
-          label: i18n.t("elements.store.compare.imageRow"),
-        },
-        {
-          key: "price",
-          label: i18n.t("elements.store.compare.priceRow"),
-        },
-        {
-          key: "model",
-          label: i18n.t("elements.store.compare.modelRow"),
-        },
-        {
-          key: "stock",
-          class: "vf-t-store-compare__stock",
-          label: i18n.t("elements.store.compare.availabilityRow"),
-        },
-        {
-          key: "rating",
-          class: "vf-t-store-compare__rating",
-          label: i18n.t("elements.store.compare.ratingRow"),
-        },
-        {
-          key: "shortDescription",
-          class: "vf-t-store-compare__description",
-          label: i18n.t("elements.store.compare.summaryRow"),
-        },
-        {
-          key: "actions",
-          class: "vf-t-store-compare__actions",
-          label: "",
-        },
-      ],
-    }
+  {
+    key: "name",
+    label: i18n.t("elements.store.compare.productRow"),
+  },
+  {
+    key: "image",
+    label: i18n.t("elements.store.compare.imageRow"),
+  },
+  {
+    key: "price",
+    label: i18n.t("elements.store.compare.priceRow"),
+  },
+  {
+    key: "model",
+    label: i18n.t("elements.store.compare.modelRow"),
+  },
+  {
+    key: "stock",
+    class: "vf-t-store-compare__stock",
+    label: i18n.t("elements.store.compare.availabilityRow"),
+  },
+  {
+    key: "rating",
+    class: "vf-t-store-compare__rating",
+    label: i18n.t("elements.store.compare.ratingRow"),
+  },
+  {
+    key: "shortDescription",
+    class: "vf-t-store-compare__description",
+    label: i18n.t("elements.store.compare.summaryRow"),
+  },
+  {
+    key: "actions",
+    class: "vf-t-store-compare__actions",
+    label: "",
+  },
+];
 </script>

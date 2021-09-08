@@ -21,15 +21,13 @@
     </template>
   </vf-o-apollo>
 </template>
-<script>
-export default {
-  props: {
-    column: {
-      type: Boolean,
-      default: false,
-    },
+<script setup lang="ts">
+defineProps({
+  column: {
+    type: Boolean,
+    default: false,
   },
-};
+});
 </script>
 <graphql>
 query($size: Int){
