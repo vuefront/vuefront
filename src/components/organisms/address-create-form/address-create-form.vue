@@ -261,7 +261,7 @@ const v$ = useVuelidate(
   form
 );
 const store = useStore();
-const handleChangeCountry = (value: string) => {
+const handleChangeCountry = async (value: string) => {
   await store.dispatch("common/zone/list", {
     page: 1,
     size: -1,

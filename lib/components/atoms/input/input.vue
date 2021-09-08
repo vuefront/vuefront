@@ -68,13 +68,13 @@ const getClass = computed(() => {
   return result.join(" ");
 });
 const emit = defineEmits(["update:modelValue", "change", "keypress"]);
-const handleInput = (e) => {
+const handleInput = (e: any) => {
   emit("update:modelValue", e.target.value);
 };
-const handleChange = (e) => {
+const handleChange = (e: any) => {
   emit("change", e.target.value);
 };
-const handleKeypress = (e) => {
+const handleKeypress = (e: any) => {
   emit("keypress", e);
 };
 </script>
