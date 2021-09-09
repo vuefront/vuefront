@@ -3,6 +3,7 @@
     <vf-t-account-account />
   </vf-t-common-layout>
 </template>
+
 <script lang="ts" setup>
 import useBreadcrumbs from "../../../../utils/breadcrumbs";
 import { useRoute, useRouter } from "vue-router";

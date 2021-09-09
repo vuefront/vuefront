@@ -6,7 +6,6 @@
       :zones="zones"
     />
   </vf-t-common-layout>
-  
 </template>
 <script setup lang="ts">
 import addressGetGql from "./addressEdit.graphql";
@@ -45,8 +44,8 @@ const handleLoadData = async () => {
 
 onLoad([
   {
-    title: this.$t("pages.account.addressEdit.breadcrumbTitle"),
-    to: this.$route.path,
+    title: i18n.t("pages.account.addressEdit.breadcrumbTitle"),
+    to: route.path,
   },
 ]);
 

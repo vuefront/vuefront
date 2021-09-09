@@ -9,7 +9,7 @@
 
     <vf-m-field
       id="input-email"
-      :state="v$.form.email.$dirty ? !v$.form.email.$error : null"
+      :state="v$.email.$dirty ? !v$.email.$error : null"
     >
       <template #label>{{
         $t("elements.common.account.login.emailEntry")
@@ -24,7 +24,7 @@
 
     <vf-m-field
       id="input-password"
-      :state="v$.form.password.$dirty ? !v$.form.password.$error : null"
+      :state="v$.password.$dirty ? !v$.password.$error : null"
     >
       <template #label>{{
         $t("elements.common.account.login.passwordEntry")

@@ -4,6 +4,7 @@
   </vf-t-common-layout>
 </template>
 <script setup lang="ts">
+import { computed } from "vue";
 import { useStore } from "vuex";
 import useBreadcrumbs from "../../../../utils/breadcrumbs";
 import { useI18n } from "vue-i18n";
@@ -29,7 +30,7 @@ const handleLoadData = async () => {
   onLoad([
     {
       title: i18n.t("pages.account.address.breadcrumbTitle"),
-      to: i18n.route.path,
+      to: route.path,
     },
   ]);
 };

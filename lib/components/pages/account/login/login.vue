@@ -1,7 +1,5 @@
 <template>
-  <vf-t-common-layout>
-    <vf-t-account-login />
-  </vf-t-common-layout>
+  <vf-t-account-login />
 </template>
 <script setup lang="ts">
 import { useStore } from "vuex";
@@ -21,8 +19,8 @@ if (store.getters["common/customer/auth"]) {
 
 onLoad([
   {
-    title: this.$t("pages.account.login.breadcrumbTitle"),
-    to: this.$route.path,
+    title: i18n.t("pages.account.login.breadcrumbTitle"),
+    to: route.path,
   },
 ]);
 </script>
