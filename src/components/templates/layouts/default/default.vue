@@ -23,6 +23,7 @@
               name="columnCenterTop"
               class="vf-t-layout-default__content-center-top"
             />
+
             <slot></slot>
             <vf-o-position
               name="columnCenterBottom"

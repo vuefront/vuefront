@@ -76,7 +76,7 @@ export const actions = {
       commit(
         "notification/add",
         product.name +
-          this.$i18n.t("elements.store.productThumb.notificationText"),
+          this.$i18n.global.t("elements.store.productThumb.notificationText"),
         { root: true }
       );
     } else {

@@ -24,7 +24,7 @@ const handleAddToCart = async () => {
   await store.dispatch("store/cart/add", {
     product: props.product,
     quantity: 1,
-    options: options,
+    options: options.value,
   });
 };
 </script>
