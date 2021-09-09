@@ -1,24 +1,16 @@
 <template>
-  <vf-t-common-layout>
-    <metainfo />
-    <vf-t-store-category
-      v-if="loaded"
-      :category="category"
-      :products="products"
-      :mode="mode"
-      :sort="sort"
-      :grid-size="gridSize"
-      :grid-size-tablet="gridSizeTablet"
-    />
-    <vf-l-t-store-category
-      v-else
-      :grid-size="gridSize"
-      :grid-size-tablet="gridSizeTablet"
-    />
-  </vf-t-common-layout>
+  <metainfo />
+  <vf-t-store-category
+    :category="category"
+    :products="products"
+    :mode="mode"
+    :sort="sort"
+    :grid-size="gridSize"
+    :grid-size-tablet="gridSizeTablet"
+  />
 </template>
 <script lang="ts" setup>
-import { computed, inject, ref, watch } from "vue";
+import { computed, inject, ref } from "vue";
 import { useMeta } from "vue-meta";
 import { useRoute } from "vue-router";
 import { useStore } from "vuex";
@@ -30,12 +22,6 @@ const route = useRoute();
 const store = useStore();
 const { meta } = useMeta({});
 const { onLoad } = useBreadcrumbs();
-defineProps({
-  loaded: {
-    type: Boolean,
-    default: () => false,
-  },
-});
 
 const page = ref(route.query.page ? Number(route.query.page) : 1);
 const sort = ref(
@@ -90,6 +76,7 @@ const handleLoadData = async () => {
     meta.title = category.name;
     meta.description = category.meta.description;
     meta.keywords = category.meta.keyword;
+
     onLoad([
       {
         title: category.meta.title,
@@ -100,18 +87,7 @@ const handleLoadData = async () => {
     console.log(e);
   }
 };
-
 await handleLoadData();
-
-watch(
-  () => route,
-  () => {
-    handleLoadData();
-  },
-  {
-    deep: true,
-  }
-);
 </script>
 <graphql>
   query($page: Int, $size: Int, $sort: String, $order: String, $categoryId: String) {
