@@ -1,12 +1,8 @@
 <template>
-  <vf-t-common-layout>
-    <suspense>
-      <vf-t-store-cart :cart="cart" />
-    </suspense>
-  </vf-t-common-layout>
+  <vf-t-store-cart :cart="cart" />
 </template>
 <script lang="ts" setup>
-import { computed, inject } from "vue";
+import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 import { useMeta } from "vue-meta";
 import { useRoute } from "vue-router";

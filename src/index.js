@@ -559,6 +559,7 @@ module.exports = {
     OManufacturerFilter:
       "/organisms/manufacturer-filter/manufacturer-filter.loader.vue",
     TStoreSpecial: "/templates/store/special/special.loader.vue",
+    PStoreCategory: "/pages/store/category/category.loader.vue",
   },
   seo: {
     "/404": {
@@ -635,6 +636,7 @@ module.exports = {
     },
     "/store/category/:id": {
       component: "StoreCategory",
+      loader: "PStoreCategory",
     },
     "/store/manufacturer/:id": {
       component: "StoreManufacturer",
