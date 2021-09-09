@@ -86,7 +86,6 @@ const handleLoadData = async () => {
   store.commit("store/product/setEntities", productsList);
   store.commit("store/manufacturer/setManufacturer", manufacturer);
   loaded.value = true;
-  meta.title = manufacturer.name;
   onLoad([
     {
       title: i18n.t("pages.store.manufacturerList.title"),

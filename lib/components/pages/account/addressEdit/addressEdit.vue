@@ -6,40 +6,73 @@
       :zones="zones"
     />
   </vf-t-common-layout>
+  
 </template>
-<script>
-import { mapGetters } from "vuex";
+<script setup lang="ts">
 import addressGetGql from "./addressEdit.graphql";
-export default {
-  async fetch({ store, params }) {
-    await store.dispatch("apollo/query", {
-      query: addressGetGql,
-      variables: { id: params.id },
-    });
-    const { accountAddress, countriesList } = store.getters["apollo/get"];
-    store.commit("common/address/setAddress", accountAddress);
-    store.commit("common/country/setEntities", countriesList);
+import { useI18n } from "vue-i18n";
+import useBreadcrumbs from "../../../../utils/breadcrumbs";
+import { useStore } from "vuex";
+import useQuery from "../../../../utils/query";
+import { useRoute } from "vue-router";
+import { computed } from "vue";
 
-    await store.dispatch("common/zone/list", {
-      page: 1,
-      size: -1,
-      country_id: accountAddress.countryId,
-    });
-  },
-  computed: {
-    ...mapGetters({
-      address: "common/address/get",
-      countries: "common/country/list",
-      zones: "common/zone/list",
-    }),
-  },
-  breadcrumbs() {
-    return [
-      {
-        title: this.$t("pages.account.addressEdit.breadcrumbTitle"),
-        to: this.$route.path,
-      },
-    ];
-  },
+const i18n = useI18n();
+const { onLoad } = useBreadcrumbs();
+const store = useStore();
+const query = useQuery();
+const route = useRoute();
+
+const address = computed(() => store.getters["common/address/get"]);
+const countries = computed(() => store.getters["common/country/list"]);
+const zones = computed(() => store.getters["common/zone/get"]);
+
+const handleLoadData = async () => {
+  await store.dispatch("apollo/query", {
+    query,
+    variables: { id: route.params.id },
+  });
+  const { accountAddress, countriesList } = store.getters["apollo/get"];
+  store.commit("common/address/setAddress", accountAddress);
+  store.commit("common/country/setEntities", countriesList);
+
+  await store.dispatch("common/zone/list", {
+    page: 1,
+    size: -1,
+    country_id: accountAddress.countryId,
+  });
 };
+
+onLoad([
+  {
+    title: this.$t("pages.account.addressEdit.breadcrumbTitle"),
+    to: this.$route.path,
+  },
+]);
+
+await handleLoadData();
 </script>
+<script></script>
+
+<graphql>
+  query($id: String){
+    accountAddress(id: $id) {
+    id
+    firstName
+    lastName
+    city
+    company
+    zipcode
+    countryId
+    zoneId
+    address1
+    address2
+    }
+    countriesList(page: 1, size: -1) {
+      content {
+      id
+      name
+      }
+    }
+  }
+</graphql>

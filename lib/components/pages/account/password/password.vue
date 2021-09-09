@@ -3,15 +3,19 @@
     <vf-t-account-password />
   </vf-t-common-layout>
 </template>
-<script>
-export default {
-  breadcrumbs() {
-    return [
-      {
-        title: this.$t("pages.account.password.breadcrumbTitle"),
-        to: this.$route.path,
-      },
-    ];
+<script lang="ts" setup>
+import { useRoute } from "vue-router";
+import { useI18n } from "vue-i18n";
+import useBreadcrumbs from "../../../../utils/breadcrumbs";
+
+const route = useRoute();
+const i18n = useI18n();
+const { onLoad } = useBreadcrumbs();
+
+onLoad([
+  {
+    title: i18n.t("pages.account.password.breadcrumbTitle"),
+    to: route.path,
   },
-};
+]);
 </script>

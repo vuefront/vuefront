@@ -3,33 +3,60 @@
     <vf-t-account-address :items="items" />
   </vf-t-common-layout>
 </template>
-<script>
-import { mapGetters } from "vuex";
-import AddressesGql from "./address.graphql";
-export default {
-  async fetch({ store }) {
-    await store.dispatch("apollo/query", {
-      query: AddressesGql,
-    });
-    if (!store.getters["vuefront/error"]) {
-      store.commit(
-        "common/address/setEntities",
-        store.getters["apollo/get"].accountAddressList
-      );
-    }
-  },
-  computed: {
-    ...mapGetters({
-      items: "common/address/list",
-    }),
-  },
-  breadcrumbs() {
-    return [
-      {
-        title: this.$t("pages.account.address.breadcrumbTitle"),
-        to: this.$route.path,
-      },
-    ];
-  },
+<script setup lang="ts">
+import { useStore } from "vuex";
+import useBreadcrumbs from "../../../../utils/breadcrumbs";
+import { useI18n } from "vue-i18n";
+import { useRoute } from "vue-router";
+import useQuery from "../../../../utils/query";
+
+const store = useStore();
+const { onLoad } = useBreadcrumbs();
+const i18n = useI18n();
+const route = useRoute();
+const query = useQuery();
+const items = computed(() => store.getters["common/address/list"]);
+
+const handleLoadData = async () => {
+  await store.dispatch("apollo/query", { query });
+  if (!store.getters["vuefront/error"]) {
+    store.commit(
+      "common/address/setEntities",
+      store.getters["apollo/get"].accountAddressList
+    );
+  }
+
+  onLoad([
+    {
+      title: i18n.t("pages.account.address.breadcrumbTitle"),
+      to: i18n.route.path,
+    },
+  ]);
 };
+
+await handleLoadData();
 </script>
+<graphql>
+{
+  accountAddressList {
+    id
+    firstName
+    lastName
+    address1
+    address2
+    zoneId
+    zone {
+      id
+      name
+    }
+    countryId
+    country {
+      id
+      name
+    }
+    city
+    company
+    zipcode
+    }
+}
+</graphql>

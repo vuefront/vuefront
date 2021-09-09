@@ -4,73 +4,63 @@
     <vf-l-t-blog-post v-else />
   </vf-t-common-layout>
 </template>
-<script>
-import { mapGetters } from "vuex";
-export default {
-  asyncData(ctx) {
-    return {
-      loaded: !document,
-    };
+<script setup lang="ts">
+import { computed, inject, onServerPrefetch, ref, watch } from "vue";
+import { useMeta } from "vue-meta";
+import { useRoute } from "vue-router";
+import { useStore } from "vuex";
+import useBreadcrumbs from "../../../../utils/breadcrumbs";
+import useModule from "../../../../utils/module";
+import useQuery from "../../../../utils/query";
+const route = useRoute();
+const store = useStore();
+const { meta } = useMeta({});
+const { onLoad } = useBreadcrumbs();
+const vuefront$ = inject<any>("$vuefront");
+const { query } = useQuery();
+defineProps({
+  loaded: {
+    type: Boolean,
+    default: () => false,
   },
-  data() {
-    return {
-      loaded: !document,
-    };
-  },
-  head() {
-    if (!this.post.meta) {
-      return {};
-    }
-    return {
-      title: this.post.meta.title,
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content: this.post.meta.description,
-        },
-        {
-          name: "keywords",
-          content: this.post.meta.keyword,
-        },
-      ],
-    };
-  },
-  breadcrumbs() {
-    return [
-      {
-        title: this.post.meta.title,
-        to: this.$route.path,
-      },
-    ];
-  },
-  computed: {
-    ...mapGetters({
-      post: "blog/post/get",
-    }),
-  },
-  mounted() {
-    if (!this.loaded) {
-      this.handleLoadData();
-    }
-  },
-  serverPrefetch() {
-    return this.handleLoadData(this);
-  },
-  methods: {
-    async handleLoadData(ctx) {
-      const { id } = this.$vuefront.params;
-      await this.$store.dispatch("apollo/query", {
-        query: this.$options.query,
-        variables: { id },
-      });
-      const { post } = this.$store.getters["apollo/get"];
+});
 
-      this.$store.commit("blog/post/setPost", post);
-      this.loaded = true;
+const post = computed(() => store.getters["blog/post/get"]);
+onServerPrefetch(() => handleLoadData());
+
+const handleLoadData = async () => {
+  const { id } = vuefront$.params;
+  await store.dispatch("apollo/query", {
+    query,
+    variables: { id },
+  });
+  const { post } = store.getters["apollo/get"];
+
+  store.commit("blog/post/setPost", post);
+
+  meta.title = post.meta.title;
+  meta.description = post.meta.description;
+  meta.keywords = post.meta.content;
+
+  onLoad([
+    {
+      title: post.meta.title,
+      to: route.path,
     },
-  },
+  ]);
 };
+
+await handleLoadData();
+
+watch(
+  () => route,
+  () => {
+    handleLoadData();
+  },
+  {
+    deep: true,
+  }
+);
 </script>
 <graphql>
 query($id: String) {

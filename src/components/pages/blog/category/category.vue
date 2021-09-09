@@ -1,126 +1,102 @@
 <template>
   <vf-t-common-layout class="blog-category">
-    <template v-if="loaded">
-      <vf-t-blog-category
-        :category="category"
-        :posts="posts"
-        :grid-size="gridSize"
-      />
-    </template>
-    <template v-else>
-      <vf-l-t-blog-category :grid-size="gridSize" />
-    </template>
+    <vf-t-blog-category
+      v-if="loaded"
+      :category="category"
+      :posts="posts"
+      :grid-size="gridSize"
+    />
+    <vf-l-t-blog-category v-else :grid-size="gridSize" />
   </vf-t-common-layout>
 </template>
-<script>
+<script lang="ts" setup>
 import { mapGetters } from "vuex";
 import useModule from "../../../../utils/module";
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  props: ["id", "keyword", "url"],
-  setup() {
-    const { checkModules } = useModule();
-
-    return { checkModules };
-  },
-  asyncData() {
-    return {
-      loaded: !document,
-    };
-  },
-  data() {
-    const page = this.$route.query.page ? Number(this.$route.query.page) : 1;
-    return {
-      loaded: !document,
-      page,
-    };
-  },
-  head() {
-    if (!this.category.meta) {
-      return {};
-    }
-    return {
-      title: this.category.meta.title,
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content: this.category.meta.description,
-        },
-        {
-          name: "keywords",
-          content: this.category.meta.keyword,
-        },
-      ],
-    };
-  },
-  breadcrumbs() {
-    return [
-      {
-        title: this.category.meta.title,
-        to: this.$route.path,
-      },
-    ];
-  },
-  computed: {
-    ...mapGetters({
-      posts: "blog/post/list",
-      category: "blog/category/get",
-    }),
-    gridSize() {
-      if (this.checkModules("columnLeft") && this.checkModules("columnRight")) {
-        return 2;
-      } else if (
-        this.checkModules("columnLeft") ||
-        this.checkModules("columnRight")
-      ) {
-        return 3;
-      } else {
-        return 4;
-      }
-    },
-  },
-  serverPrefetch() {
-    return this.handleLoadData();
-  },
-  watch: {
-    loaded(newValue, oldValue) {
-      if (!newValue && oldValue) {
-        this.handleLoadData();
-      }
-    },
-  },
-  watchQuery: true,
-  mounted() {
-    if (!this.loaded) {
-      this.handleLoadData();
-    }
-  },
-
-  methods: {
-    async handleLoadData() {
-      const { id } = this.$vuefront.params;
-      await this.$store.dispatch("apollo/query", {
-        query: this.$options.query,
-        variables: { page: this.page, size: 12, categoryId: id },
-      });
-
-      const { postsList, categoryBlog } = this.$store.getters["apollo/get"];
-
-      this.$store.commit("blog/post/setEntities", postsList);
-      this.$store.commit("blog/category/setCategory", categoryBlog);
-
-      this.loaded = true;
-    },
-    handleChangePage(page: number) {
-      this.$router.push({
-        path: "/blog/category/" + this.$route.params.id,
-        query: { page },
-      });
-    },
+import { useI18n } from "vue-i18n";
+import { useRoute, useRouter } from "vue-router";
+import { useStore } from "vuex";
+import {
+  computed,
+  defineComponent,
+  inject,
+  onMounted,
+  onServerPrefetch,
+  ref,
+  watch,
+} from "vue";
+import { useMeta } from "vue-meta";
+import useQuery from "../../../../utils/query";
+import useBreadcrumbs from "../../../../utils/breadcrumbs";
+const { onLoad } = useBreadcrumbs();
+const route = useRoute();
+const router = useRouter();
+const store = useStore();
+const { query } = useQuery();
+const i18n = useI18n();
+const { meta } = useMeta({});
+const { checkModules } = useModule();
+const vuefront$ = inject<any>("$vuefront");
+const page = ref(route.query.page ? Number(route.query.page) : 1);
+const props = defineProps({
+  loaded: {
+    type: Boolean,
+    default: () => false,
   },
 });
+
+const handleLoadData = async () => {
+  const { id } = vuefront$.params;
+  await store.dispatch("apollo/query", {
+    query,
+    variables: { page: page.value, size: 12, categoryId: id },
+  });
+
+  const { postsList, categoryBlog } = store.getters["apollo/get"];
+
+  store.commit("blog/post/setEntities", postsList);
+  store.commit("blog/category/setCategory", categoryBlog);
+
+  meta.title = categoryBlog.name;
+  meta.description = categoryBlog.meta.description;
+  meta.keywords = categoryBlog.meta.keywords;
+
+  onLoad([
+    {
+      title: categoryBlog.meta.title,
+      to: route.path,
+    },
+  ]);
+};
+const posts = computed(() => store.getters["blog/post/list"]);
+const category = computed(() => store.getters["blog/category/get"]);
+const gridSize = computed(() => {
+  if (checkModules("columnLeft") && checkModules("columnRight")) {
+    return 2;
+  } else if (checkModules("columnLeft") || checkModules("columnRight")) {
+    return 3;
+  } else {
+    return 4;
+  }
+});
+onServerPrefetch(() => handleLoadData());
+const handleChangePage = (page: number) => {
+  router.push({
+    path: "/blog/category/" + route.params.id,
+    query: { page },
+  });
+};
+
+await handleLoadData();
+
+watch(
+  () => route,
+  () => {
+    handleLoadData();
+  },
+  {
+    deep: true,
+  }
+);
 </script>
 <graphql>
 query($page: Int, $size: Int, $categoryId: String) {
