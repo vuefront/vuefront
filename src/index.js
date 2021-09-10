@@ -560,6 +560,11 @@ module.exports = {
       "/organisms/manufacturer-filter/manufacturer-filter.loader.vue",
     TStoreSpecial: "/templates/store/special/special.loader.vue",
     PStoreCategory: "/pages/store/category/category.loader.vue",
+    PStoreProduct: "/pages/store/product/product.loader.vue",
+    PStoreManufacturer: "/pages/store/manufacturer/manufacturer.loader.vue",
+    PStoreManufacturerList:
+      "/pages/store/manufacturerList/manufacturerList.loader.vue",
+    PStoreSpecial: "/pages/store/special/special.loader.vue",
   },
   seo: {
     "/404": {
@@ -640,9 +645,11 @@ module.exports = {
     },
     "/store/manufacturer/:id": {
       component: "StoreManufacturer",
+      loader: "PStoreManufacturer",
     },
     "/store/manufacturer": {
       component: "StoreManufacturerList",
+      loader: "PStoreManufacturerList",
     },
     "/store/compare": {
       generate: false,
@@ -650,9 +657,11 @@ module.exports = {
     },
     "/store/product/:id": {
       component: "StoreProduct",
+      loader: "PStoreProduct",
     },
     "/store/special": {
       component: "StoreSpecial",
+      loader: "PStoreSpecial",
     },
   },
 };

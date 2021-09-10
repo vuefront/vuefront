@@ -1,13 +1,6 @@
 <template>
-  <vf-t-common-layout>
-    <metainfo />
-    <template v-if="loaded">
-      <vf-t-store-manufacturer-list :manufacturers="manufacturers" />
-    </template>
-    <template v-else>
-      <vf-l-t-store-manufacturer-list />
-    </template>
-  </vf-t-common-layout>
+  <metainfo />
+  <vf-t-store-manufacturer-list :manufacturers="manufacturers" />
 </template>
 <script lang="ts" setup>
 import { computed, onMounted, ref, watch } from "vue";
@@ -46,20 +39,7 @@ const handleLoadData = async () => {
   ]);
 };
 
-onMounted(() => {
-  if (!loaded.value) {
-    handleLoadData();
-  }
-});
-
-watch(
-  () => loaded.value,
-  (newValue, oldValue) => {
-    if (!newValue && oldValue) {
-      handleLoadData();
-    }
-  }
-);
+await handleLoadData();
 </script>
 <graphql>
 {

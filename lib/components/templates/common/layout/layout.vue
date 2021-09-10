@@ -6,8 +6,10 @@
           <component :is="Component" />
         </template>
         <template #fallback>
-          <component v-if="loader" :is="loader"></component>
-          <div v-else>...Loading</div>
+          <div>
+            <component v-if="loader" :is="loader"></component>
+            <div v-else>...Loading</div>
+          </div>
         </template>
       </suspense>
     </component>
@@ -22,7 +24,7 @@ initLayout();
 const route = useRoute();
 const loader = computed(() => {
   let result = null;
-  if (route.matched.length > 0 && route.meta.loader) {
+  if (route.meta.loader) {
     result = route.meta.loader;
   }
 

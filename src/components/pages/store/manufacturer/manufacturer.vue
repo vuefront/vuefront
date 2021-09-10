@@ -1,19 +1,12 @@
 <template>
-  <vf-t-common-layout>
-    <metainfo />
-    <template v-if="loaded">
-      <vf-t-store-manufacturer
-        :manufacturer="manufacturer"
-        :products="products"
-        :mode="mode"
-        :sort="sort"
-        :grid-size="gridSize"
-      />
-    </template>
-    <template v-else>
-      <vf-l-t-store-manufacturer :grid-size="gridSize" />
-    </template>
-  </vf-t-common-layout>
+  <metainfo />
+  <vf-t-store-manufacturer
+    :manufacturer="manufacturer"
+    :products="products"
+    :mode="mode"
+    :sort="sort"
+    :grid-size="gridSize"
+  />
 </template>
 <script lang="ts" setup>
 import { computed, inject, onMounted, ref, watch } from "vue";
@@ -53,21 +46,6 @@ const gridSize = computed(() => {
   }
 });
 
-watch(
-  () => loaded.value,
-  (newValue, oldValue) => {
-    if (!newValue && oldValue) {
-      handleLoadData();
-    }
-  }
-);
-
-onMounted(() => {
-  if (!loaded.value) {
-    handleLoadData();
-  }
-});
-
 const handleLoadData = async () => {
   const { id } = vuefront$.params;
   const sortData = sort.value.split("|");
@@ -86,6 +64,7 @@ const handleLoadData = async () => {
   store.commit("store/product/setEntities", productsList);
   store.commit("store/manufacturer/setManufacturer", manufacturer);
   loaded.value = true;
+  meta.title = manufacturer.name;
   onLoad([
     {
       title: i18n.t("pages.store.manufacturerList.title"),
@@ -97,6 +76,8 @@ const handleLoadData = async () => {
     },
   ]);
 };
+
+await handleLoadData();
 </script>
 <graphql>
   query($page: Int, $size: Int, $sort: String, $order: String, $manufacturerId: String) {

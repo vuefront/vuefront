@@ -76,7 +76,6 @@ const handleLoadData = async () => {
     meta.title = category.name;
     meta.description = category.meta.description;
     meta.keywords = category.meta.keyword;
-
     onLoad([
       {
         title: category.meta.title,

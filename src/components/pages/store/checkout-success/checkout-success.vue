@@ -1,25 +1,25 @@
 <template>
-  <vf-t-common-layout class="vf-p-store-checkout-success">
-    <vf-t-store-checkout-success/>
-  </vf-t-common-layout>
+  <vf-t-store-checkout-success class="vf-p-store-checkout-success" />
 </template>
-<script>
-export default {
-  breadcrumbs() {
-    return [
-      {
-        title: this.$t("pages.store.checkoutSuccess.breadcrumbCartTitle"),
-        to: '/store/cart',
-      },
-      {
-        title: this.$t("pages.store.checkoutSuccess.breadcrumbCheckoutTitle"),
-        to: '/store/checkout',
-      },
-      {
-        title: this.$t("pages.store.checkoutSuccess.breadcrumbTitle"),
-        to: this.$route.path,
-      },
-    ];
+<script lang="ts" setup>
+import useBreadcrumbs from "../../../../utils/breadcrumbs";
+import { useRoute } from "vue-router";
+import { useI18n } from "vue-i18n";
+const route = useRoute();
+const { onLoad } = useBreadcrumbs();
+const i18n = useI18n();
+onLoad([
+  {
+    title: i18n.t("pages.store.checkoutSuccess.breadcrumbCartTitle"),
+    to: "/store/cart",
   },
-};
+  {
+    title: i18n.t("pages.store.checkoutSuccess.breadcrumbCheckoutTitle"),
+    to: "/store/checkout",
+  },
+  {
+    title: i18n.t("pages.store.checkoutSuccess.breadcrumbTitle"),
+    to: route.path,
+  },
+]);
 </script>

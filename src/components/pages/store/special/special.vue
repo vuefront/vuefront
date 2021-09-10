@@ -1,117 +1,75 @@
 <template>
-  <vf-t-common-layout class="store-special-page">
-    <template v-if="loaded">
-      <vf-t-store-special
-        :products="products"
-        :grid-size="gridSize"
-        :mode="mode"
-        :sort="sort"
-      />
-    </template>
-    <template v-else>
-      <vf-l-t-store-special :grid-size="gridSize" />
-    </template>
-  </vf-t-common-layout>
+  <vf-t-store-special
+    class="store-special-page"
+    :products="products"
+    :grid-size="gridSize"
+    :mode="mode"
+    :sort="sort"
+  />
 </template>
-<script>
-import { mapGetters } from "vuex";
+<script lang="ts" setup>
+import { mapGetters, useStore } from "vuex";
 import useModule from "../../../../utils/module";
-export default {
-  setup() {
-    const { checkModules } = useModule();
-
-    return { checkModules };
-  },
-  asyncData(ctx) {
-    return {
-      loaded: !process.client,
-    };
-  },
-  data() {
-    const page = this.$route.query.page ? Number(this.$route.query.page) : 1;
-    const size = this.$route.query.size ? Number(this.$route.query.size) : 15;
-    const sort = this.$route.query.sort ? this.$route.query.sort : "id";
-    const order = this.$route.query.order ? this.$route.query.order : "ASC";
-    return {
-      loaded: true,
-      size,
-      sort: `${sort}|${order}`,
-      page,
-    };
-  },
-  head() {
-    return {
-      title: this.$t("pages.store.special.metaTitle"),
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content: this.$t("pages.store.special.metaTitle"),
-        },
-      ],
-    };
-  },
-  breadcrumbs() {
-    return [
-      {
-        title: this.$t("pages.store.special.breadcrumbTitle"),
-        to: this.$route.path,
-      },
-    ];
-  },
-  computed: {
-    ...mapGetters({
-      mode: "store/category/mode",
-      products: "store/product/list",
-    }),
-    gridSize() {
-      if (this.checkModules("columnLeft") && this.checkModules("columnRight")) {
-        return 2;
-      } else if (
-        this.checkModules("columnLeft") ||
-        this.checkModules("columnRight")
-      ) {
-        return 3;
-      } else {
-        return 4;
-      }
+import { computed, inject, ref } from "vue";
+import useQuery from "../../../../utils/query";
+import { useMeta } from "vue-meta";
+import { useI18n } from "vue-i18n";
+import { useRoute } from "vue-router";
+import useBreadcrumbs from "../../../../utils/breadcrumbs";
+const { checkModules } = useModule();
+const route = useRoute();
+const page = ref(route.query.page ? Number(route.query.page) : 1);
+const sort = ref(
+  (route.query.sort || "id") + "|" + (route.query.order || "ASC")
+);
+const size = ref(route.query.size ? Number(route.query.size) : 15);
+const vuefront$ = inject<any>("$vuefront");
+const { query } = useQuery();
+const i18n = useI18n();
+useMeta({
+  title: i18n.t("pages.store.special.metaTitle"),
+  meta: [
+    {
+      hid: "description",
+      name: "description",
+      content: i18n.t("pages.store.special.metaTitle"),
     },
+  ],
+});
+const { onLoad } = useBreadcrumbs();
+onLoad([
+  {
+    title: i18n.t("pages.store.special.breadcrumbTitle"),
+    to: route.path,
   },
-  watch: {
-    loaded(newValue, oldValue) {
-      if (!newValue && oldValue) {
-        this.handleLoadData();
-      }
+]);
+const store = useStore();
+const mode = computed(() => store.getters["store/category/mode"]);
+const products = computed(() => store.getters["store/product/list"]);
+const gridSize = computed(() => {
+  if (checkModules("columnLeft") && checkModules("columnRight")) {
+    return 2;
+  } else if (checkModules("columnLeft") || checkModules("columnRight")) {
+    return 3;
+  } else {
+    return 4;
+  }
+});
+const handleLoadData = async () => {
+  const sortData = sort.value.split("|");
+  await store.dispatch("apollo/query", {
+    query,
+    variables: {
+      page: page.value,
+      size: size.value,
+      sort: sortData[0],
+      order: sortData[1],
     },
-  },
-  watchQuery: true,
-  mounted() {
-    if (!this.loaded) {
-      this.handleLoadData();
-    }
-  },
-  serverPrefetch() {
-    return this.handleLoadData(this);
-  },
-  methods: {
-    async handleLoadData(ctx) {
-      const sortData = this.sort.split("|");
-      await this.$store.dispatch("apollo/query", {
-        query: this.$options.query,
-        variables: {
-          page: this.page,
-          size: this.size,
-          sort: sortData[0],
-          order: sortData[1],
-        },
-      });
-      const { productsList } = this.$store.getters["apollo/get"];
-      this.$store.commit("store/product/setEntities", productsList);
-
-      this.loaded = true;
-    },
-  },
+  });
+  const { productsList } = store.getters["apollo/get"];
+  store.commit("store/product/setEntities", productsList);
 };
+await handleLoadData();
 </script>
 <graphql>
 query($page: Int, $size: Int, $sort: String, $order: String) {
