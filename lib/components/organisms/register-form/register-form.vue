@@ -71,7 +71,6 @@
         $t("elements.common.account.register.passwordError")
       }}</template>
     </vf-m-field>
-
     <vf-m-field
       id="input-confirm-password"
       :state="v$.confirmPassword.$dirty ? !v$.confirmPassword.$error : null"
@@ -110,7 +109,7 @@ import { useVuelidate } from "@vuelidate/core";
 import { mdiArrowRight } from "@mdi/js";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
-import { reactive } from "vue";
+import { computed, reactive } from "vue";
 const form = reactive({
   firstName: null,
   lastName: null,
@@ -118,36 +117,34 @@ const form = reactive({
   password: null,
   confirmPassword: null,
 });
-const v$ = useVuelidate(
-  {
-    firstName: {
-      required,
-      minLength: minLength(1),
-      maxLength: maxLength(32),
-    },
-    lastName: {
-      required,
-      minLength: minLength(1),
-      maxLength: maxLength(32),
-    },
-    email: {
-      required,
-      email,
-    },
-    password: {
-      required,
-      minLength: minLength(4),
-      maxLength: maxLength(20),
-    },
-    confirmPassword: {
-      required,
-      minLength: minLength(4),
-      maxLength: maxLength(20),
-      sameAsPassword: sameAs("password"),
-    },
+const rules = computed(() => ({
+  firstName: {
+    required,
+    minLength: minLength(1),
+    maxLength: maxLength(32),
   },
-  form
-);
+  lastName: {
+    required,
+    minLength: minLength(1),
+    maxLength: maxLength(32),
+  },
+  email: {
+    required,
+    email,
+  },
+  password: {
+    required,
+    minLength: minLength(4),
+    maxLength: maxLength(20),
+  },
+  confirmPassword: {
+    required,
+    minLength: minLength(4),
+    maxLength: maxLength(20),
+    sameAs: sameAs(form.password),
+  },
+}));
+const v$ = useVuelidate(rules, form);
 const router = useRouter();
 const store = useStore();
 const onSuccess = () => {
