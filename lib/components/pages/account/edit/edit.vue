@@ -6,6 +6,7 @@ import { useStore } from "vuex";
 import useBreadcrumbs from "../../../../utils/breadcrumbs";
 import { useI18n } from "vue-i18n";
 import { useRoute } from "vue-router";
+import { computed } from "vue";
 
 const store = useStore();
 const { onLoad } = useBreadcrumbs();

@@ -1,7 +1,5 @@
 <template>
-  <vf-t-common-layout>
-    <vf-t-account-password />
-  </vf-t-common-layout>
+  <vf-t-account-password />
 </template>
 <script lang="ts" setup>
 import { useRoute } from "vue-router";

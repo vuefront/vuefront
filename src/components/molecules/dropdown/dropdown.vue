@@ -13,7 +13,7 @@
       </slot>
     </vf-a-button>
     <div v-if="show" class="vf-m-dropdown__menu">
-      <div :class="getClassManu" class="vf-m-dropdown__menu-content">
+      <div :class="getClassMenu" class="vf-m-dropdown__menu-content">
         <div class="vf-m-dropdown__menu-content-wrapper">
           <slot></slot>
         </div>
