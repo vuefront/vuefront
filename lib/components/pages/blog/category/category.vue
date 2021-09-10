@@ -1,13 +1,9 @@
 <template>
-  <vf-t-common-layout class="blog-category">
-    <vf-t-blog-category
-      v-if="loaded"
-      :category="category"
-      :posts="posts"
-      :grid-size="gridSize"
-    />
-    <vf-l-t-blog-category v-else :grid-size="gridSize" />
-  </vf-t-common-layout>
+  <vf-t-blog-category
+    :category="category"
+    :posts="posts"
+    :grid-size="gridSize"
+  />
 </template>
 <script lang="ts" setup>
 import { mapGetters } from "vuex";
@@ -37,12 +33,6 @@ const { meta } = useMeta({});
 const { checkModules } = useModule();
 const vuefront$ = inject<any>("$vuefront");
 const page = ref(route.query.page ? Number(route.query.page) : 1);
-const props = defineProps({
-  loaded: {
-    type: Boolean,
-    default: () => false,
-  },
-});
 
 const handleLoadData = async () => {
   const { id } = vuefront$.params;

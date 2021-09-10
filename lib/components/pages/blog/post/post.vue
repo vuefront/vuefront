@@ -1,8 +1,5 @@
 <template>
-  <vf-t-common-layout>
-    <vf-t-blog-post v-if="loaded" :post="post" />
-    <vf-l-t-blog-post v-else />
-  </vf-t-common-layout>
+  <vf-t-blog-post :post="post" />
 </template>
 <script setup lang="ts">
 import { computed, inject, onServerPrefetch, ref, watch } from "vue";
@@ -18,12 +15,6 @@ const { meta } = useMeta({});
 const { onLoad } = useBreadcrumbs();
 const vuefront$ = inject<any>("$vuefront");
 const { query } = useQuery();
-defineProps({
-  loaded: {
-    type: Boolean,
-    default: () => false,
-  },
-});
 
 const post = computed(() => store.getters["blog/post/get"]);
 onServerPrefetch(() => handleLoadData());
