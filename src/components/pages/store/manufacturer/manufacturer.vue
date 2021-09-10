@@ -1,5 +1,4 @@
 <template>
-  <metainfo />
   <vf-t-store-manufacturer
     :manufacturer="manufacturer"
     :products="products"

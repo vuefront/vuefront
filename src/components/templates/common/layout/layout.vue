@@ -1,4 +1,5 @@
 <template>
+  <metainfo />
   <router-view v-slot="{ Component }" :key="route.fullPath">
     <component :is="currentLayout" class="vf-t-common-layout">
       <suspense>
