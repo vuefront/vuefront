@@ -72,6 +72,7 @@ const handleLoadData = async () => {
     const { productsList, category } = store.getters["apollo/get"];
     store.commit("store/product/setEntities", productsList);
     store.commit("store/category/setCategory", category);
+
     meta.title = category.name;
     meta.description = category.meta.description;
     meta.keywords = category.meta.keyword;

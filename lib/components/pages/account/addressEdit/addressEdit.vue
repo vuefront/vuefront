@@ -6,7 +6,6 @@
   />
 </template>
 <script setup lang="ts">
-import addressGetGql from "./addressEdit.graphql";
 import { useI18n } from "vue-i18n";
 import useBreadcrumbs from "../../../../utils/breadcrumbs";
 import { useStore } from "vuex";
@@ -17,13 +16,12 @@ import { computed } from "vue";
 const i18n = useI18n();
 const { onLoad } = useBreadcrumbs();
 const store = useStore();
-const query = useQuery();
+const { query } = useQuery();
 const route = useRoute();
 
 const address = computed(() => store.getters["common/address/get"]);
 const countries = computed(() => store.getters["common/country/list"]);
-const zones = computed(() => store.getters["common/zone/get"]);
-
+const zones = computed(() => store.getters["common/zone/list"]);
 const handleLoadData = async () => {
   await store.dispatch("apollo/query", {
     query,
@@ -49,8 +47,6 @@ onLoad([
 
 await handleLoadData();
 </script>
-<script></script>
-
 <graphql>
   query($id: String){
     accountAddress(id: $id) {

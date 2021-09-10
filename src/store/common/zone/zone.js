@@ -1,5 +1,3 @@
-// import ZonesGql from './list.graphql'
-// import ZoneGql from './get.graphql'
 import gql from "graphql-tag";
 
 export const state = () => ({
@@ -30,10 +28,9 @@ export const mutations = {
 export const actions = {
   async list({ commit, dispatch, rootGetters }, zoneData) {
     try {
-      const { data } = await this.$vfapollo.query(
-        {
+      const { data } = await this.$vfapollo.query({
         query: gql`
-          query($page: Int, $size: Int, $country_id: String) {
+          query ($page: Int, $size: Int, $country_id: String) {
             zonesList(page: $page, size: $size, country_id: $country_id) {
               content {
                 id
@@ -59,10 +56,9 @@ export const actions = {
   },
   async get({ commit, dispatch, rootGetters }, { id }) {
     try {
-      const { data } = await this.$vfapollo.query(
-        {
+      const { data } = await this.$vfapollo.query({
         query: gql`
-          query($id: String) {
+          query ($id: String) {
             zone(id: $id) {
               id
               name
@@ -70,13 +66,12 @@ export const actions = {
           }
         `,
         variables: { id },
-      },);
+      });
       commit("setZone", data.zone);
     } catch (e) {
       commit("vuefront/setResponseError", e, {
         root: true,
       });
     }
-
   },
 };

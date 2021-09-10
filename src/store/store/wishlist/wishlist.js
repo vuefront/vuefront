@@ -1,9 +1,7 @@
-// import addToWishlistGraphql from './add.graphql'
-// import removeWishlistGraphql from './remove.graphql'
 import gql from "graphql-tag";
 
 export const state = {
-  wishlist: {},
+  wishlist: [],
 };
 
 export const getters = {

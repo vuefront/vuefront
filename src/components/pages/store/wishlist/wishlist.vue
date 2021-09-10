@@ -37,6 +37,7 @@ onLoad([
   },
 ]);
 const wishlist = computed(() => store.getters["store/wishlist/get"]);
+await loadData();
 </script>
 <graphql>
 {

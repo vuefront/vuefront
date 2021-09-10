@@ -127,7 +127,7 @@
           value-field="id"
           text-field="name"
           trim
-          @input="handleChangeCountry"
+          @update:modelValue="handleChangeCountry"
         />
       </template>
       <template #error>{{

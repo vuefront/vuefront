@@ -13,7 +13,7 @@ const store = useStore();
 const { onLoad } = useBreadcrumbs();
 const i18n = useI18n();
 const route = useRoute();
-const query = useQuery();
+const { query } = useQuery();
 const items = computed(() => store.getters["common/address/list"]);
 
 const handleLoadData = async () => {
