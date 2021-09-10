@@ -7,7 +7,6 @@ import { useMeta } from "vue-meta";
 import { useRoute } from "vue-router";
 import { useStore } from "vuex";
 import useBreadcrumbs from "../../../../utils/breadcrumbs";
-import useModule from "../../../../utils/module";
 import useQuery from "../../../../utils/query";
 const route = useRoute();
 const store = useStore();

@@ -12,7 +12,7 @@
       <vf-m-col xs="6">
         <vf-m-rating
           v-if="post.rating > 0"
-          :value="post.rating"
+          :modelValue="post.rating"
           color="#ffcc00"
           readonly
           class="text-right"

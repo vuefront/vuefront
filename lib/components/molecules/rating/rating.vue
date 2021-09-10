@@ -2,7 +2,7 @@
   <section class="rating-section">
     <span
       v-for="ratingValue in [1, 2, 3, 4, 5]"
-      :key="ratingValue"
+      :key="`${ratingValue}-${currentRating}`"
       style="cursor: pointer"
       @mouseover="handleMouseOver(ratingValue)"
       @mouseout="handleMouseOut"
@@ -17,7 +17,6 @@
   </section>
 </template>
 <script setup lang="ts">
-import isUndefined from "lodash-es/isUndefined";
 import { mdiStar, mdiStarOutline } from "@mdi/js";
 import { computed, ref } from "vue";
 
@@ -36,27 +35,27 @@ const props = defineProps({
   },
 });
 
-let rating = ref(0),
-  hover = ref(false);
+let rating = ref(0);
+let hover = ref(false);
 
 const currentRating = computed(() => {
-  return hover.value ? rating : props.modelValue;
+  return hover.value ? rating.value : props.modelValue;
 });
 
 function handleMouseOver(hoverRating: number) {
-  if (isUndefined(props.readonly)) {
+  if (!props.readonly) {
     rating.value = hoverRating;
     hover.value = true;
   }
 }
 function handleMouseOut() {
-  if (isUndefined(props.readonly)) {
+  if (!props.readonly) {
     hover.value = false;
   }
 }
 const emits = defineEmits(["update:modelValue"]);
 function handleClick(rating: number) {
-  if (isUndefined(props.readonly)) {
+  if (!props.readonly) {
     emits("update:modelValue", rating);
   }
 }

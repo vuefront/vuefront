@@ -565,6 +565,8 @@ module.exports = {
     PStoreManufacturerList:
       "/pages/store/manufacturerList/manufacturerList.loader.vue",
     PStoreSpecial: "/pages/store/special/special.loader.vue",
+    PBlogCategory: "/pages/blog/category/category.loader.vue",
+    PBlogPost: "/pages/blog/post/post.loader.vue",
   },
   seo: {
     "/404": {
@@ -612,9 +614,11 @@ module.exports = {
     },
     "/blog/category/:id": {
       component: "BlogCategory",
+      loader: "PBlogCategory",
     },
     "/blog/post/:id": {
       component: "BlogPost",
+      loader: "PBlogPost",
     },
     "/contact": {
       generate: false,

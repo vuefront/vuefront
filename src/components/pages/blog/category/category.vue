@@ -6,20 +6,10 @@
   />
 </template>
 <script lang="ts" setup>
-import { mapGetters } from "vuex";
 import useModule from "../../../../utils/module";
-import { useI18n } from "vue-i18n";
 import { useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";
-import {
-  computed,
-  defineComponent,
-  inject,
-  onMounted,
-  onServerPrefetch,
-  ref,
-  watch,
-} from "vue";
+import { computed, inject, onServerPrefetch, ref, watch } from "vue";
 import { useMeta } from "vue-meta";
 import useQuery from "../../../../utils/query";
 import useBreadcrumbs from "../../../../utils/breadcrumbs";
@@ -28,7 +18,6 @@ const route = useRoute();
 const router = useRouter();
 const store = useStore();
 const { query } = useQuery();
-const i18n = useI18n();
 const { meta } = useMeta({});
 const { checkModules } = useModule();
 const vuefront$ = inject<any>("$vuefront");

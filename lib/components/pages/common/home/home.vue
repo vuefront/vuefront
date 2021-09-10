@@ -8,7 +8,8 @@ import { computed } from "vue";
 import { useStore } from "vuex";
 import { useMeta } from "vue-meta";
 import useQuery from "../../../../utils/query";
-
+import useBreadcrumbs from "../../../../utils/breadcrumbs";
+const { onLoad } = useBreadcrumbs();
 const store = useStore();
 const { meta } = useMeta({});
 const error = computed(() => store.getters["vuefront/error"]);
@@ -23,6 +24,7 @@ const handleLoadData = async () => {
     meta.title = home.meta.title;
     meta.description = home.meta.description;
     meta.keyword = home.meta.keyword;
+    onLoad([]);
   }
 };
 await handleLoadData();
