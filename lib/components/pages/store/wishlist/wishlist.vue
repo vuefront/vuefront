@@ -11,9 +11,9 @@ import useBreadcrumbs from "../../../../utils/breadcrumbs";
 import { computed } from "vue";
 const { query } = useQuery();
 const store = useStore();
-const loadData = () => {
+const loadData = async () => {
   await store.dispatch("apollo/query", {
-    query: wishlistGetGql,
+    query,
   });
 
   if (!store.getters["vuefront/error"]) {
