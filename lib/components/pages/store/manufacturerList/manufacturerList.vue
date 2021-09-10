@@ -1,5 +1,4 @@
 <template>
-  <metainfo />
   <vf-t-store-manufacturer-list :manufacturers="manufacturers" />
 </template>
 <script lang="ts" setup>

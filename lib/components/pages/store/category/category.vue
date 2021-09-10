@@ -1,5 +1,4 @@
 <template>
-  <metainfo />
   <vf-t-store-category
     :category="category"
     :products="products"
