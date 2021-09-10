@@ -1,7 +1,5 @@
 <template>
-  <vf-t-common-layout>
-    <vf-t-account-account />
-  </vf-t-common-layout>
+  <vf-t-account-account />
 </template>
 
 <script lang="ts" setup>

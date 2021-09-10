@@ -1,7 +1,5 @@
 <template>
-  <vf-t-common-layout>
-    <vf-t-account-address :items="items" />
-  </vf-t-common-layout>
+  <vf-t-account-address :items="items" />
 </template>
 <script setup lang="ts">
 import { computed } from "vue";

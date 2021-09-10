@@ -1,11 +1,9 @@
 <template>
-  <vf-t-common-layout>
-    <vf-t-account-address-edit
-      :address="address"
-      :countries="countries"
-      :zones="zones"
-    />
-  </vf-t-common-layout>
+  <vf-t-account-address-edit
+    :address="address"
+    :countries="countries"
+    :zones="zones"
+  />
 </template>
 <script setup lang="ts">
 import addressGetGql from "./addressEdit.graphql";

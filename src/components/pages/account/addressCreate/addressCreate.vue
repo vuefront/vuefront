@@ -1,7 +1,5 @@
 <template>
-  <vf-t-common-layout>
-    <vf-t-account-address-create :countries="countries" :zones="zones" />
-  </vf-t-common-layout>
+  <vf-t-account-address-create :countries="countries" :zones="zones" />
 </template>
 <script lang="ts" setup>
 import { useStore } from "vuex";

@@ -1,22 +1,22 @@
 <template>
-  <vf-t-common-layout class="search-page">
-    <vf-t-common-search />
-  </vf-t-common-layout>
+  <vf-t-common-search />
 </template>
-<script>
-export default {
-  head() {
-    return {
-      title: this.$t("pages.common.search.metaTitle"),
-    };
+<script lang="ts" setup>
+import { useStore } from "vuex";
+import { useI18n } from "vue-i18n";
+import { useRoute } from "vue-router";
+import useBreadcrumbs from "../../../../utils/breadcrumbs";
+import { useMeta } from "vue-meta";
+
+const store = useStore();
+const i18n = useI18n();
+const route = useRoute();
+const { onLoad } = useBreadcrumbs();
+useMeta({ title: i18n.t("pages.common.search.metaTitle") });
+onLoad([
+  {
+    title: i18n.t("pages.common.search.breadcrumbTitle"),
+    to: route.path,
   },
-  breadcrumbs() {
-    return [
-      {
-        title: this.$t("pages.common.search.breadcrumbTitle"),
-        to: this.$route.path,
-      },
-    ];
-  },
-};
+]);
 </script>

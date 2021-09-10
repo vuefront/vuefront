@@ -1,7 +1,5 @@
 <template>
-  <vf-t-common-layout>
-    <vf-t-account-register />
-  </vf-t-common-layout>
+  <vf-t-account-register />
 </template>
 <script setup lang="ts">
 import { useStore } from "vuex";
