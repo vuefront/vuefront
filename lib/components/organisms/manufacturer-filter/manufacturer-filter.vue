@@ -12,9 +12,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import isNumber from "lodash-es/isNumber";
-import upperCase from "lodash-es/upperCase";
-import isUndefined from "lodash-es/isUndefined";
+import { isNumber, upperCase, isUndefined } from "lodash";
 import { computed } from "vue";
 const props = defineProps({
   manufacturers: {

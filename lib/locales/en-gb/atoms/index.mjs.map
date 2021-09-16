@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../src/locales/en-gb/atoms/index.ts"],"names":["select"],"mappings":"AAAA,OAAOA,MAAP;AAEA,eAAe;AACbA,EAAAA;AADa,CAAf","sourcesContent":["import select from \"./select.json\";\n\nexport default {\n  select,\n};\n"],"file":"index.mjs"}

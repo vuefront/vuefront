@@ -1,4 +1,4 @@
-import { getCurrentInstance, getCurrentScope } from "vue";
+import { getCurrentInstance } from "vue";
 
 export default function useQuery() {
   const instance = getCurrentInstance();

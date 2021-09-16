@@ -29,8 +29,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import filter from "lodash-es/filter";
-import isEmpty from "lodash-es/isEmpty";
+import { filter, isEmpty } from "lodash";
 import { PropType } from "vue";
 const props = defineProps({
   option: {

@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../src/locales/en-gb/organisms/index.ts"],"names":["manufacturerFilter"],"mappings":"AAAA,OAAOA,kBAAP;AAEA,eAAe;AACbA,EAAAA;AADa,CAAf","sourcesContent":["import manufacturerFilter from \"./manufacturerFilter.json\";\n\nexport default {\n  manufacturerFilter,\n};\n"],"file":"index.mjs"}

@@ -12,7 +12,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import find from "lodash-es/find";
+import { find } from "lodash";
 import { computed, PropType } from "vue";
 import { useI18n } from "vue-i18n";
 const i18n = useI18n();

@@ -32,7 +32,8 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { computed } from "vue";
+import { ICookie } from "cookie-universal";
+import { computed, inject } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";
 
@@ -94,9 +95,10 @@ const handleChangeSort = (sort: string) => {
     },
   });
 };
-
+const cookies$ = inject<ICookie>("$cookies");
 const handleChangeMode = (mode: string) => {
   store.commit("store/manufacturer/setMode", mode);
+  if (cookies$) cookies$.set("mode", payload);
 };
 
 const handleChangeSize = (size: string) => {

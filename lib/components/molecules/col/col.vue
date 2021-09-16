@@ -4,8 +4,7 @@
   </component>
 </template>
 <script lang="ts" setup>
-import capitalize from "lodash-es/capitalize";
-import { computed, getCurrentInstance, PropType } from "vue";
+import { computed, PropType } from "vue";
 enum sizeEnum {
   xs = "xs",
   sm = "sm",

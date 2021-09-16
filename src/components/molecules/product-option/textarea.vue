@@ -11,7 +11,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import find from "lodash-es/find";
+import { find } from "lodash";
 import { computed, PropType } from "vue";
 const props = defineProps({
   option: {

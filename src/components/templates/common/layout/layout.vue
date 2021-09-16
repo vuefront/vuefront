@@ -1,5 +1,7 @@
 <template>
-  <metainfo />
+  <vf-m-client-only>
+    <metainfo />
+  </vf-m-client-only>
   <router-view v-slot="{ Component }" :key="route.fullPath">
     <component :is="currentLayout" class="vf-t-common-layout">
       <suspense>

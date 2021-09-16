@@ -12,10 +12,9 @@
 </template>
 <script lang="ts" setup>
 import { useStore } from "vuex";
-import find from "lodash-es/find";
 import { PropType, computed } from "vue";
 import gql from "graphql-tag";
-const props = defineProps({
+defineProps({
   option: {
     type: Object,
     default: () => null,

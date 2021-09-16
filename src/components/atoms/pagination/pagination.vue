@@ -52,7 +52,7 @@
   </ul>
 </template>
 <script lang="ts" setup>
-import range from "lodash-es/range";
+import {range} from "lodash";
 import { computed } from "vue";
 const props = defineProps({
   modelValue: {

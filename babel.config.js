@@ -1,39 +1,73 @@
+const vuefrontPackage = require("./package.json");
+
 module.exports = {
+  assumptions: {
+    noDocumentAll: true,
+  },
   presets: [
-    ['@babel/preset-env', {
-      modules: false,
-    }],
+    [
+      "@babel/preset-env",
+      {
+        modules: false,
+      },
+    ],
+    "@babel/preset-typescript",
+  ],
+  plugins: [
+    [
+      "transform-define",
+      {
+        __VUEFRONT_VERSION__: vuefrontPackage.version,
+        __REQUIRED_VUE__: vuefrontPackage.peerDependencies.vue,
+      },
+    ],
+    [
+      "module-resolver",
+      {
+        root: ["."],
+        alias: {
+          "@": "./src",
+        },
+      },
+    ],
   ],
   env: {
     test: {
       presets: [
-        ['@babel/preset-env', {
-          targets: { node: true },
-        }],
-      ],
-      plugins: [
-        ['module-resolver', {
-          root: ['./src'],
-          alias: {
-            '~components': 'components',
-            '~directives': 'directives',
-            '~mixins': 'mixins',
-            '~scss': 'scss',
-            '~util': 'util',
+        [
+          "@babel/preset-env",
+          {
+            targets: { node: true },
+            modules: "commonjs",
           },
-        }],
+        ],
       ],
-    },
-    es5: {
-      presets: ['@babel/preset-env'],
     },
     lib: {
-      presets: [
-        ['@babel/preset-env', {
-          targets: 'last 1 chrome version',
-          modules: false,
-        }],
+      plugins: [
+        [
+          "babel-plugin-transform-remove-imports",
+          {
+            test: ["vuefront-api", "vuefront-store"],
+          },
+        ],
+        [
+          "./build/babel-plugin-add-import-extension",
+          {
+            extension: "mjs",
+            ignoreExtension: ["json"],
+          },
+        ],
+        [
+          "./build/babel-plugin-replace-import-extension",
+          {
+            extMapping: {
+              ".sass": ".css",
+              ".scss": ".css",
+            },
+          },
+        ],
       ],
     },
   },
-}
+};

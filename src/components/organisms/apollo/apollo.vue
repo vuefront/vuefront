@@ -18,7 +18,7 @@
 </template>
 <script lang="ts" setup>
 import { useStore } from "vuex";
-import isUndefined from "lodash-es/isUndefined";
+import { isUndefined } from "lodash";
 import {
   computed,
   getCurrentInstance,

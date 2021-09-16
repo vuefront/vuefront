@@ -37,7 +37,7 @@
 </template>
 <script lang="ts" setup>
 import { useStore } from "vuex";
-import find from "lodash-es/find";
+import { find } from "lodash";
 import { computed } from "vue";
 const store = useStore();
 
@@ -48,7 +48,7 @@ const activeLanguage = computed(() => {
 });
 const handleEdit = async ({ code }: { code: string }) => {
   await store.dispatch("common/language/edit", { code });
-  if (!error) {
+  if (!error.value) {
     location.reload();
   }
 };

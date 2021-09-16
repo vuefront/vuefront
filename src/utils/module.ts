@@ -1,5 +1,4 @@
-import isEmpty from "lodash-es/isEmpty";
-import isUndefined from "lodash-es/isUndefined";
+import {isEmpty, isUndefined} from "lodash";
 import { computed, inject } from "vue";
 import { useRoute } from "vue-router";
 import { useStore } from "vuex";

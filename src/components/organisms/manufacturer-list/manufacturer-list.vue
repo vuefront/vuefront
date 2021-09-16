@@ -26,10 +26,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import isNumber from "lodash-es/isNumber";
-import upperCase from "lodash-es/upperCase";
-import chunk from "lodash-es/chunk";
-import isUndefined from "lodash-es/isUndefined";
+import { isNumber, upperCase, chunk, isUndefined } from "lodash";
 import { computed } from "vue";
 import { List } from "lodash";
 const props = defineProps({

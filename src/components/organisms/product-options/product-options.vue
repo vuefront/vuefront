@@ -63,7 +63,7 @@
   </section>
 </template>
 <script lang="ts" setup>
-import filter from "lodash-es/filter";
+import { filter } from "lodash";
 import { useStore } from "vuex";
 import { computed } from "vue";
 defineProps({

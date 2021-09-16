@@ -1,1 +1,0 @@
-export { default as eSearchPost } from "./search-post";

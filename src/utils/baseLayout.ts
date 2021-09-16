@@ -1,13 +1,11 @@
 import { useStore } from "vuex";
-import isUndefined from "lodash-es/isUndefined";
-import isEmpty from "lodash-es/isEmpty";
-import { useRoute, useRouter } from "vue-router";
+import { isEmpty, isUndefined } from "lodash";
+import { useRoute } from "vue-router";
 import { computed, inject } from "vue";
 
 export default function useLayout(name: string) {
   const store = useStore();
   const route = useRoute();
-  const router = useRouter();
   const vuefront$ = inject<any>("$vuefront");
 
   if (!isEmpty(name)) {

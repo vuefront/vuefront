@@ -29,9 +29,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import find from "lodash-es/find";
-import filter from "lodash-es/filter";
-import includes from "lodash-es/includes";
+import {find, filter, includes} from "lodash";
 import { computed, PropType } from "vue";
 
 const props = defineProps({

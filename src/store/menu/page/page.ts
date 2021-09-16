@@ -1,0 +1,66 @@
+import { MutationTree, GetterTree, ActionTree } from "vuex";
+import { RootState } from "vuefront-store";
+import { IMenuLink } from "../../common/menu/menu";
+import gql from "graphql-tag";
+
+export type State = {
+  entities: IMenuLink[];
+};
+
+export const state: State = {
+  entities: [],
+};
+
+export const getters: GetterTree<State, RootState> = {
+  get(state) {
+    return state.entities;
+  },
+};
+
+export const mutations: MutationTree<State> = {
+  setEntities(state, pages) {
+    state.entities = [];
+    for (const key in pages.content) {
+      state.entities = [
+        ...state.entities,
+        {
+          title: pages.content[key].title,
+          to:
+            pages.content[key].keyword !== ""
+              ? `/${pages.content[key].keyword}`
+              : `/common/page/${pages.content[key].id}`,
+          children: [],
+        },
+      ];
+    }
+  },
+};
+
+export const actions: ActionTree<State, RootState> = {
+  async load({ commit }) {
+    try {
+      const { data } = await this.$vfapollo.query({
+        query: gql`
+          {
+            pagesList(page: 1, size: -1) {
+              content {
+                id
+                title
+                url(url: "/page/_id")
+              }
+            }
+          }
+        `,
+        variables: {
+          url: "/common/page/_id",
+        },
+      });
+
+      commit("setEntities", data.pagesList);
+    } catch (e) {
+      commit("vuefront/setResponseError", e, {
+        root: true,
+      });
+    }
+  },
+};

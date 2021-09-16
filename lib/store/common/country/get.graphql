@@ -1,6 +1,0 @@
-query($id: String) {
-  country(id: $id) {
-    id
-    name
-  }
-}

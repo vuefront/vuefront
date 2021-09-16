@@ -173,7 +173,7 @@
 </template>
 <script lang="ts" setup>
 import { useVuelidate } from "@vuelidate/core";
-import isEmpty from "lodash-es/isEmpty";
+import { isEmpty } from "lodash";
 import { required, minLength, maxLength } from "@vuelidate/validators";
 import { mdiArrowRight } from "@mdi/js";
 import { reactive } from "vue";

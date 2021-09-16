@@ -1,5 +1,4 @@
 <template>
-  <metainfo />
   <div class="vf-p-common-home"></div>
 </template>
 

@@ -32,7 +32,8 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { computed } from "vue";
+import { ICookie } from "cookie-universal";
+import { computed, inject } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";
 
@@ -77,6 +78,7 @@ const suffixUrl = computed(() => {
 const isList = computed(() => {
   return props.mode === "list";
 });
+const cookies$ = inject<ICookie>("$cookies");
 const handleChangePage = (page: number) => {
   router.push({
     path: route.path,
@@ -97,6 +99,7 @@ const handleChangeSort = (sort: string) => {
 };
 const handleChangeMode = (mode: string) => {
   store.commit("store/category/setMode", mode);
+  if (cookies$) cookies$.set("mode", mode);
 };
 const handleChangeSize = (size: number) => {
   const sorts = props.sort.split("|");

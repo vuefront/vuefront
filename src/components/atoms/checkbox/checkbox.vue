@@ -14,7 +14,7 @@
 </template>
 <script lang="ts" setup>
 import { computed, PropType } from "vue";
-import isArray from "lodash-es/isArray";
+import {isArray} from "lodash";
 const props = defineProps({
   type: {
     type: String,

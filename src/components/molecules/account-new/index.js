@@ -1,1 +1,0 @@
-export { default as mAccountNew } from "./account-new.vue";

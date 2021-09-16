@@ -26,9 +26,7 @@
   </vf-o-apollo>
 </template>
 <script setup lang="ts">
-import isEmpty from "lodash-es/isEmpty";
-import map from "lodash-es/map";
-import includes from "lodash-es/includes";
+import {isEmpty, map, includes} from "lodash";
 import { computed } from "vue";
 import { useRoute } from "vue-router";
 const route = useRoute();

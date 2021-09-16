@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../../../src/locales/ru-ru/elements/common/address/index.ts"],"names":["create","edit"],"mappings":"AAAA,OAAOA,MAAP;AACA,OAAOC,IAAP;AAEA,eAAe;AACbD,EAAAA,MADa;AAEbC,EAAAA;AAFa,CAAf","sourcesContent":["import create from \"./create.json\";\nimport edit from \"./edit.json\";\n\nexport default {\n  create,\n  edit,\n};\n"],"file":"index.mjs"}

@@ -34,7 +34,7 @@
 </template>
 <script lang="ts" setup>
 import { mapGetters, useStore } from "vuex";
-import find from "lodash-es/find";
+import { find } from "lodash";
 import { computed } from "vue";
 const store = useStore();
 const currency = computed(() => store.getters["store/currency/get"]);
