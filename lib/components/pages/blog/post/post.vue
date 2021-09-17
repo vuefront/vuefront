@@ -2,7 +2,7 @@
   <vf-t-blog-post :post="post" />
 </template>
 <script setup lang="ts">
-import { computed, inject, onServerPrefetch, ref, watch } from "vue";
+import { computed, inject } from "vue";
 import { useMeta } from "vue-meta";
 import { useRoute } from "vue-router";
 import { useStore } from "vuex";
@@ -16,7 +16,6 @@ const vuefront$ = inject<any>("$vuefront");
 const { query } = useQuery();
 
 const post = computed(() => store.getters["blog/post/get"]);
-onServerPrefetch(() => handleLoadData());
 
 const handleLoadData = async () => {
   const { id } = vuefront$.params;
@@ -30,7 +29,7 @@ const handleLoadData = async () => {
 
   meta.title = post.meta.title;
   meta.description = post.meta.description;
-  meta.keywords = post.meta.content;
+  meta.keywords = post.meta.keyword;
 
   onLoad([
     {
@@ -41,16 +40,6 @@ const handleLoadData = async () => {
 };
 
 await handleLoadData();
-
-watch(
-  () => route,
-  () => {
-    handleLoadData();
-  },
-  {
-    deep: true,
-  }
-);
 </script>
 <graphql>
 query($id: String) {

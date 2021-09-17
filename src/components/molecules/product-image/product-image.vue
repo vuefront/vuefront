@@ -34,14 +34,14 @@
         </a>
       </vf-m-col>
     </vf-m-row>
-    <client-only>
+    <vf-m-client-only>
       <vf-m-product-image-popup
         :show="popup"
         :index="popupIndex"
         :images="images"
         @click:close="handleClosePopup"
       />
-    </client-only>
+    </vf-m-client-only>
   </section>
 </template>
 <script lang="ts" setup>

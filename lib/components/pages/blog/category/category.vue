@@ -7,15 +7,14 @@
 </template>
 <script lang="ts" setup>
 import useModule from "../../../../utils/module";
-import { useRoute, useRouter } from "vue-router";
+import { useRoute } from "vue-router";
 import { useStore } from "vuex";
-import { computed, inject, onServerPrefetch, ref, watch } from "vue";
+import { computed, inject, ref } from "vue";
 import { useMeta } from "vue-meta";
 import useQuery from "../../../../utils/query";
 import useBreadcrumbs from "../../../../utils/breadcrumbs";
 const { onLoad } = useBreadcrumbs();
 const route = useRoute();
-const router = useRouter();
 const store = useStore();
 const { query } = useQuery();
 const { meta } = useMeta({});
@@ -37,7 +36,7 @@ const handleLoadData = async () => {
 
   meta.title = categoryBlog.name;
   meta.description = categoryBlog.meta.description;
-  meta.keywords = categoryBlog.meta.keywords;
+  meta.keywords = categoryBlog.meta.keyword;
 
   onLoad([
     {
@@ -57,25 +56,7 @@ const gridSize = computed(() => {
     return 4;
   }
 });
-onServerPrefetch(() => handleLoadData());
-const handleChangePage = (page: number) => {
-  router.push({
-    path: "/blog/category/" + route.params.id,
-    query: { page },
-  });
-};
-
 await handleLoadData();
-
-watch(
-  () => route,
-  () => {
-    handleLoadData();
-  },
-  {
-    deep: true,
-  }
-);
 </script>
 <graphql>
 query($page: Int, $size: Int, $categoryId: String) {

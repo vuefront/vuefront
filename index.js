@@ -377,7 +377,7 @@ module.exports = {
       module: "common/notification/notification.mjs",
     },
     {
-      path: "menu",
+      path: ["menu"],
       module: "common/menu/menu.mjs",
     },
     {
@@ -393,7 +393,7 @@ module.exports = {
       module: "menu/page/page.mjs",
     },
     {
-      path: "blog",
+      path: ["blog"],
     },
     {
       path: ["blog", "category"],
