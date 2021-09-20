@@ -20,11 +20,11 @@ export type CommonState = {
   language: LanguageState;
   page: PageState;
   zone: ZoneState;
+  menu: MenuState;
 };
 
 export type CommonRootState = {
   apollo: ApolloState;
-  menu: MenuState;
   notification: NotificationState;
   position: PositionState;
   vuefront: VuefrontState;

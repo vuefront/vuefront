@@ -4,6 +4,7 @@ module.exports = {
     components: "vuefront/lib/components",
     store: "vuefront/lib/store",
     locales: "vuefront/lib/locales",
+    seo: "vuefront/lib/seo",
   },
   options: {
     productGridSize: 4,
@@ -378,7 +379,6 @@ module.exports = {
     },
     {
       path: ["menu"],
-      module: "common/menu/menu.mjs",
     },
     {
       path: ["menu", "blog"],
@@ -421,6 +421,10 @@ module.exports = {
     {
       path: ["common", "page"],
       module: "common/page/page.mjs",
+    },
+    {
+      path: ["common", "menu"],
+      module: "common/menu/menu.mjs",
     },
     {
       path: ["common", "contact"],

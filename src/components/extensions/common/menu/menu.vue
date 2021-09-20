@@ -92,9 +92,9 @@ const props = defineProps({
 });
 
 const store = useStore();
-const menuModules = computed(() => store.getters["menu/list"]);
-const loadedItems = computed(() => store.getters["menu/loaded"]);
-const loadingItems = computed(() => store.getters["menu/loading"]);
+const menuModules = computed(() => store.getters["common/menu/list"]);
+const loadedItems = computed(() => store.getters["common/menu/loaded"]);
+const loadingItems = computed(() => store.getters["common/menu/loading"]);
 const idHash = computed(() => {
   return hashCode(JSON.stringify(props.items));
 });
@@ -129,7 +129,7 @@ const menuItems = computed(() => {
 });
 
 onServerPrefetch(() => {
-  store.commit("menu/setLoading", {
+  store.commit("common/menu/setLoading", {
     id: idHash.value,
     loading: true,
   });
@@ -138,7 +138,7 @@ onServerPrefetch(() => {
 
 onMounted(() => {
   if (!loaded.value && !loading.value) {
-    store.commit("menu/setLoading", {
+    store.commit("common/menu/setLoading", {
       id: idHash.value,
       loading: true,
     });
@@ -166,13 +166,13 @@ const handleLoadMenu = async () => {
         result = [...result, item];
       }
     }
-    store.commit("menu/setEntities", {
+    store.commit("common/menu/setEntities", {
       id: idHash.value,
       items: result,
     });
 
-    store.commit("menu/setLoaded", { id: idHash.value, loaded: true });
-    store.commit("menu/setLoading", {
+    store.commit("common/menu/setLoaded", { id: idHash.value, loaded: true });
+    store.commit("common/menu/setLoading", {
       id: idHash.value,
       loading: false,
     });
