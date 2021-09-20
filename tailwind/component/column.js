@@ -14,13 +14,13 @@ module.exports = (theme) => {
       order: i,
     };
   }
-  res["$--align-self-start"] = {
+  res["&--align-self-start"] = {
     alignSelf: "flex-start",
   };
-  res["$--align-self-center"] = {
+  res["&--align-self-center"] = {
     alignSelf: "center",
   };
-  res["$--align-self-end"] = {
+  res["&--align-self-end"] = {
     alignSelf: "flex-end",
   };
   return {
