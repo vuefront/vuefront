@@ -16,9 +16,8 @@
             v-if="btnClose"
             class="vf-o-modal__close"
             @click="cancel"
-          ><svg-icon
-            type="mdi"
-            :path="mdiClose"
+          ><vf-a-icon
+              :icon="mdiClose"
           /></a>
           <div
             v-if="$slots.header"
@@ -140,7 +139,7 @@ export default {
           )
           document.querySelector('html').className = document
             .querySelector('html')
-            .className.replace(/\s?vf-o-modal-open/, '')
+            .className.replace(/\s?vf-o-modal--open/, '')
         }, this.duration || 0)
       }
     }
