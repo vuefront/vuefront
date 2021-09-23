@@ -4,7 +4,7 @@
       <div :class="modalClass" class="vf-o-modal__dialog">
         <div class="vf-o-modal__content">
           <a v-if="btnClose" class="vf-o-modal__close" @click="cancel"
-            ><svg-icon type="mdi" :path="mdiClose"
+            ><vf-a-icon :icon="mdiClose"
           /></a>
           <div v-if="$slots.header" class="vf-o-modal__header">
             <slot name="header" />
@@ -33,10 +33,6 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  title: {
-    type: String,
-    default: "Modal",
-  },
   small: {
     type: Boolean,
     default: false,
@@ -57,10 +53,6 @@ const props = defineProps({
     type: String,
     default: "modal",
   },
-  closeWhenOK: {
-    type: Boolean,
-    default: false,
-  },
 });
 let duration = ref<number | null>(null);
 const show = ref(false);
@@ -73,6 +65,8 @@ const root = ref<Element | null>(null);
 watch(
   () => show.value,
   (val) => {
+    console.log("watch");
+    console.log(val);
     if (val) {
       document.body.className += " vf-o-modal--open";
       const htmlEl = document.querySelector("html");
@@ -124,7 +118,10 @@ watch(
         );
         const htmlEl = document.querySelector("html");
         if (htmlEl)
-          htmlEl.className = htmlEl.className.replace(/\s?vf-o-modal-open/, "");
+          htmlEl.className = htmlEl.className.replace(
+            /\s?vf-o-modal--open/,
+            ""
+          );
       }, duration.value || 0);
     }
   }
@@ -143,14 +140,7 @@ if (show.value || props.modelValue) {
   const htmlEl = document.querySelector("html");
   if (htmlEl) htmlEl.className += " vf-o-modal--open";
 }
-const emits = defineEmits(["ok", "cancel", "update:modelValue"]);
-const ok = () => {
-  emits("ok");
-  if (props.closeWhenOK) {
-    show.value = false;
-    emits("update:modelValue", false);
-  }
-};
+const emits = defineEmits(["cancel", "update:modelValue"]);
 const cancel = () => {
   emits("cancel");
   show.value = false;
