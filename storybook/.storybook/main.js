@@ -1,4 +1,5 @@
 const path = require('path')
+const root = path.resolve(__dirname, '../../src')
 module.exports = {
   "stories": [
     "../../src/**/*.stories.mdx",
@@ -20,7 +21,7 @@ module.exports = {
     {
       name: 'storybook-addon-vuefront',
       options: {
-        replaceRoot: path.resolve(__dirname, '../../src'),
+        replaceRoot: root.replace(/\\/g, '/'),
       }
     }
   ],

@@ -2,7 +2,7 @@
   <div ref="wrapper" class="vf-m-dropdown">
     <vf-a-button
       :color="variant"
-      size="size"
+      :size="size"
       class="vf-m-dropdown__trigger"
       @click="show = !show"
       @keydown.esc="keydownHandler"
