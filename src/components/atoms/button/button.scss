@@ -6,17 +6,25 @@
       box-shadow: none !important;
       outline: 0;
   }
+  .btn-inner--visible {
+    display: none;
+  }
+  .btn-inner--hidden {
+    display: none;
+  }
   &--animated {
       position: relative;
       overflow: hidden;
       .btn-inner--visible {
           position: relative;
+          display: block;
       }
       .btn-inner--hidden {
           position: absolute;
           width: 100%;
           top: 50%;
           transform: translateY(-50%);
+          display: block;
       }
   }
   &--animated-x {

@@ -4,14 +4,14 @@
       <vf-m-col xs="6" md="2" align-self="center">
         <vf-m-button-group size="sm">
           <vf-a-button
-            :pressed="mode === 'grid'"
+            :pressed="modeValue === 'grid'"
             color="light"
             @click="modeValue = 'grid'"
           >
             <vf-a-icon :icon="mdiViewGrid" size="26" />
           </vf-a-button>
           <vf-a-button
-            :pressed="mode === 'list'"
+            :pressed="modeValue === 'list'"
             color="light"
             @click="modeValue = 'list'"
           >
@@ -130,14 +130,16 @@ const sortOptions = [
   },
 ];
 const emits = defineEmits(["changeMode", "changeSize", "changeSort"]);
-const modeValue = computed({
-  get: () => props.mode,
-  set: (e) => emits("changeMode", e),
-});
+
 const sizeValue = computed({
   get: () => props.size,
   set: (e) => emits("changeSize", e),
 });
+const modeValue = computed({
+  get: () => props.mode,
+  set: (e) => emits("changeMode", e),
+});
+
 const sortValue = computed({
   get: () => props.sort,
   set: (e) => emits("changeSort", e),

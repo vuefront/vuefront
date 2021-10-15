@@ -16,16 +16,6 @@
 <script lang="ts" setup>
 import { PropType, ref, watch } from "vue";
 const props = defineProps({
-  name: {
-    type: String,
-    default() {
-      return "checkbox";
-    },
-  },
-  label: {
-    type: String,
-    default: null,
-  },
   state: {
     type: Boolean,
     default: null,

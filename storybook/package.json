@@ -1,0 +1,43 @@
+{
+  "name": "storybook",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@storybook/addon-actions": "^6.4.0-beta.4",
+    "@storybook/addon-essentials": "^6.4.0-beta.4",
+    "@storybook/addon-links": "^6.4.0-beta.4",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/builder-webpack5": "^6.4.0-beta.4",
+    "@storybook/manager-webpack5": "^6.4.0-beta.4",
+    "@storybook/preset-scss": "^1.0.3",
+    "@storybook/vue3": "^6.4.0-beta.4",
+    "autoprefixer": "^10.3.7",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^1.0.0",
+    "node-sass": "^4.9.3",
+    "postcss": "^8.3.9",
+    "sass": "^1.42.1",
+    "sass-loader": "^7.1.0",
+    "storybook-addon-vuefront": "vuefront/storybook-addon-vuefront",
+    "style-loader": "^0.22.1",
+    "tailwindcss": "^2.2.16",
+    "vue-loader": "^16.8.1",
+    "vue-router": "^4.0.11"
+  },
+  "peerDependencies": {
+    "css-loader": "*",
+    "sass-loader": "*",
+    "style-loader": "*"
+  },
+  "dependencies": {
+    "storybook-vue3-router": "^1.0.4",
+    "vue-i18n": "^9.2.0-beta.12",
+    "vue3-lazyload": "^0.2.2-beta"
+  },
+  "scripts": {
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  }
+}

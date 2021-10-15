@@ -16,10 +16,6 @@ const props = defineProps({
     type: String,
     default: "md",
   },
-  placeholder: {
-    type: String,
-    default: "",
-  },
   state: {
     type: Boolean,
     default: null,

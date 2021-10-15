@@ -164,7 +164,7 @@ module.exports = (theme) => ({
     paddingBottom: theme("padding.1"),
 
     borderRadius: theme("borderRadius.DEFAULT"),
-    "--rounded": {
+    "&--rounded": {
       borderRadius: theme("borderRadius.full"),
     },
   },

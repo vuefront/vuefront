@@ -98,6 +98,7 @@ const handleChangeSort = (sort: string) => {
   });
 };
 const handleChangeMode = (mode: string) => {
+  console.log("handleChangeMode");
   store.commit("store/category/setMode", mode);
   if (cookies$) cookies$.set("mode", mode);
 };
