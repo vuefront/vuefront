@@ -45,7 +45,7 @@
   </section>
 </template>
 <script lang="ts" setup>
-import { computed, defineComponent, inject, PropType, ref } from "vue";
+import { computed, inject, PropType, ref } from "vue";
 const props = defineProps({
   product: {
     type: Object,

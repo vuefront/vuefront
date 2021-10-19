@@ -32,7 +32,7 @@
   </vf-m-media>
 </template>
 <script lang="ts" setup>
-import placeholder from "vuefront/assets/img/placeholder.png";
+import placeholder from "../../../../assets/img/placeholder.png";
 import { PropType, computed } from "vue";
 const props = defineProps({
   product: {

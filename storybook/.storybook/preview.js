@@ -1,14 +1,16 @@
 import '../../assets/scss/tailwind.scss';
 import '../../assets/scss/theme.scss';
 import VueLazyLoad from 'vue3-lazyload'
-import {app} from '@storybook/vue3';
+import { app } from '@storybook/vue3';
 import vueRouter from 'storybook-vue3-router'
-import {createI18n} from 'vue-i18n'
+import { createI18n } from 'vue-i18n'
 import * as messages from '../../lib/locales/en-gb';
 import * as config from '../../'
-const i18n =  createI18n({
+import './vuex'
+
+const i18n = createI18n({
   locale: 'en',
-  messages: {en: messages}
+  messages: { en: messages }
 })
 app.use(i18n)
 
@@ -19,8 +21,14 @@ app.use(VueLazyLoad, {
 
 app.provide('$vuefront', {
   images: config.image,
+  options: {
+    productGridNoGutters: false
+  },
   get isAMP() {
     return false
+  },
+  get isClient() {
+    return true
   }
 })
 
@@ -45,6 +53,7 @@ export const parameters = {
   //   },
   // },
 }
+// .storybook/preview.js
 
 export const decorators = [
   vueRouter()

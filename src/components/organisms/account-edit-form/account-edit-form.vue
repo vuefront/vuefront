@@ -1,5 +1,5 @@
 <template>
-  <vf-o-form class="vf-o-account-edit-form" @submit="onSubmit">
+  <vf-o-form @submit="onSubmit">
     <template #title>{{
       $t("elements.common.account.edit.titleText")
     }}</template>
@@ -65,8 +65,6 @@ import { mdiArrowRight } from "@mdi/js";
 import { reactive } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
-import { useI18n } from "vue-i18n";
-const $t = useI18n();
 const store = useStore();
 const router = useRouter();
 const props = defineProps({

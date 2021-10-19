@@ -1,6 +1,6 @@
 import { useStore } from "vuex";
 import { isEmpty, isUndefined } from "lodash";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { computed, inject } from "vue";
 
 export default function useLayout(name: string) {
@@ -12,8 +12,8 @@ export default function useLayout(name: string) {
     store.dispatch("position/loadModules", { position: name });
   }
 
-  let path = route.path;
-  if (route.matched.length > 0) {
+  let path = route ? route.path : "/";
+  if (route && route.matched.length > 0) {
     path = route.matched[0].path;
     for (const key in route.params) {
       path = path.replace(`:${key}`, route.params[key].toString());

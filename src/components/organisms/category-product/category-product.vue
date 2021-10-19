@@ -73,7 +73,7 @@ const route = useRoute();
 const router = useRouter();
 const store = useStore();
 const suffixUrl = computed(() => {
-  return `category_id=${route.params.id}`;
+  return route ? `category_id=${route.params.id}` : "";
 });
 const isList = computed(() => {
   return props.mode === "list";

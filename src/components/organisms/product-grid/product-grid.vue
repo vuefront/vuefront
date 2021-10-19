@@ -62,13 +62,13 @@ defineProps({
   gridSize: {
     type: Number,
     default() {
-      return null;
+      return 4;
     },
   },
   gridSizeTablet: {
     type: Number,
     default() {
-      return null;
+      return 2;
     },
   },
 });

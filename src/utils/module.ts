@@ -1,4 +1,4 @@
-import {isEmpty, isUndefined} from "lodash";
+import { isEmpty, isUndefined } from "lodash";
 import { computed, inject } from "vue";
 import { useRoute } from "vue-router";
 import { useStore } from "vuex";
@@ -8,8 +8,8 @@ export default function useModule() {
   const route = useRoute();
   store.commit("position/setParams", vuefront$.params);
 
-  let path = route.path;
-  if (route.matched.length > 0) {
+  let path = route ? route.path : "/";
+  if (route && route.matched.length > 0) {
     path = route.matched[0].path;
     for (const key in route.params) {
       path = path.replace(`:${key}`, route.params[key].toString());
@@ -19,7 +19,8 @@ export default function useModule() {
 
   const currentRoute = computed(() => store.getters["position/currentRoute"]);
   const positions = computed(() => store.getters["position/position"]);
-
+  console.log("positions");
+  console.log(positions);
   const checkModules = (position: string) => {
     let result = false;
     const status = positions.value(position);
