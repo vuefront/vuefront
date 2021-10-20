@@ -2,7 +2,7 @@ import VfMAccountMenu from "./account-menu.vue";
 
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
-  title: "molecule/acocunt-menu",
+  title: "molecule/account-menu",
   component: VfMAccountMenu,
   // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
   argTypes: {},

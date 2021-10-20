@@ -1,4 +1,5 @@
 import VfOManufacturerList from "./manufacturer-list.vue";
+import { getManufacturers } from "../../../utils/fakeData";
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
   title: "organism/manufacturer-list",
@@ -23,23 +24,6 @@ export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/vue/writing-stories/args
 Default.args = {
   manufacturers: {
-    content: [
-      {
-        id: 1,
-        name: "Desktop",
-      },
-      {
-        id: 3,
-        name: "IMac",
-      },
-      {
-        id: 2,
-        name: "Mac",
-      },
-      {
-        id: 2,
-        name: "IPhone",
-      },
-    ],
+    content: getManufacturers(50),
   },
 };

@@ -67,5 +67,5 @@ Default.args = {
       getPost(),
     ],
   },
-  gridSize: 3,
+  gridSize: 4,
 };

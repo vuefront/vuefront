@@ -10433,8 +10433,8 @@ store2@^2.12.0:
   integrity sha512-7t+/wpKLanLzSnQPX8WAcuLCCeuSHoWdQuh9SB3xD0kNOM38DNf+0Oa+wmvxmYueRzkmh6IcdKFtvTa+ecgPDw==
 
 storybook-addon-vuefront@vuefront/storybook-addon-vuefront:
-  version "1.0.2"
-  resolved "https://codeload.github.com/vuefront/storybook-addon-vuefront/tar.gz/4ea57ec2dbb402be8a9ca2985f2a94b64345063c"
+  version "1.0.3"
+  resolved "https://codeload.github.com/vuefront/storybook-addon-vuefront/tar.gz/75e5cd6a9dea7728b833f3a1256171e206d24765"
   dependencies:
     "@storybook/node-logger" "^6.1.14"
     "@types/loader-utils" "^2.0.3"
@@ -11547,7 +11547,7 @@ vue3-lazyload@^0.2.2-beta:
 
 vuefront@vuefront/vuefront#vue3:
   version "0.4.11"
-  resolved "https://codeload.github.com/vuefront/vuefront/tar.gz/10980c8d68b92b118ebb524cead5f45ef17c5936"
+  resolved "https://codeload.github.com/vuefront/vuefront/tar.gz/426371d746d872cbfc2a098bb6ca937f58efb714"
   dependencies:
     "@bundled-es-modules/axios" "^0.21.1"
     "@jamescoyle/vue-icon" "^0.1.2"
@@ -11556,6 +11556,7 @@ vuefront@vuefront/vuefront#vue3:
     "@vuelidate/core" "^2.0.0-alpha.24"
     "@vuelidate/validators" "^2.0.0-alpha.21"
     color "^4.0.1"
+    faker "^5.5.3"
     graphql-tag "^2.12.5"
     isomorphic-form-data "^2.0.0"
     lodash "^4.17.21"
