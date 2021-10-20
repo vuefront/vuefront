@@ -17,7 +17,7 @@
             <vf-m-col xs="6">
               <vf-m-rating
                 v-if="product.rating > 0"
-                :value="product.rating"
+                :model-value="product.rating"
                 color="#ffcc00"
                 readonly
               />

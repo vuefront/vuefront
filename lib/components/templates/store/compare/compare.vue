@@ -18,7 +18,7 @@
         <div v-else>{{ $t("elements.store.compare.outOfStockText") }}</div>
       </template>
       <template #rating="data">
-        <vf-m-rating :value="data.rating" color="#ffcc00" readonly />
+        <vf-m-rating :model-value="data.rating" color="#ffcc00" readonly />
       </template>
       <template #actions="data">
         <vf-o-compare-actions :product="data" />

@@ -35,7 +35,7 @@ watch(
 );
 
 onBeforeMount(() => {
-  if (route.matched.length > 0 && route.matched[0].path === "/search/:slug") {
+  if (route && route.matched.length > 0 && route.matched[0].path === "/search/:slug") {
     keyword.value = route.params.slug as string;
   }
 });
