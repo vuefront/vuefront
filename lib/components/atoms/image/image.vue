@@ -29,7 +29,7 @@
   />
 </template>
 <script lang="ts" setup>
-import { PropType, computed, getCurrentInstance, ref } from "vue";
+import { PropType, computed } from "vue";
 
 const props = defineProps({
   contentClass: {

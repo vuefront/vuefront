@@ -1,7 +1,7 @@
 <template>
   <section class="post-section">
     <vf-a-heading level="1" class="post-section__title mb-3 sm:text-left">{{
-      post.title
+      post.name
     }}</vf-a-heading>
     <vf-m-row>
       <vf-m-col xs="6">

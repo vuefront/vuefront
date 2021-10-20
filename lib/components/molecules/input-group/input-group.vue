@@ -24,7 +24,7 @@
   </component>
 </template>
 <script lang="ts" setup>
-import { PropType } from "vue";
+import { PropType, computed } from "vue";
 
 enum Sizes {
   "sm" = "sm",
@@ -80,11 +80,11 @@ const getSizes = {
   md: "vf-m-input-group--md",
   lg: "vf-m-input-group--lg",
 };
-const getClass = () => {
+const getClass = computed(() => {
   const result = [];
 
   result.push(getSizes[props.size]);
 
   return result.join(" ");
-};
+});
 </script>

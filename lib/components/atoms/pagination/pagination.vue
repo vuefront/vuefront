@@ -65,7 +65,7 @@ const props = defineProps({
   },
   perPage: {
     type: Number,
-    default: 20,
+    default: 8,
   },
 });
 

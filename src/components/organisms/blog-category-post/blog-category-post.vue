@@ -10,7 +10,7 @@
       $t("templates.blog.category.emptyText")
     }}</vf-m-empty>
     <vf-a-pagination
-      :page="posts.number"
+      :modelValue="posts.number"
       :total-pages="posts.totalPages"
       @input="handleChangePage"
     />

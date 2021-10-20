@@ -1,5 +1,5 @@
 import VfMPostImage from "./post-image.vue";
-
+import { getPost } from "../../../utils/fakeData";
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
   title: "molecule/post-image",
@@ -26,9 +26,5 @@ Default.args = {
   card: false,
   fluid: false,
   fullWidth: false,
-  post: {
-    name: "Post title",
-    image: "https://via.placeholder.com/300x180",
-    imageLazy: "https://via.placeholder.com/10",
-  },
+  post: getPost(),
 };

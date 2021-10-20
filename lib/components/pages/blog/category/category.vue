@@ -63,7 +63,7 @@ query($page: Int, $size: Int, $categoryId: String) {
   postsList(page: $page, size: $size, category_id: $categoryId) {
     content {
       id
-      title
+      name
       description
       shortDescription
       image

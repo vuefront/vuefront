@@ -6,7 +6,7 @@
     <vf-m-card-body class="pt-0">
       <vf-a-link :to="url">
         <vf-a-heading tag="h3" level="6" class="vf-m-post-thumb__title">{{
-          post.title
+          post.name
         }}</vf-a-heading>
       </vf-a-link>
       <div
@@ -24,7 +24,7 @@ const props = defineProps({
     type: Object,
     default() {
       return {
-        title: "",
+        name: "",
         image: "",
         imageLazy: "",
         keyword: "",

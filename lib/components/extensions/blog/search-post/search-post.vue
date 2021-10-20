@@ -44,7 +44,7 @@ query($search: String) {
   ) {
     content {
       id
-      title
+      name
       shortDescription
       image
       imageLazy

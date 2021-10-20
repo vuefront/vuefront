@@ -25,7 +25,7 @@
       $t("templates.store.category.emptyText")
     }}</vf-m-empty>
     <vf-a-pagination
-      :page="products.number"
+      :model-value="products.number"
       :total-pages="products.totalPages"
       @input="handleChangePage"
     />
@@ -73,7 +73,7 @@ const route = useRoute();
 const router = useRouter();
 const store = useStore();
 const suffixUrl = computed(() => {
-  return `category_id=${route.params.id}`;
+  return route ? `category_id=${route.params.id}` : "";
 });
 const isList = computed(() => {
   return props.mode === "list";

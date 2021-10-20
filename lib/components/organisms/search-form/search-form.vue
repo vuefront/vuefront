@@ -22,7 +22,7 @@ import { useRoute, useRouter } from "vue-router";
 
 const router = useRouter();
 const route = useRoute();
-const keyword = ref(route.params.slug as string);
+const keyword = ref(route ? (route.params.slug as string) : "");
 const onSubmit = () => {
   if (keyword.value !== "") {
     router.push(`/search/${keyword.value}`);

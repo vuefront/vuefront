@@ -25,7 +25,7 @@
     }}</vf-m-empty>
     <vf-a-pagination
       v-if="products.content.length > 0"
-      :page="products.number"
+      :model-value="products.number"
       :total-pages="products.totalPages"
       @input="handleChangePage"
     />

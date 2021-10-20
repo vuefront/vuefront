@@ -1,5 +1,6 @@
 import VfOLocationGrid from "./location-grid.vue";
 import faker from "faker";
+import { getLocation } from "../../../utils/fakeData";
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
   title: "organism/location-grid",
@@ -23,27 +24,5 @@ const Template = (args) => ({
 export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/vue/writing-stories/args
 Default.args = {
-  items: [
-    {
-      address: faker.address.streetAddress(true),
-      telephone: faker.phone.phoneNumber(),
-      comment: faker.lorem.words(20),
-      image: "https://via.placeholder.com/268x50?text=location 1",
-      imageLazy: "https://via.placeholder.com/10",
-    },
-    {
-      address: faker.address.streetAddress(true),
-      telephone: faker.phone.phoneNumber(),
-      comment: faker.lorem.words(20),
-      image: "https://via.placeholder.com/268x50?text=location 2",
-      imageLazy: "https://via.placeholder.com/10",
-    },
-    {
-      address: faker.address.streetAddress(true),
-      telephone: faker.phone.phoneNumber(),
-      comment: faker.lorem.words(20),
-      image: "https://via.placeholder.com/268x50?text=location 3",
-      imageLazy: "https://via.placeholder.com/10",
-    }
-  ],
+  items: [getLocation(), getLocation(), getLocation()],
 };

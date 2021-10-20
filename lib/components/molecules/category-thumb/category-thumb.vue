@@ -15,7 +15,7 @@
   </vf-a-link>
 </template>
 <script lang="ts" setup>
-import placeholder from "vuefront/assets/img/placeholder.png";
+import placeholder from "../../../../assets/img/placeholder.png";
 import { computed, inject, PropType } from "vue";
 const $vuefront = inject<any>("$vuefront");
 const props = defineProps({

@@ -1,5 +1,6 @@
 import VfMPostNav from "./post-nav.vue";
 import "./post-nav.scss";
+import { getPost } from "../../../utils/fakeData";
 
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
@@ -24,28 +25,5 @@ const Template = (args) => ({
 export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/vue/writing-stories/args
 Default.args = {
-  post: {
-    id: 1,
-    title: "Post title",
-    shortDescription:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis arcu ac nibh rutrum efficitur.",
-    image: "https://via.placeholder.com/150",
-    imageLazy: "https://via.placeholder.com/10",
-    prev: {
-      id: 1,
-      name: "Post title",
-      shortDescription:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis arcu ac nibh rutrum efficitur.",
-      image: "https://via.placeholder.com/300x180",
-      imageLazy: "https://via.placeholder.com/10",
-    },
-    next: {
-      id: 1,
-      name: "Post title",
-      shortDescription:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis arcu ac nibh rutrum efficitur.",
-      image: "https://via.placeholder.com/300x180",
-      imageLazy: "https://via.placeholder.com/10",
-    },
-  },
+  post: getPost(),
 };

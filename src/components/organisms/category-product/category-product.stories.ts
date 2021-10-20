@@ -47,6 +47,8 @@ Default.args = {
   gridSize: 4,
   gridSizeTablet: 2,
   products: {
+    totalPages: 12,
+    number: 7,
     content: [
       {
         id: 1,

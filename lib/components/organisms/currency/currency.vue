@@ -6,7 +6,7 @@
       variant="link"
       size="sm"
     >
-      <template v-slot:button-content>
+      <template #button-content>
         <span
           class="
             d-none d-md-inline-block
@@ -33,14 +33,14 @@
   </span>
 </template>
 <script lang="ts" setup>
-import { mapGetters, useStore } from "vuex";
+import { useStore } from "vuex";
 import { find } from "lodash";
 import { computed } from "vue";
 const store = useStore();
 const currency = computed(() => store.getters["store/currency/get"]);
 const error = computed(() => store.getters["vuefront/error"]);
 const activeCurrency = computed(() => {
-  return find(currency, { active: true });
+  return find(currency.value, { active: true });
 });
 const handleEdit = async ({ code }: { code: string }) => {
   await store.dispatch("store/currency/edit", { code });

@@ -45,7 +45,7 @@ await handleLoadData();
 query($id: String) {
   post(id: $id) {
     id
-    title
+    name
     description
     image
     imageLazy

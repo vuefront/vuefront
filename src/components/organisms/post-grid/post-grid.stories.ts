@@ -1,4 +1,6 @@
 import VfOPostGrid from "./post-grid.vue";
+import faker from "faker";
+import { getPost } from "../../../utils/fakeData";
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
   title: "organism/post-grid",
@@ -24,102 +26,5 @@ export const Default = Template.bind({});
 Default.args = {
   column: false,
   gridSize: 4,
-  posts: [
-    {
-      id: 1,
-      name: "Post title",
-      shortDescription:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis arcu ac nibh rutrum efficitur.",
-      image: "https://via.placeholder.com/300x180",
-      imageLazy: "https://via.placeholder.com/10x6",
-      prev: {
-        id: 1,
-        name: "Post title",
-        shortDescription:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis arcu ac nibh rutrum efficitur.",
-        image: "https://via.placeholder.com/300x180",
-        imageLazy: "https://via.placeholder.com/10x6",
-      },
-      next: {
-        id: 1,
-        name: "Post title",
-        shortDescription:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis arcu ac nibh rutrum efficitur.",
-        image: "https://via.placeholder.com/150",
-        imageLazy: "https://via.placeholder.com/10",
-      },
-    },
-    {
-      id: 1,
-      name: "Post title",
-      shortDescription:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis arcu ac nibh rutrum efficitur.",
-      image: "https://via.placeholder.com/300x180",
-      imageLazy: "https://via.placeholder.com/10x6",
-      prev: {
-        id: 1,
-        name: "Post title",
-        shortDescription:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis arcu ac nibh rutrum efficitur.",
-        image: "https://via.placeholder.com/300x180",
-        imageLazy: "https://via.placeholder.com/10x6",
-      },
-      next: {
-        id: 1,
-        name: "Post title",
-        shortDescription:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis arcu ac nibh rutrum efficitur.",
-        image: "https://via.placeholder.com/150",
-        imageLazy: "https://via.placeholder.com/10",
-      },
-    },
-    {
-      id: 1,
-      name: "Post title",
-      shortDescription:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis arcu ac nibh rutrum efficitur.",
-      image: "https://via.placeholder.com/300x180",
-      imageLazy: "https://via.placeholder.com/10x6",
-      prev: {
-        id: 1,
-        name: "Post title",
-        shortDescription:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis arcu ac nibh rutrum efficitur.",
-        image: "https://via.placeholder.com/300x180",
-        imageLazy: "https://via.placeholder.com/10x6",
-      },
-      next: {
-        id: 1,
-        name: "Post title",
-        shortDescription:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis arcu ac nibh rutrum efficitur.",
-        image: "https://via.placeholder.com/150",
-        imageLazy: "https://via.placeholder.com/10",
-      },
-    },
-    {
-      id: 1,
-      name: "Post title",
-      shortDescription:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis arcu ac nibh rutrum efficitur.",
-      image: "https://via.placeholder.com/300x180",
-      imageLazy: "https://via.placeholder.com/10x6",
-      prev: {
-        id: 1,
-        name: "Post title",
-        shortDescription:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis arcu ac nibh rutrum efficitur.",
-        image: "https://via.placeholder.com/300x180",
-        imageLazy: "https://via.placeholder.com/10x6",
-      },
-      next: {
-        id: 1,
-        name: "Post title",
-        shortDescription:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis arcu ac nibh rutrum efficitur.",
-        image: "https://via.placeholder.com/150",
-        imageLazy: "https://via.placeholder.com/10",
-      },
-    },
-  ],
+  posts: [getPost(), getPost(), getPost(), getPost(), getPost()],
 };

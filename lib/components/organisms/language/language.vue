@@ -44,7 +44,7 @@ const store = useStore();
 const language = computed(() => store.getters["common/language/get"]);
 const error = computed(() => store.getters["vuefront/error"]);
 const activeLanguage = computed(() => {
-  return find(language, { active: true });
+  return find(language.value, { active: true });
 });
 const handleEdit = async ({ code }: { code: string }) => {
   await store.dispatch("common/language/edit", { code });

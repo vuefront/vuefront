@@ -27,7 +27,7 @@ defineProps({
   latestPosts: postsList(page: 1, size: 4, sort: "date_added", order: "DESC") {
     content {
       id
-      title
+      name
       shortDescription
       image
       imageLazy

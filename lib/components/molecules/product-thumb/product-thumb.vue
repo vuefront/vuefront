@@ -18,7 +18,7 @@
             </vf-a-link>
             <vf-m-rating
               v-if="product.rating > 0 && wide"
-              :value="product.rating"
+              :modelValue="product.rating"
               color="#ffcc00"
               readonly
             />
