@@ -19,8 +19,7 @@ export default function useModule() {
 
   const currentRoute = computed(() => store.getters["position/currentRoute"]);
   const positions = computed(() => store.getters["position/position"]);
-  console.log("positions");
-  console.log(positions);
+
   const checkModules = (position: string) => {
     let result = false;
     const status = positions.value(position);
