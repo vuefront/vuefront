@@ -102,6 +102,10 @@ module.exports = {
     Skeleton: "molecules/skeleton/skeleton.vue",
     AccountMenu: "molecules/account-menu/account-menu.vue",
     AccountNew: "molecules/account-new/account-new.vue",
+    Menu: {
+      css: "molecules/menu/menu.scss",
+      component: "molecules/menu/menu.vue",
+    },
     AccountSuccess: {
       css: "molecules/account-success/account-success.scss",
       component: "molecules/account-success/account-success.vue",
@@ -524,10 +528,7 @@ module.exports = {
     StoreCategory: "extensions/store/category/category.vue",
     ExtraLinks: "extensions/common/extra-links/extra-links.vue",
     Checkout: "extensions/store/checkout/checkout.vue",
-    Menu: {
-      css: "extensions/common/menu/menu.scss",
-      component: "extensions/common/menu/menu.vue",
-    },
+    Menu: "extensions/common/menu/menu.vue",
     Search: "extensions/common/search/search.vue",
   },
   loaders: {

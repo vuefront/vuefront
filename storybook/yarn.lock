@@ -10445,10 +10445,10 @@ storybook-addon-vuefront@vuefront/storybook-addon-vuefront:
     rimraf "^3.0.2"
     vuefront vuefront/vuefront#vue3
 
-storybook-vue3-router@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/storybook-vue3-router/-/storybook-vue3-router-1.0.4.tgz#d72d8da64fad2c7c33bcdfcf9da4a905dc761ec7"
-  integrity sha512-wp2dhR2vcmbWZbdwG0ANJZ7v00+ZNBOZoAJRXocT7S90QL/XiGBrLyCjAbsX6MiQd3ptfgaECRuJM3Be6IRZhw==
+storybook-vue3-router@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/storybook-vue3-router/-/storybook-vue3-router-1.0.5.tgz#d3994d89a5580298b585d4f8549c638f3862991e"
+  integrity sha512-ZBmv60hEPLI915hPIFs5fIWBdxdOObbMbpcY700sIpiYdOBPbT4kxdYMldJxm1QqrntRe/ZbUm7Vb88uodmJaA==
   dependencies:
     vue-router "^4.0.11"
 

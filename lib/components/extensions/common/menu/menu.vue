@@ -1,87 +1,9 @@
 <template>
-  <section class="vf-e-common-menu">
-    <div
-      v-for="(item, index) in menuItems"
-      :key="index"
-      class="vf-e-common-menu__item"
-    >
-      <vf-a-link :to="item.to" class="vf-e-common-menu__link">
-        <div class="vf-e-common-menu__title">{{ item.title }}</div>
-        <vf-a-icon
-          v-if="item.children && item.children.length > 0"
-          :icon="mdiChevronDown"
-          size="15"
-          class="vf-e-common-menu__icon"
-        />
-      </vf-a-link>
-      <div
-        v-if="item.children && item.children.length > 0"
-        class="vf-e-common-menu__submenu vf-e-common-menu__submenu--vertical"
-        :class="[
-          item.children.length > 5 && item.children.length <= 10
-            ? 'vf-e-common-menu__submenu--two-columns'
-            : '',
-          item.children.length > 10
-            ? 'vf-e-common-menu__submenu--three-columns'
-            : '',
-        ]"
-      >
-        <div
-          v-for="(subItem, key) in item.children"
-          :key="key"
-          class="vf-e-common-menu__item"
-        >
-          <vf-a-link
-            :to="subItem.to || '/'"
-            class="vf-e-common-menu__link vf-e-common-menu__link--lg"
-          >
-            <div class="vf-e-common-menu__title">
-              {{ subItem.title }}
-              <span v-if="subItem.children && subItem.children.length"
-                >({{ subItem.children.length }})</span
-              >
-            </div>
-            <vf-a-icon
-              v-if="subItem.children && subItem.children.length > 0"
-              :icon="mdiChevronRight"
-              class="vf-e-common-menu__icon vf-e-common-menu__icon--float"
-            />
-            <vf-a-icon
-              v-if="subItem.children && subItem.children.length > 0"
-              :icon="mdiChevronDown"
-              class="
-                vf-e-common-menu__icon vf-e-common-menu__icon--float-mobile
-              "
-            />
-          </vf-a-link>
-          <div
-            v-if="subItem.children && subItem.children.length > 0"
-            class="
-              vf-e-common-menu__submenu vf-e-common-menu__submenu--horizontal
-            "
-          >
-            <div
-              v-for="(value, subKey) in subItem.children"
-              :key="subKey"
-              class="vf-e-common-menu__item"
-            >
-              <vf-a-link
-                :to="value.to || '/'"
-                class="vf-e-common-menu__link vf-e-common-menu__link--md"
-              >
-                <div class="vf-e-common-menu__title">{{ value.title }}</div>
-              </vf-a-link>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <vf-m-menu :items="menuItems" class="vf-e-common-menu"></vf-m-menu>
 </template>
 <script lang="ts" setup>
 import { computed, onMounted, onServerPrefetch, PropType } from "vue";
 import { useStore } from "vuex";
-import { mdiChevronDown, mdiChevronRight } from "@mdi/js";
 const props = defineProps({
   items: {
     type: Array as PropType<string[]>,

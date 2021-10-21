@@ -279,3 +279,35 @@ export const getManufacturers = (count: number) => {
   }
   return result;
 };
+
+export const getMenuLink = () => {
+  let result: any = {
+    title: capitalize(faker.lorem.words(1)),
+    to: "/",
+    children: [],
+  };
+  for (
+    let i = 0;
+    i < faker.datatype.number({ min: 0, max: 5, precision: 1 });
+    i++
+  ) {
+    let subResult: any = {
+      title: capitalize(faker.lorem.words(1)),
+      to: "/",
+      children: [],
+    };
+    for (
+      let j = 0;
+      j < faker.datatype.number({ min: 0, max: 5, precision: 1 });
+      j++
+    ) {
+      subResult.children.push({
+        title: capitalize(faker.lorem.words(1)),
+        to: "/",
+        children: [],
+      });
+    }
+    result.children.push(subResult);
+  }
+  return result;
+};
