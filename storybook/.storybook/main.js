@@ -25,6 +25,31 @@ module.exports = {
       }
     }
   ],
+  webpackFinal: async (config, { configType }) => {
+    const hasBlockLoader = config.module.rules.some(
+      rule => rule.resourceQuery === /blockType=graphql/
+    )
+    if (!hasBlockLoader) {
+      const blockRules = {
+        resourceQuery: /blockType=graphql/,
+        loader: require.resolve('./graphql-loader.js')
+      }
+      config.module.rules.push(blockRules)
+    }
+    config.module.rules.push({
+      test: /\.mjs$/,
+      include: /node_modules/,
+      type: 'javascript/auto'
+    })
+    // and THIS
+    config.module.rules.push({ 
+      test: /\.graphql$/,
+      exclude: /node_modules/,
+      loader: 'graphql-tag/loader',
+    });
+
+    return config;
+  },
   // webpackFinal: async (config, {configType}) => {
   //   const {rules} = config.module
   //   const themeOptions = setupConfig()

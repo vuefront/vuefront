@@ -26,14 +26,14 @@
   </vf-o-apollo>
 </template>
 <script lang="ts" setup>
-import {isEmpty, map, includes} from "lodash";
+import { isEmpty, map, includes } from "lodash";
 import { useRoute } from "vue-router";
 import { computed } from "vue";
 const route = useRoute();
 const id = computed(() => {
   let result = "";
 
-  if (!isEmpty(route.params.id)) {
+  if (route && !isEmpty(route.params.id)) {
     result = route.params.id as string;
   }
 

@@ -30,7 +30,7 @@ defineProps({
 const route = useRoute();
 
 const keyword = computed(() => {
-  return route.params.slug ? route.params.slug : "";
+  return route && route.params.slug ? route.params.slug : "";
 });
 </script>
 <graphql>

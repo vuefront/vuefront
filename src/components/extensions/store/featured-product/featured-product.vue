@@ -28,10 +28,10 @@ defineProps({
     default() {
       return [];
     },
-    column: {
-      type: Boolean,
-      default: false,
-    },
+  },
+  column: {
+    type: Boolean,
+    default: false,
   },
 });
 </script>

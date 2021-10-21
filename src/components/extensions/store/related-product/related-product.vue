@@ -24,11 +24,11 @@
   </vf-o-apollo>
 </template>
 <script setup lang="ts">
-import {isEmpty} from "lodash";
+import { isEmpty } from "lodash";
 import { computed } from "vue";
 import { useRoute } from "vue-router";
 const route = useRoute();
-const props = defineProps({
+defineProps({
   column: {
     type: Boolean,
     default: false,
@@ -37,7 +37,7 @@ const props = defineProps({
 const id = computed(() => {
   let result: boolean | string = false;
 
-  if (!isEmpty(route.params.id)) {
+  if (route && !isEmpty(route.params.id)) {
     result = route.params.id as string;
   }
   return result;

@@ -5,8 +5,8 @@ import { app } from '@storybook/vue3';
 import vueRouter from 'storybook-vue3-router'
 import { createI18n } from 'vue-i18n'
 import * as messages from '../../lib/locales/en-gb';
-import * as config from '../../'
 import './vuex'
+import './vuefrontPlugin'
 
 const i18n = createI18n({
   locale: 'en',
@@ -19,31 +19,7 @@ app.use(VueLazyLoad, {
 })
 
 
-app.provide('$vuefront', {
-  images: config.image,
-  options: {
-    productGridNoGutters: false
-  },
-  get isAMP() {
-    return false
-  },
-  get isClient() {
-    return true
-  }
-})
 
-app.config.globalProperties.$vuefront = {
-  images: config.image,
-  get isAMP() {
-    return false
-  }
-}
-app.$vuefront = {
-  images: config.image,
-  get isAMP() {
-    return false
-  }
-}
 export const parameters = {
   // actions: { argTypesRegex: "^on[A-Z].*" },
   // controls: {

@@ -1,9 +1,33 @@
 import { app } from '@storybook/vue3';
 import { createStore } from 'vuex'
 import * as CommonVueFront from '../../lib/store/common/vuefront/vuefront.mjs'
-
+import * as MenuBlog from '../../lib/store/menu/blog/blog.mjs'
+import * as MenuStore from '../../lib/store/menu/store/store.mjs'
+import * as MenuPage from '../../lib/store/menu/page/page.mjs'
+import * as Menu from '../../lib/store/common/menu/menu.mjs'
+import { makeExecutableSchema } from "@graphql-tools/schema";
+import { addMocksToSchema } from "@graphql-tools/mock";
+import { graphql } from "graphql";
+import schema from './schema.graphql'
 const store = createStore({
   modules: {
+    menu: {
+      namespaced: true,
+      modules: {
+        blog: {
+          namespaced: true,
+          ...MenuBlog
+        },
+        page: {
+          namespaced: true,
+          ...MenuPage
+        },
+        store: {
+          namespaced: true,
+          ...MenuStore
+        },
+      }
+    },
     vuefront: { namespaced: true, ...CommonVueFront },
     notification: {
       namespaced: true,
@@ -90,6 +114,10 @@ const store = createStore({
     common: {
       namespaced: true,
       modules: {
+        menu: {
+          namespaced: true,
+          ...Menu,
+        },
         language: {
           namespaced: true,
           state: () => ({
@@ -144,4 +172,16 @@ const store = createStore({
     }
   }
 })
+
 app.use(store)
+const schemanew = makeExecutableSchema({ typeDefs: schema });
+const schemaWithMocks = addMocksToSchema({ schema: schemanew });
+store.$vfapollo = {
+  query({query, variables}) {
+    return graphql(
+      schemaWithMocks,
+      query.loc ? query.loc.source.body : query,
+      variables
+    )
+  }
+}

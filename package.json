@@ -53,6 +53,7 @@
         "@babel/core": "^7.15.0",
         "@babel/preset-env": "^7.15.0",
         "@babel/preset-typescript": "^7.15.0",
+        "@graphql-tools/mock": "^8.4.0",
         "@types/faker": "^5.5.9",
         "@types/isomorphic-form-data": "^2.0.0",
         "@types/lodash": "^4.14.172",
