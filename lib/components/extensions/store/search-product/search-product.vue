@@ -33,7 +33,9 @@ defineProps({
   },
 });
 
-const keyword = computed(() => (route.params.slug ? route.params.slug : ""));
+const keyword = computed(() =>
+  route && route.params.slug ? route.params.slug : ""
+);
 </script>
 <graphql>
 query($search: String){
