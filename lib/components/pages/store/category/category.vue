@@ -28,7 +28,7 @@ const sort = ref(
 );
 const size = ref(route.query.size ? Number(route.query.size) : 15);
 const category = computed(() => store.getters["store/category/get"]);
-const mode = computed(() => store.getters["store/manufacturer/mode"]);
+const mode = computed(() => store.getters["store/category/mode"]);
 const products = computed(() => store.getters["store/product/list"]);
 const vuefront$ = inject<any>("$vuefront");
 const { query } = useQuery();

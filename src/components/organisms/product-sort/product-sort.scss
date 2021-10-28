@@ -1,0 +1,51 @@
+.vf-o-product-sort {
+  &__mode {
+    @apply cursor-pointer inline-block mr-3;
+    &:last-child {
+      @apply mr-0;
+    }
+    span {
+      @apply inline-block ml-1 border-primary border rounded-sm;
+      width: 14px;
+      height: 14px;
+      &:first-child {
+        @apply ml-0;
+      }
+    }
+    &.--active {
+      span {
+        @apply bg-primary;
+      }
+    }
+    &.--grid {
+
+    }
+    &.--list {
+
+    }
+  }
+  &__compare {
+    color: #4C7BAB;
+    @apply text-xl font-normal;
+  }
+  &__sort {
+    @apply inline-block;
+    span {
+      @apply text-xl font-normal mt-2;
+    }
+    .vf-a-select {
+      @apply w-28 overflow-hidden pr-8 border-none text-xl font-normal focus:ring-0;
+      color: #6E6E6E;
+    }
+  }
+  &__limit {
+    @apply inline-block;
+    span {
+      @apply text-xl font-normal mr-2;
+    }
+    .vf-a-select {
+      @apply w-20 overflow-hidden pr-8 border-none text-xl font-normal focus:ring-0;
+      color: #6E6E6E;
+    }
+  }
+}

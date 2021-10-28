@@ -1,5 +1,4 @@
 import VfMProductOptionCheckbox from "./checkbox.vue";
-
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
   title: "molecule/product-option/checkbox",

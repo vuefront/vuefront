@@ -1,4 +1,5 @@
 import VfOCategoryInfo from "./category-info.vue";
+import "./category-info.scss";
 import faker from "faker";
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {

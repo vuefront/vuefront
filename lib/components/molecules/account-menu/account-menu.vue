@@ -1,7 +1,7 @@
 <template>
-  <vf-m-dropdown class="vf-m-account-menu" variant="link" size="sm" right>
+  <vf-m-dropdown class="vf-m-account-menu" variant="link" size="sm" right link>
     <template v-slot:button-content>
-      <vf-a-icon :icon="mdiAccountCircleOutline" />
+      <vf-a-icon :icon="mdiAccountOutline" :size="20" />
     </template>
     <vf-m-dropdown-item
       v-if="!$vuefront.isAuth"
@@ -34,5 +34,5 @@
   </vf-m-dropdown>
 </template>
 <script lang="ts" setup>
-import { mdiAccountCircleOutline } from "@mdi/js";
+import { mdiAccountOutline } from "@mdi/js";
 </script>

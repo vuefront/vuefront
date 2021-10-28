@@ -1,11 +1,10 @@
 <template>
   <section class="vf-l-t-store-category">
-    <vf-l-o-category-info />
-    <vf-l-o-category-grid />
+    <vf-l-o-category-info class="mb-10" />
+    <vf-l-o-category-grid class="mb-16" />
     <vf-l-o-category-product
       :grid-size="gridSize"
       :grid-size-tablet="gridSizeTablet"
-      class="mt-5"
     />
   </section>
 </template>

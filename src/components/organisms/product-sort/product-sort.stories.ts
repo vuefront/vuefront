@@ -1,4 +1,5 @@
 import VfOProductSort from "./product-sort.vue";
+import "./product-sort.scss";
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
   title: "organism/product-sort",

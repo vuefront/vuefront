@@ -5,29 +5,19 @@
       class="currency-section"
       variant="link"
       size="sm"
+      link
     >
       <template #button-content>
-        <span
-          class="
-            d-none d-md-inline-block
-            currency-section__symbol
-            mr-1
-            font-normal
-            text-base
-          "
-          >{{ activeCurrency.symbol_left || activeCurrency.symbol_right }}</span
-        >
         <span class="currency-section__title font-normal text-base">{{
-          activeCurrency.title
+          activeCurrency.code
         }}</span>
       </template>
       <vf-m-dropdown-item
         v-for="(value, index) in currency"
         :key="index"
-        class="whitespace-nowrap"
+        class="whitespace-nowrap uppercase"
         @click="handleEdit(value)"
-        >{{ value.symbol_left || value.symbol_right }}
-        {{ value.title }}</vf-m-dropdown-item
+        >{{ value.code }}</vf-m-dropdown-item
       >
     </vf-m-dropdown>
   </span>
@@ -44,7 +34,8 @@ const activeCurrency = computed(() => {
 });
 const handleEdit = async ({ code }: { code: string }) => {
   await store.dispatch("store/currency/edit", { code });
-  if (!error.value) {
+
+if (!error.value) {
     location.reload();
   }
 };

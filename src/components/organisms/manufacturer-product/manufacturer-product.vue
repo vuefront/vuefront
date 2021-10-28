@@ -98,7 +98,7 @@ const handleChangeSort = (sort: string) => {
 const cookies$ = inject<ICookie>("$cookies");
 const handleChangeMode = (mode: string) => {
   store.commit("store/manufacturer/setMode", mode);
-  if (cookies$) cookies$.set("mode", payload);
+  if (cookies$) cookies$.set("mode", mode);
 };
 
 const handleChangeSize = (size: string) => {

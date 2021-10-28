@@ -4,6 +4,10 @@
     <vf-o-header-mobile />
     <vf-o-notification />
     <vf-o-breadcrumb />
+    <vf-o-position
+      name="contentFullTop"
+      class="vf-t-layout-default__content-full-top"
+    />
     <vf-m-container fluid>
       <div class="vf-t-layout-full-width__content">
         <vf-o-position
@@ -43,6 +47,10 @@
         />
       </div>
     </vf-m-container>
+    <vf-o-position
+      name="contentFullBottom"
+      class="vf-t-layout-default__content-full-bottom"
+    />
     <vf-o-footer />
   </div>
 </template>

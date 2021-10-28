@@ -1,5 +1,24 @@
 .vf-m-product-price {
+  &.--small {
+    &__oldprice {
+      @apply text-xl;
+    }
+    &__special {
+      @apply text-xl;
+    }
+    &__price {
+      @apply text-xl;
+    }
+  }
   &__oldprice {
-      text-decoration: line-through;
+    color: #6E6E6E;
+    @apply font-semibold text-2xl leading-5 line-through;
+  }
+  &__special {
+    color: #9B124A;
+    @apply font-semibold text-4xl leading-5 mr-4;
+  }
+  &__price {
+    @apply font-semibold text-4xl leading-5;
   }
 }

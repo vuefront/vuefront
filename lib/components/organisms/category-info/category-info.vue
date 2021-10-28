@@ -1,13 +1,10 @@
 <template>
-  <div class="category-section">
-    <vf-a-heading
-      level="1"
-      class="category-section__name sm:text-center"
-      tag="h1"
-      >{{ category.name }}</vf-a-heading
-    >
+  <div class="vf-m-category-info">
+    <vf-a-heading level="1" class="vf-m-category-info__name" tag="h1">{{
+      category.name
+    }}</vf-a-heading>
     <div
-      class="category-section__description sm:text-center mt-4 lead"
+      class="vf-m-category-info__description"
       v-html="category.description"
     />
   </div>

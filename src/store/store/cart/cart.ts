@@ -88,7 +88,7 @@ export const actions: ActionTree<State, RootState> = {
         { root: true }
       );
     } else {
-      commit("notification/error", rootGetters["vuefront/error"].message, {
+      commit("notification/error", rootGetters["vuefront/error"], {
         root: true,
       });
 

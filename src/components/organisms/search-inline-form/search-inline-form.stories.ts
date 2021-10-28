@@ -1,4 +1,5 @@
 import VfOSearchInlineForm from "./search-inline-form.vue";
+import "./search-inline-form.scss";
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
   title: "organism/search-inline-form",

@@ -98,6 +98,11 @@ module.exports = {
     Timepicker: "atoms/timepicker/timepicker.vue",
   },
   molecules: {
+    Tabs: {
+      component: "molecules/tabs/tabs.vue",
+      css: "molecules/tabs/tabs.scss",
+    },
+    Tab: "molecules/tabs/tab.vue",
     ClientOnly: "molecules/client-only/client-only.vue",
     Skeleton: "molecules/skeleton/skeleton.vue",
     AccountMenu: "molecules/account-menu/account-menu.vue",
@@ -247,7 +252,10 @@ module.exports = {
       component: "organisms/modal/modal.vue",
     },
     CartProducts: "organisms/cart-products/cart-products.vue",
-    SearchInlineForm: "organisms/search-inline-form/search-inline-form.vue",
+    SearchInlineForm: {
+      component: "organisms/search-inline-form/search-inline-form.vue",
+      css: "organisms/search-inline-form/search-inline-form.scss",
+    },
     Breadcrumb: "organisms/breadcrumb/breadcrumb.vue",
     Sidebar: {
       css: "organisms/sidebar/sidebar.scss",
@@ -314,7 +322,10 @@ module.exports = {
     },
     ProductThumb: "organisms/product-thumb/product-thumb.vue",
     ProductGrid: "organisms/product-grid/product-grid.vue",
-    ProductSort: "organisms/product-sort/product-sort.vue",
+    ProductSort: {
+      component: "organisms/product-sort/product-sort.vue",
+      css: "organisms/product-sort/product-sort.scss",
+    },
     ReviewList: "organisms/review-list/review-list.vue",
     ReviewForm: "organisms/review-form/review-form.vue",
     Form: {
@@ -330,7 +341,10 @@ module.exports = {
     CategoryProduct: "organisms/category-product/category-product.vue",
     ManufacturerProduct:
       "organisms/manufacturer-product/manufacturer-product.vue",
-    CategoryInfo: "organisms/category-info/category-info.vue",
+    CategoryInfo: {
+      component: "organisms/category-info/category-info.vue",
+      css: "organisms/category-info/category-info.scss",
+    },
     ManufacturerInfo: "organisms/manufacturer-info/manufacturer-info.vue",
     CategoryGrid: "organisms/category-grid/category-grid.vue",
     ManufacturerList: "organisms/manufacturer-list/manufacturer-list.vue",

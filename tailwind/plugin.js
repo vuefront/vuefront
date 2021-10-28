@@ -18,6 +18,7 @@ const textareaComponent = require("./component/textarea");
 const defaultOptions = require("./defaultOptions");
 const columnComponent = require("./component/column");
 const rowComponent = require("./component/row");
+const productOptionComponent = require("./component/product-option");
 module.exports = plugin(
   function ({ addUtilities, e, theme, variants, addComponents }) {
     addComponents(fieldComponent(theme));
@@ -34,6 +35,7 @@ module.exports = plugin(
     addComponents(rowComponent(theme));
     addComponents(textareaComponent(theme));
     addComponents(inputComponent(theme));
+    addComponents(productOptionComponent(theme));
     addComponents(columnComponent(theme), {
       variants: ["responsive"],
     });
@@ -43,12 +45,12 @@ module.exports = plugin(
       vuefrontComponent: (theme) => defaultOptions(theme),
       vuefront: {
         colors: {
-          primary: "#6e00ff",
+          primary: "#2864A2",
           secondary: "#eff2f7",
-          success: "#36b37e",
-          info: "#00b8d9",
-          warning: "#ffab00",
-          danger: "#ff5630",
+          success: "#39bf6b",
+          info: "#50cce8",
+          warning: "#e5912e",
+          danger: "#e2322e",
           white: "#ffffff",
           light: "#eff2f7",
           dark: "#273444",

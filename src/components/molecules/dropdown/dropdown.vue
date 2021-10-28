@@ -1,12 +1,22 @@
 <template>
   <div ref="wrapper" class="vf-m-dropdown">
+    <a
+      v-if="link"
+      class="vf-m-dropdown__trigger cursor-pointer"
+      @click="show = !show"
+      @keydown.esc="keydownHandler"
+    >
+      <slot name="button-content">
+        {{ text }}
+      </slot>
+    </a>
     <vf-a-button
+      v-else
       :color="variant"
       :size="size"
       class="vf-m-dropdown__trigger"
       @click="show = !show"
       @keydown.esc="keydownHandler"
-      @blur="blurHandler"
     >
       <slot name="button-content">
         {{ text }}
@@ -25,6 +35,12 @@
 import { computed, ref } from "vue";
 
 const props = defineProps({
+  link: {
+    type: Boolean,
+    default() {
+      return false;
+    },
+  },
   text: {
     type: String,
     default() {

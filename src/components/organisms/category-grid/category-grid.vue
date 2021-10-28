@@ -1,17 +1,12 @@
 <template>
   <section class="vf-o-category-grid">
-    <vf-a-heading
-      level="4"
-      class="category-section__sub_name sm:text-center mt-2"
-      >{{ $t("elements.store.category.categoriesText") }}</vf-a-heading
-    >
     <vf-m-row>
       <vf-m-col
         v-for="(value, index) in items"
         :key="index"
-        xs="4"
-        md="3"
-        lg="2"
+        xs="6"
+        md="4"
+        lg="4"
       >
         <vf-m-category-thumb :category="value" />
       </vf-m-col>

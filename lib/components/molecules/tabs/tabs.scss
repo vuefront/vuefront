@@ -1,0 +1,22 @@
+.vf-m-tabs {
+  &__list {
+    @apply flex flex-row mb-7;
+    &__item {
+      @apply text-2xl font-normal mr-16 cursor-pointer;
+      &.--active {
+        @apply text-primary underline;
+      }
+      &:last-child {
+        @apply mr-0;
+      }
+    }
+  }
+  &__content {
+    > .vf-m-tab {
+      @apply hidden;
+      &.--active {
+        @apply block;
+      }
+    }
+  }
+}

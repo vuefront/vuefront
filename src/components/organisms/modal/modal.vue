@@ -65,8 +65,6 @@ const root = ref<Element | null>(null);
 watch(
   () => show.value,
   (val) => {
-    console.log("watch");
-    console.log(val);
     if (val) {
       document.body.className += " vf-o-modal--open";
       const htmlEl = document.querySelector("html");

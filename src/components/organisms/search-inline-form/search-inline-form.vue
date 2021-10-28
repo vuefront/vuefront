@@ -1,6 +1,7 @@
 <template>
   <span class="vf-o-search-inline-form">
     <vf-a-input
+      class="vf-o-search-inline-form__input"
       v-model="keyword"
       :placeholder="$t('elements.common.header.navSearch.placeholderText')"
       size="sm"
@@ -8,12 +9,17 @@
       trim
       @keypress.stop="handleKeyPress"
     />
+    <span class="vf-o-search-inline-form__icon cursor-text"
+      ><vf-a-icon :icon="mdiMagnify" :size="20"
+    /></span>
   </span>
 </template>
 <script lang="ts" setup>
 import { onBeforeMount, ref, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
+import { mdiMagnify } from "@mdi/js";
 const keyword = ref("");
+const show = ref(false);
 const route = useRoute();
 const router = useRouter();
 watch(

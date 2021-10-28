@@ -28,6 +28,7 @@ defineProps({
     content {
       id
       name
+      datePublished
       shortDescription
       image
       imageLazy

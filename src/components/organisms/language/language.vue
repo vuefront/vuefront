@@ -4,16 +4,10 @@
     class="language-section"
     left
     variant="link"
+    link
     size="sm"
   >
     <template v-slot:button-content>
-      <vf-a-image
-        :src="activeLanguage.image"
-        width="16"
-        width-amp="16"
-        height-amp="11"
-        class="language-section__image d-none d-md-inline-block mr-1"
-      />
       <span class="language-section__name font-normal text-base">{{
         activeLanguage.name
       }}</span>
@@ -24,13 +18,6 @@
       class="whitespace-nowrap"
       @click="handleEdit(value)"
     >
-      <vf-a-image
-        :src="value.image"
-        width="16"
-        width-amp="16"
-        height-amp="11"
-        class="d-none d-md-inline-block"
-      />
       {{ value.name }}
     </vf-m-dropdown-item>
   </vf-m-dropdown>

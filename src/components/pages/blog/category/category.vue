@@ -66,6 +66,7 @@ query($page: Int, $size: Int, $categoryId: String) {
       name
       description
       shortDescription
+      datePublished
       image
       imageLazy
       url(url: "/blog/post/_id")

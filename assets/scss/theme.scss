@@ -6,7 +6,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     line-height: 1.7;
-    color: #8492a6;
+    @apply text-black;
     text-align: left;
     position: relative;
     @media (max-width: 768px) {

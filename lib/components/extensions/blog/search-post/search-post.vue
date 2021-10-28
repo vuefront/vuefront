@@ -46,6 +46,7 @@ query($search: String) {
       id
       name
       shortDescription
+      datePublished
       image
       imageLazy
       keyword

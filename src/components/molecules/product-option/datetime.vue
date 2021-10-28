@@ -1,6 +1,6 @@
 <template>
   <div class="vf-m-product-option vf-m-product-option--datetime">
-    <vf-a-heading level="6" class="mt-5 vf-m-product-option__name">{{
+    <vf-a-heading level="6" class="vf-m-product-option__name">{{
       option.name
     }}</vf-a-heading>
     <vf-a-input
@@ -12,7 +12,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import {find} from "lodash";
+import { find } from "lodash";
 import { computed, PropType } from "vue";
 const props = defineProps({
   option: {

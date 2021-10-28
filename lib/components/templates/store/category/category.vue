@@ -1,9 +1,10 @@
 <template>
   <section class="store-category-section">
-    <vf-o-category-info :category="category" />
+    <vf-o-category-info :category="category" class="mb-10" />
     <vf-o-category-grid
       v-if="category.categories.length > 0"
       :items="category.categories"
+      class="mb-16"
     />
     <vf-o-category-product
       :products="products"
@@ -11,7 +12,6 @@
       :sort="sort"
       :grid-size="gridSize"
       :grid-size-tablet="gridSizeTablet"
-      class="mt-5"
     />
   </section>
 </template>

@@ -1,20 +1,15 @@
 <template>
-  <vf-m-card class="vf-m-post-thumb" no-body>
+  <div class="vf-m-post-thumb">
     <vf-a-link :to="url">
-      <vf-m-post-thumb-image :post="post" card layout="responsive" />
+      <vf-m-post-thumb-image :post="post" layout="responsive" />
     </vf-a-link>
-    <vf-m-card-body class="pt-0">
-      <vf-a-link :to="url">
-        <vf-a-heading tag="h3" level="6" class="vf-m-post-thumb__title">{{
-          post.name
-        }}</vf-a-heading>
-      </vf-a-link>
-      <div
-        class="vf-m-post-thumb__description"
-        v-html="post.shortDescription"
-      ></div>
-    </vf-m-card-body>
-  </vf-m-card>
+    <vf-a-link :to="url">
+      <vf-a-heading tag="h3" level="6" class="vf-m-post-thumb__title">{{
+        post.name
+      }}</vf-a-heading>
+    </vf-a-link>
+    <div class="vf-m-post-thumb__date">{{ post.datePublished }}</div>
+  </div>
 </template>
 <script lang="ts" setup>
 import { computed } from "vue";

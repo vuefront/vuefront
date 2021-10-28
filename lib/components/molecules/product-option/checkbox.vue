@@ -1,27 +1,17 @@
 <template>
   <div class="vf-m-product-option vf-m-product-option--checkbox">
-    <vf-a-heading level="6" class="mt-5 vf-m-product-option__name">{{
+    <vf-a-heading level="6" class="vf-m-product-option__name">{{
       option.name
     }}</vf-a-heading>
-    <div
-      class="
-        btn-group-toggle btn-group-options
-        row
-        mx-0
-        mt-3
-        mb-5
-        vf-m-product-option__value
-      "
-    >
+    <div class="vf-m-product-option__values">
       <vf-a-button
         v-for="(value, key) in option.values"
         :key="key"
         :pressed="checkActive(value.id, option)"
         :active="checkActive(value.id, option)"
-        color="primary"
-        class="col-12 mb-2 text-sm"
-        size="lg"
-        block
+        color="white"
+        class="vf-m-product-option__value"
+        size="sm"
         @click="handleChange(value.id)"
         >{{ value.name }}</vf-a-button
       >
@@ -29,7 +19,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import {find, filter, includes} from "lodash";
+import { find, filter, includes } from "lodash";
 import { computed, PropType } from "vue";
 
 const props = defineProps({

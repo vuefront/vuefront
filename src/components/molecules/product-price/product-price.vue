@@ -1,7 +1,8 @@
 <template>
   <vf-a-heading
-    :level="variant === 'normal' ? 3 : 6"
+    :level="variant === 'normal' ? 1 : 6"
     class="vf-m-product-price"
+    :class="`--${variant}`"
   >
     <span v-if="special !== ''" class="vf-m-product-price__special">{{
       special

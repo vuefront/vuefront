@@ -1,18 +1,17 @@
 <template>
   <ul class="vf-a-pagination">
     <li class="vf-a-pagination__item">
-      <div :class="getClass(1, true)">
-        <button @click.prevent="handleChange(1)">&laquo;</button>
-      </div>
+      <button :class="getClass(1, true)" @click.prevent="handleChange(1)">
+        &laquo;
+      </button>
     </li>
     <li class="vf-a-pagination__item">
-      <div :class="getClass(modelValue > 1 ? modelValue - 1 : 1, true)">
-        <button
-          @click.prevent="handleChange(modelValue > 1 ? modelValue - 1 : 1)"
-        >
-          &lsaquo;
-        </button>
-      </div>
+      <button
+        :class="getClass(modelValue > 1 ? modelValue - 1 : 1, true)"
+        @click.prevent="handleChange(modelValue > 1 ? modelValue - 1 : 1)"
+      >
+        &lsaquo;
+      </button>
     </li>
     <template v-for="(item, index) in pageButtons" :key="`pagination-${index}`">
       <li
@@ -30,29 +29,29 @@
       </li>
     </template>
     <li class="vf-a-pagination__item">
-      <div
+      <button
+        @click.prevent="
+          handleChange(modelValue < totalPages ? modelValue + 1 : totalPages)
+        "
         :class="
           getClass(modelValue < totalPages ? modelValue + 1 : totalPages, true)
         "
       >
-        <button
-          @click.prevent="
-            handleChange(modelValue < totalPages ? modelValue + 1 : totalPages)
-          "
-        >
-          &rsaquo;
-        </button>
-      </div>
+        &rsaquo;
+      </button>
     </li>
     <li class="vf-a-pagination__item">
-      <div :class="getClass(totalPages, true)">
-        <button @click.prevent="handleChange(totalPages)">&raquo;</button>
-      </div>
+      <button
+        @click.prevent="handleChange(totalPages)"
+        :class="getClass(totalPages, true)"
+      >
+        &raquo;
+      </button>
     </li>
   </ul>
 </template>
 <script lang="ts" setup>
-import {range} from "lodash";
+import { range } from "lodash";
 import { computed } from "vue";
 const props = defineProps({
   modelValue: {
@@ -90,22 +89,25 @@ const pageButtons = computed(() => {
 });
 const getClass = (page: string | number, disabled: boolean) => {
   const result = [];
-
   page = Number(page);
   result.push("vf-a-pagination__link");
 
   if (page === props.modelValue && !disabled) {
     result.push("vf-a-pagination__link--active");
-  } else if (page === props.modelValue && disabled) {
+  } else if (
+    (page === props.modelValue || props.totalPages === 0) &&
+    disabled
+  ) {
     result.push("vf-a-pagination__link--disabled");
   }
 
   return result.join(" ");
 };
 
-const emit = defineEmits(["change", "update:modelValue"]);
+const emit = defineEmits(["change", "input", "update:modelValue"]);
 
 const handleChange = (e: any) => {
+  emit("input", e);
   emit("change", e);
   emit("update:modelValue", e);
 };

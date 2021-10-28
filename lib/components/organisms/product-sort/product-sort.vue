@@ -1,48 +1,43 @@
 <template>
-  <section class="sort-section mb-4">
+  <section class="vf-o-product-sort mb-4">
     <vf-m-row cols="12">
       <vf-m-col xs="6" md="2" align-self="center">
-        <vf-m-button-group size="sm">
-          <vf-a-button
-            :pressed="modeValue === 'grid'"
-            color="light"
-            @click="modeValue = 'grid'"
-          >
-            <vf-a-icon :icon="mdiViewGrid" size="26" />
-          </vf-a-button>
-          <vf-a-button
-            :pressed="modeValue === 'list'"
-            color="light"
-            @click="modeValue = 'list'"
-          >
-            <vf-a-icon :icon="mdiViewList" size="26" />
-          </vf-a-button>
-        </vf-m-button-group>
+        <div
+          class="vf-o-product-sort__mode --grid"
+          :class="{ '--active': modeValue === 'grid' }"
+          @click="modeValue = 'grid'"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div
+          class="vf-o-product-sort__mode --list"
+          :class="{ '--active': modeValue === 'list' }"
+          @click="modeValue = 'list'"
+        >
+          <span></span>
+        </div>
       </vf-m-col>
       <vf-m-col align-self="center">
-        <vf-a-link to="/store/compare">{{
+        <vf-a-link to="/store/compare" class="vf-o-product-sort__compare">{{
           $t("elements.store.productSort.compareText")
         }}</vf-a-link>
       </vf-m-col>
-      <vf-m-col xs="6" md="4" align-self="center">
-        <vf-m-input-group
-          :prepend="$t('elements.store.productSort.sortByText')"
-          size="sm"
-        >
+      <vf-m-col xs="6" md="7" align-self="center" class="text-right">
+        <div class="vf-o-product-sort__sort">
+          <span>{{ $t("elements.store.productSort.sortByText") }}</span>
           <vf-a-select
-            v-model="sizeValue"
-            :options="sizeOptions"
+            v-model="sortValue"
+            :options="sortOptions"
             class="mr-3"
+            size="sm"
           />
-        </vf-m-input-group>
-      </vf-m-col>
-      <vf-m-col xs="6" md="3" align-self="center">
-        <vf-m-input-group
-          :prepend="$t('elements.store.productSort.showText')"
-          size="sm"
-        >
-          <vf-a-select v-model="sortValue" :options="sortOptions" />
-        </vf-m-input-group>
+        </div>
+        <div class="vf-o-product-sort__limit">
+          <span>{{ $t("elements.store.productSort.showText") }}</span>
+          <vf-a-select v-model="sizeValue" size="sm" :options="sizeOptions" />
+        </div>
       </vf-m-col>
     </vf-m-row>
   </section>

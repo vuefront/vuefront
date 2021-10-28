@@ -175,13 +175,32 @@ module.exports = (theme) => ({
     paddingRight: theme("padding.3"),
     paddingTop: theme("padding.4"),
     paddingBottom: theme("padding.4"),
-    marginBottom: theme("margin.4"),
+    marginBottom: theme("margin.6"),
     listStyle: "none",
     "&__item": {
       display: "flex",
-      "&+.vf-m-breadcrumb__item": {
-        paddingLeft: theme("padding.2"),
+      fontWeight: theme("fontWeight.normal"),
+      fontSize: theme("fontSize.sm")[0],
+      lineHeight: theme("fontSize.sm")[1].lineHeight,
+      "&:last-child": {
+        "&::after": {
+          display: "none",
+        },
       },
+      "&::after": {
+        content: '"·"',
+        color: "#6E6E6E",
+        display: "inline-block",
+        marginLeft: theme("margin.2"),
+        marginRight: theme("margin.2"),
+      },
+      a: {
+        color: "#6E6E6E",
+      },
+      ".router-link-active": {
+        color: theme("vuefront.colors.primary"),
+      },
+      "&+.vf-m-breadcrumb__item": {},
     },
   },
   buttonGroup: {
@@ -432,23 +451,15 @@ module.exports = (theme) => ({
     maxWidth: theme("maxWidth.md"),
     paddingLeft: theme("padding.0"),
     marginBottom: theme("margin.0"),
-    borderRadius: theme("borderRadius.DEFAULT"),
     "&__item": {
-      backgroundColor: theme("colors.white"),
       position: "relative",
       display: "block",
-      paddingLeft: theme("padding.5"),
-      paddingRight: theme("padding.5"),
+      paddingLeft: theme("padding.3"),
+      paddingRight: theme("padding.3"),
       paddingTop: theme("padding.3"),
       paddingBottom: theme("padding.3"),
-      borderWidth: theme("borderWidth.DEFAULT"),
-      "&+.vf-m-list-group__item": {
-        borderTopWidth: theme("borderWidth.0"),
-      },
       "&--active": {
-        backgroundColor: theme("vuefront.colors.primary"),
-        borderColor: theme("vuefront.colors.primary"),
-        color: invertColor(theme("vuefront.colors.primary"), true),
+        color: theme("vuefront.colors.primary"),
       },
     },
   },
@@ -463,11 +474,21 @@ module.exports = (theme) => ({
     "&__item": {
       display: "table-cell",
       float: "left",
-      width: theme("width.8"),
-      height: theme("height.8"),
-      borderWidth: theme("borderWidth.DEFAULT"),
+      width: theme("width.16"),
+      height: theme("height.16"),
+      marginRight: "1px",
+      borderWidth: theme("borderWidth.0"),
+      "&:last-child": {
+        marginRight: 0,
+      },
       "&__hellip": {
         lineHeight: "2.5",
+        backgroundColor: "#F5F5F5",
+        height: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        cursor: "default",
       },
       "&:nth-child(-n + 2),&:nth-last-child(-n + 2)": {
         ".vf-a-pagination__link": {
@@ -478,16 +499,20 @@ module.exports = (theme) => ({
     "&__link": {
       width: theme("width.full"),
       height: theme("height.full"),
+      backgroundColor: "#F5F5F5",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
       "&:not(.vf-a-pagination__link--active):not(.vf-a-pagination__link--disabled)":
         {
           "&:hover": {
-            backgroundColor: theme("vuefront.colors.primary"),
-            color: invertColor(theme("vuefront.colors.primary"), true),
+            backgroundColor: "#6AA6C4",
+            color: invertColor("#6AA6C4", true),
           },
         },
       "&--active": {
-        backgroundColor: darken(theme("vuefront.colors.primary"), 0.25),
-        color: invertColor(theme("vuefront.colors.primary"), true),
+        backgroundColor: "#6AA6C4",
+        color: invertColor("#6AA6C4", true),
       },
       "&--disabled": {
         opacity: theme("opacity.25"),
@@ -529,6 +554,39 @@ module.exports = (theme) => ({
     },
     "&.--align-h-end": {
       justifyContent: "flex-end",
+    },
+  },
+  productOption: {
+    display: "flex",
+    flexDirection: "row",
+
+    "&__name": {
+      fontSize: theme("fontSize.base.0"),
+      fontWeight: theme("fontWeight.normal"),
+      flex: "0 0 20%",
+      marginBottom: 0,
+      display: "flex",
+      alignItems: "center",
+    },
+    "&__values": {},
+    "&__value": {
+      "&.vf-a-button": {
+        marginRight: "10px",
+        borderRadius: theme("borderRadius.none"),
+        borderColor: "#C4C4C4",
+        borderWidth: theme("borderWidth.DEFAULT"),
+        fontSize: theme("fontSize.base.0"),
+        fontWeight: theme("fontWeight.semibold"),
+        marginBottom: theme("margin.1"),
+        "&:last-child": {
+          marginRight: 0,
+        },
+        "&:hover, &.active": {
+          backgroundColor: theme("colors.white"),
+          borderColor: theme("vuefront.colors.primary"),
+          borderWidth: theme("borderWidth"),
+        },
+      },
     },
   },
 });

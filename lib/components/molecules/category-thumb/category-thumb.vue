@@ -3,15 +3,13 @@
     <vf-a-image
       :src="image"
       :lazy-src="imageLazy"
-      class="mb-2"
+      class="vf-m-category-thumb__image"
       :width-amp="getWidth"
       :height-amp="getHeight"
       full-width
       fluid
     />
-    <vf-a-heading level="6" class="vf-m-category-thumb__title">{{
-      category.name
-    }}</vf-a-heading>
+    <div class="vf-m-category-thumb__title">{{ category.name }}</div>
   </vf-a-link>
 </template>
 <script lang="ts" setup>

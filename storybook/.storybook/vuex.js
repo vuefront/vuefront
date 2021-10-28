@@ -84,21 +84,21 @@ const store = createStore({
                 "code": "EUR",
                 "symbol_left": "",
                 "symbol_right": "€",
-                "name": "Euro",
+                "title": "Euro",
                 "active": false
               },
               {
                 "code": "GBP",
                 "symbol_left": "£",
                 "symbol_right": "",
-                "name": "Pound Sterling",
+                "title": "Pound Sterling",
                 "active": false
               },
               {
                 "code": "USD",
                 symbol_left: "$",
                 symbol_right: "",
-                "name": "US Dollar",
+                "title": "US Dollar",
                 "active": true
               }
             ]
