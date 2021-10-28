@@ -1,12 +1,12 @@
 .vf-m-product-price {
   &.--small {
-    &__oldprice {
+    .vf-m-product-price__oldprice {
       @apply text-xl;
     }
-    &__special {
+    .vf-m-product-price__special {
       @apply text-xl;
     }
-    &__price {
+    .vf-m-product-price__price {
       @apply text-xl;
     }
   }
