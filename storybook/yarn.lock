@@ -11691,8 +11691,8 @@ vue3-lazyload@^0.2.2-beta:
   integrity sha512-k198DjJmH8vmtPm90nzs/04MwMGpqmbhrp9foonWyPDCviQtCATYxlvloxRXroElcDRERZCs/+GRjeDVWsPtNw==
 
 vuefront@vuefront/vuefront#vue3:
-  version "0.4.14"
-  resolved "https://codeload.github.com/vuefront/vuefront/tar.gz/f53ba959a96778ae24cf17e41c9e32e0a743c1fa"
+  version "0.4.16"
+  resolved "https://codeload.github.com/vuefront/vuefront/tar.gz/47ba221bfc9c844e6e6a8c904298d2d5077ee8fb"
   dependencies:
     "@bundled-es-modules/axios" "^0.21.1"
     "@jamescoyle/vue-icon" "^0.1.2"
