@@ -17,12 +17,12 @@
         <vf-m-row>
           <vf-m-col
             v-if="checkModules('columnLeft')"
-            xs="3"
+            md="3"
             class="hidden md:block vf-t-layout-full-width__content-left"
           >
             <vf-o-position name="columnLeft" />
           </vf-m-col>
-          <vf-m-col :xs="contentWidth">
+          <vf-m-col :md="contentWidth">
             <vf-o-position
               name="columnCenterTop"
               class="vf-t-layout-full-width__content-center-top"
@@ -35,7 +35,7 @@
           </vf-m-col>
           <vf-m-col
             v-if="checkModules('columnRight')"
-            xs="3"
+            md="3"
             class="hidden md:block vf-t-layout-full-width__content-right"
           >
             <vf-o-position name="columnRight" />

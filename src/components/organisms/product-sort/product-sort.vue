@@ -1,7 +1,7 @@
 <template>
   <section class="vf-o-product-sort mb-4">
     <vf-m-row cols="12">
-      <vf-m-col xs="6" md="2" align-self="center">
+      <vf-m-col xs="4" md="2" align-self="center">
         <div
           class="vf-o-product-sort__mode --grid"
           :class="{ '--active': modeValue === 'grid' }"
@@ -19,12 +19,17 @@
           <span></span>
         </div>
       </vf-m-col>
-      <vf-m-col align-self="center">
+      <vf-m-col xs="8" md="3" align-self="center">
         <vf-a-link to="/store/compare" class="vf-o-product-sort__compare">{{
           $t("elements.store.productSort.compareText")
         }}</vf-a-link>
       </vf-m-col>
-      <vf-m-col xs="6" md="7" align-self="center" class="text-right">
+      <vf-m-col
+        xs="12"
+        md="7"
+        align-self="center"
+        class="text-left md:text-right"
+      >
         <div class="vf-o-product-sort__sort">
           <span>{{ $t("elements.store.productSort.sortByText") }}</span>
           <vf-a-select
@@ -43,7 +48,6 @@
   </section>
 </template>
 <script lang="ts" setup>
-import { mdiViewGrid, mdiViewList } from "@mdi/js";
 import { useI18n } from "vue-i18n";
 import { computed } from "vue";
 const i18n = useI18n();

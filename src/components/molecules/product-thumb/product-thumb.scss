@@ -12,10 +12,10 @@
       }
     }
     &__popup {
-      @apply absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform invisible opacity-0 transition-all ease-in-out;
+      @apply absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform invisible opacity-0 transition-all ease-in-out z-20;
     }
     &__header {
-      @apply px-4;
+      @apply px-4 relative;
     }
     & &-image {
         min-height: 9.375rem;
@@ -45,6 +45,7 @@
       .vf-a-button {
         width: 54px;
         height: 54px;
+        padding: 0;
         margin: 0 1px;
         &:first-child {
           margin-left: 0;

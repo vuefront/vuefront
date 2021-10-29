@@ -27,12 +27,11 @@
               <vf-m-rating
                 v-if="product.rating > 0"
                 :model-value="product.rating"
-                color="#ffcc00"
                 readonly
               />
             </vf-m-col>
             <vf-m-col xs="6" class="sm:text-right">
-              <vf-a-badge color="primary"
+              <vf-a-badge color="primary" class="mr-2"
                 >{{ $t("elements.store.product.idText")
                 }}{{ product.id }}</vf-a-badge
               >
@@ -50,16 +49,18 @@
               :product="product"
             />
           </div>
-          <vf-m-row>
-            <vf-m-col xs="6" md="5" class="mb-4 mb-sm-0"> </vf-m-col>
-            <vf-m-col xs="6" md="7" class="sm:text-right">
-              <vf-o-product-buy :product="product" />
-            </vf-m-col>
-          </vf-m-row>
+          <div class="flex flex-row justify-start">
+            <vf-o-product-quantity
+              class="mr-6"
+              :quantity="quantity"
+              @change="$emit('change-quantity', $event)"
+            />
+            <vf-o-product-buy :product="product" :quantity="quantity" />
+          </div>
         </div>
       </vf-m-col>
     </vf-m-row>
-    <vf-m-tabs class="mb-14">
+    <vf-m-tabs class="mb-14 mt-32">
       <vf-m-tab title="Description">
         <div
           class="product-info__description text-sm"
@@ -83,5 +84,10 @@ defineProps({
     type: Object,
     default: () => null,
   },
+  quantity: {
+    type: Number,
+    default: () => 1,
+  },
 });
+defineEmits(["change-quantity"]);
 </script>

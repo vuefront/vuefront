@@ -10,7 +10,7 @@
         $t("elements.common.reviews.ratingEntry")
       }}</template>
       <template #default="data">
-        <vf-m-rating v-model="rating" v-bind="data" color="#ffcc00" />
+        <vf-m-rating v-model="rating" v-bind="data" />
       </template>
       <template #error>{{
         $t("elements.common.reviews.ratingError")

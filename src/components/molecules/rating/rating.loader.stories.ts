@@ -1,4 +1,5 @@
 import VfLMRating from "./rating.loader.vue";
+import "./rating.scss";
 import { ref } from "vue";
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {

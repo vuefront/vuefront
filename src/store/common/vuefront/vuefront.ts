@@ -54,6 +54,7 @@ export const actions: ActionTree<State, RootState> = {
       });
     }
     await Promise.all([
+      dispatch('store/cart/load', {}, {root: true})
       dispatch("common/language/load", {}, { root: true }),
       dispatch("common/customer/checkLogged", {}, { root: true }),
       dispatch("store/currency/load", {}, { root: true }),
@@ -70,6 +71,12 @@ export const actions: ActionTree<State, RootState> = {
     commit("setSSR", true);
   },
   async nuxtClientInit({ commit, dispatch, rootGetters }) {
+    this.$router.beforeEach((to, from, next) => {
+      if (to.path !== from.path && rootGetters["vuefront/sidebar"]) {
+        commit("toggleSidebar");
+      }
+      next();
+    });
     if (!rootGetters["vuefront/ssr"]) {
       await dispatch("vuefrontInit");
     }

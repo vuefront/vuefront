@@ -1,9 +1,10 @@
 <template>
-  <section class="rating-section">
+  <section class="vf-m-rating">
     <span
       v-for="ratingValue in [1, 2, 3, 4, 5]"
       :key="`${ratingValue}-${currentRating}`"
-      style="cursor: pointer"
+      class="vf-m-rating__item"
+      :class="{ '--active': ratingValue <= currentRating }"
       @mouseover="handleMouseOver(ratingValue)"
       @mouseout="handleMouseOut"
       @click="handleClick(ratingValue)"
@@ -11,7 +12,7 @@
       <vf-a-icon
         :icon="ratingValue <= currentRating ? mdiStar : mdiStarOutline"
         :style="{ color: color }"
-        size="22"
+        size="13"
       />
     </span>
   </section>
@@ -27,7 +28,7 @@ const props = defineProps({
   },
   color: {
     type: String,
-    default: () => "#FFFF33",
+    default: () => "#6AA6C4",
   },
   readonly: {
     type: Boolean,

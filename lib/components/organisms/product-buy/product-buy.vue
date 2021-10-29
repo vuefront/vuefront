@@ -1,5 +1,9 @@
 <template>
-  <vf-a-button variant="primary" @click="handleAddToCart">
+  <vf-a-button
+    variant="primary"
+    @click="handleAddToCart"
+    class="h-16 rounded-none px-6"
+  >
     <vf-a-icon :icon="mdiCartOutline" />
     {{ $t("elements.store.product.buttonAddToCart") }}
   </vf-a-button>
@@ -15,6 +19,12 @@ const props = defineProps({
       return null;
     },
   },
+  quantity: {
+    type: Number,
+    default() {
+      return 1;
+    },
+  },
 });
 const store = useStore();
 
@@ -23,7 +33,7 @@ const options = computed(() => store.getters["store/product/options"]);
 const handleAddToCart = async () => {
   await store.dispatch("store/cart/add", {
     product: props.product,
-    quantity: 1,
+    quantity: props.quantity,
     options: options.value,
   });
 };

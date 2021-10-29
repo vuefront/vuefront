@@ -13,7 +13,6 @@
         <vf-m-rating
           v-if="post.rating > 0"
           :modelValue="post.rating"
-          color="#ffcc00"
           readonly
           class="text-right"
         />

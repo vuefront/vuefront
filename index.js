@@ -223,7 +223,10 @@ module.exports = {
       css: "molecules/product-thumb-inline/product-thumb-inline.scss",
       component: "molecules/product-thumb-inline/product-thumb-inline.vue",
     },
-    Rating: "molecules/rating/rating.vue",
+    Rating: {
+      css: "molecules/rating/rating.scss",
+      component: "molecules/rating/rating.vue",
+    },
     Review: {
       css: "molecules/review/review.scss",
       component: "molecules/review/review.vue",
@@ -247,6 +250,10 @@ module.exports = {
     WishlistLink: "molecules/wishlist-link/wishlist-link.vue",
   },
   organisms: {
+    ProductQuantity: {
+      component: "organisms/product-quantity/product-quantity.vue",
+      css: "organisms/product-quantity/product-quantity.scss",
+    },
     Modal: {
       css: "organisms/modal/modal.scss",
       component: "organisms/modal/modal.vue",

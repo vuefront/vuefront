@@ -1,22 +1,23 @@
 <template>
   <div class="vf-o-wishlist-actions">
     <vf-a-button
-      class="vf-o-wishlist-actions__add-to-cart"
+      class="vf-o-wishlist-actions__add-to-cart mr-2"
       @click="handleAddToCart"
+      size="sm"
     >
-      <vf-a-icon :icon="mdiCartOutline" />
+      {{ $t("organisms.wishlistActions.buttonAddToCart") }}
     </vf-a-button>
     <vf-a-button
       class="vf-o-wishlist-actions__remove"
       color="danger"
+      size="sm"
       @click="handleRemove"
     >
-      <vf-a-icon :icon="mdiDeleteOutline" />
+      {{ $t("organisms.wishlistActions.buttonDelete") }}
     </vf-a-button>
   </div>
 </template>
 <script lang="ts" setup>
-import { mdiCartOutline, mdiDeleteOutline } from "@mdi/js";
 import { useStore } from "vuex";
 const props = defineProps({
   product: {

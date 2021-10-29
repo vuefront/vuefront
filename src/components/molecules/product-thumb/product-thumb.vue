@@ -2,34 +2,34 @@
   <div :class="{ 'vf-m-product-thumb--wide': wide }" class="vf-m-product-thumb">
     <vf-m-row no-gutters>
       <vf-m-col :md="wide ? 3 : 12" class="vf-m-product-thumb__header">
-        <vf-a-link :to="url" class="vf-m-product-thumb__image">
-          <div class="vf-m-product-thumb__popup">
-            <div class="vf-m-product-thumb__buttons">
-              <vf-a-button
-                class="vf-m-product-thumb__button-buy"
-                color="light"
-                size="sm"
-                @click="handleAddToCart"
-              >
-                <vf-a-icon :icon="mdiCartOutline" :size="22" />
-              </vf-a-button>
-              <vf-a-button
-                class="vf-m-product-thumb__button-wishlist"
-                color="light"
-                size="sm"
-                @click="handleAddToWishlist"
-              >
-                <vf-a-icon :icon="mdiHeartOutline" :size="22" />
-              </vf-a-button>
-              <vf-a-button
-                class="vf-m-product-thumb__button-compare"
-                color="light"
-                @click="handleAddToCompare"
-              >
-                <vf-a-icon :icon="mdiCompareHorizontal" :size="22" />
-              </vf-a-button>
-            </div>
+        <div class="vf-m-product-thumb__popup">
+          <div class="vf-m-product-thumb__buttons">
+            <vf-a-button
+              class="vf-m-product-thumb__button-buy"
+              color="light"
+              size="sm"
+              @click="handleAddToCart"
+            >
+              <vf-a-icon :icon="mdiCartOutline" :size="22" />
+            </vf-a-button>
+            <vf-a-button
+              class="vf-m-product-thumb__button-wishlist"
+              color="light"
+              size="sm"
+              @click="handleAddToWishlist"
+            >
+              <vf-a-icon :icon="mdiHeartOutline" :size="22" />
+            </vf-a-button>
+            <vf-a-button
+              class="vf-m-product-thumb__button-compare"
+              color="light"
+              @click="handleAddToCompare"
+            >
+              <vf-a-icon :icon="mdiCompareHorizontal" :size="22" />
+            </vf-a-button>
           </div>
+        </div>
+        <vf-a-link :to="url" class="vf-m-product-thumb__image">
           <vf-m-product-thumb-image :product="product" />
         </vf-a-link>
       </vf-m-col>
@@ -54,7 +54,6 @@
             v-if="product.rating > 0"
             :class="{ 'text-center': !wide }"
             :modelValue="product.rating"
-            color="#ffcc00"
             readonly
           />
           <div v-else style="width: 100%; height: 27px"></div>

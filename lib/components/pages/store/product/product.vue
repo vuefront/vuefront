@@ -1,14 +1,19 @@
 <template>
-  <vf-t-store-product :product="product" />
+  <vf-t-store-product
+    :product="product"
+    :quantity="quantity"
+    @change-quantity="quantity = $event"
+  />
 </template>
 <script lang="ts" setup>
 import gql from "graphql-tag";
 import { computed, inject, ref } from "vue";
 import { useMeta } from "vue-meta";
 import { useRoute } from "vue-router";
-import { mapGetters, useStore } from "vuex";
+import { useStore } from "vuex";
 import useBreadcrumbs from "../../../../utils/breadcrumbs";
 import useQuery from "../../../../utils/query";
+const quantity = ref(1);
 const store = useStore();
 const category = ref<any>(null);
 const { meta } = useMeta({});

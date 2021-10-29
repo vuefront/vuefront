@@ -1,22 +1,23 @@
 <template>
   <div class="vf-m-compare-actions">
     <vf-a-button
-      class="vf-m-compare-actions__add-to-cart"
+      class="vf-m-compare-actions__add-to-cart mr-2"
       @click="handleAddToCart"
+      size="sm"
     >
-      <vf-a-icon :icon="mdiCartOutline" />
+      {{ $t("organisms.compareActions.buttonAddToCart") }}
     </vf-a-button>
     <vf-a-button
       class="vf-m-compare-actions__remove"
       color="danger"
       @click="handleRemove"
+      size="sm"
     >
-      <vf-a-icon :icon="mdiDeleteOutline" />
+      {{ $t("organisms.compareActions.buttonDelete") }}
     </vf-a-button>
   </div>
 </template>
 <script lang="ts" setup>
-import { mdiCartOutline, mdiDeleteOutline } from "@mdi/js";
 import { useStore } from "vuex";
 const props = defineProps({
   product: {
