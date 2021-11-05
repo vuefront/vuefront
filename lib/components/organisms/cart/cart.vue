@@ -9,7 +9,11 @@
       @close="show = false"
       right
     >
-      <template #top> Shopping cart </template>
+      <template #top>
+        <vf-a-heading level="1" class="font-normal"
+          >Shopping cart</vf-a-heading
+        ></template
+      >
       <vf-o-cart-products :cart="cart" />
       <template #bottom>
         <vf-m-cart-footer :cart="cart" />

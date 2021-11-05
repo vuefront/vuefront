@@ -2553,6 +2553,11 @@
   dependencies:
     mini-svg-data-uri "^1.2.3"
 
+"@tailwindcss/line-clamp@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/line-clamp/-/line-clamp-0.2.2.tgz#05843c004bf069353a0c43f9df8cc3a6016252b8"
+  integrity sha512-NgA4Ds+/eCiO+6O3SooRsfJ8m7M2+QvNvHwOjBQq7FIYoWwAV4I4Wu4fjHeuO9Yi6p47ceHUKEGGEBh0ozQodg==
+
 "@types/braces@*":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@types/braces/-/braces-3.0.1.tgz#5a284d193cfc61abb2e5a50d36ebbc50d942a32b"
@@ -11689,14 +11694,15 @@ vue3-lazyload@^0.2.2-beta:
   resolved "https://registry.yarnpkg.com/vue3-lazyload/-/vue3-lazyload-0.2.2-beta.tgz#c75df1a8553b60fbfd8324d083cb0e71c94dd26d"
   integrity sha512-k198DjJmH8vmtPm90nzs/04MwMGpqmbhrp9foonWyPDCviQtCATYxlvloxRXroElcDRERZCs/+GRjeDVWsPtNw==
 
-vuefront@vuefront/vuefront#ca4912e4768e09f692f071953251375a2e3706db:
+vuefront@vuefront/vuefront#56fd0a25582c08c81b0391d7cd65aa73d3d0a0da:
   version "0.4.17"
-  resolved "https://codeload.github.com/vuefront/vuefront/tar.gz/ca4912e4768e09f692f071953251375a2e3706db"
+  resolved "https://codeload.github.com/vuefront/vuefront/tar.gz/56fd0a25582c08c81b0391d7cd65aa73d3d0a0da"
   dependencies:
     "@bundled-es-modules/axios" "^0.21.1"
     "@jamescoyle/vue-icon" "^0.1.2"
     "@mdi/js" "^5.9.55"
     "@tailwindcss/forms" "^0.3.3"
+    "@tailwindcss/line-clamp" "^0.2.2"
     "@vuelidate/core" "^2.0.0-alpha.24"
     "@vuelidate/validators" "^2.0.0-alpha.21"
     color "^4.0.1"

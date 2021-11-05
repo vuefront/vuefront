@@ -4,7 +4,7 @@
   "quantityColumn": "Quantity",
   "totalColumn": "Total",
   "actionColumn": "",
-  "totalText": "Total value:", 
+  "totalText": "Total:", 
   "checkoutButton": "Checkout",
   "cartButton": "Go to cart",
   "returnButton": "Return to shop"

@@ -4,7 +4,7 @@
     <div class="vf-o-sidebar__top">
       <slot name="top"></slot>
       <div class="vf-o-sidebar__close" @click="handleClose">
-        <vf-a-icon :icon="mdiClose"></vf-a-icon>
+        <vf-a-icon :icon="mdiClose" :size="22"></vf-a-icon>
       </div>
     </div>
     <div class="vf-o-sidebar__main">

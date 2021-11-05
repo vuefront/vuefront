@@ -1,6 +1,6 @@
 .vf-m-product-thumb-inline {
   &__name {
-    @apply font-normal mb-0 leading-none text-3xl line-clamp-1;
+    @apply font-normal mb-0 leading-none text-3xl whitespace-nowrap overflow-visible;
     color: #4A942C;
   }
   &__price {

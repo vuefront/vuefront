@@ -7,7 +7,7 @@
       class="vf-m-cart-product__product"
     />
     <div class="vf-m-cart-product__price">
-      {{ cartProduct.price }}
+      {{ cartProduct.total }}
     </div>
     <div class="vf-m-cart-product__remove" @click="handleRemove">
       <vf-a-icon :icon="mdiTrashCanOutline" :size="16" />

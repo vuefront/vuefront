@@ -1,5 +1,5 @@
 .vf-m-cart-product {
-  @apply flex flex-row items-center;
+  @apply flex flex-row items-center overflow-hidden;
   &__product {
     @apply flex-1;
   }
