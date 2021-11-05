@@ -20,7 +20,8 @@ const columnComponent = require("./component/column");
 const rowComponent = require("./component/row");
 const productOptionComponent = require("./component/product-option");
 module.exports = plugin(
-  function ({ addUtilities, e, theme, variants, addComponents }) {
+  function (ctx) {
+    const { theme, addComponents } = ctx;
     addComponents(fieldComponent(theme));
     addComponents(listGroupComponent(theme));
     addComponents(buttonGroupComponent(theme));

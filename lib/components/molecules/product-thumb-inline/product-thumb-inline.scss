@@ -1,10 +1,10 @@
 .vf-m-product-thumb-inline {
   &__name {
-    @apply font-normal mb-0 leading-none text-lg;
+    @apply font-normal mb-0 leading-none text-3xl line-clamp-1;
     color: #4A942C;
   }
   &__price {
-    @apply font-normal text-sm mb-3;
+    @apply font-normal text-base mb-2;
     span {
       @apply font-semibold;
     }
@@ -13,7 +13,7 @@
     @apply pl-3 flex items-center;
   }
   &__quantity {
-    @apply mb-4;
+    @apply mb-3;
   }
   &__option {
     @apply leading-none text-black;

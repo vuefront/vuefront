@@ -12,7 +12,7 @@
       <template #top> Shopping cart </template>
       <vf-o-cart-products :cart="cart" />
       <template #bottom>
-        <vf-o-cart-footer :cart="cart" />
+        <vf-m-cart-footer :cart="cart" />
       </template>
     </vf-o-sidebar>
   </div>

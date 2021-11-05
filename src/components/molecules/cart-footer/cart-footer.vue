@@ -1,6 +1,6 @@
 <template>
-  <div class="mt-5">
-    <vf-a-button class="md:mr-2" color="success" to="/" size="sm">{{
+  <div class="mt-5 flex flex-row">
+    <vf-a-button class="md:mr-4 flex-1" color="success" to="/" size="sm">{{
       $t("elements.store.cart.returnButton")
     }}</vf-a-button>
     <vf-a-button

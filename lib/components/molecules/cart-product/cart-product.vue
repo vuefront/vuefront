@@ -10,12 +10,12 @@
       {{ cartProduct.price }}
     </div>
     <div class="vf-m-cart-product__remove" @click="handleRemove">
-      <vf-a-icon :icon="mdiClose" />
+      <vf-a-icon :icon="mdiTrashCanOutline" :size="16" />
     </div>
   </div>
 </template>
 <script lang="ts" setup>
-import { mdiClose } from "@mdi/js";
+import { mdiTrashCanOutline } from "@mdi/js";
 const props = defineProps({
   cartProduct: {
     type: Object,

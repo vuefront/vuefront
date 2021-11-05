@@ -4,9 +4,9 @@
     @apply flex-1;
   }
   &__price {
-    @apply mx-3;
+    @apply mx-3 font-semibold text-xl;
   }
   &__remove {
-    @apply mx-4;
+    @apply mx-4 cursor-pointer;
   }
 }

@@ -70,12 +70,18 @@ export const getCart = () => ({
   products: [getCartProduct(), getCartProduct(), getCartProduct()],
 });
 
+export const getCartOption = () => ({
+  name: faker.lorem.word(),
+  value: faker.lorem.word(),
+});
+
 export const getCartProduct = () => {
   const productInfo = getProduct();
   return {
     key: faker.datatype.number(),
     price: productInfo.special,
     product: getProduct(),
+    option: [getCartOption(), getCartOption(), getCartOption()],
     quantity: 2,
     total: Number(productInfo.special.slice(0, -1)) * 2 + "$",
   };

@@ -1,6 +1,6 @@
 .vf-o-sidebar {
   @apply flex fixed flex-col max-w-full max-h-full m-0 outline-none transform translate-x-0 top-0 z-50 h-screen bg-white ease-in-out transition-transform duration-500;
-  width: 30rem;
+  width: 35rem;
   &__overflow {
     @apply fixed top-0 h-screen left-0 w-screen opacity-20 bg-black z-40;
   }

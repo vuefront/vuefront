@@ -71,7 +71,7 @@ const props = defineProps({
   width: {
     type: [String, Number] as PropType<string | number>,
     default() {
-      return "80";
+      return "160";
     },
   },
 });

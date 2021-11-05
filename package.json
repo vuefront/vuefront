@@ -32,6 +32,7 @@
         "@jamescoyle/vue-icon": "^0.1.2",
         "@mdi/js": "^5.9.55",
         "@tailwindcss/forms": "^0.3.3",
+        "@tailwindcss/line-clamp": "^0.2.2",
         "@vuelidate/core": "^2.0.0-alpha.24",
         "@vuelidate/validators": "^2.0.0-alpha.21",
         "color": "^4.0.1",

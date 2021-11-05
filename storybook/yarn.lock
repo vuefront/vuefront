@@ -10552,8 +10552,8 @@ store2@^2.12.0:
   integrity sha512-7t+/wpKLanLzSnQPX8WAcuLCCeuSHoWdQuh9SB3xD0kNOM38DNf+0Oa+wmvxmYueRzkmh6IcdKFtvTa+ecgPDw==
 
 storybook-addon-vuefront@vuefront/storybook-addon-vuefront:
-  version "1.0.4"
-  resolved "https://codeload.github.com/vuefront/storybook-addon-vuefront/tar.gz/3b683634ded968f37ee2d88f072858df78764797"
+  version "1.0.5"
+  resolved "https://codeload.github.com/vuefront/storybook-addon-vuefront/tar.gz/331d6aa99a82e23ab7f88a573a89021be6a2c104"
   dependencies:
     "@storybook/node-logger" "^6.1.14"
     "@types/loader-utils" "^2.0.3"
@@ -10562,7 +10562,6 @@ storybook-addon-vuefront@vuefront/storybook-addon-vuefront:
     lodash "^4.17.21"
     postcss-loader "^6.2.0"
     rimraf "^3.0.2"
-    vuefront vuefront/vuefront#vue3
 
 storybook-vue3-router@^1.0.5:
   version "1.0.5"
@@ -11690,9 +11689,9 @@ vue3-lazyload@^0.2.2-beta:
   resolved "https://registry.yarnpkg.com/vue3-lazyload/-/vue3-lazyload-0.2.2-beta.tgz#c75df1a8553b60fbfd8324d083cb0e71c94dd26d"
   integrity sha512-k198DjJmH8vmtPm90nzs/04MwMGpqmbhrp9foonWyPDCviQtCATYxlvloxRXroElcDRERZCs/+GRjeDVWsPtNw==
 
-vuefront@vuefront/vuefront#vue3:
-  version "0.4.16"
-  resolved "https://codeload.github.com/vuefront/vuefront/tar.gz/47ba221bfc9c844e6e6a8c904298d2d5077ee8fb"
+vuefront@vuefront/vuefront#ca4912e4768e09f692f071953251375a2e3706db:
+  version "0.4.17"
+  resolved "https://codeload.github.com/vuefront/vuefront/tar.gz/ca4912e4768e09f692f071953251375a2e3706db"
   dependencies:
     "@bundled-es-modules/axios" "^0.21.1"
     "@jamescoyle/vue-icon" "^0.1.2"

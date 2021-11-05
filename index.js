@@ -256,6 +256,10 @@ module.exports = {
       component: "molecules/product-quantity/product-quantity.vue",
       css: "molecules/product-quantity/product-quantity.scss",
     },
+    CartFooter: {
+      css: "molecules/cart-footer/cart-footer.scss",
+      component: "molecules/cart-footer/cart-footer.vue",
+    },
   },
   organisms: {
     Cart: {
@@ -328,7 +332,6 @@ module.exports = {
     },
     CompareActions: "organisms/compare-actions/compare-actions.vue",
     WishlistActions: "organisms/wishlist-actions/wishlist-actions.vue",
-    CartFooter: "organisms/cart-footer/cart-footer.vue",
     CartQuantity: "organisms/cart-quantity/cart-quantity.vue",
     CartActions: "organisms/cart-actions/cart-actions.vue",
     ProductModule: {

@@ -9,6 +9,7 @@ import { makeExecutableSchema } from "@graphql-tools/schema";
 import { addMocksToSchema } from "@graphql-tools/mock";
 import { graphql } from "graphql";
 import schema from './schema.graphql'
+import {getCart} from '../../src/utils/fakeData.ts'
 const store = createStore({
   modules: {
     menu: {
@@ -109,6 +110,17 @@ const store = createStore({
             }
           }
         },
+        cart: {
+          namespaced: true,
+          state: () => ({
+            cart: getCart()
+          }),
+          getters: {
+            get(state) {
+              return state.cart
+            }
+          }
+        }
       }
     },
     common: {
