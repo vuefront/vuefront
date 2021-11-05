@@ -1,17 +1,30 @@
 .vf-m-product-thumb-inline {
   &__name {
-    @apply text-black font-semibold mb-0 leading-none;
+    @apply font-normal mb-0 leading-none text-lg;
+    color: #4A942C;
   }
-  &__model {
-    @apply font-semibold text-gray-400 text-sm leading-none;
+  &__price {
+    @apply font-normal text-sm mb-3;
+    span {
+      @apply font-semibold;
+    }
   }
   &__image {
-    @apply pl-3;
+    @apply pl-3 flex items-center;
+  }
+  &__quantity {
+    @apply mb-4;
   }
   &__option {
-    @apply font-semibold text-gray-400 text-sm leading-none;
+    @apply leading-none text-black;
+    &__name {
+      @apply font-semibold text-sm;
+    }
+    &__value {
+      @apply font-normal text-sm; 
+    }
   }
   &__content {
-    @apply pl-3;
+    @apply pl-3 text-left;
   }
 }

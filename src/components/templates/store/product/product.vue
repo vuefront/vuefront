@@ -50,7 +50,7 @@
             />
           </div>
           <div class="flex flex-row justify-start">
-            <vf-o-product-quantity
+            <vf-m-product-quantity
               class="mr-6"
               :quantity="quantity"
               @change="$emit('change-quantity', $event)"

@@ -5,11 +5,8 @@
         <vf-m-product-thumb-inline
           :product="data.item.product"
           :option="data.item.option"
+          @change-quantity="handleChangeQuantity(data.item.key, $event)"
         />
-      </template>
-      <template #price="data">{{ data.item.product.price }}</template>
-      <template #quantity="data">
-        <vf-o-cart-quantity :cart-product="data.item" />
       </template>
       <template #action="data">
         <vf-o-cart-actions :cart-product="data.item" />
@@ -19,6 +16,7 @@
 </template>
 <script lang="ts" setup>
 import { useI18n } from "vue-i18n";
+import { useStore } from "vuex";
 defineProps({
   cart: {
     type: Object,
@@ -35,16 +33,6 @@ const fields = [
     sortable: false,
   },
   {
-    key: "price",
-    label: i18n.t("elements.store.cart.priceColumn"),
-    sortable: false,
-  },
-  {
-    key: "quantity",
-    label: i18n.t("elements.store.cart.quantityColumn"),
-    sortable: false,
-  },
-  {
     key: "total",
     label: i18n.t("elements.store.cart.totalColumn"),
     sortable: false,
@@ -55,4 +43,13 @@ const fields = [
     sortable: false,
   },
 ];
+
+const store = useStore();
+
+const handleChangeQuantity = (key: string, e: string) => {
+  store.dispatch("store/cart/update", {
+    key,
+    quantity: Number(e),
+  });
+};
 </script>

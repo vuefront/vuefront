@@ -6,5 +6,6 @@
   "actionColumn": "",
   "totalText": "Total value:", 
   "checkoutButton": "Checkout",
+  "cartButton": "Go to cart",
   "returnButton": "Return to shop"
 }

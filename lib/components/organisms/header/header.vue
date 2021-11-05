@@ -12,12 +12,12 @@
         <vf-m-col
           md="4"
           align-self="center"
-          class="flex sm:text-right md:justify-end"
+          class="flex md:gap-4 sm:text-right md:justify-end"
         >
           <vf-o-search-inline-form />
           <vf-m-wishlist-link />
           <vf-m-account-menu />
-          <vf-m-cart-link />
+          <vf-o-cart />
         </vf-m-col>
       </vf-m-row>
     </vf-m-container>
@@ -45,12 +45,13 @@
   }
   &__top {
     @apply py-8;
-    button,
-    button:hover,
-    a,
-    a:hover {
-      &:not([aria-controls]):not(.vf-e-common-menu__link) {
-        @apply p-2 text-black;
+    :not(.vf-o-sidebar) {
+      button,
+      button:hover,
+      a,
+      a:hover {
+        &:not([aria-controls]):not(.vf-e-common-menu__link) {
+        }
       }
     }
   }

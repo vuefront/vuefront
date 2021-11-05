@@ -7,7 +7,7 @@
       <vf-m-logo class="mx-auto" />
       <vf-m-cart-link />
     </vf-m-container>
-    <vf-o-sidebar>
+    <vf-o-sidebar :open="sidebar">
       <template #top>
         <vf-o-search-inline-form />
       </template>
@@ -27,8 +27,10 @@
 <script lang="ts" setup>
 import { mdiClose, mdiApps } from "@mdi/js";
 import { useStore } from "vuex";
+import { computed } from "vue";
 const store = useStore();
 const toggleSidebar = () => store.commit("vuefront/toggleSidebar");
+const sidebar = computed(() => store.getters["vuefront/sidebar"]);
 </script>
 <style lang="scss">
 .vf-o-header-mobile {

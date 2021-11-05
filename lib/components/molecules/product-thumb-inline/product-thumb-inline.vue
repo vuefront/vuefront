@@ -16,15 +16,28 @@
       <div class="vf-m-product-thumb-inline__name">
         <span>{{ product.name }}</span>
       </div>
-      <span class="vf-m-product-thumb-inline__model">{{ product.model }}</span>
+      <div class="vf-m-product-thumb-inline__price">
+        <span>{{ $t("molecules.productThumbInline.textPrice") }}:</span
+        >{{ product.price }}
+      </div>
+      <div class="vf-m-product-thumb-inline__quantity">
+        <vf-m-product-quantity size="sm" @change="handleChangeQuantity" />
+      </div>
       <span
         v-for="(value, index) in option"
         :key="index"
         class="vf-m-product-thumb-inline__option"
       >
         <div>
-          <span v-html="value.name"></span>:
-          <span v-html="value.value"></span>
+          <span
+            class="vf-m-product-thumb-inline__option__name"
+            v-html="value.name"
+          ></span
+          >:
+          <span
+            class="vf-m-product-thumb-inline__option__value"
+            v-html="value.value"
+          ></span>
         </div>
       </span>
       <slot></slot>
@@ -54,6 +67,12 @@ const props = defineProps({
     },
   },
 });
+const emits = defineEmits(["change-quantity"]);
+const handleChangeQuantity = (e: number) => {
+  console.log("handleChangeQuantity");
+  console.log(e);
+  emits("change-quantity", e);
+};
 const image = computed(() =>
   props.product.image !== "" ? props.product.image : placeholder
 );

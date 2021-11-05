@@ -1,8 +1,8 @@
 <template>
-  <div class="vf-o-product-quantity">
+  <div class="vf-m-product-quantity" :class="`--${size}`">
     <vf-m-input-group>
       <vf-a-button
-        class="vf-o-product-quantity__descrease"
+        class="vf-m-product-quantity__descrease"
         size="md"
         color="light"
         @click="handleChange('discrease')"
@@ -10,11 +10,11 @@
       /></vf-a-button>
       <vf-a-input
         :value="quantity"
-        class="vf-o-product-quantity__input"
+        class="vf-m-product-quantity__input"
         @input="handleChange"
       ></vf-a-input>
       <vf-a-button
-        class="vf-o-product-quantity__increase"
+        class="vf-m-product-quantity__increase"
         size="md"
         color="light"
         @click="handleChange('increase')"
@@ -26,6 +26,12 @@
 <script lang="ts" setup>
 import { mdiPlus, mdiMinus } from "@mdi/js";
 const props = defineProps({
+  size: {
+    type: String,
+    default() {
+      return "md";
+    },
+  },
   quantity: {
     type: Number,
     default() {

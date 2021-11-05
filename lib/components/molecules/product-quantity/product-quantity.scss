@@ -1,5 +1,19 @@
-.vf-o-product-quantity {
+.vf-m-product-quantity {
   @apply w-48;
+  &.--sm {
+    @apply w-28;
+    .vf-m-product-quantity {
+      &__descrease {
+        @apply w-9 h-9 px-2 py-2 text-base;
+      }
+      &__input {
+        @apply w-10 h-9 px-2 py-2;
+      }
+      &__increase {
+        @apply w-9 h-9 px-2 py-2 text-base;
+      }
+    }
+  }
   &__descrease {
     @apply w-16 h-16 bg-white hover:bg-white border flex items-center justify-center text-xl px-6 rounded-none;
     border-color: #C4C4C4;

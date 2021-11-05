@@ -248,11 +248,15 @@ module.exports = {
       component: "molecules/checkout-success/checkout-success.vue",
     },
     WishlistLink: "molecules/wishlist-link/wishlist-link.vue",
+    ProductQuantity: {
+      component: "molecules/product-quantity/product-quantity.vue",
+      css: "molecules/product-quantity/product-quantity.scss",
+    },
   },
   organisms: {
-    ProductQuantity: {
-      component: "organisms/product-quantity/product-quantity.vue",
-      css: "organisms/product-quantity/product-quantity.scss",
+    Cart: {
+      component: "organisms/cart/cart.vue",
+      css: "organisms/cart/cart.scss",
     },
     Modal: {
       css: "organisms/modal/modal.scss",
