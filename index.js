@@ -98,6 +98,10 @@ module.exports = {
     Timepicker: "atoms/timepicker/timepicker.vue",
   },
   molecules: {
+    CartProduct: {
+      component: "molecules/cart-product/cart-product.vue",
+      css: "molecules/cart-product/cart-product.scss",
+    },
     Tabs: {
       component: "molecules/tabs/tabs.vue",
       css: "molecules/tabs/tabs.scss",

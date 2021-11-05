@@ -1,0 +1,12 @@
+.vf-m-cart-product {
+  @apply flex flex-row items-center;
+  &__product {
+    @apply flex-1;
+  }
+  &__price {
+    @apply mx-3;
+  }
+  &__remove {
+    @apply mx-4;
+  }
+}

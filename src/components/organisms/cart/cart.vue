@@ -10,7 +10,6 @@
       right
     >
       <template #top> Shopping cart </template>
-      <pre>{{ cart }}</pre>
       <vf-o-cart-products :cart="cart" />
       <template #bottom>
         <vf-o-cart-footer :cart="cart" />

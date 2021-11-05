@@ -21,7 +21,11 @@
         >{{ product.price }}
       </div>
       <div class="vf-m-product-thumb-inline__quantity">
-        <vf-m-product-quantity size="sm" @change="handleChangeQuantity" />
+        <vf-m-product-quantity
+          size="sm"
+          :quantity="quantity"
+          @change="handleChangeQuantity"
+        />
       </div>
       <span
         v-for="(value, index) in option"
@@ -46,7 +50,11 @@
 </template>
 <script lang="ts" setup>
 import placeholder from "../../../../assets/img/placeholder.png";
-import { PropType, computed } from "vue";
+import { PropType, computed, ref } from "vue";
+interface Option {
+  name: string;
+  value: string;
+}
 const props = defineProps({
   product: {
     type: Object,
@@ -55,7 +63,7 @@ const props = defineProps({
     },
   },
   option: {
-    type: Array,
+    type: Array as PropType<Option[]>,
     default() {
       return [];
     },
@@ -67,10 +75,12 @@ const props = defineProps({
     },
   },
 });
+const quantity = ref(1);
 const emits = defineEmits(["change-quantity"]);
 const handleChangeQuantity = (e: number) => {
   console.log("handleChangeQuantity");
   console.log(e);
+  quantity.value = e;
   emits("change-quantity", e);
 };
 const image = computed(() =>

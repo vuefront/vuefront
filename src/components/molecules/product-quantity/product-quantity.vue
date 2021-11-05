@@ -40,10 +40,10 @@ const props = defineProps({
   },
 });
 const emits = defineEmits(["change"]);
-const handleChange = (event) => {
+const handleChange = (event: string) => {
   if (event === "increase") {
     emits("change", props.quantity + 1);
-  } else if (props.quantity > 0) {
+  } else if (props.quantity > 1) {
     emits("change", props.quantity - 1);
   }
 };
