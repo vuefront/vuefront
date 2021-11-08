@@ -1,8 +1,8 @@
 .vf-m-tabs {
   &__list {
-    @apply flex flex-row mb-7;
+    @apply flex flex-col md:flex-row mb-7 text-center md:text-left;
     &__item {
-      @apply text-2xl font-normal mr-16 cursor-pointer;
+      @apply text-2xl font-normal md:mr-16 mb-2 md:mb-0 cursor-pointer;
       &.--active {
         @apply text-primary underline;
       }

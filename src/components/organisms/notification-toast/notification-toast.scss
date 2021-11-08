@@ -1,7 +1,6 @@
 .vf-o-notification-toast {
   visibility: hidden;
-  min-width: 15.625rem;
-  margin-left: -7.8125rem;
+
   background-color: #333;
   color: #fff;
   text-align: center;
@@ -11,7 +10,12 @@
   z-index: 999;
   left: 50%;
   bottom: 1.875rem;
-  @apply bg-success;
+  @apply bg-success -translate-x-1/2 transform;
+  min-width: 80%;
+  @screen md {
+    min-width: 15.625rem;
+    // margin-left: -7.8125rem;
+  }
   &.--error {
     @apply bg-danger;
   }

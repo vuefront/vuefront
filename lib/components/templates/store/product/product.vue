@@ -23,14 +23,14 @@
             :special="product.special"
           />
           <vf-m-row class="mb-9">
-            <vf-m-col xs="6">
+            <vf-m-col xs="12" md="6">
               <vf-m-rating
                 v-if="product.rating > 0"
                 :model-value="product.rating"
                 readonly
               />
             </vf-m-col>
-            <vf-m-col xs="6" class="sm:text-right">
+            <vf-m-col xs="12" md="6" class="md:text-right">
               <vf-a-badge color="primary" class="mr-2"
                 >{{ $t("elements.store.product.idText")
                 }}{{ product.id }}</vf-a-badge
@@ -49,9 +49,17 @@
               :product="product"
             />
           </div>
-          <div class="flex flex-row justify-start">
+          <div
+            class="
+              flex flex-col
+              md:flex-row
+              justify-start
+              items-center
+              md:items-stretch
+            "
+          >
             <vf-m-product-quantity
-              class="mr-6"
+              class="md:mr-6 mb-7 md:mb-0"
               :quantity="quantity"
               @change="$emit('change-quantity', $event)"
             />

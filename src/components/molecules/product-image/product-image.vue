@@ -17,7 +17,7 @@
       <vf-m-col
         v-for="(value, index) in product.images"
         :key="index"
-        xs="12"
+        xs="3"
         md="3"
       >
         <a
