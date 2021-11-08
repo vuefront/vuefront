@@ -11694,9 +11694,10 @@ vue3-lazyload@^0.2.2-beta:
   resolved "https://registry.yarnpkg.com/vue3-lazyload/-/vue3-lazyload-0.2.2-beta.tgz#c75df1a8553b60fbfd8324d083cb0e71c94dd26d"
   integrity sha512-k198DjJmH8vmtPm90nzs/04MwMGpqmbhrp9foonWyPDCviQtCATYxlvloxRXroElcDRERZCs/+GRjeDVWsPtNw==
 
-vuefront@vuefront/vuefront#73e04e08af545b315ef53f00a5d5a0a759c1f1d4:
-  version "0.4.18"
-  resolved "https://codeload.github.com/vuefront/vuefront/tar.gz/73e04e08af545b315ef53f00a5d5a0a759c1f1d4"
+vuefront@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/vuefront/-/vuefront-0.5.0.tgz#6e09573a65e6432cfb3681136ca5e2a2b5f57474"
+  integrity sha512-bF63uQlC87hnNH1hVElUubCvFhuVY/nyYbrjgNybOBh5SsmpWFfnoB5hEMeUGVhFY/PupEalgLuLeOb5iG7x3Q==
   dependencies:
     "@bundled-es-modules/axios" "^0.21.1"
     "@jamescoyle/vue-icon" "^0.1.2"
