@@ -3,74 +3,69 @@
     type="time"
     class="vf-a-datepicker vf-a-input"
     :class="getClass"
-    :value="value"
+    :value="modelValue"
     @input="handleInput"
     @change="handleChange"
     @keypress="handleKeypress"
   />
 </template>
-<script>
-export default {
-  props: {
-    size: {
-      type: String,
-      default: "md",
-    },
-    placeholder: {
-      type: String,
-      default: "",
-    },
-    state: {
-      type: Boolean,
-      default: null,
-    },
-    trim: {
-      type: Boolean,
-      default() {
-        return false;
-      },
-    },
-    value: {
-      type: [String, Number, Object],
-      default() {
-        return null;
-      },
+<script lang="ts" setup>
+import { computed } from "@vue/reactivity";
+
+const props = defineProps({
+  size: {
+    type: String,
+    default: "md",
+  },
+  placeholder: {
+    type: String,
+    default: "",
+  },
+  state: {
+    type: Boolean,
+    default: null,
+  },
+  trim: {
+    type: Boolean,
+    default() {
+      return false;
     },
   },
-  computed: {
-    getClass() {
-      const result = [];
-
-      if (this.size === "sm") {
-        result.push("--sm");
-      }
-
-      if (this.size === "md") {
-        result.push("--md");
-      }
-
-      if (this.size === "lg") {
-        result.push("--lg");
-      }
-
-      if (!(this.state || this.state === null)) {
-        result.push(
-          "--error"
-        );
-      }
-      return result.join(" ");
+  modelValue: {
+    type: [String, Number, Object],
+    default() {
+      return null;
     },
   },
-  methods: {
-    handleInput(e) {
-      this.$emit("input", e.target.value);
-    },
-    handleChange(e) {
-      this.$emit("change", e.target.value);
-    },
-    handleKeypress(e) {
-      this.$emit("keypress", e.target.value);
-    },
-  },
+});
+const getClass = computed(() => {
+  const result = [];
+
+  if (props.size === "sm") {
+    result.push("--sm");
+  }
+
+  if (props.size === "md") {
+    result.push("--md");
+  }
+
+  if (props.size === "lg") {
+    result.push("--lg");
+  }
+
+  if (!(props.state || props.state === null)) {
+    result.push("--error");
+  }
+  return result.join(" ");
+});
+const emit = defineEmits(["update:modelValue", "change", "keypress"]);
+const handleInput = (e: any) => {
+  emit("update:modelValue", e.target.value);
+};
+const handleChange = (e: any) => {
+  emit("change", e.target.value);
+};
+const handleKeypress = (e: any) => {
+  emit("keypress", e);
 };
 </script>

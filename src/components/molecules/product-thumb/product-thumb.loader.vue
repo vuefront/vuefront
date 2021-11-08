@@ -1,62 +1,48 @@
 <template>
-  <skeleton
-    shape="radius"
-    theme="opacity"
-    bg-color="#eee"
-    duration="2"
-    width="100%"
+  <vf-m-card
+    :class="{ 'card-product_wide': wide }"
+    class="card-product vf-m-product-thumb"
+    no-body
   >
-    <vf-m-card
-      :class="{ 'card-product_wide': wide }"
-      class="card-product vf-m-product-thumb"
-      no-body
-    >
-      <vf-m-row no-gutters>
-        <vf-m-col :md="wide ? 3 : 12" class="px-4">
-          <tb-skeleton height="205px"></tb-skeleton>
-        </vf-m-col>
-        <vf-m-col :md="wide ? 9 : 12">
-          <vf-m-card-body class="pt-0">
-            <tb-skeleton
-              width="50%"
-              height="20px"
-              style="margin: 28px auto 28px"
-            ></tb-skeleton>
-            <div class="mb-3">
-              <tb-skeleton
-                height="13px"
-                style="margin-bottom: 10px"
-              ></tb-skeleton>
-              <tb-skeleton
-                height="13px"
-                style="margin-bottom: 10px"
-              ></tb-skeleton>
-              <tb-skeleton
-                height="13px"
-                style="margin-bottom: 10px"
-              ></tb-skeleton>
-            </div>
-            <div class="mb-0">
-              <tb-skeleton height="22px" width="40%"></tb-skeleton>
-            </div>
-          </vf-m-card-body>
-          <tb-skeleton height="40px"></tb-skeleton>
-        </vf-m-col>
-      </vf-m-row>
-    </vf-m-card>
-  </skeleton>
+    <vf-m-row no-gutters>
+      <vf-m-col :md="wide ? 3 : 12" class="px-4">
+        <vf-m-skeleton height="205px"></vf-m-skeleton>
+      </vf-m-col>
+      <vf-m-col :md="wide ? 9 : 12">
+        <vf-m-card-body class="pt-0">
+          <vf-m-skeleton
+            width="50%"
+            height="20px"
+            style="margin: 28px auto 28px"
+          ></vf-m-skeleton>
+          <div class="mb-3">
+            <vf-m-skeleton
+              height="13px"
+              style="margin-bottom: 10px"
+            ></vf-m-skeleton>
+            <vf-m-skeleton
+              height="13px"
+              style="margin-bottom: 10px"
+            ></vf-m-skeleton>
+            <vf-m-skeleton
+              height="13px"
+              style="margin-bottom: 10px"
+            ></vf-m-skeleton>
+          </div>
+          <div class="mb-0">
+            <vf-m-skeleton height="22px" width="40%"></vf-m-skeleton>
+          </div>
+        </vf-m-card-body>
+        <vf-m-skeleton height="40px"></vf-m-skeleton>
+      </vf-m-col>
+    </vf-m-row>
+  </vf-m-card>
 </template>
-
-<script>
-import * as ISkeleton from "tb-skeleton";
-const { TbSkeleton, Skeleton } = ISkeleton
-
-
-export default {
-  components: {
-    TbSkeleton,
-    Skeleton,
+<script lang="ts" setup>
+defineProps({
+  wide: {
+    type: Boolean,
+    default: () => false,
   },
-  props: ["wide"],
-};
+});
 </script>

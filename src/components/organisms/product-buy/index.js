@@ -1,1 +1,0 @@
-export { default as oProductBuy } from "./product-buy.vue";

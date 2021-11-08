@@ -28,37 +28,32 @@
     </div>
   </form>
 </template>
-<script>
-import { mapGetters } from "vuex";
-export default {
-  props: {
-    inline: {
-      type: Boolean,
-      default() {
-        return false;
-      },
-    },
-    button: {
-      type: Boolean,
-      default() {
-        return true;
-      },
+<script lang="ts" setup>
+import { computed } from "vue";
+import { useStore } from "vuex";
+const emits = defineEmits(["submit", "reset"]);
+const props = defineProps({
+  inline: {
+    type: Boolean,
+    default() {
+      return false;
     },
   },
-  computed: {
-    ...mapGetters({
-      error: "vuefront/error",
-    }),
-  },
-  methods: {
-    onSubmit(e) {
-      e.preventDefault();
-      this.$emit("submit", e);
-    },
-    onReset(e) {
-      e.preventDefault();
-      this.$emit("reset", e);
+  button: {
+    type: Boolean,
+    default() {
+      return true;
     },
   },
+});
+const store = useStore();
+const error = computed(() => store.getters["vuefront/error"]);
+const onSubmit = (e: Event) => {
+  e.preventDefault();
+  emits("submit", e);
+};
+const onReset = (e: Event) => {
+  e.preventDefault();
+  emits("reset", e);
 };
 </script>

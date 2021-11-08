@@ -1,7 +1,8 @@
 <template>
   <vf-a-heading
-    :level="variant === 'normal' ? 3 : 6"
+    :level="variant === 'normal' ? 1 : 6"
     class="vf-m-product-price"
+    :class="`--${variant}`"
   >
     <span v-if="special !== ''" class="vf-m-product-price__special">{{
       special
@@ -16,27 +17,25 @@
     <span v-else class="vf-m-product-price__price">{{ price }}</span>
   </vf-a-heading>
 </template>
-<script>
-export default {
-  props: {
-    price: {
-      type: String,
-      default() {
-        return "";
-      },
-    },
-    special: {
-      type: String,
-      default() {
-        return "";
-      },
-    },
-    variant: {
-      type: String,
-      default() {
-        return "normal";
-      },
+<script setup lang="ts">
+defineProps({
+  price: {
+    type: String,
+    default() {
+      return "";
     },
   },
-};
+  special: {
+    type: String,
+    default() {
+      return "";
+    },
+  },
+  variant: {
+    type: String,
+    default() {
+      return "normal";
+    },
+  },
+});
 </script>

@@ -1,52 +1,37 @@
 <template>
-  <LightBox
-    ref="lightbox"
-    :media="images"
-    :show-light-box="false"
-    @onOpened="handleOpened"
-  ></LightBox>
+  <vue-easy-lightbox
+    :imgs="images"
+    :visible="visible"
+    :index="index"
+    @hide="handleOpened"
+  ></vue-easy-lightbox>
 </template>
-<script>
-import Vue from "vue";
-import VueLazyLoad from "vue-lazyload";
-Vue.use(VueLazyLoad);
-export default {
-  components: {
-    LightBox: () => import("vue-image-lightbox"),
-  },
-  props: {
-    images: {
-      type: Array,
-      default() {
-        return [];
-      },
-    },
-    show: {
-      type: Boolean,
-      default() {
-        return false;
-      },
-    },
-    index: {
-      type: Number,
-      default() {
-        return 0;
-      },
-    },
-  },
-  watch: {
-    show(value, oldValue) {
-      if (!oldValue && value) {
-        this.$refs.lightbox.showImage(this.index);
-      }
-    },
-  },
-  methods: {
-    handleOpened(value) {
-      if (!value) {
-        this.$emit("click:close", value);
-      }
-    },
-  },
+<script lang="ts" setup>
+import { defineComponent, PropType, ref, watch } from "vue";
+import VueEasyLightbox from "vue-easy-lightbox";
+
+const props = defineProps({
+  show: { type: Boolean, required: true },
+  index: { type: Number, required: true },
+  images: { type: Array as PropType<Array<string>>, required: true },
+});
+const emits = defineEmits(["click:close"]);
+
+let visible = ref(false);
+
+const handleOpened = () => {
+  emits("click:close");
 };
+
+watch(
+  () => props.show,
+  (value, oldValue) => {
+    if (!oldValue && value) {
+      visible.value = true;
+    }
+    if (oldValue && !value) {
+      visible.value = false;
+    }
+  }
+);
 </script>

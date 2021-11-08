@@ -16,101 +16,99 @@
     </span>
   </div>
 </template>
-<script>
-import { mapGetters } from "vuex";
-import isUndefined from "lodash-es/isUndefined";
-export default {
-  props: ["query", "variables"],
-  computed: {
-    ...mapGetters({
-      prefetchData: "apollo/prefetchData",
-    }),
-    data() {
-      let data = {};
+<script lang="ts" setup>
+import { useStore } from "vuex";
+import { isUndefined } from "lodash";
+import {
+  computed,
+  getCurrentInstance,
+  inject,
+  onMounted,
+  onServerPrefetch,
+  watch,
+} from "vue";
+import { useRoute } from "vue-router";
+const store = useStore();
+const route = useRoute();
+const props = defineProps(["query", "variables"]);
+const $vfapollo = inject<any>("$vfapollo");
+const emit = defineEmits(["loaded"]);
 
-      if (!isUndefined(this.prefetchData[this.componentHash])) {
-        data = this.prefetchData[this.componentHash].data;
-      }
-
-      return data;
-    },
-    loading() {
-      let loading = true;
-
-      if (!isUndefined(this.prefetchData[this.componentHash])) {
-        loading = this.prefetchData[this.componentHash].loading;
-      }
-
-      return loading;
-    },
-    componentHash() {
-      let query = this.query;
-      if (this.$parent.$options.query) {
-        query = this.$parent.$options.query;
-      }
-      return this.hashCode(
-        JSON.stringify({ query, variables: this.variables })
-      );
-    },
-  },
-  watch: {
-    $route(to, from) {
-      this.loadData();
-    },
-  },
-  watchQuery: true,
-  serverPrefetch() {
-    return this.loadData(true);
-  },
-  mounted() {
-    if (this.loading) {
-      this.loadData();
-    } else {
-      this.$emit("loaded", this.data);
-    }
-  },
-  methods: {
-    loadData(ssr = false) {
-      return new Promise((resolve, reject) => {
-        let query = this.query;
-        if (this.$parent.$options.query) {
-          query = this.$parent.$options.query;
-        }
-        this.$vfapollo
-          .query({
-            query,
-            variables: this.variables ? this.variables : {},
-          })
-          .then(({ data }) => {
-            this.$emit("loaded", data);
-            this.$store.commit("apollo/setPrefetchData", {
-              key: this.componentHash,
-              data: { data, loading: false },
-            });
-            resolve();
-          })
-          .catch((e) => {
-            this.$store.commit("apollo/setPrefetchData", {
-              key: this.componentHash,
-              data: { error: {}, loading: false },
-            });
-
-            reject(e);
-          });
-      });
-    },
-    hashCode(str) {
-      let hash = 0;
-      let i;
-      let chr;
-      if (str.length === 0) return hash;
-      for (i = 0; i < str.length; i++) {
-        chr = str.charCodeAt(i);
-        hash = (hash << 5) - hash + chr;
-        hash |= 0;
-      }
-      return hash;
-    },
-  },
+const hashCode = (str: string) => {
+  let hash = 0;
+  let i;
+  let chr;
+  if (str.length === 0) return hash;
+  for (i = 0; i < str.length; i++) {
+    chr = str.charCodeAt(i);
+    hash = (hash << 5) - hash + chr;
+    hash |= 0;
+  }
+  return hash;
 };
+const instance = getCurrentInstance();
+const prefetchData = computed(() => store.getters["apollo/prefetchData"]);
+const componentHash = computed(() => {
+  let query = props.query;
+  if ((instance?.parent?.type as any).query) {
+    query = (instance?.parent?.type as any).query;
+  }
+  return hashCode(JSON.stringify({ query, variables: props.variables }));
+});
+const data = computed(() => {
+  let data = {};
+
+  if (!isUndefined(prefetchData.value[componentHash.value])) {
+    data = prefetchData.value[componentHash.value].data;
+  }
+
+  return data;
+});
+const loading = computed(() => {
+  let loading = true;
+  if (!isUndefined(prefetchData.value[componentHash.value])) {
+    loading = prefetchData.value[componentHash.value].loading;
+  }
+  return loading;
+});
+
+const loadData = async (ssr = false) => {
+  let query = props.query;
+  if ((instance?.parent?.type as any).query) {
+    query = (instance?.parent?.type as any).query;
+  }
+  try {
+    const { data } = await $vfapollo.query({
+      query,
+      variables: props.variables ? props.variables : {},
+    });
+    emit("loaded", data);
+    store.commit("apollo/setPrefetchData", {
+      key: componentHash.value,
+      data: { data, loading: false },
+    });
+  } catch (e) {
+    store.commit("apollo/setPrefetchData", {
+      key: componentHash.value,
+      data: { error: {}, loading: false },
+    });
+  }
+};
+
+watch(
+  () => route,
+  (to, from) => {
+    loadData();
+  }
+);
+onMounted(async () => {
+  if (loading.value) {
+    await loadData();
+  } else {
+    emit("loaded", data);
+  }
+});
+onServerPrefetch(() => {
+  return loadData(true);
+});
 </script>

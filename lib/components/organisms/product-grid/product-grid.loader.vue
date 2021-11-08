@@ -1,7 +1,13 @@
 <template>
   <div class="vf-l-o-product-gid">
     <section>
-      <vf-m-row>
+      <vf-m-row
+        :no-gutters="
+          noGutters !== null
+            ? noGutters
+            : vuefront$.options.productGridNoGutters
+        "
+      >
         <vf-m-col
           v-for="value in [1, 2, 3, 4]"
           :key="value"
@@ -16,25 +22,27 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    column: {
-      type: Boolean,
-      default: false,
-    },
-    list: {
-      type: Boolean,
-      default: false,
-    },
-    gridSize: {
-      type: Number,
-      default: 4,
-    },
-    gridSizeTablet: {
-      type: Number,
-      default: 3,
-    },
+<script lang="ts" setup>
+defineProps({
+  column: {
+    type: Boolean,
+    default: false,
   },
-};
+  list: {
+    type: Boolean,
+    default: false,
+  },
+  gridSize: {
+    type: Number,
+    default: 4,
+  },
+  gridSizeTablet: {
+    type: Number,
+    default: 3,
+  },
+  noGutters: {
+    type: Boolean,
+    deafult: false,
+  },
+});
 </script>

@@ -1,29 +1,22 @@
 <template>
-  <skeleton
-    shape="radius"
-    theme="opacity"
-    bg-color="#eee"
-    width="100%"
-    duration="2"
-  >
-    <div class="mb-5">
-      <div class="mb-5 h6">
-        <tb-skeleton width="150px" height="20px" class="mx-auto"></tb-skeleton>
-      </div>
-      <vf-l-o-post-grid :column="column" />
+  <div class="mb-5">
+    <div class="mb-5 h6">
+      <vf-m-skeleton
+        width="150px"
+        height="20px"
+        class="mx-auto"
+      ></vf-m-skeleton>
     </div>
-  </skeleton>
+    <vf-l-o-post-grid :column="column" />
+  </div>
 </template>
-<script>
-import * as ISkeleton from "tb-skeleton";
-const { TbSkeleton, Skeleton } = ISkeleton
-
-
-export default {
-  components: {
-    TbSkeleton,
-    Skeleton,
+<script lang="ts" setup>
+defineProps({
+  column: {
+    type: Boolean,
+    default() {
+      return false;
+    },
   },
-  props: ["column"],
-};
+});
 </script>

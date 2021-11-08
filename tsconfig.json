@@ -1,0 +1,35 @@
+{
+  "include": [
+    "src",
+    "types/*.d.ts"
+  ],
+  "exclude": [
+    "**/*.spec.ts"
+  ],
+  "compilerOptions": {
+    "outDir": "lib-temp",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "strict": true,
+    "declaration": true,
+    "sourceMap": false,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "noImplicitOverride": true,
+    "noUnusedLocals": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      // vite typings uses custom paths that is patched into relative paths during build
+      // this is a shim that makes even dev-time vite typings work for plugin-vue
+      "types/*": [
+        "../vite/types/*"
+      ],
+      "*": [
+        "types/*.d.ts"
+      ]
+    }
+  }
+}

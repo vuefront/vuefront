@@ -1,16 +1,16 @@
 <template>
-  <vf-o-form @submit="onSubmit">
+  <vf-o-form ref="review-form" @submit="onSubmit">
     <template #title>{{ $t("elements.common.reviews.writeText") }}</template>
 
     <vf-m-field
       id="input-rating"
-      :state="$v.rating.$dirty ? !$v.rating.$error : null"
+      :state="v$.rating.$dirty ? !v$.rating.$error : null"
     >
       <template #label>{{
         $t("elements.common.reviews.ratingEntry")
       }}</template>
       <template #default="data">
-        <vf-m-rating v-model="rating" v-bind="data" color="#ffcc00" />
+        <vf-m-rating v-model="rating" v-bind="data" />
       </template>
       <template #error>{{
         $t("elements.common.reviews.ratingError")
@@ -19,7 +19,7 @@
 
     <vf-m-field
       id="input-name"
-      :state="$v.author.$dirty ? !$v.author.$error : null"
+      :state="v$.author.$dirty ? !v$.author.$error : null"
     >
       <template #label>{{ $t("elements.common.reviews.nameEntry") }}</template>
       <template #default="data">
@@ -32,7 +32,7 @@
 
     <vf-m-field
       id="input-review"
-      :state="$v.review.$dirty ? !$v.review.$error : null"
+      :state="v$.review.$dirty ? !v$.review.$error : null"
     >
       <template #label>{{
         $t("elements.common.reviews.reviewEntry")
@@ -48,27 +48,22 @@
     <template #button>{{ $t("elements.common.reviews.buttonSend") }}</template>
   </vf-o-form>
 </template>
-<script>
-import * as vuelidate from "vuelidate";
+<script lang="ts" setup>
+import { ref } from "vue";
 import {
   required,
   minLength,
   minValue,
   maxLength,
   maxValue,
-} from "vuelidate/lib/validators";
-const { validationMixin } = vuelidate;
-
-export default {
-  mixins: [validationMixin],
-  data() {
-    return {
-      author: "",
-      rating: 0,
-      review: "",
-    };
-  },
-  validations: {
+} from "@vuelidate/validators";
+import { useVuelidate } from "@vuelidate/core";
+const emits = defineEmits(["submit"]);
+const rating = ref(0);
+const author = ref("");
+const review = ref("");
+const v$ = useVuelidate(
+  {
     rating: {
       required,
       minValue: minValue(1),
@@ -85,21 +80,22 @@ export default {
       maxLength: maxLength(1000),
     },
   },
-  methods: {
-    onSubmit(e) {
-      this.$v.$touch();
+  { rating, author, review }
+);
 
-      if (!this.$v.$invalid) {
-        this.$emit("submit", {
-          content: this.review,
-          author: this.author,
-          rating: this.rating,
-        });
-        this.author = "";
-        this.rating = 0;
-        this.review = "";
-      }
-    },
-  },
+const onSubmit = () => {
+  v$.value.$touch();
+
+  if (!v$.value.$invalid) {
+    emits("submit", {
+      content: review.value,
+      author: author.value,
+      rating: rating.value,
+    });
+    author.value = "";
+    rating.value = 0;
+    review.value = "";
+    v$.value.$reset();
+  }
 };
 </script>

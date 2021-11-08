@@ -3,27 +3,35 @@
     <vf-m-row>
       <vf-m-col xs="12" md="6">
         <vf-m-product-image :product="product" />
-        <vf-o-product-reviews :product="product" />
       </vf-m-col>
       <vf-m-col xs="12" md="6">
         <div class="product-info pl-lg-5">
-          <vf-a-heading level="4" class="product-info__name" tag="h1">{{
-            product.name
-          }}</vf-a-heading>
-          <vf-a-heading level="6" class="product-info__model text-sm">{{
-            product.model
-          }}</vf-a-heading>
-          <vf-m-row>
-            <vf-m-col xs="6">
+          <vf-a-heading
+            level="4"
+            class="product-info__name font-normal text-4xl"
+            tag="h1"
+            >{{ product.name }}</vf-a-heading
+          >
+          <vf-a-heading
+            level="6"
+            class="product-info__model font-normal text-base"
+            >{{ product.model }}</vf-a-heading
+          >
+          <vf-m-product-price
+            class="product-info__price"
+            :price="product.price"
+            :special="product.special"
+          />
+          <vf-m-row class="mb-9">
+            <vf-m-col xs="12" md="6">
               <vf-m-rating
                 v-if="product.rating > 0"
-                :value="product.rating"
-                color="#ffcc00"
+                :model-value="product.rating"
                 readonly
               />
             </vf-m-col>
-            <vf-m-col xs="6" class="sm:text-right">
-              <vf-a-badge color="primary"
+            <vf-m-col xs="12" md="6" class="md:text-right">
+              <vf-a-badge color="primary" class="mr-2"
                 >{{ $t("elements.store.product.idText")
                 }}{{ product.id }}</vf-a-badge
               >
@@ -35,49 +43,59 @@
               }}</vf-a-badge>
             </vf-m-col>
           </vf-m-row>
-          <div
-            class="my-4 py-4 border-top"
-            :class="{ 'border-bottom': product.attributes.lenght > 0 }"
-          >
-            <vf-a-heading
-              level="6"
-              tag="h6"
-              class="product-info__description-title text-sm mb-1"
-              >{{ $t("elements.store.product.descriptionText") }}</vf-a-heading
-            >
-            <div
-              class="product-info__description text-sm"
-              v-html="product.description"
-            />
-          </div>
-          <vf-m-product-attribute
-            v-if="product.attributes.length > 0"
-            :attributes="product.attributes"
-          />
-          <div class="py-4 my-4 border-bottom border-top">
+          <div class="py-4 my-4">
             <vf-o-product-options
               v-if="product.options.length > 0"
               :product="product"
             />
-            <vf-m-row>
-              <vf-m-col xs="6" md="5" class="mb-4 mb-sm-0">
-                <vf-m-product-price
-                  :price="product.price"
-                  :special="product.special"
-                />
-              </vf-m-col>
-              <vf-m-col xs="6" md="7" class="sm:text-right">
-                <vf-o-product-buy :product="product" />
-              </vf-m-col>
-            </vf-m-row>
+          </div>
+          <div
+            class="
+              flex flex-col
+              md:flex-row
+              justify-start
+              items-center
+              md:items-stretch
+            "
+          >
+            <vf-m-product-quantity
+              class="md:mr-6 mb-7 md:mb-0"
+              :quantity="quantity"
+              @change="$emit('change-quantity', $event)"
+            />
+            <vf-o-product-buy :product="product" :quantity="quantity" />
           </div>
         </div>
       </vf-m-col>
     </vf-m-row>
+    <vf-m-tabs class="mb-14 mt-32">
+      <vf-m-tab title="Description">
+        <div
+          class="product-info__description text-sm"
+          v-html="product.description"
+        />
+      </vf-m-tab>
+      <vf-m-tab title="Specification"
+        ><vf-m-product-attribute
+          v-if="product.attributes.length > 0"
+          :attributes="product.attributes"
+      /></vf-m-tab>
+      <vf-m-tab title="Reviews">
+        <vf-o-product-reviews :product="product" />
+      </vf-m-tab>
+    </vf-m-tabs>
   </section>
 </template>
-<script>
-export default {
-  props: ["product"],
-};
+<script lang="ts" setup>
+defineProps({
+  product: {
+    type: Object,
+    default: () => null,
+  },
+  quantity: {
+    type: Number,
+    default: () => 1,
+  },
+});
+defineEmits(["change-quantity"]);
 </script>

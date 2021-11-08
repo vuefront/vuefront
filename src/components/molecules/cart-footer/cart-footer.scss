@@ -1,0 +1,15 @@
+.vf-m-cart-footer {
+  &__actions {
+    @apply mt-5 md:mt-11 flex flex-row;
+  }
+  &__total {
+    @apply pb-5 md:pb-11 text-right font-semibold text-lg md:text-xl leading-5 border-b;
+    border-color: #C4C4C4;
+    span {
+      @apply text-xl md:text-2xl ml-9;
+    }
+  }
+  &__return {
+    @apply md:mr-4 md:flex-1 mr-auto;
+  }
+}

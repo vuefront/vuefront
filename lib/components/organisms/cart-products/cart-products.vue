@@ -1,55 +1,37 @@
 <template>
   <section class="vf-o-cart-products">
-    <vf-m-table :fields="fields" :items="cart.products" class="table-cards">
-      <template #product="data">
-        <vf-m-product-thumb-inline
-          :product="data.item.product"
-          :option="data.item.option"
-        />
-      </template>
-      <template #price="data">{{ data.item.product.price }}</template>
-      <template #quantity="data">
-        <vf-o-cart-quantity :cart-product="data.item" />
-      </template>
-      <template #action="data">
-        <vf-o-cart-actions :cart-product="data.item" />
-      </template>
-    </vf-m-table>
+    <vf-m-cart-product
+      class="vf-o-cart-products__item mb-5"
+      v-for="(value, index) in cart.products"
+      :key="index"
+      :cart-product="value"
+      @change-quantity="handleChangeQuantity(value.key, $event)"
+      @remove="handleRemove(value.key)"
+    />
   </section>
 </template>
-<script>
-export default {
-  props: ["cart"],
-  data() {
-    return {
-      fields: [
-        {
-          key: "product",
-          label: this.$t("elements.store.cart.productColumn"),
-          sortable: false,
-        },
-        {
-          key: "price",
-          label: this.$t("elements.store.cart.priceColumn"),
-          sortable: false,
-        },
-        {
-          key: "quantity",
-          label: this.$t("elements.store.cart.quantityColumn"),
-          sortable: false,
-        },
-        {
-          key: "total",
-          label: this.$t("elements.store.cart.totalColumn"),
-          sortable: false,
-        },
-        {
-          key: "action",
-          label: this.$t("elements.store.cart.actionColumn"),
-          sortable: false,
-        },
-      ],
-    };
+<script lang="ts" setup>
+import { useStore } from "vuex";
+defineProps({
+  cart: {
+    type: Object,
+    default() {
+      return null;
+    },
   },
+});
+
+const store = useStore();
+
+const handleChangeQuantity = (key: string, e: string) => {
+  store.dispatch("store/cart/update", {
+    key,
+    quantity: Number(e),
+  });
+};
+const handleRemove = (key: string) => {
+  store.dispatch("store/cart/remove", {
+    key,
+  });
 };
 </script>

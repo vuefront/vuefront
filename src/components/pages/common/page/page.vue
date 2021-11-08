@@ -1,56 +1,58 @@
 <template>
-  <vf-t-common-layout class="common-page">
-    <vf-t-common-page :page="page" />
-  </vf-t-common-layout>
+  <vf-t-common-page :page="page" />
 </template>
-<script>
-import { mapGetters } from "vuex";
-import pageGql from "./page.graphql";
+<script lang="ts" setup>
+import { useStore } from "vuex";
+import useQuery from "../../../../utils/query";
+import { computed, inject } from "vue";
+import { useMeta } from "vue-meta";
+import useBreadcrumbs from "../../../../utils/breadcrumbs";
+import { useRoute } from "vue-router";
 
-export default {
-  props: ["url", "keyword", "id"],
-  async asyncData({ store, params, app }) {
-    const { id } = app.$vuefront.params;
-    await store.dispatch("apollo/query", {
-      query: pageGql,
-      variables: { id },
-    });
+const { onLoad } = useBreadcrumbs();
+const store = useStore();
+const { query } = useQuery();
+const { meta } = useMeta({});
+const route = useRoute();
+const vuefront$ = inject<any>("$vuefront");
+const page = computed(() => store.getters["common/page/get"]);
 
-    const { page } = store.getters["apollo/get"];
+const handleLoadData = async () => {
+  const { id } = vuefront$.params;
 
-    store.commit("common/page/setPage", page);
-  },
-  head() {
-    if (!this.page.meta) {
-      return {};
-    }
-    return {
-      title: this.page.meta.title,
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content: this.page.meta.description,
-        },
-        {
-          name: "keywords",
-          content: this.page.meta.keyword,
-        },
-      ],
-    };
-  },
-  breadcrumbs() {
-    return [
-      {
-        title: this.page.meta.title,
-        to: this.$route.path,
-      },
-    ];
-  },
-  computed: {
-    ...mapGetters({
-      page: "common/page/get",
-    }),
-  },
+  await store.dispatch("apollo/query", {
+    query,
+    variables: { id },
+  });
+  const { page } = store.getters["apollo/get"];
+  await store.commit("common/page/setPage", page);
+
+  meta.title = page.meta.title;
+  meta.description = page.meta.description;
+  meta.keywords = page.meta.keyword;
+  onLoad([
+    {
+      title: page.meta.title,
+      to: route.path,
+    },
+  ]);
 };
+
+await handleLoadData();
 </script>
+<graphql>
+query($id: String) {
+  page(id: $id) {
+    id
+    title
+    description
+    sort_order
+    meta {
+      title
+      description
+      keyword
+    }
+    keyword
+  }
+}
+</graphql>

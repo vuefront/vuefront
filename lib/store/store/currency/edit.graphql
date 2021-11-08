@@ -1,9 +1,0 @@
-mutation($code: String) {
-  editCurrency(code: $code) {
-    code
-    symbol_left
-    symbol_right
-    title
-    active
-  }
-}

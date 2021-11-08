@@ -1,32 +1,12 @@
 <template>
-  <skeleton
-    shape="radius"
-    theme="opacity"
-    bg-color="#eee"
-    width="100%"
-    duration="2"
-  >
-    <div>
-      <tb-skeleton width="100px" height="20px" class="mb-4"></tb-skeleton>
-      <tb-skeleton width="100px" height="18px" class="mb-2"></tb-skeleton>
-      <vf-l-m-rating class="mb-3" />
-      <tb-skeleton width="120px" height="18px" class="mb-2"></tb-skeleton>
-      <tb-skeleton height="50px" class="mb-3"></tb-skeleton>
-      <tb-skeleton width="120px" height="18px" class="mb-2"></tb-skeleton>
-      <tb-skeleton height="74px" class="mb-3"></tb-skeleton>
-      <tb-skeleton width="95px" height="50px" class="ml-auto"></tb-skeleton>
-    </div>
-  </skeleton>
+  <div>
+    <vf-m-skeleton width="100px" height="20px" class="mb-4"></vf-m-skeleton>
+    <vf-m-skeleton width="100px" height="18px" class="mb-2"></vf-m-skeleton>
+    <vf-l-m-rating class="mb-3" />
+    <vf-m-skeleton width="120px" height="18px" class="mb-2"></vf-m-skeleton>
+    <vf-m-skeleton height="50px" class="mb-3"></vf-m-skeleton>
+    <vf-m-skeleton width="120px" height="18px" class="mb-2"></vf-m-skeleton>
+    <vf-m-skeleton height="74px" class="mb-3"></vf-m-skeleton>
+    <vf-m-skeleton width="95px" height="50px" class="ml-auto"></vf-m-skeleton>
+  </div>
 </template>
-<script>
-import * as ISkeleton from "tb-skeleton";
-const { TbSkeleton, Skeleton } = ISkeleton
-
-
-export default {
-  components: {
-    TbSkeleton,
-    Skeleton,
-  },
-};
-</script>

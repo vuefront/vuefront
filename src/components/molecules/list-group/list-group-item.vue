@@ -1,29 +1,35 @@
 <template>
   <vf-a-link
-    :is="to ? 'vf-a-link' : 'div'"
+    v-if="to"
     class="vf-m-list-group__item"
     :class="{ 'vf-m-list-group__item--active': active }"
     :to="to"
-    v-on="$listeners"
+    v-bind="$attrs"
   >
     <slot></slot>
   </vf-a-link>
+  <div
+    v-else
+    class="vf-m-list-group__item"
+    :class="{ 'vf-m-list-group__item--active': active }"
+    v-bind="$attrs"
+  >
+    <slot></slot>
+  </div>
 </template>
-<script>
-export default {
-  props: {
-    active: {
-      type: Boolean,
-      default() {
-        return false;
-      },
-    },
-    to: {
-      type: String,
-      default() {
-        return null;
-      },
+<script lang="ts" setup>
+defineProps({
+  active: {
+    type: Boolean,
+    default() {
+      return false;
     },
   },
-};
+  to: {
+    type: String,
+    default() {
+      return null;
+    },
+  },
+});
 </script>

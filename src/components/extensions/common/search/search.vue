@@ -16,50 +16,43 @@
     </vf-m-input-group>
   </div>
 </template>
-<script>
+<script lang="ts" setup>
+import { onBeforeMount, ref, watch } from "vue";
 import { mdiMagnify } from "@mdi/js";
-export default {
-  data() {
-    return {
-      keyword: "",
-      mdiMagnify,
-    };
-  },
-  watch: {
-    $route(to, from) {
-      if (to.matched[0].path === "/search/:slug") {
-        this.keyword = to.params.slug;
-      } else {
-        this.keyword = "";
-      }
-    },
-  },
-  watchQuery: true,
-  beforeMount() {
-    if (
-      this.$route.matched.length > 0 &&
-      this.$route.matched[0].path === "/search/:slug"
-    ) {
-      this.keyword = this.$route.params.slug;
+import { useRoute, useRouter } from "vue-router";
+const keyword = ref("");
+const route = useRoute();
+const router = useRouter();
+watch(
+  () => route,
+  (to, from) => {
+    if (to.matched[0].path === "/search/:slug") {
+      keyword.value = to.params.slug as string;
+    } else {
+      keyword.value = "";
     }
-  },
-  methods: {
-    handleKeyPress(e) {
-      if (e.key === "Enter") {
-        if (this.keyword !== "") {
-          this.$router.push(`/search/${this.keyword}`);
-        } else {
-          this.$router.push("/search");
-        }
-      }
-    },
-    handleSearch(e) {
-      if (this.keyword !== "") {
-        this.$router.push(`/search/${this.keyword}`);
-      } else {
-        this.$router.push("/search");
-      }
-    },
-  },
+  }
+);
+
+onBeforeMount(() => {
+  if (route && route.matched.length > 0 && route.matched[0].path === "/search/:slug") {
+    keyword.value = route.params.slug as string;
+  }
+});
+const handleKeyPress = (e: KeyboardEvent) => {
+  if (e.key === "Enter") {
+    if (keyword.value !== "") {
+      router.push(`/search/${keyword.value}`);
+    } else {
+      router.push("/search");
+    }
+  }
+};
+const handleSearch = () => {
+  if (keyword.value !== "") {
+    router.push(`/search/${keyword.value}`);
+  } else {
+    router.push("/search");
+  }
 };
 </script>

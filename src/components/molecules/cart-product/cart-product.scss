@@ -1,0 +1,15 @@
+.vf-m-cart-product {
+  @apply flex flex-col items-center overflow-hidden;
+  @screen md {
+    @apply flex-row;
+  }
+  &__product {
+    @apply flex-1;
+  }
+  &__price {
+    @apply mx-3 font-semibold text-xl;
+  }
+  &__remove {
+    @apply mx-4 cursor-pointer;
+  }
+}

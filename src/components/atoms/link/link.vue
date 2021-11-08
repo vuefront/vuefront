@@ -1,17 +1,17 @@
 <template>
-  <router-link no-prefetch class="vf-a-link" :to="to ? to : '/'">
+  <router-link class="vf-a-link" :to="to ? to : '/'">
     <slot></slot>
   </router-link>
 </template>
-<script>
-export default {
-  props: {
-    to: {
-      type: [String, Object],
-      default() {
-        return "/";
-      },
+<script lang="ts" setup>
+import { PropType } from "vue";
+
+defineProps({
+  to: {
+    type: [String, Object] as PropType<string | object>,
+    default() {
+      return "/";
     },
   },
-};
+});
 </script>

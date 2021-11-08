@@ -1,29 +1,11 @@
 <template>
-  <skeleton
-    shape="circle"
-    theme="opacity"
-    bg-color="#eee"
-    width="100%"
-    duration="2"
-  >
-    <span v-for="rating in [1, 2, 3, 4, 5]" :key="rating">
-      <tb-skeleton
+  <div class="flex">
+    <span v-for="rating in [1, 2, 3, 4, 5]" :key="rating" v-bind="$attrs">
+      <vf-m-skeleton
         width="1.125em"
         height="18px"
-        class="d-inline-block mr-1"
-      ></tb-skeleton>
+        class="inline-block mr-1"
+      ></vf-m-skeleton>
     </span>
-  </skeleton>
+  </div>
 </template>
-<script>
-import * as ISkeleton from "tb-skeleton";
-const { TbSkeleton, Skeleton } = ISkeleton
-
-
-export default {
-  components: {
-    TbSkeleton,
-    Skeleton,
-  },
-};
-</script>

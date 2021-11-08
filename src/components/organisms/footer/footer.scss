@@ -1,19 +1,20 @@
 .vf-o-footer {
-    margin-top: 1.875rem;
-    padding-top: 3rem;
-    background-color: #273444;
-    border-top: 1px solid #ddd;
-    color: #e2e2e2;
-    hr {
-        border-top: 1px solid #666;
+    @apply pt-28 mt-32;
+    background-color: #F8F8F8;
+    &__top {
+      @apply mb-20;
     }
-    .heading {
-        color: #eff2f7;
+    &__bottom {
+
+    }
+    &__copyright {
+      @apply pb-20 text-sm text-center;
+      color: #C4C4C4;
     }
     .list-unstyled li a {
-        color: #d3dce6;
+        color: #6E6E6E;
         &:hover {
-            color: #fff;
+            color: #6E6E6E;
         }
     }
 }

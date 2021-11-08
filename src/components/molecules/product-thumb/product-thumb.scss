@@ -1,30 +1,35 @@
 .vf-m-product-thumb {
     margin-bottom: 1.875rem;
+    @apply relative;
+    &:not(&--wide) {
+      .vf-m-product-thumb__header {
+        flex: 100%;
+      }
+    }
+    &:hover {
+      .vf-m-product-thumb__popup {
+        @apply visible opacity-100 z-20;
+      }
+    }
+    &__popup {
+      @apply absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform invisible opacity-0 transition-all ease-in-out z-20;
+    }
     &__header {
-      @apply px-4;
+      @apply px-4 relative;
     }
     & &-image {
         min-height: 9.375rem;
-        width: 100%;
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
+        @apply w-full flex items-start justify-center rounded-bl-none rounded-br-none;
     }
     &__image {
         min-height: 13.3125rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @apply flex items-center justify-center relative;
+
     }
     &__title {
         min-height: 3.75rem;
         max-height: 3.75rem;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @apply text-xl font-normal flex items-center overflow-hidden justify-center;
     }
     &__description {
         min-height: 3.75rem;
@@ -34,19 +39,36 @@
     &__button-buy {
         width: 50%;
     }
-    .vf-m-button-group {
-      > * {
+    &__buttons {
+      display: flex;
+      flex-flow: row;
+      .vf-a-button {
+        width: 54px;
+        height: 54px;
+        padding: 0;
+        margin: 0 1px;
         &:first-child {
-          @apply rounded-tl-none;
+          margin-left: 0;
         }
         &:last-child {
-          @apply rounded-tr-none;
+          margin-right: 0;
         }
       }
     }
-    &--wide {
+    .vf-m-button-group {
+      > * {
+        &:first-child {
+        }
+        &:last-child {
+        }
+      }
+    }
+    &.vf-m-product-thumb--wide {
+        .vf-m-product-thumb__footer {
+          @apply pl-4;
+        }
         .vf-m-product-thumb__title {
-            justify-content: left;
+          justify-content: left;
         }
     }
 }

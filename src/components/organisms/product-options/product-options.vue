@@ -62,35 +62,27 @@
     </div>
   </section>
 </template>
-<script>
-import isEmpty from "lodash-es/isEmpty";
-import filter from "lodash-es/filter";
-import { mapGetters } from "vuex";
-export default {
-  props: ["product"],
-  computed: {
-    ...mapGetters({
-      options: "store/product/options",
-    }),
+<script lang="ts" setup>
+import { filter } from "lodash";
+import { useStore } from "vuex";
+import { computed } from "vue";
+defineProps({
+  product: {
+    type: Object,
+    default: () => null,
   },
-  methods: {
-    checkActive(e, option) {
-      const result = filter(
-        this.options,
-        (value) => value.id === option.id && e === value.value
-      );
+});
 
-      return !isEmpty(result);
-    },
-    handleOptionChange(e, option) {
-      const result = filter(this.options, (value) => value.id !== option.id);
-      result.push({
-        id: option.id,
-        value: e,
-      });
+const store = useStore();
+const options = computed(() => store.getters["store/product/options"]);
 
-      this.$store.commit("store/product/setOptions", result);
-    },
-  },
+const handleOptionChange = (e: any, option: { id: string }) => {
+  const result = filter(options.value, (value) => value.id !== option.id);
+  result.push({
+    id: option.id,
+    value: e,
+  });
+
+  store.commit("store/product/setOptions", result);
 };
 </script>

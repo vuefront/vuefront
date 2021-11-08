@@ -5,8 +5,11 @@
     <vf-l-o-post-grid class="mb-4" :grid-size="gridSize" />
   </section>
 </template>
-<script>
-export default {
-  props: ["gridSize"],
-};
+<script lang="ts" setup>
+defineProps({
+  gridSize: {
+    type: Number,
+    default: () => 4,
+  },
+});
 </script>

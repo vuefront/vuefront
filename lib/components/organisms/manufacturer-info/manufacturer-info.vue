@@ -8,8 +8,13 @@
     >
   </div>
 </template>
-<script>
-export default {
-  props: ["manufacturer"],
-};
+<script lang="ts" setup>
+defineProps({
+  manufacturer: {
+    type: Object,
+    default() {
+      return null;
+    },
+  },
+});
 </script>

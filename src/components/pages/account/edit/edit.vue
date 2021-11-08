@@ -1,23 +1,24 @@
 <template>
-  <vf-t-common-layout>
-    <vf-t-account-edit :account="account" />
-  </vf-t-common-layout>
+  <vf-t-account-edit :account="account" />
 </template>
-<script>
-import { mapGetters } from "vuex";
-export default {
-  computed: {
-    ...mapGetters({
-      account: "common/customer/get",
-    }),
+<script lang="ts" setup>
+import { useStore } from "vuex";
+import useBreadcrumbs from "../../../../utils/breadcrumbs";
+import { useI18n } from "vue-i18n";
+import { useRoute } from "vue-router";
+import { computed } from "vue";
+
+const store = useStore();
+const { onLoad } = useBreadcrumbs();
+const i18n = useI18n();
+const route = useRoute();
+
+const account = computed(() => store.getters["common/customer/get"]);
+
+onLoad([
+  {
+    title: i18n.t("pages.account.edit.breadcrumbTitle"),
+    to: route.path,
   },
-  breadcrumbs() {
-    return [
-      {
-        title: this.$t("pages.account.edit.breadcrumbTitle"),
-        to: this.$route.path,
-      },
-    ];
-  },
-};
+]);
 </script>

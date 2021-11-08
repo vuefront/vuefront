@@ -1,12 +1,24 @@
 <template>
   <section>
-    <vf-m-row :no-gutters="noGutters">
+    <vf-m-row
+      :no-gutters="
+        noGutters !== null ? noGutters : vuefront$.options.productGridNoGutters
+      "
+    >
       <vf-m-col
         v-for="(value, index) in products"
         :key="index"
         xs="12"
-        :md="list || column ? 12 : 12 / gridSizeTablet"
-        :lg="list || column ? 12 : 12 / gridSize"
+        :md="
+          list || column
+            ? 12
+            : 12 / (gridSizeTablet || vuefront$.options.productGridSizeTablet)
+        "
+        :lg="
+          list || column
+            ? 12
+            : 12 / (gridSize || vuefront$.options.productGridSize)
+        "
       >
         <vf-o-product-thumb
           :product="value"
@@ -17,47 +29,48 @@
     </vf-m-row>
   </section>
 </template>
-<script>
-export default {
-  props: {
-    products: {
-      type: Array,
-      default() {
-        return [];
-      },
-    },
-    column: {
-      type: Boolean,
-      default: false,
-    },
-    list: {
-      type: Boolean,
-      default: false,
-    },
-    noGutters: {
-      type: Boolean,
-      default() {
-        return this.$vuefront.options.productGridNoGutters;
-      },
-    },
-    suffixUrl: {
-      type: String,
-      default() {
-        return "";
-      },
-    },
-    gridSize: {
-      type: Number,
-      default() {
-        return this.$vuefront.options.productGridSize;
-      },
-    },
-    gridSizeTablet: {
-      type: Number,
-      default() {
-        return this.$vuefront.options.productGridSizeTablet;
-      },
+<script lang="ts" setup>
+import { inject } from "vue";
+
+defineProps({
+  products: {
+    type: Array,
+    default() {
+      return [];
     },
   },
-};
+  column: {
+    type: Boolean,
+    default: false,
+  },
+  list: {
+    type: Boolean,
+    default: false,
+  },
+  noGutters: {
+    type: Boolean,
+    default() {
+      return null;
+    },
+  },
+  suffixUrl: {
+    type: String,
+    default() {
+      return "";
+    },
+  },
+  gridSize: {
+    type: Number,
+    default() {
+      return 4;
+    },
+  },
+  gridSizeTablet: {
+    type: Number,
+    default() {
+      return 2;
+    },
+  },
+});
+const vuefront$ = inject<any>("$vuefront");
 </script>

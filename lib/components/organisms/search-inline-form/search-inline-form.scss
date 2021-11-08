@@ -1,0 +1,29 @@
+.vf-o-search-inline-form {
+  @apply relative;
+  .vf-o-search-inline-form {
+    &__icon {
+      @apply absolute right-1 top-1/2 transform -translate-y-1/2;
+      z-index: 9;
+    }
+    &__input {
+      @apply relative z-10 w-8 h-10 px-1.5 py-4 duration-200 ease-in-out transition-all text-transparent border-0 rounded-none bg-transparent ring-0;
+      &::placeholder {
+        @apply text-transparent;
+      }
+      &:focus {
+        padding: 0.375rem 2.1rem 0.375rem 1.1rem;
+
+        @apply text-black border-black w-28 py-1.5 pr-8 pl-4 border-b-2 border-solid bg-transparent;
+        @screen sm {
+          @apply w-16;
+        }
+        @screen md {
+          @apply w-32;
+        }
+        &::placeholder {
+          @apply text-black;
+        }
+      }
+    }
+  }
+}

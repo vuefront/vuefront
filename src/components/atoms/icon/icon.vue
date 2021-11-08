@@ -7,39 +7,33 @@
     class="vf-a-icon"
   ></svg-icon>
 </template>
-<script>
+<script lang="ts" setup>
 import SvgIcon from "@jamescoyle/vue-icon/lib/svg-icon.vue";
-export default {
-  components: {
-    SvgIcon,
-  },
-  props: {
-    test: {
-      type: String,
-      default() {
-        return "ab-testing";
-      },
-    },
-    size: {
-      type: [Number, String],
-      default() {
-        return 15;
-      },
-    },
-    icon: {
-      type: String,
-      default() {
-        return null;
-      },
+import { computed, PropType } from "vue";
+const props = defineProps({
+  test: {
+    type: String,
+    default() {
+      return "ab-testing";
     },
   },
-  computed: {
-    getViewBox() {
-      if (this.size >= 24) {
-        return `0 0 ${this.size} ${this.size}`;
-      }
-      return "0 0 24 24";
+  size: {
+    type: [Number, String] as PropType<number | string>,
+    default() {
+      return 15;
     },
   },
-};
+  icon: {
+    type: String,
+    default() {
+      return null;
+    },
+  },
+});
+const getViewBox = computed(() => {
+  if (props.size >= 24) {
+    return `0 0 ${props.size} ${props.size}`;
+  }
+  return "0 0 24 24";
+});
 </script>

@@ -9,7 +9,7 @@
 
     <vf-m-field
       id="input-first-name"
-      :state="$v.form.firstName.$dirty ? !$v.form.firstName.$error : null"
+      :state="v$.firstName.$dirty ? !v$.firstName.$error : null"
     >
       <template #label>{{
         $t("elements.common.address.edit.firstNameEntry")
@@ -24,7 +24,7 @@
 
     <vf-m-field
       id="input-last-name"
-      :state="$v.form.lastName.$dirty ? !$v.form.lastName.$error : null"
+      :state="v$.lastName.$dirty ? !v$.lastName.$error : null"
     >
       <template #label>{{
         $t("elements.common.address.edit.lastNameEntry")
@@ -39,7 +39,7 @@
 
     <vf-m-field
       id="input-company"
-      :state="$v.form.company.$dirty ? !$v.form.company.$error : null"
+      :state="v$.company.$dirty ? !v$.company.$error : null"
     >
       <template #label>{{
         $t("elements.common.address.edit.companyEntry")
@@ -54,7 +54,7 @@
 
     <vf-m-field
       id="input-address1"
-      :state="$v.form.address1.$dirty ? !$v.form.address1.$error : null"
+      :state="v$.address1.$dirty ? !v$.address1.$error : null"
     >
       <template #label>{{
         $t("elements.common.address.edit.address1Entry")
@@ -69,7 +69,7 @@
 
     <vf-m-field
       id="input-address2"
-      :state="$v.form.address2.$dirty ? !$v.form.address2.$error : null"
+      :state="v$.address2.$dirty ? !v$.address2.$error : null"
     >
       <template #label>{{
         $t("elements.common.address.edit.address2Entry")
@@ -84,7 +84,7 @@
 
     <vf-m-field
       id="input-city"
-      :state="$v.form.city.$dirty ? !$v.form.city.$error : null"
+      :state="v$.city.$dirty ? !v$.city.$error : null"
     >
       <template #label>{{
         $t("elements.common.address.edit.cityEntry")
@@ -99,7 +99,7 @@
 
     <vf-m-field
       id="input-zipcode"
-      :state="$v.form.zipcode.$dirty ? !$v.form.zipcode.$error : null"
+      :state="v$.zipcode.$dirty ? !v$.zipcode.$error : null"
     >
       <template #label>{{
         $t("elements.common.address.edit.zipcodeEntry")
@@ -114,7 +114,7 @@
 
     <vf-m-field
       id="input-country"
-      :state="$v.form.countryId.$dirty ? !$v.form.countryId.$error : null"
+      :state="v$.countryId.$dirty ? !v$.countryId.$error : null"
     >
       <template #label>{{
         $t("elements.common.address.edit.countryEntry")
@@ -127,7 +127,7 @@
           value-field="id"
           text-field="name"
           trim
-          @input="handleChangeCountry"
+          @update:modelValue="handleChangeCountry"
         />
       </template>
       <template #error>{{
@@ -138,7 +138,7 @@
     <vf-m-field
       v-if="zones.content.length > 0"
       id="input-zone"
-      :state="$v.form.zoneId.$dirty ? !$v.form.zoneId.$error : null"
+      :state="v$.zoneId.$dirty ? !v$.zoneId.$error : null"
     >
       <template #label>{{
         $t("elements.common.address.edit.zoneEntry")
@@ -164,117 +164,115 @@
     </template>
   </vf-o-form>
 </template>
-<script>
-import * as vuelidate from "vuelidate";
-import { required, minLength, maxLength } from "vuelidate/lib/validators";
+<script lang="ts" setup>
+import { useVuelidate } from "@vuelidate/core";
+import { required, minLength, maxLength } from "@vuelidate/validators";
 import { mdiArrowRight } from "@mdi/js";
-const { validationMixin } = vuelidate;
-export default {
-  mixins: [validationMixin],
-  props: ["address", "countries", "zones"],
-  data() {
-    return {
-      mdiArrowRight,
-      form: {
-        firstName: this.address.firstName,
-        lastName: this.address.lastName,
-        company: this.address.company,
-        address1: this.address.address1,
-        address2: this.address.address2,
-        city: this.address.city,
-        countryId: this.address.countryId,
-        zoneId: this.address.zoneId,
-        zipcode: this.address.zipcode,
-      },
-    };
-  },
-  validations() {
-    let fields = {};
+import { reactive } from "vue";
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
+const props = defineProps(["address", "countries", "zones"]);
 
-    if (this.zones.content.length > 0) {
-      fields = {
-        ...fields,
-        zoneId: {
-          required,
-        },
-      };
+const form = reactive({
+  firstName: props.address.firstName,
+  lastName: props.address.lastName,
+  company: props.address.company,
+  address1: props.address.address1,
+  address2: props.address.address2,
+  city: props.address.city,
+  countryId: props.address.countryId,
+  zoneId: props.address.zoneId,
+  zipcode: props.address.zipcode,
+});
+let fields = {};
+
+if (props.zones.content.length > 0) {
+  fields = {
+    ...fields,
+    zoneId: {
+      required,
+    },
+  };
+}
+const v$ = useVuelidate(
+  {
+    firstName: {
+      required,
+      minLength: minLength(1),
+      maxLength: maxLength(32),
+    },
+    lastName: {
+      required,
+      minLength: minLength(1),
+      maxLength: maxLength(32),
+    },
+    company: {
+      minLength: minLength(1),
+      maxLength: maxLength(32),
+    },
+    address1: {
+      required,
+      minLength: minLength(3),
+      maxLength: maxLength(128),
+    },
+    address2: {
+      minLength: minLength(3),
+      maxLength: maxLength(128),
+    },
+    city: {
+      required,
+      minLength: minLength(2),
+      maxLength: maxLength(128),
+    },
+    countryId: {
+      required,
+    },
+    zipcode: {
+      required,
+      minLength: minLength(2),
+      maxLength: maxLength(10),
+    },
+    zoneId: {},
+    ...fields,
+  },
+  form
+);
+
+const store = useStore();
+
+const handleChangeCountry = async (value: string) => {
+  await store.dispatch("common/zone/list", {
+    page: 1,
+    size: -1,
+    country_id: value,
+  });
+  form.zoneId = "";
+};
+
+const router = useRouter();
+
+const onSubmit = async () => {
+  v$.value.$touch();
+
+  if (!v$.value.$invalid) {
+    const status = await store.dispatch("common/address/edit", {
+      id: props.address.id,
+      address: {
+        firstName: form.firstName,
+        lastName: form.lastName,
+        company: form.company,
+        address1: form.address1,
+        address2: form.address2,
+        countryId: form.countryId,
+        zoneId: form.zoneId,
+        city: form.city,
+        zipcode: form.zipcode,
+      },
+    });
+
+    if (status) {
+      router.push("/account/address");
     }
-
-    return {
-      form: {
-        firstName: {
-          required,
-          minLength: minLength(1),
-          maxLength: maxLength(32),
-        },
-        lastName: {
-          required,
-          minLength: minLength(1),
-          maxLength: maxLength(32),
-        },
-        company: {
-          minLength: minLength(1),
-          maxLength: maxLength(32),
-        },
-        address1: {
-          required,
-          minLength: minLength(3),
-          maxLength: maxLength(128),
-        },
-        address2: {
-          minLength: minLength(3),
-          maxLength: maxLength(128),
-        },
-        city: {
-          required,
-          minLength: minLength(2),
-          maxLength: maxLength(128),
-        },
-        countryId: {
-          required,
-        },
-        zipcode: {
-          required,
-          minLength: minLength(2),
-          maxLength: maxLength(10),
-        },
-        ...fields,
-      },
-    };
-  },
-  methods: {
-    async handleChangeCountry(value) {
-      await this.$store.dispatch("common/zone/list", {
-        page: 1,
-        size: -1,
-        country_id: value,
-      });
-      this.form.zoneId = "";
-    },
-    async onSubmit() {
-      this.$v.$touch();
-
-      if (!this.$v.form.$invalid) {
-        const status = await this.$store.dispatch("common/address/edit", {
-          id: this.address.id,
-          address: {
-            firstName: this.form.firstName,
-            lastName: this.form.lastName,
-            company: this.form.company,
-            address1: this.form.address1,
-            address2: this.form.address2,
-            countryId: this.form.countryId,
-            zoneId: this.form.zoneId,
-            city: this.form.city,
-            zipcode: this.form.zipcode,
-          },
-        });
-
-        if (status) {
-          this.$router.push("/account/address");
-        }
-      }
-    },
-  },
+  }
 };
 </script>

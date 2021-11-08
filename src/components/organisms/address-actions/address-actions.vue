@@ -15,32 +15,21 @@
     </vf-a-button>
   </div>
 </template>
-<script>
+<script lang="ts" setup>
 import { mdiPencil, mdiDeleteOutline } from "@mdi/js";
-export default {
-  props: {
-    address: {
-      type: Object,
-      default() {
-        return null;
-      },
+import { useStore } from "vuex";
+const props = defineProps({
+  address: {
+    type: Object,
+    default() {
+      return null;
     },
   },
-  data() {
-    return {
-      mdiPencil,
-      mdiDeleteOutline,
-    };
-  },
-  methods: {
-    async handleRemove() {
-      await this.$store.dispatch("common/address/remove", {
-        id: this.address.id,
-      });
-    },
-    handleEdit() {
-      this.$router.push(`/account/address/${this.address.id}/edit`);
-    },
-  },
+});
+const store = useStore();
+const handleRemove = async () => {
+  await store.dispatch("common/address/remove", {
+    id: props.address.id,
+  });
 };
 </script>

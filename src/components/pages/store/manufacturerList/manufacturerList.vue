@@ -1,71 +1,44 @@
 <template>
-  <vf-t-common-layout>
-    <template v-if="loaded">
-      <vf-t-store-manufacturer-list :manufacturers="manufacturers" />
-    </template>
-    <template v-else>
-      <vf-l-t-store-manufacturer-list />
-    </template>
-  </vf-t-common-layout>
+  <vf-t-store-manufacturer-list :manufacturers="manufacturers" />
 </template>
-<script>
-import { mapGetters } from "vuex";
-import { BaseModule } from "vuefront/lib/utils/module.js";
-export default {
-  mixins: [BaseModule],
-  props: ["id", "keyword", "url"],
-  asyncData(ctx) {
-    return {
-      loaded: !process.client,
-    };
-  },
-  data() {
-    return {
-      loaded: true,
-    };
-  },
-  head() {
-    return {
-      title: this.$t("pages.store.manufacturerList.title"),
-    };
-  },
-  breadcrumbs() {
-    return [
-      {
-        title: this.$t("pages.store.manufacturerList.title"),
-        to: this.$route.path,
-      },
-    ];
-  },
-  computed: {
-    ...mapGetters({
-      manufacturers: "store/manufacturer/list",
-    }),
-  },
-  watch: {
-    loaded(newValue, oldValue) {
-      if (!newValue && oldValue) {
-        this.handleLoadData();
-      }
+<script lang="ts" setup>
+import { computed, onMounted, ref, watch } from "vue";
+import { useStore } from "vuex";
+import useBreadcrumbs from "../../../../utils/breadcrumbs";
+import { useMeta } from "vue-meta";
+import { useI18n } from "vue-i18n";
+import { useRoute } from "vue-router";
+import useQuery from "../../../../utils/query";
+
+const store = useStore();
+const route = useRoute();
+const loaded = ref(!document);
+const i18n = useI18n();
+const { query } = useQuery();
+const { onLoad } = useBreadcrumbs();
+
+useMeta({
+  title: i18n.t("pages.store.manufacturerList.title"),
+});
+
+const manufacturers = computed(() => store.getters["store/manufacturer/list"]);
+const handleLoadData = async () => {
+  await store.dispatch("apollo/query", {
+    query,
+  });
+  const { manufacturerList } = store.getters["apollo/get"];
+
+  store.commit("store/manufacturer/setEntities", manufacturerList);
+  loaded.value = true;
+  onLoad([
+    {
+      title: i18n.t("pages.store.manufacturerList.title"),
+      to: route.path,
     },
-  },
-  watchQuery: true,
-  mounted() {
-    if (!this.loaded) {
-      this.handleLoadData();
-    }
-  },
-  methods: {
-    async handleLoadData(ctx) {
-      await this.$store.dispatch("apollo/query", {
-        query: this.$options.query,
-      });
-      const { manufacturerList } = this.$store.getters["apollo/get"];
-      this.$store.commit("store/manufacturer/setEntities", manufacturerList);
-      this.loaded = true;
-    },
-  },
+  ]);
 };
+
+await handleLoadData();
 </script>
 <graphql>
 {

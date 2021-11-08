@@ -1,38 +1,14 @@
 <template>
   <div class="loading-page">
-    <skeleton
-      bg-color="#eee"
-      duration="2"
-      theme="opacity"
-      shape="radius"
-      width="100%"
-    >
-      <vf-m-row align-h="center" style="padding-top: 7px">
-        <vf-m-col xs="4">
-          <tb-skeleton height="37px" class="mx-auto"></tb-skeleton>
-        </vf-m-col>
-      </vf-m-row>
-      <vf-m-row align-h="center" style="padding-top: 38px">
-        <vf-m-col xs="9">
-          <tb-skeleton height="18px"></tb-skeleton>
-        </vf-m-col>
-      </vf-m-row>
-    </skeleton>
+    <vf-m-row align-h="center" style="padding-top: 7px">
+      <vf-m-col xs="4">
+        <vf-m-skeleton height="37px" class="mx-auto"></vf-m-skeleton>
+      </vf-m-col>
+    </vf-m-row>
+    <vf-m-row align-h="center" style="padding-top: 38px">
+      <vf-m-col xs="9">
+        <vf-m-skeleton height="18px"></vf-m-skeleton>
+      </vf-m-col>
+    </vf-m-row>
   </div>
 </template>
-<script>
-export default {};
-</script>
-
-<script>
-import * as ISkeleton from "tb-skeleton";
-const { TbSkeleton, Skeleton } = ISkeleton
-
-
-export default {
-  components: {
-    TbSkeleton,
-    Skeleton,
-  },
-};
-</script>

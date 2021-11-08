@@ -1,9 +1,76 @@
 <template>
-  <vf-t-common-layout>
-    <vf-t-store-product v-if="loaded" :product="product" />
-    <vf-l-t-store-product v-else />
-  </vf-t-common-layout>
+  <vf-t-store-product
+    :product="product"
+    :quantity="quantity"
+    @change-quantity="quantity = $event"
+  />
 </template>
+<script lang="ts" setup>
+import gql from "graphql-tag";
+import { computed, inject, ref } from "vue";
+import { useMeta } from "vue-meta";
+import { useRoute } from "vue-router";
+import { useStore } from "vuex";
+import useBreadcrumbs from "../../../../utils/breadcrumbs";
+import useQuery from "../../../../utils/query";
+const quantity = ref(1);
+const store = useStore();
+const category = ref<any>(null);
+const { meta } = useMeta({});
+const { onLoad } = useBreadcrumbs();
+const { query } = useQuery();
+const route = useRoute();
+const vuefront$ = inject<any>("$vuefront");
+const vfapollo$ = inject<any>("$vfapollo");
+const product = computed(() => store.getters["store/product/get"]);
+const handleLoadData = async () => {
+  const { id } = vuefront$.params;
+  await store.dispatch("apollo/query", {
+    query,
+    variables: { id, limit: 5 },
+  });
+  const { product } = store.getters["apollo/get"];
+  store.commit("store/product/setProduct", product);
+  meta.title = product.meta.title;
+  meta.description = product.meta.description;
+  meta.keywords = product.meta.keyword;
+  const items = [];
+
+  if (route.query.category_id) {
+    const { data } = await vfapollo$.query({
+      query: gql`
+        query ($id: String) {
+          category(id: $id) {
+            id
+            name
+            url(url: "/store/category/_id")
+            meta {
+              title
+            }
+          }
+        }
+      `,
+      variables: { id: route.query.category_id },
+    });
+    category.value = data.category;
+    if (category.value.meta.title) {
+      items.push({
+        title: category.value.meta.title,
+        to: category.value.url,
+      });
+    }
+  }
+  onLoad([
+    ...items,
+    {
+      title: product.meta.title,
+      to: route.path,
+    },
+  ]);
+};
+
+await handleLoadData();
+</script>
 <graphql>
   query($id: String, $limit: Int) {
       product(id: $id) {
@@ -63,101 +130,3 @@
       }
   }
 </graphql>
-<script>
-import gql from "graphql-tag";
-import { mapGetters } from "vuex";
-export default {
-  asyncData(ctx) {
-    return {
-      loaded: !process.client,
-    };
-  },
-  data() {
-    return {
-      loaded: true,
-      category: null,
-    };
-  },
-  head() {
-    if (!this.product.meta) {
-      return {};
-    }
-
-    return {
-      title: this.product.meta.title,
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content: this.product.meta.description,
-        },
-        {
-          name: "keywords",
-          content: this.product.meta.keyword,
-        },
-      ],
-    };
-  },
-  breadcrumbs() {
-    const items = [];
-
-    if (this.category?.meta?.title) {
-      items.push({
-        title: this.category.meta.title,
-        to: this.category.url,
-      });
-    }
-    return [
-      ...items,
-      {
-        title: this.product.meta.title,
-        to: this.$route.path,
-      },
-    ];
-  },
-  computed: {
-    ...mapGetters({
-      product: "store/product/get",
-    }),
-  },
-  mounted() {
-    if (!this.loaded) {
-      this.handleLoadData();
-    }
-  },
-  serverPrefetch() {
-    return this.handleLoadData(this);
-  },
-  methods: {
-    async handleLoadData(ctx) {
-      const { id } = this.$vuefront.params;
-      await this.$store.dispatch("apollo/query", {
-        query: this.$options.query,
-        variables: { id, limit: 5 },
-      });
-      const { product } = this.$store.getters["apollo/get"];
-      this.$store.commit("store/product/setProduct", product);
-
-      if (this.$route.query.category_id) {
-        const { data } = await this.$vfapollo.query({
-          query: gql`
-            query ($id: String) {
-              category(id: $id) {
-                id
-                name
-                url(url: "/store/category/_id")
-                meta {
-                  title
-                }
-              }
-            }
-          `,
-          variables: { id: this.$route.query.category_id },
-        });
-        this.category = data.category;
-      }
-      this.loaded = true;
-    },
-  },
-};
-</script>

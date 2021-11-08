@@ -1,50 +1,43 @@
 <template>
   <div class="vf-o-wishlist-actions">
     <vf-a-button
-      class="vf-o-wishlist-actions__add-to-cart"
+      class="vf-o-wishlist-actions__add-to-cart mr-2"
       @click="handleAddToCart"
+      size="sm"
     >
-      <vf-a-icon :icon="mdiCartOutline" />
+      {{ $t("organisms.wishlistActions.buttonAddToCart") }}
     </vf-a-button>
     <vf-a-button
       class="vf-o-wishlist-actions__remove"
       color="danger"
+      size="sm"
       @click="handleRemove"
     >
-      <vf-a-icon :icon="mdiDeleteOutline" />
+      {{ $t("organisms.wishlistActions.buttonDelete") }}
     </vf-a-button>
   </div>
 </template>
-<script>
-import { mdiCartOutline, mdiDeleteOutline } from "@mdi/js";
-export default {
-  props: {
-    product: {
-      type: Object,
-      default() {
-        return null;
-      },
+<script lang="ts" setup>
+import { useStore } from "vuex";
+const props = defineProps({
+  product: {
+    type: Object,
+    default() {
+      return null;
     },
   },
-  data() {
-    return {
-      mdiCartOutline,
-      mdiDeleteOutline,
-    };
-  },
-  methods: {
-    handleRemove() {
-      this.$store.dispatch("store/wishlist/remove", {
-        id: this.product.id,
-      });
-    },
-    handleAddToCart() {
-      this.$store.dispatch("store/cart/add", {
-        product: this.product,
-        quantity: 1,
-        options: [],
-      });
-    },
-  },
+});
+const store = useStore();
+const handleRemove = () => {
+  store.dispatch("store/wishlist/remove", {
+    id: props.product.id,
+  });
+};
+const handleAddToCart = () => {
+  store.dispatch("store/cart/add", {
+    product: props.product,
+    quantity: 1,
+    options: [],
+  });
 };
 </script>

@@ -2,9 +2,11 @@
   <vf-o-apollo v-slot="{ data }" class="vf-e-store-category">
     <span>
       <vf-m-list-group>
-        <template v-for="(value, index) in data.categoriesList.content">
+        <template
+          v-for="(value, index) in data.categoriesList.content"
+          :key="`root-${index}`"
+        >
           <vf-m-list-group-item
-            :key="`root-${index}`"
             :to="value.url"
             :active="checkView(value, value.categories)"
             v-html="value.name"
@@ -23,51 +25,35 @@
     </span>
   </vf-o-apollo>
 </template>
-<script>
-import isEmpty from "lodash-es/isEmpty";
-import map from "lodash-es/map";
-import includes from "lodash-es/includes";
+<script setup lang="ts">
+import { isEmpty, map, includes } from "lodash";
+import { computed } from "vue";
+import { useRoute } from "vue-router";
+const route = useRoute();
+const id = computed(() => {
+  let result: boolean | string = false;
 
-export default {
-  computed: {
-    id() {
-      let result = false;
+  if (route && !isEmpty(route.params.id)) {
+    result = route.params.id as string;
+  }
+  return result;
+});
 
-      if (!isEmpty(this.$route.params.id)) {
-        result = this.$route.params.id;
-      }
-      if (!isEmpty(this.$route.matched[0].props)) {
-        result = this.$route.matched[0].props.default.id;
-      }
+const checkView = (value: { id: string }, subValues: { id: string }[]) => {
+  if (id.value) {
+    if (id.value === value.id) {
+      return true;
+    } else if (
+      includes(
+        map(subValues, (subValue) => subValue.id),
+        id.value
+      )
+    ) {
+      return true;
+    }
+  }
 
-      return result;
-    },
-  },
-  methods: {
-    url(category) {
-      if (category.keyword && category.keyword !== "") {
-        return "/" + category.keyword;
-      } else {
-        return `/store/category/${category.id}`;
-      }
-    },
-    checkView(value, subValues) {
-      if (this.id) {
-        if (this.id === value.id) {
-          return true;
-        } else if (
-          includes(
-            map(subValues, (subValue) => subValue.id),
-            this.id
-          )
-        ) {
-          return true;
-        }
-      }
-
-      return false;
-    },
-  },
+  return false;
 };
 </script>
 <graphql>

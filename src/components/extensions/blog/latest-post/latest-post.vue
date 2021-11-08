@@ -14,22 +14,21 @@
     </template>
   </vf-o-apollo>
 </template>
-<script>
-export default {
-  props: {
-    column: {
-      type: Boolean,
-      default: false,
-    },
+<script lang="ts" setup>
+defineProps({
+  column: {
+    type: Boolean,
+    default: () => false,
   },
-};
+});
 </script>
 <graphql>
 {
   latestPosts: postsList(page: 1, size: 4, sort: "date_added", order: "DESC") {
     content {
       id
-      title
+      name
+      datePublished
       shortDescription
       image
       imageLazy

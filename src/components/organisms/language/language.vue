@@ -4,16 +4,10 @@
     class="language-section"
     left
     variant="link"
+    link
     size="sm"
   >
-    <template slot="button-content">
-      <vf-a-image
-        :src="activeLanguage.image"
-        width="16"
-        width-amp="16"
-        height-amp="11"
-        class="language-section__image d-none d-md-inline-block mr-1"
-      />
+    <template v-slot:button-content>
       <span class="language-section__name font-normal text-base">{{
         activeLanguage.name
       }}</span>
@@ -24,37 +18,25 @@
       class="whitespace-nowrap"
       @click="handleEdit(value)"
     >
-      <vf-a-image
-        :src="value.image"
-        width="16"
-        width-amp="16"
-        height-amp="11"
-        class="d-none d-md-inline-block"
-      />
       {{ value.name }}
     </vf-m-dropdown-item>
   </vf-m-dropdown>
 </template>
-<script>
-import { mapGetters } from "vuex";
-import find from "lodash-es/find";
-export default {
-  computed: {
-    ...mapGetters({
-      language: "common/language/get",
-      error: "vuefront/error",
-    }),
-    activeLanguage() {
-      return find(this.language, { active: true });
-    },
-  },
-  methods: {
-    async handleEdit({ code }) {
-      await this.$store.dispatch("common/language/edit", { code });
-      if (!this.error) {
-        location.reload();
-      }
-    },
-  },
+<script lang="ts" setup>
+import { useStore } from "vuex";
+import { find } from "lodash";
+import { computed } from "vue";
+const store = useStore();
+
+const language = computed(() => store.getters["common/language/get"]);
+const error = computed(() => store.getters["vuefront/error"]);
+const activeLanguage = computed(() => {
+  return find(language.value, { active: true });
+});
+const handleEdit = async ({ code }: { code: string }) => {
+  await store.dispatch("common/language/edit", { code });
+  if (!error.value) {
+    location.reload();
+  }
 };
 </script>

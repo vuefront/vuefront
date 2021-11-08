@@ -2,7 +2,7 @@
   <section class="vf-m-product-image">
     <a href="#" @click.prevent="handleOpenPopup(0)">
       <vf-a-image
-        :lazy-src="mainImagelazy"
+        :lazy-src="mainImageLazy"
         :src="mainImage"
         fluid
         full-width
@@ -17,13 +17,13 @@
       <vf-m-col
         v-for="(value, index) in product.images"
         :key="index"
-        xs="12"
+        xs="3"
         md="3"
       >
         <a
           class="vf-m-product-image__thumbnail"
           href="#"
-          @click.prevent="handleOpenPopup(index + 1)"
+          @click.prevent="handleOpenPopup(Number(index) + 1)"
         >
           <vf-a-image
             :lazy-src="value.imageLazy"
@@ -34,113 +34,110 @@
         </a>
       </vf-m-col>
     </vf-m-row>
-    <client-only>
+    <vf-m-client-only>
       <vf-m-product-image-popup
         :show="popup"
         :index="popupIndex"
         :images="images"
         @click:close="handleClosePopup"
       />
-    </client-only>
+    </vf-m-client-only>
   </section>
 </template>
-<script>
-export default {
-  props: {
-    product: {
-      type: Object,
-      default() {
-        return null;
-      },
-    },
-    width: {
-      type: [String, Number],
-      default() {
-        return null;
-      },
-    },
-    height: {
-      type: [String, Number],
-      default() {
-        return null;
-      },
-    },
+<script lang="ts" setup>
+import { computed, inject, PropType, ref } from "vue";
+const props = defineProps({
+  product: {
+    type: Object,
+    required: true,
+    default: null,
   },
-  data() {
-    return {
-      popup: false,
-      popupIndex: 0,
-    };
+  width: {
+    type: [String, Number] as PropType<String | Number>,
+    required: false,
+    default: null,
   },
-  computed: {
-    getWidth() {
-      let width = this.width;
-      if (!this.width) {
-        if (this.height) {
-          width =
-            (this.height * this.$vuefront.images.product.width) /
-            this.$vuefront.images.product.height;
-        } else {
-          width = this.$vuefront.images.product.width;
-        }
-      }
-      return width;
-    },
-    getHeight() {
-      let height = this.height;
-      if (!this.height) {
-        if (this.width) {
-          height =
-            (this.width * this.$vuefront.images.product.height) /
-            this.$vuefront.images.product.width;
-        } else {
-          height = this.$vuefront.images.product.height;
-        }
-      }
-      return height;
-    },
-    images() {
-      let result = [];
+  height: {
+    type: [String, Number] as PropType<String | Number>,
+    required: false,
+    default: null,
+  },
+});
+let popup = ref(false);
+let popupIndex = ref(0);
 
-      result = [
-        ...result,
-        {
-          thumb: this.mainImage,
-          src: this.mainImage,
-        },
-      ];
+const $vuefront = inject<any>("$vuefront");
 
-      this.product.images.forEach(({ imageBig }) => {
-        result = [
-          ...result,
-          {
-            thumb: imageBig,
-            src: imageBig,
-          },
-        ];
-      });
+const getWidth = computed(() => {
+  let width = props.width;
+  if (!props.width) {
+    if (props.height) {
+      width =
+        (Number(props.height) * $vuefront.images.product.width) /
+        $vuefront.images.product.height;
+    } else {
+      width = $vuefront.images.product.width;
+    }
+  }
+  return width;
+});
+const getHeight = computed(() => {
+  let height = props.height;
 
-      return result;
+  if (!props.height) {
+    if (props.width) {
+      height =
+        (Number(props.width) * $vuefront.images.product.height) /
+        $vuefront.images.product.width;
+    } else {
+      height = $vuefront.images.product.height;
+    }
+  }
+  return height;
+});
+
+const mainImage = computed<string>(() => {
+  return props.product.imageBig !== ""
+    ? props.product.imageBig
+    : $vuefront.images.placeholder.image;
+});
+
+const mainImageLazy = computed<string>(() => {
+  return props.product.imageLazy !== ""
+    ? props.product.imageLazy
+    : $vuefront.images.placeholder.image;
+});
+
+const images = computed(() => {
+  let result: { thumb: string; src: string }[] = [];
+
+  result = [
+    ...result,
+    {
+      thumb: mainImage.value,
+      src: mainImage.value,
     },
-    mainImage() {
-      return this.product.imageBig !== ""
-        ? this.product.imageBig
-        : this.$vuefront.images.placeholder.image;
-    },
-    mainImagelazy() {
-      return this.product.imageLazy !== ""
-        ? this.product.imageLazy
-        : this.$vuefront.images.placeholder.image;
-    },
-  },
-  methods: {
-    handleOpenPopup(index) {
-      this.popupIndex = index;
-      this.popup = true;
-    },
-    handleClosePopup() {
-      this.popup = false;
-    },
-  },
+  ];
+
+  props.product.images.forEach(({ imageBig }: { imageBig: string }) => {
+    result = [
+      ...result,
+      {
+        thumb: imageBig,
+        src: imageBig,
+      },
+    ];
+  });
+
+  return result;
+});
+
+const handleOpenPopup = (index: number) => {
+  popupIndex.value = index;
+  popup.value = true;
+};
+
+const handleClosePopup = () => {
+  popup.value = false;
 };
 </script>

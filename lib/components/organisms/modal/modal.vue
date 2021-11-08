@@ -1,37 +1,18 @@
 <template>
-  <div
-    v-show="show || value"
-    :transition="transition"
-  >
-    <div
-      class="vf-o-modal"
-      @click.self="clickMask"
-    >
-      <div
-        :class="modalClass"
-        class="vf-o-modal__dialog"
-      >
+  <div ref="root" v-show="show || modelValue" :transition="transition">
+    <div class="vf-o-modal" @click.self="clickMask">
+      <div :class="modalClass" class="vf-o-modal__dialog">
         <div class="vf-o-modal__content">
-          <a
-            v-if="btnClose"
-            class="vf-o-modal__close"
-            @click="cancel"
-          ><vf-a-icon
-              :icon="mdiClose"
+          <a v-if="btnClose" class="vf-o-modal__close" @click="cancel"
+            ><vf-a-icon :icon="mdiClose"
           /></a>
-          <div
-            v-if="$slots.header"
-            class="vf-o-modal__header"
-          >
+          <div v-if="$slots.header" class="vf-o-modal__header">
             <slot name="header" />
           </div>
           <div class="vf-o-modal__body">
             <slot />
           </div>
-          <div
-            v-if="$slots.footer"
-            class="vf-o-modal__footer"
-          >
+          <div v-if="$slots.footer" class="vf-o-modal__footer">
             <slot name="footer" />
           </div>
         </div>
@@ -40,143 +21,132 @@
     <div class="vf-o-modal__backdrop --in" />
   </div>
 </template>
-<script>
-import { mdiClose } from '@mdi/js';
-
-export default {
-  props: {
-    value: {
-      type: Boolean,
-      default: false
-    },
-    btnClose: {
-      type: Boolean,
-      default: false
-    },
-    title: {
-      type: String,
-      default: 'Modal'
-    },
-    small: {
-      type: Boolean,
-      default: false
-    },
-    large: {
-      type: Boolean,
-      default: false
-    },
-    full: {
-      type: Boolean,
-      default: false
-    },
-    force: {
-      type: Boolean,
-      default: false
-    },
-    transition: {
-      type: String,
-      default: 'modal'
-    },
-    closeWhenOK: {
-      type: Boolean,
-      default: false
-    }
+<script lang="ts" setup>
+import { mdiClose } from "@mdi/js";
+import { computed, onBeforeUnmount, ref, watch } from "vue";
+const props = defineProps({
+  modelValue: {
+    type: Boolean,
+    default: false,
   },
-  data() {
-    return {
-      duration: null,
-      show: false,
-      mdiClose
-    }
+  btnClose: {
+    type: Boolean,
+    default: false,
   },
-  computed: {
-    modalClass() {
-      return {
-        '--lg': this.large,
-        '--sm': this.small,
-        '--full': this.full
-      }
-    }
+  small: {
+    type: Boolean,
+    default: false,
   },
-  watch: {
-    show(value) {
-      if (value) {
-        document.body.className += ' vf-o-modal--open'
-        document.querySelector('html').className += ' vf-o-modal--open'
-      } else {
-        if (!this.duration) {
-          this.duration =
+  large: {
+    type: Boolean,
+    default: false,
+  },
+  full: {
+    type: Boolean,
+    default: false,
+  },
+  force: {
+    type: Boolean,
+    default: false,
+  },
+  transition: {
+    type: String,
+    default: "modal",
+  },
+});
+let duration = ref<number | null>(null);
+const show = ref(false);
+const modalClass = computed(() => ({
+  "--lg": props.large,
+  "--sm": props.small,
+  "--full": props.full,
+}));
+const root = ref<Element | null>(null);
+watch(
+  () => show.value,
+  (val) => {
+    if (val) {
+      document.body.className += " vf-o-modal--open";
+      const htmlEl = document.querySelector("html");
+      if (htmlEl) htmlEl.className += " vf-o-modal--open";
+    } else {
+      if (!duration.value && root.value) {
+        duration.value =
+          Number(
             window
-              .getComputedStyle(this.$el)
-              ['transition-duration'].replace('s', '') * 1000
-        }
-        window.setTimeout(() => {
-          document.body.className = document.body.className.replace(
+              .getComputedStyle(root.value)
+              .transitionDuration.replace("s", "")
+          ) * 1000;
+      }
+      window.setTimeout(() => {
+        document.body.className = document.body.className.replace(
+          /\s?vf-o-modal--open/,
+          ""
+        );
+        const htmlEl = document.querySelector("html");
+        if (htmlEl)
+          htmlEl.className = htmlEl.className.replace(
             /\s?vf-o-modal--open/,
-            ''
-          )
-          document.querySelector('html').className = document
-            .querySelector('html')
-            .className.replace(/\s?vf-o-modal--open/, '')
-        }, this.duration || 0)
-      }
-    },
-    value(value) {
-      if (value) {
-        document.body.className += ' vf-o-modal--open'
-        document.querySelector('html').className += ' vf-o-modal--open'
-      } else {
-        if (!this.duration) {
-          this.duration =
-            window
-              .getComputedStyle(this.$el)
-              ['transition-duration'].replace('s', '') * 1000
-        }
-        window.setTimeout(() => {
-          document.body.className = document.body.className.replace(
-            /\s?vf-o-modal--open/,
-            ''
-          )
-          document.querySelector('html').className = document
-            .querySelector('html')
-            .className.replace(/\s?vf-o-modal--open/, '')
-        }, this.duration || 0)
-      }
-    }
-  },
-  created() {
-    if (this.show || this.value) {
-      document.body.className += ' vf-o-modal--open'
-      document.querySelector('html').className += ' vf-o-modal--open'
-    }
-  },
-  beforeDestroy() {
-    document.body.className = document.body.className.replace(
-      /\s?vf-o-modal--open/,
-      ''
-    )
-    document.querySelector('html').className = document
-      .querySelector('html')
-      .className.replace(/\s?vf-o-modal--open/, '')
-  },
-  methods: {
-    ok() {
-      this.$emit('ok')
-      if (this.closeWhenOK) {
-        this.show = false
-        this.$emit('input', false)
-      }
-    },
-    cancel() {
-      this.$emit('cancel')
-      this.show = false
-      this.$emit('input', false)
-    },
-    clickMask() {
-      if (!this.force) {
-        this.cancel()
-      }
+            ""
+          );
+      }, duration.value || 0);
     }
   }
+);
+watch(
+  () => props.modelValue,
+  (val) => {
+    if (val) {
+      document.body.className += " vf-o-modal--open";
+      const htmlEl = document.querySelector("html");
+      if (htmlEl) htmlEl.className += " vf-o-modal--open";
+    } else {
+      if (!duration.value && root.value) {
+        duration.value =
+          Number(
+            window
+              .getComputedStyle(root.value)
+              .transitionDuration.replace("s", "")
+          ) * 1000;
+      }
+      window.setTimeout(() => {
+        document.body.className = document.body.className.replace(
+          /\s?vf-o-modal--open/,
+          ""
+        );
+        const htmlEl = document.querySelector("html");
+        if (htmlEl)
+          htmlEl.className = htmlEl.className.replace(
+            /\s?vf-o-modal--open/,
+            ""
+          );
+      }, duration.value || 0);
+    }
+  }
+);
+onBeforeUnmount(() => {
+  document.body.className = document.body.className.replace(
+    /\s?vf-o-modal--open/,
+    ""
+  );
+  const htmlEl = document.querySelector("html");
+  if (htmlEl)
+    htmlEl.className = htmlEl.className.replace(/\s?vf-o-modal--open/, "");
+});
+if (show.value || props.modelValue) {
+  document.body.className += " vf-o-modal--open";
+  const htmlEl = document.querySelector("html");
+  if (htmlEl) htmlEl.className += " vf-o-modal--open";
 }
+const emits = defineEmits(["cancel", "update:modelValue"]);
+const cancel = () => {
+  emits("cancel");
+  show.value = false;
+  emits("update:modelValue", false);
+};
+const clickMask = () => {
+  if (!props.force) {
+    cancel();
+  }
+};
 </script>

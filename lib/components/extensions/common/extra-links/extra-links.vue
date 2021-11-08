@@ -10,8 +10,11 @@
     </ul>
   </section>
 </template>
-<script>
-export default {
-  props: ["links"],
-};
+<script lang="ts" setup>
+import { PropType } from "vue";
+defineProps({
+  links: {
+    type: Array as PropType<{ to: string; text: string }[]>,
+  },
+});
 </script>

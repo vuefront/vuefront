@@ -1,1 +1,0 @@
-export { default as tStoreCart } from "./cart.vue";

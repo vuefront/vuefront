@@ -15,15 +15,13 @@
     />
   </section>
 </template>
-<script>
-export default {
-  props: {
-    contact: {
-      type: Object,
-      default() {
-        return null;
-      },
+<script lang="ts" setup>
+defineProps({
+  contact: {
+    type: Object,
+    default() {
+      return null;
     },
   },
-};
+});
 </script>

@@ -14,18 +14,14 @@
         >{{ value.title }}</vf-m-breadcrumb-item
       >
     </vf-m-breadcrumb>
-    <vf-l-o-breadcrumb v-else-if="!loaded" />
   </vf-m-container>
 </template>
-<script>
-import { mapGetters } from "vuex";
+<script lang="ts" setup>
+import { computed } from "vue";
+import { useStore } from "vuex";
 
-export default {
-  computed: {
-    ...mapGetters({
-      breadcrumbs: "common/breadcrumbs/get",
-      loaded: "common/breadcrumbs/loaded",
-    }),
-  },
-};
+const store = useStore();
+
+const breadcrumbs = computed(() => store.getters["common/breadcrumbs/get"]);
+const loaded = computed(() => store.getters["common/breadcrumbs/loaded"]);
 </script>

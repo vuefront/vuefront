@@ -1,5 +1,5 @@
 <template>
-  <div :is="tag" class="vf-m-media">
+  <component :is="tag" class="vf-m-media">
     <template v-if="!rightAlign">
       <div
         v-if="$slots.aside"
@@ -22,44 +22,42 @@
         <slot name="aside"></slot>
       </div>
     </template>
-  </div>
+  </component>
 </template>
-<script>
-export default {
-  props: {
-    tag: {
-      type: String,
-      default: "div",
-    },
-    rightAlign: {
-      type: Boolean,
-      default: false,
-    },
-    verticalAlign: {
-      type: String,
-      default: "top",
-    },
-    noBody: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  computed: {
-    asideClass() {
-      const result = [];
+<script lang="ts" setup>
+import { computed } from "vue";
 
-      if (this.verticalAlign === "start" || this.verticalAlign === "top") {
-        result.push("vf-m-media-aside--start");
-      }
-      if (this.verticalAlign === "center") {
-        result.push("vf-m-media-aside--center");
-      }
-      if (this.verticalAlign === "end" || this.verticalAlign === "bottom") {
-        result.push("vf-m-media-aside--end");
-      }
-
-      return result.join(" ");
-    },
+const props = defineProps({
+  tag: {
+    type: String,
+    default: "div",
   },
-};
+  rightAlign: {
+    type: Boolean,
+    default: false,
+  },
+  verticalAlign: {
+    type: String,
+    default: "top",
+  },
+  noBody: {
+    type: Boolean,
+    default: false,
+  },
+});
+const asideClass = computed(() => {
+  const result = [];
+
+  if (props.verticalAlign === "start" || props.verticalAlign === "top") {
+    result.push("vf-m-media-aside--start");
+  }
+  if (props.verticalAlign === "center") {
+    result.push("vf-m-media-aside--center");
+  }
+  if (props.verticalAlign === "end" || props.verticalAlign === "bottom") {
+    result.push("vf-m-media-aside--end");
+  }
+
+  return result.join(" ");
+});
 </script>

@@ -1,26 +1,16 @@
 .vf-m-post-thumb {
-    margin-bottom: 30px;
+    @apply mb-10;
     &__title {
-        min-height: 60px;
-        max-height: 60px;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        @apply mb-0;
+        min-height: 50px;
+        max-height: 50px;
+        @apply mb-0 flex items-center justify-start overflow-hidden font-normal;
     }
-    &__description {
-        min-height: 60px;
-        max-height: 60px;
-        @apply text-sm mb-3;
-        overflow: hidden;
+    &__date {
+        @apply text-left text-sm font-normal;
+        color: #6E6E6E;
     }
     & &-image {
         min-height: 150px;
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
+        @apply rounded-bl-none rounded-br-none flex items-start justify-center;
     }
 }

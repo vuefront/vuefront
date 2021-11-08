@@ -4,8 +4,11 @@
     <vf-l-o-manufacturer-product :grid-size="gridSize" class="mt-5" />
   </section>
 </template>
-<script>
-export default {
-  props: ["gridSize"],
-};
+<script lang="ts" setup>
+defineProps({
+  gridSize: {
+    type: Number,
+    default: () => 4,
+  },
+});
 </script>

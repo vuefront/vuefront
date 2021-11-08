@@ -1,5 +1,5 @@
 module.exports = (theme) => {
   return {
-    '.vf-m-field': theme('vuefrontComponent.field')
-  }
-}
+    ".vf-m-field": theme("vuefrontComponent.field"),
+  };
+};

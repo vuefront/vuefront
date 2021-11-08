@@ -1,7 +1,7 @@
 <template>
   <section class="post-section">
     <vf-a-heading level="1" class="post-section__title mb-3 sm:text-left">{{
-      post.title
+      post.name
     }}</vf-a-heading>
     <vf-m-row>
       <vf-m-col xs="6">
@@ -12,8 +12,7 @@
       <vf-m-col xs="6">
         <vf-m-rating
           v-if="post.rating > 0"
-          :value="post.rating"
-          color="#ffcc00"
+          :modelValue="post.rating"
           readonly
           class="text-right"
         />
@@ -31,8 +30,11 @@
     <vf-o-post-reviews :post="post" />
   </section>
 </template>
-<script>
-export default {
-  props: ["post"],
-};
+<script lang="ts" setup>
+defineProps({
+  post: {
+    type: Object,
+    default: () => null,
+  },
+});
 </script>

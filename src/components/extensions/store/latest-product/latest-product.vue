@@ -21,19 +21,13 @@
     </template>
   </vf-o-apollo>
 </template>
-<script>
-export default {
-  components: {
-    vfOApollo: () =>
-      import("vuefront/lib/components/organisms/apollo/apollo.vue"),
+<script lang="ts" setup>
+defineProps({
+  column: {
+    type: Boolean,
+    default: false,
   },
-  props: {
-    column: {
-      type: Boolean,
-      default: false,
-    },
-  },
-};
+});
 </script>
 <graphql>
 query($size: Int){

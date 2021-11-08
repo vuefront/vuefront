@@ -3,66 +3,63 @@
     <slot></slot>
   </div>
 </template>
-<script>
-export default {
-  props: {
-    tag: {
-      type: String,
-      default() {
-        return "div";
-      },
-    },
-    noGutters: {
-      type: Boolean,
-      default() {
-        return false;
-      },
-    },
-    alignV: {
-      type: String,
-      default() {
-        return null;
-      },
-    },
-    alignH: {
-      type: String,
-      default() {
-        return null;
-      },
+<script lang="ts" setup>
+import { computed } from "vue";
+
+const props = defineProps({
+  tag: {
+    type: String,
+    default() {
+      return "div";
     },
   },
-  computed: {
-    getAlignV() {
-      return {
-        start: "--align-v-start",
-        center: "--align-v-center",
-        end: "--align-v-end",
-      };
-    },
-    getAlignH() {
-      return {
-        start: "--align-h-start",
-        center: "--align-h-center",
-        end: "--align-h-end",
-      };
-    },
-    getClass() {
-      const result = [];
-
-      if (!this.noGutters) {
-        result.push("--no-gutter");
-      }
-
-      if (this.alignV) {
-        result.push(this.getAlignV[this.alignV]);
-      }
-
-      if (this.alignH) {
-        result.push(this.getAlignH[this.alignH]);
-      }
-
-      return result.join(" ");
+  noGutters: {
+    type: Boolean,
+    default() {
+      return false;
     },
   },
+  alignV: {
+    type: String,
+    default() {
+      return null;
+    },
+  },
+  alignH: {
+    type: String,
+    default() {
+      return null;
+    },
+  },
+});
+
+const getAlignV = {
+  start: "--align-v-start",
+  center: "--align-v-center",
+  end: "--align-v-end",
 };
+
+const getAlignH = {
+  start: "--align-h-start",
+  center: "--align-h-center",
+  end: "--align-h-end",
+};
+
+const getClass = computed(() => {
+  const result = [];
+
+  if (props.noGutters) {
+    result.push("--no-gutter");
+  }
+
+  if (props.alignV) {
+    result.push("--align-v-" + props.alignV);
+  }
+
+  if (props.alignH) {
+    result.push("--align-h-" + props.alignH);
+  }
+
+  return result.join(" ");
+});
 </script>

@@ -9,7 +9,7 @@
 
     <vf-m-field
       id="input-password"
-      :state="$v.form.password.$dirty ? !$v.form.password.$error : null"
+      :state="v$.password.$dirty ? !v$.password.$error : null"
     >
       <template #label>{{
         $t("elements.common.account.password.passwordEntry")
@@ -29,9 +29,7 @@
 
     <vf-m-field
       id="input-confirm-password"
-      :state="
-        $v.form.confirmPassword.$dirty ? !$v.form.confirmPassword.$error : null
-      "
+      :state="v$.confirmPassword.$dirty ? !v$.confirmPassword.$error : null"
     >
       <template #label>{{
         $t("elements.common.account.password.confirmPasswordEntry")
@@ -55,59 +53,44 @@
     </template>
   </vf-o-form>
 </template>
-<script>
-import * as vuelidate from "vuelidate";
-import {
-  required,
-  maxLength,
-  minLength,
-  sameAs,
-} from "vuelidate/lib/validators";
+<script lang="ts" setup>
+import { useVuelidate } from "@vuelidate/core";
+import { required, maxLength, minLength, sameAs } from "@vuelidate/validators";
 import { mdiArrowRight } from "@mdi/js";
-const { validationMixin } = vuelidate;
-export default {
-  mixins: [validationMixin],
-  data() {
-    return {
-      mdiArrowRight,
-      form: {
-        password: null,
-        confirmPassword: null,
-      },
-    };
+import { computed, reactive } from "vue";
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
+const form = reactive({
+  password: null,
+  confirmPassword: null,
+});
+const rules = computed(() => ({
+  password: {
+    required,
+    minLength: minLength(4),
+    maxLength: maxLength(20),
   },
-  validations: {
-    form: {
-      password: {
-        required,
-        minLength: minLength(4),
-        maxLength: maxLength(20),
-      },
-      confirmPassword: {
-        required,
-        minLength: minLength(4),
-        maxLength: maxLength(20),
-        sameAsPassword: sameAs("password"),
-      },
-    },
+  confirmPassword: {
+    required,
+    minLength: minLength(4),
+    maxLength: maxLength(20),
+    sameAs: sameAs(form.password),
   },
-  methods: {
-    async onSubmit() {
-      this.$v.$touch();
+}));
+const v$ = useVuelidate(rules, form);
+const store = useStore();
+const router = useRouter();
+const onSubmit = async () => {
+  v$.value.$touch();
 
-      if (!this.$v.form.$invalid) {
-        const status = await this.$store.dispatch(
-          "common/customer/editPassword",
-          {
-            password: this.form.password,
-          }
-        );
+  if (!v$.value.$invalid) {
+    const status = await store.dispatch("common/customer/editPassword", {
+      password: form.password,
+    });
 
-        if (status) {
-          this.$router.push("/account");
-        }
-      }
-    },
-  },
+    if (status) {
+      router.push("/account");
+    }
+  }
 };
 </script>

@@ -1,6 +1,10 @@
 .vf-m-category-thumb {
-  @apply mb-2 block;
+  @apply mb-2 flex flex-row;
+  &__image {
+    width: 67px;
+    @apply mr-5;
+  }
   &__title {
-    @apply sm:text-center;
+    @apply text-xl font-normal leading-7 flex items-center;
   }
 }

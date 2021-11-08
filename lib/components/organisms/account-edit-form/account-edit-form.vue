@@ -1,5 +1,5 @@
 <template>
-  <vf-o-form class="vf-o-account-edit-form" @submit="onSubmit">
+  <vf-o-form @submit="onSubmit">
     <template #title>{{
       $t("elements.common.account.edit.titleText")
     }}</template>
@@ -9,7 +9,7 @@
 
     <vf-m-field
       id="input-first-name"
-      :state="$v.form.firstName.$dirty ? !$v.form.firstName.$error : null"
+      :state="v$.firstName.$dirty ? !v$.firstName.$error : null"
     >
       <template #label>{{
         $t("elements.common.account.edit.firstNameEntry")
@@ -24,7 +24,7 @@
 
     <vf-m-field
       id="input-first-name"
-      :state="$v.form.lastName.$dirty ? !$v.form.lastName.$error : null"
+      :state="v$.lastName.$dirty ? !v$.lastName.$error : null"
     >
       <template #label>{{
         $t("elements.common.account.edit.lastNameEntry")
@@ -39,7 +39,7 @@
 
     <vf-m-field
       id="input-email"
-      :state="$v.form.email.$dirty ? !$v.form.email.$error : null"
+      :state="v$.email.$dirty ? !v$.email.$error : null"
     >
       <template #label>{{
         $t("elements.common.account.edit.emailEntry")
@@ -58,70 +58,60 @@
     </template>
   </vf-o-form>
 </template>
-<script>
-import * as vuelidate from "vuelidate";
-import {
-  required,
-  minLength,
-  maxLength,
-  email,
-} from "vuelidate/lib/validators";
+<script lang="ts" setup>
+import { useVuelidate } from "@vuelidate/core";
+import { required, minLength, maxLength, email } from "@vuelidate/validators";
 import { mdiArrowRight } from "@mdi/js";
-const { validationMixin } = vuelidate;
-export default {
-  mixins: [validationMixin],
-  props: {
-    account: {
-      type: Object,
-      default() {
-        return null;
-      },
+import { reactive } from "vue";
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
+const store = useStore();
+const router = useRouter();
+const props = defineProps({
+  account: {
+    type: Object,
+    default() {
+      return null;
     },
   },
-  data() {
-    return {
-      mdiArrowRight,
-      form: {
-        firstName: this.account.firstName,
-        lastName: this.account.lastName,
-        email: this.account.email,
-      },
-    };
-  },
-  validations: {
-    form: {
-      firstName: {
-        required,
-        minLength: minLength(1),
-        maxLength: maxLength(32),
-      },
-      lastName: {
-        required,
-        minLength: minLength(1),
-        maxLength: maxLength(32),
-      },
-      email: {
-        required,
-        email,
-      },
+});
+const form = reactive({
+  firstName: props.account.firstName,
+  lastName: props.account.lastName,
+  email: props.account.email,
+});
+const v$ = useVuelidate(
+  {
+    firstName: {
+      required,
+      minLength: minLength(1),
+      maxLength: maxLength(32),
+    },
+    lastName: {
+      required,
+      minLength: minLength(1),
+      maxLength: maxLength(32),
+    },
+    email: {
+      required,
+      email,
     },
   },
-  methods: {
-    async onSubmit() {
-      this.$v.$touch();
+  form
+);
+const onSubmit = async () => {
+  v$.value.$touch();
 
-      if (!this.$v.form.$invalid) {
-        const status = await this.$store.dispatch("common/customer/edit", {
-          firstName: this.form.firstName,
-          lastName: this.form.lastName,
-          email: this.form.email,
-        });
+  if (!v$.value.$invalid) {
+    const status = await store.dispatch("common/customer/edit", {
+      firstName: form.firstName,
+      lastName: form.lastName,
+      email: form.email,
+    });
 
-        if (status) {
-          this.$router.push("/account");
-        }
-      }
-    },
-  },
+    if (status) {
+      router.push("/account");
+    }
+  }
 };
 </script>

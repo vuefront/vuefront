@@ -3,32 +3,11 @@
     class="vf-m-category-thumb-loader loading-page"
     style="margin-bottom: 2rem"
   >
-    <skeleton
-      bg-color="#eee"
-      duration="2"
-      theme="opacity"
-      shape="radius"
-      width="100%"
-    >
-      <tb-skeleton height="90px" class="mb-2"></tb-skeleton>
-      <tb-skeleton
-        height="20px"
-        class="mx-auto"
-        style="margin-bottom: 0.5rem"
-      ></tb-skeleton>
-    </skeleton>
+    <vf-m-skeleton height="90px" class="mb-2"></vf-m-skeleton>
+    <vf-m-skeleton
+      height="20px"
+      class="mx-auto"
+      style="margin-bottom: 0.5rem"
+    ></vf-m-skeleton>
   </div>
 </template>
-
-<script>
-import * as ISkeleton from "tb-skeleton";
-const { TbSkeleton, Skeleton } = ISkeleton
-
-
-export default {
-  components: {
-    TbSkeleton,
-    Skeleton,
-  },
-};
-</script>

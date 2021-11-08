@@ -4,9 +4,13 @@
       display: none;
     }
   }
+  .vf-m-dropdown-item {
+    @apply uppercase;
+  }
   &__image {
   }
   &__name {
+    @apply uppercase;
     @media (max-width: 767px) {
       color: #000;
     }

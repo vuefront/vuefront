@@ -12,19 +12,6 @@
     </section>
   </vf-o-apollo>
 </template>
-<script>
-export default {
-  methods: {
-    url(page) {
-      if (page.keyword && page.keyword !== "") {
-        return "/" + page.keyword;
-      } else {
-        return `/page/${page.id}`;
-      }
-    },
-  },
-};
-</script>
 <graphql>
 {
   pagesList (page: 1, size: 4) {

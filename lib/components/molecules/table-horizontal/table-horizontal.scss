@@ -1,20 +1,26 @@
 .vf-m-table-horizontal {
-    display: flex;
-    flex-flow: column;
+    @apply flex flex-col;
     &__item {
-        display: flex;
-        flex-flow: row;
+      @apply flex flex-row;
+      &:last-child {
+        .vf-m-table-horizontal {
+          &__title {
+            @apply border-b;
+          }
+          &__value {
+            @apply border-b;
+          }
+        }
+      }
     }
     &__title {
-      @apply border p-2;
+      @apply border-t p-2 text-left text-base font-semibold;
     }
     &__value {
-      @apply border p-2;
+      @apply border-t p-2 justify-center text-base font-normal;
     }
     &__title,
     &__value {
-        flex: 1;
-        display: flex;
-        justify-content: center;
+      @apply flex flex-1 py-7;
     }
 }

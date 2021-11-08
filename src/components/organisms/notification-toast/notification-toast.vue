@@ -6,40 +6,30 @@
     {{ error ? errorNotification : messageNotification }}
   </div>
 </template>
-<script>
-import { mapGetters } from "vuex";
-export default {
-  data() {
-    return {
-      show: false,
-      error: false,
-    };
-  },
-  computed: {
-    ...mapGetters({
-      messageNotification: "notification/get",
-      errorNotification: "notification/error",
-    }),
-  },
-  mounted() {
-    this.$store.subscribe((mutation, state) => {
-      if (mutation.type === "notification/error") {
-        this.message = mutation.payload;
-        this.error = true;
-        this.show = true;
-        setTimeout(() => {
-          this.show = false;
-        }, 3000);
-      }
-      if (mutation.type === "notification/add") {
-        this.message = mutation.payload;
-        this.error = false;
-        this.show = true;
-        setTimeout(() => {
-          this.show = false;
-        }, 3000);
-      }
-    });
-  },
-};
+<script lang="ts" setup>
+import { computed, onMounted, ref } from "vue";
+import { useStore } from "vuex";
+const show = ref(false);
+const error = ref(false);
+const store = useStore();
+const messageNotification = computed(() => store.getters["notification/get"]);
+const errorNotification = computed(() => store.getters["notification/error"]);
+onMounted(() => {
+  store.subscribe((mutation, state) => {
+    if (mutation.type === "notification/error") {
+      error.value = true;
+      show.value = true;
+      setTimeout(() => {
+        show.value = false;
+      }, 3000);
+    }
+    if (mutation.type === "notification/add") {
+      error.value = false;
+      show.value = true;
+      setTimeout(() => {
+        show.value = false;
+      }, 3000);
+    }
+  });
+});
 </script>

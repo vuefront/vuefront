@@ -11,121 +11,19 @@
     </vf-m-card>
   </section>
 </template>
-<script>
-import * as vuelidate from "vuelidate";
-import { required, minLength, maxLength } from "vuelidate/lib/validators";
-import { mapGetters } from "vuex";
-const { validationMixin } = vuelidate;
-export default {
-  mixins: [validationMixin],
-  props: ["address", "countries", "zones"],
-  data() {
-    return {
-      form: {
-        firstName: this.address.firstName,
-        lastName: this.address.lastName,
-        company: this.address.company,
-        address1: this.address.address1,
-        address2: this.address.address2,
-        city: this.address.city,
-        countryId: this.address.countryId,
-        zoneId: this.address.zoneId,
-        zipcode: this.address.zipcode,
-      },
-    };
+<script lang="ts" setup>
+defineProps({
+  address: {
+    type: Object,
+    default: () => null,
   },
-  validations() {
-    let fields = {};
-
-    if (this.zones.content.length > 0) {
-      fields = {
-        ...fields,
-        zoneId: {
-          required,
-        },
-      };
-    }
-
-    return {
-      form: {
-        firstName: {
-          required,
-          minLength: minLength(1),
-          maxLength: maxLength(32),
-        },
-        lastName: {
-          required,
-          minLength: minLength(1),
-          maxLength: maxLength(32),
-        },
-        company: {
-          minLength: minLength(1),
-          maxLength: maxLength(32),
-        },
-        address1: {
-          required,
-          minLength: minLength(3),
-          maxLength: maxLength(128),
-        },
-        address2: {
-          minLength: minLength(3),
-          maxLength: maxLength(128),
-        },
-        city: {
-          required,
-          minLength: minLength(2),
-          maxLength: maxLength(128),
-        },
-        countryId: {
-          required,
-        },
-        zipcode: {
-          required,
-          minLength: minLength(2),
-          maxLength: maxLength(10),
-        },
-        ...fields,
-      },
-    };
+  countries: {
+    type: Object,
+    default: () => null,
   },
-  computed: {
-    ...mapGetters({
-      error: "vuefront/error",
-    }),
+  zones: {
+    type: Object,
+    default: () => null,
   },
-  methods: {
-    async handleChangeCountry(value) {
-      await this.$store.dispatch("common/zone/list", {
-        page: 1,
-        size: -1,
-        country_id: value,
-      });
-      this.form.zoneId = "";
-    },
-    async onSubmit() {
-      this.$v.$touch();
-
-      if (!this.$v.form.$invalid) {
-        await this.$store.dispatch("common/address/edit", {
-          id: this.address.id,
-          address: {
-            firstName: this.form.firstName,
-            lastName: this.form.lastName,
-            company: this.form.company,
-            address1: this.form.address1,
-            address2: this.form.address2,
-            countryId: this.form.countryId,
-            zoneId: this.form.zoneId,
-            city: this.form.city,
-            zipcode: this.form.zipcode,
-          },
-        });
-
-        if (!this.error) {
-          this.$router.push("/account/address");
-        }
-      }
-    },
-  },
-};
+});
 </script>

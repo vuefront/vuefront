@@ -1,8 +1,0 @@
-mutation($code: String) {
-  editLanguage(code: $code) {
-    name
-    image
-    code
-    active
-  }
-}

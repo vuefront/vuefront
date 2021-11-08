@@ -1,149 +1,146 @@
 <template>
-  <section class="sort-section mb-4">
+  <section class="vf-o-product-sort mb-4">
     <vf-m-row cols="12">
-      <vf-m-col xs="6" md="2" align-self="center">
-        <vf-m-button-group size="sm">
-          <vf-a-button
-            :pressed="mode === 'grid'"
-            color="light"
-            @click="modeValue = 'grid'"
-          >
-            <vf-a-icon :icon="mdiViewGrid" size="26" />
-          </vf-a-button>
-          <vf-a-button
-            :pressed="mode === 'list'"
-            color="light"
-            @click="modeValue = 'list'"
-          >
-            <vf-a-icon :icon="mdiViewList" size="26" />
-          </vf-a-button>
-        </vf-m-button-group>
+      <vf-m-col xs="4" md="2" align-self="center">
+        <div
+          class="vf-o-product-sort__mode --grid"
+          :class="{ '--active': modeValue === 'grid' }"
+          @click="modeValue = 'grid'"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div
+          class="vf-o-product-sort__mode --list"
+          :class="{ '--active': modeValue === 'list' }"
+          @click="modeValue = 'list'"
+        >
+          <span></span>
+        </div>
       </vf-m-col>
-      <vf-m-col align-self="center">
-        <vf-a-link to="/store/compare">{{
+      <vf-m-col xs="8" md="3" align-self="center">
+        <vf-a-link to="/store/compare" class="vf-o-product-sort__compare">{{
           $t("elements.store.productSort.compareText")
         }}</vf-a-link>
       </vf-m-col>
-      <vf-m-col xs="6" md="4" align-self="center">
-        <vf-m-input-group
-          :prepend="$t('elements.store.productSort.sortByText')"
-          size="sm"
-        >
+      <vf-m-col
+        xs="12"
+        md="7"
+        align-self="center"
+        class="text-left md:text-right"
+      >
+        <div class="vf-o-product-sort__sort">
+          <span>{{ $t("elements.store.productSort.sortByText") }}</span>
           <vf-a-select
-            v-model="sizeValue"
-            :options="sizeOptions"
+            v-model="sortValue"
+            :options="sortOptions"
             class="mr-3"
+            size="sm"
           />
-        </vf-m-input-group>
-      </vf-m-col>
-      <vf-m-col xs="6" md="3" align-self="center">
-        <vf-m-input-group
-          :prepend="$t('elements.store.productSort.showText')"
-          size="sm"
-        >
-          <vf-a-select v-model="sortValue" :options="sortOptions" />
-        </vf-m-input-group>
+        </div>
+        <div class="vf-o-product-sort__limit">
+          <span>{{ $t("elements.store.productSort.showText") }}</span>
+          <vf-a-select v-model="sizeValue" size="sm" :options="sizeOptions" />
+        </div>
       </vf-m-col>
     </vf-m-row>
   </section>
 </template>
-<script>
-import { mdiViewGrid, mdiViewList } from "@mdi/js";
-export default {
-  props: ["sort", "size", "mode"],
-  data() {
-    return {
-      mdiViewGrid,
-      mdiViewList,
-      sizeOptions: [
-        {
-          text: this.$t("templates.store.category.15Text"),
-          value: 15,
-        },
-        {
-          text: this.$t("templates.store.category.25Text"),
-          value: 25,
-        },
-        {
-          text: this.$t("templates.store.category.50Text"),
-          value: 50,
-        },
-        {
-          text: this.$t("templates.store.category.75Text"),
-          value: 75,
-        },
-        {
-          text: this.$t("templates.store.category.100Text"),
-          value: 100,
-        },
-      ],
-      sortOptions: [
-        {
-          text: this.$t("templates.store.category.defaultSortText"),
-          value: "id|ASC",
-        },
-        {
-          text: this.$t("templates.store.category.nameAscSortText"),
-          value: "name|ASC",
-        },
-        {
-          text: this.$t("templates.store.category.nameDescSortText"),
-          value: "name|DESC",
-        },
-        {
-          text: this.$t("templates.store.category.priceAscSortText"),
-          value: "price|ASC",
-        },
-        {
-          text: this.$t("templates.store.category.priceDescSortText"),
-          value: "price|DESC",
-        },
-        {
-          text: this.$t("templates.store.category.ratingAscSortText"),
-          value: "rating|ASC",
-        },
-        {
-          text: this.$t("templates.store.category.ratingDescSortText"),
-          value: "rating|DESC",
-        },
-        {
-          text: this.$t("templates.store.category.modelAscSortText"),
-          value: "model|ASC",
-        },
-        {
-          text: this.$t("templates.store.category.modelDescSortText"),
-          value: "model|DESC",
-        },
-      ],
-    };
-  },
-  computed: {
-    modeValue: {
-      get() {
-        return this.mode;
-      },
-      set(e) {
-        this.$emit("changeMode", e);
-      },
-    },
+<script lang="ts" setup>
+import { useI18n } from "vue-i18n";
+import { computed } from "vue";
+const i18n = useI18n();
 
-    sizeValue: {
-      get() {
-        return this.size;
-      },
-      set(e) {
-        this.$emit("changeSize", e);
-      },
-    },
-
-    sortValue: {
-      get() {
-        return this.sort;
-      },
-      set(e) {
-        this.$emit("changeSort", e);
-      },
-    },
+const props = defineProps({
+  sort: {
+    type: String,
+    default: () => "id|ASC",
   },
-};
+  size: {
+    type: Number,
+    default: () => 15,
+  },
+  mode: {
+    type: String,
+    default: () => "grid",
+  },
+});
+
+const sizeOptions = [
+  {
+    text: i18n.t("templates.store.category.15Text"),
+    value: 15,
+  },
+  {
+    text: i18n.t("templates.store.category.25Text"),
+    value: 25,
+  },
+  {
+    text: i18n.t("templates.store.category.50Text"),
+    value: 50,
+  },
+  {
+    text: i18n.t("templates.store.category.75Text"),
+    value: 75,
+  },
+  {
+    text: i18n.t("templates.store.category.100Text"),
+    value: 100,
+  },
+];
+
+const sortOptions = [
+  {
+    text: i18n.t("templates.store.category.defaultSortText"),
+    value: "id|ASC",
+  },
+  {
+    text: i18n.t("templates.store.category.nameAscSortText"),
+    value: "name|ASC",
+  },
+  {
+    text: i18n.t("templates.store.category.nameDescSortText"),
+    value: "name|DESC",
+  },
+  {
+    text: i18n.t("templates.store.category.priceAscSortText"),
+    value: "price|ASC",
+  },
+  {
+    text: i18n.t("templates.store.category.priceDescSortText"),
+    value: "price|DESC",
+  },
+  {
+    text: i18n.t("templates.store.category.ratingAscSortText"),
+    value: "rating|ASC",
+  },
+  {
+    text: i18n.t("templates.store.category.ratingDescSortText"),
+    value: "rating|DESC",
+  },
+  {
+    text: i18n.t("templates.store.category.modelAscSortText"),
+    value: "model|ASC",
+  },
+  {
+    text: i18n.t("templates.store.category.modelDescSortText"),
+    value: "model|DESC",
+  },
+];
+const emits = defineEmits(["changeMode", "changeSize", "changeSort"]);
+
+const sizeValue = computed({
+  get: () => props.size,
+  set: (e) => emits("changeSize", e),
+});
+const modeValue = computed({
+  get: () => props.mode,
+  set: (e) => emits("changeMode", e),
+});
+
+const sortValue = computed({
+  get: () => props.sort,
+  set: (e) => emits("changeSort", e),
+});
 </script>

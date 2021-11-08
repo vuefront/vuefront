@@ -11,30 +11,19 @@
     >
   </vf-m-container>
 </template>
-<script>
-import { mapGetters } from "vuex";
-
-export default {
-  data() {
-    return {
-      dismissCountDown: 0,
-    };
-  },
-  computed: {
-    ...mapGetters({
-      messageNotification: "notification/get",
-    }),
-  },
-  watch: {
-    messageNotification(val, oldVal) {
-      this.dismissCountDown = 10;
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    },
-  },
-  methods: {
-    countDownChanged(dismissCountDown) {
-      this.dismissCountDown = dismissCountDown;
-    },
-  },
+<script lang="ts" setup>
+import { useStore } from "vuex";
+import { computed, watch, ref } from "vue";
+const dismissCountDown = ref(0);
+const store = useStore();
+const messageNotification = computed(() => store.getters["notification/get"]);
+watch(
+  () => messageNotification.value,
+  (val, oldVal) => {
+    dismissCountDown.value = 10;
+  }
+);
+const countDownChanged = (val: number) => {
+  dismissCountDown.value = val;
 };
 </script>

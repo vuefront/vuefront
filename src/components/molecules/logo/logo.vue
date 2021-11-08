@@ -1,7 +1,7 @@
 <template>
-  <vf-a-link class="vf-m-logo block" to="/">
+  <vf-a-link class="vf-m-logo inline-block" to="/">
     <vf-a-image
-      :src="getLogo"
+      :src="getLogo()"
       alt
       class="vf-m-logo__image"
       :width="$vuefront.images.logo.width"
@@ -10,16 +10,16 @@
     />
   </vf-a-link>
 </template>
-<script>
-export default {
-  computed: {
-    getLogo() {
-      if (typeof this.$vuefront.images.logo.image !== "undefined") {
-        return this.$vuefront.images.logo.image;
-      } else {
-        return "https://vuefront.com/logo.png";
-      }
-    },
-  },
+<script lang="ts" setup>
+import { inject } from "vue";
+
+const vuefront$ = inject<any>("$vuefront");
+
+const getLogo = () => {
+  if (typeof vuefront$.images.logo.image !== "undefined") {
+    return vuefront$.images.logo.image;
+  } else {
+    return "https://vuefront.com/logo.png";
+  }
 };
 </script>
