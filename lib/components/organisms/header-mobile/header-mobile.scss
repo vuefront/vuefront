@@ -4,13 +4,6 @@
   @media screen and (min-width: 768px) {
     display: none;
   }
-  a,
-  a:hover {
-    &:not([aria-controls]) {
-      padding: 0.5rem 0.5rem;
-      color: rgba(31, 45, 61, 0.5);
-    }
-  }
   .dropdown {
     > .btn {
       &.btn-link,

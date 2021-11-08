@@ -1,19 +1,26 @@
 .vf-m-product-thumb-inline {
+  @apply flex-col items-center md:items-stretch;
+  @screen md {
+    @apply flex-row;
+  }
   &__name {
-    @apply font-normal mb-0 leading-none text-3xl whitespace-nowrap overflow-visible;
+    @apply text-center md:text-left font-normal mb-0 leading-none text-3xl overflow-hidden;
     color: #4A942C;
   }
   &__price {
-    @apply font-normal text-base mb-2;
+    @apply text-center md:text-left font-normal text-base mb-2;
     span {
       @apply font-semibold;
     }
   }
   &__image {
-    @apply pl-3 flex items-center;
+    @apply flex items-center;
+    @screen md {
+      @apply pl-3;
+    }
   }
   &__quantity {
-    @apply mb-3;
+    @apply mb-3 flex justify-center md:justify-start;
   }
   &__option {
     @apply leading-none text-black;
@@ -25,6 +32,9 @@
     }
   }
   &__content {
-    @apply pl-3 text-left;
+    @apply text-left;
+    @screen md {
+      @apply pl-3
+    }
   }
 }

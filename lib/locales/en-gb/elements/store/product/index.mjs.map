@@ -1,1 +1,1 @@
-{"version":3,"sources":["../../../../../../src/locales/en-gb/elements/store/product/index.ts"],"names":["option"],"mappings":"OAAOA,M;AAEP,eAAe;AACbA,EAAAA;AADa,CAAf","sourcesContent":["import option from \"./option\";\r\n\r\nexport default {\r\n  option,\r\n};\r\n"],"file":"index.mjs"}
+{"version":3,"sources":["../../../../../../src/locales/en-gb/elements/store/product/index.ts"],"names":["option"],"mappings":"OAAOA,M;AAEP,eAAe;AACbA,EAAAA;AADa,CAAf","sourcesContent":["import option from \"./option\";\n\nexport default {\n  option,\n};\n"],"file":"index.mjs"}

@@ -134,10 +134,6 @@ module.exports = {
       component: "molecules/card/card.vue",
     },
     CardFooter: "molecules/card/footer.vue",
-    CartLink: {
-      css: "molecules/cart-link/cart-link.scss",
-      component: "molecules/cart-link/cart-link.vue",
-    },
     CategoryThumb: {
       css: "molecules/category-thumb/category-thumb.scss",
       component: "molecules/category-thumb/category-thumb.vue",
@@ -332,8 +328,6 @@ module.exports = {
     },
     CompareActions: "organisms/compare-actions/compare-actions.vue",
     WishlistActions: "organisms/wishlist-actions/wishlist-actions.vue",
-    CartQuantity: "organisms/cart-quantity/cart-quantity.vue",
-    CartActions: "organisms/cart-actions/cart-actions.vue",
     ProductModule: {
       css: "organisms/product-module/product-module.scss",
       component: "organisms/product-module/product-module.vue",

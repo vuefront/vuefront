@@ -1,1 +1,1 @@
-{"version":3,"sources":["../../../../src/locales/ru-ru/templates/index.ts"],"names":["store"],"mappings":"OAAOA,K;AAEP,eAAe;AACbA,EAAAA;AADa,CAAf","sourcesContent":["import store from \"./store\";\r\n\r\nexport default {\r\n  store,\r\n};\r\n"],"file":"index.mjs"}
+{"version":3,"sources":["../../../../src/locales/ru-ru/templates/index.ts"],"names":["store"],"mappings":"OAAOA,K;AAEP,eAAe;AACbA,EAAAA;AADa,CAAf","sourcesContent":["import store from \"./store\";\n\nexport default {\n  store,\n};\n"],"file":"index.mjs"}
