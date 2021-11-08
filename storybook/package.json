@@ -44,7 +44,7 @@
     "storybook-vue3-router": "^1.0.5",
     "vue-i18n": "^9.2.0-beta.12",
     "vue3-lazyload": "^0.2.2-beta",
-    "vuefront": "vuefront/vuefront#56fd0a25582c08c81b0391d7cd65aa73d3d0a0da",
+    "vuefront": "vuefront/vuefront#73e04e08af545b315ef53f00a5d5a0a759c1f1d4",
     "vuex": "^4.0.2"
   },
   "scripts": {
