@@ -3,12 +3,7 @@
     <span class="vf-o-cart__trigger" @click="show = true">
       <vf-a-icon :icon="mdiCartOutline" :size="18" />
     </span>
-    <vf-o-sidebar
-      class="vf-o-cart__sidebar"
-      :open="show"
-      @close="show = false"
-      right
-    >
+    <vf-o-sidebar :open="show" @close="show = false" right>
       <template #top>
         <vf-a-heading level="1" class="font-normal"
           >Shopping cart</vf-a-heading

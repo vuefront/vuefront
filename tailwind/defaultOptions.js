@@ -51,6 +51,22 @@ module.exports = (theme) => ({
       },
     },
   },
+  checkbox: {
+    "&.--error": {
+      color: theme("colors.red.400"),
+      "[type=checkbox]": {
+        borderColor: theme("colors.red.400"),
+      },
+    },
+  },
+  radio: {
+    "&.--error": {
+      color: theme("colors.red.400"),
+      "[type=radio]": {
+        borderColor: theme("colors.red.400"),
+      },
+    },
+  },
   input: {
     "-webkit-appearance": "none",
     borderRadius: theme("borderRadius.0"),

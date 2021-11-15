@@ -17,7 +17,12 @@
       </div>
     </div>
 
-    <vf-a-alert :show="error.message" color="info" v-html="error.message" />
+    <vf-a-alert
+      v-if="error.message || errors.length > 0"
+      show
+      color="info"
+      v-html="error.message || errors[0].$message"
+    />
 
     <slot></slot>
 
@@ -29,10 +34,16 @@
   </form>
 </template>
 <script lang="ts" setup>
-import { computed } from "vue";
+import { computed, PropType } from "vue";
 import { useStore } from "vuex";
 const emits = defineEmits(["submit", "reset"]);
-const props = defineProps({
+defineProps({
+  errors: {
+    type: Array as PropType<any[]>,
+    default() {
+      return [];
+    },
+  },
   inline: {
     type: Boolean,
     default() {

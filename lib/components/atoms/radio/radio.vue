@@ -1,7 +1,10 @@
 <template>
   <label
     class="inline-flex items-center vf-a-radio"
-    :class="{ 'vf-a-radio--active': model === modelValue }"
+    :class="{
+      'vf-a-radio--active': model === modelValue,
+      '--error': !(state || state === null),
+    }"
   >
     <input
       v-model="model"

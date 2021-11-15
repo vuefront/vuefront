@@ -1,11 +1,14 @@
 <template>
-  <label class="inline-flex items-center">
+  <label
+    class="vf-a-checkbox inline-flex items-center"
+    :class="{ '--error': !(state || state === null) }"
+  >
     <input
       v-model="model"
       type="checkbox"
       :value="modelValue"
       :state="state"
-      class="vf-a-checkbox form-checkbox"
+      class="form-checkbox"
     />
     <span class="ml-2">
       <slot></slot>
@@ -14,7 +17,7 @@
 </template>
 <script lang="ts" setup>
 import { computed, PropType } from "vue";
-import {isArray} from "lodash";
+import { isArray } from "lodash";
 const props = defineProps({
   type: {
     type: String,
@@ -40,7 +43,7 @@ const props = defineProps({
 const emit = defineEmits(["update:modelValue"]);
 const model = computed({
   get() {
-    return props.checked;
+    return props.modelValue;
   },
   set(val) {
     if (isArray(props.checked)) {

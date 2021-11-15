@@ -19,9 +19,13 @@ const defaultOptions = require("./defaultOptions");
 const columnComponent = require("./component/column");
 const rowComponent = require("./component/row");
 const productOptionComponent = require("./component/product-option");
+const radioComponent = require("./component/radio");
+const checkboxComponent = require("./component/checkbox");
 module.exports = plugin(
   function (ctx) {
     const { theme, addComponents } = ctx;
+    addComponents(checkboxComponent(theme));
+    addComponents(radioComponent(theme));
     addComponents(fieldComponent(theme));
     addComponents(listGroupComponent(theme));
     addComponents(buttonGroupComponent(theme));

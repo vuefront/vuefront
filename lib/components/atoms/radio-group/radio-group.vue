@@ -60,7 +60,7 @@ const props = defineProps({
 const localValue = ref(props.modelValue);
 const emit = defineEmits(["update:modelValue"]);
 watch(
-  () => localValue,
+  () => localValue.value,
   (val, oldVal) => {
     if (JSON.stringify(val) !== JSON.stringify(oldVal)) {
       emit("update:modelValue", val);
