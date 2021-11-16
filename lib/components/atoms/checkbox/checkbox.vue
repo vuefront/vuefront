@@ -43,7 +43,7 @@ const props = defineProps({
 const emit = defineEmits(["update:modelValue"]);
 const model = computed({
   get() {
-    return props.modelValue;
+    return props.checked ? props.checked : props.modelValue;
   },
   set(val) {
     if (isArray(props.checked)) {

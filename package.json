@@ -1,6 +1,6 @@
 {
     "name": "vuefront",
-    "version": "0.5.1",
+    "version": "0.5.2",
     "description": "vuefront",
     "files": [
         "lib",
@@ -20,7 +20,7 @@
     "license": "MIT",
     "scripts": {
         "build:lib": "cross-env  NODE_ENV=lib babel src --watch --out-dir lib --ignore \"**/__tests__\" --source-maps --extensions \".ts\",\".tsx\",\".snap\" --copy-files --no-copy-ignored --out-file-extension .mjs",
-        "yalc-watch": "nodemon --delay 6 -e vue,js,scss,json -x yalc push",
+        "yalc-watch": "nodemon --delay 1 -e vue,js,scss,json -x yalc push",
         "watch": "concurrently -k -p \"[{name}]\" -n \"Build,Yalc\" -c \"yellow.bold,cyan.bold\" \"npm run build:lib\" \"npm run yalc-watch\""
     },
     "peerDependencies": {

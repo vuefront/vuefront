@@ -24,36 +24,3 @@
     <vf-o-position class="vf-o-header__menu" name="headerMenu" />
   </section>
 </template>
-<style lang="scss">
-.vf-o-header {
-  @apply hidden;
-  @media screen and (min-width: 768px) {
-    @apply block;
-  }
-  .dropdown {
-    > .btn {
-      &.btn-link,
-      &.btn-link:hover {
-        @apply text-black text-base py-0 px-2;
-      }
-      &.btn-link {
-        &:after {
-          @apply hidden;
-        }
-      }
-    }
-  }
-  &__top {
-    @apply py-8;
-    :not(.vf-o-sidebar) {
-      button,
-      button:hover,
-      a,
-      a:hover {
-        &:not([aria-controls]):not(.vf-e-common-menu__link) {
-        }
-      }
-    }
-  }
-}
-</style>
