@@ -1,7 +1,7 @@
 <template>
   <section class="account-address-edit">
-    <vf-m-card class="mb-0" no-body>
-      <vf-m-card-body class="md:px-5 py-5">
+    <vf-m-card no-body>
+      <vf-m-card-body>
         <vf-o-address-edit-form
           :address="address"
           :countries="countries"

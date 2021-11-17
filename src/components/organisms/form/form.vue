@@ -1,19 +1,16 @@
 <template>
   <form
-    class="vf-o-form test"
+    class="vf-o-form"
     autocomplete="off"
     @submit="onSubmit"
     @reset="onReset"
   >
-    <div v-if="!inline" :class="{ 'mb-5': $slots['sub-title'] }">
-      <vf-a-heading v-if="$slots['sub-title']" tag="h6" level="3">
+    <div v-if="!inline">
+      <h6 class="vf-o-form__title">
         <slot name="title"></slot>
-      </vf-a-heading>
-      <div
-        :class="{ 'mb-3': !$slots['sub-title'], 'mb-0': $slots['sub-title'] }"
-        class="vf-o-form__title title"
-      >
-        <slot :name="$slots['sub-title'] ? 'sub-title' : 'title'"></slot>
+      </h6>
+      <div class="vf-o-form__sub-title">
+        <slot name="sub-title"></slot>
       </div>
     </div>
 
@@ -26,7 +23,7 @@
 
     <slot></slot>
 
-    <div v-if="button" class="mt-4">
+    <div v-if="button" class="vf-o-form__footer">
       <vf-a-button type="submit" color="primary">
         <slot name="button"></slot>
       </vf-a-button>

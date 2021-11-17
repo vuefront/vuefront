@@ -3,7 +3,7 @@ const { invertColor, alpha, darken } = require("./utils");
 module.exports = (theme) => ({
   select: {
     "-webkit-appearance": "none",
-    borderRadius: theme("borderRadius.DEFAULT"),
+    borderRadius: theme("borderRadius.0"),
     width: theme("width.full"),
     backgroundColor: theme("backgroundColor.white"),
     borderWidth: theme("borderWidth.DEFAULT"),
@@ -12,6 +12,7 @@ module.exports = (theme) => ({
     backgroundPosition: `right ${theme("spacing.2")} center`,
     backgroundSize: `1.5em 1.5em`,
     backgroundRepeat: "no-repeat",
+    borderColor: "#C4C4C4",
     icon: (iconColor) =>
       `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"><path stroke="${iconColor}" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 8l4 4 4-4"/></svg>`,
     "&.--sm": {
@@ -113,11 +114,12 @@ module.exports = (theme) => ({
   },
   textarea: {
     "-webkit-appearance": "none",
-    borderRadius: theme("borderRadius.DEFAULT"),
+    borderRadius: theme("borderRadius.0"),
     width: theme("width.full"),
     backgroundColor: theme("backgroundColor.white"),
     borderWidth: theme("borderWidth.DEFAULT"),
     display: theme("display.block"),
+    borderColor: "#C4C4C4",
     "&.--sm": {
       fontSize: theme("fontSize.sm.0"),
       lineHeight: theme("fontSize.sm.0.lineHeight"),
@@ -314,8 +316,10 @@ module.exports = (theme) => ({
   field: {
     marginBottom: theme("margin.4"),
     "&__label": {
-      marginBottom: theme("margin.2"),
+      marginBottom: theme("margin.4"),
       display: "block",
+      fontSize: theme("fontSize.base.0"),
+      color: "#6E6E6E",
     },
     "&__error": {
       marginTop: theme("margin.1"),

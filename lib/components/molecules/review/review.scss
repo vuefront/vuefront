@@ -1,9 +1,13 @@
 .vf-m-review {
-  @apply mb-3;
+  @apply mb-10;
+  &__date {
+      @apply text-sm font-normal text-black mb-2;
+  }
   &__author {
-    @apply mb-1 font-bold font-light;
+    @apply text-sm mb-3 font-semibold;
   }
   &__content {
-    @apply text-xl;
+    @apply text-sm font-normal mb-8;
+    color: #6E6E6E;
   }
 }

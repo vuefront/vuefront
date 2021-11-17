@@ -1,12 +1,12 @@
 <template>
   <section class="vf-t-account-edit">
-    <vf-m-card class="mb-0" no-body>
-      <vf-m-card-body class="md:px-11 py-11">
+    <vf-m-card no-body>
+      <vf-m-card-body>
         <vf-o-account-edit-form :account="account" />
       </vf-m-card-body>
-      <vf-m-card-footer class="md:px-11">
-        <small>{{ $t("elements.common.account.edit.footerText") }}</small>
-        <vf-a-link to="/account/password" class="small font-bold">{{
+      <vf-m-card-footer>
+        <small>{{ $t("elements.common.account.edit.footerText") }} </small>
+        <vf-a-link to="/account/password" class="text-sm ml-1 font-semibold">{{
           $t("elements.common.account.edit.footerLinkText")
         }}</vf-a-link>
       </vf-m-card-footer>

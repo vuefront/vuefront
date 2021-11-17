@@ -1,0 +1,11 @@
+.vf-o-form {
+  &__title {
+    @apply text-2xl font-normal mb-4 text-black;
+  }
+  &__sub-title {
+    @apply mb-5 text-sm font-normal text-black;
+  }
+  &__footer {
+    @apply mt-7;
+  }
+}

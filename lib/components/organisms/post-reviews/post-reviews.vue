@@ -1,8 +1,5 @@
 <template>
   <div class="vf-o-post-reviews">
-    <vf-a-heading level="3" class="vf-o-post-reviews__title">{{
-      $t("elements.common.reviews.titleText")
-    }}</vf-a-heading>
     <vf-o-review-list
       :reviews="post.reviews.content"
       class="vf-o-post-reviews__content"

@@ -75,10 +75,8 @@
           v-html="product.description"
         />
       </vf-m-tab>
-      <vf-m-tab title="Specification"
-        ><vf-m-product-attribute
-          v-if="product.attributes.length > 0"
-          :attributes="product.attributes"
+      <vf-m-tab title="Specification" v-if="product.attributes.length > 0"
+        ><vf-m-product-attribute :attributes="product.attributes"
       /></vf-m-tab>
       <vf-m-tab title="Reviews">
         <vf-o-product-reviews :product="product" />

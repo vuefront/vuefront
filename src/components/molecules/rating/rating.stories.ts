@@ -28,4 +28,5 @@ export const Default = Template.bind({});
 Default.args = {
   color: "#6AA6C4",
   readonly: false,
+  size: 13,
 };

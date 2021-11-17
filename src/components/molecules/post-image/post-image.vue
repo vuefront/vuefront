@@ -10,6 +10,7 @@
     :class="{ 'card-img': card }"
     :full-width="fullWidth"
     class="vf-m-post-image"
+    cover
   />
 </template>
 <script lang="ts" setup>

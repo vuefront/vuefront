@@ -3,21 +3,6 @@
     <template #title>{{ $t("elements.common.reviews.writeText") }}</template>
 
     <vf-m-field
-      id="input-rating"
-      :state="v$.rating.$dirty ? !v$.rating.$error : null"
-    >
-      <template #label>{{
-        $t("elements.common.reviews.ratingEntry")
-      }}</template>
-      <template #default="data">
-        <vf-m-rating v-model="rating" v-bind="data" />
-      </template>
-      <template #error>{{
-        $t("elements.common.reviews.ratingError")
-      }}</template>
-    </vf-m-field>
-
-    <vf-m-field
       id="input-name"
       :state="v$.author.$dirty ? !v$.author.$error : null"
     >
@@ -42,6 +27,17 @@
       </template>
       <template #error>{{
         $t("elements.common.reviews.reviewError")
+      }}</template>
+    </vf-m-field>
+    <vf-m-field
+      id="input-rating"
+      :state="v$.rating.$dirty ? !v$.rating.$error : null"
+    >
+      <template #default="data">
+        <vf-m-rating v-model="rating" v-bind="data" :size="18" />
+      </template>
+      <template #error>{{
+        $t("elements.common.reviews.ratingError")
       }}</template>
     </vf-m-field>
 

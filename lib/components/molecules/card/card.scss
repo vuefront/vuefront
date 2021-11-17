@@ -1,13 +1,11 @@
 .vf-m-card {
-  @apply border rounded shadow-inner;
-  .card-img {
-    border-top-left-radius: calc(.375rem - 1px);
-    border-top-right-radius: calc(.375rem - 1px);
-  }
+  @apply border rounded-none;
+  border-color: #C4C4C4;
 }
 .vf-m-card-footer {
-  @apply p-2 border-t;
+  @apply px-7 py-3 border-t;
+  border-color: #C4C4C4;
 }
 .vf-m-card-body {
-  @apply p-4;
+  @apply pt-10 px-7 pb-8;
 }
