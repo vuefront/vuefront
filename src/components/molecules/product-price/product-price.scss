@@ -11,14 +11,13 @@
     }
   }
   &__oldprice {
-    color: #6E6E6E;
-    @apply font-semibold text-2xl leading-5 line-through;
+    @apply font-semibold text-2xl leading-5 line-through text-dark;
   }
   &__special {
     color: #9B124A;
     @apply font-semibold text-4xl leading-5 mr-4;
   }
   &__price {
-    @apply font-semibold text-4xl leading-5;
+    @apply text-dark font-semibold text-4xl leading-5;
   }
 }

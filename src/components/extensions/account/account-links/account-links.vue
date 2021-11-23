@@ -1,6 +1,6 @@
 <template>
   <section class="module-pages">
-    <vf-a-heading level="6" class="heading mb-3">{{
+    <vf-a-heading level="2" class="md:vf-a-heading--3 mb-3">{{
       $t("modules.common.accountLinks.textTitle")
     }}</vf-a-heading>
     <ul class="list-unstyled">

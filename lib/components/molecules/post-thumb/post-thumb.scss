@@ -3,11 +3,10 @@
     &__title {
         min-height: 50px;
         max-height: 50px;
-        @apply mb-0 flex items-center justify-start overflow-hidden font-normal;
+        @apply vf-a-heading--4 mb-0 flex items-center justify-start overflow-hidden;
     }
     &__date {
-        @apply text-left text-sm font-normal;
-        color: #6E6E6E;
+        @apply vf-a-heading--5 text-left;
     }
     & &-image {
         min-height: 150px;

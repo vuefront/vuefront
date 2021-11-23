@@ -1,6 +1,6 @@
 <template>
   <div v-if="items.length > 0" class="vf-o-post-module">
-    <vf-a-heading level="4" class="vf-o-post-module__title">
+    <vf-a-heading level="1" class="vf-o-post-module__title">
       <slot></slot>
     </vf-a-heading>
     <vf-o-post-grid

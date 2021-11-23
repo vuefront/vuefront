@@ -8,7 +8,7 @@
       <vf-m-col
         v-for="(value, index) in products"
         :key="index"
-        xs="12"
+        xs="6"
         :md="
           list || column
             ? 12

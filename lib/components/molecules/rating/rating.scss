@@ -2,11 +2,11 @@
   &__item {
     @apply cursor-pointer inline-flex items-center;
     svg {
-    //   @apply w-6 h-6;
-    //   @screen md {
-    //     width: 13px;
-    //     height: 13px;
-    //   }
+      @apply w-6 h-6;
+      @screen md {
+        width: 13px;
+        height: 13px;
+      }
     }
   }
 }

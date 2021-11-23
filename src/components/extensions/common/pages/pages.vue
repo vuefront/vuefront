@@ -1,7 +1,7 @@
 <template>
   <vf-o-apollo v-slot="{ data }">
     <section class="vf-e-common-pages">
-      <vf-a-heading level="6" class="heading mb-3">{{
+      <vf-a-heading level="2" class="mb-3 md:vf-a-heading-3">{{
         $t("modules.common.pages.textTitle")
       }}</vf-a-heading>
       <ul class="list-unstyled">

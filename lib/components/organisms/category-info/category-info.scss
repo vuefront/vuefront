@@ -1,9 +1,8 @@
 .vf-m-category-info {
   &__name {
-    @apply font-semibold text-3xl text-left mb-2 leading-none;
+    @apply vf-a-heading--1 leading-none;
   }
   &__description {
-    @apply text-base font-normal leading-5;
-    color: #6E6E6E;
+    @apply vf-a-heading--4;
   }
 }

@@ -27,9 +27,14 @@
 
     }
     &__title {
-        min-height: 3.75rem;
-        max-height: 3.75rem;
-        @apply text-xl font-normal flex items-center overflow-hidden justify-center;
+        @apply vf-a-heading--4 flex items-center overflow-hidden justify-center;
+        min-height: 2rem;
+        max-height: 2rem;
+        @screen md {
+          min-height: 3.75rem;
+          max-height: 3.75rem;
+          @apply vf-a-heading--3;
+        }
     }
     &__description {
         min-height: 3.75rem;

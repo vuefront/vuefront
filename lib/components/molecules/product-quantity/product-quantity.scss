@@ -1,5 +1,5 @@
 .vf-m-product-quantity {
-  @apply w-48;
+  width: 9.75rem;
   &.--sm {
     @apply w-28;
     .vf-m-product-quantity {
@@ -15,15 +15,21 @@
     }
   }
   &__descrease {
-    @apply w-16 h-16 bg-white hover:bg-white border flex items-center justify-center text-xl px-6 rounded-none;
+    @apply bg-white hover:bg-white border flex items-center justify-center text-xl px-4 rounded-none;
     border-color: #C4C4C4;
+    width: 3.25rem;
+    height: 3.25rem;
   }
   &__input {
-    @apply w-16 h-16 border text-center border-l-0 border-r-0 rounded-none;
+    @apply border text-center border-l-0 border-r-0 rounded-none;
     border-color: #C4C4C4;
+    width: 3.25rem;
+    height: 3.25rem;
   }
   &__increase {
-    @apply w-16 h-16 border bg-white hover:bg-white flex items-center justify-center text-xl px-6 rounded-none;
+    @apply border bg-white hover:bg-white flex items-center justify-center text-xl px-4 rounded-none;
     border-color: #C4C4C4;
+    width: 3.25rem;
+    height: 3.25rem;
   }
 }

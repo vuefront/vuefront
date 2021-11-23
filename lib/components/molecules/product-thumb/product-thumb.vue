@@ -36,12 +36,9 @@
       <vf-m-col :md="wide ? 9 : 12" class="vf-m-product-thumb__footer">
         <div>
           <vf-a-link :to="url" class="mb-0">
-            <vf-a-heading
-              class="vf-m-product-thumb__title"
-              tag="h3"
-              level="6"
-              >{{ product.name }}</vf-a-heading
-            >
+            <h3 class="vf-m-product-thumb__title" tag="h3">
+              {{ product.name }}
+            </h3>
           </vf-a-link>
           <vf-m-product-price
             class="mb-4"

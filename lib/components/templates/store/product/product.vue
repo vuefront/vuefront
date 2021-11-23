@@ -6,17 +6,12 @@
       </vf-m-col>
       <vf-m-col xs="12" md="6">
         <div class="product-info pl-lg-5">
-          <vf-a-heading
-            level="4"
-            class="product-info__name font-normal text-4xl"
-            tag="h1"
-            >{{ product.name }}</vf-a-heading
-          >
-          <vf-a-heading
-            level="6"
-            class="product-info__model font-normal text-base"
-            >{{ product.model }}</vf-a-heading
-          >
+          <vf-a-heading level="1" class="product-info__name" tag="h1">{{
+            product.name
+          }}</vf-a-heading>
+          <vf-a-heading level="5" class="product-info__model">{{
+            product.model
+          }}</vf-a-heading>
           <vf-m-product-price
             class="product-info__price"
             :price="product.price"

@@ -23,17 +23,18 @@
   &__close {
     @apply absolute right-5 top-8 cursor-pointer;
     svg {
-      @apply w-5 h-5;
+      @apply w-10 h-10;
     }
   }
   &__top {
-    @apply relative flex px-7 py-8;
+    @apply relative flex px-10 py-8;
+    padding-top: 4.5rem;
   }
   &__main {
-    @apply px-7 flex-1 overflow-y-auto;
+    @apply px-10 flex-1 overflow-y-auto;
   }
   &__bottom {
-    @apply px-7 pb-7;
+    @apply px-10 pb-10;
   }
 
   // &__top {

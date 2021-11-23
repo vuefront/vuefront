@@ -4,7 +4,7 @@
       <vf-m-col
         v-for="(value, index) in items"
         :key="index"
-        xs="6"
+        xs="12"
         md="4"
         lg="4"
       >

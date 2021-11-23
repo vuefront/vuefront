@@ -5,13 +5,14 @@
       :option="cartProduct.option"
       @change-quantity="handleChangeQuantity"
       class="vf-m-cart-product__product"
-    />
-    <div class="vf-m-cart-product__price">
-      {{ cartProduct.total }}
-    </div>
-    <div class="vf-m-cart-product__remove" @click="handleRemove">
-      <vf-a-icon :icon="mdiTrashCanOutline" :size="16" />
-    </div>
+    >
+      <div class="vf-m-cart-product__price">
+        {{ cartProduct.total }}
+      </div>
+      <div class="vf-m-cart-product__remove" @click="handleRemove">
+        <vf-a-icon :icon="mdiTrashCanOutline" :size="16" />
+      </div>
+    </vf-m-product-thumb-inline>
   </div>
 </template>
 <script lang="ts" setup>

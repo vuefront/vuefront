@@ -1,17 +1,20 @@
 .vf-m-product-thumb-inline {
-  @apply flex-col items-center md:items-stretch;
+  @apply flex-col items-center;
   @screen md {
     @apply flex-row;
   }
   &__name {
-    @apply text-center md:text-left font-normal mb-0 leading-none text-3xl overflow-hidden;
+    @apply vf-a-heading--2 text-center md:text-left mb-0 w-full;
     color: #4A942C;
   }
   &__price {
-    @apply text-center md:text-left font-normal text-base mb-2;
+    @apply vf-a-heading--4 text-center md:text-left mb-2;
     span {
       @apply font-semibold;
     }
+  }
+  &__info {
+    @apply flex-1;
   }
   &__image {
     @apply flex items-center;
@@ -34,7 +37,7 @@
   &__content {
     @apply text-left;
     @screen md {
-      @apply pl-3
+      @apply pl-3 flex flex-wrap items-center;
     }
   }
 }

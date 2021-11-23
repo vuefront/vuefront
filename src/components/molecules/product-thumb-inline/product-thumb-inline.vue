@@ -16,34 +16,36 @@
       <div class="vf-m-product-thumb-inline__name">
         <span>{{ product.name }}</span>
       </div>
-      <div class="vf-m-product-thumb-inline__price">
-        <span>{{ $t("molecules.productThumbInline.textPrice") }}:</span
-        >{{ product.price }}
-      </div>
-      <div class="vf-m-product-thumb-inline__quantity">
-        <vf-m-product-quantity
-          size="sm"
-          :quantity="quantity"
-          @change="handleChangeQuantity"
-        />
-      </div>
-      <span
-        v-for="(value, index) in option"
-        :key="index"
-        class="vf-m-product-thumb-inline__option"
-      >
-        <div>
-          <span
-            class="vf-m-product-thumb-inline__option__name"
-            v-html="value.name"
-          ></span
-          >:
-          <span
-            class="vf-m-product-thumb-inline__option__value"
-            v-html="value.value"
-          ></span>
+      <div class="vf-m-product-thumb-inline__info">
+        <div class="vf-m-product-thumb-inline__price">
+          <span>{{ $t("molecules.productThumbInline.textPrice") }}:</span
+          >{{ product.price }}
         </div>
-      </span>
+        <div class="vf-m-product-thumb-inline__quantity">
+          <vf-m-product-quantity
+            size="sm"
+            :quantity="quantity"
+            @change="handleChangeQuantity"
+          />
+        </div>
+        <span
+          v-for="(value, index) in option"
+          :key="index"
+          class="vf-m-product-thumb-inline__option"
+        >
+          <div>
+            <span
+              class="vf-m-product-thumb-inline__option__name"
+              v-html="value.name"
+            ></span
+            >:
+            <span
+              class="vf-m-product-thumb-inline__option__value"
+              v-html="value.value"
+            ></span>
+          </div>
+        </span>
+      </div>
       <slot></slot>
     </vf-m-media-body>
   </vf-m-media>

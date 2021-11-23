@@ -29,13 +29,17 @@ module.exports = plugin(
     addComponents(fieldComponent(theme));
     addComponents(listGroupComponent(theme));
     addComponents(buttonGroupComponent(theme));
-    addComponents(buttonComponent(theme));
+    addComponents(buttonComponent(theme), {
+      variants: ["responsive"],
+    });
     addComponents(alertComponent(theme));
     addComponents(badgesComponent(theme));
     addComponents(paginationComponent(theme));
     addComponents(breadcrumbsComponent(theme));
     addComponents(inputGroupComponent(theme));
-    addComponents(headingComponent(theme));
+    addComponents(headingComponent(theme), {
+      variants: ["responsive"],
+    });
     addComponents(replaceIconDeclarations(selectComponent(theme)));
     addComponents(rowComponent(theme));
     addComponents(textareaComponent(theme));

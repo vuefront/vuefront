@@ -1,16 +1,10 @@
 <template>
-  <vf-a-button
-    variant="primary"
-    @click="handleAddToCart"
-    class="h-16 rounded-none px-6"
-  >
-    <vf-a-icon :icon="mdiCartOutline" />
+  <vf-a-button variant="primary" @click="handleAddToCart">
     {{ $t("elements.store.product.buttonAddToCart") }}
   </vf-a-button>
 </template>
 <script lang="ts" setup>
 import { useStore } from "vuex";
-import { mdiCartOutline } from "@mdi/js";
 import { computed } from "vue";
 const props = defineProps({
   product: {

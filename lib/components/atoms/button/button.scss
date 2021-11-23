@@ -20,11 +20,7 @@
           display: block;
       }
       .btn-inner--hidden {
-          position: absolute;
-          width: 100%;
-          top: 50%;
-          transform: translateY(-50%);
-          display: block;
+        @apply absolute w-full top-1/2 block -translate-y-1/2 transform px-16 py-5;
       }
   }
   &--animated-x {

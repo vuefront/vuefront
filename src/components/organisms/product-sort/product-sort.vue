@@ -1,7 +1,7 @@
 <template>
   <section class="vf-o-product-sort mb-4">
     <vf-m-row cols="12">
-      <vf-m-col xs="4" md="2" align-self="center">
+      <vf-m-col xs="4" md="2" align-self="center" class="hidden md:block">
         <div
           class="vf-o-product-sort__mode --grid"
           :class="{ '--active': modeValue === 'grid' }"
