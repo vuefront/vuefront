@@ -1,6 +1,6 @@
 .vf-m-row {
   @apply flex flex-wrap;
-  &.--no-gutter {
+  &:not(.--no-gutter) {
     @apply -mx-4;
   }
   &.--align-v-start {
