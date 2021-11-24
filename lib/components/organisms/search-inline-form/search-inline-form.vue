@@ -9,15 +9,16 @@
       trim
       @keypress.stop="handleKeyPress"
     />
-    <span class="vf-o-search-inline-form__icon cursor-text"
-      ><vf-a-icon :icon="mdiMagnify" :size="20"
-    /></span>
+    <span class="vf-o-search-inline-form__icon cursor-text">
+      <vf-a-image :src="SearchIcon" width="20"></vf-a-image>
+    </span>
   </span>
 </template>
 <script lang="ts" setup>
 import { onBeforeMount, ref, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { mdiMagnify } from "@mdi/js";
+import SearchIcon from "../../../../assets/img/search-icon.svg";
 const keyword = ref("");
 const show = ref(false);
 const route = useRoute();

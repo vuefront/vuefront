@@ -1,7 +1,7 @@
 <template>
   <vf-m-dropdown class="vf-m-account-menu" variant="link" size="sm" right link>
     <template v-slot:button-content>
-      <vf-a-image :src="AccountIcon" width="18" class="mr-2"></vf-a-image>
+      <vf-a-image :src="AccountIcon" width="18"></vf-a-image>
     </template>
     <vf-m-dropdown-item
       v-if="!$vuefront.isAuth"
