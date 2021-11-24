@@ -49,7 +49,7 @@ export default {
     getClass() {
       const result = [];
 
-      if (!this.noGutters) {
+      if (this.noGutters) {
         result.push("--no-gutter");
       }
 

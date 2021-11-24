@@ -347,7 +347,7 @@ export default {
       };
     },
     classList() {
-      let result = ["flex-grow"];
+      let result = [];
 
       if (!this.$parent.noGutters) {
         result.push("px-4");
