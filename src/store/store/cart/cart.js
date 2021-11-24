@@ -21,7 +21,7 @@ export const mutations = {
 export const actions = {
   async add(
     { commit, dispatch, rootGetters },
-    { product, quantity = 1, options = [], redirect = false }
+    { product, quantity = 1, options = [], redirect = false, notification=true }
   ) {
     await dispatch(
       "apollo/mutate",
@@ -73,12 +73,14 @@ export const actions = {
 
     if (!rootGetters["vuefront/error"]) {
       commit("setCart", rootGetters["apollo/get"].addToCart);
-      commit(
-        "notification/add",
-        product.name +
-          this.app.i18n.t("elements.store.productThumb.notificationText"),
-        { root: true }
-      );
+      if (notification) {
+        commit(
+          "notification/add",
+          product.name +
+            this.app.i18n.t("elements.store.productThumb.notificationText"),
+          { root: true }
+        );
+      }
     } else {
       commit("notification/error", rootGetters["vuefront/error"].message, {
         root: true,

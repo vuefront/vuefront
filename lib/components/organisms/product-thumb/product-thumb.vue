@@ -14,10 +14,11 @@
 export default {
   props: ["product", "wide", "suffixUrl"],
   methods: {
-    handleClickCart() {
+    handleClickCart(e) {
       this.$store.dispatch("store/cart/add", {
         product: this.product,
         redirect: true,
+        notification: e,
       });
     },
     handleClickWishlist() {
