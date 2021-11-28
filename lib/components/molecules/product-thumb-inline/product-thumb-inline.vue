@@ -1,5 +1,5 @@
 <template>
-  <vf-m-media no-body class="vf-m-product-thumb-inline">
+  <vf-m-media no-body class="vf-m-cart-product">
     <vf-m-media-aside
       vertical-align="center"
       class="vf-m-product-thumb-inline__image"
@@ -21,13 +21,6 @@
           <span>{{ $t("molecules.productThumbInline.textPrice") }}:</span
           >{{ product.price }}
         </div>
-        <div class="vf-m-product-thumb-inline__quantity">
-          <vf-m-product-quantity
-            size="sm"
-            :quantity="quantity"
-            @change="handleChangeQuantity"
-          />
-        </div>
         <span
           v-for="(value, index) in option"
           :key="index"
@@ -46,13 +39,12 @@
           </div>
         </span>
       </div>
-      <slot></slot>
     </vf-m-media-body>
   </vf-m-media>
 </template>
 <script lang="ts" setup>
 import placeholder from "../../../../assets/img/placeholder.png";
-import { PropType, computed, ref } from "vue";
+import { PropType, computed } from "vue";
 interface Option {
   name: string;
   value: string;
@@ -77,14 +69,6 @@ const props = defineProps({
     },
   },
 });
-const quantity = ref(1);
-const emits = defineEmits(["change-quantity"]);
-const handleChangeQuantity = (e: number) => {
-  console.log("handleChangeQuantity");
-  console.log(e);
-  quantity.value = e;
-  emits("change-quantity", e);
-};
 const image = computed(() =>
   props.product.image !== "" ? props.product.image : placeholder
 );

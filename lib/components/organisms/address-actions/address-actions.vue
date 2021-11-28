@@ -3,12 +3,14 @@
     <vf-a-button
       class="vf-o-address-actions__edit"
       :to="`/account/address/${address.id}/edit`"
+      size="sm"
     >
       <vf-a-icon :icon="mdiPencil" />
     </vf-a-button>
     <vf-a-button
       class="vf-o-address-actions__remove"
       color="danger"
+      size="sm"
       @click="handleRemove"
     >
       <vf-a-icon :icon="mdiDeleteOutline" />

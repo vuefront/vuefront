@@ -1,10 +1,11 @@
 .vf-m-table {
   @apply w-full mb-4;
   th {
-    @apply border-t border-b p-4;
-    text-align: inherit;
+    border-color: #DFDFDF;
+    @apply border-b p-9 vf-a-heading--4 font-semibold;
   }
   td {
-    @apply border-t p-4;
+    border-color: #DFDFDF;
+    @apply border-t p-9;
   }
 }

@@ -1,7 +1,7 @@
 import VfMButtonGroup from "./button-group.vue";
 import VfAButton from "../../atoms/button/button.vue";
-import '../../atoms/button/button.scss'
-import './button-block.scss'
+import "../../atoms/button/button.scss";
+import "./button-block.scss";
 
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
@@ -35,5 +35,5 @@ export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/vue/writing-stories/args
 Default.args = {
   size: "md",
-  block: false
+  block: false,
 };

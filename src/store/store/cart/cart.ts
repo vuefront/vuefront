@@ -81,12 +81,9 @@ export const actions: ActionTree<State, RootState> = {
 
     if (!rootGetters["vuefront/error"]) {
       commit("setCart", rootGetters["apollo/get"].addToCart);
-      commit(
-        "notification/add",
-        product.name +
-          this.$i18n.global.t("elements.store.productThumb.notificationText"),
-        { root: true }
-      );
+      if (!rootGetters["vuefront/sidebarCart"]) {
+        commit("vuefront/toggleSidebarCart", {}, { root: true });
+      }
     } else {
       commit("notification/error", rootGetters["vuefront/error"], {
         root: true,

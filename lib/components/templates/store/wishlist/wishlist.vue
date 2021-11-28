@@ -1,45 +1,37 @@
 <template>
   <section class="vf-t-store-wishlist">
     <div class="wishlist__products">
-      <vf-m-table :fields="fields" :items="wishlist" class="table-wishlist">
-        <template #product="data">
-          <vf-m-product-thumb-inline :product="data.item" />
-        </template>
-        <template #action="data">
-          <vf-o-wishlist-actions :product="data.item" />
-        </template>
+      <vf-m-table class="table-wishlist">
+        <vf-m-thead>
+          <vf-m-tr>
+            <vf-m-th>{{ $t("elements.store.wishlist.productColumn") }}</vf-m-th>
+            <vf-m-th>{{ $t("elements.store.wishlist.priceColumn") }}</vf-m-th>
+            <vf-m-th class="text-right">{{
+              $t("elements.store.wishlist.actionColumn")
+            }}</vf-m-th>
+          </vf-m-tr>
+        </vf-m-thead>
+        <vf-m-tbody>
+          <vf-m-tr v-for="(value, index) in wishlist" :key="index">
+            <vf-m-td>
+              <vf-m-product-thumb-inline :product="value" />
+            </vf-m-td>
+            <vf-m-td class="text-right">
+              <vf-o-wishlist-actions :product="value" />
+            </vf-m-td>
+          </vf-m-tr>
+        </vf-m-tbody>
       </vf-m-table>
     </div>
   </section>
 </template>
 <script lang="ts" setup>
-import { useI18n } from "vue-i18n";
-
 defineProps({
   wishlist: {
     type: Array,
     default: () => [],
   },
 });
-const i18n = useI18n();
-const fields = [
-  {
-    key: "product",
-    label: i18n.t("elements.store.wishlist.productColumn"),
-    sortable: false,
-  },
-  {
-    key: "price",
-    label: i18n.t("elements.store.wishlist.priceColumn"),
-    sortable: false,
-  },
-  {
-    key: "action",
-    class: "vf-t-store-wishlist__actions text-right",
-    label: i18n.t("elements.store.wishlist.actionColumn"),
-    sortable: false,
-  },
-];
 </script>
 <style lang="scss">
 .wishlist {

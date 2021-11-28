@@ -1,0 +1,31 @@
+.vf-m-cart-product-table-row {
+  &__product {
+    @apply flex flex-row;
+  }
+  &__quantity {
+    @apply inline-block;
+  }
+  &__image {
+
+  }
+  &__price {
+    @apply vf-a-heading--4 font-semibold;
+  }
+  &__total {
+    @apply vf-a-heading--4 font-semibold;
+  }
+  &__info {
+    @apply pl-8;
+  }
+  &__option {
+    &__name {
+      @apply text-sm;
+    }
+    &__value {
+
+    }
+  }
+  &__name {
+    @apply vf-a-heading--4 font-semibold;
+  }
+}

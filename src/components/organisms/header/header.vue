@@ -17,7 +17,7 @@
           <vf-o-search-inline-form />
           <vf-m-wishlist-link />
           <vf-m-account-menu />
-          <vf-o-cart />
+          <vf-o-cart-sidebar />
         </vf-m-col>
       </vf-m-row>
     </vf-m-container>

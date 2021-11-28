@@ -3,13 +3,50 @@
   @screen md {
     @apply flex-row;
   }
+  &__image {
+    @apply flex items-center;
+    @screen md {
+      @apply pl-3;
+    }
+  }
+  &__info {
+    @apply flex-1;
+  }
+  &__name {
+    @apply vf-a-heading--2 text-center md:text-left mb-0 w-full;
+    color: #4A942C;
+  }
+  &__price {
+    @apply vf-a-heading--4 text-center md:text-left mb-2;
+    span {
+      @apply font-semibold;
+    }
+  }
   &__product {
     @apply flex-1;
   }
-  &__price {
+  &__quantity {
+    @apply mb-3 flex justify-center md:justify-start;
+  }
+  &__total {
     @apply mx-3 font-semibold text-xl;
   }
   &__remove {
     @apply mx-4 cursor-pointer;
+  }
+  &__option {
+    @apply leading-none text-black;
+    &__name {
+      @apply font-semibold text-sm;
+    }
+    &__value {
+      @apply font-normal text-sm; 
+    }
+  }
+  &__content {
+    @apply text-left;
+    @screen md {
+      @apply pl-3 flex flex-wrap items-center;
+    }
   }
 }

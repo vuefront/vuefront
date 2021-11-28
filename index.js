@@ -102,6 +102,10 @@ module.exports = {
       component: "molecules/cart-product/cart-product.vue",
       css: "molecules/cart-product/cart-product.scss",
     },
+    CartProductTableRow: {
+      component: "molecules/cart-product-table-row/cart-product-table-row.vue",
+      css: "molecules/cart-product-table-row/cart-product-table-row.scss",
+    },
     Tabs: {
       component: "molecules/tabs/tabs.vue",
       css: "molecules/tabs/tabs.scss",
@@ -239,6 +243,27 @@ module.exports = {
       css: "molecules/table/table.scss",
       component: "molecules/table/table.vue",
     },
+    Thead: {
+      component: "molecules/table/thead.vue",
+    },
+    Tbody: {
+      component: "molecules/table/tbody.vue",
+    },
+    Tfoot: {
+      component: "molecules/table/tfoot.vue",
+    },
+    Th: {
+      component: "molecules/table/th.vue",
+    },
+    Td: {
+      component: "molecules/table/td.vue",
+    },
+    Tr: {
+      component: "molecules/table/tr.vue",
+    },
+    TH: {
+      component: "molecules/table/th.vue",
+    },
     TableHorizontal: {
       css: "molecules/table-horizontal/table-horizontal.scss",
       component: "molecules/table-horizontal/table-horizontal.vue",
@@ -261,6 +286,10 @@ module.exports = {
     Cart: {
       component: "organisms/cart/cart.vue",
       css: "organisms/cart/cart.scss",
+    },
+    CartSidebar: {
+      component: "organisms/cart-sidebar/cart-sidebar.vue",
+      css: "organisms/cart-sidebar/cart-sidebar.scss",
     },
     Modal: {
       css: "organisms/modal/modal.scss",

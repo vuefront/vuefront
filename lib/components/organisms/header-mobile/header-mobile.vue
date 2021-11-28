@@ -7,7 +7,7 @@
       <vf-m-logo class="mr-auto ml-5" />
       <vf-m-account-menu class="mr-2" />
       <vf-m-wishlist-link class="mr-2" />
-      <vf-o-cart />
+      <vf-o-cart-sidebar />
     </vf-m-container>
     <vf-o-sidebar :open="sidebar" @close="toggleSidebar">
       <template #top>

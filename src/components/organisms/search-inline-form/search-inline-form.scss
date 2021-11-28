@@ -6,7 +6,7 @@
       z-index: 9;
     }
     &__input {
-      @apply relative z-10 w-8 h-10 px-1.5 py-4 duration-200 ease-in-out transition-all text-transparent border-0 rounded-none bg-transparent ring-0;
+      @apply relative z-10 w-8 h-10 px-1.5 py-4 duration-200 ease-in-out transition-all text-transparent border-0 rounded-none bg-transparent ring-0 outline-none;
       &::placeholder {
         @apply text-transparent;
       }
