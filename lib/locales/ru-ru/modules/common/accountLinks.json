@@ -3,5 +3,8 @@
   "signInText": "Войти в систему",
   "registerText": "Регистрация",
   "myAccountText": "Мой аккаунт",
+  "editAccountText": "Редактировать аккаунт",
+  "passwordText": "Пароль",
+  "addressText": "Адресная книга",
   "wishlistText": "Список желаний"
 }

@@ -3,5 +3,8 @@
   "signInText": "Sign in",
   "registerText": "Register",
   "myAccountText": "My Account",
+  "editAccountText": "Edit Account",
+  "passwordText": "Password",
+  "addressText": "Address Book",
   "wishlistText": "Wishlist"
 }
