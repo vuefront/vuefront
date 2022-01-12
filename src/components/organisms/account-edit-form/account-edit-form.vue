@@ -51,6 +51,20 @@
         $t("elements.common.account.edit.emailError")
       }}</template>
     </vf-m-field>
+    <vf-m-field
+      id="input-phone"
+      :state="$v.form.phone.$dirty ? !$v.form.phone.$error : null"
+    >
+      <template #label>{{
+        $t("elements.common.account.edit.phoneEntry")
+      }}</template>
+      <template #default="data">
+        <vf-a-input v-model="form.phone" v-bind="data" trim />
+      </template>
+      <template #error>{{
+        $t("elements.common.account.edit.phoneError")
+      }}</template>
+    </vf-m-field>
 
     <template #button>
       {{ $t("elements.common.account.edit.buttonSave") }}
@@ -85,6 +99,7 @@ export default {
         firstName: this.account.firstName,
         lastName: this.account.lastName,
         email: this.account.email,
+        phone: this.account.phone,
       },
     };
   },
@@ -104,6 +119,10 @@ export default {
         required,
         email,
       },
+      phone: {
+        required,
+        minLength: minLength(1),
+      },
     },
   },
   methods: {
@@ -115,6 +134,7 @@ export default {
           firstName: this.form.firstName,
           lastName: this.form.lastName,
           email: this.form.email,
+          phone: this.form.phone,
         });
 
         if (status) {

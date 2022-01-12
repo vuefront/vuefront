@@ -45,6 +45,7 @@ export const actions = {
                 firstName
                 lastName
                 email
+                phone
               }
             }
           }
@@ -100,6 +101,7 @@ export const actions = {
               firstName
               lastName
               email
+              phone
             }
           }
         `,
@@ -131,6 +133,7 @@ export const actions = {
               firstName
               lastName
               email
+              phone
             }
           }
         `,
@@ -161,6 +164,7 @@ export const actions = {
               firstName
               lastName
               email
+              phone
             }
           }
         `,
@@ -192,6 +196,7 @@ export const actions = {
                 lastName
                 firstName
                 email
+                phone
               }
             }
           }

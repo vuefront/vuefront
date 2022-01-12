@@ -51,6 +51,20 @@
         $t("elements.common.account.register.emailError")
       }}</template>
     </vf-m-field>
+    <vf-m-field
+      id="input-phone"
+      :state="$v.form.phone.$dirty ? !$v.form.phone.$error : null"
+    >
+      <template #label>{{
+        $t("elements.common.account.register.phoneEntry")
+      }}</template>
+      <template #default="data">
+        <vf-a-input v-model="form.phone" v-bind="data" trim />
+      </template>
+      <template #error>{{
+        $t("elements.common.account.register.phoneError")
+      }}</template>
+    </vf-m-field>
 
     <vf-m-field
       id="input-password"
@@ -120,6 +134,7 @@ export default {
         firstName: null,
         lastName: null,
         email: null,
+        phone: null,
         password: null,
         confirmPassword: null,
       },
@@ -140,6 +155,10 @@ export default {
       email: {
         required,
         email,
+      },
+      phone: {
+        required,
+        minLength: minLength(1),
       },
       password: {
         required,
@@ -166,6 +185,7 @@ export default {
           firstName: this.form.firstName,
           lastName: this.form.lastName,
           email: this.form.email,
+          phone: this.form.phone,
           password: this.form.password,
         });
 
