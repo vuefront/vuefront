@@ -1,4 +1,5 @@
-const { flex } = require("tailwindcss/lib/plugins");
+const { flex } = require("tailwindcss/lib/corePlugins");
+
 module.exports = (theme) => {
   let res = { flexGrow: "1" };
 

@@ -1,4 +1,6 @@
-@responsive {
+@tailwind utilities;
+
+@layer utilities {
   .push-0 {
     margin-left: 0;
   }
