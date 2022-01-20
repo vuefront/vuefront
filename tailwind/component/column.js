@@ -1,30 +1,33 @@
 const { flex } = require("tailwindcss/lib/corePlugins");
 
 module.exports = (theme) => {
-  let res = { flexGrow: "1" };
+  let res = {
+    ".vf-m-col": {
+      flexGrow: "1",
+    },
+  };
 
   for (let i = 1; i <= 12; i++) {
-    res[`&--${i}`] = {
+    res[`.vf-m-col--${i}`] = {
       width: (100 / 12) * i + "%",
       flexGrow: "0",
     };
-    res[`&--offset-${i}`] = {
+    res[`.vf-m-col--offset-${i}`] = {
       marginLeft: (100 / 12) * i + "%",
     };
-    res[`&--order-${i}`] = {
+    res[`.vf-m-col--order-${i}`] = {
       order: i,
     };
   }
-  res["&--align-self-start"] = {
+  res[".vf-m-col--align-self-start"] = {
     alignSelf: "flex-start",
   };
-  res["&--align-self-center"] = {
+  res[".vf-m-col--align-self-center"] = {
     alignSelf: "center",
   };
-  res["&--align-self-end"] = {
+  res[".vf-m-col--align-self-end"] = {
     alignSelf: "flex-end",
   };
-  return {
-    ".vf-m-col": res,
-  };
+
+  return res;
 };

@@ -23,31 +23,25 @@ const radioComponent = require("./component/radio");
 const checkboxComponent = require("./component/checkbox");
 module.exports = plugin(
   function (ctx) {
-    const { theme, addComponents } = ctx;
+    const { theme, addComponents, addUtilities } = ctx;
     addComponents(checkboxComponent(theme));
     addComponents(radioComponent(theme));
     addComponents(fieldComponent(theme));
     addComponents(listGroupComponent(theme));
     addComponents(buttonGroupComponent(theme));
-    addComponents(buttonComponent(theme), {
-      variants: ["responsive"],
-    });
+    addComponents(buttonComponent(theme));
     addComponents(alertComponent(theme));
     addComponents(badgesComponent(theme));
     addComponents(paginationComponent(theme));
     addComponents(breadcrumbsComponent(theme));
     addComponents(inputGroupComponent(theme));
-    addComponents(headingComponent(theme), {
-      variants: ["responsive"],
-    });
+    addComponents(headingComponent(theme));
     addComponents(replaceIconDeclarations(selectComponent(theme)));
     addComponents(rowComponent(theme));
     addComponents(textareaComponent(theme));
     addComponents(inputComponent(theme));
     addComponents(productOptionComponent(theme));
-    addComponents(columnComponent(theme), {
-      variants: ["responsive"],
-    });
+    addUtilities(columnComponent(theme));
   },
   {
     theme: {

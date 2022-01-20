@@ -2,7 +2,6 @@ import VfMRow from "../row/row.vue";
 import VfMCol from "./col.vue";
 import VfAImage from "../../atoms/image/image.vue";
 import "../row/row.scss";
-import "./col.scss";
 import "../../atoms/image/image.scss";
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {

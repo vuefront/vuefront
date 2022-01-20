@@ -148,10 +148,7 @@ module.exports = {
       css: "molecules/container/container.scss",
       component: "molecules/container/container.vue",
     },
-    Col: {
-      css: "molecules/col/col.scss",
-      component: "molecules/col/col.vue",
-    },
+    Col: "molecules/col/col.vue",
     Dropdown: {
       css: "molecules/dropdown/dropdown.scss",
       component: "molecules/dropdown/dropdown.vue",
