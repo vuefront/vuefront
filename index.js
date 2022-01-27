@@ -17,7 +17,7 @@ module.exports = {
     theme: "vuefront/assets/scss/theme.scss",
   },
   menu: [],
-  image: {
+  images: {
     placeholder: {
       path: "vuefront/assets/img/placeholder.png",
     },

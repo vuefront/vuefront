@@ -5,9 +5,11 @@
   "firstNameEntry": "First Name",
   "lastNameEntry": "Last Name",
   "emailEntry": "Email address",
+  "phoneEntry": "Telephone",
   "firstNameError": "First Name must be between 1 and 32 characters!",
   "lastNameError": "Last Name must be between 1 and 32 characters!",
   "emailError": "E-Mail Address does not appear to be valid!",
+  "phoneError": "Telephone does not appear to be valid",
 
   "buttonSave": "Save changes",
 

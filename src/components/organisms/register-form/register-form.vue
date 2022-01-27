@@ -51,6 +51,17 @@
         $t("elements.common.account.register.emailError")
       }}</template>
     </vf-m-field>
+    <vf-m-field id="input-phone">
+      <template #label>{{
+        $t("elements.common.account.register.phoneEntry")
+      }}</template>
+      <template #default="data">
+        <vf-a-input v-model="form.phone" v-bind="data" trim />
+      </template>
+      <template #error>{{
+        $t("elements.common.account.register.phoneError")
+      }}</template>
+    </vf-m-field>
 
     <vf-m-field
       id="input-password"
@@ -114,6 +125,7 @@ const form = reactive({
   firstName: null,
   lastName: null,
   email: null,
+  phone: null,
   password: null,
   confirmPassword: null,
 });
@@ -159,6 +171,7 @@ const onSubmit = async () => {
       lastName: form.lastName,
       email: form.email,
       password: form.password,
+      phone: form.phone,
     });
 
     if (status) {

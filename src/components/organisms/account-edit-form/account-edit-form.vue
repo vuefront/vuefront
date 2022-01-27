@@ -51,6 +51,20 @@
         $t("elements.common.account.edit.emailError")
       }}</template>
     </vf-m-field>
+    <vf-m-field
+      id="input-phone"
+      :state="v$.email.$dirty ? !v$.email.$error : null"
+    >
+      <template #label>{{
+        $t("elements.common.account.edit.phoneEntry")
+      }}</template>
+      <template #default="data">
+        <vf-a-input v-model="form.phone" v-bind="data" trim />
+      </template>
+      <template #error>{{
+        $t("elements.common.account.edit.phoneError")
+      }}</template>
+    </vf-m-field>
 
     <template #button>
       {{ $t("elements.common.account.edit.buttonSave") }}
@@ -79,6 +93,7 @@ const form = reactive({
   firstName: props.account.firstName,
   lastName: props.account.lastName,
   email: props.account.email,
+  phone: props.account.phone,
 });
 const v$ = useVuelidate(
   {
@@ -96,6 +111,7 @@ const v$ = useVuelidate(
       required,
       email,
     },
+    phone: {},
   },
   form
 );
@@ -107,6 +123,7 @@ const onSubmit = async () => {
       firstName: form.firstName,
       lastName: form.lastName,
       email: form.email,
+      phone: form.phone,
     });
 
     if (status) {

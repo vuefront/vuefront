@@ -51,6 +51,7 @@ export const actions: ActionTree<State, RootState> = {
                 firstName
                 lastName
                 email
+                phone
               }
             }
           }
@@ -108,6 +109,7 @@ export const actions: ActionTree<State, RootState> = {
               firstName
               lastName
               email
+              phone
             }
           }
         `,
@@ -139,6 +141,7 @@ export const actions: ActionTree<State, RootState> = {
               firstName
               lastName
               email
+              phone
             }
           }
         `,
@@ -169,6 +172,7 @@ export const actions: ActionTree<State, RootState> = {
               firstName
               lastName
               email
+              phone
             }
           }
         `,
@@ -200,6 +204,7 @@ export const actions: ActionTree<State, RootState> = {
                 lastName
                 firstName
                 email
+                phone
               }
             }
           }
