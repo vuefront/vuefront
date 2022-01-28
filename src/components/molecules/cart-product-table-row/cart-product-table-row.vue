@@ -61,7 +61,6 @@
   </vf-m-tr>
 </template>
 <script lang="ts" setup>
-import { mdiTrashCanOutline } from "@mdi/js";
 import { PropType, computed } from "vue";
 import { CartProduct } from "vuefront-api";
 import placeholder from "../../../../assets/img/placeholder.png";

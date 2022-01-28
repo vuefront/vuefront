@@ -13,13 +13,7 @@
         <slot name="sub-title"></slot>
       </div>
     </div>
-
-    <vf-a-alert
-      v-if="error.message || errors.length > 0"
-      show
-      color="info"
-      v-html="error.message || errors[0].$message"
-    />
+    <vf-a-alert v-if="hasError" show color="info" v-html="getError" />
 
     <slot></slot>
 
@@ -34,7 +28,7 @@
 import { computed, PropType } from "vue";
 import { useStore } from "vuex";
 const emits = defineEmits(["submit", "reset"]);
-defineProps({
+const props = defineProps({
   errors: {
     type: Array as PropType<any[]>,
     default() {
@@ -64,4 +58,23 @@ const onReset = (e: Event) => {
   e.preventDefault();
   emits("reset", e);
 };
+
+const stripTags = (str: string) => {
+  return str.replace(/<\/?[^>]+>/gi, " ");
+};
+
+const hasError = computed(() => error.value || props.errors.length > 0);
+const getError = computed(() => {
+  let result = "";
+
+  if (error.value?.message) {
+    result = stripTags(error.value.message);
+  } else if (error.value) {
+    result = stripTags(error.value);
+  } else if (props.errors[0].$message) {
+    result = props.errors[0].$message;
+  }
+
+  return result;
+});
 </script>

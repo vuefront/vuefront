@@ -27,7 +27,7 @@
       </vf-m-tbody>
       <vf-m-tfoot>
         <vf-m-tr>
-          <vf-m-td colspan="5" class="text-right">
+          <vf-m-td :colspan="5" class="text-right">
             <vf-m-cart-footer :cart="cart" class="inline-block" />
           </vf-m-td>
         </vf-m-tr>

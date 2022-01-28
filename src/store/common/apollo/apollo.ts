@@ -49,7 +49,7 @@ export const actions: ActionTree<State, RootState> = {
   async mutate({ commit }, options) {
     try {
       const variables = omitDeepLodash(options.variables, "__typename");
-      const res = await (this.$vfapollo as any).mutate({
+      const res = await this.$vfapollo.mutate({
         ...options,
         variables,
       });

@@ -1,6 +1,6 @@
 {
     "name": "vuefront",
-    "version": "0.5.7",
+    "version": "0.5.8",
     "description": "vuefront",
     "files": [
         "lib",
@@ -58,7 +58,7 @@
         "@types/faker": "^6.6.8",
         "@types/isomorphic-form-data": "^2.0.0",
         "@types/lodash": "^4.14.178",
-        "@types/node": "^17.0.12",
+        "@types/node": "^17.0.13",
         "@types/omit-deep-lodash": "^1.1.1",
         "@typescript-eslint/eslint-plugin": "^5.10.1",
         "@typescript-eslint/parser": "^5.10.1",
