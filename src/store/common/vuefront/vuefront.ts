@@ -1,16 +1,19 @@
 import { MutationTree, GetterTree, ActionTree } from "vuex";
 import { RootState } from "vuefront-store";
+import gql from "graphql-tag";
 export type State = {
   error: boolean | string;
   ssr: boolean;
   sidebar: boolean;
   sidebarCart: boolean;
+  version: string;
 };
 export const state: State = {
   error: false,
   ssr: false,
   sidebar: false,
   sidebarCart: false,
+  version: "1.0.0",
 };
 
 export const mutations: MutationTree<State> = {
@@ -37,6 +40,9 @@ export const mutations: MutationTree<State> = {
   setSSR(state, payload) {
     state.ssr = payload;
   },
+  setVersion(state, payload) {
+    state.version = payload;
+  },
 };
 
 export const getters: GetterTree<State, RootState> = {
@@ -52,10 +58,40 @@ export const getters: GetterTree<State, RootState> = {
   ssr(state) {
     return state.ssr;
   },
+  version(state) {
+    return state.version;
+  },
 };
 
 export const actions: ActionTree<State, RootState> = {
-  async vuefrontInit({ dispatch, commit }) {
+  async checkVersion({ commit }) {
+    try {
+      const { data } = await this.$vfapollo.query({
+        query: gql`
+          {
+            version
+          }
+        `,
+      });
+      commit("setVersion", data.version);
+    } catch (e) {
+      commit("setVersion", "0.0.1");
+    }
+  },
+  async vuefrontInit({ dispatch, commit, getters }) {
+    await dispatch("checkVersion");
+    if (this.$vuefront.version.api > getters["version"]) {
+      console.log("deprecated api");
+      this.$router.push("/deprecated-api");
+      this.$router.beforeEach((to, from, next) => {
+        if (to.path !== "/deprecated-api") {
+          next("/deprecated-api");
+          return;
+        }
+        next();
+      });
+      return;
+    }
     if (this.$cookies.get("token")) {
       commit("common/customer/setToken", this.$cookies.get("token"), {
         root: true,

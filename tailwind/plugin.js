@@ -24,6 +24,7 @@ const checkboxComponent = require("./component/checkbox");
 module.exports = plugin(
   function (ctx) {
     const { theme, addComponents, addUtilities } = ctx;
+
     addComponents(checkboxComponent(theme));
     addComponents(radioComponent(theme));
     addComponents(fieldComponent(theme));
@@ -45,7 +46,7 @@ module.exports = plugin(
   },
   {
     theme: {
-      vuefrontComponent: (theme) => defaultOptions(theme),
+      vuefrontComponent: defaultOptions,
       vuefront: {
         colors: {
           primary: "#2864A2",

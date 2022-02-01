@@ -1,4 +1,7 @@
 module.exports = {
+  version: {
+    api: "1.0.0",
+  },
   plugins: {},
   root: {
     components: "vuefront/lib/components",
@@ -389,6 +392,7 @@ module.exports = {
     ManufacturerFilter: "organisms/manufacturer-filter/manufacturer-filter.vue",
   },
   pages: {
+    DeprecatedApi: "pages/common/deprecated-api/deprecated-api.vue",
     CommonError: "pages/common/error/error.vue",
     StoreCheckoutSuccess: "pages/store/checkout-success/checkout-success.vue",
     AccountAccount: "pages/account/account/account.vue",
@@ -531,6 +535,7 @@ module.exports = {
     },
   ],
   templates: {
+    CommonDeprecatedApi: "templates/common/deprecated-api/deprecated-api.vue",
     StoreCheckoutSuccess:
       "templates/store/checkout-success/checkout-success.vue",
     CommonLayout: "templates/common/layout/layout.vue",
@@ -629,6 +634,9 @@ module.exports = {
   seo: {
     "/404": {
       component: "CommonError",
+    },
+    "/deprecated-api": {
+      component: "DeprecatedApi",
     },
     "/": { component: "CommonHome" },
     "/account": {
