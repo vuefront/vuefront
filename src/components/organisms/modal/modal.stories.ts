@@ -1,7 +1,7 @@
 import VfOModal from "./modal.vue";
 import VfAButton from "../../atoms/button/button.vue";
 import { ref } from "vue";
-import faker from "faker";
+import faker from "@faker-js/faker";
 import "./modal.scss";
 import "../../atoms/button/button.scss";
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export

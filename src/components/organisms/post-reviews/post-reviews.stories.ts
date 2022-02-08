@@ -1,5 +1,5 @@
 import VfOPostReviews from "./post-reviews.vue";
-import faker from "faker";
+import faker from "@faker-js/faker";
 import "./post-reviews.scss";
 import { getPost } from "../../../utils/fakeData";
 

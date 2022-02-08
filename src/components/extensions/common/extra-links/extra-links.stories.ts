@@ -1,5 +1,5 @@
 import VfECommonExtraLinks from "./extra-links.vue";
-import faker from "faker";
+import faker from "@faker-js/faker";
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
   title: "extension/common/extra-links",

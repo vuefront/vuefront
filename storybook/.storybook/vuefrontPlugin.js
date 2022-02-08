@@ -2,7 +2,7 @@ import { app } from '@storybook/vue3';
 import * as config from '../../'
 
 const vuefront = {
-  images: config.image,
+  images: config.images,
   options: config.options,
   get isAMP() {
     return false

@@ -1,7 +1,7 @@
 import VfONotificationToast from "./notification-toast.vue";
 import VfAButton from "../../atoms/button/button.vue";
 import { ref } from "vue";
-import faker from "faker";
+import faker from "@faker-js/faker";
 import { useStore } from "vuex";
 import "../../atoms/button/button.scss";
 import "./notification-toast.scss";

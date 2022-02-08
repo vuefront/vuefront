@@ -1,6 +1,6 @@
 import VfOPostModule from "./post-module.vue";
 import "./post-module.scss";
-import faker from "faker";
+import faker from "@faker-js/faker";
 import { getPost } from "../../../utils/fakeData";
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {

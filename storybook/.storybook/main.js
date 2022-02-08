@@ -41,7 +41,6 @@ module.exports = {
       include: /node_modules/,
       type: 'javascript/auto'
     })
-    // and THIS
     config.module.rules.push({ 
       test: /\.graphql$/,
       exclude: /node_modules/,
@@ -50,20 +49,4 @@ module.exports = {
 
     return config;
   },
-  // webpackFinal: async (config, {configType}) => {
-  //   const {rules} = config.module
-  //   const themeOptions = setupConfig()
-  //   config.plugins.push(new VuefrontLoaderPlugin({config:themeOptions}))
-  //   for (const key in rules) {
-  //     if (String(rules[key].test) === String(/\.s[ca]ss$/)) {
-  //       config.module.rules[key].use = [...config.module.rules[key].use.slice(0, -1), {
-  //         loader: 'postcss-loader',
-  //         options: {
-  //           implementation: require('postcss'),
-  //         }
-  //       }, ...config.module.rules[key].use.slice(-1)]
-  //     }
-  //   }
-  //   return config
-  // }
 }

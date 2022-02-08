@@ -1,6 +1,15 @@
 module.exports = {
-  darkMode: false, // or 'media' or 'class'
-  purge: false,
+  content: [
+    "./src/components/**/*.vue",
+    "./node_modules/vuefront/lib/**/*.vue",
+    "./node_modules/@vuefront/checkout-app/**/*.vue",
+  ],
+  safelist: [
+    {
+      variants: ["md", "sm", "lg"],
+      pattern: /^vf-/,
+    },
+  ],
   // theme: {
   //   extend: {
   //     vuefront: {
@@ -10,12 +19,9 @@ module.exports = {
   //     }
   //   }
   // },
-  variants: {
-    extend: {},
-  },
   plugins: [
     require("@tailwindcss/forms"),
     require("@tailwindcss/line-clamp"),
-    require("../tailwind/plugin.js"),
+    require("vuefront/tailwind/plugin.js"),
   ],
 };

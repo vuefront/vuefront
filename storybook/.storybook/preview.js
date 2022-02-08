@@ -21,15 +21,7 @@ app.use(VueLazyLoad, {
 
 
 export const parameters = {
-  // actions: { argTypesRegex: "^on[A-Z].*" },
-  // controls: {
-  //   matchers: {
-  //     color: /(background|color)$/i,
-  //     date: /Date$/,
-  //   },
-  // },
 }
-// .storybook/preview.js
 
 export const decorators = [
   vueRouter()

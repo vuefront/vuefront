@@ -1,0 +1,10 @@
+{
+  "version": "v1",
+  "packages": {
+    "storybook-addon-vuefront": {
+      "signature": "ad320c0969a58b3b1308ec094195bde2",
+      "file": true,
+      "replaced": "vuefront/storybook-addon-vuefront"
+    }
+  }
+}

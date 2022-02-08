@@ -1,5 +1,5 @@
 import VfTCommonContact from "./contact.vue";
-import faker from "faker";
+import faker from "@faker-js/faker";
 import { getContact } from "../../../../utils/fakeData";
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {

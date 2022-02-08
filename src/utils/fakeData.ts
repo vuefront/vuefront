@@ -1,4 +1,4 @@
-import faker from "faker";
+import faker from "@faker-js/faker";
 import { capitalize } from "lodash";
 export const getPost = () => ({
   id: faker.datatype.number(),

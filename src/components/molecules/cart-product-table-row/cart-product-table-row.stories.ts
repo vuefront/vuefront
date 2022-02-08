@@ -1,6 +1,6 @@
 import VfMCartProductTableRow from "./cart-product-table-row.vue";
 import "./cart-product-table-row.scss";
-import faker from "faker";
+import faker from "@faker-js/faker";
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
   title: "molecule/cart-product-table-row",
