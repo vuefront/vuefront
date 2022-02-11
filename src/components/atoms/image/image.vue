@@ -29,7 +29,8 @@
   />
 </template>
 <script lang="ts" setup>
-import { PropType, computed } from "vue";
+import { PropType, computed, inject } from "vue";
+const vuefront$ = inject<any>("$vuefront");
 
 const props = defineProps({
   contentClass: {
@@ -139,7 +140,7 @@ const styles = computed<{ width?: string; height?: string }>(() => {
 
 const isDark = computed(() => {
   let theme = false;
-  if (document) {
+  if (vuefront$.isClient) {
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
       theme = true;
     }
