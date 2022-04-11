@@ -1,0 +1,22 @@
+module.exports = {
+  Account: "extensions/account/account/account.vue",
+  AccountLinks: "extensions/account/account-links/account-links.vue",
+  BlogCategory: "extensions/blog/category/category.vue",
+  LatestPost: "extensions/blog/latest-post/latest-post.vue",
+  SearchPost: "extensions/blog/search-post/search-post.vue",
+  SearchProduct: "extensions/store/search-product/search-product.vue",
+  LatestProduct: "extensions/store/latest-product/latest-product.vue",
+  SpecialProduct: "extensions/store/special-product/special-product.vue",
+  RelatedProduct: "extensions/store/related-product/related-product.vue",
+  FeaturedProduct: "extensions/store/featured-product/featured-product.vue",
+  Slideshow: {
+    component: "extensions/common/slideshow/slideshow.vue",
+    css: "extensions/common/slideshow/slideshow.scss",
+  },
+  Pages: "extensions/common/pages/pages.vue",
+  StoreCategory: "extensions/store/category/category.vue",
+  ExtraLinks: "extensions/common/extra-links/extra-links.vue",
+  Checkout: "extensions/store/checkout/checkout.vue",
+  Menu: "extensions/common/menu/menu.vue",
+  Search: "extensions/common/search/search.vue",
+};
